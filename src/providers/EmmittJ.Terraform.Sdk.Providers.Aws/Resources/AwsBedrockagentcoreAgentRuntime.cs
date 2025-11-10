@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for agent_runtime_artifact in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlock : TerraformBlock
+public class AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlock : ITerraformBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlock : Terrafor
 /// Block type for authorizer_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlock : TerraformBlock
+public class AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -22,16 +22,15 @@ public class AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlock : Terra
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock : TerraformBlock
+public class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The network_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkMode is required")]
-    public required TerraformProperty<string> NetworkMode
-    {
-        set => SetProperty("network_mode", value);
-    }
+    [TerraformPropertyName("network_mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NetworkMode { get; set; }
 
 }
 
@@ -39,15 +38,14 @@ public class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock : Terrafor
 /// Block type for protocol_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock : TerraformBlock
+public class AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The server_protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerProtocol
-    {
-        set => SetProperty("server_protocol", value);
-    }
+    [TerraformPropertyName("server_protocol")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServerProtocol { get; set; }
 
 }
 
@@ -55,15 +53,14 @@ public class AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock : Terrafo
 /// Block type for request_header_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBlock : TerraformBlock
+public class AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The request_header_allowlist attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? RequestHeaderAllowlist
-    {
-        set => SetProperty("request_header_allowlist", value);
-    }
+    [TerraformPropertyName("request_header_allowlist")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? RequestHeaderAllowlist { get; set; }
 
 }
 
@@ -71,31 +68,28 @@ public class AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsBedrockagentcoreAgentRuntimeTimeoutsBlock : TerraformBlock
+public class AwsBedrockagentcoreAgentRuntimeTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -106,167 +100,134 @@ public class AwsBedrockagentcoreAgentRuntime : TerraformResource
 {
     public AwsBedrockagentcoreAgentRuntime(string name) : base("aws_bedrockagentcore_agent_runtime", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("agent_runtime_arn");
-        SetOutput("agent_runtime_id");
-        SetOutput("agent_runtime_version");
-        SetOutput("tags_all");
-        SetOutput("workload_identity_details");
-        SetOutput("agent_runtime_name");
-        SetOutput("description");
-        SetOutput("environment_variables");
-        SetOutput("lifecycle_configuration");
-        SetOutput("region");
-        SetOutput("role_arn");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The agent_runtime_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentRuntimeName is required")]
-    public required TerraformProperty<string> AgentRuntimeName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("agent_runtime_name");
-        set => SetProperty("agent_runtime_name", value);
-    }
+    [TerraformPropertyName("agent_runtime_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AgentRuntimeName { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> EnvironmentVariables
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("environment_variables");
-        set => SetProperty("environment_variables", value);
-    }
+    [TerraformPropertyName("environment_variables")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? EnvironmentVariables { get; set; }
 
     /// <summary>
     /// The lifecycle_configuration attribute.
     /// </summary>
-    public List<TerraformProperty<object>> LifecycleConfiguration
-    {
-        get => GetRequiredOutput<List<TerraformProperty<object>>>("lifecycle_configuration");
-        set => SetProperty("lifecycle_configuration", value);
-    }
+    [TerraformPropertyName("lifecycle_configuration")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<object>>> LifecycleConfiguration { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "lifecycle_configuration");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for agent_runtime_artifact.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlock>? AgentRuntimeArtifact
-    {
-        set => SetProperty("agent_runtime_artifact", value);
-    }
+    [TerraformPropertyName("agent_runtime_artifact")]
+    public TerraformList<TerraformBlock<AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlock>>? AgentRuntimeArtifact { get; set; } = new();
 
     /// <summary>
     /// Block for authorizer_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlock>? AuthorizerConfiguration
-    {
-        set => SetProperty("authorizer_configuration", value);
-    }
+    [TerraformPropertyName("authorizer_configuration")]
+    public TerraformList<TerraformBlock<AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlock>>? AuthorizerConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for network_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock>? NetworkConfiguration
-    {
-        set => SetProperty("network_configuration", value);
-    }
+    [TerraformPropertyName("network_configuration")]
+    public TerraformList<TerraformBlock<AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock>>? NetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for protocol_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock>? ProtocolConfiguration
-    {
-        set => SetProperty("protocol_configuration", value);
-    }
+    [TerraformPropertyName("protocol_configuration")]
+    public TerraformList<TerraformBlock<AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock>>? ProtocolConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for request_header_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBlock>? RequestHeaderConfiguration
-    {
-        set => SetProperty("request_header_configuration", value);
-    }
+    [TerraformPropertyName("request_header_configuration")]
+    public TerraformList<TerraformBlock<AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBlock>>? RequestHeaderConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsBedrockagentcoreAgentRuntimeTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsBedrockagentcoreAgentRuntimeTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The agent_runtime_arn attribute.
     /// </summary>
-    public TerraformExpression AgentRuntimeArn => this["agent_runtime_arn"];
+    [TerraformPropertyName("agent_runtime_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AgentRuntimeArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "agent_runtime_arn");
 
     /// <summary>
     /// The agent_runtime_id attribute.
     /// </summary>
-    public TerraformExpression AgentRuntimeId => this["agent_runtime_id"];
+    [TerraformPropertyName("agent_runtime_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AgentRuntimeId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "agent_runtime_id");
 
     /// <summary>
     /// The agent_runtime_version attribute.
     /// </summary>
-    public TerraformExpression AgentRuntimeVersion => this["agent_runtime_version"];
+    [TerraformPropertyName("agent_runtime_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AgentRuntimeVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "agent_runtime_version");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The workload_identity_details attribute.
     /// </summary>
-    public TerraformExpression WorkloadIdentityDetails => this["workload_identity_details"];
+    [TerraformPropertyName("workload_identity_details")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> WorkloadIdentityDetails => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "workload_identity_details");
 
 }

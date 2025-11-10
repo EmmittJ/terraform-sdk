@@ -9,95 +9,66 @@ public class AwsAppsyncApiCache : TerraformResource
 {
     public AwsAppsyncApiCache(string name) : base("aws_appsync_api_cache", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("api_caching_behavior");
-        SetOutput("api_id");
-        SetOutput("at_rest_encryption_enabled");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("transit_encryption_enabled");
-        SetOutput("ttl");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The api_caching_behavior attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiCachingBehavior is required")]
-    public required TerraformProperty<string> ApiCachingBehavior
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_caching_behavior");
-        set => SetProperty("api_caching_behavior", value);
-    }
+    [TerraformPropertyName("api_caching_behavior")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiCachingBehavior { get; set; }
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
-    public required TerraformProperty<string> ApiId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
-        set => SetProperty("api_id", value);
-    }
+    [TerraformPropertyName("api_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiId { get; set; }
 
     /// <summary>
     /// The at_rest_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AtRestEncryptionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("at_rest_encryption_enabled");
-        set => SetProperty("at_rest_encryption_enabled", value);
-    }
+    [TerraformPropertyName("at_rest_encryption_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> AtRestEncryptionEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "at_rest_encryption_enabled");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The transit_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> TransitEncryptionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("transit_encryption_enabled");
-        set => SetProperty("transit_encryption_enabled", value);
-    }
+    [TerraformPropertyName("transit_encryption_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> TransitEncryptionEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "transit_encryption_enabled");
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
-    public required TerraformProperty<double> Ttl
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("ttl");
-        set => SetProperty("ttl", value);
-    }
+    [TerraformPropertyName("ttl")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Ttl { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }

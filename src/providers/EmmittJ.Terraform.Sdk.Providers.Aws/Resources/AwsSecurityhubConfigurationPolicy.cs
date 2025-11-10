@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock : TerraformBlock
+public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled_standard_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? EnabledStandardArns
-    {
-        set => SetProperty("enabled_standard_arns", value);
-    }
+    [TerraformPropertyName("enabled_standard_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? EnabledStandardArns { get; set; }
 
     /// <summary>
     /// The service_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceEnabled is required")]
-    public required TerraformProperty<bool> ServiceEnabled
-    {
-        set => SetProperty("service_enabled", value);
-    }
+    [TerraformPropertyName("service_enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> ServiceEnabled { get; set; }
 
 }
 
@@ -35,54 +33,36 @@ public class AwsSecurityhubConfigurationPolicy : TerraformResource
 {
     public AwsSecurityhubConfigurationPolicy(string name) : base("aws_securityhub_configuration_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for configuration_policy.
@@ -91,14 +71,14 @@ public class AwsSecurityhubConfigurationPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConfigurationPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfigurationPolicy block(s) allowed")]
-    public List<AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock>? ConfigurationPolicy
-    {
-        set => SetProperty("configuration_policy", value);
-    }
+    [TerraformPropertyName("configuration_policy")]
+    public TerraformList<TerraformBlock<AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock>>? ConfigurationPolicy { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

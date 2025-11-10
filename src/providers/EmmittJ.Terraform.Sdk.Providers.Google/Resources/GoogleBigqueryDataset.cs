@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for access in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleBigqueryDatasetAccessBlock : TerraformBlock
+public class GoogleBigqueryDatasetAccessBlock : ITerraformBlock
 {
     /// <summary>
     /// A domain to grant access to. Any users signed in with the
     /// domain specified will be granted the specified access
     /// </summary>
-    public TerraformProperty<string>? Domain
-    {
-        set => SetProperty("domain", value);
-    }
+    [TerraformPropertyName("domain")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Domain { get; set; }
 
     /// <summary>
     /// An email address of a Google Group to grant access to.
     /// </summary>
-    public TerraformProperty<string>? GroupByEmail
-    {
-        set => SetProperty("group_by_email", value);
-    }
+    [TerraformPropertyName("group_by_email")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GroupByEmail { get; set; }
 
     /// <summary>
     /// Some other type of member that appears in the IAM Policy but isn&#39;t a user,
     /// group, domain, or special group. For example: &#39;allUsers&#39;
     /// </summary>
-    public TerraformProperty<string>? IamMember
-    {
-        set => SetProperty("iam_member", value);
-    }
+    [TerraformPropertyName("iam_member")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IamMember { get; set; }
 
     /// <summary>
     /// Describes the rights granted to the user specified by the other
@@ -41,10 +38,9 @@ public class GoogleBigqueryDatasetAccessBlock : TerraformBlock
     /// are swapped by the API to their basic counterparts. See
     /// [official docs](https://cloud.google.com/bigquery/docs/access-control).
     /// </summary>
-    public TerraformProperty<string>? Role
-    {
-        set => SetProperty("role", value);
-    }
+    [TerraformPropertyName("role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Role { get; set; }
 
     /// <summary>
     /// A special group to grant access to. Possible values include:
@@ -53,19 +49,17 @@ public class GoogleBigqueryDatasetAccessBlock : TerraformBlock
     /// * &#39;projectWriters&#39;: Writers of the enclosing project.
     /// * &#39;allAuthenticatedUsers&#39;: All authenticated BigQuery users.
     /// </summary>
-    public TerraformProperty<string>? SpecialGroup
-    {
-        set => SetProperty("special_group", value);
-    }
+    [TerraformPropertyName("special_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SpecialGroup { get; set; }
 
     /// <summary>
     /// An email address of a user to grant access to. For example:
     /// fred@example.com
     /// </summary>
-    public TerraformProperty<string>? UserByEmail
-    {
-        set => SetProperty("user_by_email", value);
-    }
+    [TerraformPropertyName("user_by_email")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserByEmail { get; set; }
 
 }
 
@@ -73,7 +67,7 @@ public class GoogleBigqueryDatasetAccessBlock : TerraformBlock
 /// Block type for default_encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock : TerraformBlock
+public class GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// Describes the Cloud KMS encryption key that will be used to protect destination
@@ -81,10 +75,9 @@ public class GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock : Terrafor
     /// access to this encryption key.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
-    public required TerraformProperty<string> KmsKeyName
-    {
-        set => SetProperty("kms_key_name", value);
-    }
+    [TerraformPropertyName("kms_key_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KmsKeyName { get; set; }
 
 }
 
@@ -92,25 +85,23 @@ public class GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock : Terrafor
 /// Block type for external_catalog_dataset_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock : TerraformBlock
+public class GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The storage location URI for all tables in the dataset. Equivalent to hive metastore&#39;s
     /// database locationUri. Maximum length of 1024 characters.
     /// </summary>
-    public TerraformProperty<string>? DefaultStorageLocationUri
-    {
-        set => SetProperty("default_storage_location_uri", value);
-    }
+    [TerraformPropertyName("default_storage_location_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultStorageLocationUri { get; set; }
 
     /// <summary>
     /// A map of key value pairs defining the parameters and properties of the open source schema.
     /// Maximum size of 2Mib.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
-    {
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
 }
 
@@ -118,26 +109,24 @@ public class GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock : Terraform
 /// Block type for external_dataset_reference in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryDatasetExternalDatasetReferenceBlock : TerraformBlock
+public class GoogleBigqueryDatasetExternalDatasetReferenceBlock : ITerraformBlock
 {
     /// <summary>
     /// The connection id that is used to access the externalSource.
     /// Format: projects/{projectId}/locations/{locationId}/connections/{connectionId}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Connection is required")]
-    public required TerraformProperty<string> Connection
-    {
-        set => SetProperty("connection", value);
-    }
+    [TerraformPropertyName("connection")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Connection { get; set; }
 
     /// <summary>
     /// External source that backs this dataset.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalSource is required")]
-    public required TerraformProperty<string> ExternalSource
-    {
-        set => SetProperty("external_source", value);
-    }
+    [TerraformPropertyName("external_source")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExternalSource { get; set; }
 
 }
 
@@ -145,31 +134,28 @@ public class GoogleBigqueryDatasetExternalDatasetReferenceBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryDatasetTimeoutsBlock : TerraformBlock
+public class GoogleBigqueryDatasetTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -181,32 +167,6 @@ public class GoogleBigqueryDataset : TerraformResource
 {
     public GoogleBigqueryDataset(string name) : base("google_bigquery_dataset", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_time");
-        SetOutput("effective_labels");
-        SetOutput("etag");
-        SetOutput("last_modified_time");
-        SetOutput("self_link");
-        SetOutput("terraform_labels");
-        SetOutput("dataset_id");
-        SetOutput("default_collation");
-        SetOutput("default_partition_expiration_ms");
-        SetOutput("default_table_expiration_ms");
-        SetOutput("delete_contents_on_destroy");
-        SetOutput("description");
-        SetOutput("friendly_name");
-        SetOutput("id");
-        SetOutput("is_case_insensitive");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("max_time_travel_hours");
-        SetOutput("project");
-        SetOutput("resource_tags");
-        SetOutput("storage_billing_model");
     }
 
     /// <summary>
@@ -215,11 +175,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// underscores (_). The maximum length is 1,024 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
-    public required TerraformProperty<string> DatasetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dataset_id");
-        set => SetProperty("dataset_id", value);
-    }
+    [TerraformPropertyName("dataset_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatasetId { get; set; }
 
     /// <summary>
     /// Defines the default collation specification of future tables created
@@ -233,11 +191,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// - &#39;und:ci&#39;: undetermined locale, case insensitive.
     /// - &#39;&#39;: empty string. Default to case-sensitive behavior.
     /// </summary>
-    public TerraformProperty<string> DefaultCollation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_collation");
-        set => SetProperty("default_collation", value);
-    }
+    [TerraformPropertyName("default_collation")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DefaultCollation { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_collation");
 
     /// <summary>
     /// The default partition expiration for all partitioned tables in
@@ -254,11 +210,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// creating or updating a partitioned table, that value takes precedence
     /// over the default partition expiration time indicated by this property.
     /// </summary>
-    public TerraformProperty<double> DefaultPartitionExpirationMs
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("default_partition_expiration_ms");
-        set => SetProperty("default_partition_expiration_ms", value);
-    }
+    [TerraformPropertyName("default_partition_expiration_ms")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DefaultPartitionExpirationMs { get; set; }
 
     /// <summary>
     /// The default lifetime of all tables in the dataset, in milliseconds.
@@ -273,60 +227,48 @@ public class GoogleBigqueryDataset : TerraformResource
     /// creating a table, that value takes precedence over the default
     /// expiration time indicated by this property.
     /// </summary>
-    public TerraformProperty<double> DefaultTableExpirationMs
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("default_table_expiration_ms");
-        set => SetProperty("default_table_expiration_ms", value);
-    }
+    [TerraformPropertyName("default_table_expiration_ms")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DefaultTableExpirationMs { get; set; }
 
     /// <summary>
     /// If set to &#39;true&#39;, delete all the tables in the
     /// dataset when destroying the resource; otherwise,
     /// destroying the resource will fail if tables are present.
     /// </summary>
-    public TerraformProperty<bool> DeleteContentsOnDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("delete_contents_on_destroy");
-        set => SetProperty("delete_contents_on_destroy", value);
-    }
+    [TerraformPropertyName("delete_contents_on_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeleteContentsOnDestroy { get; set; }
 
     /// <summary>
     /// A user-friendly description of the dataset
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// A descriptive name for the dataset
     /// </summary>
-    public TerraformProperty<string> FriendlyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("friendly_name");
-        set => SetProperty("friendly_name", value);
-    }
+    [TerraformPropertyName("friendly_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FriendlyName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// TRUE if the dataset and its table names are case-insensitive, otherwise FALSE.
     /// By default, this is FALSE, which means the dataset and its table names are
     /// case-sensitive. This field does not affect routine references.
     /// </summary>
-    public TerraformProperty<bool> IsCaseInsensitive
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_case_insensitive");
-        set => SetProperty("is_case_insensitive", value);
-    }
+    [TerraformPropertyName("is_case_insensitive")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> IsCaseInsensitive { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "is_case_insensitive");
 
     /// <summary>
     /// The labels associated with this dataset. You can use these to
@@ -336,11 +278,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The geographic location where the dataset should reside.
@@ -352,29 +292,23 @@ public class GoogleBigqueryDataset : TerraformResource
     /// The default value is multi-regional location &#39;US&#39;.
     /// Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// Defines the time travel window in hours. The value can be from 48 to 168 hours (2 to 7 days).
     /// </summary>
-    public TerraformProperty<string> MaxTimeTravelHours
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("max_time_travel_hours");
-        set => SetProperty("max_time_travel_hours", value);
-    }
+    [TerraformPropertyName("max_time_travel_hours")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MaxTimeTravelHours { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "max_time_travel_hours");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The tags attached to this table. Tag keys are globally unique. Tag key is expected to be
@@ -383,11 +317,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// to be the short name, for example &amp;quot;Production&amp;quot;. See [Tag definitions](https://cloud.google.com/iam/docs/tags-access-control#definitions)
     /// for more details.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> ResourceTags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("resource_tags");
-        set => SetProperty("resource_tags", value);
-    }
+    [TerraformPropertyName("resource_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ResourceTags { get; set; }
 
     /// <summary>
     /// Specifies the storage billing model for the dataset.
@@ -396,91 +328,91 @@ public class GoogleBigqueryDataset : TerraformResource
     /// 
     /// LOGICAL is the default if this flag isn&#39;t specified.
     /// </summary>
-    public TerraformProperty<string> StorageBillingModel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_billing_model");
-        set => SetProperty("storage_billing_model", value);
-    }
+    [TerraformPropertyName("storage_billing_model")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StorageBillingModel { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_billing_model");
 
     /// <summary>
     /// Block for access.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<GoogleBigqueryDatasetAccessBlock>? Access
-    {
-        set => SetProperty("access", value);
-    }
+    [TerraformPropertyName("access")]
+    public TerraformSet<TerraformBlock<GoogleBigqueryDatasetAccessBlock>>? Access { get; set; } = new();
 
     /// <summary>
     /// Block for default_encryption_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultEncryptionConfiguration block(s) allowed")]
-    public List<GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock>? DefaultEncryptionConfiguration
-    {
-        set => SetProperty("default_encryption_configuration", value);
-    }
+    [TerraformPropertyName("default_encryption_configuration")]
+    public TerraformList<TerraformBlock<GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock>>? DefaultEncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for external_catalog_dataset_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalCatalogDatasetOptions block(s) allowed")]
-    public List<GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock>? ExternalCatalogDatasetOptions
-    {
-        set => SetProperty("external_catalog_dataset_options", value);
-    }
+    [TerraformPropertyName("external_catalog_dataset_options")]
+    public TerraformList<TerraformBlock<GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock>>? ExternalCatalogDatasetOptions { get; set; } = new();
 
     /// <summary>
     /// Block for external_dataset_reference.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalDatasetReference block(s) allowed")]
-    public List<GoogleBigqueryDatasetExternalDatasetReferenceBlock>? ExternalDatasetReference
-    {
-        set => SetProperty("external_dataset_reference", value);
-    }
+    [TerraformPropertyName("external_dataset_reference")]
+    public TerraformList<TerraformBlock<GoogleBigqueryDatasetExternalDatasetReferenceBlock>>? ExternalDatasetReference { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleBigqueryDatasetTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleBigqueryDatasetTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when this dataset was created, in milliseconds since the
     /// epoch.
     /// </summary>
-    public TerraformExpression CreationTime => this["creation_time"];
+    [TerraformPropertyName("creation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> CreationTime => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "creation_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// A hash of the resource.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The date when this dataset or any of its tables was last modified, in
     /// milliseconds since the epoch.
     /// </summary>
-    public TerraformExpression LastModifiedTime => this["last_modified_time"];
+    [TerraformPropertyName("last_modified_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> LastModifiedTime => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "last_modified_time");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

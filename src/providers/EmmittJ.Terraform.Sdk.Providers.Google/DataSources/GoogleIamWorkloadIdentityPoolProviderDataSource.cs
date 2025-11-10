@@ -9,45 +9,21 @@ public class GoogleIamWorkloadIdentityPoolProviderDataSource : TerraformDataSour
 {
     public GoogleIamWorkloadIdentityPoolProviderDataSource(string name) : base("google_iam_workload_identity_pool_provider", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("attribute_condition");
-        SetOutput("attribute_mapping");
-        SetOutput("aws");
-        SetOutput("description");
-        SetOutput("disabled");
-        SetOutput("display_name");
-        SetOutput("name");
-        SetOutput("oidc");
-        SetOutput("saml");
-        SetOutput("state");
-        SetOutput("x509");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("workload_identity_pool_id");
-        SetOutput("workload_identity_pool_provider_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The ID used for the pool, which is the final component of the pool resource name. This
@@ -55,11 +31,9 @@ public class GoogleIamWorkloadIdentityPoolProviderDataSource : TerraformDataSour
     /// &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
-    public required TerraformProperty<string> WorkloadIdentityPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workload_identity_pool_id");
-        set => SetProperty("workload_identity_pool_id", value);
-    }
+    [TerraformPropertyName("workload_identity_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkloadIdentityPoolId { get; set; }
 
     /// <summary>
     /// The ID for the provider, which becomes the final component of the resource name. This
@@ -67,11 +41,9 @@ public class GoogleIamWorkloadIdentityPoolProviderDataSource : TerraformDataSour
     /// &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolProviderId is required")]
-    public required TerraformProperty<string> WorkloadIdentityPoolProviderId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workload_identity_pool_provider_id");
-        set => SetProperty("workload_identity_pool_provider_id", value);
-    }
+    [TerraformPropertyName("workload_identity_pool_provider_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkloadIdentityPoolProviderId { get; set; }
 
     /// <summary>
     /// [A Common Expression Language](https://opensource.google/projects/cel) expression, in
@@ -94,7 +66,9 @@ public class GoogleIamWorkloadIdentityPoolProviderDataSource : TerraformDataSour
     /// &amp;quot;&#39;admins&#39; in google.groups&amp;quot;
     /// &#39;&#39;&#39;
     /// </summary>
-    public TerraformExpression AttributeCondition => this["attribute_condition"];
+    [TerraformPropertyName("attribute_condition")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AttributeCondition => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "attribute_condition");
 
     /// <summary>
     /// Maps attributes from authentication credentials issued by an external identity provider
@@ -158,44 +132,60 @@ public class GoogleIamWorkloadIdentityPoolProviderDataSource : TerraformDataSour
     ///     {&amp;quot;google.subject&amp;quot;: &amp;quot;assertion.sub&amp;quot;}
     ///     &#39;&#39;&#39;
     /// </summary>
-    public TerraformExpression AttributeMapping => this["attribute_mapping"];
+    [TerraformPropertyName("attribute_mapping")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> AttributeMapping => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "attribute_mapping");
 
     /// <summary>
     /// An Amazon Web Services identity provider. Not compatible with the property oidc or saml.
     /// </summary>
-    public TerraformExpression Aws => this["aws"];
+    [TerraformPropertyName("aws")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Aws => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "aws");
 
     /// <summary>
     /// A description for the provider. Cannot exceed 256 characters.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// Whether the provider is disabled. You cannot use a disabled provider to exchange tokens.
     /// However, existing tokens still grant access.
     /// </summary>
-    public TerraformExpression Disabled => this["disabled"];
+    [TerraformPropertyName("disabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Disabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "disabled");
 
     /// <summary>
     /// A display name for the provider. Cannot exceed 32 characters.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The resource name of the provider as
     /// &#39;projects/{project_number}/locations/global/workloadIdentityPools/{workload_identity_pool_id}/providers/{workload_identity_pool_provider_id}&#39;.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// An OpenId Connect 1.0 identity provider. Not compatible with the property aws or saml.
     /// </summary>
-    public TerraformExpression Oidc => this["oidc"];
+    [TerraformPropertyName("oidc")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Oidc => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "oidc");
 
     /// <summary>
     /// An SAML 2.0 identity provider. Not compatible with the property oidc or aws.
     /// </summary>
-    public TerraformExpression Saml => this["saml"];
+    [TerraformPropertyName("saml")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Saml => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "saml");
 
     /// <summary>
     /// The state of the provider.
@@ -206,12 +196,16 @@ public class GoogleIamWorkloadIdentityPoolProviderDataSource : TerraformDataSour
     ///   UndeleteWorkloadIdentityPoolProvider. You cannot reuse the ID of a soft-deleted provider
     ///   until it is permanently deleted.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// An X.509-type identity provider represents a CA. It is trusted to assert a
     /// client identity if the client has a certificate that chains up to this CA.
     /// </summary>
-    public TerraformExpression X509 => this["x509"];
+    [TerraformPropertyName("x509")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> X509 => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "x509");
 
 }

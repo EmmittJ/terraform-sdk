@@ -9,121 +9,97 @@ public class AwsDefaultSecurityGroup : TerraformResource
 {
     public AwsDefaultSecurityGroup(string name) : base("aws_default_security_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("description");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("owner_id");
-        SetOutput("egress");
-        SetOutput("id");
-        SetOutput("ingress");
-        SetOutput("region");
-        SetOutput("revoke_rules_on_delete");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The egress attribute.
     /// </summary>
-    public HashSet<TerraformProperty<object>> Egress
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<object>>>("egress");
-        set => SetProperty("egress", value);
-    }
+    [TerraformPropertyName("egress")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Egress { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "egress");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ingress attribute.
     /// </summary>
-    public HashSet<TerraformProperty<object>> Ingress
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<object>>>("ingress");
-        set => SetProperty("ingress", value);
-    }
+    [TerraformPropertyName("ingress")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Ingress { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "ingress");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The revoke_rules_on_delete attribute.
     /// </summary>
-    public TerraformProperty<bool> RevokeRulesOnDelete
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("revoke_rules_on_delete");
-        set => SetProperty("revoke_rules_on_delete", value);
-    }
+    [TerraformPropertyName("revoke_rules_on_delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RevokeRulesOnDelete { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string> VpcId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VpcId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformExpression NamePrefix => this["name_prefix"];
+    [TerraformPropertyName("name_prefix")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NamePrefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformExpression OwnerId => this["owner_id"];
+    [TerraformPropertyName("owner_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
 
 }

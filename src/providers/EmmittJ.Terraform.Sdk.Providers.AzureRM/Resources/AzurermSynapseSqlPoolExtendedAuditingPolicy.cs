@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSynapseSqlPoolExtendedAuditingPolicyTimeoutsBlock : TerraformBlock
+public class AzurermSynapseSqlPoolExtendedAuditingPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,91 +45,63 @@ public class AzurermSynapseSqlPoolExtendedAuditingPolicy : TerraformResource
 {
     public AzurermSynapseSqlPoolExtendedAuditingPolicy(string name) : base("azurerm_synapse_sql_pool_extended_auditing_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("log_monitoring_enabled");
-        SetOutput("retention_in_days");
-        SetOutput("sql_pool_id");
-        SetOutput("storage_account_access_key");
-        SetOutput("storage_account_access_key_is_secondary");
-        SetOutput("storage_endpoint");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The log_monitoring_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LogMonitoringEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("log_monitoring_enabled");
-        set => SetProperty("log_monitoring_enabled", value);
-    }
+    [TerraformPropertyName("log_monitoring_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LogMonitoringEnabled { get; set; }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    public TerraformProperty<double> RetentionInDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("retention_in_days");
-        set => SetProperty("retention_in_days", value);
-    }
+    [TerraformPropertyName("retention_in_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RetentionInDays { get; set; }
 
     /// <summary>
     /// The sql_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlPoolId is required")]
-    public required TerraformProperty<string> SqlPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sql_pool_id");
-        set => SetProperty("sql_pool_id", value);
-    }
+    [TerraformPropertyName("sql_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SqlPoolId { get; set; }
 
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
-    public TerraformProperty<string> StorageAccountAccessKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_access_key");
-        set => SetProperty("storage_account_access_key", value);
-    }
+    [TerraformPropertyName("storage_account_access_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageAccountAccessKey { get; set; }
 
     /// <summary>
     /// The storage_account_access_key_is_secondary attribute.
     /// </summary>
-    public TerraformProperty<bool> StorageAccountAccessKeyIsSecondary
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("storage_account_access_key_is_secondary");
-        set => SetProperty("storage_account_access_key_is_secondary", value);
-    }
+    [TerraformPropertyName("storage_account_access_key_is_secondary")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StorageAccountAccessKeyIsSecondary { get; set; }
 
     /// <summary>
     /// The storage_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string> StorageEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_endpoint");
-        set => SetProperty("storage_endpoint", value);
-    }
+    [TerraformPropertyName("storage_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageEndpoint { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSynapseSqlPoolExtendedAuditingPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSynapseSqlPoolExtendedAuditingPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

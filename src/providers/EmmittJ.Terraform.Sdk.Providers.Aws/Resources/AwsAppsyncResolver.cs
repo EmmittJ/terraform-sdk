@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for caching_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncResolverCachingConfigBlock : TerraformBlock
+public class AwsAppsyncResolverCachingConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The caching_keys attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? CachingKeys
-    {
-        set => SetProperty("caching_keys", value);
-    }
+    [TerraformPropertyName("caching_keys")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? CachingKeys { get; set; }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? Ttl
-    {
-        set => SetProperty("ttl", value);
-    }
+    [TerraformPropertyName("ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Ttl { get; set; }
 
 }
 
@@ -30,15 +28,14 @@ public class AwsAppsyncResolverCachingConfigBlock : TerraformBlock
 /// Block type for pipeline_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncResolverPipelineConfigBlock : TerraformBlock
+public class AwsAppsyncResolverPipelineConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The functions attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Functions
-    {
-        set => SetProperty("functions", value);
-    }
+    [TerraformPropertyName("functions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Functions { get; set; }
 
 }
 
@@ -46,25 +43,23 @@ public class AwsAppsyncResolverPipelineConfigBlock : TerraformBlock
 /// Block type for runtime in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncResolverRuntimeBlock : TerraformBlock
+public class AwsAppsyncResolverRuntimeBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The runtime_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
-    public required TerraformProperty<string> RuntimeVersion
-    {
-        set => SetProperty("runtime_version", value);
-    }
+    [TerraformPropertyName("runtime_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RuntimeVersion { get; set; }
 
 }
 
@@ -72,23 +67,21 @@ public class AwsAppsyncResolverRuntimeBlock : TerraformBlock
 /// Block type for sync_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncResolverSyncConfigBlock : TerraformBlock
+public class AwsAppsyncResolverSyncConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The conflict_detection attribute.
     /// </summary>
-    public TerraformProperty<string>? ConflictDetection
-    {
-        set => SetProperty("conflict_detection", value);
-    }
+    [TerraformPropertyName("conflict_detection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConflictDetection { get; set; }
 
     /// <summary>
     /// The conflict_handler attribute.
     /// </summary>
-    public TerraformProperty<string>? ConflictHandler
-    {
-        set => SetProperty("conflict_handler", value);
-    }
+    [TerraformPropertyName("conflict_handler")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConflictHandler { get; set; }
 
 }
 
@@ -100,170 +93,125 @@ public class AwsAppsyncResolver : TerraformResource
 {
     public AwsAppsyncResolver(string name) : base("aws_appsync_resolver", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("api_id");
-        SetOutput("code");
-        SetOutput("data_source");
-        SetOutput("field");
-        SetOutput("id");
-        SetOutput("kind");
-        SetOutput("max_batch_size");
-        SetOutput("region");
-        SetOutput("request_template");
-        SetOutput("response_template");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
-    public required TerraformProperty<string> ApiId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
-        set => SetProperty("api_id", value);
-    }
+    [TerraformPropertyName("api_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiId { get; set; }
 
     /// <summary>
     /// The code attribute.
     /// </summary>
-    public TerraformProperty<string> Code
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("code");
-        set => SetProperty("code", value);
-    }
+    [TerraformPropertyName("code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Code { get; set; }
 
     /// <summary>
     /// The data_source attribute.
     /// </summary>
-    public TerraformProperty<string> DataSource
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_source");
-        set => SetProperty("data_source", value);
-    }
+    [TerraformPropertyName("data_source")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DataSource { get; set; }
 
     /// <summary>
     /// The field attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
-    public required TerraformProperty<string> Field
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("field");
-        set => SetProperty("field", value);
-    }
+    [TerraformPropertyName("field")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Field { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformProperty<string> Kind
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kind");
-        set => SetProperty("kind", value);
-    }
+    [TerraformPropertyName("kind")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Kind { get; set; }
 
     /// <summary>
     /// The max_batch_size attribute.
     /// </summary>
-    public TerraformProperty<double> MaxBatchSize
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_batch_size");
-        set => SetProperty("max_batch_size", value);
-    }
+    [TerraformPropertyName("max_batch_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxBatchSize { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The request_template attribute.
     /// </summary>
-    public TerraformProperty<string> RequestTemplate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("request_template");
-        set => SetProperty("request_template", value);
-    }
+    [TerraformPropertyName("request_template")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RequestTemplate { get; set; }
 
     /// <summary>
     /// The response_template attribute.
     /// </summary>
-    public TerraformProperty<string> ResponseTemplate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("response_template");
-        set => SetProperty("response_template", value);
-    }
+    [TerraformPropertyName("response_template")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResponseTemplate { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// Block for caching_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CachingConfig block(s) allowed")]
-    public List<AwsAppsyncResolverCachingConfigBlock>? CachingConfig
-    {
-        set => SetProperty("caching_config", value);
-    }
+    [TerraformPropertyName("caching_config")]
+    public TerraformList<TerraformBlock<AwsAppsyncResolverCachingConfigBlock>>? CachingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for pipeline_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PipelineConfig block(s) allowed")]
-    public List<AwsAppsyncResolverPipelineConfigBlock>? PipelineConfig
-    {
-        set => SetProperty("pipeline_config", value);
-    }
+    [TerraformPropertyName("pipeline_config")]
+    public TerraformList<TerraformBlock<AwsAppsyncResolverPipelineConfigBlock>>? PipelineConfig { get; set; } = new();
 
     /// <summary>
     /// Block for runtime.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Runtime block(s) allowed")]
-    public List<AwsAppsyncResolverRuntimeBlock>? Runtime
-    {
-        set => SetProperty("runtime", value);
-    }
+    [TerraformPropertyName("runtime")]
+    public TerraformList<TerraformBlock<AwsAppsyncResolverRuntimeBlock>>? Runtime { get; set; } = new();
 
     /// <summary>
     /// Block for sync_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SyncConfig block(s) allowed")]
-    public List<AwsAppsyncResolverSyncConfigBlock>? SyncConfig
-    {
-        set => SetProperty("sync_config", value);
-    }
+    [TerraformPropertyName("sync_config")]
+    public TerraformList<TerraformBlock<AwsAppsyncResolverSyncConfigBlock>>? SyncConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

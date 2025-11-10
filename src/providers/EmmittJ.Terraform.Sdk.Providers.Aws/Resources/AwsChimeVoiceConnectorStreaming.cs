@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for media_insights_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock : TerraformBlock
+public class AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The configuration_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationArn
-    {
-        set => SetProperty("configuration_arn", value);
-    }
+    [TerraformPropertyName("configuration_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConfigurationArn { get; set; }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
-    {
-        set => SetProperty("disabled", value);
-    }
+    [TerraformPropertyName("disabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
 
 }
 
@@ -34,83 +32,58 @@ public class AwsChimeVoiceConnectorStreaming : TerraformResource
 {
     public AwsChimeVoiceConnectorStreaming(string name) : base("aws_chime_voice_connector_streaming", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("data_retention");
-        SetOutput("disabled");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("streaming_notification_targets");
-        SetOutput("voice_connector_id");
     }
 
     /// <summary>
     /// The data_retention attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRetention is required")]
-    public required TerraformProperty<double> DataRetention
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("data_retention");
-        set => SetProperty("data_retention", value);
-    }
+    [TerraformPropertyName("data_retention")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> DataRetention { get; set; }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Disabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
-        set => SetProperty("disabled", value);
-    }
+    [TerraformPropertyName("disabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The streaming_notification_targets attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> StreamingNotificationTargets
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("streaming_notification_targets");
-        set => SetProperty("streaming_notification_targets", value);
-    }
+    [TerraformPropertyName("streaming_notification_targets")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? StreamingNotificationTargets { get; set; }
 
     /// <summary>
     /// The voice_connector_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
-    public required TerraformProperty<string> VoiceConnectorId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("voice_connector_id");
-        set => SetProperty("voice_connector_id", value);
-    }
+    [TerraformPropertyName("voice_connector_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VoiceConnectorId { get; set; }
 
     /// <summary>
     /// Block for media_insights_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MediaInsightsConfiguration block(s) allowed")]
-    public List<AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock>? MediaInsightsConfiguration
-    {
-        set => SetProperty("media_insights_configuration", value);
-    }
+    [TerraformPropertyName("media_insights_configuration")]
+    public TerraformList<TerraformBlock<AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock>>? MediaInsightsConfiguration { get; set; } = new();
 
 }

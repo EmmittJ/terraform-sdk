@@ -6,42 +6,38 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for broker_node_group_info in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskClusterBrokerNodeGroupInfoBlock : TerraformBlock
+public class AwsMskClusterBrokerNodeGroupInfoBlock : ITerraformBlock
 {
     /// <summary>
     /// The az_distribution attribute.
     /// </summary>
-    public TerraformProperty<string>? AzDistribution
-    {
-        set => SetProperty("az_distribution", value);
-    }
+    [TerraformPropertyName("az_distribution")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AzDistribution { get; set; }
 
     /// <summary>
     /// The client_subnets attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSubnets is required")]
-    public HashSet<TerraformProperty<string>>? ClientSubnets
-    {
-        set => SetProperty("client_subnets", value);
-    }
+    [TerraformPropertyName("client_subnets")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ClientSubnets { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    public required TerraformProperty<string> InstanceType
-    {
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceType { get; set; }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroups is required")]
-    public HashSet<TerraformProperty<string>>? SecurityGroups
-    {
-        set => SetProperty("security_groups", value);
-    }
+    [TerraformPropertyName("security_groups")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroups { get; set; }
 
 }
 
@@ -49,15 +45,14 @@ public class AwsMskClusterBrokerNodeGroupInfoBlock : TerraformBlock
 /// Block type for client_authentication in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskClusterClientAuthenticationBlock : TerraformBlock
+public class AwsMskClusterClientAuthenticationBlock : ITerraformBlock
 {
     /// <summary>
     /// The unauthenticated attribute.
     /// </summary>
-    public TerraformProperty<bool>? Unauthenticated
-    {
-        set => SetProperty("unauthenticated", value);
-    }
+    [TerraformPropertyName("unauthenticated")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Unauthenticated { get; set; }
 
 }
 
@@ -65,25 +60,23 @@ public class AwsMskClusterClientAuthenticationBlock : TerraformBlock
 /// Block type for configuration_info in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskClusterConfigurationInfoBlock : TerraformBlock
+public class AwsMskClusterConfigurationInfoBlock : ITerraformBlock
 {
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    public required TerraformProperty<string> Arn
-    {
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
-    public required TerraformProperty<double> Revision
-    {
-        set => SetProperty("revision", value);
-    }
+    [TerraformPropertyName("revision")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Revision { get; set; }
 
 }
 
@@ -91,15 +84,14 @@ public class AwsMskClusterConfigurationInfoBlock : TerraformBlock
 /// Block type for encryption_info in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskClusterEncryptionInfoBlock : TerraformBlock
+public class AwsMskClusterEncryptionInfoBlock : ITerraformBlock
 {
     /// <summary>
     /// The encryption_at_rest_kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? EncryptionAtRestKmsKeyArn
-    {
-        set => SetProperty("encryption_at_rest_kms_key_arn", value);
-    }
+    [TerraformPropertyName("encryption_at_rest_kms_key_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EncryptionAtRestKmsKeyArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "encryption_at_rest_kms_key_arn");
 
 }
 
@@ -107,7 +99,7 @@ public class AwsMskClusterEncryptionInfoBlock : TerraformBlock
 /// Block type for logging_info in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskClusterLoggingInfoBlock : TerraformBlock
+public class AwsMskClusterLoggingInfoBlock : ITerraformBlock
 {
 }
 
@@ -115,7 +107,7 @@ public class AwsMskClusterLoggingInfoBlock : TerraformBlock
 /// Block type for open_monitoring in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskClusterOpenMonitoringBlock : TerraformBlock
+public class AwsMskClusterOpenMonitoringBlock : ITerraformBlock
 {
 }
 
@@ -123,31 +115,28 @@ public class AwsMskClusterOpenMonitoringBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMskClusterTimeoutsBlock : TerraformBlock
+public class AwsMskClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -159,120 +148,73 @@ public class AwsMskCluster : TerraformResource
 {
     public AwsMskCluster(string name) : base("aws_msk_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("bootstrap_brokers");
-        SetOutput("bootstrap_brokers_public_sasl_iam");
-        SetOutput("bootstrap_brokers_public_sasl_scram");
-        SetOutput("bootstrap_brokers_public_tls");
-        SetOutput("bootstrap_brokers_sasl_iam");
-        SetOutput("bootstrap_brokers_sasl_scram");
-        SetOutput("bootstrap_brokers_tls");
-        SetOutput("bootstrap_brokers_vpc_connectivity_sasl_iam");
-        SetOutput("bootstrap_brokers_vpc_connectivity_sasl_scram");
-        SetOutput("bootstrap_brokers_vpc_connectivity_tls");
-        SetOutput("cluster_uuid");
-        SetOutput("current_version");
-        SetOutput("zookeeper_connect_string");
-        SetOutput("zookeeper_connect_string_tls");
-        SetOutput("cluster_name");
-        SetOutput("enhanced_monitoring");
-        SetOutput("id");
-        SetOutput("kafka_version");
-        SetOutput("number_of_broker_nodes");
-        SetOutput("region");
-        SetOutput("storage_mode");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    public required TerraformProperty<string> ClusterName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
-        set => SetProperty("cluster_name", value);
-    }
+    [TerraformPropertyName("cluster_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterName { get; set; }
 
     /// <summary>
     /// The enhanced_monitoring attribute.
     /// </summary>
-    public TerraformProperty<string> EnhancedMonitoring
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("enhanced_monitoring");
-        set => SetProperty("enhanced_monitoring", value);
-    }
+    [TerraformPropertyName("enhanced_monitoring")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EnhancedMonitoring { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kafka_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaVersion is required")]
-    public required TerraformProperty<string> KafkaVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kafka_version");
-        set => SetProperty("kafka_version", value);
-    }
+    [TerraformPropertyName("kafka_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KafkaVersion { get; set; }
 
     /// <summary>
     /// The number_of_broker_nodes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfBrokerNodes is required")]
-    public required TerraformProperty<double> NumberOfBrokerNodes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("number_of_broker_nodes");
-        set => SetProperty("number_of_broker_nodes", value);
-    }
+    [TerraformPropertyName("number_of_broker_nodes")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> NumberOfBrokerNodes { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The storage_mode attribute.
     /// </summary>
-    public TerraformProperty<string> StorageMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_mode");
-        set => SetProperty("storage_mode", value);
-    }
+    [TerraformPropertyName("storage_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StorageMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_mode");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for broker_node_group_info.
@@ -281,143 +223,159 @@ public class AwsMskCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BrokerNodeGroupInfo is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BrokerNodeGroupInfo block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BrokerNodeGroupInfo block(s) allowed")]
-    public List<AwsMskClusterBrokerNodeGroupInfoBlock>? BrokerNodeGroupInfo
-    {
-        set => SetProperty("broker_node_group_info", value);
-    }
+    [TerraformPropertyName("broker_node_group_info")]
+    public TerraformList<TerraformBlock<AwsMskClusterBrokerNodeGroupInfoBlock>>? BrokerNodeGroupInfo { get; set; } = new();
 
     /// <summary>
     /// Block for client_authentication.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientAuthentication block(s) allowed")]
-    public List<AwsMskClusterClientAuthenticationBlock>? ClientAuthentication
-    {
-        set => SetProperty("client_authentication", value);
-    }
+    [TerraformPropertyName("client_authentication")]
+    public TerraformList<TerraformBlock<AwsMskClusterClientAuthenticationBlock>>? ClientAuthentication { get; set; } = new();
 
     /// <summary>
     /// Block for configuration_info.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfigurationInfo block(s) allowed")]
-    public List<AwsMskClusterConfigurationInfoBlock>? ConfigurationInfo
-    {
-        set => SetProperty("configuration_info", value);
-    }
+    [TerraformPropertyName("configuration_info")]
+    public TerraformList<TerraformBlock<AwsMskClusterConfigurationInfoBlock>>? ConfigurationInfo { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_info.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionInfo block(s) allowed")]
-    public List<AwsMskClusterEncryptionInfoBlock>? EncryptionInfo
-    {
-        set => SetProperty("encryption_info", value);
-    }
+    [TerraformPropertyName("encryption_info")]
+    public TerraformList<TerraformBlock<AwsMskClusterEncryptionInfoBlock>>? EncryptionInfo { get; set; } = new();
 
     /// <summary>
     /// Block for logging_info.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingInfo block(s) allowed")]
-    public List<AwsMskClusterLoggingInfoBlock>? LoggingInfo
-    {
-        set => SetProperty("logging_info", value);
-    }
+    [TerraformPropertyName("logging_info")]
+    public TerraformList<TerraformBlock<AwsMskClusterLoggingInfoBlock>>? LoggingInfo { get; set; } = new();
 
     /// <summary>
     /// Block for open_monitoring.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenMonitoring block(s) allowed")]
-    public List<AwsMskClusterOpenMonitoringBlock>? OpenMonitoring
-    {
-        set => SetProperty("open_monitoring", value);
-    }
+    [TerraformPropertyName("open_monitoring")]
+    public TerraformList<TerraformBlock<AwsMskClusterOpenMonitoringBlock>>? OpenMonitoring { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsMskClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsMskClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The bootstrap_brokers attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokers => this["bootstrap_brokers"];
+    [TerraformPropertyName("bootstrap_brokers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokers => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers");
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_iam attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersPublicSaslIam => this["bootstrap_brokers_public_sasl_iam"];
+    [TerraformPropertyName("bootstrap_brokers_public_sasl_iam")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersPublicSaslIam => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_public_sasl_iam");
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_scram attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersPublicSaslScram => this["bootstrap_brokers_public_sasl_scram"];
+    [TerraformPropertyName("bootstrap_brokers_public_sasl_scram")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersPublicSaslScram => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_public_sasl_scram");
 
     /// <summary>
     /// The bootstrap_brokers_public_tls attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersPublicTls => this["bootstrap_brokers_public_tls"];
+    [TerraformPropertyName("bootstrap_brokers_public_tls")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersPublicTls => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_public_tls");
 
     /// <summary>
     /// The bootstrap_brokers_sasl_iam attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersSaslIam => this["bootstrap_brokers_sasl_iam"];
+    [TerraformPropertyName("bootstrap_brokers_sasl_iam")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersSaslIam => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_sasl_iam");
 
     /// <summary>
     /// The bootstrap_brokers_sasl_scram attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersSaslScram => this["bootstrap_brokers_sasl_scram"];
+    [TerraformPropertyName("bootstrap_brokers_sasl_scram")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersSaslScram => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_sasl_scram");
 
     /// <summary>
     /// The bootstrap_brokers_tls attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersTls => this["bootstrap_brokers_tls"];
+    [TerraformPropertyName("bootstrap_brokers_tls")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersTls => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_tls");
 
     /// <summary>
     /// The bootstrap_brokers_vpc_connectivity_sasl_iam attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersVpcConnectivitySaslIam => this["bootstrap_brokers_vpc_connectivity_sasl_iam"];
+    [TerraformPropertyName("bootstrap_brokers_vpc_connectivity_sasl_iam")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersVpcConnectivitySaslIam => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_vpc_connectivity_sasl_iam");
 
     /// <summary>
     /// The bootstrap_brokers_vpc_connectivity_sasl_scram attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersVpcConnectivitySaslScram => this["bootstrap_brokers_vpc_connectivity_sasl_scram"];
+    [TerraformPropertyName("bootstrap_brokers_vpc_connectivity_sasl_scram")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersVpcConnectivitySaslScram => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_vpc_connectivity_sasl_scram");
 
     /// <summary>
     /// The bootstrap_brokers_vpc_connectivity_tls attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersVpcConnectivityTls => this["bootstrap_brokers_vpc_connectivity_tls"];
+    [TerraformPropertyName("bootstrap_brokers_vpc_connectivity_tls")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersVpcConnectivityTls => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_vpc_connectivity_tls");
 
     /// <summary>
     /// The cluster_uuid attribute.
     /// </summary>
-    public TerraformExpression ClusterUuid => this["cluster_uuid"];
+    [TerraformPropertyName("cluster_uuid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClusterUuid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_uuid");
 
     /// <summary>
     /// The current_version attribute.
     /// </summary>
-    public TerraformExpression CurrentVersion => this["current_version"];
+    [TerraformPropertyName("current_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CurrentVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "current_version");
 
     /// <summary>
     /// The zookeeper_connect_string attribute.
     /// </summary>
-    public TerraformExpression ZookeeperConnectString => this["zookeeper_connect_string"];
+    [TerraformPropertyName("zookeeper_connect_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ZookeeperConnectString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zookeeper_connect_string");
 
     /// <summary>
     /// The zookeeper_connect_string_tls attribute.
     /// </summary>
-    public TerraformExpression ZookeeperConnectStringTls => this["zookeeper_connect_string_tls"];
+    [TerraformPropertyName("zookeeper_connect_string_tls")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ZookeeperConnectStringTls => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zookeeper_connect_string_tls");
 
 }

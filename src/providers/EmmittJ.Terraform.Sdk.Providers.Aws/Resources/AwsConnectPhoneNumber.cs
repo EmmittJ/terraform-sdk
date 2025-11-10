@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsConnectPhoneNumberTimeoutsBlock : TerraformBlock
+public class AwsConnectPhoneNumberTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,131 +38,100 @@ public class AwsConnectPhoneNumber : TerraformResource
 {
     public AwsConnectPhoneNumber(string name) : base("aws_connect_phone_number", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("phone_number");
-        SetOutput("status");
-        SetOutput("country_code");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("prefix");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("target_arn");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The country_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
-    public required TerraformProperty<string> CountryCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("country_code");
-        set => SetProperty("country_code", value);
-    }
+    [TerraformPropertyName("country_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CountryCode { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string> Prefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("prefix");
-        set => SetProperty("prefix", value);
-    }
+    [TerraformPropertyName("prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Prefix { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The target_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
-    public required TerraformProperty<string> TargetArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_arn");
-        set => SetProperty("target_arn", value);
-    }
+    [TerraformPropertyName("target_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetArn { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsConnectPhoneNumberTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsConnectPhoneNumberTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformExpression PhoneNumber => this["phone_number"];
+    [TerraformPropertyName("phone_number")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PhoneNumber => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "phone_number");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Status => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "status");
 
 }

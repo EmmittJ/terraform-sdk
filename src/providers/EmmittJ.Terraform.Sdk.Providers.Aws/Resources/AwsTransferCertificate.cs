@@ -9,127 +9,99 @@ public class AwsTransferCertificate : TerraformResource
 {
     public AwsTransferCertificate(string name) : base("aws_transfer_certificate", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("active_date");
-        SetOutput("arn");
-        SetOutput("certificate_id");
-        SetOutput("inactive_date");
-        SetOutput("certificate");
-        SetOutput("certificate_chain");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("private_key");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("usage");
     }
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
-    public required TerraformProperty<string> Certificate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate");
-        set => SetProperty("certificate", value);
-    }
+    [TerraformPropertyName("certificate")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Certificate { get; set; }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    public TerraformProperty<string> CertificateChain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate_chain");
-        set => SetProperty("certificate_chain", value);
-    }
+    [TerraformPropertyName("certificate_chain")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CertificateChain { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
-    public TerraformProperty<string> PrivateKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("private_key");
-        set => SetProperty("private_key", value);
-    }
+    [TerraformPropertyName("private_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrivateKey { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The usage attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Usage is required")]
-    public required TerraformProperty<string> Usage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("usage");
-        set => SetProperty("usage", value);
-    }
+    [TerraformPropertyName("usage")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Usage { get; set; }
 
     /// <summary>
     /// The active_date attribute.
     /// </summary>
-    public TerraformExpression ActiveDate => this["active_date"];
+    [TerraformPropertyName("active_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ActiveDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "active_date");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The certificate_id attribute.
     /// </summary>
-    public TerraformExpression CertificateId => this["certificate_id"];
+    [TerraformPropertyName("certificate_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CertificateId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_id");
 
     /// <summary>
     /// The inactive_date attribute.
     /// </summary>
-    public TerraformExpression InactiveDate => this["inactive_date"];
+    [TerraformPropertyName("inactive_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InactiveDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "inactive_date");
 
 }

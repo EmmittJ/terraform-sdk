@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiEndpointEncryptionSpecBlock : TerraformBlock
+public class GoogleVertexAiEndpointEncryptionSpecBlock : ITerraformBlock
 {
     /// <summary>
     /// Required. The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource. Has the form: &#39;projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key&#39;. The key needs to be in the same region as where the compute resource is created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
-    public required TerraformProperty<string> KmsKeyName
-    {
-        set => SetProperty("kms_key_name", value);
-    }
+    [TerraformPropertyName("kms_key_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KmsKeyName { get; set; }
 
 }
 
@@ -23,23 +22,21 @@ public class GoogleVertexAiEndpointEncryptionSpecBlock : TerraformBlock
 /// Block type for predict_request_response_logging_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock : TerraformBlock
+public class GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// If logging is enabled or not.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// Percentage of requests to be logged, expressed as a fraction in range(0,1]
     /// </summary>
-    public TerraformProperty<double>? SamplingRate
-    {
-        set => SetProperty("sampling_rate", value);
-    }
+    [TerraformPropertyName("sampling_rate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SamplingRate { get; set; }
 
 }
 
@@ -47,24 +44,22 @@ public class GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock : Te
 /// Block type for private_service_connect_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlock : TerraformBlock
+public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Required. If true, expose the IndexEndpoint via private service connect.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablePrivateServiceConnect is required")]
-    public required TerraformProperty<bool> EnablePrivateServiceConnect
-    {
-        set => SetProperty("enable_private_service_connect", value);
-    }
+    [TerraformPropertyName("enable_private_service_connect")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> EnablePrivateServiceConnect { get; set; }
 
     /// <summary>
     /// A list of Projects from which the forwarding rule will target the service attachment.
     /// </summary>
-    public List<TerraformProperty<string>>? ProjectAllowlist
-    {
-        set => SetProperty("project_allowlist", value);
-    }
+    [TerraformPropertyName("project_allowlist")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ProjectAllowlist { get; set; }
 
 }
 
@@ -72,31 +67,28 @@ public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVertexAiEndpointTimeoutsBlock : TerraformBlock
+public class GoogleVertexAiEndpointTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -108,68 +100,36 @@ public class GoogleVertexAiEndpoint : TerraformResource
 {
     public GoogleVertexAiEndpoint(string name) : base("google_vertex_ai_endpoint", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("dedicated_endpoint_dns");
-        SetOutput("deployed_models");
-        SetOutput("effective_labels");
-        SetOutput("etag");
-        SetOutput("model_deployment_monitoring_job");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("dedicated_endpoint_enabled");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("network");
-        SetOutput("project");
-        SetOutput("region");
-        SetOutput("traffic_split");
     }
 
     /// <summary>
     /// If true, the endpoint will be exposed through a dedicated DNS [Endpoint.dedicated_endpoint_dns]. Your request to the dedicated DNS will be isolated from other users&#39; traffic and will have better performance and reliability. Note: Once you enabled dedicated endpoint, you won&#39;t be able to send request to the shared DNS {region}-aiplatform.googleapis.com. The limitation will be removed soon.
     /// </summary>
-    public TerraformProperty<bool> DedicatedEndpointEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("dedicated_endpoint_enabled");
-        set => SetProperty("dedicated_endpoint_enabled", value);
-    }
+    [TerraformPropertyName("dedicated_endpoint_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DedicatedEndpointEnabled { get; set; }
 
     /// <summary>
     /// The description of the Endpoint.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// Required. The display name of the Endpoint. The name can be up to 128 characters long and can consist of any UTF-8 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The labels with user-defined metadata to organize your Endpoints. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels.
@@ -177,58 +137,46 @@ public class GoogleVertexAiEndpoint : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The resource name of the Endpoint. The name must be numeric with no leading zeros and can be at most 10 digits.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The full name of the Google Compute Engine [network](https://cloud.google.com//compute/docs/networks-and-firewalls#networks) to which the Endpoint should be peered. Private services access must already be configured for the network. If left unspecified, the Endpoint is not peered with any network. Only one of the fields, network or enable_private_service_connect, can be set. [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert): &#39;projects/{project}/global/networks/{network}&#39;. Where &#39;{project}&#39; is a project number, as in &#39;12345&#39;, and &#39;{network}&#39; is network name. Only one of the fields, &#39;network&#39; or &#39;privateServiceConnectConfig&#39;, can be set.
     /// </summary>
-    public TerraformProperty<string> Network
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network");
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The region for the resource
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
     /// <summary>
     /// A map from a DeployedModel&#39;s id to the percentage of this Endpoint&#39;s traffic that should be forwarded to that DeployedModel.
@@ -239,90 +187,96 @@ public class GoogleVertexAiEndpoint : TerraformResource
     /// 
     /// ~&amp;gt; **Note:** To set the map to empty, set &#39;&amp;quot;{}&amp;quot;&#39;, apply, and then remove the field from your config.
     /// </summary>
-    public TerraformProperty<string> TrafficSplit
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("traffic_split");
-        set => SetProperty("traffic_split", value);
-    }
+    [TerraformPropertyName("traffic_split")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TrafficSplit { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "traffic_split");
 
     /// <summary>
     /// Block for encryption_spec.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
-    public List<GoogleVertexAiEndpointEncryptionSpecBlock>? EncryptionSpec
-    {
-        set => SetProperty("encryption_spec", value);
-    }
+    [TerraformPropertyName("encryption_spec")]
+    public TerraformList<TerraformBlock<GoogleVertexAiEndpointEncryptionSpecBlock>>? EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for predict_request_response_logging_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PredictRequestResponseLoggingConfig block(s) allowed")]
-    public List<GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock>? PredictRequestResponseLoggingConfig
-    {
-        set => SetProperty("predict_request_response_logging_config", value);
-    }
+    [TerraformPropertyName("predict_request_response_logging_config")]
+    public TerraformList<TerraformBlock<GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock>>? PredictRequestResponseLoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for private_service_connect_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateServiceConnectConfig block(s) allowed")]
-    public List<GoogleVertexAiEndpointPrivateServiceConnectConfigBlock>? PrivateServiceConnectConfig
-    {
-        set => SetProperty("private_service_connect_config", value);
-    }
+    [TerraformPropertyName("private_service_connect_config")]
+    public TerraformList<TerraformBlock<GoogleVertexAiEndpointPrivateServiceConnectConfigBlock>>? PrivateServiceConnectConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleVertexAiEndpointTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleVertexAiEndpointTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Timestamp when this Endpoint was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Output only. DNS of the dedicated endpoint. Will only be populated if dedicatedEndpointEnabled is true. Format: &#39;https://{endpointId}.{region}-{projectNumber}.prediction.vertexai.goog&#39;.
     /// </summary>
-    public TerraformExpression DedicatedEndpointDns => this["dedicated_endpoint_dns"];
+    [TerraformPropertyName("dedicated_endpoint_dns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DedicatedEndpointDns => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dedicated_endpoint_dns");
 
     /// <summary>
     /// Output only. The models deployed in this Endpoint. To add or remove DeployedModels use EndpointService.DeployModel and EndpointService.UndeployModel respectively. Models can also be deployed and undeployed using the [Cloud Console](https://console.cloud.google.com/vertex-ai/).
     /// </summary>
-    public TerraformExpression DeployedModels => this["deployed_models"];
+    [TerraformPropertyName("deployed_models")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DeployedModels => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "deployed_models");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Used to perform consistent read-modify-write updates. If not set, a blind &amp;quot;overwrite&amp;quot; update happens.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// Output only. Resource name of the Model Monitoring job associated with this Endpoint if monitoring is enabled by CreateModelDeploymentMonitoringJob. Format: &#39;projects/{project}/locations/{location}/modelDeploymentMonitoringJobs/{model_deployment_monitoring_job}&#39;
     /// </summary>
-    public TerraformExpression ModelDeploymentMonitoringJob => this["model_deployment_monitoring_job"];
+    [TerraformPropertyName("model_deployment_monitoring_job")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ModelDeploymentMonitoringJob => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "model_deployment_monitoring_job");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Output only. Timestamp when this Endpoint was last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

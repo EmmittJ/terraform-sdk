@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRouterNatAddressTimeoutsBlock : TerraformBlock
+public class GoogleComputeRouterNatAddressTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,95 +38,67 @@ public class GoogleComputeRouterNatAddress : TerraformResource
 {
     public GoogleComputeRouterNatAddress(string name) : base("google_compute_router_nat_address", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("drain_nat_ips");
-        SetOutput("id");
-        SetOutput("nat_ips");
-        SetOutput("project");
-        SetOutput("region");
-        SetOutput("router");
-        SetOutput("router_nat");
     }
 
     /// <summary>
     /// A list of URLs of the IP resources to be drained. These IPs must be
     /// valid static external IPs that have been assigned to the NAT.
     /// </summary>
-    public HashSet<TerraformProperty<string>> DrainNatIps
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("drain_nat_ips");
-        set => SetProperty("drain_nat_ips", value);
-    }
+    [TerraformPropertyName("drain_nat_ips")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DrainNatIps { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Self-links of NAT IPs to be used in a Nat service. Only valid if the referenced RouterNat
     /// natIpAllocateOption is set to MANUAL_ONLY.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatIps is required")]
-    public HashSet<TerraformProperty<string>> NatIps
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("nat_ips");
-        set => SetProperty("nat_ips", value);
-    }
+    [TerraformPropertyName("nat_ips")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? NatIps { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Region where the NAT service reside.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The name of the Cloud Router in which the referenced NAT service is configured.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
-    public required TerraformProperty<string> Router
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("router");
-        set => SetProperty("router", value);
-    }
+    [TerraformPropertyName("router")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Router { get; set; }
 
     /// <summary>
     /// The name of the Nat service in which this address will be configured.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouterNat is required")]
-    public required TerraformProperty<string> RouterNat
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("router_nat");
-        set => SetProperty("router_nat", value);
-    }
+    [TerraformPropertyName("router_nat")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RouterNat { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeRouterNatAddressTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeRouterNatAddressTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

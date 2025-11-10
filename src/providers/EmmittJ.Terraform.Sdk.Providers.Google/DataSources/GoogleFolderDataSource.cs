@@ -9,102 +9,98 @@ public class GoogleFolderDataSource : TerraformDataSource
 {
     public GoogleFolderDataSource(string name) : base("google_folder", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("configured_capabilities");
-        SetOutput("create_time");
-        SetOutput("deletion_protection");
-        SetOutput("display_name");
-        SetOutput("folder_id");
-        SetOutput("lifecycle_state");
-        SetOutput("management_project");
-        SetOutput("name");
-        SetOutput("organization");
-        SetOutput("parent");
-        SetOutput("folder");
-        SetOutput("id");
-        SetOutput("lookup_organization");
     }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
-    public required TerraformProperty<string> Folder
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("folder");
-        set => SetProperty("folder", value);
-    }
+    [TerraformPropertyName("folder")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The lookup_organization attribute.
     /// </summary>
-    public TerraformProperty<bool> LookupOrganization
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("lookup_organization");
-        set => SetProperty("lookup_organization", value);
-    }
+    [TerraformPropertyName("lookup_organization")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LookupOrganization { get; set; }
 
     /// <summary>
     /// The configured_capabilities attribute.
     /// </summary>
-    public TerraformExpression ConfiguredCapabilities => this["configured_capabilities"];
+    [TerraformPropertyName("configured_capabilities")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ConfiguredCapabilities => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "configured_capabilities");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    public TerraformExpression DeletionProtection => this["deletion_protection"];
+    [TerraformPropertyName("deletion_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The folder_id attribute.
     /// </summary>
-    public TerraformExpression FolderId => this["folder_id"];
+    [TerraformPropertyName("folder_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FolderId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "folder_id");
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
-    public TerraformExpression LifecycleState => this["lifecycle_state"];
+    [TerraformPropertyName("lifecycle_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LifecycleState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "lifecycle_state");
 
     /// <summary>
     /// The management_project attribute.
     /// </summary>
-    public TerraformExpression ManagementProject => this["management_project"];
+    [TerraformPropertyName("management_project")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ManagementProject => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "management_project");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The organization attribute.
     /// </summary>
-    public TerraformExpression Organization => this["organization"];
+    [TerraformPropertyName("organization")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Organization => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "organization");
 
     /// <summary>
     /// The parent attribute.
     /// </summary>
-    public TerraformExpression Parent => this["parent"];
+    [TerraformPropertyName("parent")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Parent => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parent");
 
 }

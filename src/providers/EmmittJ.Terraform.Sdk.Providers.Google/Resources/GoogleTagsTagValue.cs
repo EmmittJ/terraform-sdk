@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleTagsTagValueTimeoutsBlock : TerraformBlock
+public class GoogleTagsTagValueTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,48 +38,29 @@ public class GoogleTagsTagValue : TerraformResource
 {
     public GoogleTagsTagValue(string name) : base("google_tags_tag_value", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("name");
-        SetOutput("namespaced_name");
-        SetOutput("update_time");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("parent");
-        SetOutput("short_name");
     }
 
     /// <summary>
     /// User-assigned description of the TagValue. Must not exceed 256 characters.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Input only. The resource name of the new TagValue&#39;s parent. Must be of the form tagKeys/{tag_key_id}.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    public required TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
 
     /// <summary>
     /// Input only. User-assigned short name for TagValue. The short name should be unique for TagValues within the same parent TagKey.
@@ -90,42 +68,46 @@ public class GoogleTagsTagValue : TerraformResource
     /// The short name can have a maximum length of 256 characters. The permitted character set for the shortName includes all UTF-8 encoded Unicode characters except single quotes (&#39;), double quotes (&amp;quot;), backslashes (\\), and forward slashes (/).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
-    public required TerraformProperty<string> ShortName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("short_name");
-        set => SetProperty("short_name", value);
-    }
+    [TerraformPropertyName("short_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ShortName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleTagsTagValueTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleTagsTagValueTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Creation time.
     /// 
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The generated numeric id for the TagValue.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Output only. Namespaced name of the TagValue. Will be in the format {parentNamespace}/{tagKeyShortName}/{shortName}.
     /// </summary>
-    public TerraformExpression NamespacedName => this["namespaced_name"];
+    [TerraformPropertyName("namespaced_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NamespacedName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "namespaced_name");
 
     /// <summary>
     /// Output only. Update time.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

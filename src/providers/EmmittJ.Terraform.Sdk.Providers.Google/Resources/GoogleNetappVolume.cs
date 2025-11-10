@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backup_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetappVolumeBackupConfigBlock : TerraformBlock
+public class GoogleNetappVolumeBackupConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Specify a single backup policy ID for scheduled backups. Format: &#39;projects/{{projectId}}/locations/{{location}}/backupPolicies/{{backupPolicyName}}&#39;
     /// </summary>
-    public List<TerraformProperty<string>>? BackupPolicies
-    {
-        set => SetProperty("backup_policies", value);
-    }
+    [TerraformPropertyName("backup_policies")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? BackupPolicies { get; set; }
 
     /// <summary>
     /// ID of the backup vault to use. A backup vault is reqired to create manual or scheduled backups.
     /// Format: &#39;projects/{{projectId}}/locations/{{location}}/backupVaults/{{backupVaultName}}&#39;
     /// </summary>
-    public TerraformProperty<string>? BackupVault
-    {
-        set => SetProperty("backup_vault", value);
-    }
+    [TerraformPropertyName("backup_vault")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BackupVault { get; set; }
 
     /// <summary>
     /// When set to true, scheduled backup is enabled on the volume. Omit if no backup_policy is specified.
     /// </summary>
-    public TerraformProperty<bool>? ScheduledBackupEnabled
-    {
-        set => SetProperty("scheduled_backup_enabled", value);
-    }
+    [TerraformPropertyName("scheduled_backup_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ScheduledBackupEnabled { get; set; }
 
 }
 
@@ -39,7 +36,7 @@ public class GoogleNetappVolumeBackupConfigBlock : TerraformBlock
 /// Block type for block_devices in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
+public class GoogleNetappVolumeBlockDevicesBlock : ITerraformBlock
 {
     /// <summary>
     /// A list of host groups that identify hosts that can mount the block volume.
@@ -47,19 +44,17 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// &#39;projects/{project_id}/locations/{location}/hostGroups/{host_group_id}&#39;
     /// This field can be updated after the block device is created.
     /// </summary>
-    public List<TerraformProperty<string>>? HostGroups
-    {
-        set => SetProperty("host_groups", value);
-    }
+    [TerraformPropertyName("host_groups")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> HostGroups { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "host_groups");
 
     /// <summary>
     /// Device identifier of the Block volume. This represents lun_serial_number
     /// for ISCSI volumes
     /// </summary>
-    public TerraformProperty<string>? Identifier
-    {
-        set => SetProperty("identifier", value);
-    }
+    [TerraformPropertyName("identifier")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Identifier => new TerraformReferenceProperty<TerraformProperty<string>>("", "identifier");
 
     /// <summary>
     /// User-defined name for the block device, unique within the Volume. In case
@@ -70,20 +65,18 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     ///     and the following special characters: &amp;quot;-&amp;quot;, &amp;quot;_&amp;quot;, &amp;quot;}&amp;quot;, &amp;quot;{&amp;quot;, &amp;quot;.&amp;quot;.
     /// *   Spaces are not allowed.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "name");
 
     /// <summary>
     /// The OS type of the volume.
     /// This field can&#39;t be changed after the block device is created. Possible values: [&amp;quot;LINUX&amp;quot;, &amp;quot;WINDOWS&amp;quot;, &amp;quot;ESXI&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
-    public required TerraformProperty<string> OsType
-    {
-        set => SetProperty("os_type", value);
-    }
+    [TerraformPropertyName("os_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OsType { get; set; }
 
     /// <summary>
     /// The size of the block device in GiB.
@@ -91,10 +84,9 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// The block device&#39;s size is system-managed and will be set to match
     /// the parent Volume&#39;s &#39;capacity_gib&#39;.
     /// </summary>
-    public TerraformProperty<double>? SizeGib
-    {
-        set => SetProperty("size_gib", value);
-    }
+    [TerraformPropertyName("size_gib")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SizeGib => new TerraformReferenceProperty<TerraformProperty<double>>("", "size_gib");
 
 }
 
@@ -102,7 +94,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
 /// Block type for export_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetappVolumeExportPolicyBlock : TerraformBlock
+public class GoogleNetappVolumeExportPolicyBlock : ITerraformBlock
 {
 }
 
@@ -110,96 +102,85 @@ public class GoogleNetappVolumeExportPolicyBlock : TerraformBlock
 /// Block type for hybrid_replication_parameters in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
+public class GoogleNetappVolumeHybridReplicationParametersBlock : ITerraformBlock
 {
     /// <summary>
     /// Optional. Name of source cluster location associated with the Hybrid replication. This is a free-form field for the display purpose only.
     /// </summary>
-    public TerraformProperty<string>? ClusterLocation
-    {
-        set => SetProperty("cluster_location", value);
-    }
+    [TerraformPropertyName("cluster_location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClusterLocation { get; set; }
 
     /// <summary>
     /// Optional. Description of the replication.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// Optional. Type of the volume&#39;s hybrid replication. Possible values: [&amp;quot;MIGRATION&amp;quot;, &amp;quot;CONTINUOUS_REPLICATION&amp;quot;, &amp;quot;ONPREM_REPLICATION&amp;quot;, &amp;quot;REVERSE_ONPREM_REPLICATION&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? HybridReplicationType
-    {
-        set => SetProperty("hybrid_replication_type", value);
-    }
+    [TerraformPropertyName("hybrid_replication_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HybridReplicationType { get; set; }
 
     /// <summary>
     /// Optional. Labels to be added to the replication as the key value pairs.
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
-    {
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Optional. Constituent volume count for large volume.
     /// </summary>
-    public TerraformProperty<double>? LargeVolumeConstituentCount
-    {
-        set => SetProperty("large_volume_constituent_count", value);
-    }
+    [TerraformPropertyName("large_volume_constituent_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? LargeVolumeConstituentCount { get; set; }
 
     /// <summary>
     /// Required. Name of the user&#39;s local source cluster to be peered with the destination cluster.
     /// </summary>
-    public TerraformProperty<string>? PeerClusterName
-    {
-        set => SetProperty("peer_cluster_name", value);
-    }
+    [TerraformPropertyName("peer_cluster_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PeerClusterName { get; set; }
 
     /// <summary>
     /// Required. List of node ip addresses to be peered with.
     /// </summary>
-    public List<TerraformProperty<string>>? PeerIpAddresses
-    {
-        set => SetProperty("peer_ip_addresses", value);
-    }
+    [TerraformPropertyName("peer_ip_addresses")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? PeerIpAddresses { get; set; }
 
     /// <summary>
     /// Required. Name of the user&#39;s local source vserver svm to be peered with the destination vserver svm.
     /// </summary>
-    public TerraformProperty<string>? PeerSvmName
-    {
-        set => SetProperty("peer_svm_name", value);
-    }
+    [TerraformPropertyName("peer_svm_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PeerSvmName { get; set; }
 
     /// <summary>
     /// Required. Name of the user&#39;s local source volume to be peered with the destination volume.
     /// </summary>
-    public TerraformProperty<string>? PeerVolumeName
-    {
-        set => SetProperty("peer_volume_name", value);
-    }
+    [TerraformPropertyName("peer_volume_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PeerVolumeName { get; set; }
 
     /// <summary>
     /// Required. Desired name for the replication of this volume.
     /// </summary>
-    public TerraformProperty<string>? Replication
-    {
-        set => SetProperty("replication", value);
-    }
+    [TerraformPropertyName("replication")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Replication { get; set; }
 
     /// <summary>
     /// Optional. Replication Schedule for the replication created. Possible values: [&amp;quot;EVERY_10_MINUTES&amp;quot;, &amp;quot;HOURLY&amp;quot;, &amp;quot;DAILY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ReplicationSchedule
-    {
-        set => SetProperty("replication_schedule", value);
-    }
+    [TerraformPropertyName("replication_schedule")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ReplicationSchedule { get; set; }
 
 }
 
@@ -207,27 +188,25 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
 /// Block type for restore_parameters in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetappVolumeRestoreParametersBlock : TerraformBlock
+public class GoogleNetappVolumeRestoreParametersBlock : ITerraformBlock
 {
     /// <summary>
     /// Full name of the backup to use for creating this volume.
     /// &#39;source_snapshot&#39; and &#39;source_backup&#39; cannot be used simultaneously.
     /// Format: &#39;projects/{{project}}/locations/{{location}}/backupVaults/{{backupVaultId}}/backups/{{backup}}&#39;.
     /// </summary>
-    public TerraformProperty<string>? SourceBackup
-    {
-        set => SetProperty("source_backup", value);
-    }
+    [TerraformPropertyName("source_backup")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceBackup { get; set; }
 
     /// <summary>
     /// Full name of the snapshot to use for creating this volume.
     /// &#39;source_snapshot&#39; and &#39;source_backup&#39; cannot be used simultaneously.
     /// Format: &#39;projects/{{project}}/locations/{{location}}/volumes/{{volume}}/snapshots/{{snapshot}}&#39;.
     /// </summary>
-    public TerraformProperty<string>? SourceSnapshot
-    {
-        set => SetProperty("source_snapshot", value);
-    }
+    [TerraformPropertyName("source_snapshot")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceSnapshot { get; set; }
 
 }
 
@@ -235,16 +214,15 @@ public class GoogleNetappVolumeRestoreParametersBlock : TerraformBlock
 /// Block type for snapshot_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetappVolumeSnapshotPolicyBlock : TerraformBlock
+public class GoogleNetappVolumeSnapshotPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// Enables automated snapshot creation according to defined schedule. Default is false.
     /// To disable automatic snapshot creation you have to remove the whole snapshot_policy block.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
 }
 
@@ -252,33 +230,30 @@ public class GoogleNetappVolumeSnapshotPolicyBlock : TerraformBlock
 /// Block type for tiering_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetappVolumeTieringPolicyBlock : TerraformBlock
+public class GoogleNetappVolumeTieringPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// Optional. Time in days to mark the volume&#39;s data block as cold and make it eligible for tiering, can be range from 2-183.
     /// Default is 31.
     /// </summary>
-    public TerraformProperty<double>? CoolingThresholdDays
-    {
-        set => SetProperty("cooling_threshold_days", value);
-    }
+    [TerraformPropertyName("cooling_threshold_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CoolingThresholdDays { get; set; }
 
     /// <summary>
     /// Optional. Flag indicating that the hot tier bypass mode is enabled. Default is false.
     /// Only applicable to Flex service level.
     /// </summary>
-    public TerraformProperty<bool>? HotTierBypassModeEnabled
-    {
-        set => SetProperty("hot_tier_bypass_mode_enabled", value);
-    }
+    [TerraformPropertyName("hot_tier_bypass_mode_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? HotTierBypassModeEnabled { get; set; }
 
     /// <summary>
     /// Optional. Flag indicating if the volume has tiering policy enable/pause. Default is PAUSED. Default value: &amp;quot;PAUSED&amp;quot; Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;PAUSED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? TierAction
-    {
-        set => SetProperty("tier_action", value);
-    }
+    [TerraformPropertyName("tier_action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TierAction { get; set; }
 
 }
 
@@ -286,31 +261,28 @@ public class GoogleNetappVolumeTieringPolicyBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetappVolumeTimeoutsBlock : TerraformBlock
+public class GoogleNetappVolumeTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -322,61 +294,15 @@ public class GoogleNetappVolume : TerraformResource
 {
     public GoogleNetappVolume(string name) : base("google_netapp_volume", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("active_directory");
-        SetOutput("cold_tier_size_gib");
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("encryption_type");
-        SetOutput("has_replication");
-        SetOutput("hot_tier_size_used_gib");
-        SetOutput("kms_config");
-        SetOutput("ldap_enabled");
-        SetOutput("mount_options");
-        SetOutput("network");
-        SetOutput("psa_range");
-        SetOutput("replica_zone");
-        SetOutput("service_level");
-        SetOutput("state");
-        SetOutput("state_details");
-        SetOutput("terraform_labels");
-        SetOutput("used_gib");
-        SetOutput("zone");
-        SetOutput("capacity_gib");
-        SetOutput("deletion_policy");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("kerberos_enabled");
-        SetOutput("labels");
-        SetOutput("large_capacity");
-        SetOutput("location");
-        SetOutput("multiple_endpoints");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("protocols");
-        SetOutput("restricted_actions");
-        SetOutput("security_style");
-        SetOutput("share_name");
-        SetOutput("smb_settings");
-        SetOutput("snapshot_directory");
-        SetOutput("storage_pool");
-        SetOutput("throughput_mibps");
-        SetOutput("unix_permissions");
     }
 
     /// <summary>
     /// Capacity of the volume (in GiB).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
-    public required TerraformProperty<string> CapacityGib
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("capacity_gib");
-        set => SetProperty("capacity_gib", value);
-    }
+    [TerraformPropertyName("capacity_gib")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CapacityGib { get; set; }
 
     /// <summary>
     /// Policy to determine if the volume should be deleted forcefully.
@@ -384,38 +310,30 @@ public class GoogleNetappVolume : TerraformResource
     /// Setting this parameter to FORCE will delete volumes including nested snapshots.
     /// Possible values: DEFAULT, FORCE.
     /// </summary>
-    public TerraformProperty<string> DeletionPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
-        set => SetProperty("deletion_policy", value);
-    }
+    [TerraformPropertyName("deletion_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Flag indicating if the volume is a kerberos volume or not, export policy rules control kerberos security modes (krb5, krb5i, krb5p).
     /// </summary>
-    public TerraformProperty<bool> KerberosEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("kerberos_enabled");
-        set => SetProperty("kerberos_enabled", value);
-    }
+    [TerraformPropertyName("kerberos_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? KerberosEnabled { get; set; }
 
     /// <summary>
     /// Labels as key value pairs. Example: &#39;{ &amp;quot;owner&amp;quot;: &amp;quot;Bob&amp;quot;, &amp;quot;department&amp;quot;: &amp;quot;finance&amp;quot;, &amp;quot;purpose&amp;quot;: &amp;quot;testing&amp;quot; }&#39;.
@@ -424,316 +342,308 @@ public class GoogleNetappVolume : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Optional. Flag indicating if the volume will be a large capacity volume or a regular volume.
     /// </summary>
-    public TerraformProperty<bool> LargeCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("large_capacity");
-        set => SetProperty("large_capacity", value);
-    }
+    [TerraformPropertyName("large_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LargeCapacity { get; set; }
 
     /// <summary>
     /// Name of the pool location. Usually a region name, expect for some STANDARD service level pools which require a zone name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// Optional. Flag indicating if the volume will have an IP address per node for volumes supporting multiple IP endpoints.
     /// Only the volume with largeCapacity will be allowed to have multiple endpoints.
     /// </summary>
-    public TerraformProperty<bool> MultipleEndpoints
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("multiple_endpoints");
-        set => SetProperty("multiple_endpoints", value);
-    }
+    [TerraformPropertyName("multiple_endpoints")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MultipleEndpoints { get; set; }
 
     /// <summary>
     /// The name of the volume. Needs to be unique per location.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The protocol of the volume. Allowed combinations are &#39;[&#39;NFSV3&#39;]&#39;, &#39;[&#39;NFSV4&#39;]&#39;, &#39;[&#39;SMB&#39;]&#39;, &#39;[&#39;NFSV3&#39;, &#39;NFSV4&#39;]&#39;, &#39;[&#39;SMB&#39;, &#39;NFSV3&#39;]&#39; and &#39;[&#39;SMB&#39;, &#39;NFSV4&#39;]&#39;. Possible values: [&amp;quot;NFSV3&amp;quot;, &amp;quot;NFSV4&amp;quot;, &amp;quot;SMB&amp;quot;, &amp;quot;ISCSI&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
-    public List<TerraformProperty<string>> Protocols
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("protocols");
-        set => SetProperty("protocols", value);
-    }
+    [TerraformPropertyName("protocols")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Protocols { get; set; }
 
     /// <summary>
     /// List of actions that are restricted on this volume. Possible values: [&amp;quot;DELETE&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>> RestrictedActions
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("restricted_actions");
-        set => SetProperty("restricted_actions", value);
-    }
+    [TerraformPropertyName("restricted_actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? RestrictedActions { get; set; }
 
     /// <summary>
     /// Security Style of the Volume. Use UNIX to use UNIX or NFSV4 ACLs for file permissions.
     /// Use NTFS to use NTFS ACLs for file permissions. Can only be set for volumes which use SMB together with NFS as protocol. Possible values: [&amp;quot;NTFS&amp;quot;, &amp;quot;UNIX&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> SecurityStyle
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_style");
-        set => SetProperty("security_style", value);
-    }
+    [TerraformPropertyName("security_style")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SecurityStyle { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "security_style");
 
     /// <summary>
     /// Share name (SMB) or export path (NFS) of the volume. Needs to be unique per location.
     /// </summary>
-    public TerraformProperty<string> ShareName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("share_name");
-        set => SetProperty("share_name", value);
-    }
+    [TerraformPropertyName("share_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ShareName { get; set; }
 
     /// <summary>
     /// Settings for volumes with SMB access. Possible values: [&amp;quot;ENCRYPT_DATA&amp;quot;, &amp;quot;BROWSABLE&amp;quot;, &amp;quot;CHANGE_NOTIFY&amp;quot;, &amp;quot;NON_BROWSABLE&amp;quot;, &amp;quot;OPLOCKS&amp;quot;, &amp;quot;SHOW_SNAPSHOT&amp;quot;, &amp;quot;SHOW_PREVIOUS_VERSIONS&amp;quot;, &amp;quot;ACCESS_BASED_ENUMERATION&amp;quot;, &amp;quot;CONTINUOUSLY_AVAILABLE&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>> SmbSettings
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("smb_settings");
-        set => SetProperty("smb_settings", value);
-    }
+    [TerraformPropertyName("smb_settings")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> SmbSettings { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "smb_settings");
 
     /// <summary>
     /// If enabled, a NFS volume will contain a read-only .snapshot directory which provides access to each of the volume&#39;s snapshots. Will enable &amp;quot;Previous Versions&amp;quot; support for SMB.
     /// </summary>
-    public TerraformProperty<bool> SnapshotDirectory
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("snapshot_directory");
-        set => SetProperty("snapshot_directory", value);
-    }
+    [TerraformPropertyName("snapshot_directory")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SnapshotDirectory { get; set; }
 
     /// <summary>
     /// Name of the storage pool to create the volume in. Pool needs enough spare capacity to accommodate the volume.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePool is required")]
-    public required TerraformProperty<string> StoragePool
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_pool");
-        set => SetProperty("storage_pool", value);
-    }
+    [TerraformPropertyName("storage_pool")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StoragePool { get; set; }
 
     /// <summary>
     /// Optional. Custom Performance Total Throughput of the pool (in MiB/s).
     /// </summary>
-    public TerraformProperty<double> ThroughputMibps
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("throughput_mibps");
-        set => SetProperty("throughput_mibps", value);
-    }
+    [TerraformPropertyName("throughput_mibps")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> ThroughputMibps { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "throughput_mibps");
 
     /// <summary>
     /// Unix permission the mount point will be created with. Default is 0770. Applicable for UNIX security style volumes only.
     /// </summary>
-    public TerraformProperty<string> UnixPermissions
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("unix_permissions");
-        set => SetProperty("unix_permissions", value);
-    }
+    [TerraformPropertyName("unix_permissions")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> UnixPermissions { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "unix_permissions");
 
     /// <summary>
     /// Block for backup_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupConfig block(s) allowed")]
-    public List<GoogleNetappVolumeBackupConfigBlock>? BackupConfig
-    {
-        set => SetProperty("backup_config", value);
-    }
+    [TerraformPropertyName("backup_config")]
+    public TerraformList<TerraformBlock<GoogleNetappVolumeBackupConfigBlock>>? BackupConfig { get; set; } = new();
 
     /// <summary>
     /// Block for block_devices.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleNetappVolumeBlockDevicesBlock>? BlockDevices
-    {
-        set => SetProperty("block_devices", value);
-    }
+    [TerraformPropertyName("block_devices")]
+    public TerraformList<TerraformBlock<GoogleNetappVolumeBlockDevicesBlock>>? BlockDevices { get; set; } = new();
 
     /// <summary>
     /// Block for export_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportPolicy block(s) allowed")]
-    public List<GoogleNetappVolumeExportPolicyBlock>? ExportPolicy
-    {
-        set => SetProperty("export_policy", value);
-    }
+    [TerraformPropertyName("export_policy")]
+    public TerraformList<TerraformBlock<GoogleNetappVolumeExportPolicyBlock>>? ExportPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for hybrid_replication_parameters.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HybridReplicationParameters block(s) allowed")]
-    public List<GoogleNetappVolumeHybridReplicationParametersBlock>? HybridReplicationParameters
-    {
-        set => SetProperty("hybrid_replication_parameters", value);
-    }
+    [TerraformPropertyName("hybrid_replication_parameters")]
+    public TerraformList<TerraformBlock<GoogleNetappVolumeHybridReplicationParametersBlock>>? HybridReplicationParameters { get; set; } = new();
 
     /// <summary>
     /// Block for restore_parameters.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreParameters block(s) allowed")]
-    public List<GoogleNetappVolumeRestoreParametersBlock>? RestoreParameters
-    {
-        set => SetProperty("restore_parameters", value);
-    }
+    [TerraformPropertyName("restore_parameters")]
+    public TerraformList<TerraformBlock<GoogleNetappVolumeRestoreParametersBlock>>? RestoreParameters { get; set; } = new();
 
     /// <summary>
     /// Block for snapshot_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotPolicy block(s) allowed")]
-    public List<GoogleNetappVolumeSnapshotPolicyBlock>? SnapshotPolicy
-    {
-        set => SetProperty("snapshot_policy", value);
-    }
+    [TerraformPropertyName("snapshot_policy")]
+    public TerraformList<TerraformBlock<GoogleNetappVolumeSnapshotPolicyBlock>>? SnapshotPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for tiering_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TieringPolicy block(s) allowed")]
-    public List<GoogleNetappVolumeTieringPolicyBlock>? TieringPolicy
-    {
-        set => SetProperty("tiering_policy", value);
-    }
+    [TerraformPropertyName("tiering_policy")]
+    public TerraformList<TerraformBlock<GoogleNetappVolumeTieringPolicyBlock>>? TieringPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleNetappVolumeTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleNetappVolumeTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Reports the resource name of the Active Directory policy being used. Inherited from storage pool.
     /// </summary>
-    public TerraformExpression ActiveDirectory => this["active_directory"];
+    [TerraformPropertyName("active_directory")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ActiveDirectory => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "active_directory");
 
     /// <summary>
     /// Output only. Size of the volume cold tier data in GiB.
     /// </summary>
-    public TerraformExpression ColdTierSizeGib => this["cold_tier_size_gib"];
+    [TerraformPropertyName("cold_tier_size_gib")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ColdTierSizeGib => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cold_tier_size_gib");
 
     /// <summary>
     /// Create time of the volume. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Reports the data-at-rest encryption type of the volume. Inherited from storage pool.
     /// </summary>
-    public TerraformExpression EncryptionType => this["encryption_type"];
+    [TerraformPropertyName("encryption_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EncryptionType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "encryption_type");
 
     /// <summary>
     /// Indicates whether the volume is part of a volume replication relationship.
     /// </summary>
-    public TerraformExpression HasReplication => this["has_replication"];
+    [TerraformPropertyName("has_replication")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> HasReplication => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "has_replication");
 
     /// <summary>
     /// Total hot tier data rounded down to the nearest GiB used by the volume. This field is only used for flex Service Level
     /// </summary>
-    public TerraformExpression HotTierSizeUsedGib => this["hot_tier_size_used_gib"];
+    [TerraformPropertyName("hot_tier_size_used_gib")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HotTierSizeUsedGib => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hot_tier_size_used_gib");
 
     /// <summary>
     /// Reports the CMEK policy resurce name being used for volume encryption. Inherited from storage pool.
     /// </summary>
-    public TerraformExpression KmsConfig => this["kms_config"];
+    [TerraformPropertyName("kms_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsConfig => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_config");
 
     /// <summary>
     /// Flag indicating if the volume is NFS LDAP enabled or not. Inherited from storage pool.
     /// </summary>
-    public TerraformExpression LdapEnabled => this["ldap_enabled"];
+    [TerraformPropertyName("ldap_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> LdapEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "ldap_enabled");
 
     /// <summary>
     /// Reports mount instructions for this volume.
     /// </summary>
-    public TerraformExpression MountOptions => this["mount_options"];
+    [TerraformPropertyName("mount_options")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MountOptions => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "mount_options");
 
     /// <summary>
     /// VPC network name with format: &#39;projects/{{project}}/global/networks/{{network}}&#39;. Inherited from storage pool.
     /// </summary>
-    public TerraformExpression Network => this["network"];
+    [TerraformPropertyName("network")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Network => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network");
 
     /// <summary>
     /// Name of the Private Service Access allocated range. Inherited from storage pool.
     /// </summary>
-    public TerraformExpression PsaRange => this["psa_range"];
+    [TerraformPropertyName("psa_range")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PsaRange => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "psa_range");
 
     /// <summary>
     /// Specifies the replica zone for regional volume.
     /// </summary>
-    public TerraformExpression ReplicaZone => this["replica_zone"];
+    [TerraformPropertyName("replica_zone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ReplicaZone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "replica_zone");
 
     /// <summary>
     /// Service level of the volume. Inherited from storage pool. Supported values are : PREMIUM, EXTREME, STANDARD, FLEX.
     /// </summary>
-    public TerraformExpression ServiceLevel => this["service_level"];
+    [TerraformPropertyName("service_level")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceLevel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_level");
 
     /// <summary>
     /// State of the volume.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// State details of the volume.
     /// </summary>
-    public TerraformExpression StateDetails => this["state_details"];
+    [TerraformPropertyName("state_details")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StateDetails => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state_details");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Used capacity of the volume (in GiB). This is computed periodically and it does not represent the realtime usage.
     /// </summary>
-    public TerraformExpression UsedGib => this["used_gib"];
+    [TerraformPropertyName("used_gib")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UsedGib => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "used_gib");
 
     /// <summary>
     /// Specifies the active zone for regional volume.
     /// </summary>
-    public TerraformExpression Zone => this["zone"];
+    [TerraformPropertyName("zone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Zone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
 
 }

@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination_port_range in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock : TerraformBlock
+public class AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock : ITerraformBlock
 {
     /// <summary>
     /// The from_port attribute.
     /// </summary>
-    public TerraformProperty<double>? FromPort
-    {
-        set => SetProperty("from_port", value);
-    }
+    [TerraformPropertyName("from_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? FromPort { get; set; }
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
-    public TerraformProperty<double>? ToPort
-    {
-        set => SetProperty("to_port", value);
-    }
+    [TerraformPropertyName("to_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ToPort { get; set; }
 
 }
 
@@ -30,23 +28,21 @@ public class AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock : TerraformB
 /// Block type for source_port_range in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock : TerraformBlock
+public class AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock : ITerraformBlock
 {
     /// <summary>
     /// The from_port attribute.
     /// </summary>
-    public TerraformProperty<double>? FromPort
-    {
-        set => SetProperty("from_port", value);
-    }
+    [TerraformPropertyName("from_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? FromPort { get; set; }
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
-    public TerraformProperty<double>? ToPort
-    {
-        set => SetProperty("to_port", value);
-    }
+    [TerraformPropertyName("to_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ToPort { get; set; }
 
 }
 
@@ -58,143 +54,105 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
 {
     public AwsEc2TrafficMirrorFilterRule(string name) : base("aws_ec2_traffic_mirror_filter_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("description");
-        SetOutput("destination_cidr_block");
-        SetOutput("id");
-        SetOutput("protocol");
-        SetOutput("region");
-        SetOutput("rule_action");
-        SetOutput("rule_number");
-        SetOutput("source_cidr_block");
-        SetOutput("traffic_direction");
-        SetOutput("traffic_mirror_filter_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
-    public required TerraformProperty<string> DestinationCidrBlock
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_cidr_block");
-        set => SetProperty("destination_cidr_block", value);
-    }
+    [TerraformPropertyName("destination_cidr_block")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DestinationCidrBlock { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<double> Protocol
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("protocol");
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Protocol { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The rule_action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleAction is required")]
-    public required TerraformProperty<string> RuleAction
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rule_action");
-        set => SetProperty("rule_action", value);
-    }
+    [TerraformPropertyName("rule_action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RuleAction { get; set; }
 
     /// <summary>
     /// The rule_number attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
-    public required TerraformProperty<double> RuleNumber
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("rule_number");
-        set => SetProperty("rule_number", value);
-    }
+    [TerraformPropertyName("rule_number")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> RuleNumber { get; set; }
 
     /// <summary>
     /// The source_cidr_block attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceCidrBlock is required")]
-    public required TerraformProperty<string> SourceCidrBlock
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_cidr_block");
-        set => SetProperty("source_cidr_block", value);
-    }
+    [TerraformPropertyName("source_cidr_block")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceCidrBlock { get; set; }
 
     /// <summary>
     /// The traffic_direction attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficDirection is required")]
-    public required TerraformProperty<string> TrafficDirection
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("traffic_direction");
-        set => SetProperty("traffic_direction", value);
-    }
+    [TerraformPropertyName("traffic_direction")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TrafficDirection { get; set; }
 
     /// <summary>
     /// The traffic_mirror_filter_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficMirrorFilterId is required")]
-    public required TerraformProperty<string> TrafficMirrorFilterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("traffic_mirror_filter_id");
-        set => SetProperty("traffic_mirror_filter_id", value);
-    }
+    [TerraformPropertyName("traffic_mirror_filter_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TrafficMirrorFilterId { get; set; }
 
     /// <summary>
     /// Block for destination_port_range.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationPortRange block(s) allowed")]
-    public List<AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock>? DestinationPortRange
-    {
-        set => SetProperty("destination_port_range", value);
-    }
+    [TerraformPropertyName("destination_port_range")]
+    public TerraformList<TerraformBlock<AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock>>? DestinationPortRange { get; set; } = new();
 
     /// <summary>
     /// Block for source_port_range.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourcePortRange block(s) allowed")]
-    public List<AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock>? SourcePortRange
-    {
-        set => SetProperty("source_port_range", value);
-    }
+    [TerraformPropertyName("source_port_range")]
+    public TerraformList<TerraformBlock<AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock>>? SourcePortRange { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

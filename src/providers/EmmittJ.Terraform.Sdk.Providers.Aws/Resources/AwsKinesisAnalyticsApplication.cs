@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cloudwatch_logging_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock : TerraformBlock
+public class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The log_stream_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogStreamArn is required")]
-    public required TerraformProperty<string> LogStreamArn
-    {
-        set => SetProperty("log_stream_arn", value);
-    }
+    [TerraformPropertyName("log_stream_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogStreamArn { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
 }
 
@@ -40,32 +37,29 @@ public class AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock : Terra
 /// Block type for inputs in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisAnalyticsApplicationInputsBlock : TerraformBlock
+public class AwsKinesisAnalyticsApplicationInputsBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamePrefix is required")]
-    public required TerraformProperty<string> NamePrefix
-    {
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; }
 
     /// <summary>
     /// The stream_names attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? StreamNames
-    {
-        set => SetProperty("stream_names", value);
-    }
+    [TerraformPropertyName("stream_names")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> StreamNames => new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "stream_names");
 
 }
 
@@ -73,24 +67,22 @@ public class AwsKinesisAnalyticsApplicationInputsBlock : TerraformBlock
 /// Block type for outputs in .
 /// Nesting mode: set
 /// </summary>
-public class AwsKinesisAnalyticsApplicationOutputsBlock : TerraformBlock
+public class AwsKinesisAnalyticsApplicationOutputsBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -98,24 +90,22 @@ public class AwsKinesisAnalyticsApplicationOutputsBlock : TerraformBlock
 /// Block type for reference_data_sources in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock : TerraformBlock
+public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
-    public required TerraformProperty<string> TableName
-    {
-        set => SetProperty("table_name", value);
-    }
+    [TerraformPropertyName("table_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TableName { get; set; }
 
 }
 
@@ -128,162 +118,130 @@ public class AwsKinesisAnalyticsApplication : TerraformResource
 {
     public AwsKinesisAnalyticsApplication(string name) : base("aws_kinesis_analytics_application", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("create_timestamp");
-        SetOutput("last_update_timestamp");
-        SetOutput("status");
-        SetOutput("version");
-        SetOutput("code");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("start_application");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The code attribute.
     /// </summary>
-    public TerraformProperty<string> Code
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("code");
-        set => SetProperty("code", value);
-    }
+    [TerraformPropertyName("code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Code { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The start_application attribute.
     /// </summary>
-    public TerraformProperty<bool> StartApplication
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("start_application");
-        set => SetProperty("start_application", value);
-    }
+    [TerraformPropertyName("start_application")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StartApplication { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for cloudwatch_logging_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudwatchLoggingOptions block(s) allowed")]
-    public List<AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock>? CloudwatchLoggingOptions
-    {
-        set => SetProperty("cloudwatch_logging_options", value);
-    }
+    [TerraformPropertyName("cloudwatch_logging_options")]
+    public TerraformList<TerraformBlock<AwsKinesisAnalyticsApplicationCloudwatchLoggingOptionsBlock>>? CloudwatchLoggingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for inputs.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Inputs block(s) allowed")]
-    public List<AwsKinesisAnalyticsApplicationInputsBlock>? Inputs
-    {
-        set => SetProperty("inputs", value);
-    }
+    [TerraformPropertyName("inputs")]
+    public TerraformList<TerraformBlock<AwsKinesisAnalyticsApplicationInputsBlock>>? Inputs { get; set; } = new();
 
     /// <summary>
     /// Block for outputs.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 Outputs block(s) allowed")]
-    public HashSet<AwsKinesisAnalyticsApplicationOutputsBlock>? Outputs
-    {
-        set => SetProperty("outputs", value);
-    }
+    [TerraformPropertyName("outputs")]
+    public TerraformSet<TerraformBlock<AwsKinesisAnalyticsApplicationOutputsBlock>>? Outputs { get; set; } = new();
 
     /// <summary>
     /// Block for reference_data_sources.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReferenceDataSources block(s) allowed")]
-    public List<AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock>? ReferenceDataSources
-    {
-        set => SetProperty("reference_data_sources", value);
-    }
+    [TerraformPropertyName("reference_data_sources")]
+    public TerraformList<TerraformBlock<AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock>>? ReferenceDataSources { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The create_timestamp attribute.
     /// </summary>
-    public TerraformExpression CreateTimestamp => this["create_timestamp"];
+    [TerraformPropertyName("create_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_timestamp");
 
     /// <summary>
     /// The last_update_timestamp attribute.
     /// </summary>
-    public TerraformExpression LastUpdateTimestamp => this["last_update_timestamp"];
+    [TerraformPropertyName("last_update_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastUpdateTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_update_timestamp");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformExpression Version => this["version"];
+    [TerraformPropertyName("version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Version => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "version");
 
 }

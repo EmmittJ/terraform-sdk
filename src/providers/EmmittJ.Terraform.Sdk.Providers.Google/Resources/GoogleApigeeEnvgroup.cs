@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeEnvgroupTimeoutsBlock : TerraformBlock
+public class GoogleApigeeEnvgroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,63 +38,44 @@ public class GoogleApigeeEnvgroup : TerraformResource
 {
     public GoogleApigeeEnvgroup(string name) : base("google_apigee_envgroup", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("hostnames");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("org_id");
     }
 
     /// <summary>
     /// Hostnames of the environment group.
     /// </summary>
-    public List<TerraformProperty<string>> Hostnames
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("hostnames");
-        set => SetProperty("hostnames", value);
-    }
+    [TerraformPropertyName("hostnames")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Hostnames { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The resource ID of the environment group.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee environment group,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    public required TerraformProperty<string> OrgId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
-        set => SetProperty("org_id", value);
-    }
+    [TerraformPropertyName("org_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeEnvgroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeEnvgroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

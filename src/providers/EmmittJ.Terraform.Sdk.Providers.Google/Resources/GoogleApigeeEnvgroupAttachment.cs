@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeEnvgroupAttachmentTimeoutsBlock : TerraformBlock
+public class GoogleApigeeEnvgroupAttachmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,15 +31,6 @@ public class GoogleApigeeEnvgroupAttachment : TerraformResource
 {
     public GoogleApigeeEnvgroupAttachment(string name) : base("google_apigee_envgroup_attachment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("envgroup_id");
-        SetOutput("environment");
-        SetOutput("id");
     }
 
     /// <summary>
@@ -49,43 +38,37 @@ public class GoogleApigeeEnvgroupAttachment : TerraformResource
     /// in the format &#39;organizations/{{org_name}}/envgroups/{{envgroup_name}}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvgroupId is required")]
-    public required TerraformProperty<string> EnvgroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("envgroup_id");
-        set => SetProperty("envgroup_id", value);
-    }
+    [TerraformPropertyName("envgroup_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EnvgroupId { get; set; }
 
     /// <summary>
     /// The resource ID of the environment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
-    public required TerraformProperty<string> Environment
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("environment");
-        set => SetProperty("environment", value);
-    }
+    [TerraformPropertyName("environment")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Environment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeEnvgroupAttachmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeEnvgroupAttachmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name of the newly created  attachment (output parameter).
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

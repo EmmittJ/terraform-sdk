@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for accepter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVpcPeeringConnectionAccepterAccepterBlock : TerraformBlock
+public class AwsVpcPeeringConnectionAccepterAccepterBlock : ITerraformBlock
 {
     /// <summary>
     /// The allow_remote_vpc_dns_resolution attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowRemoteVpcDnsResolution
-    {
-        set => SetProperty("allow_remote_vpc_dns_resolution", value);
-    }
+    [TerraformPropertyName("allow_remote_vpc_dns_resolution")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowRemoteVpcDnsResolution { get; set; }
 
 }
 
@@ -22,15 +21,14 @@ public class AwsVpcPeeringConnectionAccepterAccepterBlock : TerraformBlock
 /// Block type for requester in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVpcPeeringConnectionAccepterRequesterBlock : TerraformBlock
+public class AwsVpcPeeringConnectionAccepterRequesterBlock : ITerraformBlock
 {
     /// <summary>
     /// The allow_remote_vpc_dns_resolution attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowRemoteVpcDnsResolution
-    {
-        set => SetProperty("allow_remote_vpc_dns_resolution", value);
-    }
+    [TerraformPropertyName("allow_remote_vpc_dns_resolution")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowRemoteVpcDnsResolution { get; set; }
 
 }
 
@@ -38,23 +36,21 @@ public class AwsVpcPeeringConnectionAccepterRequesterBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsVpcPeeringConnectionAccepterTimeoutsBlock : TerraformBlock
+public class AwsVpcPeeringConnectionAccepterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -66,131 +62,107 @@ public class AwsVpcPeeringConnectionAccepter : TerraformResource
 {
     public AwsVpcPeeringConnectionAccepter(string name) : base("aws_vpc_peering_connection_accepter", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("accept_status");
-        SetOutput("peer_owner_id");
-        SetOutput("peer_region");
-        SetOutput("peer_vpc_id");
-        SetOutput("vpc_id");
-        SetOutput("auto_accept");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("vpc_peering_connection_id");
     }
 
     /// <summary>
     /// The auto_accept attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoAccept
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_accept");
-        set => SetProperty("auto_accept", value);
-    }
+    [TerraformPropertyName("auto_accept")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoAccept { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The vpc_peering_connection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcPeeringConnectionId is required")]
-    public required TerraformProperty<string> VpcPeeringConnectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_peering_connection_id");
-        set => SetProperty("vpc_peering_connection_id", value);
-    }
+    [TerraformPropertyName("vpc_peering_connection_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VpcPeeringConnectionId { get; set; }
 
     /// <summary>
     /// Block for accepter.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Accepter block(s) allowed")]
-    public List<AwsVpcPeeringConnectionAccepterAccepterBlock>? Accepter
-    {
-        set => SetProperty("accepter", value);
-    }
+    [TerraformPropertyName("accepter")]
+    public TerraformList<TerraformBlock<AwsVpcPeeringConnectionAccepterAccepterBlock>>? Accepter { get; set; } = new();
 
     /// <summary>
     /// Block for requester.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Requester block(s) allowed")]
-    public List<AwsVpcPeeringConnectionAccepterRequesterBlock>? Requester
-    {
-        set => SetProperty("requester", value);
-    }
+    [TerraformPropertyName("requester")]
+    public TerraformList<TerraformBlock<AwsVpcPeeringConnectionAccepterRequesterBlock>>? Requester { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsVpcPeeringConnectionAccepterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsVpcPeeringConnectionAccepterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The accept_status attribute.
     /// </summary>
-    public TerraformExpression AcceptStatus => this["accept_status"];
+    [TerraformPropertyName("accept_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AcceptStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "accept_status");
 
     /// <summary>
     /// The peer_owner_id attribute.
     /// </summary>
-    public TerraformExpression PeerOwnerId => this["peer_owner_id"];
+    [TerraformPropertyName("peer_owner_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PeerOwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_owner_id");
 
     /// <summary>
     /// The peer_region attribute.
     /// </summary>
-    public TerraformExpression PeerRegion => this["peer_region"];
+    [TerraformPropertyName("peer_region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PeerRegion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_region");
 
     /// <summary>
     /// The peer_vpc_id attribute.
     /// </summary>
-    public TerraformExpression PeerVpcId => this["peer_vpc_id"];
+    [TerraformPropertyName("peer_vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PeerVpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_vpc_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformExpression VpcId => this["vpc_id"];
+    [TerraformPropertyName("vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
 }

@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDbInstanceRoleAssociationTimeoutsBlock : TerraformBlock
+public class AwsDbInstanceRoleAssociationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,73 +31,51 @@ public class AwsDbInstanceRoleAssociation : TerraformResource
 {
     public AwsDbInstanceRoleAssociation(string name) : base("aws_db_instance_role_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("db_instance_identifier");
-        SetOutput("feature_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("role_arn");
     }
 
     /// <summary>
     /// The db_instance_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceIdentifier is required")]
-    public required TerraformProperty<string> DbInstanceIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_instance_identifier");
-        set => SetProperty("db_instance_identifier", value);
-    }
+    [TerraformPropertyName("db_instance_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DbInstanceIdentifier { get; set; }
 
     /// <summary>
     /// The feature_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureName is required")]
-    public required TerraformProperty<string> FeatureName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("feature_name");
-        set => SetProperty("feature_name", value);
-    }
+    [TerraformPropertyName("feature_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FeatureName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDbInstanceRoleAssociationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDbInstanceRoleAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

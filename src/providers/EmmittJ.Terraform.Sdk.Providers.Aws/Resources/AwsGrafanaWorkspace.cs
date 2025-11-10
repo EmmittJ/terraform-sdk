@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for network_access_control in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGrafanaWorkspaceNetworkAccessControlBlock : TerraformBlock
+public class AwsGrafanaWorkspaceNetworkAccessControlBlock : ITerraformBlock
 {
     /// <summary>
     /// The prefix_list_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrefixListIds is required")]
-    public HashSet<TerraformProperty<string>>? PrefixListIds
-    {
-        set => SetProperty("prefix_list_ids", value);
-    }
+    [TerraformPropertyName("prefix_list_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? PrefixListIds { get; set; }
 
     /// <summary>
     /// The vpce_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpceIds is required")]
-    public HashSet<TerraformProperty<string>>? VpceIds
-    {
-        set => SetProperty("vpce_ids", value);
-    }
+    [TerraformPropertyName("vpce_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? VpceIds { get; set; }
 
 }
 
@@ -32,23 +30,21 @@ public class AwsGrafanaWorkspaceNetworkAccessControlBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsGrafanaWorkspaceTimeoutsBlock : TerraformBlock
+public class AwsGrafanaWorkspaceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -56,25 +52,23 @@ public class AwsGrafanaWorkspaceTimeoutsBlock : TerraformBlock
 /// Block type for vpc_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGrafanaWorkspaceVpcConfigurationBlock : TerraformBlock
+public class AwsGrafanaWorkspaceVpcConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
-    {
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public HashSet<TerraformProperty<string>>? SubnetIds
-    {
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
 }
 
@@ -86,231 +80,172 @@ public class AwsGrafanaWorkspace : TerraformResource
 {
     public AwsGrafanaWorkspace(string name) : base("aws_grafana_workspace", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("endpoint");
-        SetOutput("saml_configuration_status");
-        SetOutput("account_access_type");
-        SetOutput("authentication_providers");
-        SetOutput("configuration");
-        SetOutput("data_sources");
-        SetOutput("description");
-        SetOutput("grafana_version");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("notification_destinations");
-        SetOutput("organization_role_name");
-        SetOutput("organizational_units");
-        SetOutput("permission_type");
-        SetOutput("region");
-        SetOutput("role_arn");
-        SetOutput("stack_set_name");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The account_access_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountAccessType is required")]
-    public required TerraformProperty<string> AccountAccessType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_access_type");
-        set => SetProperty("account_access_type", value);
-    }
+    [TerraformPropertyName("account_access_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountAccessType { get; set; }
 
     /// <summary>
     /// The authentication_providers attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationProviders is required")]
-    public List<TerraformProperty<string>> AuthenticationProviders
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("authentication_providers");
-        set => SetProperty("authentication_providers", value);
-    }
+    [TerraformPropertyName("authentication_providers")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? AuthenticationProviders { get; set; }
 
     /// <summary>
     /// The configuration attribute.
     /// </summary>
-    public TerraformProperty<string> Configuration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("configuration");
-        set => SetProperty("configuration", value);
-    }
+    [TerraformPropertyName("configuration")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Configuration { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "configuration");
 
     /// <summary>
     /// The data_sources attribute.
     /// </summary>
-    public List<TerraformProperty<string>> DataSources
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("data_sources");
-        set => SetProperty("data_sources", value);
-    }
+    [TerraformPropertyName("data_sources")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? DataSources { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The grafana_version attribute.
     /// </summary>
-    public TerraformProperty<string> GrafanaVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("grafana_version");
-        set => SetProperty("grafana_version", value);
-    }
+    [TerraformPropertyName("grafana_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> GrafanaVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "grafana_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The notification_destinations attribute.
     /// </summary>
-    public List<TerraformProperty<string>> NotificationDestinations
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("notification_destinations");
-        set => SetProperty("notification_destinations", value);
-    }
+    [TerraformPropertyName("notification_destinations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? NotificationDestinations { get; set; }
 
     /// <summary>
     /// The organization_role_name attribute.
     /// </summary>
-    public TerraformProperty<string> OrganizationRoleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("organization_role_name");
-        set => SetProperty("organization_role_name", value);
-    }
+    [TerraformPropertyName("organization_role_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OrganizationRoleName { get; set; }
 
     /// <summary>
     /// The organizational_units attribute.
     /// </summary>
-    public List<TerraformProperty<string>> OrganizationalUnits
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("organizational_units");
-        set => SetProperty("organizational_units", value);
-    }
+    [TerraformPropertyName("organizational_units")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? OrganizationalUnits { get; set; }
 
     /// <summary>
     /// The permission_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionType is required")]
-    public required TerraformProperty<string> PermissionType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("permission_type");
-        set => SetProperty("permission_type", value);
-    }
+    [TerraformPropertyName("permission_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PermissionType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleArn { get; set; }
 
     /// <summary>
     /// The stack_set_name attribute.
     /// </summary>
-    public TerraformProperty<string> StackSetName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("stack_set_name");
-        set => SetProperty("stack_set_name", value);
-    }
+    [TerraformPropertyName("stack_set_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StackSetName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for network_access_control.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAccessControl block(s) allowed")]
-    public List<AwsGrafanaWorkspaceNetworkAccessControlBlock>? NetworkAccessControl
-    {
-        set => SetProperty("network_access_control", value);
-    }
+    [TerraformPropertyName("network_access_control")]
+    public TerraformList<TerraformBlock<AwsGrafanaWorkspaceNetworkAccessControlBlock>>? NetworkAccessControl { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsGrafanaWorkspaceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsGrafanaWorkspaceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
-    public List<AwsGrafanaWorkspaceVpcConfigurationBlock>? VpcConfiguration
-    {
-        set => SetProperty("vpc_configuration", value);
-    }
+    [TerraformPropertyName("vpc_configuration")]
+    public TerraformList<TerraformBlock<AwsGrafanaWorkspaceVpcConfigurationBlock>>? VpcConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The saml_configuration_status attribute.
     /// </summary>
-    public TerraformExpression SamlConfigurationStatus => this["saml_configuration_status"];
+    [TerraformPropertyName("saml_configuration_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SamlConfigurationStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "saml_configuration_status");
 
 }

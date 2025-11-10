@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningSynapseSparkIdentityBlock : TerraformBlock
+public class AzurermMachineLearningSynapseSparkIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -47,31 +43,28 @@ public class AzurermMachineLearningSynapseSparkIdentityBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMachineLearningSynapseSparkTimeoutsBlock : TerraformBlock
+public class AzurermMachineLearningSynapseSparkTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -83,114 +76,81 @@ public class AzurermMachineLearningSynapseSpark : TerraformResource
 {
     public AzurermMachineLearningSynapseSpark(string name) : base("azurerm_machine_learning_synapse_spark", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("local_auth_enabled");
-        SetOutput("location");
-        SetOutput("machine_learning_workspace_id");
-        SetOutput("name");
-        SetOutput("synapse_spark_pool_id");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LocalAuthEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("local_auth_enabled");
-        set => SetProperty("local_auth_enabled", value);
-    }
+    [TerraformPropertyName("local_auth_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LocalAuthEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The machine_learning_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
-    public required TerraformProperty<string> MachineLearningWorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("machine_learning_workspace_id");
-        set => SetProperty("machine_learning_workspace_id", value);
-    }
+    [TerraformPropertyName("machine_learning_workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MachineLearningWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The synapse_spark_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseSparkPoolId is required")]
-    public required TerraformProperty<string> SynapseSparkPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("synapse_spark_pool_id");
-        set => SetProperty("synapse_spark_pool_id", value);
-    }
+    [TerraformPropertyName("synapse_spark_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SynapseSparkPoolId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermMachineLearningSynapseSparkIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermMachineLearningSynapseSparkIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMachineLearningSynapseSparkTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMachineLearningSynapseSparkTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

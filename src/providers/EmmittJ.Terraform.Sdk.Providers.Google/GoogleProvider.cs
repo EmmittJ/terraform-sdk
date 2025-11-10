@@ -208,9 +208,9 @@ public class GoogleProvider : TerraformProvider
     /// The access_approval_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> AccessApprovalCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> AccessApprovalCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_approval_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("access_approval_custom_endpoint");
         set => SetProperty("access_approval_custom_endpoint", value);
     }
 
@@ -218,9 +218,9 @@ public class GoogleProvider : TerraformProvider
     /// The access_context_manager_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> AccessContextManagerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> AccessContextManagerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_context_manager_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("access_context_manager_custom_endpoint");
         set => SetProperty("access_context_manager_custom_endpoint", value);
     }
 
@@ -228,9 +228,9 @@ public class GoogleProvider : TerraformProvider
     /// The access_token configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> AccessToken
+    public TerraformProperty<TerraformProperty<string>> AccessToken
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_token");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("access_token");
         set => SetProperty("access_token", value);
     }
 
@@ -238,9 +238,9 @@ public class GoogleProvider : TerraformProvider
     /// The active_directory_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ActiveDirectoryCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ActiveDirectoryCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("active_directory_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("active_directory_custom_endpoint");
         set => SetProperty("active_directory_custom_endpoint", value);
     }
 
@@ -248,9 +248,9 @@ public class GoogleProvider : TerraformProvider
     /// The add_terraform_attribution_label configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<bool> AddTerraformAttributionLabel
+    public TerraformProperty<TerraformProperty<bool>> AddTerraformAttributionLabel
     {
-        get => GetRequiredOutput<TerraformProperty<bool>>("add_terraform_attribution_label");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("add_terraform_attribution_label");
         set => SetProperty("add_terraform_attribution_label", value);
     }
 
@@ -258,9 +258,9 @@ public class GoogleProvider : TerraformProvider
     /// The alloydb_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> AlloydbCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> AlloydbCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("alloydb_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("alloydb_custom_endpoint");
         set => SetProperty("alloydb_custom_endpoint", value);
     }
 
@@ -268,9 +268,9 @@ public class GoogleProvider : TerraformProvider
     /// The apigee_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ApigeeCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ApigeeCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("apigee_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("apigee_custom_endpoint");
         set => SetProperty("apigee_custom_endpoint", value);
     }
 
@@ -278,9 +278,9 @@ public class GoogleProvider : TerraformProvider
     /// The apihub_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ApihubCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ApihubCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("apihub_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("apihub_custom_endpoint");
         set => SetProperty("apihub_custom_endpoint", value);
     }
 
@@ -288,9 +288,9 @@ public class GoogleProvider : TerraformProvider
     /// The apikeys_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ApikeysCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ApikeysCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("apikeys_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("apikeys_custom_endpoint");
         set => SetProperty("apikeys_custom_endpoint", value);
     }
 
@@ -298,9 +298,9 @@ public class GoogleProvider : TerraformProvider
     /// The app_engine_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> AppEngineCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> AppEngineCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_engine_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("app_engine_custom_endpoint");
         set => SetProperty("app_engine_custom_endpoint", value);
     }
 
@@ -308,9 +308,9 @@ public class GoogleProvider : TerraformProvider
     /// The apphub_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ApphubCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ApphubCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("apphub_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("apphub_custom_endpoint");
         set => SetProperty("apphub_custom_endpoint", value);
     }
 
@@ -318,9 +318,9 @@ public class GoogleProvider : TerraformProvider
     /// The artifact_registry_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ArtifactRegistryCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ArtifactRegistryCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("artifact_registry_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("artifact_registry_custom_endpoint");
         set => SetProperty("artifact_registry_custom_endpoint", value);
     }
 
@@ -328,9 +328,9 @@ public class GoogleProvider : TerraformProvider
     /// The assured_workloads_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> AssuredWorkloadsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> AssuredWorkloadsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("assured_workloads_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("assured_workloads_custom_endpoint");
         set => SetProperty("assured_workloads_custom_endpoint", value);
     }
 
@@ -338,9 +338,9 @@ public class GoogleProvider : TerraformProvider
     /// The backup_dr_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BackupDrCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BackupDrCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("backup_dr_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("backup_dr_custom_endpoint");
         set => SetProperty("backup_dr_custom_endpoint", value);
     }
 
@@ -348,9 +348,9 @@ public class GoogleProvider : TerraformProvider
     /// The beyondcorp_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BeyondcorpCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BeyondcorpCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("beyondcorp_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("beyondcorp_custom_endpoint");
         set => SetProperty("beyondcorp_custom_endpoint", value);
     }
 
@@ -358,9 +358,9 @@ public class GoogleProvider : TerraformProvider
     /// The big_query_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BigQueryCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BigQueryCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("big_query_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("big_query_custom_endpoint");
         set => SetProperty("big_query_custom_endpoint", value);
     }
 
@@ -368,9 +368,9 @@ public class GoogleProvider : TerraformProvider
     /// The biglake_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BiglakeCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BiglakeCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("biglake_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("biglake_custom_endpoint");
         set => SetProperty("biglake_custom_endpoint", value);
     }
 
@@ -378,9 +378,9 @@ public class GoogleProvider : TerraformProvider
     /// The bigquery_analytics_hub_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BigqueryAnalyticsHubCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BigqueryAnalyticsHubCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("bigquery_analytics_hub_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("bigquery_analytics_hub_custom_endpoint");
         set => SetProperty("bigquery_analytics_hub_custom_endpoint", value);
     }
 
@@ -388,9 +388,9 @@ public class GoogleProvider : TerraformProvider
     /// The bigquery_connection_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BigqueryConnectionCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BigqueryConnectionCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("bigquery_connection_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("bigquery_connection_custom_endpoint");
         set => SetProperty("bigquery_connection_custom_endpoint", value);
     }
 
@@ -398,9 +398,9 @@ public class GoogleProvider : TerraformProvider
     /// The bigquery_data_transfer_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BigqueryDataTransferCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BigqueryDataTransferCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("bigquery_data_transfer_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("bigquery_data_transfer_custom_endpoint");
         set => SetProperty("bigquery_data_transfer_custom_endpoint", value);
     }
 
@@ -408,9 +408,9 @@ public class GoogleProvider : TerraformProvider
     /// The bigquery_datapolicy_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BigqueryDatapolicyCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BigqueryDatapolicyCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("bigquery_datapolicy_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("bigquery_datapolicy_custom_endpoint");
         set => SetProperty("bigquery_datapolicy_custom_endpoint", value);
     }
 
@@ -418,9 +418,9 @@ public class GoogleProvider : TerraformProvider
     /// The bigquery_datapolicyv2_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BigqueryDatapolicyv2CustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BigqueryDatapolicyv2CustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("bigquery_datapolicyv2_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("bigquery_datapolicyv2_custom_endpoint");
         set => SetProperty("bigquery_datapolicyv2_custom_endpoint", value);
     }
 
@@ -428,9 +428,9 @@ public class GoogleProvider : TerraformProvider
     /// The bigquery_reservation_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BigqueryReservationCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BigqueryReservationCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("bigquery_reservation_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("bigquery_reservation_custom_endpoint");
         set => SetProperty("bigquery_reservation_custom_endpoint", value);
     }
 
@@ -438,9 +438,9 @@ public class GoogleProvider : TerraformProvider
     /// The bigtable_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BigtableCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BigtableCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("bigtable_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("bigtable_custom_endpoint");
         set => SetProperty("bigtable_custom_endpoint", value);
     }
 
@@ -448,9 +448,9 @@ public class GoogleProvider : TerraformProvider
     /// The billing_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BillingCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BillingCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("billing_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("billing_custom_endpoint");
         set => SetProperty("billing_custom_endpoint", value);
     }
 
@@ -458,9 +458,9 @@ public class GoogleProvider : TerraformProvider
     /// The billing_project configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BillingProject
+    public TerraformProperty<TerraformProperty<string>> BillingProject
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("billing_project");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("billing_project");
         set => SetProperty("billing_project", value);
     }
 
@@ -468,9 +468,9 @@ public class GoogleProvider : TerraformProvider
     /// The binary_authorization_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BinaryAuthorizationCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BinaryAuthorizationCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("binary_authorization_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("binary_authorization_custom_endpoint");
         set => SetProperty("binary_authorization_custom_endpoint", value);
     }
 
@@ -478,9 +478,9 @@ public class GoogleProvider : TerraformProvider
     /// The blockchain_node_engine_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> BlockchainNodeEngineCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> BlockchainNodeEngineCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("blockchain_node_engine_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("blockchain_node_engine_custom_endpoint");
         set => SetProperty("blockchain_node_engine_custom_endpoint", value);
     }
 
@@ -488,9 +488,9 @@ public class GoogleProvider : TerraformProvider
     /// The certificate_manager_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CertificateManagerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CertificateManagerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate_manager_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("certificate_manager_custom_endpoint");
         set => SetProperty("certificate_manager_custom_endpoint", value);
     }
 
@@ -498,9 +498,9 @@ public class GoogleProvider : TerraformProvider
     /// The ces_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CesCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CesCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("ces_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("ces_custom_endpoint");
         set => SetProperty("ces_custom_endpoint", value);
     }
 
@@ -508,9 +508,9 @@ public class GoogleProvider : TerraformProvider
     /// The chronicle_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ChronicleCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ChronicleCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("chronicle_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("chronicle_custom_endpoint");
         set => SetProperty("chronicle_custom_endpoint", value);
     }
 
@@ -518,9 +518,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloud_asset_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CloudAssetCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CloudAssetCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_asset_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloud_asset_custom_endpoint");
         set => SetProperty("cloud_asset_custom_endpoint", value);
     }
 
@@ -528,9 +528,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloud_billing_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CloudBillingCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CloudBillingCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_billing_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloud_billing_custom_endpoint");
         set => SetProperty("cloud_billing_custom_endpoint", value);
     }
 
@@ -538,9 +538,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloud_build_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CloudBuildCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CloudBuildCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_build_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloud_build_custom_endpoint");
         set => SetProperty("cloud_build_custom_endpoint", value);
     }
 
@@ -548,9 +548,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloud_functions_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CloudFunctionsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CloudFunctionsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_functions_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloud_functions_custom_endpoint");
         set => SetProperty("cloud_functions_custom_endpoint", value);
     }
 
@@ -558,9 +558,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloud_identity_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CloudIdentityCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CloudIdentityCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_identity_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloud_identity_custom_endpoint");
         set => SetProperty("cloud_identity_custom_endpoint", value);
     }
 
@@ -568,9 +568,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloud_ids_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CloudIdsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CloudIdsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_ids_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloud_ids_custom_endpoint");
         set => SetProperty("cloud_ids_custom_endpoint", value);
     }
 
@@ -578,9 +578,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloud_quotas_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CloudQuotasCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CloudQuotasCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_quotas_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloud_quotas_custom_endpoint");
         set => SetProperty("cloud_quotas_custom_endpoint", value);
     }
 
@@ -588,9 +588,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloud_resource_manager_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CloudResourceManagerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CloudResourceManagerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_resource_manager_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloud_resource_manager_custom_endpoint");
         set => SetProperty("cloud_resource_manager_custom_endpoint", value);
     }
 
@@ -598,9 +598,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloud_run_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CloudRunCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CloudRunCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_run_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloud_run_custom_endpoint");
         set => SetProperty("cloud_run_custom_endpoint", value);
     }
 
@@ -608,9 +608,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloud_run_v2_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CloudRunV2CustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CloudRunV2CustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_run_v2_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloud_run_v2_custom_endpoint");
         set => SetProperty("cloud_run_v2_custom_endpoint", value);
     }
 
@@ -618,9 +618,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloud_scheduler_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CloudSchedulerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CloudSchedulerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_scheduler_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloud_scheduler_custom_endpoint");
         set => SetProperty("cloud_scheduler_custom_endpoint", value);
     }
 
@@ -628,9 +628,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloud_tasks_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CloudTasksCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CloudTasksCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_tasks_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloud_tasks_custom_endpoint");
         set => SetProperty("cloud_tasks_custom_endpoint", value);
     }
 
@@ -638,9 +638,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloudbuildv2_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> Cloudbuildv2CustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> Cloudbuildv2CustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloudbuildv2_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloudbuildv2_custom_endpoint");
         set => SetProperty("cloudbuildv2_custom_endpoint", value);
     }
 
@@ -648,9 +648,9 @@ public class GoogleProvider : TerraformProvider
     /// The clouddeploy_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ClouddeployCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ClouddeployCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("clouddeploy_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("clouddeploy_custom_endpoint");
         set => SetProperty("clouddeploy_custom_endpoint", value);
     }
 
@@ -658,9 +658,9 @@ public class GoogleProvider : TerraformProvider
     /// The clouddomains_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ClouddomainsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ClouddomainsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("clouddomains_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("clouddomains_custom_endpoint");
         set => SetProperty("clouddomains_custom_endpoint", value);
     }
 
@@ -668,9 +668,9 @@ public class GoogleProvider : TerraformProvider
     /// The cloudfunctions2_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> Cloudfunctions2CustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> Cloudfunctions2CustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloudfunctions2_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("cloudfunctions2_custom_endpoint");
         set => SetProperty("cloudfunctions2_custom_endpoint", value);
     }
 
@@ -678,9 +678,9 @@ public class GoogleProvider : TerraformProvider
     /// The colab_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ColabCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ColabCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("colab_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("colab_custom_endpoint");
         set => SetProperty("colab_custom_endpoint", value);
     }
 
@@ -688,9 +688,9 @@ public class GoogleProvider : TerraformProvider
     /// The composer_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ComposerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ComposerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("composer_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("composer_custom_endpoint");
         set => SetProperty("composer_custom_endpoint", value);
     }
 
@@ -698,9 +698,9 @@ public class GoogleProvider : TerraformProvider
     /// The compute_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ComputeCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ComputeCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("compute_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("compute_custom_endpoint");
         set => SetProperty("compute_custom_endpoint", value);
     }
 
@@ -708,9 +708,9 @@ public class GoogleProvider : TerraformProvider
     /// The contact_center_insights_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ContactCenterInsightsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ContactCenterInsightsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("contact_center_insights_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("contact_center_insights_custom_endpoint");
         set => SetProperty("contact_center_insights_custom_endpoint", value);
     }
 
@@ -718,9 +718,9 @@ public class GoogleProvider : TerraformProvider
     /// The container_analysis_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ContainerAnalysisCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ContainerAnalysisCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_analysis_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("container_analysis_custom_endpoint");
         set => SetProperty("container_analysis_custom_endpoint", value);
     }
 
@@ -728,9 +728,9 @@ public class GoogleProvider : TerraformProvider
     /// The container_attached_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ContainerAttachedCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ContainerAttachedCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_attached_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("container_attached_custom_endpoint");
         set => SetProperty("container_attached_custom_endpoint", value);
     }
 
@@ -738,9 +738,9 @@ public class GoogleProvider : TerraformProvider
     /// The container_aws_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ContainerAwsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ContainerAwsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_aws_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("container_aws_custom_endpoint");
         set => SetProperty("container_aws_custom_endpoint", value);
     }
 
@@ -748,9 +748,9 @@ public class GoogleProvider : TerraformProvider
     /// The container_azure_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ContainerAzureCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ContainerAzureCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_azure_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("container_azure_custom_endpoint");
         set => SetProperty("container_azure_custom_endpoint", value);
     }
 
@@ -758,9 +758,9 @@ public class GoogleProvider : TerraformProvider
     /// The container_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ContainerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ContainerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("container_custom_endpoint");
         set => SetProperty("container_custom_endpoint", value);
     }
 
@@ -768,9 +768,9 @@ public class GoogleProvider : TerraformProvider
     /// The core_billing_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> CoreBillingCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> CoreBillingCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("core_billing_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("core_billing_custom_endpoint");
         set => SetProperty("core_billing_custom_endpoint", value);
     }
 
@@ -778,9 +778,9 @@ public class GoogleProvider : TerraformProvider
     /// The credentials configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> Credentials
+    public TerraformProperty<TerraformProperty<string>> Credentials
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("credentials");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("credentials");
         set => SetProperty("credentials", value);
     }
 
@@ -788,9 +788,9 @@ public class GoogleProvider : TerraformProvider
     /// The data_catalog_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DataCatalogCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DataCatalogCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_catalog_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("data_catalog_custom_endpoint");
         set => SetProperty("data_catalog_custom_endpoint", value);
     }
 
@@ -798,9 +798,9 @@ public class GoogleProvider : TerraformProvider
     /// The data_fusion_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DataFusionCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DataFusionCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_fusion_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("data_fusion_custom_endpoint");
         set => SetProperty("data_fusion_custom_endpoint", value);
     }
 
@@ -808,9 +808,9 @@ public class GoogleProvider : TerraformProvider
     /// The data_loss_prevention_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DataLossPreventionCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DataLossPreventionCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_loss_prevention_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("data_loss_prevention_custom_endpoint");
         set => SetProperty("data_loss_prevention_custom_endpoint", value);
     }
 
@@ -818,9 +818,9 @@ public class GoogleProvider : TerraformProvider
     /// The data_pipeline_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DataPipelineCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DataPipelineCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_pipeline_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("data_pipeline_custom_endpoint");
         set => SetProperty("data_pipeline_custom_endpoint", value);
     }
 
@@ -828,9 +828,9 @@ public class GoogleProvider : TerraformProvider
     /// The database_migration_service_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DatabaseMigrationServiceCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DatabaseMigrationServiceCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_migration_service_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("database_migration_service_custom_endpoint");
         set => SetProperty("database_migration_service_custom_endpoint", value);
     }
 
@@ -838,9 +838,9 @@ public class GoogleProvider : TerraformProvider
     /// The dataflow_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DataflowCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DataflowCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("dataflow_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("dataflow_custom_endpoint");
         set => SetProperty("dataflow_custom_endpoint", value);
     }
 
@@ -848,9 +848,9 @@ public class GoogleProvider : TerraformProvider
     /// The dataplex_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DataplexCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DataplexCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("dataplex_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("dataplex_custom_endpoint");
         set => SetProperty("dataplex_custom_endpoint", value);
     }
 
@@ -858,9 +858,9 @@ public class GoogleProvider : TerraformProvider
     /// The dataproc_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DataprocCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DataprocCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("dataproc_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("dataproc_custom_endpoint");
         set => SetProperty("dataproc_custom_endpoint", value);
     }
 
@@ -868,9 +868,9 @@ public class GoogleProvider : TerraformProvider
     /// The dataproc_gdc_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DataprocGdcCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DataprocGdcCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("dataproc_gdc_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("dataproc_gdc_custom_endpoint");
         set => SetProperty("dataproc_gdc_custom_endpoint", value);
     }
 
@@ -878,9 +878,9 @@ public class GoogleProvider : TerraformProvider
     /// The dataproc_metastore_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DataprocMetastoreCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DataprocMetastoreCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("dataproc_metastore_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("dataproc_metastore_custom_endpoint");
         set => SetProperty("dataproc_metastore_custom_endpoint", value);
     }
 
@@ -888,9 +888,9 @@ public class GoogleProvider : TerraformProvider
     /// The datastream_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DatastreamCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DatastreamCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("datastream_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("datastream_custom_endpoint");
         set => SetProperty("datastream_custom_endpoint", value);
     }
 
@@ -898,9 +898,9 @@ public class GoogleProvider : TerraformProvider
     /// The default_labels configuration.
     /// (Optional)
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> DefaultLabels
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> DefaultLabels
     {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("default_labels");
+        get => GetRequiredOutput<TerraformProperty<Dictionary<string, TerraformProperty<string>>>>("default_labels");
         set => SetProperty("default_labels", value);
     }
 
@@ -908,9 +908,9 @@ public class GoogleProvider : TerraformProvider
     /// The deployment_manager_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DeploymentManagerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DeploymentManagerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("deployment_manager_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("deployment_manager_custom_endpoint");
         set => SetProperty("deployment_manager_custom_endpoint", value);
     }
 
@@ -918,9 +918,9 @@ public class GoogleProvider : TerraformProvider
     /// The developer_connect_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DeveloperConnectCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DeveloperConnectCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("developer_connect_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("developer_connect_custom_endpoint");
         set => SetProperty("developer_connect_custom_endpoint", value);
     }
 
@@ -928,9 +928,9 @@ public class GoogleProvider : TerraformProvider
     /// The dialogflow_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DialogflowCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DialogflowCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("dialogflow_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("dialogflow_custom_endpoint");
         set => SetProperty("dialogflow_custom_endpoint", value);
     }
 
@@ -938,9 +938,9 @@ public class GoogleProvider : TerraformProvider
     /// The dialogflow_cx_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DialogflowCxCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DialogflowCxCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("dialogflow_cx_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("dialogflow_cx_custom_endpoint");
         set => SetProperty("dialogflow_cx_custom_endpoint", value);
     }
 
@@ -948,9 +948,9 @@ public class GoogleProvider : TerraformProvider
     /// The discovery_engine_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DiscoveryEngineCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DiscoveryEngineCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("discovery_engine_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("discovery_engine_custom_endpoint");
         set => SetProperty("discovery_engine_custom_endpoint", value);
     }
 
@@ -958,9 +958,9 @@ public class GoogleProvider : TerraformProvider
     /// The dns_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DnsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DnsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("dns_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("dns_custom_endpoint");
         set => SetProperty("dns_custom_endpoint", value);
     }
 
@@ -968,9 +968,9 @@ public class GoogleProvider : TerraformProvider
     /// The document_ai_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DocumentAiCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DocumentAiCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("document_ai_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("document_ai_custom_endpoint");
         set => SetProperty("document_ai_custom_endpoint", value);
     }
 
@@ -978,9 +978,9 @@ public class GoogleProvider : TerraformProvider
     /// The document_ai_warehouse_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> DocumentAiWarehouseCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> DocumentAiWarehouseCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("document_ai_warehouse_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("document_ai_warehouse_custom_endpoint");
         set => SetProperty("document_ai_warehouse_custom_endpoint", value);
     }
 
@@ -988,9 +988,9 @@ public class GoogleProvider : TerraformProvider
     /// The edgecontainer_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> EdgecontainerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> EdgecontainerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("edgecontainer_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("edgecontainer_custom_endpoint");
         set => SetProperty("edgecontainer_custom_endpoint", value);
     }
 
@@ -998,9 +998,9 @@ public class GoogleProvider : TerraformProvider
     /// The edgenetwork_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> EdgenetworkCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> EdgenetworkCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("edgenetwork_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("edgenetwork_custom_endpoint");
         set => SetProperty("edgenetwork_custom_endpoint", value);
     }
 
@@ -1008,9 +1008,9 @@ public class GoogleProvider : TerraformProvider
     /// The essential_contacts_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> EssentialContactsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> EssentialContactsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("essential_contacts_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("essential_contacts_custom_endpoint");
         set => SetProperty("essential_contacts_custom_endpoint", value);
     }
 
@@ -1018,9 +1018,9 @@ public class GoogleProvider : TerraformProvider
     /// The eventarc_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> EventarcCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> EventarcCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventarc_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("eventarc_custom_endpoint");
         set => SetProperty("eventarc_custom_endpoint", value);
     }
 
@@ -1028,9 +1028,9 @@ public class GoogleProvider : TerraformProvider
     /// The filestore_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> FilestoreCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> FilestoreCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("filestore_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("filestore_custom_endpoint");
         set => SetProperty("filestore_custom_endpoint", value);
     }
 
@@ -1038,9 +1038,9 @@ public class GoogleProvider : TerraformProvider
     /// The firebase_app_check_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> FirebaseAppCheckCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> FirebaseAppCheckCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("firebase_app_check_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("firebase_app_check_custom_endpoint");
         set => SetProperty("firebase_app_check_custom_endpoint", value);
     }
 
@@ -1048,9 +1048,9 @@ public class GoogleProvider : TerraformProvider
     /// The firebase_app_hosting_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> FirebaseAppHostingCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> FirebaseAppHostingCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("firebase_app_hosting_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("firebase_app_hosting_custom_endpoint");
         set => SetProperty("firebase_app_hosting_custom_endpoint", value);
     }
 
@@ -1058,9 +1058,9 @@ public class GoogleProvider : TerraformProvider
     /// The firebase_data_connect_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> FirebaseDataConnectCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> FirebaseDataConnectCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("firebase_data_connect_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("firebase_data_connect_custom_endpoint");
         set => SetProperty("firebase_data_connect_custom_endpoint", value);
     }
 
@@ -1068,9 +1068,9 @@ public class GoogleProvider : TerraformProvider
     /// The firebaserules_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> FirebaserulesCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> FirebaserulesCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("firebaserules_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("firebaserules_custom_endpoint");
         set => SetProperty("firebaserules_custom_endpoint", value);
     }
 
@@ -1078,9 +1078,9 @@ public class GoogleProvider : TerraformProvider
     /// The firestore_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> FirestoreCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> FirestoreCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("firestore_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("firestore_custom_endpoint");
         set => SetProperty("firestore_custom_endpoint", value);
     }
 
@@ -1088,9 +1088,9 @@ public class GoogleProvider : TerraformProvider
     /// The gemini_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> GeminiCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> GeminiCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("gemini_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("gemini_custom_endpoint");
         set => SetProperty("gemini_custom_endpoint", value);
     }
 
@@ -1098,9 +1098,9 @@ public class GoogleProvider : TerraformProvider
     /// The gke_backup_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> GkeBackupCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> GkeBackupCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("gke_backup_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("gke_backup_custom_endpoint");
         set => SetProperty("gke_backup_custom_endpoint", value);
     }
 
@@ -1108,9 +1108,9 @@ public class GoogleProvider : TerraformProvider
     /// The gke_hub2_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> GkeHub2CustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> GkeHub2CustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("gke_hub2_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("gke_hub2_custom_endpoint");
         set => SetProperty("gke_hub2_custom_endpoint", value);
     }
 
@@ -1118,9 +1118,9 @@ public class GoogleProvider : TerraformProvider
     /// The gke_hub_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> GkeHubCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> GkeHubCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("gke_hub_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("gke_hub_custom_endpoint");
         set => SetProperty("gke_hub_custom_endpoint", value);
     }
 
@@ -1128,9 +1128,9 @@ public class GoogleProvider : TerraformProvider
     /// The gkeonprem_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> GkeonpremCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> GkeonpremCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("gkeonprem_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("gkeonprem_custom_endpoint");
         set => SetProperty("gkeonprem_custom_endpoint", value);
     }
 
@@ -1138,9 +1138,9 @@ public class GoogleProvider : TerraformProvider
     /// The healthcare_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> HealthcareCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> HealthcareCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("healthcare_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("healthcare_custom_endpoint");
         set => SetProperty("healthcare_custom_endpoint", value);
     }
 
@@ -1148,9 +1148,9 @@ public class GoogleProvider : TerraformProvider
     /// The iam2_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> Iam2CustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> Iam2CustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam2_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("iam2_custom_endpoint");
         set => SetProperty("iam2_custom_endpoint", value);
     }
 
@@ -1158,9 +1158,9 @@ public class GoogleProvider : TerraformProvider
     /// The iam3_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> Iam3CustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> Iam3CustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam3_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("iam3_custom_endpoint");
         set => SetProperty("iam3_custom_endpoint", value);
     }
 
@@ -1168,9 +1168,9 @@ public class GoogleProvider : TerraformProvider
     /// The iam_beta_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> IamBetaCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> IamBetaCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam_beta_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("iam_beta_custom_endpoint");
         set => SetProperty("iam_beta_custom_endpoint", value);
     }
 
@@ -1178,9 +1178,9 @@ public class GoogleProvider : TerraformProvider
     /// The iam_credentials_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> IamCredentialsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> IamCredentialsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam_credentials_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("iam_credentials_custom_endpoint");
         set => SetProperty("iam_credentials_custom_endpoint", value);
     }
 
@@ -1188,9 +1188,9 @@ public class GoogleProvider : TerraformProvider
     /// The iam_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> IamCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> IamCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("iam_custom_endpoint");
         set => SetProperty("iam_custom_endpoint", value);
     }
 
@@ -1198,9 +1198,9 @@ public class GoogleProvider : TerraformProvider
     /// The iam_workforce_pool_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> IamWorkforcePoolCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> IamWorkforcePoolCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam_workforce_pool_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("iam_workforce_pool_custom_endpoint");
         set => SetProperty("iam_workforce_pool_custom_endpoint", value);
     }
 
@@ -1208,9 +1208,9 @@ public class GoogleProvider : TerraformProvider
     /// The iap_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> IapCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> IapCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("iap_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("iap_custom_endpoint");
         set => SetProperty("iap_custom_endpoint", value);
     }
 
@@ -1218,9 +1218,9 @@ public class GoogleProvider : TerraformProvider
     /// The identity_platform_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> IdentityPlatformCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> IdentityPlatformCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_platform_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("identity_platform_custom_endpoint");
         set => SetProperty("identity_platform_custom_endpoint", value);
     }
 
@@ -1228,9 +1228,9 @@ public class GoogleProvider : TerraformProvider
     /// The impersonate_service_account configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ImpersonateServiceAccount
+    public TerraformProperty<TerraformProperty<string>> ImpersonateServiceAccount
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("impersonate_service_account");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("impersonate_service_account");
         set => SetProperty("impersonate_service_account", value);
     }
 
@@ -1238,9 +1238,9 @@ public class GoogleProvider : TerraformProvider
     /// The impersonate_service_account_delegates configuration.
     /// (Optional)
     /// </summary>
-    public List<TerraformProperty<string>> ImpersonateServiceAccountDelegates
+    public TerraformProperty<List<TerraformProperty<string>>> ImpersonateServiceAccountDelegates
     {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("impersonate_service_account_delegates");
+        get => GetRequiredOutput<TerraformProperty<List<TerraformProperty<string>>>>("impersonate_service_account_delegates");
         set => SetProperty("impersonate_service_account_delegates", value);
     }
 
@@ -1248,9 +1248,9 @@ public class GoogleProvider : TerraformProvider
     /// The integration_connectors_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> IntegrationConnectorsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> IntegrationConnectorsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("integration_connectors_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("integration_connectors_custom_endpoint");
         set => SetProperty("integration_connectors_custom_endpoint", value);
     }
 
@@ -1258,9 +1258,9 @@ public class GoogleProvider : TerraformProvider
     /// The integrations_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> IntegrationsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> IntegrationsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("integrations_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("integrations_custom_endpoint");
         set => SetProperty("integrations_custom_endpoint", value);
     }
 
@@ -1268,9 +1268,9 @@ public class GoogleProvider : TerraformProvider
     /// The kms_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> KmsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> KmsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("kms_custom_endpoint");
         set => SetProperty("kms_custom_endpoint", value);
     }
 
@@ -1278,9 +1278,9 @@ public class GoogleProvider : TerraformProvider
     /// The logging_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> LoggingCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> LoggingCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("logging_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("logging_custom_endpoint");
         set => SetProperty("logging_custom_endpoint", value);
     }
 
@@ -1288,9 +1288,9 @@ public class GoogleProvider : TerraformProvider
     /// The looker_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> LookerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> LookerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("looker_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("looker_custom_endpoint");
         set => SetProperty("looker_custom_endpoint", value);
     }
 
@@ -1298,9 +1298,9 @@ public class GoogleProvider : TerraformProvider
     /// The lustre_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> LustreCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> LustreCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("lustre_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("lustre_custom_endpoint");
         set => SetProperty("lustre_custom_endpoint", value);
     }
 
@@ -1308,9 +1308,9 @@ public class GoogleProvider : TerraformProvider
     /// The managed_kafka_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ManagedKafkaCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ManagedKafkaCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_kafka_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("managed_kafka_custom_endpoint");
         set => SetProperty("managed_kafka_custom_endpoint", value);
     }
 
@@ -1318,9 +1318,9 @@ public class GoogleProvider : TerraformProvider
     /// The memcache_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> MemcacheCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> MemcacheCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("memcache_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("memcache_custom_endpoint");
         set => SetProperty("memcache_custom_endpoint", value);
     }
 
@@ -1328,9 +1328,9 @@ public class GoogleProvider : TerraformProvider
     /// The memorystore_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> MemorystoreCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> MemorystoreCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("memorystore_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("memorystore_custom_endpoint");
         set => SetProperty("memorystore_custom_endpoint", value);
     }
 
@@ -1338,9 +1338,9 @@ public class GoogleProvider : TerraformProvider
     /// The migration_center_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> MigrationCenterCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> MigrationCenterCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("migration_center_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("migration_center_custom_endpoint");
         set => SetProperty("migration_center_custom_endpoint", value);
     }
 
@@ -1348,9 +1348,9 @@ public class GoogleProvider : TerraformProvider
     /// The ml_engine_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> MlEngineCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> MlEngineCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("ml_engine_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("ml_engine_custom_endpoint");
         set => SetProperty("ml_engine_custom_endpoint", value);
     }
 
@@ -1358,9 +1358,9 @@ public class GoogleProvider : TerraformProvider
     /// The model_armor_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ModelArmorCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ModelArmorCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("model_armor_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("model_armor_custom_endpoint");
         set => SetProperty("model_armor_custom_endpoint", value);
     }
 
@@ -1368,9 +1368,9 @@ public class GoogleProvider : TerraformProvider
     /// The model_armor_global_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ModelArmorGlobalCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ModelArmorGlobalCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("model_armor_global_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("model_armor_global_custom_endpoint");
         set => SetProperty("model_armor_global_custom_endpoint", value);
     }
 
@@ -1378,9 +1378,9 @@ public class GoogleProvider : TerraformProvider
     /// The monitoring_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> MonitoringCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> MonitoringCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("monitoring_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("monitoring_custom_endpoint");
         set => SetProperty("monitoring_custom_endpoint", value);
     }
 
@@ -1388,9 +1388,9 @@ public class GoogleProvider : TerraformProvider
     /// The netapp_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> NetappCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> NetappCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("netapp_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("netapp_custom_endpoint");
         set => SetProperty("netapp_custom_endpoint", value);
     }
 
@@ -1398,9 +1398,9 @@ public class GoogleProvider : TerraformProvider
     /// The network_connectivity_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> NetworkConnectivityCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> NetworkConnectivityCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_connectivity_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("network_connectivity_custom_endpoint");
         set => SetProperty("network_connectivity_custom_endpoint", value);
     }
 
@@ -1408,9 +1408,9 @@ public class GoogleProvider : TerraformProvider
     /// The network_connectivityv1_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> NetworkConnectivityv1CustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> NetworkConnectivityv1CustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_connectivityv1_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("network_connectivityv1_custom_endpoint");
         set => SetProperty("network_connectivityv1_custom_endpoint", value);
     }
 
@@ -1418,9 +1418,9 @@ public class GoogleProvider : TerraformProvider
     /// The network_management_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> NetworkManagementCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> NetworkManagementCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_management_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("network_management_custom_endpoint");
         set => SetProperty("network_management_custom_endpoint", value);
     }
 
@@ -1428,9 +1428,9 @@ public class GoogleProvider : TerraformProvider
     /// The network_security_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> NetworkSecurityCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> NetworkSecurityCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_security_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("network_security_custom_endpoint");
         set => SetProperty("network_security_custom_endpoint", value);
     }
 
@@ -1438,9 +1438,9 @@ public class GoogleProvider : TerraformProvider
     /// The network_services_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> NetworkServicesCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> NetworkServicesCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_services_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("network_services_custom_endpoint");
         set => SetProperty("network_services_custom_endpoint", value);
     }
 
@@ -1448,9 +1448,9 @@ public class GoogleProvider : TerraformProvider
     /// The notebooks_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> NotebooksCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> NotebooksCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("notebooks_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("notebooks_custom_endpoint");
         set => SetProperty("notebooks_custom_endpoint", value);
     }
 
@@ -1458,9 +1458,9 @@ public class GoogleProvider : TerraformProvider
     /// The observability_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ObservabilityCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ObservabilityCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("observability_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("observability_custom_endpoint");
         set => SetProperty("observability_custom_endpoint", value);
     }
 
@@ -1468,9 +1468,9 @@ public class GoogleProvider : TerraformProvider
     /// The oracle_database_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> OracleDatabaseCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> OracleDatabaseCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("oracle_database_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("oracle_database_custom_endpoint");
         set => SetProperty("oracle_database_custom_endpoint", value);
     }
 
@@ -1478,9 +1478,9 @@ public class GoogleProvider : TerraformProvider
     /// The org_policy_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> OrgPolicyCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> OrgPolicyCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("org_policy_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("org_policy_custom_endpoint");
         set => SetProperty("org_policy_custom_endpoint", value);
     }
 
@@ -1488,9 +1488,9 @@ public class GoogleProvider : TerraformProvider
     /// The os_config_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> OsConfigCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> OsConfigCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("os_config_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("os_config_custom_endpoint");
         set => SetProperty("os_config_custom_endpoint", value);
     }
 
@@ -1498,9 +1498,9 @@ public class GoogleProvider : TerraformProvider
     /// The os_config_v2_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> OsConfigV2CustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> OsConfigV2CustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("os_config_v2_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("os_config_v2_custom_endpoint");
         set => SetProperty("os_config_v2_custom_endpoint", value);
     }
 
@@ -1508,9 +1508,9 @@ public class GoogleProvider : TerraformProvider
     /// The os_login_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> OsLoginCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> OsLoginCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("os_login_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("os_login_custom_endpoint");
         set => SetProperty("os_login_custom_endpoint", value);
     }
 
@@ -1518,9 +1518,9 @@ public class GoogleProvider : TerraformProvider
     /// The parallelstore_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ParallelstoreCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ParallelstoreCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("parallelstore_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("parallelstore_custom_endpoint");
         set => SetProperty("parallelstore_custom_endpoint", value);
     }
 
@@ -1528,9 +1528,9 @@ public class GoogleProvider : TerraformProvider
     /// The parameter_manager_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ParameterManagerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ParameterManagerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("parameter_manager_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("parameter_manager_custom_endpoint");
         set => SetProperty("parameter_manager_custom_endpoint", value);
     }
 
@@ -1538,9 +1538,9 @@ public class GoogleProvider : TerraformProvider
     /// The parameter_manager_regional_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ParameterManagerRegionalCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ParameterManagerRegionalCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("parameter_manager_regional_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("parameter_manager_regional_custom_endpoint");
         set => SetProperty("parameter_manager_regional_custom_endpoint", value);
     }
 
@@ -1548,9 +1548,9 @@ public class GoogleProvider : TerraformProvider
     /// The privateca_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> PrivatecaCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> PrivatecaCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("privateca_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("privateca_custom_endpoint");
         set => SetProperty("privateca_custom_endpoint", value);
     }
 
@@ -1558,9 +1558,9 @@ public class GoogleProvider : TerraformProvider
     /// The privileged_access_manager_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> PrivilegedAccessManagerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> PrivilegedAccessManagerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("privileged_access_manager_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("privileged_access_manager_custom_endpoint");
         set => SetProperty("privileged_access_manager_custom_endpoint", value);
     }
 
@@ -1568,9 +1568,9 @@ public class GoogleProvider : TerraformProvider
     /// The project configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> Project
+    public TerraformProperty<TerraformProperty<string>> Project
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("project");
         set => SetProperty("project", value);
     }
 
@@ -1578,9 +1578,9 @@ public class GoogleProvider : TerraformProvider
     /// The public_ca_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> PublicCaCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> PublicCaCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("public_ca_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("public_ca_custom_endpoint");
         set => SetProperty("public_ca_custom_endpoint", value);
     }
 
@@ -1588,9 +1588,9 @@ public class GoogleProvider : TerraformProvider
     /// The pubsub_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> PubsubCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> PubsubCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("pubsub_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("pubsub_custom_endpoint");
         set => SetProperty("pubsub_custom_endpoint", value);
     }
 
@@ -1598,9 +1598,9 @@ public class GoogleProvider : TerraformProvider
     /// The pubsub_lite_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> PubsubLiteCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> PubsubLiteCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("pubsub_lite_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("pubsub_lite_custom_endpoint");
         set => SetProperty("pubsub_lite_custom_endpoint", value);
     }
 
@@ -1608,9 +1608,9 @@ public class GoogleProvider : TerraformProvider
     /// The recaptcha_enterprise_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> RecaptchaEnterpriseCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> RecaptchaEnterpriseCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("recaptcha_enterprise_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("recaptcha_enterprise_custom_endpoint");
         set => SetProperty("recaptcha_enterprise_custom_endpoint", value);
     }
 
@@ -1618,9 +1618,9 @@ public class GoogleProvider : TerraformProvider
     /// The redis_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> RedisCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> RedisCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("redis_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("redis_custom_endpoint");
         set => SetProperty("redis_custom_endpoint", value);
     }
 
@@ -1628,9 +1628,9 @@ public class GoogleProvider : TerraformProvider
     /// The region configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> Region
+    public TerraformProperty<TerraformProperty<string>> Region
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("region");
         set => SetProperty("region", value);
     }
 
@@ -1638,9 +1638,9 @@ public class GoogleProvider : TerraformProvider
     /// The request_reason configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> RequestReason
+    public TerraformProperty<TerraformProperty<string>> RequestReason
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("request_reason");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("request_reason");
         set => SetProperty("request_reason", value);
     }
 
@@ -1648,9 +1648,9 @@ public class GoogleProvider : TerraformProvider
     /// The request_timeout configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> RequestTimeout
+    public TerraformProperty<TerraformProperty<string>> RequestTimeout
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("request_timeout");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("request_timeout");
         set => SetProperty("request_timeout", value);
     }
 
@@ -1658,9 +1658,9 @@ public class GoogleProvider : TerraformProvider
     /// The resource_manager3_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ResourceManager3CustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ResourceManager3CustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_manager3_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("resource_manager3_custom_endpoint");
         set => SetProperty("resource_manager3_custom_endpoint", value);
     }
 
@@ -1668,9 +1668,9 @@ public class GoogleProvider : TerraformProvider
     /// The resource_manager_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ResourceManagerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ResourceManagerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_manager_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("resource_manager_custom_endpoint");
         set => SetProperty("resource_manager_custom_endpoint", value);
     }
 
@@ -1678,9 +1678,9 @@ public class GoogleProvider : TerraformProvider
     /// The resource_manager_v3_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ResourceManagerV3CustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ResourceManagerV3CustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_manager_v3_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("resource_manager_v3_custom_endpoint");
         set => SetProperty("resource_manager_v3_custom_endpoint", value);
     }
 
@@ -1688,9 +1688,9 @@ public class GoogleProvider : TerraformProvider
     /// The scopes configuration.
     /// (Optional)
     /// </summary>
-    public List<TerraformProperty<string>> Scopes
+    public TerraformProperty<List<TerraformProperty<string>>> Scopes
     {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("scopes");
+        get => GetRequiredOutput<TerraformProperty<List<TerraformProperty<string>>>>("scopes");
         set => SetProperty("scopes", value);
     }
 
@@ -1698,9 +1698,9 @@ public class GoogleProvider : TerraformProvider
     /// The secret_manager_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> SecretManagerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> SecretManagerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("secret_manager_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("secret_manager_custom_endpoint");
         set => SetProperty("secret_manager_custom_endpoint", value);
     }
 
@@ -1708,9 +1708,9 @@ public class GoogleProvider : TerraformProvider
     /// The secret_manager_regional_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> SecretManagerRegionalCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> SecretManagerRegionalCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("secret_manager_regional_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("secret_manager_regional_custom_endpoint");
         set => SetProperty("secret_manager_regional_custom_endpoint", value);
     }
 
@@ -1718,9 +1718,9 @@ public class GoogleProvider : TerraformProvider
     /// The secure_source_manager_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> SecureSourceManagerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> SecureSourceManagerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("secure_source_manager_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("secure_source_manager_custom_endpoint");
         set => SetProperty("secure_source_manager_custom_endpoint", value);
     }
 
@@ -1728,9 +1728,9 @@ public class GoogleProvider : TerraformProvider
     /// The security_center_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> SecurityCenterCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> SecurityCenterCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_center_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("security_center_custom_endpoint");
         set => SetProperty("security_center_custom_endpoint", value);
     }
 
@@ -1738,9 +1738,9 @@ public class GoogleProvider : TerraformProvider
     /// The security_center_management_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> SecurityCenterManagementCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> SecurityCenterManagementCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_center_management_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("security_center_management_custom_endpoint");
         set => SetProperty("security_center_management_custom_endpoint", value);
     }
 
@@ -1748,9 +1748,9 @@ public class GoogleProvider : TerraformProvider
     /// The security_center_v2_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> SecurityCenterV2CustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> SecurityCenterV2CustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_center_v2_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("security_center_v2_custom_endpoint");
         set => SetProperty("security_center_v2_custom_endpoint", value);
     }
 
@@ -1758,9 +1758,9 @@ public class GoogleProvider : TerraformProvider
     /// The securityposture_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> SecuritypostureCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> SecuritypostureCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("securityposture_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("securityposture_custom_endpoint");
         set => SetProperty("securityposture_custom_endpoint", value);
     }
 
@@ -1768,9 +1768,9 @@ public class GoogleProvider : TerraformProvider
     /// The service_management_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ServiceManagementCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ServiceManagementCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_management_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("service_management_custom_endpoint");
         set => SetProperty("service_management_custom_endpoint", value);
     }
 
@@ -1778,9 +1778,9 @@ public class GoogleProvider : TerraformProvider
     /// The service_networking_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ServiceNetworkingCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ServiceNetworkingCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_networking_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("service_networking_custom_endpoint");
         set => SetProperty("service_networking_custom_endpoint", value);
     }
 
@@ -1788,9 +1788,9 @@ public class GoogleProvider : TerraformProvider
     /// The service_usage_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> ServiceUsageCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> ServiceUsageCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_usage_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("service_usage_custom_endpoint");
         set => SetProperty("service_usage_custom_endpoint", value);
     }
 
@@ -1798,9 +1798,9 @@ public class GoogleProvider : TerraformProvider
     /// The site_verification_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> SiteVerificationCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> SiteVerificationCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("site_verification_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("site_verification_custom_endpoint");
         set => SetProperty("site_verification_custom_endpoint", value);
     }
 
@@ -1808,9 +1808,9 @@ public class GoogleProvider : TerraformProvider
     /// The source_repo_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> SourceRepoCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> SourceRepoCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_repo_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("source_repo_custom_endpoint");
         set => SetProperty("source_repo_custom_endpoint", value);
     }
 
@@ -1818,9 +1818,9 @@ public class GoogleProvider : TerraformProvider
     /// The spanner_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> SpannerCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> SpannerCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("spanner_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("spanner_custom_endpoint");
         set => SetProperty("spanner_custom_endpoint", value);
     }
 
@@ -1828,9 +1828,9 @@ public class GoogleProvider : TerraformProvider
     /// The sql_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> SqlCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> SqlCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("sql_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("sql_custom_endpoint");
         set => SetProperty("sql_custom_endpoint", value);
     }
 
@@ -1838,9 +1838,9 @@ public class GoogleProvider : TerraformProvider
     /// The storage_batch_operations_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> StorageBatchOperationsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> StorageBatchOperationsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_batch_operations_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("storage_batch_operations_custom_endpoint");
         set => SetProperty("storage_batch_operations_custom_endpoint", value);
     }
 
@@ -1848,9 +1848,9 @@ public class GoogleProvider : TerraformProvider
     /// The storage_control_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> StorageControlCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> StorageControlCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_control_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("storage_control_custom_endpoint");
         set => SetProperty("storage_control_custom_endpoint", value);
     }
 
@@ -1858,9 +1858,9 @@ public class GoogleProvider : TerraformProvider
     /// The storage_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> StorageCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> StorageCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("storage_custom_endpoint");
         set => SetProperty("storage_custom_endpoint", value);
     }
 
@@ -1868,9 +1868,9 @@ public class GoogleProvider : TerraformProvider
     /// The storage_insights_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> StorageInsightsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> StorageInsightsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_insights_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("storage_insights_custom_endpoint");
         set => SetProperty("storage_insights_custom_endpoint", value);
     }
 
@@ -1878,9 +1878,9 @@ public class GoogleProvider : TerraformProvider
     /// The storage_transfer_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> StorageTransferCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> StorageTransferCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_transfer_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("storage_transfer_custom_endpoint");
         set => SetProperty("storage_transfer_custom_endpoint", value);
     }
 
@@ -1888,9 +1888,9 @@ public class GoogleProvider : TerraformProvider
     /// The tags_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> TagsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> TagsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("tags_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("tags_custom_endpoint");
         set => SetProperty("tags_custom_endpoint", value);
     }
 
@@ -1898,9 +1898,9 @@ public class GoogleProvider : TerraformProvider
     /// The tags_location_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> TagsLocationCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> TagsLocationCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("tags_location_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("tags_location_custom_endpoint");
         set => SetProperty("tags_location_custom_endpoint", value);
     }
 
@@ -1908,9 +1908,9 @@ public class GoogleProvider : TerraformProvider
     /// The terraform_attribution_label_addition_strategy configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> TerraformAttributionLabelAdditionStrategy
+    public TerraformProperty<TerraformProperty<string>> TerraformAttributionLabelAdditionStrategy
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("terraform_attribution_label_addition_strategy");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("terraform_attribution_label_addition_strategy");
         set => SetProperty("terraform_attribution_label_addition_strategy", value);
     }
 
@@ -1918,9 +1918,9 @@ public class GoogleProvider : TerraformProvider
     /// The transcoder_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> TranscoderCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> TranscoderCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("transcoder_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("transcoder_custom_endpoint");
         set => SetProperty("transcoder_custom_endpoint", value);
     }
 
@@ -1928,9 +1928,9 @@ public class GoogleProvider : TerraformProvider
     /// The universe_domain configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> UniverseDomain
+    public TerraformProperty<TerraformProperty<string>> UniverseDomain
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("universe_domain");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("universe_domain");
         set => SetProperty("universe_domain", value);
     }
 
@@ -1938,9 +1938,9 @@ public class GoogleProvider : TerraformProvider
     /// The user_project_override configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<bool> UserProjectOverride
+    public TerraformProperty<TerraformProperty<bool>> UserProjectOverride
     {
-        get => GetRequiredOutput<TerraformProperty<bool>>("user_project_override");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<bool>>>("user_project_override");
         set => SetProperty("user_project_override", value);
     }
 
@@ -1948,9 +1948,9 @@ public class GoogleProvider : TerraformProvider
     /// The vertex_ai_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> VertexAiCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> VertexAiCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("vertex_ai_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("vertex_ai_custom_endpoint");
         set => SetProperty("vertex_ai_custom_endpoint", value);
     }
 
@@ -1958,9 +1958,9 @@ public class GoogleProvider : TerraformProvider
     /// The vmwareengine_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> VmwareengineCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> VmwareengineCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("vmwareengine_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("vmwareengine_custom_endpoint");
         set => SetProperty("vmwareengine_custom_endpoint", value);
     }
 
@@ -1968,9 +1968,9 @@ public class GoogleProvider : TerraformProvider
     /// The vpc_access_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> VpcAccessCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> VpcAccessCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_access_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("vpc_access_custom_endpoint");
         set => SetProperty("vpc_access_custom_endpoint", value);
     }
 
@@ -1978,9 +1978,9 @@ public class GoogleProvider : TerraformProvider
     /// The workbench_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> WorkbenchCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> WorkbenchCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("workbench_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("workbench_custom_endpoint");
         set => SetProperty("workbench_custom_endpoint", value);
     }
 
@@ -1988,9 +1988,9 @@ public class GoogleProvider : TerraformProvider
     /// The workflows_custom_endpoint configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> WorkflowsCustomEndpoint
+    public TerraformProperty<TerraformProperty<string>> WorkflowsCustomEndpoint
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("workflows_custom_endpoint");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("workflows_custom_endpoint");
         set => SetProperty("workflows_custom_endpoint", value);
     }
 
@@ -1998,9 +1998,9 @@ public class GoogleProvider : TerraformProvider
     /// The zone configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<string> Zone
+    public TerraformProperty<TerraformProperty<string>> Zone
     {
-        get => GetRequiredOutput<TerraformProperty<string>>("zone");
+        get => GetRequiredOutput<TerraformProperty<TerraformProperty<string>>>("zone");
         set => SetProperty("zone", value);
     }
 }

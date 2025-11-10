@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermImageDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermImageDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,101 +24,84 @@ public class AzurermImageDataSource : TerraformDataSource
 {
     public AzurermImageDataSource(string name) : base("azurerm_image", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("data_disk");
-        SetOutput("location");
-        SetOutput("os_disk");
-        SetOutput("tags");
-        SetOutput("zone_resilient");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("name_regex");
-        SetOutput("resource_group_name");
-        SetOutput("sort_descending");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformProperty<string> NameRegex
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_regex");
-        set => SetProperty("name_regex", value);
-    }
+    [TerraformPropertyName("name_regex")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NameRegex { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sort_descending attribute.
     /// </summary>
-    public TerraformProperty<bool> SortDescending
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("sort_descending");
-        set => SetProperty("sort_descending", value);
-    }
+    [TerraformPropertyName("sort_descending")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SortDescending { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermImageDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermImageDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The data_disk attribute.
     /// </summary>
-    public TerraformExpression DataDisk => this["data_disk"];
+    [TerraformPropertyName("data_disk")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DataDisk => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "data_disk");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The os_disk attribute.
     /// </summary>
-    public TerraformExpression OsDisk => this["os_disk"];
+    [TerraformPropertyName("os_disk")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> OsDisk => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "os_disk");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The zone_resilient attribute.
     /// </summary>
-    public TerraformExpression ZoneResilient => this["zone_resilient"];
+    [TerraformPropertyName("zone_resilient")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ZoneResilient => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "zone_resilient");
 
 }

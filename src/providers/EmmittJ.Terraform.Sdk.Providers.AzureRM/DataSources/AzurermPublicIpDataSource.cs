@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPublicIpDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermPublicIpDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,136 +24,134 @@ public class AzurermPublicIpDataSource : TerraformDataSource
 {
     public AzurermPublicIpDataSource(string name) : base("azurerm_public_ip", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("allocation_method");
-        SetOutput("ddos_protection_mode");
-        SetOutput("ddos_protection_plan_id");
-        SetOutput("domain_name_label");
-        SetOutput("fqdn");
-        SetOutput("idle_timeout_in_minutes");
-        SetOutput("ip_address");
-        SetOutput("ip_tags");
-        SetOutput("ip_version");
-        SetOutput("location");
-        SetOutput("reverse_fqdn");
-        SetOutput("sku");
-        SetOutput("tags");
-        SetOutput("zones");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermPublicIpDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermPublicIpDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The allocation_method attribute.
     /// </summary>
-    public TerraformExpression AllocationMethod => this["allocation_method"];
+    [TerraformPropertyName("allocation_method")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AllocationMethod => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "allocation_method");
 
     /// <summary>
     /// The ddos_protection_mode attribute.
     /// </summary>
-    public TerraformExpression DdosProtectionMode => this["ddos_protection_mode"];
+    [TerraformPropertyName("ddos_protection_mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DdosProtectionMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ddos_protection_mode");
 
     /// <summary>
     /// The ddos_protection_plan_id attribute.
     /// </summary>
-    public TerraformExpression DdosProtectionPlanId => this["ddos_protection_plan_id"];
+    [TerraformPropertyName("ddos_protection_plan_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DdosProtectionPlanId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ddos_protection_plan_id");
 
     /// <summary>
     /// The domain_name_label attribute.
     /// </summary>
-    public TerraformExpression DomainNameLabel => this["domain_name_label"];
+    [TerraformPropertyName("domain_name_label")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DomainNameLabel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_name_label");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    public TerraformExpression Fqdn => this["fqdn"];
+    [TerraformPropertyName("fqdn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fqdn");
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformExpression IdleTimeoutInMinutes => this["idle_timeout_in_minutes"];
+    [TerraformPropertyName("idle_timeout_in_minutes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> IdleTimeoutInMinutes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "idle_timeout_in_minutes");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformExpression IpAddress => this["ip_address"];
+    [TerraformPropertyName("ip_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address");
 
     /// <summary>
     /// The ip_tags attribute.
     /// </summary>
-    public TerraformExpression IpTags => this["ip_tags"];
+    [TerraformPropertyName("ip_tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> IpTags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "ip_tags");
 
     /// <summary>
     /// The ip_version attribute.
     /// </summary>
-    public TerraformExpression IpVersion => this["ip_version"];
+    [TerraformPropertyName("ip_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_version");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The reverse_fqdn attribute.
     /// </summary>
-    public TerraformExpression ReverseFqdn => this["reverse_fqdn"];
+    [TerraformPropertyName("reverse_fqdn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ReverseFqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "reverse_fqdn");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformExpression Sku => this["sku"];
+    [TerraformPropertyName("sku")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Sku => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public TerraformExpression Zones => this["zones"];
+    [TerraformPropertyName("zones")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Zones => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "zones");
 
 }

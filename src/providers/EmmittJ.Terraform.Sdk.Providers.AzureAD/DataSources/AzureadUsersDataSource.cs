@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadUsersDataSourceTimeoutsBlock : TerraformBlock
+public class AzureadUsersDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,106 +24,76 @@ public class AzureadUsersDataSource : TerraformDataSource
 {
     public AzureadUsersDataSource(string name) : base("azuread_users", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("users");
-        SetOutput("employee_ids");
-        SetOutput("id");
-        SetOutput("ignore_missing");
-        SetOutput("mail_nicknames");
-        SetOutput("mails");
-        SetOutput("object_ids");
-        SetOutput("return_all");
-        SetOutput("user_principal_names");
     }
 
     /// <summary>
     /// The employee identifier assigned to the user by the organisation
     /// </summary>
-    public List<TerraformProperty<string>> EmployeeIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("employee_ids");
-        set => SetProperty("employee_ids", value);
-    }
+    [TerraformPropertyName("employee_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> EmployeeIds { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "employee_ids");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Ignore missing users and return users that were found. The data source will still fail if no users are found
     /// </summary>
-    public TerraformProperty<bool> IgnoreMissing
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_missing");
-        set => SetProperty("ignore_missing", value);
-    }
+    [TerraformPropertyName("ignore_missing")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IgnoreMissing { get; set; }
 
     /// <summary>
     /// The email aliases of the users
     /// </summary>
-    public List<TerraformProperty<string>> MailNicknames
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("mail_nicknames");
-        set => SetProperty("mail_nicknames", value);
-    }
+    [TerraformPropertyName("mail_nicknames")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> MailNicknames { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "mail_nicknames");
 
     /// <summary>
     /// The SMTP address of the users
     /// </summary>
-    public List<TerraformProperty<string>> Mails
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("mails");
-        set => SetProperty("mails", value);
-    }
+    [TerraformPropertyName("mails")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> Mails { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "mails");
 
     /// <summary>
     /// The object IDs of the users
     /// </summary>
-    public List<TerraformProperty<string>> ObjectIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("object_ids");
-        set => SetProperty("object_ids", value);
-    }
+    [TerraformPropertyName("object_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> ObjectIds { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "object_ids");
 
     /// <summary>
     /// Fetch all users with no filter and return all that were found. The data source will still fail if no users are found.
     /// </summary>
-    public TerraformProperty<bool> ReturnAll
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("return_all");
-        set => SetProperty("return_all", value);
-    }
+    [TerraformPropertyName("return_all")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ReturnAll { get; set; }
 
     /// <summary>
     /// The user principal names (UPNs) of the users
     /// </summary>
-    public List<TerraformProperty<string>> UserPrincipalNames
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("user_principal_names");
-        set => SetProperty("user_principal_names", value);
-    }
+    [TerraformPropertyName("user_principal_names")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> UserPrincipalNames { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "user_principal_names");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadUsersDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadUsersDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// A list of users
     /// </summary>
-    public TerraformExpression Users => this["users"];
+    [TerraformPropertyName("users")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Users => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "users");
 
 }

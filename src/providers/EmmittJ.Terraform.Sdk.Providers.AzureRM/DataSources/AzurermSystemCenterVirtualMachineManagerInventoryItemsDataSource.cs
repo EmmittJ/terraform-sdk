@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,58 +24,43 @@ public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSource : 
 {
     public AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSource(string name) : base("azurerm_system_center_virtual_machine_manager_inventory_items", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("inventory_items");
-        SetOutput("id");
-        SetOutput("inventory_type");
-        SetOutput("system_center_virtual_machine_manager_server_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The inventory_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InventoryType is required")]
-    public required TerraformProperty<string> InventoryType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("inventory_type");
-        set => SetProperty("inventory_type", value);
-    }
+    [TerraformPropertyName("inventory_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InventoryType { get; set; }
 
     /// <summary>
     /// The system_center_virtual_machine_manager_server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SystemCenterVirtualMachineManagerServerId is required")]
-    public required TerraformProperty<string> SystemCenterVirtualMachineManagerServerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("system_center_virtual_machine_manager_server_id");
-        set => SetProperty("system_center_virtual_machine_manager_server_id", value);
-    }
+    [TerraformPropertyName("system_center_virtual_machine_manager_server_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SystemCenterVirtualMachineManagerServerId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The inventory_items attribute.
     /// </summary>
-    public TerraformExpression InventoryItems => this["inventory_items"];
+    [TerraformPropertyName("inventory_items")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> InventoryItems => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "inventory_items");
 
 }

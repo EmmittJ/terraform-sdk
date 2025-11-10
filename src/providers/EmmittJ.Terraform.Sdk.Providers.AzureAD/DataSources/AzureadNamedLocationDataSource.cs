@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadNamedLocationDataSourceTimeoutsBlock : TerraformBlock
+public class AzureadNamedLocationDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,59 +24,49 @@ public class AzureadNamedLocationDataSource : TerraformDataSource
 {
     public AzureadNamedLocationDataSource(string name) : base("azuread_named_location", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("country");
-        SetOutput("ip");
-        SetOutput("object_id");
-        SetOutput("display_name");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadNamedLocationDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadNamedLocationDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The country attribute.
     /// </summary>
-    public TerraformExpression Country => this["country"];
+    [TerraformPropertyName("country")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Country => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "country");
 
     /// <summary>
     /// The ip attribute.
     /// </summary>
-    public TerraformExpression Ip => this["ip"];
+    [TerraformPropertyName("ip")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Ip => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ip");
 
     /// <summary>
     /// The object ID of the named location
     /// </summary>
-    public TerraformExpression ObjectId => this["object_id"];
+    [TerraformPropertyName("object_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ObjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_id");
 
 }

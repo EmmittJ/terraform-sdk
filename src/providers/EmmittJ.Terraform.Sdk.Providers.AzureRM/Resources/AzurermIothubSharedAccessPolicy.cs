@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermIothubSharedAccessPolicyTimeoutsBlock : TerraformBlock
+public class AzurermIothubSharedAccessPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,127 +45,100 @@ public class AzurermIothubSharedAccessPolicy : TerraformResource
 {
     public AzurermIothubSharedAccessPolicy(string name) : base("azurerm_iothub_shared_access_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("primary_connection_string");
-        SetOutput("primary_key");
-        SetOutput("secondary_connection_string");
-        SetOutput("secondary_key");
-        SetOutput("device_connect");
-        SetOutput("id");
-        SetOutput("iothub_name");
-        SetOutput("name");
-        SetOutput("registry_read");
-        SetOutput("registry_write");
-        SetOutput("resource_group_name");
-        SetOutput("service_connect");
     }
 
     /// <summary>
     /// The device_connect attribute.
     /// </summary>
-    public TerraformProperty<bool> DeviceConnect
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("device_connect");
-        set => SetProperty("device_connect", value);
-    }
+    [TerraformPropertyName("device_connect")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeviceConnect { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The iothub_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubName is required")]
-    public required TerraformProperty<string> IothubName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iothub_name");
-        set => SetProperty("iothub_name", value);
-    }
+    [TerraformPropertyName("iothub_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IothubName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The registry_read attribute.
     /// </summary>
-    public TerraformProperty<bool> RegistryRead
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("registry_read");
-        set => SetProperty("registry_read", value);
-    }
+    [TerraformPropertyName("registry_read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RegistryRead { get; set; }
 
     /// <summary>
     /// The registry_write attribute.
     /// </summary>
-    public TerraformProperty<bool> RegistryWrite
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("registry_write");
-        set => SetProperty("registry_write", value);
-    }
+    [TerraformPropertyName("registry_write")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RegistryWrite { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The service_connect attribute.
     /// </summary>
-    public TerraformProperty<bool> ServiceConnect
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("service_connect");
-        set => SetProperty("service_connect", value);
-    }
+    [TerraformPropertyName("service_connect")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ServiceConnect { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermIothubSharedAccessPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermIothubSharedAccessPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
-    public TerraformExpression PrimaryConnectionString => this["primary_connection_string"];
+    [TerraformPropertyName("primary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_connection_string");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    public TerraformExpression PrimaryKey => this["primary_key"];
+    [TerraformPropertyName("primary_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
-    public TerraformExpression SecondaryConnectionString => this["secondary_connection_string"];
+    [TerraformPropertyName("secondary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_connection_string");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    public TerraformExpression SecondaryKey => this["secondary_key"];
+    [TerraformPropertyName("secondary_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_key");
 
 }

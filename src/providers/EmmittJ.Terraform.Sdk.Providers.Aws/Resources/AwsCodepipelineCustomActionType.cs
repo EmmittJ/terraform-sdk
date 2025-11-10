@@ -6,67 +6,60 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration_property in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : TerraformBlock
+public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<bool> Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Key { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The queryable attribute.
     /// </summary>
-    public TerraformProperty<bool>? Queryable
-    {
-        set => SetProperty("queryable", value);
-    }
+    [TerraformPropertyName("queryable")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Queryable { get; set; }
 
     /// <summary>
     /// The required attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
-    public required TerraformProperty<bool> Required
-    {
-        set => SetProperty("required", value);
-    }
+    [TerraformPropertyName("required")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Required { get; set; }
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
-    public required TerraformProperty<bool> Secret
-    {
-        set => SetProperty("secret", value);
-    }
+    [TerraformPropertyName("secret")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Secret { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -74,25 +67,23 @@ public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : Terrafo
 /// Block type for input_artifact_details in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock : TerraformBlock
+public class AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock : ITerraformBlock
 {
     /// <summary>
     /// The maximum_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumCount is required")]
-    public required TerraformProperty<double> MaximumCount
-    {
-        set => SetProperty("maximum_count", value);
-    }
+    [TerraformPropertyName("maximum_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaximumCount { get; set; }
 
     /// <summary>
     /// The minimum_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumCount is required")]
-    public required TerraformProperty<double> MinimumCount
-    {
-        set => SetProperty("minimum_count", value);
-    }
+    [TerraformPropertyName("minimum_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MinimumCount { get; set; }
 
 }
 
@@ -100,25 +91,23 @@ public class AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock : Terrafor
 /// Block type for output_artifact_details in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock : TerraformBlock
+public class AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock : ITerraformBlock
 {
     /// <summary>
     /// The maximum_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumCount is required")]
-    public required TerraformProperty<double> MaximumCount
-    {
-        set => SetProperty("maximum_count", value);
-    }
+    [TerraformPropertyName("maximum_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaximumCount { get; set; }
 
     /// <summary>
     /// The minimum_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumCount is required")]
-    public required TerraformProperty<double> MinimumCount
-    {
-        set => SetProperty("minimum_count", value);
-    }
+    [TerraformPropertyName("minimum_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MinimumCount { get; set; }
 
 }
 
@@ -126,39 +115,35 @@ public class AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock : Terrafo
 /// Block type for settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodepipelineCustomActionTypeSettingsBlock : TerraformBlock
+public class AwsCodepipelineCustomActionTypeSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The entity_url_template attribute.
     /// </summary>
-    public TerraformProperty<string>? EntityUrlTemplate
-    {
-        set => SetProperty("entity_url_template", value);
-    }
+    [TerraformPropertyName("entity_url_template")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EntityUrlTemplate { get; set; }
 
     /// <summary>
     /// The execution_url_template attribute.
     /// </summary>
-    public TerraformProperty<string>? ExecutionUrlTemplate
-    {
-        set => SetProperty("execution_url_template", value);
-    }
+    [TerraformPropertyName("execution_url_template")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExecutionUrlTemplate { get; set; }
 
     /// <summary>
     /// The revision_url_template attribute.
     /// </summary>
-    public TerraformProperty<string>? RevisionUrlTemplate
-    {
-        set => SetProperty("revision_url_template", value);
-    }
+    [TerraformPropertyName("revision_url_template")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RevisionUrlTemplate { get; set; }
 
     /// <summary>
     /// The third_party_configuration_url attribute.
     /// </summary>
-    public TerraformProperty<string>? ThirdPartyConfigurationUrl
-    {
-        set => SetProperty("third_party_configuration_url", value);
-    }
+    [TerraformPropertyName("third_party_configuration_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ThirdPartyConfigurationUrl { get; set; }
 
 }
 
@@ -170,97 +155,67 @@ public class AwsCodepipelineCustomActionType : TerraformResource
 {
     public AwsCodepipelineCustomActionType(string name) : base("aws_codepipeline_custom_action_type", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("owner");
-        SetOutput("category");
-        SetOutput("id");
-        SetOutput("provider_name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The category attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
-    public required TerraformProperty<string> Category
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("category");
-        set => SetProperty("category", value);
-    }
+    [TerraformPropertyName("category")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Category { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderName is required")]
-    public required TerraformProperty<string> ProviderName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("provider_name");
-        set => SetProperty("provider_name", value);
-    }
+    [TerraformPropertyName("provider_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProviderName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
     /// <summary>
     /// Block for configuration_property.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 ConfigurationProperty block(s) allowed")]
-    public List<AwsCodepipelineCustomActionTypeConfigurationPropertyBlock>? ConfigurationProperty
-    {
-        set => SetProperty("configuration_property", value);
-    }
+    [TerraformPropertyName("configuration_property")]
+    public TerraformList<TerraformBlock<AwsCodepipelineCustomActionTypeConfigurationPropertyBlock>>? ConfigurationProperty { get; set; } = new();
 
     /// <summary>
     /// Block for input_artifact_details.
@@ -269,10 +224,8 @@ public class AwsCodepipelineCustomActionType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputArtifactDetails is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputArtifactDetails block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputArtifactDetails block(s) allowed")]
-    public List<AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock>? InputArtifactDetails
-    {
-        set => SetProperty("input_artifact_details", value);
-    }
+    [TerraformPropertyName("input_artifact_details")]
+    public TerraformList<TerraformBlock<AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock>>? InputArtifactDetails { get; set; } = new();
 
     /// <summary>
     /// Block for output_artifact_details.
@@ -281,29 +234,29 @@ public class AwsCodepipelineCustomActionType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputArtifactDetails is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OutputArtifactDetails block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputArtifactDetails block(s) allowed")]
-    public List<AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock>? OutputArtifactDetails
-    {
-        set => SetProperty("output_artifact_details", value);
-    }
+    [TerraformPropertyName("output_artifact_details")]
+    public TerraformList<TerraformBlock<AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock>>? OutputArtifactDetails { get; set; } = new();
 
     /// <summary>
     /// Block for settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Settings block(s) allowed")]
-    public List<AwsCodepipelineCustomActionTypeSettingsBlock>? Settings
-    {
-        set => SetProperty("settings", value);
-    }
+    [TerraformPropertyName("settings")]
+    public TerraformList<TerraformBlock<AwsCodepipelineCustomActionTypeSettingsBlock>>? Settings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformExpression Owner => this["owner"];
+    [TerraformPropertyName("owner")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Owner => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner");
 
 }

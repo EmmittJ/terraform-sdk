@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataCatalogEntryGroupTimeoutsBlock : TerraformBlock
+public class GoogleDataCatalogEntryGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -42,88 +39,64 @@ public class GoogleDataCatalogEntryGroup : TerraformResource
 {
     public GoogleDataCatalogEntryGroup(string name) : base("google_data_catalog_entry_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("entry_group_id");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
     /// Entry group description, which can consist of several sentences or paragraphs that describe entry group contents.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// A short name to identify the entry group, for example, &amp;quot;analytics data - jan 2011&amp;quot;.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The id of the entry group to create. The id must begin with a letter or underscore,
     /// contain only English letters, numbers and underscores, and be at most 64 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroupId is required")]
-    public required TerraformProperty<string> EntryGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("entry_group_id");
-        set => SetProperty("entry_group_id", value);
-    }
+    [TerraformPropertyName("entry_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EntryGroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// EntryGroup location region.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDataCatalogEntryGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDataCatalogEntryGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the entry group in URL format. Example: projects/{project}/locations/{location}/entryGroups/{entryGroupId}
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

@@ -9,38 +9,28 @@ public class AwsRoute53RecordsDataSource : TerraformDataSource
 {
     public AwsRoute53RecordsDataSource(string name) : base("aws_route53_records", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("resource_record_sets");
-        SetOutput("name_regex");
-        SetOutput("zone_id");
     }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformProperty<string> NameRegex
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_regex");
-        set => SetProperty("name_regex", value);
-    }
+    [TerraformPropertyName("name_regex")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NameRegex { get; set; }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
-    public required TerraformProperty<string> ZoneId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("zone_id");
-        set => SetProperty("zone_id", value);
-    }
+    [TerraformPropertyName("zone_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ZoneId { get; set; }
 
     /// <summary>
     /// The resource_record_sets attribute.
     /// </summary>
-    public TerraformExpression ResourceRecordSets => this["resource_record_sets"];
+    [TerraformPropertyName("resource_record_sets")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ResourceRecordSets => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "resource_record_sets");
 
 }

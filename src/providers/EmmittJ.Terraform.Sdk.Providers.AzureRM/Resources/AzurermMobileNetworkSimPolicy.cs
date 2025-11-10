@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for slice in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMobileNetworkSimPolicySliceBlock : TerraformBlock
+public class AzurermMobileNetworkSimPolicySliceBlock : ITerraformBlock
 {
     /// <summary>
     /// The default_data_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultDataNetworkId is required")]
-    public required TerraformProperty<string> DefaultDataNetworkId
-    {
-        set => SetProperty("default_data_network_id", value);
-    }
+    [TerraformPropertyName("default_data_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DefaultDataNetworkId { get; set; }
 
     /// <summary>
     /// The slice_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SliceId is required")]
-    public required TerraformProperty<string> SliceId
-    {
-        set => SetProperty("slice_id", value);
-    }
+    [TerraformPropertyName("slice_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SliceId { get; set; }
 
 }
 
@@ -32,39 +30,35 @@ public class AzurermMobileNetworkSimPolicySliceBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMobileNetworkSimPolicyTimeoutsBlock : TerraformBlock
+public class AzurermMobileNetworkSimPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -72,25 +66,23 @@ public class AzurermMobileNetworkSimPolicyTimeoutsBlock : TerraformBlock
 /// Block type for user_equipment_aggregate_maximum_bit_rate in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBlock : TerraformBlock
+public class AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBlock : ITerraformBlock
 {
     /// <summary>
     /// The downlink attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Downlink is required")]
-    public required TerraformProperty<string> Downlink
-    {
-        set => SetProperty("downlink", value);
-    }
+    [TerraformPropertyName("downlink")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Downlink { get; set; }
 
     /// <summary>
     /// The uplink attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uplink is required")]
-    public required TerraformProperty<string> Uplink
-    {
-        set => SetProperty("uplink", value);
-    }
+    [TerraformPropertyName("uplink")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Uplink { get; set; }
 
 }
 
@@ -102,96 +94,67 @@ public class AzurermMobileNetworkSimPolicy : TerraformResource
 {
     public AzurermMobileNetworkSimPolicy(string name) : base("azurerm_mobile_network_sim_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("default_slice_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("mobile_network_id");
-        SetOutput("name");
-        SetOutput("rat_frequency_selection_priority_index");
-        SetOutput("registration_timer_in_seconds");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The default_slice_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultSliceId is required")]
-    public required TerraformProperty<string> DefaultSliceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_slice_id");
-        set => SetProperty("default_slice_id", value);
-    }
+    [TerraformPropertyName("default_slice_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DefaultSliceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The mobile_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
-    public required TerraformProperty<string> MobileNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mobile_network_id");
-        set => SetProperty("mobile_network_id", value);
-    }
+    [TerraformPropertyName("mobile_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MobileNetworkId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The rat_frequency_selection_priority_index attribute.
     /// </summary>
-    public TerraformProperty<double> RatFrequencySelectionPriorityIndex
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("rat_frequency_selection_priority_index");
-        set => SetProperty("rat_frequency_selection_priority_index", value);
-    }
+    [TerraformPropertyName("rat_frequency_selection_priority_index")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RatFrequencySelectionPriorityIndex { get; set; }
 
     /// <summary>
     /// The registration_timer_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> RegistrationTimerInSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("registration_timer_in_seconds");
-        set => SetProperty("registration_timer_in_seconds", value);
-    }
+    [TerraformPropertyName("registration_timer_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RegistrationTimerInSeconds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for slice.
@@ -199,19 +162,15 @@ public class AzurermMobileNetworkSimPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Slice is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Slice block(s) required")]
-    public List<AzurermMobileNetworkSimPolicySliceBlock>? Slice
-    {
-        set => SetProperty("slice", value);
-    }
+    [TerraformPropertyName("slice")]
+    public TerraformList<TerraformBlock<AzurermMobileNetworkSimPolicySliceBlock>>? Slice { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMobileNetworkSimPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMobileNetworkSimPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_equipment_aggregate_maximum_bit_rate.
@@ -220,9 +179,7 @@ public class AzurermMobileNetworkSimPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserEquipmentAggregateMaximumBitRate is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 UserEquipmentAggregateMaximumBitRate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserEquipmentAggregateMaximumBitRate block(s) allowed")]
-    public List<AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBlock>? UserEquipmentAggregateMaximumBitRate
-    {
-        set => SetProperty("user_equipment_aggregate_maximum_bit_rate", value);
-    }
+    [TerraformPropertyName("user_equipment_aggregate_maximum_bit_rate")]
+    public TerraformList<TerraformBlock<AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBlock>>? UserEquipmentAggregateMaximumBitRate { get; set; } = new();
 
 }

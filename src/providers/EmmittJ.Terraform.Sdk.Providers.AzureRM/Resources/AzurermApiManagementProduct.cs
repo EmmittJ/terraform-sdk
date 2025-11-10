@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementProductTimeoutsBlock : TerraformBlock
+public class AzurermApiManagementProductTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,135 +45,95 @@ public class AzurermApiManagementProduct : TerraformResource
 {
     public AzurermApiManagementProduct(string name) : base("azurerm_api_management_product", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("api_management_name");
-        SetOutput("approval_required");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("product_id");
-        SetOutput("published");
-        SetOutput("resource_group_name");
-        SetOutput("subscription_required");
-        SetOutput("subscriptions_limit");
-        SetOutput("terms");
     }
 
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
-    public required TerraformProperty<string> ApiManagementName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
-        set => SetProperty("api_management_name", value);
-    }
+    [TerraformPropertyName("api_management_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiManagementName { get; set; }
 
     /// <summary>
     /// The approval_required attribute.
     /// </summary>
-    public TerraformProperty<bool> ApprovalRequired
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("approval_required");
-        set => SetProperty("approval_required", value);
-    }
+    [TerraformPropertyName("approval_required")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ApprovalRequired { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
-    public required TerraformProperty<string> ProductId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("product_id");
-        set => SetProperty("product_id", value);
-    }
+    [TerraformPropertyName("product_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProductId { get; set; }
 
     /// <summary>
     /// The published attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Published is required")]
-    public required TerraformProperty<bool> Published
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("published");
-        set => SetProperty("published", value);
-    }
+    [TerraformPropertyName("published")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Published { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The subscription_required attribute.
     /// </summary>
-    public TerraformProperty<bool> SubscriptionRequired
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("subscription_required");
-        set => SetProperty("subscription_required", value);
-    }
+    [TerraformPropertyName("subscription_required")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SubscriptionRequired { get; set; }
 
     /// <summary>
     /// The subscriptions_limit attribute.
     /// </summary>
-    public TerraformProperty<double> SubscriptionsLimit
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("subscriptions_limit");
-        set => SetProperty("subscriptions_limit", value);
-    }
+    [TerraformPropertyName("subscriptions_limit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SubscriptionsLimit { get; set; }
 
     /// <summary>
     /// The terms attribute.
     /// </summary>
-    public TerraformProperty<string> Terms
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("terms");
-        set => SetProperty("terms", value);
-    }
+    [TerraformPropertyName("terms")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Terms { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermApiManagementProductTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermApiManagementProductTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

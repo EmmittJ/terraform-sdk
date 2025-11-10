@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDiscoveryEngineTargetSiteTimeoutsBlock : TerraformBlock
+public class GoogleDiscoveryEngineTargetSiteTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,37 +31,15 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
 {
     public GoogleDiscoveryEngineTargetSite(string name) : base("google_discovery_engine_target_site", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("failure_reason");
-        SetOutput("generated_uri_pattern");
-        SetOutput("indexing_status");
-        SetOutput("name");
-        SetOutput("root_domain_uri");
-        SetOutput("site_verification_info");
-        SetOutput("target_site_id");
-        SetOutput("update_time");
-        SetOutput("data_store_id");
-        SetOutput("exact_match");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("provided_uri_pattern");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The unique id of the data store.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
-    public required TerraformProperty<string> DataStoreId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_store_id");
-        set => SetProperty("data_store_id", value);
-    }
+    [TerraformPropertyName("data_store_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataStoreId { get; set; }
 
     /// <summary>
     /// If set to false, a uri_pattern is generated to include all pages whose
@@ -73,84 +49,76 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// provided_uri_pattern is always normalized to generate the URI pattern to
     /// be used by the search engine.
     /// </summary>
-    public TerraformProperty<bool> ExactMatch
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("exact_match");
-        set => SetProperty("exact_match", value);
-    }
+    [TerraformPropertyName("exact_match")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExactMatch { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The user provided URI pattern from which the &#39;generated_uri_pattern&#39; is
     /// generated.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvidedUriPattern is required")]
-    public required TerraformProperty<string> ProvidedUriPattern
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("provided_uri_pattern");
-        set => SetProperty("provided_uri_pattern", value);
-    }
+    [TerraformPropertyName("provided_uri_pattern")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProvidedUriPattern { get; set; }
 
     /// <summary>
     /// The possible target site types. Possible values: [&amp;quot;INCLUDE&amp;quot;, &amp;quot;EXCLUDE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDiscoveryEngineTargetSiteTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDiscoveryEngineTargetSiteTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Site search indexing failure reasons.
     /// </summary>
-    public TerraformExpression FailureReason => this["failure_reason"];
+    [TerraformPropertyName("failure_reason")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> FailureReason => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "failure_reason");
 
     /// <summary>
     /// This is system-generated based on the &#39;provided_uri_pattern&#39;.
     /// </summary>
-    public TerraformExpression GeneratedUriPattern => this["generated_uri_pattern"];
+    [TerraformPropertyName("generated_uri_pattern")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GeneratedUriPattern => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "generated_uri_pattern");
 
     /// <summary>
     /// The indexing status.
     /// </summary>
-    public TerraformExpression IndexingStatus => this["indexing_status"];
+    [TerraformPropertyName("indexing_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IndexingStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "indexing_status");
 
     /// <summary>
     /// The unique full resource name of the target site. Values are of the format
@@ -158,26 +126,36 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// This field must be a UTF-8 encoded string with a length limit of 1024
     /// characters.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Root domain of the &#39;provided_uri_pattern&#39;.
     /// </summary>
-    public TerraformExpression RootDomainUri => this["root_domain_uri"];
+    [TerraformPropertyName("root_domain_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RootDomainUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "root_domain_uri");
 
     /// <summary>
     /// Site ownership and validity verification status.
     /// </summary>
-    public TerraformExpression SiteVerificationInfo => this["site_verification_info"];
+    [TerraformPropertyName("site_verification_info")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SiteVerificationInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "site_verification_info");
 
     /// <summary>
     /// The unique id of the target site.
     /// </summary>
-    public TerraformExpression TargetSiteId => this["target_site_id"];
+    [TerraformPropertyName("target_site_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TargetSiteId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "target_site_id");
 
     /// <summary>
     /// The target site&#39;s last updated time.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

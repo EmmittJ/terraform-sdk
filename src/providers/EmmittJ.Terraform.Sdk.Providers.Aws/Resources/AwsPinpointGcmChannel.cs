@@ -9,82 +9,56 @@ public class AwsPinpointGcmChannel : TerraformResource
 {
     public AwsPinpointGcmChannel(string name) : base("aws_pinpoint_gcm_channel", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("api_key");
-        SetOutput("application_id");
-        SetOutput("default_authentication_method");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("service_json");
     }
 
     /// <summary>
     /// The api_key attribute.
     /// </summary>
-    public TerraformProperty<string> ApiKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_key");
-        set => SetProperty("api_key", value);
-    }
+    [TerraformPropertyName("api_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ApiKey { get; set; }
 
     /// <summary>
     /// The application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    public required TerraformProperty<string> ApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
-        set => SetProperty("application_id", value);
-    }
+    [TerraformPropertyName("application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
 
     /// <summary>
     /// The default_authentication_method attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultAuthenticationMethod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_authentication_method");
-        set => SetProperty("default_authentication_method", value);
-    }
+    [TerraformPropertyName("default_authentication_method")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultAuthenticationMethod { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The service_json attribute.
     /// </summary>
-    public TerraformProperty<string> ServiceJson
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_json");
-        set => SetProperty("service_json", value);
-    }
+    [TerraformPropertyName("service_json")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServiceJson { get; set; }
 
 }

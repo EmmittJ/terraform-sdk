@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSentinelAlertRuleMsSecurityIncidentTimeoutsBlock : TerraformBlock
+public class AzurermSentinelAlertRuleMsSecurityIncidentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,135 +45,95 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
 {
     public AzurermSentinelAlertRuleMsSecurityIncident(string name) : base("azurerm_sentinel_alert_rule_ms_security_incident", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("alert_rule_template_guid");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("display_name_exclude_filter");
-        SetOutput("display_name_filter");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("log_analytics_workspace_id");
-        SetOutput("name");
-        SetOutput("product_filter");
-        SetOutput("severity_filter");
     }
 
     /// <summary>
     /// The alert_rule_template_guid attribute.
     /// </summary>
-    public TerraformProperty<string> AlertRuleTemplateGuid
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alert_rule_template_guid");
-        set => SetProperty("alert_rule_template_guid", value);
-    }
+    [TerraformPropertyName("alert_rule_template_guid")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AlertRuleTemplateGuid { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The display_name_exclude_filter attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> DisplayNameExcludeFilter
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("display_name_exclude_filter");
-        set => SetProperty("display_name_exclude_filter", value);
-    }
+    [TerraformPropertyName("display_name_exclude_filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DisplayNameExcludeFilter { get; set; }
 
     /// <summary>
     /// The display_name_filter attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> DisplayNameFilter
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("display_name_filter");
-        set => SetProperty("display_name_filter", value);
-    }
+    [TerraformPropertyName("display_name_filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DisplayNameFilter { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    public required TerraformProperty<string> LogAnalyticsWorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => SetProperty("log_analytics_workspace_id", value);
-    }
+    [TerraformPropertyName("log_analytics_workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The product_filter attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductFilter is required")]
-    public required TerraformProperty<string> ProductFilter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("product_filter");
-        set => SetProperty("product_filter", value);
-    }
+    [TerraformPropertyName("product_filter")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProductFilter { get; set; }
 
     /// <summary>
     /// The severity_filter attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SeverityFilter is required")]
-    public HashSet<TerraformProperty<string>> SeverityFilter
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("severity_filter");
-        set => SetProperty("severity_filter", value);
-    }
+    [TerraformPropertyName("severity_filter")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SeverityFilter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSentinelAlertRuleMsSecurityIncidentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSentinelAlertRuleMsSecurityIncidentTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

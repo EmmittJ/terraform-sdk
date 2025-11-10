@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for custom_error_response in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCloudfrontDistributionCustomErrorResponseBlock : TerraformBlock
+public class AwsCloudfrontDistributionCustomErrorResponseBlock : ITerraformBlock
 {
     /// <summary>
     /// The error_caching_min_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? ErrorCachingMinTtl
-    {
-        set => SetProperty("error_caching_min_ttl", value);
-    }
+    [TerraformPropertyName("error_caching_min_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ErrorCachingMinTtl { get; set; }
 
     /// <summary>
     /// The error_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ErrorCode is required")]
-    public required TerraformProperty<double> ErrorCode
-    {
-        set => SetProperty("error_code", value);
-    }
+    [TerraformPropertyName("error_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ErrorCode { get; set; }
 
     /// <summary>
     /// The response_code attribute.
     /// </summary>
-    public TerraformProperty<double>? ResponseCode
-    {
-        set => SetProperty("response_code", value);
-    }
+    [TerraformPropertyName("response_code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ResponseCode { get; set; }
 
     /// <summary>
     /// The response_page_path attribute.
     /// </summary>
-    public TerraformProperty<string>? ResponsePagePath
-    {
-        set => SetProperty("response_page_path", value);
-    }
+    [TerraformPropertyName("response_page_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResponsePagePath { get; set; }
 
 }
 
@@ -47,139 +43,123 @@ public class AwsCloudfrontDistributionCustomErrorResponseBlock : TerraformBlock
 /// Block type for default_cache_behavior in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
+public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : ITerraformBlock
 {
     /// <summary>
     /// The allowed_methods attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
-    public HashSet<TerraformProperty<string>>? AllowedMethods
-    {
-        set => SetProperty("allowed_methods", value);
-    }
+    [TerraformPropertyName("allowed_methods")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedMethods { get; set; }
 
     /// <summary>
     /// The cache_policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CachePolicyId
-    {
-        set => SetProperty("cache_policy_id", value);
-    }
+    [TerraformPropertyName("cache_policy_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CachePolicyId { get; set; }
 
     /// <summary>
     /// The cached_methods attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CachedMethods is required")]
-    public HashSet<TerraformProperty<string>>? CachedMethods
-    {
-        set => SetProperty("cached_methods", value);
-    }
+    [TerraformPropertyName("cached_methods")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? CachedMethods { get; set; }
 
     /// <summary>
     /// The compress attribute.
     /// </summary>
-    public TerraformProperty<bool>? Compress
-    {
-        set => SetProperty("compress", value);
-    }
+    [TerraformPropertyName("compress")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Compress { get; set; }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? DefaultTtl
-    {
-        set => SetProperty("default_ttl", value);
-    }
+    [TerraformPropertyName("default_ttl")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DefaultTtl { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "default_ttl");
 
     /// <summary>
     /// The field_level_encryption_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FieldLevelEncryptionId
-    {
-        set => SetProperty("field_level_encryption_id", value);
-    }
+    [TerraformPropertyName("field_level_encryption_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FieldLevelEncryptionId { get; set; }
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxTtl
-    {
-        set => SetProperty("max_ttl", value);
-    }
+    [TerraformPropertyName("max_ttl")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxTtl { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "max_ttl");
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? MinTtl
-    {
-        set => SetProperty("min_ttl", value);
-    }
+    [TerraformPropertyName("min_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinTtl { get; set; }
 
     /// <summary>
     /// The origin_request_policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OriginRequestPolicyId
-    {
-        set => SetProperty("origin_request_policy_id", value);
-    }
+    [TerraformPropertyName("origin_request_policy_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OriginRequestPolicyId { get; set; }
 
     /// <summary>
     /// The realtime_log_config_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RealtimeLogConfigArn
-    {
-        set => SetProperty("realtime_log_config_arn", value);
-    }
+    [TerraformPropertyName("realtime_log_config_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RealtimeLogConfigArn { get; set; }
 
     /// <summary>
     /// The response_headers_policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResponseHeadersPolicyId
-    {
-        set => SetProperty("response_headers_policy_id", value);
-    }
+    [TerraformPropertyName("response_headers_policy_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResponseHeadersPolicyId { get; set; }
 
     /// <summary>
     /// The smooth_streaming attribute.
     /// </summary>
-    public TerraformProperty<bool>? SmoothStreaming
-    {
-        set => SetProperty("smooth_streaming", value);
-    }
+    [TerraformPropertyName("smooth_streaming")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SmoothStreaming { get; set; }
 
     /// <summary>
     /// The target_origin_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetOriginId is required")]
-    public required TerraformProperty<string> TargetOriginId
-    {
-        set => SetProperty("target_origin_id", value);
-    }
+    [TerraformPropertyName("target_origin_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetOriginId { get; set; }
 
     /// <summary>
     /// The trusted_key_groups attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? TrustedKeyGroups
-    {
-        set => SetProperty("trusted_key_groups", value);
-    }
+    [TerraformPropertyName("trusted_key_groups")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> TrustedKeyGroups { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "trusted_key_groups");
 
     /// <summary>
     /// The trusted_signers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? TrustedSigners
-    {
-        set => SetProperty("trusted_signers", value);
-    }
+    [TerraformPropertyName("trusted_signers")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> TrustedSigners { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "trusted_signers");
 
     /// <summary>
     /// The viewer_protocol_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ViewerProtocolPolicy is required")]
-    public required TerraformProperty<string> ViewerProtocolPolicy
-    {
-        set => SetProperty("viewer_protocol_policy", value);
-    }
+    [TerraformPropertyName("viewer_protocol_policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ViewerProtocolPolicy { get; set; }
 
 }
 
@@ -187,32 +167,29 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontDistributionLoggingConfigBlock : TerraformBlock
+public class AwsCloudfrontDistributionLoggingConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The include_cookies attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeCookies
-    {
-        set => SetProperty("include_cookies", value);
-    }
+    [TerraformPropertyName("include_cookies")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeCookies { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? Prefix
-    {
-        set => SetProperty("prefix", value);
-    }
+    [TerraformPropertyName("prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Prefix { get; set; }
 
 }
 
@@ -220,148 +197,131 @@ public class AwsCloudfrontDistributionLoggingConfigBlock : TerraformBlock
 /// Block type for ordered_cache_behavior in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
+public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : ITerraformBlock
 {
     /// <summary>
     /// The allowed_methods attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
-    public HashSet<TerraformProperty<string>>? AllowedMethods
-    {
-        set => SetProperty("allowed_methods", value);
-    }
+    [TerraformPropertyName("allowed_methods")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedMethods { get; set; }
 
     /// <summary>
     /// The cache_policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CachePolicyId
-    {
-        set => SetProperty("cache_policy_id", value);
-    }
+    [TerraformPropertyName("cache_policy_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CachePolicyId { get; set; }
 
     /// <summary>
     /// The cached_methods attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CachedMethods is required")]
-    public HashSet<TerraformProperty<string>>? CachedMethods
-    {
-        set => SetProperty("cached_methods", value);
-    }
+    [TerraformPropertyName("cached_methods")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? CachedMethods { get; set; }
 
     /// <summary>
     /// The compress attribute.
     /// </summary>
-    public TerraformProperty<bool>? Compress
-    {
-        set => SetProperty("compress", value);
-    }
+    [TerraformPropertyName("compress")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Compress { get; set; }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? DefaultTtl
-    {
-        set => SetProperty("default_ttl", value);
-    }
+    [TerraformPropertyName("default_ttl")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DefaultTtl { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "default_ttl");
 
     /// <summary>
     /// The field_level_encryption_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FieldLevelEncryptionId
-    {
-        set => SetProperty("field_level_encryption_id", value);
-    }
+    [TerraformPropertyName("field_level_encryption_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FieldLevelEncryptionId { get; set; }
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxTtl
-    {
-        set => SetProperty("max_ttl", value);
-    }
+    [TerraformPropertyName("max_ttl")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxTtl { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "max_ttl");
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? MinTtl
-    {
-        set => SetProperty("min_ttl", value);
-    }
+    [TerraformPropertyName("min_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinTtl { get; set; }
 
     /// <summary>
     /// The origin_request_policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OriginRequestPolicyId
-    {
-        set => SetProperty("origin_request_policy_id", value);
-    }
+    [TerraformPropertyName("origin_request_policy_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OriginRequestPolicyId { get; set; }
 
     /// <summary>
     /// The path_pattern attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathPattern is required")]
-    public required TerraformProperty<string> PathPattern
-    {
-        set => SetProperty("path_pattern", value);
-    }
+    [TerraformPropertyName("path_pattern")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PathPattern { get; set; }
 
     /// <summary>
     /// The realtime_log_config_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RealtimeLogConfigArn
-    {
-        set => SetProperty("realtime_log_config_arn", value);
-    }
+    [TerraformPropertyName("realtime_log_config_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RealtimeLogConfigArn { get; set; }
 
     /// <summary>
     /// The response_headers_policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResponseHeadersPolicyId
-    {
-        set => SetProperty("response_headers_policy_id", value);
-    }
+    [TerraformPropertyName("response_headers_policy_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResponseHeadersPolicyId { get; set; }
 
     /// <summary>
     /// The smooth_streaming attribute.
     /// </summary>
-    public TerraformProperty<bool>? SmoothStreaming
-    {
-        set => SetProperty("smooth_streaming", value);
-    }
+    [TerraformPropertyName("smooth_streaming")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SmoothStreaming { get; set; }
 
     /// <summary>
     /// The target_origin_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetOriginId is required")]
-    public required TerraformProperty<string> TargetOriginId
-    {
-        set => SetProperty("target_origin_id", value);
-    }
+    [TerraformPropertyName("target_origin_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetOriginId { get; set; }
 
     /// <summary>
     /// The trusted_key_groups attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? TrustedKeyGroups
-    {
-        set => SetProperty("trusted_key_groups", value);
-    }
+    [TerraformPropertyName("trusted_key_groups")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? TrustedKeyGroups { get; set; }
 
     /// <summary>
     /// The trusted_signers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? TrustedSigners
-    {
-        set => SetProperty("trusted_signers", value);
-    }
+    [TerraformPropertyName("trusted_signers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? TrustedSigners { get; set; }
 
     /// <summary>
     /// The viewer_protocol_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ViewerProtocolPolicy is required")]
-    public required TerraformProperty<string> ViewerProtocolPolicy
-    {
-        set => SetProperty("viewer_protocol_policy", value);
-    }
+    [TerraformPropertyName("viewer_protocol_policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ViewerProtocolPolicy { get; set; }
 
 }
 
@@ -369,65 +329,58 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
 /// Block type for origin in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCloudfrontDistributionOriginBlock : TerraformBlock
+public class AwsCloudfrontDistributionOriginBlock : ITerraformBlock
 {
     /// <summary>
     /// The connection_attempts attribute.
     /// </summary>
-    public TerraformProperty<double>? ConnectionAttempts
-    {
-        set => SetProperty("connection_attempts", value);
-    }
+    [TerraformPropertyName("connection_attempts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ConnectionAttempts { get; set; }
 
     /// <summary>
     /// The connection_timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? ConnectionTimeout
-    {
-        set => SetProperty("connection_timeout", value);
-    }
+    [TerraformPropertyName("connection_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ConnectionTimeout { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    public required TerraformProperty<string> DomainName
-    {
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
 
     /// <summary>
     /// The origin_access_control_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OriginAccessControlId
-    {
-        set => SetProperty("origin_access_control_id", value);
-    }
+    [TerraformPropertyName("origin_access_control_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OriginAccessControlId { get; set; }
 
     /// <summary>
     /// The origin_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginId is required")]
-    public required TerraformProperty<string> OriginId
-    {
-        set => SetProperty("origin_id", value);
-    }
+    [TerraformPropertyName("origin_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OriginId { get; set; }
 
     /// <summary>
     /// The origin_path attribute.
     /// </summary>
-    public TerraformProperty<string>? OriginPath
-    {
-        set => SetProperty("origin_path", value);
-    }
+    [TerraformPropertyName("origin_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OriginPath { get; set; }
 
     /// <summary>
     /// The response_completion_timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? ResponseCompletionTimeout
-    {
-        set => SetProperty("response_completion_timeout", value);
-    }
+    [TerraformPropertyName("response_completion_timeout")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> ResponseCompletionTimeout { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "response_completion_timeout");
 
 }
 
@@ -435,16 +388,15 @@ public class AwsCloudfrontDistributionOriginBlock : TerraformBlock
 /// Block type for origin_group in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCloudfrontDistributionOriginGroupBlock : TerraformBlock
+public class AwsCloudfrontDistributionOriginGroupBlock : ITerraformBlock
 {
     /// <summary>
     /// The origin_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginId is required")]
-    public required TerraformProperty<string> OriginId
-    {
-        set => SetProperty("origin_id", value);
-    }
+    [TerraformPropertyName("origin_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OriginId { get; set; }
 
 }
 
@@ -452,7 +404,7 @@ public class AwsCloudfrontDistributionOriginGroupBlock : TerraformBlock
 /// Block type for restrictions in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontDistributionRestrictionsBlock : TerraformBlock
+public class AwsCloudfrontDistributionRestrictionsBlock : ITerraformBlock
 {
 }
 
@@ -460,47 +412,42 @@ public class AwsCloudfrontDistributionRestrictionsBlock : TerraformBlock
 /// Block type for viewer_certificate in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontDistributionViewerCertificateBlock : TerraformBlock
+public class AwsCloudfrontDistributionViewerCertificateBlock : ITerraformBlock
 {
     /// <summary>
     /// The acm_certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? AcmCertificateArn
-    {
-        set => SetProperty("acm_certificate_arn", value);
-    }
+    [TerraformPropertyName("acm_certificate_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AcmCertificateArn { get; set; }
 
     /// <summary>
     /// The cloudfront_default_certificate attribute.
     /// </summary>
-    public TerraformProperty<bool>? CloudfrontDefaultCertificate
-    {
-        set => SetProperty("cloudfront_default_certificate", value);
-    }
+    [TerraformPropertyName("cloudfront_default_certificate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CloudfrontDefaultCertificate { get; set; }
 
     /// <summary>
     /// The iam_certificate_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IamCertificateId
-    {
-        set => SetProperty("iam_certificate_id", value);
-    }
+    [TerraformPropertyName("iam_certificate_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IamCertificateId { get; set; }
 
     /// <summary>
     /// The minimum_protocol_version attribute.
     /// </summary>
-    public TerraformProperty<string>? MinimumProtocolVersion
-    {
-        set => SetProperty("minimum_protocol_version", value);
-    }
+    [TerraformPropertyName("minimum_protocol_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MinimumProtocolVersion { get; set; }
 
     /// <summary>
     /// The ssl_support_method attribute.
     /// </summary>
-    public TerraformProperty<string>? SslSupportMethod
-    {
-        set => SetProperty("ssl_support_method", value);
-    }
+    [TerraformPropertyName("ssl_support_method")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SslSupportMethod { get; set; }
 
 }
 
@@ -512,192 +459,127 @@ public class AwsCloudfrontDistribution : TerraformResource
 {
     public AwsCloudfrontDistribution(string name) : base("aws_cloudfront_distribution", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("caller_reference");
-        SetOutput("domain_name");
-        SetOutput("etag");
-        SetOutput("hosted_zone_id");
-        SetOutput("in_progress_validation_batches");
-        SetOutput("last_modified_time");
-        SetOutput("status");
-        SetOutput("trusted_key_groups");
-        SetOutput("trusted_signers");
-        SetOutput("aliases");
-        SetOutput("anycast_ip_list_id");
-        SetOutput("comment");
-        SetOutput("continuous_deployment_policy_id");
-        SetOutput("default_root_object");
-        SetOutput("enabled");
-        SetOutput("http_version");
-        SetOutput("id");
-        SetOutput("is_ipv6_enabled");
-        SetOutput("price_class");
-        SetOutput("retain_on_delete");
-        SetOutput("staging");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("wait_for_deployment");
-        SetOutput("web_acl_id");
     }
 
     /// <summary>
     /// The aliases attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Aliases
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("aliases");
-        set => SetProperty("aliases", value);
-    }
+    [TerraformPropertyName("aliases")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Aliases { get; set; }
 
     /// <summary>
     /// The anycast_ip_list_id attribute.
     /// </summary>
-    public TerraformProperty<string> AnycastIpListId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("anycast_ip_list_id");
-        set => SetProperty("anycast_ip_list_id", value);
-    }
+    [TerraformPropertyName("anycast_ip_list_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AnycastIpListId { get; set; }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string> Comment
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("comment");
-        set => SetProperty("comment", value);
-    }
+    [TerraformPropertyName("comment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Comment { get; set; }
 
     /// <summary>
     /// The continuous_deployment_policy_id attribute.
     /// </summary>
-    public TerraformProperty<string> ContinuousDeploymentPolicyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("continuous_deployment_policy_id");
-        set => SetProperty("continuous_deployment_policy_id", value);
-    }
+    [TerraformPropertyName("continuous_deployment_policy_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ContinuousDeploymentPolicyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "continuous_deployment_policy_id");
 
     /// <summary>
     /// The default_root_object attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultRootObject
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_root_object");
-        set => SetProperty("default_root_object", value);
-    }
+    [TerraformPropertyName("default_root_object")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultRootObject { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The http_version attribute.
     /// </summary>
-    public TerraformProperty<string> HttpVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("http_version");
-        set => SetProperty("http_version", value);
-    }
+    [TerraformPropertyName("http_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HttpVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The is_ipv6_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> IsIpv6Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_ipv6_enabled");
-        set => SetProperty("is_ipv6_enabled", value);
-    }
+    [TerraformPropertyName("is_ipv6_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsIpv6Enabled { get; set; }
 
     /// <summary>
     /// The price_class attribute.
     /// </summary>
-    public TerraformProperty<string> PriceClass
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("price_class");
-        set => SetProperty("price_class", value);
-    }
+    [TerraformPropertyName("price_class")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PriceClass { get; set; }
 
     /// <summary>
     /// The retain_on_delete attribute.
     /// </summary>
-    public TerraformProperty<bool> RetainOnDelete
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("retain_on_delete");
-        set => SetProperty("retain_on_delete", value);
-    }
+    [TerraformPropertyName("retain_on_delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RetainOnDelete { get; set; }
 
     /// <summary>
     /// The staging attribute.
     /// </summary>
-    public TerraformProperty<bool> Staging
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("staging");
-        set => SetProperty("staging", value);
-    }
+    [TerraformPropertyName("staging")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Staging { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The wait_for_deployment attribute.
     /// </summary>
-    public TerraformProperty<bool> WaitForDeployment
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("wait_for_deployment");
-        set => SetProperty("wait_for_deployment", value);
-    }
+    [TerraformPropertyName("wait_for_deployment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WaitForDeployment { get; set; }
 
     /// <summary>
     /// The web_acl_id attribute.
     /// </summary>
-    public TerraformProperty<string> WebAclId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("web_acl_id");
-        set => SetProperty("web_acl_id", value);
-    }
+    [TerraformPropertyName("web_acl_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WebAclId { get; set; }
 
     /// <summary>
     /// Block for custom_error_response.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsCloudfrontDistributionCustomErrorResponseBlock>? CustomErrorResponse
-    {
-        set => SetProperty("custom_error_response", value);
-    }
+    [TerraformPropertyName("custom_error_response")]
+    public TerraformSet<TerraformBlock<AwsCloudfrontDistributionCustomErrorResponseBlock>>? CustomErrorResponse { get; set; } = new();
 
     /// <summary>
     /// Block for default_cache_behavior.
@@ -706,29 +588,23 @@ public class AwsCloudfrontDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultCacheBehavior is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultCacheBehavior block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultCacheBehavior block(s) allowed")]
-    public List<AwsCloudfrontDistributionDefaultCacheBehaviorBlock>? DefaultCacheBehavior
-    {
-        set => SetProperty("default_cache_behavior", value);
-    }
+    [TerraformPropertyName("default_cache_behavior")]
+    public TerraformList<TerraformBlock<AwsCloudfrontDistributionDefaultCacheBehaviorBlock>>? DefaultCacheBehavior { get; set; } = new();
 
     /// <summary>
     /// Block for logging_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
-    public List<AwsCloudfrontDistributionLoggingConfigBlock>? LoggingConfig
-    {
-        set => SetProperty("logging_config", value);
-    }
+    [TerraformPropertyName("logging_config")]
+    public TerraformList<TerraformBlock<AwsCloudfrontDistributionLoggingConfigBlock>>? LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for ordered_cache_behavior.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsCloudfrontDistributionOrderedCacheBehaviorBlock>? OrderedCacheBehavior
-    {
-        set => SetProperty("ordered_cache_behavior", value);
-    }
+    [TerraformPropertyName("ordered_cache_behavior")]
+    public TerraformList<TerraformBlock<AwsCloudfrontDistributionOrderedCacheBehaviorBlock>>? OrderedCacheBehavior { get; set; } = new();
 
     /// <summary>
     /// Block for origin.
@@ -736,19 +612,15 @@ public class AwsCloudfrontDistribution : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Origin block(s) required")]
-    public HashSet<AwsCloudfrontDistributionOriginBlock>? Origin
-    {
-        set => SetProperty("origin", value);
-    }
+    [TerraformPropertyName("origin")]
+    public TerraformSet<TerraformBlock<AwsCloudfrontDistributionOriginBlock>>? Origin { get; set; } = new();
 
     /// <summary>
     /// Block for origin_group.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsCloudfrontDistributionOriginGroupBlock>? OriginGroup
-    {
-        set => SetProperty("origin_group", value);
-    }
+    [TerraformPropertyName("origin_group")]
+    public TerraformSet<TerraformBlock<AwsCloudfrontDistributionOriginGroupBlock>>? OriginGroup { get; set; } = new();
 
     /// <summary>
     /// Block for restrictions.
@@ -757,10 +629,8 @@ public class AwsCloudfrontDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Restrictions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Restrictions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restrictions block(s) allowed")]
-    public List<AwsCloudfrontDistributionRestrictionsBlock>? Restrictions
-    {
-        set => SetProperty("restrictions", value);
-    }
+    [TerraformPropertyName("restrictions")]
+    public TerraformList<TerraformBlock<AwsCloudfrontDistributionRestrictionsBlock>>? Restrictions { get; set; } = new();
 
     /// <summary>
     /// Block for viewer_certificate.
@@ -769,59 +639,77 @@ public class AwsCloudfrontDistribution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ViewerCertificate is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ViewerCertificate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ViewerCertificate block(s) allowed")]
-    public List<AwsCloudfrontDistributionViewerCertificateBlock>? ViewerCertificate
-    {
-        set => SetProperty("viewer_certificate", value);
-    }
+    [TerraformPropertyName("viewer_certificate")]
+    public TerraformList<TerraformBlock<AwsCloudfrontDistributionViewerCertificateBlock>>? ViewerCertificate { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
-    public TerraformExpression CallerReference => this["caller_reference"];
+    [TerraformPropertyName("caller_reference")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CallerReference => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "caller_reference");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformExpression DomainName => this["domain_name"];
+    [TerraformPropertyName("domain_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DomainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_name");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    public TerraformExpression HostedZoneId => this["hosted_zone_id"];
+    [TerraformPropertyName("hosted_zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostedZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hosted_zone_id");
 
     /// <summary>
     /// The in_progress_validation_batches attribute.
     /// </summary>
-    public TerraformExpression InProgressValidationBatches => this["in_progress_validation_batches"];
+    [TerraformPropertyName("in_progress_validation_batches")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> InProgressValidationBatches => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "in_progress_validation_batches");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
-    public TerraformExpression LastModifiedTime => this["last_modified_time"];
+    [TerraformPropertyName("last_modified_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_time");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The trusted_key_groups attribute.
     /// </summary>
-    public TerraformExpression TrustedKeyGroups => this["trusted_key_groups"];
+    [TerraformPropertyName("trusted_key_groups")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TrustedKeyGroups => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "trusted_key_groups");
 
     /// <summary>
     /// The trusted_signers attribute.
     /// </summary>
-    public TerraformExpression TrustedSigners => this["trusted_signers"];
+    [TerraformPropertyName("trusted_signers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TrustedSigners => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "trusted_signers");
 
 }

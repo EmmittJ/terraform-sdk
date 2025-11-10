@@ -6,104 +6,92 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for site in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermBotChannelDirectlineSiteBlock : TerraformBlock
+public class AzurermBotChannelDirectlineSiteBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The endpoint_parameters_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EndpointParametersEnabled
-    {
-        set => SetProperty("endpoint_parameters_enabled", value);
-    }
+    [TerraformPropertyName("endpoint_parameters_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EndpointParametersEnabled { get; set; }
 
     /// <summary>
     /// The enhanced_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnhancedAuthenticationEnabled
-    {
-        set => SetProperty("enhanced_authentication_enabled", value);
-    }
+    [TerraformPropertyName("enhanced_authentication_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnhancedAuthenticationEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformProperty<string>? Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Key => new TerraformReferenceProperty<TerraformProperty<string>>("", "key");
 
     /// <summary>
     /// The key2 attribute.
     /// </summary>
-    public TerraformProperty<string>? Key2
-    {
-        set => SetProperty("key2", value);
-    }
+    [TerraformPropertyName("key2")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Key2 => new TerraformReferenceProperty<TerraformProperty<string>>("", "key2");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The storage_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? StorageEnabled
-    {
-        set => SetProperty("storage_enabled", value);
-    }
+    [TerraformPropertyName("storage_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StorageEnabled { get; set; }
 
     /// <summary>
     /// The trusted_origins attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? TrustedOrigins
-    {
-        set => SetProperty("trusted_origins", value);
-    }
+    [TerraformPropertyName("trusted_origins")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? TrustedOrigins { get; set; }
 
     /// <summary>
     /// The user_upload_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? UserUploadEnabled
-    {
-        set => SetProperty("user_upload_enabled", value);
-    }
+    [TerraformPropertyName("user_upload_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UserUploadEnabled { get; set; }
 
     /// <summary>
     /// The v1_allowed attribute.
     /// </summary>
-    public TerraformProperty<bool>? V1Allowed
-    {
-        set => SetProperty("v1_allowed", value);
-    }
+    [TerraformPropertyName("v1_allowed")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? V1Allowed { get; set; }
 
     /// <summary>
     /// The v3_allowed attribute.
     /// </summary>
-    public TerraformProperty<bool>? V3Allowed
-    {
-        set => SetProperty("v3_allowed", value);
-    }
+    [TerraformPropertyName("v3_allowed")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? V3Allowed { get; set; }
 
 }
 
@@ -111,39 +99,35 @@ public class AzurermBotChannelDirectlineSiteBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBotChannelDirectlineTimeoutsBlock : TerraformBlock
+public class AzurermBotChannelDirectlineTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -155,55 +139,38 @@ public class AzurermBotChannelDirectline : TerraformResource
 {
     public AzurermBotChannelDirectline(string name) : base("azurerm_bot_channel_directline", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bot_name");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
-    public required TerraformProperty<string> BotName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bot_name");
-        set => SetProperty("bot_name", value);
-    }
+    [TerraformPropertyName("bot_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BotName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for site.
@@ -211,18 +178,14 @@ public class AzurermBotChannelDirectline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Site is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Site block(s) required")]
-    public HashSet<AzurermBotChannelDirectlineSiteBlock>? Site
-    {
-        set => SetProperty("site", value);
-    }
+    [TerraformPropertyName("site")]
+    public TerraformSet<TerraformBlock<AzurermBotChannelDirectlineSiteBlock>>? Site { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermBotChannelDirectlineTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermBotChannelDirectlineTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

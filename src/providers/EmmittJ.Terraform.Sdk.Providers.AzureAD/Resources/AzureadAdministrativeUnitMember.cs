@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadAdministrativeUnitMemberTimeoutsBlock : TerraformBlock
+public class AzureadAdministrativeUnitMemberTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,50 +38,34 @@ public class AzureadAdministrativeUnitMember : TerraformResource
 {
     public AzureadAdministrativeUnitMember(string name) : base("azuread_administrative_unit_member", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("administrative_unit_object_id");
-        SetOutput("id");
-        SetOutput("member_object_id");
     }
 
     /// <summary>
     /// The object ID of the administrative unit
     /// </summary>
-    public TerraformProperty<string> AdministrativeUnitObjectId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("administrative_unit_object_id");
-        set => SetProperty("administrative_unit_object_id", value);
-    }
+    [TerraformPropertyName("administrative_unit_object_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AdministrativeUnitObjectId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The object ID of the member
     /// </summary>
-    public TerraformProperty<string> MemberObjectId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("member_object_id");
-        set => SetProperty("member_object_id", value);
-    }
+    [TerraformPropertyName("member_object_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MemberObjectId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadAdministrativeUnitMemberTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadAdministrativeUnitMemberTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

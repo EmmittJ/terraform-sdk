@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for peering_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeDnsZonePeeringConfigBlock : TerraformBlock
+public class GoogleApigeeDnsZonePeeringConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The name of the producer VPC network.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkId is required")]
-    public required TerraformProperty<string> TargetNetworkId
-    {
-        set => SetProperty("target_network_id", value);
-    }
+    [TerraformPropertyName("target_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetNetworkId { get; set; }
 
     /// <summary>
     /// The ID of the project that contains the producer VPC network.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetProjectId is required")]
-    public required TerraformProperty<string> TargetProjectId
-    {
-        set => SetProperty("target_project_id", value);
-    }
+    [TerraformPropertyName("target_project_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetProjectId { get; set; }
 
 }
 
@@ -32,23 +30,21 @@ public class GoogleApigeeDnsZonePeeringConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeDnsZoneTimeoutsBlock : TerraformBlock
+public class GoogleApigeeDnsZoneTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -60,68 +56,47 @@ public class GoogleApigeeDnsZone : TerraformResource
 {
     public GoogleApigeeDnsZone(string name) : base("google_apigee_dns_zone", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("description");
-        SetOutput("dns_zone_id");
-        SetOutput("domain");
-        SetOutput("id");
-        SetOutput("org_id");
     }
 
     /// <summary>
     /// Description for the zone.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
-    public required TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Description { get; set; }
 
     /// <summary>
     /// ID of the dns zone.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsZoneId is required")]
-    public required TerraformProperty<string> DnsZoneId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dns_zone_id");
-        set => SetProperty("dns_zone_id", value);
-    }
+    [TerraformPropertyName("dns_zone_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DnsZoneId { get; set; }
 
     /// <summary>
     /// Doamin for the zone.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
-    public required TerraformProperty<string> Domain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain");
-        set => SetProperty("domain", value);
-    }
+    [TerraformPropertyName("domain")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Domain { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee instance,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    public required TerraformProperty<string> OrgId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
-        set => SetProperty("org_id", value);
-    }
+    [TerraformPropertyName("org_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
 
     /// <summary>
     /// Block for peering_config.
@@ -130,24 +105,22 @@ public class GoogleApigeeDnsZone : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PeeringConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PeeringConfig block(s) allowed")]
-    public List<GoogleApigeeDnsZonePeeringConfigBlock>? PeeringConfig
-    {
-        set => SetProperty("peering_config", value);
-    }
+    [TerraformPropertyName("peering_config")]
+    public TerraformList<TerraformBlock<GoogleApigeeDnsZonePeeringConfigBlock>>? PeeringConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeDnsZoneTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeDnsZoneTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Name of the Dns Zone in the following format:
     /// organizations/{organization}/dnsZones/{dnsZone}.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

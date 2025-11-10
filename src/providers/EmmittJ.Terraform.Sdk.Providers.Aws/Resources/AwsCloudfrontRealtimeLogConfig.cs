@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoint in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontRealtimeLogConfigEndpointBlock : TerraformBlock
+public class AwsCloudfrontRealtimeLogConfigEndpointBlock : ITerraformBlock
 {
     /// <summary>
     /// The stream_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamType is required")]
-    public required TerraformProperty<string> StreamType
-    {
-        set => SetProperty("stream_type", value);
-    }
+    [TerraformPropertyName("stream_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StreamType { get; set; }
 
 }
 
@@ -27,56 +26,38 @@ public class AwsCloudfrontRealtimeLogConfig : TerraformResource
 {
     public AwsCloudfrontRealtimeLogConfig(string name) : base("aws_cloudfront_realtime_log_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("fields");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("sampling_rate");
     }
 
     /// <summary>
     /// The fields attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
-    public HashSet<TerraformProperty<string>> Fields
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("fields");
-        set => SetProperty("fields", value);
-    }
+    [TerraformPropertyName("fields")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Fields { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The sampling_rate attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRate is required")]
-    public required TerraformProperty<double> SamplingRate
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("sampling_rate");
-        set => SetProperty("sampling_rate", value);
-    }
+    [TerraformPropertyName("sampling_rate")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> SamplingRate { get; set; }
 
     /// <summary>
     /// Block for endpoint.
@@ -85,14 +66,14 @@ public class AwsCloudfrontRealtimeLogConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Endpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Endpoint block(s) allowed")]
-    public List<AwsCloudfrontRealtimeLogConfigEndpointBlock>? Endpoint
-    {
-        set => SetProperty("endpoint", value);
-    }
+    [TerraformPropertyName("endpoint")]
+    public TerraformList<TerraformBlock<AwsCloudfrontRealtimeLogConfigEndpointBlock>>? Endpoint { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

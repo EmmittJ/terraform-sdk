@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for local_data in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDnsResponsePolicyRuleLocalDataBlock : TerraformBlock
+public class GoogleDnsResponsePolicyRuleLocalDataBlock : ITerraformBlock
 {
 }
 
@@ -14,31 +14,28 @@ public class GoogleDnsResponsePolicyRuleLocalDataBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDnsResponsePolicyRuleTimeoutsBlock : TerraformBlock
+public class GoogleDnsResponsePolicyRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -50,83 +47,59 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
 {
     public GoogleDnsResponsePolicyRule(string name) : base("google_dns_response_policy_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("dns_name");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("response_policy");
-        SetOutput("rule_name");
     }
 
     /// <summary>
     /// The DNS name (wildcard or exact) to apply this rule to. Must be unique within the Response Policy Rule.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
-    public required TerraformProperty<string> DnsName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dns_name");
-        set => SetProperty("dns_name", value);
-    }
+    [TerraformPropertyName("dns_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DnsName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Identifies the response policy addressed by this request.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponsePolicy is required")]
-    public required TerraformProperty<string> ResponsePolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("response_policy");
-        set => SetProperty("response_policy", value);
-    }
+    [TerraformPropertyName("response_policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResponsePolicy { get; set; }
 
     /// <summary>
     /// An identifier for this rule. Must be unique with the ResponsePolicy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
-    public required TerraformProperty<string> RuleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rule_name");
-        set => SetProperty("rule_name", value);
-    }
+    [TerraformPropertyName("rule_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RuleName { get; set; }
 
     /// <summary>
     /// Block for local_data.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalData block(s) allowed")]
-    public List<GoogleDnsResponsePolicyRuleLocalDataBlock>? LocalData
-    {
-        set => SetProperty("local_data", value);
-    }
+    [TerraformPropertyName("local_data")]
+    public TerraformList<TerraformBlock<GoogleDnsResponsePolicyRuleLocalDataBlock>>? LocalData { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDnsResponsePolicyRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDnsResponsePolicyRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for multi_region_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDsqlClusterMultiRegionPropertiesBlock : TerraformBlock
+public class AwsDsqlClusterMultiRegionPropertiesBlock : ITerraformBlock
 {
     /// <summary>
     /// The clusters attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Clusters
-    {
-        set => SetProperty("clusters", value);
-    }
+    [TerraformPropertyName("clusters")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Clusters { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "clusters");
 
     /// <summary>
     /// The witness_region attribute.
     /// </summary>
-    public TerraformProperty<string>? WitnessRegion
-    {
-        set => SetProperty("witness_region", value);
-    }
+    [TerraformPropertyName("witness_region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WitnessRegion { get; set; }
 
 }
 
@@ -30,31 +28,28 @@ public class AwsDsqlClusterMultiRegionPropertiesBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDsqlClusterTimeoutsBlock : TerraformBlock
+public class AwsDsqlClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -65,109 +60,90 @@ public class AwsDsqlCluster : TerraformResource
 {
     public AwsDsqlCluster(string name) : base("aws_dsql_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("encryption_details");
-        SetOutput("identifier");
-        SetOutput("tags_all");
-        SetOutput("vpc_endpoint_service_name");
-        SetOutput("deletion_protection_enabled");
-        SetOutput("force_destroy");
-        SetOutput("kms_encryption_key");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> DeletionProtectionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection_enabled");
-        set => SetProperty("deletion_protection_enabled", value);
-    }
+    [TerraformPropertyName("deletion_protection_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtectionEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection_enabled");
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
-        set => SetProperty("force_destroy", value);
-    }
+    [TerraformPropertyName("force_destroy")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> ForceDestroy { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "force_destroy");
 
     /// <summary>
     /// The kms_encryption_key attribute.
     /// </summary>
-    public TerraformProperty<string> KmsEncryptionKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_encryption_key");
-        set => SetProperty("kms_encryption_key", value);
-    }
+    [TerraformPropertyName("kms_encryption_key")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KmsEncryptionKey { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_encryption_key");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for multi_region_properties.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsDsqlClusterMultiRegionPropertiesBlock>? MultiRegionProperties
-    {
-        set => SetProperty("multi_region_properties", value);
-    }
+    [TerraformPropertyName("multi_region_properties")]
+    public TerraformList<TerraformBlock<AwsDsqlClusterMultiRegionPropertiesBlock>>? MultiRegionProperties { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDsqlClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDsqlClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The encryption_details attribute.
     /// </summary>
-    public TerraformExpression EncryptionDetails => this["encryption_details"];
+    [TerraformPropertyName("encryption_details")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> EncryptionDetails => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "encryption_details");
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    public TerraformExpression Identifier => this["identifier"];
+    [TerraformPropertyName("identifier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Identifier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "identifier");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The vpc_endpoint_service_name attribute.
     /// </summary>
-    public TerraformExpression VpcEndpointServiceName => this["vpc_endpoint_service_name"];
+    [TerraformPropertyName("vpc_endpoint_service_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcEndpointServiceName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_endpoint_service_name");
 
 }

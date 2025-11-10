@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for availability_zone_mapping in .
 /// Nesting mode: set
 /// </summary>
-public class AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock : TerraformBlock
+public class AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock : ITerraformBlock
 {
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZoneId is required")]
-    public required TerraformProperty<string> AvailabilityZoneId
-    {
-        set => SetProperty("availability_zone_id", value);
-    }
+    [TerraformPropertyName("availability_zone_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AvailabilityZoneId { get; set; }
 
 }
 
@@ -23,24 +22,22 @@ public class AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock : TerraformB
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkfirewallFirewallEncryptionConfigurationBlock : TerraformBlock
+public class AwsNetworkfirewallFirewallEncryptionConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyId
-    {
-        set => SetProperty("key_id", value);
-    }
+    [TerraformPropertyName("key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyId { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -48,24 +45,22 @@ public class AwsNetworkfirewallFirewallEncryptionConfigurationBlock : TerraformB
 /// Block type for subnet_mapping in .
 /// Nesting mode: set
 /// </summary>
-public class AwsNetworkfirewallFirewallSubnetMappingBlock : TerraformBlock
+public class AwsNetworkfirewallFirewallSubnetMappingBlock : ITerraformBlock
 {
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddressType
-    {
-        set => SetProperty("ip_address_type", value);
-    }
+    [TerraformPropertyName("ip_address_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IpAddressType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "ip_address_type");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
 }
 
@@ -73,31 +68,28 @@ public class AwsNetworkfirewallFirewallSubnetMappingBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsNetworkfirewallFirewallTimeoutsBlock : TerraformBlock
+public class AwsNetworkfirewallFirewallTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -109,214 +101,163 @@ public class AwsNetworkfirewallFirewall : TerraformResource
 {
     public AwsNetworkfirewallFirewall(string name) : base("aws_networkfirewall_firewall", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("firewall_status");
-        SetOutput("transit_gateway_owner_account_id");
-        SetOutput("update_token");
-        SetOutput("availability_zone_change_protection");
-        SetOutput("delete_protection");
-        SetOutput("description");
-        SetOutput("enabled_analysis_types");
-        SetOutput("firewall_policy_arn");
-        SetOutput("firewall_policy_change_protection");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("subnet_change_protection");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("transit_gateway_id");
-        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The availability_zone_change_protection attribute.
     /// </summary>
-    public TerraformProperty<bool> AvailabilityZoneChangeProtection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("availability_zone_change_protection");
-        set => SetProperty("availability_zone_change_protection", value);
-    }
+    [TerraformPropertyName("availability_zone_change_protection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AvailabilityZoneChangeProtection { get; set; }
 
     /// <summary>
     /// The delete_protection attribute.
     /// </summary>
-    public TerraformProperty<bool> DeleteProtection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("delete_protection");
-        set => SetProperty("delete_protection", value);
-    }
+    [TerraformPropertyName("delete_protection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeleteProtection { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The enabled_analysis_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> EnabledAnalysisTypes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("enabled_analysis_types");
-        set => SetProperty("enabled_analysis_types", value);
-    }
+    [TerraformPropertyName("enabled_analysis_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? EnabledAnalysisTypes { get; set; }
 
     /// <summary>
     /// The firewall_policy_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicyArn is required")]
-    public required TerraformProperty<string> FirewallPolicyArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("firewall_policy_arn");
-        set => SetProperty("firewall_policy_arn", value);
-    }
+    [TerraformPropertyName("firewall_policy_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FirewallPolicyArn { get; set; }
 
     /// <summary>
     /// The firewall_policy_change_protection attribute.
     /// </summary>
-    public TerraformProperty<bool> FirewallPolicyChangeProtection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("firewall_policy_change_protection");
-        set => SetProperty("firewall_policy_change_protection", value);
-    }
+    [TerraformPropertyName("firewall_policy_change_protection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? FirewallPolicyChangeProtection { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The subnet_change_protection attribute.
     /// </summary>
-    public TerraformProperty<bool> SubnetChangeProtection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("subnet_change_protection");
-        set => SetProperty("subnet_change_protection", value);
-    }
+    [TerraformPropertyName("subnet_change_protection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SubnetChangeProtection { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string> TransitGatewayId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_id");
-        set => SetProperty("transit_gateway_id", value);
-    }
+    [TerraformPropertyName("transit_gateway_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TransitGatewayId { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string> VpcId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VpcId { get; set; }
 
     /// <summary>
     /// Block for availability_zone_mapping.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock>? AvailabilityZoneMapping
-    {
-        set => SetProperty("availability_zone_mapping", value);
-    }
+    [TerraformPropertyName("availability_zone_mapping")]
+    public TerraformSet<TerraformBlock<AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock>>? AvailabilityZoneMapping { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
-    public List<AwsNetworkfirewallFirewallEncryptionConfigurationBlock>? EncryptionConfiguration
-    {
-        set => SetProperty("encryption_configuration", value);
-    }
+    [TerraformPropertyName("encryption_configuration")]
+    public TerraformList<TerraformBlock<AwsNetworkfirewallFirewallEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for subnet_mapping.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsNetworkfirewallFirewallSubnetMappingBlock>? SubnetMapping
-    {
-        set => SetProperty("subnet_mapping", value);
-    }
+    [TerraformPropertyName("subnet_mapping")]
+    public TerraformSet<TerraformBlock<AwsNetworkfirewallFirewallSubnetMappingBlock>>? SubnetMapping { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsNetworkfirewallFirewallTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsNetworkfirewallFirewallTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The firewall_status attribute.
     /// </summary>
-    public TerraformExpression FirewallStatus => this["firewall_status"];
+    [TerraformPropertyName("firewall_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> FirewallStatus => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "firewall_status");
 
     /// <summary>
     /// The transit_gateway_owner_account_id attribute.
     /// </summary>
-    public TerraformExpression TransitGatewayOwnerAccountId => this["transit_gateway_owner_account_id"];
+    [TerraformPropertyName("transit_gateway_owner_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TransitGatewayOwnerAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "transit_gateway_owner_account_id");
 
     /// <summary>
     /// The update_token attribute.
     /// </summary>
-    public TerraformExpression UpdateToken => this["update_token"];
+    [TerraformPropertyName("update_token")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateToken => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_token");
 
 }

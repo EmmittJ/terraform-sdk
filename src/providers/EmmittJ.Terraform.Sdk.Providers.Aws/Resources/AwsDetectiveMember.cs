@@ -9,120 +9,100 @@ public class AwsDetectiveMember : TerraformResource
 {
     public AwsDetectiveMember(string name) : base("aws_detective_member", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("administrator_id");
-        SetOutput("disabled_reason");
-        SetOutput("invited_time");
-        SetOutput("status");
-        SetOutput("updated_time");
-        SetOutput("volume_usage_in_bytes");
-        SetOutput("account_id");
-        SetOutput("disable_email_notification");
-        SetOutput("email_address");
-        SetOutput("graph_arn");
-        SetOutput("id");
-        SetOutput("message");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
-    public required TerraformProperty<string> AccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountId { get; set; }
 
     /// <summary>
     /// The disable_email_notification attribute.
     /// </summary>
-    public TerraformProperty<bool> DisableEmailNotification
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("disable_email_notification");
-        set => SetProperty("disable_email_notification", value);
-    }
+    [TerraformPropertyName("disable_email_notification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DisableEmailNotification { get; set; }
 
     /// <summary>
     /// The email_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
-    public required TerraformProperty<string> EmailAddress
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("email_address");
-        set => SetProperty("email_address", value);
-    }
+    [TerraformPropertyName("email_address")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EmailAddress { get; set; }
 
     /// <summary>
     /// The graph_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GraphArn is required")]
-    public required TerraformProperty<string> GraphArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("graph_arn");
-        set => SetProperty("graph_arn", value);
-    }
+    [TerraformPropertyName("graph_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GraphArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The message attribute.
     /// </summary>
-    public TerraformProperty<string> Message
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("message");
-        set => SetProperty("message", value);
-    }
+    [TerraformPropertyName("message")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Message { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The administrator_id attribute.
     /// </summary>
-    public TerraformExpression AdministratorId => this["administrator_id"];
+    [TerraformPropertyName("administrator_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AdministratorId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "administrator_id");
 
     /// <summary>
     /// The disabled_reason attribute.
     /// </summary>
-    public TerraformExpression DisabledReason => this["disabled_reason"];
+    [TerraformPropertyName("disabled_reason")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisabledReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "disabled_reason");
 
     /// <summary>
     /// The invited_time attribute.
     /// </summary>
-    public TerraformExpression InvitedTime => this["invited_time"];
+    [TerraformPropertyName("invited_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InvitedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "invited_time");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The updated_time attribute.
     /// </summary>
-    public TerraformExpression UpdatedTime => this["updated_time"];
+    [TerraformPropertyName("updated_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "updated_time");
 
     /// <summary>
     /// The volume_usage_in_bytes attribute.
     /// </summary>
-    public TerraformExpression VolumeUsageInBytes => this["volume_usage_in_bytes"];
+    [TerraformPropertyName("volume_usage_in_bytes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VolumeUsageInBytes => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "volume_usage_in_bytes");
 
 }

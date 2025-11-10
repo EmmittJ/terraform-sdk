@@ -9,79 +9,62 @@ public class GoogleBillingAccountDataSource : TerraformDataSource
 {
     public GoogleBillingAccountDataSource(string name) : base("google_billing_account", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("currency_code");
-        SetOutput("name");
-        SetOutput("project_ids");
-        SetOutput("billing_account");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("lookup_projects");
-        SetOutput("open");
     }
 
     /// <summary>
     /// The billing_account attribute.
     /// </summary>
-    public TerraformProperty<string> BillingAccount
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("billing_account");
-        set => SetProperty("billing_account", value);
-    }
+    [TerraformPropertyName("billing_account")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BillingAccount { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The lookup_projects attribute.
     /// </summary>
-    public TerraformProperty<bool> LookupProjects
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("lookup_projects");
-        set => SetProperty("lookup_projects", value);
-    }
+    [TerraformPropertyName("lookup_projects")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LookupProjects { get; set; }
 
     /// <summary>
     /// The open attribute.
     /// </summary>
-    public TerraformProperty<bool> Open
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("open");
-        set => SetProperty("open", value);
-    }
+    [TerraformPropertyName("open")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> Open { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "open");
 
     /// <summary>
     /// The currency_code attribute.
     /// </summary>
-    public TerraformExpression CurrencyCode => this["currency_code"];
+    [TerraformPropertyName("currency_code")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CurrencyCode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "currency_code");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The project_ids attribute.
     /// </summary>
-    public TerraformExpression ProjectIds => this["project_ids"];
+    [TerraformPropertyName("project_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> ProjectIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "project_ids");
 
 }

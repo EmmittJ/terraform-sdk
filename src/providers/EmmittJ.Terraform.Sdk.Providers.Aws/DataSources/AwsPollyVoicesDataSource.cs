@@ -6,63 +6,56 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for voices in .
 /// Nesting mode: list
 /// </summary>
-public class AwsPollyVoicesDataSourceVoicesBlock : TerraformBlock
+public class AwsPollyVoicesDataSourceVoicesBlock : ITerraformBlock
 {
     /// <summary>
     /// The additional_language_codes attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AdditionalLanguageCodes
-    {
-        set => SetProperty("additional_language_codes", value);
-    }
+    [TerraformPropertyName("additional_language_codes")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AdditionalLanguageCodes => new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "additional_language_codes");
 
     /// <summary>
     /// The gender attribute.
     /// </summary>
-    public TerraformProperty<string>? Gender
-    {
-        set => SetProperty("gender", value);
-    }
+    [TerraformPropertyName("gender")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Gender => new TerraformReferenceProperty<TerraformProperty<string>>("", "gender");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
-    public TerraformProperty<string>? LanguageCode
-    {
-        set => SetProperty("language_code", value);
-    }
+    [TerraformPropertyName("language_code")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LanguageCode => new TerraformReferenceProperty<TerraformProperty<string>>("", "language_code");
 
     /// <summary>
     /// The language_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LanguageName
-    {
-        set => SetProperty("language_name", value);
-    }
+    [TerraformPropertyName("language_name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LanguageName => new TerraformReferenceProperty<TerraformProperty<string>>("", "language_name");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>("", "name");
 
     /// <summary>
     /// The supported_engines attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SupportedEngines
-    {
-        set => SetProperty("supported_engines", value);
-    }
+    [TerraformPropertyName("supported_engines")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SupportedEngines => new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "supported_engines");
 
 }
 
@@ -73,66 +66,48 @@ public class AwsPollyVoicesDataSource : TerraformDataSource
 {
     public AwsPollyVoicesDataSource(string name) : base("aws_polly_voices", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("engine");
-        SetOutput("include_additional_language_codes");
-        SetOutput("language_code");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string> Engine
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine");
-        set => SetProperty("engine", value);
-    }
+    [TerraformPropertyName("engine")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Engine { get; set; }
 
     /// <summary>
     /// The include_additional_language_codes attribute.
     /// </summary>
-    public TerraformProperty<bool> IncludeAdditionalLanguageCodes
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("include_additional_language_codes");
-        set => SetProperty("include_additional_language_codes", value);
-    }
+    [TerraformPropertyName("include_additional_language_codes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeAdditionalLanguageCodes { get; set; }
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
-    public TerraformProperty<string> LanguageCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
-        set => SetProperty("language_code", value);
-    }
+    [TerraformPropertyName("language_code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LanguageCode { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for voices.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsPollyVoicesDataSourceVoicesBlock>? Voices
-    {
-        set => SetProperty("voices", value);
-    }
+    [TerraformPropertyName("voices")]
+    public TerraformList<TerraformBlock<AwsPollyVoicesDataSourceVoicesBlock>>? Voices { get; set; } = new();
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

@@ -9,91 +9,85 @@ public class AwsCloudfrontFunctionDataSource : TerraformDataSource
 {
     public AwsCloudfrontFunctionDataSource(string name) : base("aws_cloudfront_function", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("code");
-        SetOutput("comment");
-        SetOutput("etag");
-        SetOutput("key_value_store_associations");
-        SetOutput("last_modified_time");
-        SetOutput("runtime");
-        SetOutput("status");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("stage");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The stage attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
-    public required TerraformProperty<string> Stage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("stage");
-        set => SetProperty("stage", value);
-    }
+    [TerraformPropertyName("stage")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Stage { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The code attribute.
     /// </summary>
-    public TerraformExpression Code => this["code"];
+    [TerraformPropertyName("code")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Code => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "code");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformExpression Comment => this["comment"];
+    [TerraformPropertyName("comment")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Comment => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "comment");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The key_value_store_associations attribute.
     /// </summary>
-    public TerraformExpression KeyValueStoreAssociations => this["key_value_store_associations"];
+    [TerraformPropertyName("key_value_store_associations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> KeyValueStoreAssociations => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "key_value_store_associations");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
-    public TerraformExpression LastModifiedTime => this["last_modified_time"];
+    [TerraformPropertyName("last_modified_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_time");
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
-    public TerraformExpression Runtime => this["runtime"];
+    [TerraformPropertyName("runtime")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Runtime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "runtime");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

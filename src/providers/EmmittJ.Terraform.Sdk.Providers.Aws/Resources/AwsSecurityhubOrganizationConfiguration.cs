@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for organization_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlock : TerraformBlock
+public class AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The configuration_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationType is required")]
-    public required TerraformProperty<string> ConfigurationType
-    {
-        set => SetProperty("configuration_type", value);
-    }
+    [TerraformPropertyName("configuration_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConfigurationType { get; set; }
 
 }
 
@@ -23,31 +22,28 @@ public class AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSecurityhubOrganizationConfigurationTimeoutsBlock : TerraformBlock
+public class AwsSecurityhubOrganizationConfigurationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -59,71 +55,50 @@ public class AwsSecurityhubOrganizationConfiguration : TerraformResource
 {
     public AwsSecurityhubOrganizationConfiguration(string name) : base("aws_securityhub_organization_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("auto_enable");
-        SetOutput("auto_enable_standards");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The auto_enable attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
-    public required TerraformProperty<bool> AutoEnable
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_enable");
-        set => SetProperty("auto_enable", value);
-    }
+    [TerraformPropertyName("auto_enable")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> AutoEnable { get; set; }
 
     /// <summary>
     /// The auto_enable_standards attribute.
     /// </summary>
-    public TerraformProperty<string> AutoEnableStandards
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("auto_enable_standards");
-        set => SetProperty("auto_enable_standards", value);
-    }
+    [TerraformPropertyName("auto_enable_standards")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AutoEnableStandards { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "auto_enable_standards");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for organization_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrganizationConfiguration block(s) allowed")]
-    public List<AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlock>? OrganizationConfiguration
-    {
-        set => SetProperty("organization_configuration", value);
-    }
+    [TerraformPropertyName("organization_configuration")]
+    public TerraformList<TerraformBlock<AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlock>>? OrganizationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsSecurityhubOrganizationConfigurationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsSecurityhubOrganizationConfigurationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

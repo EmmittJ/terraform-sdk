@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for management_network_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock : TerraformBlock
+public class AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The network_interface_private_ip_addresses attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfacePrivateIpAddresses is required")]
-    public HashSet<TerraformProperty<string>>? NetworkInterfacePrivateIpAddresses
-    {
-        set => SetProperty("network_interface_private_ip_addresses", value);
-    }
+    [TerraformPropertyName("network_interface_private_ip_addresses")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? NetworkInterfacePrivateIpAddresses { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
 }
 
@@ -32,25 +30,23 @@ public class AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock
 /// Block type for network_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock : TerraformBlock
+public class AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The network_interface_private_ip_addresses attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfacePrivateIpAddresses is required")]
-    public HashSet<TerraformProperty<string>>? NetworkInterfacePrivateIpAddresses
-    {
-        set => SetProperty("network_interface_private_ip_addresses", value);
-    }
+    [TerraformPropertyName("network_interface_private_ip_addresses")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? NetworkInterfacePrivateIpAddresses { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
 }
 
@@ -58,39 +54,35 @@ public class AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDedicatedHardwareSecurityModuleTimeoutsBlock : TerraformBlock
+public class AzurermDedicatedHardwareSecurityModuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -102,106 +94,75 @@ public class AzurermDedicatedHardwareSecurityModule : TerraformResource
 {
     public AzurermDedicatedHardwareSecurityModule(string name) : base("azurerm_dedicated_hardware_security_module", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("sku_name");
-        SetOutput("stamp_id");
-        SetOutput("tags");
-        SetOutput("zones");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    public required TerraformProperty<string> SkuName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
-        set => SetProperty("sku_name", value);
-    }
+    [TerraformPropertyName("sku_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SkuName { get; set; }
 
     /// <summary>
     /// The stamp_id attribute.
     /// </summary>
-    public TerraformProperty<string> StampId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("stamp_id");
-        set => SetProperty("stamp_id", value);
-    }
+    [TerraformPropertyName("stamp_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StampId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Zones
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
-        set => SetProperty("zones", value);
-    }
+    [TerraformPropertyName("zones")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Zones { get; set; }
 
     /// <summary>
     /// Block for management_network_profile.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementNetworkProfile block(s) allowed")]
-    public List<AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock>? ManagementNetworkProfile
-    {
-        set => SetProperty("management_network_profile", value);
-    }
+    [TerraformPropertyName("management_network_profile")]
+    public TerraformList<TerraformBlock<AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock>>? ManagementNetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for network_profile.
@@ -210,18 +171,14 @@ public class AzurermDedicatedHardwareSecurityModule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
-    public List<AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock>? NetworkProfile
-    {
-        set => SetProperty("network_profile", value);
-    }
+    [TerraformPropertyName("network_profile")]
+    public TerraformList<TerraformBlock<AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock>>? NetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDedicatedHardwareSecurityModuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDedicatedHardwareSecurityModuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

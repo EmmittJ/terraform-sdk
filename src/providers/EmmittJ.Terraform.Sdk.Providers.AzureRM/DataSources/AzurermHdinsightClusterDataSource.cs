@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermHdinsightClusterDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermHdinsightClusterDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,130 +24,127 @@ public class AzurermHdinsightClusterDataSource : TerraformDataSource
 {
     public AzurermHdinsightClusterDataSource(string name) : base("azurerm_hdinsight_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cluster_id");
-        SetOutput("cluster_version");
-        SetOutput("component_versions");
-        SetOutput("edge_ssh_endpoint");
-        SetOutput("gateway");
-        SetOutput("https_endpoint");
-        SetOutput("kafka_rest_proxy_endpoint");
-        SetOutput("kind");
-        SetOutput("location");
-        SetOutput("ssh_endpoint");
-        SetOutput("tags");
-        SetOutput("tier");
-        SetOutput("tls_min_version");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermHdinsightClusterDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermHdinsightClusterDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformExpression ClusterId => this["cluster_id"];
+    [TerraformPropertyName("cluster_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClusterId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_id");
 
     /// <summary>
     /// The cluster_version attribute.
     /// </summary>
-    public TerraformExpression ClusterVersion => this["cluster_version"];
+    [TerraformPropertyName("cluster_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClusterVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_version");
 
     /// <summary>
     /// The component_versions attribute.
     /// </summary>
-    public TerraformExpression ComponentVersions => this["component_versions"];
+    [TerraformPropertyName("component_versions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> ComponentVersions => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "component_versions");
 
     /// <summary>
     /// The edge_ssh_endpoint attribute.
     /// </summary>
-    public TerraformExpression EdgeSshEndpoint => this["edge_ssh_endpoint"];
+    [TerraformPropertyName("edge_ssh_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EdgeSshEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "edge_ssh_endpoint");
 
     /// <summary>
     /// The gateway attribute.
     /// </summary>
-    public TerraformExpression Gateway => this["gateway"];
+    [TerraformPropertyName("gateway")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Gateway => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "gateway");
 
     /// <summary>
     /// The https_endpoint attribute.
     /// </summary>
-    public TerraformExpression HttpsEndpoint => this["https_endpoint"];
+    [TerraformPropertyName("https_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HttpsEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "https_endpoint");
 
     /// <summary>
     /// The kafka_rest_proxy_endpoint attribute.
     /// </summary>
-    public TerraformExpression KafkaRestProxyEndpoint => this["kafka_rest_proxy_endpoint"];
+    [TerraformPropertyName("kafka_rest_proxy_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KafkaRestProxyEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kafka_rest_proxy_endpoint");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformExpression Kind => this["kind"];
+    [TerraformPropertyName("kind")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Kind => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The ssh_endpoint attribute.
     /// </summary>
-    public TerraformExpression SshEndpoint => this["ssh_endpoint"];
+    [TerraformPropertyName("ssh_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SshEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ssh_endpoint");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformExpression Tier => this["tier"];
+    [TerraformPropertyName("tier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Tier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tier");
 
     /// <summary>
     /// The tls_min_version attribute.
     /// </summary>
-    public TerraformExpression TlsMinVersion => this["tls_min_version"];
+    [TerraformPropertyName("tls_min_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TlsMinVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tls_min_version");
 
 }

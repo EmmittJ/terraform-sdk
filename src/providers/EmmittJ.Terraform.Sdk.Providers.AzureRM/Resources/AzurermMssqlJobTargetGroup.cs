@@ -6,56 +6,50 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for job_target in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
+public class AzurermMssqlJobTargetGroupJobTargetBlock : ITerraformBlock
 {
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseName
-    {
-        set => SetProperty("database_name", value);
-    }
+    [TerraformPropertyName("database_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DatabaseName { get; set; }
 
     /// <summary>
     /// The elastic_pool_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ElasticPoolName
-    {
-        set => SetProperty("elastic_pool_name", value);
-    }
+    [TerraformPropertyName("elastic_pool_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ElasticPoolName { get; set; }
 
     /// <summary>
     /// The job_credential_id attribute.
     /// </summary>
-    public TerraformProperty<string>? JobCredentialId
-    {
-        set => SetProperty("job_credential_id", value);
-    }
+    [TerraformPropertyName("job_credential_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? JobCredentialId { get; set; }
 
     /// <summary>
     /// The membership_type attribute.
     /// </summary>
-    public TerraformProperty<string>? MembershipType
-    {
-        set => SetProperty("membership_type", value);
-    }
+    [TerraformPropertyName("membership_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MembershipType { get; set; }
 
     /// <summary>
     /// The server_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
-    public required TerraformProperty<string> ServerName
-    {
-        set => SetProperty("server_name", value);
-    }
+    [TerraformPropertyName("server_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServerName { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>("", "type");
 
 }
 
@@ -63,39 +57,35 @@ public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMssqlJobTargetGroupTimeoutsBlock : TerraformBlock
+public class AzurermMssqlJobTargetGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -106,61 +96,43 @@ public class AzurermMssqlJobTargetGroup : TerraformResource
 {
     public AzurermMssqlJobTargetGroup(string name) : base("azurerm_mssql_job_target_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("job_agent_id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The job_agent_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobAgentId is required")]
-    public required TerraformProperty<string> JobAgentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("job_agent_id");
-        set => SetProperty("job_agent_id", value);
-    }
+    [TerraformPropertyName("job_agent_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> JobAgentId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for job_target.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermMssqlJobTargetGroupJobTargetBlock>? JobTarget
-    {
-        set => SetProperty("job_target", value);
-    }
+    [TerraformPropertyName("job_target")]
+    public TerraformSet<TerraformBlock<AzurermMssqlJobTargetGroupJobTargetBlock>>? JobTarget { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMssqlJobTargetGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMssqlJobTargetGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -9,128 +9,105 @@ public class AwsApprunnerAutoScalingConfigurationVersion : TerraformResource
 {
     public AwsApprunnerAutoScalingConfigurationVersion(string name) : base("aws_apprunner_auto_scaling_configuration_version", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("auto_scaling_configuration_revision");
-        SetOutput("has_associated_service");
-        SetOutput("is_default");
-        SetOutput("latest");
-        SetOutput("status");
-        SetOutput("auto_scaling_configuration_name");
-        SetOutput("id");
-        SetOutput("max_concurrency");
-        SetOutput("max_size");
-        SetOutput("min_size");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The auto_scaling_configuration_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingConfigurationName is required")]
-    public required TerraformProperty<string> AutoScalingConfigurationName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("auto_scaling_configuration_name");
-        set => SetProperty("auto_scaling_configuration_name", value);
-    }
+    [TerraformPropertyName("auto_scaling_configuration_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AutoScalingConfigurationName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The max_concurrency attribute.
     /// </summary>
-    public TerraformProperty<double> MaxConcurrency
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_concurrency");
-        set => SetProperty("max_concurrency", value);
-    }
+    [TerraformPropertyName("max_concurrency")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxConcurrency { get; set; }
 
     /// <summary>
     /// The max_size attribute.
     /// </summary>
-    public TerraformProperty<double> MaxSize
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_size");
-        set => SetProperty("max_size", value);
-    }
+    [TerraformPropertyName("max_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxSize { get; set; }
 
     /// <summary>
     /// The min_size attribute.
     /// </summary>
-    public TerraformProperty<double> MinSize
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("min_size");
-        set => SetProperty("min_size", value);
-    }
+    [TerraformPropertyName("min_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinSize { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The auto_scaling_configuration_revision attribute.
     /// </summary>
-    public TerraformExpression AutoScalingConfigurationRevision => this["auto_scaling_configuration_revision"];
+    [TerraformPropertyName("auto_scaling_configuration_revision")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AutoScalingConfigurationRevision => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "auto_scaling_configuration_revision");
 
     /// <summary>
     /// The has_associated_service attribute.
     /// </summary>
-    public TerraformExpression HasAssociatedService => this["has_associated_service"];
+    [TerraformPropertyName("has_associated_service")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> HasAssociatedService => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "has_associated_service");
 
     /// <summary>
     /// The is_default attribute.
     /// </summary>
-    public TerraformExpression IsDefault => this["is_default"];
+    [TerraformPropertyName("is_default")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> IsDefault => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "is_default");
 
     /// <summary>
     /// The latest attribute.
     /// </summary>
-    public TerraformExpression Latest => this["latest"];
+    [TerraformPropertyName("latest")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Latest => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "latest");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

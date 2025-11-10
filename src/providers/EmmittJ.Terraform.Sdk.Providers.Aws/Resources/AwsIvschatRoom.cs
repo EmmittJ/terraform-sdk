@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for message_review_handler in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIvschatRoomMessageReviewHandlerBlock : TerraformBlock
+public class AwsIvschatRoomMessageReviewHandlerBlock : ITerraformBlock
 {
     /// <summary>
     /// The fallback_result attribute.
     /// </summary>
-    public TerraformProperty<string>? FallbackResult
-    {
-        set => SetProperty("fallback_result", value);
-    }
+    [TerraformPropertyName("fallback_result")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> FallbackResult { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "fallback_result");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformProperty<string>? Uri
-    {
-        set => SetProperty("uri", value);
-    }
+    [TerraformPropertyName("uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Uri { get; set; }
 
 }
 
@@ -30,31 +28,28 @@ public class AwsIvschatRoomMessageReviewHandlerBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsIvschatRoomTimeoutsBlock : TerraformBlock
+public class AwsIvschatRoomTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -66,116 +61,84 @@ public class AwsIvschatRoom : TerraformResource
 {
     public AwsIvschatRoom(string name) : base("aws_ivschat_room", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("logging_configuration_identifiers");
-        SetOutput("maximum_message_length");
-        SetOutput("maximum_message_rate_per_second");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The logging_configuration_identifiers attribute.
     /// </summary>
-    public List<TerraformProperty<string>> LoggingConfigurationIdentifiers
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("logging_configuration_identifiers");
-        set => SetProperty("logging_configuration_identifiers", value);
-    }
+    [TerraformPropertyName("logging_configuration_identifiers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? LoggingConfigurationIdentifiers { get; set; }
 
     /// <summary>
     /// The maximum_message_length attribute.
     /// </summary>
-    public TerraformProperty<double> MaximumMessageLength
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("maximum_message_length");
-        set => SetProperty("maximum_message_length", value);
-    }
+    [TerraformPropertyName("maximum_message_length")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaximumMessageLength { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "maximum_message_length");
 
     /// <summary>
     /// The maximum_message_rate_per_second attribute.
     /// </summary>
-    public TerraformProperty<double> MaximumMessageRatePerSecond
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("maximum_message_rate_per_second");
-        set => SetProperty("maximum_message_rate_per_second", value);
-    }
+    [TerraformPropertyName("maximum_message_rate_per_second")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaximumMessageRatePerSecond { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "maximum_message_rate_per_second");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for message_review_handler.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MessageReviewHandler block(s) allowed")]
-    public List<AwsIvschatRoomMessageReviewHandlerBlock>? MessageReviewHandler
-    {
-        set => SetProperty("message_review_handler", value);
-    }
+    [TerraformPropertyName("message_review_handler")]
+    public TerraformList<TerraformBlock<AwsIvschatRoomMessageReviewHandlerBlock>>? MessageReviewHandler { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsIvschatRoomTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsIvschatRoomTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

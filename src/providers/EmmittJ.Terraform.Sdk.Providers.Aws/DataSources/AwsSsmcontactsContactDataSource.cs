@@ -9,70 +9,56 @@ public class AwsSsmcontactsContactDataSource : TerraformDataSource
 {
     public AwsSsmcontactsContactDataSource(string name) : base("aws_ssmcontacts_contact", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("alias");
-        SetOutput("display_name");
-        SetOutput("type");
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    public required TerraformProperty<string> Arn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arn");
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformExpression Alias => this["alias"];
+    [TerraformPropertyName("alias")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Alias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "alias");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
 }

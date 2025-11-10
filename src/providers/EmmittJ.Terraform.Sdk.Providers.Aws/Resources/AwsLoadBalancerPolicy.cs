@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for policy_attribute in .
 /// Nesting mode: set
 /// </summary>
-public class AwsLoadBalancerPolicyPolicyAttributeBlock : TerraformBlock
+public class AwsLoadBalancerPolicyPolicyAttributeBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -33,73 +31,51 @@ public class AwsLoadBalancerPolicy : TerraformResource
 {
     public AwsLoadBalancerPolicy(string name) : base("aws_load_balancer_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("load_balancer_name");
-        SetOutput("policy_name");
-        SetOutput("policy_type_name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The load_balancer_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerName is required")]
-    public required TerraformProperty<string> LoadBalancerName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("load_balancer_name");
-        set => SetProperty("load_balancer_name", value);
-    }
+    [TerraformPropertyName("load_balancer_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LoadBalancerName { get; set; }
 
     /// <summary>
     /// The policy_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyName is required")]
-    public required TerraformProperty<string> PolicyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_name");
-        set => SetProperty("policy_name", value);
-    }
+    [TerraformPropertyName("policy_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyName { get; set; }
 
     /// <summary>
     /// The policy_type_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyTypeName is required")]
-    public required TerraformProperty<string> PolicyTypeName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_type_name");
-        set => SetProperty("policy_type_name", value);
-    }
+    [TerraformPropertyName("policy_type_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyTypeName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for policy_attribute.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsLoadBalancerPolicyPolicyAttributeBlock>? PolicyAttribute
-    {
-        set => SetProperty("policy_attribute", value);
-    }
+    [TerraformPropertyName("policy_attribute")]
+    public TerraformSet<TerraformBlock<AwsLoadBalancerPolicyPolicyAttributeBlock>>? PolicyAttribute { get; set; } = new();
 
 }

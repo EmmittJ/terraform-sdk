@@ -9,72 +9,49 @@ public class AwsQuicksightIpRestriction : TerraformResource
 {
     public AwsQuicksightIpRestriction(string name) : base("aws_quicksight_ip_restriction", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("aws_account_id");
-        SetOutput("enabled");
-        SetOutput("ip_restriction_rule_map");
-        SetOutput("region");
-        SetOutput("vpc_endpoint_id_restriction_rule_map");
-        SetOutput("vpc_id_restriction_rule_map");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string> AwsAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
-        set => SetProperty("aws_account_id", value);
-    }
+    [TerraformPropertyName("aws_account_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AwsAccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_account_id");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The ip_restriction_rule_map attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> IpRestrictionRuleMap
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("ip_restriction_rule_map");
-        set => SetProperty("ip_restriction_rule_map", value);
-    }
+    [TerraformPropertyName("ip_restriction_rule_map")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? IpRestrictionRuleMap { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The vpc_endpoint_id_restriction_rule_map attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> VpcEndpointIdRestrictionRuleMap
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("vpc_endpoint_id_restriction_rule_map");
-        set => SetProperty("vpc_endpoint_id_restriction_rule_map", value);
-    }
+    [TerraformPropertyName("vpc_endpoint_id_restriction_rule_map")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? VpcEndpointIdRestrictionRuleMap { get; set; }
 
     /// <summary>
     /// The vpc_id_restriction_rule_map attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> VpcIdRestrictionRuleMap
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("vpc_id_restriction_rule_map");
-        set => SetProperty("vpc_id_restriction_rule_map", value);
-    }
+    [TerraformPropertyName("vpc_id_restriction_rule_map")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? VpcIdRestrictionRuleMap { get; set; }
 
 }

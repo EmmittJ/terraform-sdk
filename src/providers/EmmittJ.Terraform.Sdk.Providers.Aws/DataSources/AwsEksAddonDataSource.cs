@@ -9,105 +9,92 @@ public class AwsEksAddonDataSource : TerraformDataSource
 {
     public AwsEksAddonDataSource(string name) : base("aws_eks_addon", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("addon_version");
-        SetOutput("arn");
-        SetOutput("configuration_values");
-        SetOutput("created_at");
-        SetOutput("modified_at");
-        SetOutput("pod_identity_association");
-        SetOutput("service_account_role_arn");
-        SetOutput("addon_name");
-        SetOutput("cluster_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The addon_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddonName is required")]
-    public required TerraformProperty<string> AddonName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("addon_name");
-        set => SetProperty("addon_name", value);
-    }
+    [TerraformPropertyName("addon_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AddonName { get; set; }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    public required TerraformProperty<string> ClusterName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
-        set => SetProperty("cluster_name", value);
-    }
+    [TerraformPropertyName("cluster_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The addon_version attribute.
     /// </summary>
-    public TerraformExpression AddonVersion => this["addon_version"];
+    [TerraformPropertyName("addon_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AddonVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "addon_version");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The configuration_values attribute.
     /// </summary>
-    public TerraformExpression ConfigurationValues => this["configuration_values"];
+    [TerraformPropertyName("configuration_values")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConfigurationValues => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "configuration_values");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
-    public TerraformExpression ModifiedAt => this["modified_at"];
+    [TerraformPropertyName("modified_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ModifiedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "modified_at");
 
     /// <summary>
     /// The pod_identity_association attribute.
     /// </summary>
-    public TerraformExpression PodIdentityAssociation => this["pod_identity_association"];
+    [TerraformPropertyName("pod_identity_association")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> PodIdentityAssociation => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "pod_identity_association");
 
     /// <summary>
     /// The service_account_role_arn attribute.
     /// </summary>
-    public TerraformExpression ServiceAccountRoleArn => this["service_account_role_arn"];
+    [TerraformPropertyName("service_account_role_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceAccountRoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_account_role_arn");
 
 }

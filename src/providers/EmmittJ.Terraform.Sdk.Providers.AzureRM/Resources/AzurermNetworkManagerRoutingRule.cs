@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetworkManagerRoutingRuleDestinationBlock : TerraformBlock
+public class AzurermNetworkManagerRoutingRuleDestinationBlock : ITerraformBlock
 {
     /// <summary>
     /// The address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
-    public required TerraformProperty<string> Address
-    {
-        set => SetProperty("address", value);
-    }
+    [TerraformPropertyName("address")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Address { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -32,24 +30,22 @@ public class AzurermNetworkManagerRoutingRuleDestinationBlock : TerraformBlock
 /// Block type for next_hop in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetworkManagerRoutingRuleNextHopBlock : TerraformBlock
+public class AzurermNetworkManagerRoutingRuleNextHopBlock : ITerraformBlock
 {
     /// <summary>
     /// The address attribute.
     /// </summary>
-    public TerraformProperty<string>? Address
-    {
-        set => SetProperty("address", value);
-    }
+    [TerraformPropertyName("address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Address { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -57,39 +53,35 @@ public class AzurermNetworkManagerRoutingRuleNextHopBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetworkManagerRoutingRuleTimeoutsBlock : TerraformBlock
+public class AzurermNetworkManagerRoutingRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -101,54 +93,37 @@ public class AzurermNetworkManagerRoutingRule : TerraformResource
 {
     public AzurermNetworkManagerRoutingRule(string name) : base("azurerm_network_manager_routing_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("rule_collection_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The rule_collection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleCollectionId is required")]
-    public required TerraformProperty<string> RuleCollectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rule_collection_id");
-        set => SetProperty("rule_collection_id", value);
-    }
+    [TerraformPropertyName("rule_collection_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RuleCollectionId { get; set; }
 
     /// <summary>
     /// Block for destination.
@@ -157,10 +132,8 @@ public class AzurermNetworkManagerRoutingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
-    public List<AzurermNetworkManagerRoutingRuleDestinationBlock>? Destination
-    {
-        set => SetProperty("destination", value);
-    }
+    [TerraformPropertyName("destination")]
+    public TerraformList<TerraformBlock<AzurermNetworkManagerRoutingRuleDestinationBlock>>? Destination { get; set; } = new();
 
     /// <summary>
     /// Block for next_hop.
@@ -169,18 +142,14 @@ public class AzurermNetworkManagerRoutingRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHop is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NextHop block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NextHop block(s) allowed")]
-    public List<AzurermNetworkManagerRoutingRuleNextHopBlock>? NextHop
-    {
-        set => SetProperty("next_hop", value);
-    }
+    [TerraformPropertyName("next_hop")]
+    public TerraformList<TerraformBlock<AzurermNetworkManagerRoutingRuleNextHopBlock>>? NextHop { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNetworkManagerRoutingRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNetworkManagerRoutingRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

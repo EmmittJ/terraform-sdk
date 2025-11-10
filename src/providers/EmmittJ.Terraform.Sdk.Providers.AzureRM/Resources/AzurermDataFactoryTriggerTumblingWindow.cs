@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for pipeline in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryTriggerTumblingWindowPipelineBlock : TerraformBlock
+public class AzurermDataFactoryTriggerTumblingWindowPipelineBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
-    {
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
 }
 
@@ -31,24 +29,22 @@ public class AzurermDataFactoryTriggerTumblingWindowPipelineBlock : TerraformBlo
 /// Block type for retry in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryTriggerTumblingWindowRetryBlock : TerraformBlock
+public class AzurermDataFactoryTriggerTumblingWindowRetryBlock : ITerraformBlock
 {
     /// <summary>
     /// The count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
-    public required TerraformProperty<double> Count
-    {
-        set => SetProperty("count", value);
-    }
+    [TerraformPropertyName("count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Count { get; set; }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    public TerraformProperty<double>? Interval
-    {
-        set => SetProperty("interval", value);
-    }
+    [TerraformPropertyName("interval")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Interval { get; set; }
 
 }
 
@@ -56,39 +52,35 @@ public class AzurermDataFactoryTriggerTumblingWindowRetryBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : TerraformBlock
+public class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -96,31 +88,28 @@ public class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : TerraformBlo
 /// Block type for trigger_dependency in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock : TerraformBlock
+public class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock : ITerraformBlock
 {
     /// <summary>
     /// The offset attribute.
     /// </summary>
-    public TerraformProperty<string>? Offset
-    {
-        set => SetProperty("offset", value);
-    }
+    [TerraformPropertyName("offset")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Offset { get; set; }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
-    public TerraformProperty<string>? Size
-    {
-        set => SetProperty("size", value);
-    }
+    [TerraformPropertyName("size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Size { get; set; }
 
     /// <summary>
     /// The trigger_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TriggerName
-    {
-        set => SetProperty("trigger_name", value);
-    }
+    [TerraformPropertyName("trigger_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TriggerName { get; set; }
 
 }
 
@@ -132,147 +121,103 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
 {
     public AzurermDataFactoryTriggerTumblingWindow(string name) : base("azurerm_data_factory_trigger_tumbling_window", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("activated");
-        SetOutput("additional_properties");
-        SetOutput("annotations");
-        SetOutput("data_factory_id");
-        SetOutput("delay");
-        SetOutput("description");
-        SetOutput("end_time");
-        SetOutput("frequency");
-        SetOutput("id");
-        SetOutput("interval");
-        SetOutput("max_concurrency");
-        SetOutput("name");
-        SetOutput("start_time");
     }
 
     /// <summary>
     /// The activated attribute.
     /// </summary>
-    public TerraformProperty<bool> Activated
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("activated");
-        set => SetProperty("activated", value);
-    }
+    [TerraformPropertyName("activated")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Activated { get; set; }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> AdditionalProperties
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_properties");
-        set => SetProperty("additional_properties", value);
-    }
+    [TerraformPropertyName("additional_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    public required TerraformProperty<string> DataFactoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
-        set => SetProperty("data_factory_id", value);
-    }
+    [TerraformPropertyName("data_factory_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataFactoryId { get; set; }
 
     /// <summary>
     /// The delay attribute.
     /// </summary>
-    public TerraformProperty<string> Delay
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("delay");
-        set => SetProperty("delay", value);
-    }
+    [TerraformPropertyName("delay")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delay { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformProperty<string> EndTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("end_time");
-        set => SetProperty("end_time", value);
-    }
+    [TerraformPropertyName("end_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndTime { get; set; }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
-    public required TerraformProperty<string> Frequency
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("frequency");
-        set => SetProperty("frequency", value);
-    }
+    [TerraformPropertyName("frequency")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Frequency { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
-    public required TerraformProperty<double> Interval
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("interval");
-        set => SetProperty("interval", value);
-    }
+    [TerraformPropertyName("interval")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Interval { get; set; }
 
     /// <summary>
     /// The max_concurrency attribute.
     /// </summary>
-    public TerraformProperty<double> MaxConcurrency
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_concurrency");
-        set => SetProperty("max_concurrency", value);
-    }
+    [TerraformPropertyName("max_concurrency")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxConcurrency { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
-    public required TerraformProperty<string> StartTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
-        set => SetProperty("start_time", value);
-    }
+    [TerraformPropertyName("start_time")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StartTime { get; set; }
 
     /// <summary>
     /// Block for pipeline.
@@ -281,37 +226,29 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pipeline is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Pipeline block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Pipeline block(s) allowed")]
-    public List<AzurermDataFactoryTriggerTumblingWindowPipelineBlock>? Pipeline
-    {
-        set => SetProperty("pipeline", value);
-    }
+    [TerraformPropertyName("pipeline")]
+    public TerraformList<TerraformBlock<AzurermDataFactoryTriggerTumblingWindowPipelineBlock>>? Pipeline { get; set; } = new();
 
     /// <summary>
     /// Block for retry.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Retry block(s) allowed")]
-    public List<AzurermDataFactoryTriggerTumblingWindowRetryBlock>? Retry
-    {
-        set => SetProperty("retry", value);
-    }
+    [TerraformPropertyName("retry")]
+    public TerraformList<TerraformBlock<AzurermDataFactoryTriggerTumblingWindowRetryBlock>>? Retry { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for trigger_dependency.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock>? TriggerDependency
-    {
-        set => SetProperty("trigger_dependency", value);
-    }
+    [TerraformPropertyName("trigger_dependency")]
+    public TerraformSet<TerraformBlock<AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock>>? TriggerDependency { get; set; } = new();
 
 }

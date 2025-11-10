@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermWebPubsubDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermWebPubsubDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,154 +24,155 @@ public class AzurermWebPubsubDataSource : TerraformDataSource
 {
     public AzurermWebPubsubDataSource(string name) : base("azurerm_web_pubsub", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("aad_auth_enabled");
-        SetOutput("capacity");
-        SetOutput("external_ip");
-        SetOutput("hostname");
-        SetOutput("local_auth_enabled");
-        SetOutput("location");
-        SetOutput("primary_access_key");
-        SetOutput("primary_connection_string");
-        SetOutput("public_network_access_enabled");
-        SetOutput("public_port");
-        SetOutput("secondary_access_key");
-        SetOutput("secondary_connection_string");
-        SetOutput("server_port");
-        SetOutput("sku");
-        SetOutput("tags");
-        SetOutput("tls_client_cert_enabled");
-        SetOutput("version");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermWebPubsubDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermWebPubsubDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The aad_auth_enabled attribute.
     /// </summary>
-    public TerraformExpression AadAuthEnabled => this["aad_auth_enabled"];
+    [TerraformPropertyName("aad_auth_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AadAuthEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "aad_auth_enabled");
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformExpression Capacity => this["capacity"];
+    [TerraformPropertyName("capacity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Capacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "capacity");
 
     /// <summary>
     /// The external_ip attribute.
     /// </summary>
-    public TerraformExpression ExternalIp => this["external_ip"];
+    [TerraformPropertyName("external_ip")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExternalIp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "external_ip");
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
-    public TerraformExpression Hostname => this["hostname"];
+    [TerraformPropertyName("hostname")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Hostname => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hostname");
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public TerraformExpression LocalAuthEnabled => this["local_auth_enabled"];
+    [TerraformPropertyName("local_auth_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> LocalAuthEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "local_auth_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
-    public TerraformExpression PrimaryAccessKey => this["primary_access_key"];
+    [TerraformPropertyName("primary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_access_key");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
-    public TerraformExpression PrimaryConnectionString => this["primary_connection_string"];
+    [TerraformPropertyName("primary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_connection_string");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformExpression PublicNetworkAccessEnabled => this["public_network_access_enabled"];
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PublicNetworkAccessEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "public_network_access_enabled");
 
     /// <summary>
     /// The public_port attribute.
     /// </summary>
-    public TerraformExpression PublicPort => this["public_port"];
+    [TerraformPropertyName("public_port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> PublicPort => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "public_port");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
-    public TerraformExpression SecondaryAccessKey => this["secondary_access_key"];
+    [TerraformPropertyName("secondary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_access_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
-    public TerraformExpression SecondaryConnectionString => this["secondary_connection_string"];
+    [TerraformPropertyName("secondary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_connection_string");
 
     /// <summary>
     /// The server_port attribute.
     /// </summary>
-    public TerraformExpression ServerPort => this["server_port"];
+    [TerraformPropertyName("server_port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ServerPort => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "server_port");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformExpression Sku => this["sku"];
+    [TerraformPropertyName("sku")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Sku => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The tls_client_cert_enabled attribute.
     /// </summary>
-    public TerraformExpression TlsClientCertEnabled => this["tls_client_cert_enabled"];
+    [TerraformPropertyName("tls_client_cert_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> TlsClientCertEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "tls_client_cert_enabled");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformExpression Version => this["version"];
+    [TerraformPropertyName("version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
 }

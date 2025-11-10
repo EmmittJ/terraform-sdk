@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for identity_constraints in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock : TerraformBlock
+public class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock : ITerraformBlock
 {
     /// <summary>
     /// Required. If this is true, the SubjectAltNames extension may be copied from a certificate request into the signed certificate. Otherwise, the requested SubjectAltNames will be discarded.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowSubjectAltNamesPassthrough is required")]
-    public required TerraformProperty<bool> AllowSubjectAltNamesPassthrough
-    {
-        set => SetProperty("allow_subject_alt_names_passthrough", value);
-    }
+    [TerraformPropertyName("allow_subject_alt_names_passthrough")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> AllowSubjectAltNamesPassthrough { get; set; }
 
     /// <summary>
     /// Required. If this is true, the Subject field may be copied from a certificate request into the signed certificate. Otherwise, the requested Subject will be discarded.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowSubjectPassthrough is required")]
-    public required TerraformProperty<bool> AllowSubjectPassthrough
-    {
-        set => SetProperty("allow_subject_passthrough", value);
-    }
+    [TerraformPropertyName("allow_subject_passthrough")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> AllowSubjectPassthrough { get; set; }
 
 }
 
@@ -32,15 +30,14 @@ public class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock : Terraf
 /// Block type for passthrough_extensions in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock : TerraformBlock
+public class GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock : ITerraformBlock
 {
     /// <summary>
     /// Optional. A set of named X.509 extensions. Will be combined with additional_extensions to determine the full set of X.509 extensions.
     /// </summary>
-    public List<TerraformProperty<string>>? KnownExtensions
-    {
-        set => SetProperty("known_extensions", value);
-    }
+    [TerraformPropertyName("known_extensions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? KnownExtensions { get; set; }
 
 }
 
@@ -48,15 +45,14 @@ public class GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock : Terr
 /// Block type for predefined_values in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePrivatecaCertificateTemplatePredefinedValuesBlock : TerraformBlock
+public class GooglePrivatecaCertificateTemplatePredefinedValuesBlock : ITerraformBlock
 {
     /// <summary>
     /// Optional. Describes Online Certificate Status Protocol (OCSP) endpoint addresses that appear in the &amp;quot;Authority Information Access&amp;quot; extension in the certificate.
     /// </summary>
-    public List<TerraformProperty<string>>? AiaOcspServers
-    {
-        set => SetProperty("aia_ocsp_servers", value);
-    }
+    [TerraformPropertyName("aia_ocsp_servers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AiaOcspServers { get; set; }
 
 }
 
@@ -64,31 +60,28 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GooglePrivatecaCertificateTemplateTimeoutsBlock : TerraformBlock
+public class GooglePrivatecaCertificateTemplateTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -100,41 +93,21 @@ public class GooglePrivatecaCertificateTemplate : TerraformResource
 {
     public GooglePrivatecaCertificateTemplate(string name) : base("google_privateca_certificate_template", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("maximum_lifetime");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// Optional. A human-readable description of scenarios this template is intended for.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Optional. Labels with user-defined metadata.
@@ -142,108 +115,98 @@ public class GooglePrivatecaCertificateTemplate : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// Optional. The maximum lifetime allowed for all issued certificates that use this template. If the issuing CaPool&#39;s IssuancePolicy specifies a maximum lifetime the minimum of the two durations will be the maximum lifetime for issued. Note that if the issuing CertificateAuthority expires before a Certificate&#39;s requested maximum_lifetime, the effective lifetime will be explicitly truncated to match it.
     /// </summary>
-    public TerraformProperty<string> MaximumLifetime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("maximum_lifetime");
-        set => SetProperty("maximum_lifetime", value);
-    }
+    [TerraformPropertyName("maximum_lifetime")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaximumLifetime { get; set; }
 
     /// <summary>
     /// The resource name for this CertificateTemplate in the format &#39;projects/*/locations/*/certificateTemplates/*&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for identity_constraints.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdentityConstraints block(s) allowed")]
-    public List<GooglePrivatecaCertificateTemplateIdentityConstraintsBlock>? IdentityConstraints
-    {
-        set => SetProperty("identity_constraints", value);
-    }
+    [TerraformPropertyName("identity_constraints")]
+    public TerraformList<TerraformBlock<GooglePrivatecaCertificateTemplateIdentityConstraintsBlock>>? IdentityConstraints { get; set; } = new();
 
     /// <summary>
     /// Block for passthrough_extensions.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PassthroughExtensions block(s) allowed")]
-    public List<GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock>? PassthroughExtensions
-    {
-        set => SetProperty("passthrough_extensions", value);
-    }
+    [TerraformPropertyName("passthrough_extensions")]
+    public TerraformList<TerraformBlock<GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock>>? PassthroughExtensions { get; set; } = new();
 
     /// <summary>
     /// Block for predefined_values.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PredefinedValues block(s) allowed")]
-    public List<GooglePrivatecaCertificateTemplatePredefinedValuesBlock>? PredefinedValues
-    {
-        set => SetProperty("predefined_values", value);
-    }
+    [TerraformPropertyName("predefined_values")]
+    public TerraformList<TerraformBlock<GooglePrivatecaCertificateTemplatePredefinedValuesBlock>>? PredefinedValues { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GooglePrivatecaCertificateTemplateTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GooglePrivatecaCertificateTemplateTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The time at which this CertificateTemplate was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Output only. The time at which this CertificateTemplate was updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

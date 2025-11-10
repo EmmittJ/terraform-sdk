@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBotChannelDirectLineSpeechTimeoutsBlock : TerraformBlock
+public class AzurermBotChannelDirectLineSpeechTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,115 +45,81 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
 {
     public AzurermBotChannelDirectLineSpeech(string name) : base("azurerm_bot_channel_direct_line_speech", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bot_name");
-        SetOutput("cognitive_account_id");
-        SetOutput("cognitive_service_access_key");
-        SetOutput("cognitive_service_location");
-        SetOutput("custom_speech_model_id");
-        SetOutput("custom_voice_deployment_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
-    public required TerraformProperty<string> BotName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bot_name");
-        set => SetProperty("bot_name", value);
-    }
+    [TerraformPropertyName("bot_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BotName { get; set; }
 
     /// <summary>
     /// The cognitive_account_id attribute.
     /// </summary>
-    public TerraformProperty<string> CognitiveAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cognitive_account_id");
-        set => SetProperty("cognitive_account_id", value);
-    }
+    [TerraformPropertyName("cognitive_account_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CognitiveAccountId { get; set; }
 
     /// <summary>
     /// The cognitive_service_access_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveServiceAccessKey is required")]
-    public required TerraformProperty<string> CognitiveServiceAccessKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cognitive_service_access_key");
-        set => SetProperty("cognitive_service_access_key", value);
-    }
+    [TerraformPropertyName("cognitive_service_access_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CognitiveServiceAccessKey { get; set; }
 
     /// <summary>
     /// The cognitive_service_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveServiceLocation is required")]
-    public required TerraformProperty<string> CognitiveServiceLocation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cognitive_service_location");
-        set => SetProperty("cognitive_service_location", value);
-    }
+    [TerraformPropertyName("cognitive_service_location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CognitiveServiceLocation { get; set; }
 
     /// <summary>
     /// The custom_speech_model_id attribute.
     /// </summary>
-    public TerraformProperty<string> CustomSpeechModelId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("custom_speech_model_id");
-        set => SetProperty("custom_speech_model_id", value);
-    }
+    [TerraformPropertyName("custom_speech_model_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomSpeechModelId { get; set; }
 
     /// <summary>
     /// The custom_voice_deployment_id attribute.
     /// </summary>
-    public TerraformProperty<string> CustomVoiceDeploymentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("custom_voice_deployment_id");
-        set => SetProperty("custom_voice_deployment_id", value);
-    }
+    [TerraformPropertyName("custom_voice_deployment_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomVoiceDeploymentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermBotChannelDirectLineSpeechTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermBotChannelDirectLineSpeechTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

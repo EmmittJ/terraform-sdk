@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSqsQueueTimeoutsBlock : TerraformBlock
+public class AwsSqsQueueTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,242 +38,174 @@ public class AwsSqsQueue : TerraformResource
 {
     public AwsSqsQueue(string name) : base("aws_sqs_queue", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("url");
-        SetOutput("content_based_deduplication");
-        SetOutput("deduplication_scope");
-        SetOutput("delay_seconds");
-        SetOutput("fifo_queue");
-        SetOutput("fifo_throughput_limit");
-        SetOutput("id");
-        SetOutput("kms_data_key_reuse_period_seconds");
-        SetOutput("kms_master_key_id");
-        SetOutput("max_message_size");
-        SetOutput("message_retention_seconds");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("policy");
-        SetOutput("receive_wait_time_seconds");
-        SetOutput("redrive_allow_policy");
-        SetOutput("redrive_policy");
-        SetOutput("region");
-        SetOutput("sqs_managed_sse_enabled");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("visibility_timeout_seconds");
     }
 
     /// <summary>
     /// The content_based_deduplication attribute.
     /// </summary>
-    public TerraformProperty<bool> ContentBasedDeduplication
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("content_based_deduplication");
-        set => SetProperty("content_based_deduplication", value);
-    }
+    [TerraformPropertyName("content_based_deduplication")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ContentBasedDeduplication { get; set; }
 
     /// <summary>
     /// The deduplication_scope attribute.
     /// </summary>
-    public TerraformProperty<string> DeduplicationScope
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deduplication_scope");
-        set => SetProperty("deduplication_scope", value);
-    }
+    [TerraformPropertyName("deduplication_scope")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DeduplicationScope { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deduplication_scope");
 
     /// <summary>
     /// The delay_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> DelaySeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("delay_seconds");
-        set => SetProperty("delay_seconds", value);
-    }
+    [TerraformPropertyName("delay_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DelaySeconds { get; set; }
 
     /// <summary>
     /// The fifo_queue attribute.
     /// </summary>
-    public TerraformProperty<bool> FifoQueue
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("fifo_queue");
-        set => SetProperty("fifo_queue", value);
-    }
+    [TerraformPropertyName("fifo_queue")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? FifoQueue { get; set; }
 
     /// <summary>
     /// The fifo_throughput_limit attribute.
     /// </summary>
-    public TerraformProperty<string> FifoThroughputLimit
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("fifo_throughput_limit");
-        set => SetProperty("fifo_throughput_limit", value);
-    }
+    [TerraformPropertyName("fifo_throughput_limit")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> FifoThroughputLimit { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fifo_throughput_limit");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kms_data_key_reuse_period_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> KmsDataKeyReusePeriodSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("kms_data_key_reuse_period_seconds");
-        set => SetProperty("kms_data_key_reuse_period_seconds", value);
-    }
+    [TerraformPropertyName("kms_data_key_reuse_period_seconds")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> KmsDataKeyReusePeriodSeconds { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "kms_data_key_reuse_period_seconds");
 
     /// <summary>
     /// The kms_master_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> KmsMasterKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_master_key_id");
-        set => SetProperty("kms_master_key_id", value);
-    }
+    [TerraformPropertyName("kms_master_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsMasterKeyId { get; set; }
 
     /// <summary>
     /// The max_message_size attribute.
     /// </summary>
-    public TerraformProperty<double> MaxMessageSize
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_message_size");
-        set => SetProperty("max_message_size", value);
-    }
+    [TerraformPropertyName("max_message_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxMessageSize { get; set; }
 
     /// <summary>
     /// The message_retention_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> MessageRetentionSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("message_retention_seconds");
-        set => SetProperty("message_retention_seconds", value);
-    }
+    [TerraformPropertyName("message_retention_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MessageRetentionSeconds { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string> Policy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy");
-        set => SetProperty("policy", value);
-    }
+    [TerraformPropertyName("policy")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Policy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy");
 
     /// <summary>
     /// The receive_wait_time_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> ReceiveWaitTimeSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("receive_wait_time_seconds");
-        set => SetProperty("receive_wait_time_seconds", value);
-    }
+    [TerraformPropertyName("receive_wait_time_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ReceiveWaitTimeSeconds { get; set; }
 
     /// <summary>
     /// The redrive_allow_policy attribute.
     /// </summary>
-    public TerraformProperty<string> RedriveAllowPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("redrive_allow_policy");
-        set => SetProperty("redrive_allow_policy", value);
-    }
+    [TerraformPropertyName("redrive_allow_policy")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> RedriveAllowPolicy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "redrive_allow_policy");
 
     /// <summary>
     /// The redrive_policy attribute.
     /// </summary>
-    public TerraformProperty<string> RedrivePolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("redrive_policy");
-        set => SetProperty("redrive_policy", value);
-    }
+    [TerraformPropertyName("redrive_policy")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> RedrivePolicy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "redrive_policy");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The sqs_managed_sse_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> SqsManagedSseEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("sqs_managed_sse_enabled");
-        set => SetProperty("sqs_managed_sse_enabled", value);
-    }
+    [TerraformPropertyName("sqs_managed_sse_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> SqsManagedSseEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "sqs_managed_sse_enabled");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The visibility_timeout_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> VisibilityTimeoutSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("visibility_timeout_seconds");
-        set => SetProperty("visibility_timeout_seconds", value);
-    }
+    [TerraformPropertyName("visibility_timeout_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? VisibilityTimeoutSeconds { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsSqsQueueTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsSqsQueueTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformExpression Url => this["url"];
+    [TerraformPropertyName("url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "url");
 
 }

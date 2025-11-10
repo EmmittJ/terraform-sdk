@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rag_managed_db_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiRagEngineConfigRagManagedDbConfigBlock : TerraformBlock
+public class GoogleVertexAiRagEngineConfigRagManagedDbConfigBlock : ITerraformBlock
 {
 }
 
@@ -14,31 +14,28 @@ public class GoogleVertexAiRagEngineConfigRagManagedDbConfigBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVertexAiRagEngineConfigTimeoutsBlock : TerraformBlock
+public class GoogleVertexAiRagEngineConfigTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -50,43 +47,28 @@ public class GoogleVertexAiRagEngineConfig : TerraformResource
 {
     public GoogleVertexAiRagEngineConfig(string name) : base("google_vertex_ai_rag_engine_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The region of the RagEngineConfig. eg us-central1
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for rag_managed_db_config.
@@ -95,23 +77,21 @@ public class GoogleVertexAiRagEngineConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RagManagedDbConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RagManagedDbConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RagManagedDbConfig block(s) allowed")]
-    public List<GoogleVertexAiRagEngineConfigRagManagedDbConfigBlock>? RagManagedDbConfig
-    {
-        set => SetProperty("rag_managed_db_config", value);
-    }
+    [TerraformPropertyName("rag_managed_db_config")]
+    public TerraformList<TerraformBlock<GoogleVertexAiRagEngineConfigRagManagedDbConfigBlock>>? RagManagedDbConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleVertexAiRagEngineConfigTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleVertexAiRagEngineConfigTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the Dataset. This value is set by Google.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

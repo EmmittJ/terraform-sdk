@@ -6,58 +6,52 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for metric_transformation in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBlock
+public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : ITerraformBlock
 {
     /// <summary>
     /// The default_value attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultValue
-    {
-        set => SetProperty("default_value", value);
-    }
+    [TerraformPropertyName("default_value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultValue { get; set; }
 
     /// <summary>
     /// The dimensions attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Dimensions
-    {
-        set => SetProperty("dimensions", value);
-    }
+    [TerraformPropertyName("dimensions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Dimensions { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
-    public required TerraformProperty<string> Namespace
-    {
-        set => SetProperty("namespace", value);
-    }
+    [TerraformPropertyName("namespace")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Namespace { get; set; }
 
     /// <summary>
     /// The unit attribute.
     /// </summary>
-    public TerraformProperty<string>? Unit
-    {
-        set => SetProperty("unit", value);
-    }
+    [TerraformPropertyName("unit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Unit { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<string> Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
 
 }
 
@@ -69,75 +63,52 @@ public class AwsCloudwatchLogMetricFilter : TerraformResource
 {
     public AwsCloudwatchLogMetricFilter(string name) : base("aws_cloudwatch_log_metric_filter", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("apply_on_transformed_logs");
-        SetOutput("id");
-        SetOutput("log_group_name");
-        SetOutput("name");
-        SetOutput("pattern");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The apply_on_transformed_logs attribute.
     /// </summary>
-    public TerraformProperty<bool> ApplyOnTransformedLogs
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("apply_on_transformed_logs");
-        set => SetProperty("apply_on_transformed_logs", value);
-    }
+    [TerraformPropertyName("apply_on_transformed_logs")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> ApplyOnTransformedLogs { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "apply_on_transformed_logs");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The log_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
-    public required TerraformProperty<string> LogGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("log_group_name");
-        set => SetProperty("log_group_name", value);
-    }
+    [TerraformPropertyName("log_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogGroupName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The pattern attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
-    public required TerraformProperty<string> Pattern
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pattern");
-        set => SetProperty("pattern", value);
-    }
+    [TerraformPropertyName("pattern")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Pattern { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for metric_transformation.
@@ -146,9 +117,7 @@ public class AwsCloudwatchLogMetricFilter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricTransformation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MetricTransformation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricTransformation block(s) allowed")]
-    public List<AwsCloudwatchLogMetricFilterMetricTransformationBlock>? MetricTransformation
-    {
-        set => SetProperty("metric_transformation", value);
-    }
+    [TerraformPropertyName("metric_transformation")]
+    public TerraformList<TerraformBlock<AwsCloudwatchLogMetricFilterMetricTransformationBlock>>? MetricTransformation { get; set; } = new();
 
 }

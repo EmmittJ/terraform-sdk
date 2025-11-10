@@ -9,98 +9,98 @@ public class AwsCloudfrontDistributionDataSource : TerraformDataSource
 {
     public AwsCloudfrontDistributionDataSource(string name) : base("aws_cloudfront_distribution", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("aliases");
-        SetOutput("anycast_ip_list_id");
-        SetOutput("arn");
-        SetOutput("domain_name");
-        SetOutput("enabled");
-        SetOutput("etag");
-        SetOutput("hosted_zone_id");
-        SetOutput("in_progress_validation_batches");
-        SetOutput("last_modified_time");
-        SetOutput("status");
-        SetOutput("web_acl_id");
-        SetOutput("id");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The aliases attribute.
     /// </summary>
-    public TerraformExpression Aliases => this["aliases"];
+    [TerraformPropertyName("aliases")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Aliases => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "aliases");
 
     /// <summary>
     /// The anycast_ip_list_id attribute.
     /// </summary>
-    public TerraformExpression AnycastIpListId => this["anycast_ip_list_id"];
+    [TerraformPropertyName("anycast_ip_list_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AnycastIpListId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "anycast_ip_list_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformExpression DomainName => this["domain_name"];
+    [TerraformPropertyName("domain_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DomainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_name");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformExpression Enabled => this["enabled"];
+    [TerraformPropertyName("enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Enabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enabled");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    public TerraformExpression HostedZoneId => this["hosted_zone_id"];
+    [TerraformPropertyName("hosted_zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostedZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hosted_zone_id");
 
     /// <summary>
     /// The in_progress_validation_batches attribute.
     /// </summary>
-    public TerraformExpression InProgressValidationBatches => this["in_progress_validation_batches"];
+    [TerraformPropertyName("in_progress_validation_batches")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> InProgressValidationBatches => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "in_progress_validation_batches");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
-    public TerraformExpression LastModifiedTime => this["last_modified_time"];
+    [TerraformPropertyName("last_modified_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_time");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The web_acl_id attribute.
     /// </summary>
-    public TerraformExpression WebAclId => this["web_acl_id"];
+    [TerraformPropertyName("web_acl_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WebAclId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "web_acl_id");
 
 }

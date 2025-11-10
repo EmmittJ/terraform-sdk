@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermServicebusTopicTimeoutsBlock : TerraformBlock
+public class AzurermServicebusTopicTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,162 +45,113 @@ public class AzurermServicebusTopic : TerraformResource
 {
     public AzurermServicebusTopic(string name) : base("azurerm_servicebus_topic", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("auto_delete_on_idle");
-        SetOutput("batched_operations_enabled");
-        SetOutput("default_message_ttl");
-        SetOutput("duplicate_detection_history_time_window");
-        SetOutput("express_enabled");
-        SetOutput("id");
-        SetOutput("max_message_size_in_kilobytes");
-        SetOutput("max_size_in_megabytes");
-        SetOutput("name");
-        SetOutput("namespace_id");
-        SetOutput("partitioning_enabled");
-        SetOutput("requires_duplicate_detection");
-        SetOutput("status");
-        SetOutput("support_ordering");
     }
 
     /// <summary>
     /// The auto_delete_on_idle attribute.
     /// </summary>
-    public TerraformProperty<string> AutoDeleteOnIdle
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("auto_delete_on_idle");
-        set => SetProperty("auto_delete_on_idle", value);
-    }
+    [TerraformPropertyName("auto_delete_on_idle")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AutoDeleteOnIdle { get; set; }
 
     /// <summary>
     /// The batched_operations_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> BatchedOperationsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("batched_operations_enabled");
-        set => SetProperty("batched_operations_enabled", value);
-    }
+    [TerraformPropertyName("batched_operations_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BatchedOperationsEnabled { get; set; }
 
     /// <summary>
     /// The default_message_ttl attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultMessageTtl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_message_ttl");
-        set => SetProperty("default_message_ttl", value);
-    }
+    [TerraformPropertyName("default_message_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultMessageTtl { get; set; }
 
     /// <summary>
     /// The duplicate_detection_history_time_window attribute.
     /// </summary>
-    public TerraformProperty<string> DuplicateDetectionHistoryTimeWindow
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("duplicate_detection_history_time_window");
-        set => SetProperty("duplicate_detection_history_time_window", value);
-    }
+    [TerraformPropertyName("duplicate_detection_history_time_window")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DuplicateDetectionHistoryTimeWindow { get; set; }
 
     /// <summary>
     /// The express_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ExpressEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("express_enabled");
-        set => SetProperty("express_enabled", value);
-    }
+    [TerraformPropertyName("express_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExpressEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The max_message_size_in_kilobytes attribute.
     /// </summary>
-    public TerraformProperty<double> MaxMessageSizeInKilobytes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_message_size_in_kilobytes");
-        set => SetProperty("max_message_size_in_kilobytes", value);
-    }
+    [TerraformPropertyName("max_message_size_in_kilobytes")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxMessageSizeInKilobytes { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_message_size_in_kilobytes");
 
     /// <summary>
     /// The max_size_in_megabytes attribute.
     /// </summary>
-    public TerraformProperty<double> MaxSizeInMegabytes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_size_in_megabytes");
-        set => SetProperty("max_size_in_megabytes", value);
-    }
+    [TerraformPropertyName("max_size_in_megabytes")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxSizeInMegabytes { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_size_in_megabytes");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
-    public required TerraformProperty<string> NamespaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace_id");
-        set => SetProperty("namespace_id", value);
-    }
+    [TerraformPropertyName("namespace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NamespaceId { get; set; }
 
     /// <summary>
     /// The partitioning_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PartitioningEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("partitioning_enabled");
-        set => SetProperty("partitioning_enabled", value);
-    }
+    [TerraformPropertyName("partitioning_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PartitioningEnabled { get; set; }
 
     /// <summary>
     /// The requires_duplicate_detection attribute.
     /// </summary>
-    public TerraformProperty<bool> RequiresDuplicateDetection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("requires_duplicate_detection");
-        set => SetProperty("requires_duplicate_detection", value);
-    }
+    [TerraformPropertyName("requires_duplicate_detection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequiresDuplicateDetection { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
     /// <summary>
     /// The support_ordering attribute.
     /// </summary>
-    public TerraformProperty<bool> SupportOrdering
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("support_ordering");
-        set => SetProperty("support_ordering", value);
-    }
+    [TerraformPropertyName("support_ordering")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SupportOrdering { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermServicebusTopicTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermServicebusTopicTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

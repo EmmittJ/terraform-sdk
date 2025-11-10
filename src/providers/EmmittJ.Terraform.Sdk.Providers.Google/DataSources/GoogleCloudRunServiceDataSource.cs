@@ -9,40 +9,22 @@ public class GoogleCloudRunServiceDataSource : TerraformDataSource
 {
     public GoogleCloudRunServiceDataSource(string name) : base("google_cloud_run_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("autogenerate_revision_name");
-        SetOutput("metadata");
-        SetOutput("status");
-        SetOutput("template");
-        SetOutput("traffic");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location of the cloud run instance. eg us-central1
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// Name must be unique within a Google Cloud project and region.
@@ -51,20 +33,16 @@ public class GoogleCloudRunServiceDataSource : TerraformDataSource
     /// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// If set to &#39;true&#39;, the revision name (template.metadata.name) will be omitted and
@@ -73,18 +51,24 @@ public class GoogleCloudRunServiceDataSource : TerraformDataSource
     /// (For legacy support, if &#39;template.metadata.name&#39; is unset in state while
     /// this field is set to false, the revision name will still autogenerate.)
     /// </summary>
-    public TerraformExpression AutogenerateRevisionName => this["autogenerate_revision_name"];
+    [TerraformPropertyName("autogenerate_revision_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AutogenerateRevisionName => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "autogenerate_revision_name");
 
     /// <summary>
     /// Metadata associated with this Service, including name, namespace, labels,
     /// and annotations.
     /// </summary>
-    public TerraformExpression Metadata => this["metadata"];
+    [TerraformPropertyName("metadata")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Metadata => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "metadata");
 
     /// <summary>
     /// The current status of the Service.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Status => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "status");
 
     /// <summary>
     /// template holds the latest specification for the Revision to
@@ -98,12 +82,16 @@ public class GoogleCloudRunServiceDataSource : TerraformDataSource
     /// Cloud Run does not currently support referencing a build that is
     /// responsible for materializing the container image from source.
     /// </summary>
-    public TerraformExpression Template => this["template"];
+    [TerraformPropertyName("template")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Template => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "template");
 
     /// <summary>
     /// Traffic specifies how to distribute traffic over a collection of Knative Revisions
     /// and Configurations
     /// </summary>
-    public TerraformExpression Traffic => this["traffic"];
+    [TerraformPropertyName("traffic")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Traffic => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "traffic");
 
 }

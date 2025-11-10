@@ -6,55 +6,49 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVpclatticeTargetGroupConfigBlock : TerraformBlock
+public class AwsVpclatticeTargetGroupConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddressType
-    {
-        set => SetProperty("ip_address_type", value);
-    }
+    [TerraformPropertyName("ip_address_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IpAddressType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "ip_address_type");
 
     /// <summary>
     /// The lambda_event_structure_version attribute.
     /// </summary>
-    public TerraformProperty<string>? LambdaEventStructureVersion
-    {
-        set => SetProperty("lambda_event_structure_version", value);
-    }
+    [TerraformPropertyName("lambda_event_structure_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LambdaEventStructureVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "lambda_event_structure_version");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Port { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "port");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? Protocol
-    {
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Protocol { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "protocol");
 
     /// <summary>
     /// The protocol_version attribute.
     /// </summary>
-    public TerraformProperty<string>? ProtocolVersion
-    {
-        set => SetProperty("protocol_version", value);
-    }
+    [TerraformPropertyName("protocol_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ProtocolVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "protocol_version");
 
     /// <summary>
     /// The vpc_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcIdentifier
-    {
-        set => SetProperty("vpc_identifier", value);
-    }
+    [TerraformPropertyName("vpc_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VpcIdentifier { get; set; }
 
 }
 
@@ -62,31 +56,28 @@ public class AwsVpclatticeTargetGroupConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsVpclatticeTargetGroupTimeoutsBlock : TerraformBlock
+public class AwsVpclatticeTargetGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -98,104 +89,79 @@ public class AwsVpclatticeTargetGroup : TerraformResource
 {
     public AwsVpclatticeTargetGroup(string name) : base("aws_vpclattice_target_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("status");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// Block for config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
-    public List<AwsVpclatticeTargetGroupConfigBlock>? Config
-    {
-        set => SetProperty("config", value);
-    }
+    [TerraformPropertyName("config")]
+    public TerraformList<TerraformBlock<AwsVpclatticeTargetGroupConfigBlock>>? Config { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsVpclatticeTargetGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsVpclatticeTargetGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

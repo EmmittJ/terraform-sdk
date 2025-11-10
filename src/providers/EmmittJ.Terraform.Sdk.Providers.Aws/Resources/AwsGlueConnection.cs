@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for physical_connection_requirements in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueConnectionPhysicalConnectionRequirementsBlock : TerraformBlock
+public class AwsGlueConnectionPhysicalConnectionRequirementsBlock : ITerraformBlock
 {
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZone
-    {
-        set => SetProperty("availability_zone", value);
-    }
+    [TerraformPropertyName("availability_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AvailabilityZone { get; set; }
 
     /// <summary>
     /// The security_group_id_list attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIdList
-    {
-        set => SetProperty("security_group_id_list", value);
-    }
+    [TerraformPropertyName("security_group_id_list")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIdList { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SubnetId { get; set; }
 
 }
 
@@ -42,138 +39,99 @@ public class AwsGlueConnection : TerraformResource
 {
     public AwsGlueConnection(string name) : base("aws_glue_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("athena_properties");
-        SetOutput("catalog_id");
-        SetOutput("connection_properties");
-        SetOutput("connection_type");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("match_criteria");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The athena_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> AthenaProperties
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("athena_properties");
-        set => SetProperty("athena_properties", value);
-    }
+    [TerraformPropertyName("athena_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? AthenaProperties { get; set; }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string> CatalogId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "catalog_id");
 
     /// <summary>
     /// The connection_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> ConnectionProperties
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("connection_properties");
-        set => SetProperty("connection_properties", value);
-    }
+    [TerraformPropertyName("connection_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ConnectionProperties { get; set; }
 
     /// <summary>
     /// The connection_type attribute.
     /// </summary>
-    public TerraformProperty<string> ConnectionType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connection_type");
-        set => SetProperty("connection_type", value);
-    }
+    [TerraformPropertyName("connection_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConnectionType { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The match_criteria attribute.
     /// </summary>
-    public List<TerraformProperty<string>> MatchCriteria
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("match_criteria");
-        set => SetProperty("match_criteria", value);
-    }
+    [TerraformPropertyName("match_criteria")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? MatchCriteria { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for physical_connection_requirements.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PhysicalConnectionRequirements block(s) allowed")]
-    public List<AwsGlueConnectionPhysicalConnectionRequirementsBlock>? PhysicalConnectionRequirements
-    {
-        set => SetProperty("physical_connection_requirements", value);
-    }
+    [TerraformPropertyName("physical_connection_requirements")]
+    public TerraformList<TerraformBlock<AwsGlueConnectionPhysicalConnectionRequirementsBlock>>? PhysicalConnectionRequirements { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

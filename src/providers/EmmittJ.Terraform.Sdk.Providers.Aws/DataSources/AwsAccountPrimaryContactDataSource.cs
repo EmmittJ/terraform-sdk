@@ -9,93 +9,97 @@ public class AwsAccountPrimaryContactDataSource : TerraformDataSource
 {
     public AwsAccountPrimaryContactDataSource(string name) : base("aws_account_primary_contact", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("address_line_1");
-        SetOutput("address_line_2");
-        SetOutput("address_line_3");
-        SetOutput("city");
-        SetOutput("company_name");
-        SetOutput("country_code");
-        SetOutput("district_or_county");
-        SetOutput("full_name");
-        SetOutput("phone_number");
-        SetOutput("postal_code");
-        SetOutput("state_or_region");
-        SetOutput("website_url");
-        SetOutput("account_id");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string> AccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_id");
 
     /// <summary>
     /// The address_line_1 attribute.
     /// </summary>
-    public TerraformExpression AddressLine1 => this["address_line_1"];
+    [TerraformPropertyName("address_line_1")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AddressLine1 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "address_line_1");
 
     /// <summary>
     /// The address_line_2 attribute.
     /// </summary>
-    public TerraformExpression AddressLine2 => this["address_line_2"];
+    [TerraformPropertyName("address_line_2")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AddressLine2 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "address_line_2");
 
     /// <summary>
     /// The address_line_3 attribute.
     /// </summary>
-    public TerraformExpression AddressLine3 => this["address_line_3"];
+    [TerraformPropertyName("address_line_3")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AddressLine3 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "address_line_3");
 
     /// <summary>
     /// The city attribute.
     /// </summary>
-    public TerraformExpression City => this["city"];
+    [TerraformPropertyName("city")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> City => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "city");
 
     /// <summary>
     /// The company_name attribute.
     /// </summary>
-    public TerraformExpression CompanyName => this["company_name"];
+    [TerraformPropertyName("company_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CompanyName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "company_name");
 
     /// <summary>
     /// The country_code attribute.
     /// </summary>
-    public TerraformExpression CountryCode => this["country_code"];
+    [TerraformPropertyName("country_code")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CountryCode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "country_code");
 
     /// <summary>
     /// The district_or_county attribute.
     /// </summary>
-    public TerraformExpression DistrictOrCounty => this["district_or_county"];
+    [TerraformPropertyName("district_or_county")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DistrictOrCounty => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "district_or_county");
 
     /// <summary>
     /// The full_name attribute.
     /// </summary>
-    public TerraformExpression FullName => this["full_name"];
+    [TerraformPropertyName("full_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FullName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "full_name");
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformExpression PhoneNumber => this["phone_number"];
+    [TerraformPropertyName("phone_number")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PhoneNumber => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "phone_number");
 
     /// <summary>
     /// The postal_code attribute.
     /// </summary>
-    public TerraformExpression PostalCode => this["postal_code"];
+    [TerraformPropertyName("postal_code")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PostalCode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "postal_code");
 
     /// <summary>
     /// The state_or_region attribute.
     /// </summary>
-    public TerraformExpression StateOrRegion => this["state_or_region"];
+    [TerraformPropertyName("state_or_region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StateOrRegion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state_or_region");
 
     /// <summary>
     /// The website_url attribute.
     /// </summary>
-    public TerraformExpression WebsiteUrl => this["website_url"];
+    [TerraformPropertyName("website_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WebsiteUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "website_url");
 
 }

@@ -9,117 +9,83 @@ public class AwsSecretsmanagerRandomPasswordDataSource : TerraformDataSource
 {
     public AwsSecretsmanagerRandomPasswordDataSource(string name) : base("aws_secretsmanager_random_password", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("random_password");
-        SetOutput("exclude_characters");
-        SetOutput("exclude_lowercase");
-        SetOutput("exclude_numbers");
-        SetOutput("exclude_punctuation");
-        SetOutput("exclude_uppercase");
-        SetOutput("id");
-        SetOutput("include_space");
-        SetOutput("password_length");
-        SetOutput("region");
-        SetOutput("require_each_included_type");
     }
 
     /// <summary>
     /// The exclude_characters attribute.
     /// </summary>
-    public TerraformProperty<string> ExcludeCharacters
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("exclude_characters");
-        set => SetProperty("exclude_characters", value);
-    }
+    [TerraformPropertyName("exclude_characters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExcludeCharacters { get; set; }
 
     /// <summary>
     /// The exclude_lowercase attribute.
     /// </summary>
-    public TerraformProperty<bool> ExcludeLowercase
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("exclude_lowercase");
-        set => SetProperty("exclude_lowercase", value);
-    }
+    [TerraformPropertyName("exclude_lowercase")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExcludeLowercase { get; set; }
 
     /// <summary>
     /// The exclude_numbers attribute.
     /// </summary>
-    public TerraformProperty<bool> ExcludeNumbers
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("exclude_numbers");
-        set => SetProperty("exclude_numbers", value);
-    }
+    [TerraformPropertyName("exclude_numbers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExcludeNumbers { get; set; }
 
     /// <summary>
     /// The exclude_punctuation attribute.
     /// </summary>
-    public TerraformProperty<bool> ExcludePunctuation
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("exclude_punctuation");
-        set => SetProperty("exclude_punctuation", value);
-    }
+    [TerraformPropertyName("exclude_punctuation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExcludePunctuation { get; set; }
 
     /// <summary>
     /// The exclude_uppercase attribute.
     /// </summary>
-    public TerraformProperty<bool> ExcludeUppercase
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("exclude_uppercase");
-        set => SetProperty("exclude_uppercase", value);
-    }
+    [TerraformPropertyName("exclude_uppercase")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExcludeUppercase { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The include_space attribute.
     /// </summary>
-    public TerraformProperty<bool> IncludeSpace
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("include_space");
-        set => SetProperty("include_space", value);
-    }
+    [TerraformPropertyName("include_space")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeSpace { get; set; }
 
     /// <summary>
     /// The password_length attribute.
     /// </summary>
-    public TerraformProperty<double> PasswordLength
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("password_length");
-        set => SetProperty("password_length", value);
-    }
+    [TerraformPropertyName("password_length")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? PasswordLength { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The require_each_included_type attribute.
     /// </summary>
-    public TerraformProperty<bool> RequireEachIncludedType
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("require_each_included_type");
-        set => SetProperty("require_each_included_type", value);
-    }
+    [TerraformPropertyName("require_each_included_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequireEachIncludedType { get; set; }
 
     /// <summary>
     /// The random_password attribute.
     /// </summary>
-    public TerraformExpression RandomPassword => this["random_password"];
+    [TerraformPropertyName("random_password")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RandomPassword => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "random_password");
 
 }

@@ -9,82 +9,65 @@ public class AwsWorkspaceswebNetworkSettings : TerraformResource
 {
     public AwsWorkspaceswebNetworkSettings(string name) : base("aws_workspacesweb_network_settings", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("associated_portal_arns");
-        SetOutput("network_settings_arn");
-        SetOutput("tags_all");
-        SetOutput("region");
-        SetOutput("security_group_ids");
-        SetOutput("subnet_ids");
-        SetOutput("tags");
-        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
-    public HashSet<TerraformProperty<string>> SecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public HashSet<TerraformProperty<string>> SubnetIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    public required TerraformProperty<string> VpcId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VpcId { get; set; }
 
     /// <summary>
     /// The associated_portal_arns attribute.
     /// </summary>
-    public TerraformExpression AssociatedPortalArns => this["associated_portal_arns"];
+    [TerraformPropertyName("associated_portal_arns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AssociatedPortalArns => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "associated_portal_arns");
 
     /// <summary>
     /// The network_settings_arn attribute.
     /// </summary>
-    public TerraformExpression NetworkSettingsArn => this["network_settings_arn"];
+    [TerraformPropertyName("network_settings_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NetworkSettingsArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_settings_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

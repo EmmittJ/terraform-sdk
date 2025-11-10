@@ -9,47 +9,34 @@ public class AwsIotEndpointDataSource : TerraformDataSource
 {
     public AwsIotEndpointDataSource(string name) : base("aws_iot_endpoint", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("endpoint_address");
-        SetOutput("endpoint_type");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
-    public TerraformProperty<string> EndpointType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_type");
-        set => SetProperty("endpoint_type", value);
-    }
+    [TerraformPropertyName("endpoint_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndpointType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The endpoint_address attribute.
     /// </summary>
-    public TerraformExpression EndpointAddress => this["endpoint_address"];
+    [TerraformPropertyName("endpoint_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EndpointAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_address");
 
 }

@@ -9,269 +9,222 @@ public class AwsLightsailDatabase : TerraformResource
 {
     public AwsLightsailDatabase(string name) : base("aws_lightsail_database", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("ca_certificate_identifier");
-        SetOutput("cpu_count");
-        SetOutput("created_at");
-        SetOutput("disk_size");
-        SetOutput("engine");
-        SetOutput("engine_version");
-        SetOutput("master_endpoint_address");
-        SetOutput("master_endpoint_port");
-        SetOutput("ram_size");
-        SetOutput("secondary_availability_zone");
-        SetOutput("support_code");
-        SetOutput("apply_immediately");
-        SetOutput("availability_zone");
-        SetOutput("backup_retention_enabled");
-        SetOutput("blueprint_id");
-        SetOutput("bundle_id");
-        SetOutput("final_snapshot_name");
-        SetOutput("id");
-        SetOutput("master_database_name");
-        SetOutput("master_password");
-        SetOutput("master_username");
-        SetOutput("preferred_backup_window");
-        SetOutput("preferred_maintenance_window");
-        SetOutput("publicly_accessible");
-        SetOutput("region");
-        SetOutput("relational_database_name");
-        SetOutput("skip_final_snapshot");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public TerraformProperty<bool> ApplyImmediately
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("apply_immediately");
-        set => SetProperty("apply_immediately", value);
-    }
+    [TerraformPropertyName("apply_immediately")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> ApplyImmediately { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "apply_immediately");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformProperty<string> AvailabilityZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone");
-        set => SetProperty("availability_zone", value);
-    }
+    [TerraformPropertyName("availability_zone")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone");
 
     /// <summary>
     /// The backup_retention_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> BackupRetentionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("backup_retention_enabled");
-        set => SetProperty("backup_retention_enabled", value);
-    }
+    [TerraformPropertyName("backup_retention_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BackupRetentionEnabled { get; set; }
 
     /// <summary>
     /// The blueprint_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlueprintId is required")]
-    public required TerraformProperty<string> BlueprintId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("blueprint_id");
-        set => SetProperty("blueprint_id", value);
-    }
+    [TerraformPropertyName("blueprint_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BlueprintId { get; set; }
 
     /// <summary>
     /// The bundle_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
-    public required TerraformProperty<string> BundleId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bundle_id");
-        set => SetProperty("bundle_id", value);
-    }
+    [TerraformPropertyName("bundle_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BundleId { get; set; }
 
     /// <summary>
     /// The final_snapshot_name attribute.
     /// </summary>
-    public TerraformProperty<string> FinalSnapshotName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("final_snapshot_name");
-        set => SetProperty("final_snapshot_name", value);
-    }
+    [TerraformPropertyName("final_snapshot_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FinalSnapshotName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The master_database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterDatabaseName is required")]
-    public required TerraformProperty<string> MasterDatabaseName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("master_database_name");
-        set => SetProperty("master_database_name", value);
-    }
+    [TerraformPropertyName("master_database_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MasterDatabaseName { get; set; }
 
     /// <summary>
     /// The master_password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterPassword is required")]
-    public required TerraformProperty<string> MasterPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("master_password");
-        set => SetProperty("master_password", value);
-    }
+    [TerraformPropertyName("master_password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MasterPassword { get; set; }
 
     /// <summary>
     /// The master_username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterUsername is required")]
-    public required TerraformProperty<string> MasterUsername
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("master_username");
-        set => SetProperty("master_username", value);
-    }
+    [TerraformPropertyName("master_username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MasterUsername { get; set; }
 
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
-    public TerraformProperty<string> PreferredBackupWindow
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("preferred_backup_window");
-        set => SetProperty("preferred_backup_window", value);
-    }
+    [TerraformPropertyName("preferred_backup_window")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PreferredBackupWindow { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_backup_window");
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string> PreferredMaintenanceWindow
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("preferred_maintenance_window");
-        set => SetProperty("preferred_maintenance_window", value);
-    }
+    [TerraformPropertyName("preferred_maintenance_window")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PreferredMaintenanceWindow { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_maintenance_window");
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformProperty<bool> PubliclyAccessible
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("publicly_accessible");
-        set => SetProperty("publicly_accessible", value);
-    }
+    [TerraformPropertyName("publicly_accessible")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PubliclyAccessible { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The relational_database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelationalDatabaseName is required")]
-    public required TerraformProperty<string> RelationalDatabaseName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("relational_database_name");
-        set => SetProperty("relational_database_name", value);
-    }
+    [TerraformPropertyName("relational_database_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RelationalDatabaseName { get; set; }
 
     /// <summary>
     /// The skip_final_snapshot attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipFinalSnapshot
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_final_snapshot");
-        set => SetProperty("skip_final_snapshot", value);
-    }
+    [TerraformPropertyName("skip_final_snapshot")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipFinalSnapshot { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The ca_certificate_identifier attribute.
     /// </summary>
-    public TerraformExpression CaCertificateIdentifier => this["ca_certificate_identifier"];
+    [TerraformPropertyName("ca_certificate_identifier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CaCertificateIdentifier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ca_certificate_identifier");
 
     /// <summary>
     /// The cpu_count attribute.
     /// </summary>
-    public TerraformExpression CpuCount => this["cpu_count"];
+    [TerraformPropertyName("cpu_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> CpuCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "cpu_count");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The disk_size attribute.
     /// </summary>
-    public TerraformExpression DiskSize => this["disk_size"];
+    [TerraformPropertyName("disk_size")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DiskSize => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "disk_size");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformExpression Engine => this["engine"];
+    [TerraformPropertyName("engine")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Engine => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformExpression EngineVersion => this["engine_version"];
+    [TerraformPropertyName("engine_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EngineVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
 
     /// <summary>
     /// The master_endpoint_address attribute.
     /// </summary>
-    public TerraformExpression MasterEndpointAddress => this["master_endpoint_address"];
+    [TerraformPropertyName("master_endpoint_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MasterEndpointAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "master_endpoint_address");
 
     /// <summary>
     /// The master_endpoint_port attribute.
     /// </summary>
-    public TerraformExpression MasterEndpointPort => this["master_endpoint_port"];
+    [TerraformPropertyName("master_endpoint_port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MasterEndpointPort => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "master_endpoint_port");
 
     /// <summary>
     /// The ram_size attribute.
     /// </summary>
-    public TerraformExpression RamSize => this["ram_size"];
+    [TerraformPropertyName("ram_size")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RamSize => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ram_size");
 
     /// <summary>
     /// The secondary_availability_zone attribute.
     /// </summary>
-    public TerraformExpression SecondaryAvailabilityZone => this["secondary_availability_zone"];
+    [TerraformPropertyName("secondary_availability_zone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryAvailabilityZone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_availability_zone");
 
     /// <summary>
     /// The support_code attribute.
     /// </summary>
-    public TerraformExpression SupportCode => this["support_code"];
+    [TerraformPropertyName("support_code")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SupportCode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "support_code");
 
 }

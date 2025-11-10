@@ -9,74 +9,51 @@ public class AwsPinpointAdmChannel : TerraformResource
 {
     public AwsPinpointAdmChannel(string name) : base("aws_pinpoint_adm_channel", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("application_id");
-        SetOutput("client_id");
-        SetOutput("client_secret");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    public required TerraformProperty<string> ApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
-        set => SetProperty("application_id", value);
-    }
+    [TerraformPropertyName("application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
-    public required TerraformProperty<string> ClientId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
-    public required TerraformProperty<string> ClientSecret
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_secret");
-        set => SetProperty("client_secret", value);
-    }
+    [TerraformPropertyName("client_secret")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientSecret { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
 }

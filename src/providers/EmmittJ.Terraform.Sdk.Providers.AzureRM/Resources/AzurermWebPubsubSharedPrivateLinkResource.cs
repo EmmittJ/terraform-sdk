@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermWebPubsubSharedPrivateLinkResourceTimeoutsBlock : TerraformBlock
+public class AzurermWebPubsubSharedPrivateLinkResourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,90 +45,66 @@ public class AzurermWebPubsubSharedPrivateLinkResource : TerraformResource
 {
     public AzurermWebPubsubSharedPrivateLinkResource(string name) : base("azurerm_web_pubsub_shared_private_link_resource", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("status");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("request_message");
-        SetOutput("subresource_name");
-        SetOutput("target_resource_id");
-        SetOutput("web_pubsub_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The request_message attribute.
     /// </summary>
-    public TerraformProperty<string> RequestMessage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("request_message");
-        set => SetProperty("request_message", value);
-    }
+    [TerraformPropertyName("request_message")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RequestMessage { get; set; }
 
     /// <summary>
     /// The subresource_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubresourceName is required")]
-    public required TerraformProperty<string> SubresourceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subresource_name");
-        set => SetProperty("subresource_name", value);
-    }
+    [TerraformPropertyName("subresource_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubresourceName { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
-    public required TerraformProperty<string> TargetResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
-        set => SetProperty("target_resource_id", value);
-    }
+    [TerraformPropertyName("target_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetResourceId { get; set; }
 
     /// <summary>
     /// The web_pubsub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
-    public required TerraformProperty<string> WebPubsubId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("web_pubsub_id");
-        set => SetProperty("web_pubsub_id", value);
-    }
+    [TerraformPropertyName("web_pubsub_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WebPubsubId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermWebPubsubSharedPrivateLinkResourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermWebPubsubSharedPrivateLinkResourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

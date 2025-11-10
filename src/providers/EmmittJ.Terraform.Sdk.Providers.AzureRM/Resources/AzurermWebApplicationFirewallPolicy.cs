@@ -6,74 +6,66 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWebApplicationFirewallPolicyCustomRulesBlock : TerraformBlock
+public class AzurermWebApplicationFirewallPolicyCustomRulesBlock : ITerraformBlock
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The group_rate_limit_by attribute.
     /// </summary>
-    public TerraformProperty<string>? GroupRateLimitBy
-    {
-        set => SetProperty("group_rate_limit_by", value);
-    }
+    [TerraformPropertyName("group_rate_limit_by")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GroupRateLimitBy { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    public required TerraformProperty<double> Priority
-    {
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
 
     /// <summary>
     /// The rate_limit_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? RateLimitDuration
-    {
-        set => SetProperty("rate_limit_duration", value);
-    }
+    [TerraformPropertyName("rate_limit_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RateLimitDuration { get; set; }
 
     /// <summary>
     /// The rate_limit_threshold attribute.
     /// </summary>
-    public TerraformProperty<double>? RateLimitThreshold
-    {
-        set => SetProperty("rate_limit_threshold", value);
-    }
+    [TerraformPropertyName("rate_limit_threshold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RateLimitThreshold { get; set; }
 
     /// <summary>
     /// The rule_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleType is required")]
-    public required TerraformProperty<string> RuleType
-    {
-        set => SetProperty("rule_type", value);
-    }
+    [TerraformPropertyName("rule_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RuleType { get; set; }
 
 }
 
@@ -81,7 +73,7 @@ public class AzurermWebApplicationFirewallPolicyCustomRulesBlock : TerraformBloc
 /// Block type for managed_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWebApplicationFirewallPolicyManagedRulesBlock : TerraformBlock
+public class AzurermWebApplicationFirewallPolicyManagedRulesBlock : ITerraformBlock
 {
 }
 
@@ -89,79 +81,70 @@ public class AzurermWebApplicationFirewallPolicyManagedRulesBlock : TerraformBlo
 /// Block type for policy_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWebApplicationFirewallPolicyPolicySettingsBlock : TerraformBlock
+public class AzurermWebApplicationFirewallPolicyPolicySettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The file_upload_enforcement attribute.
     /// </summary>
-    public TerraformProperty<bool>? FileUploadEnforcement
-    {
-        set => SetProperty("file_upload_enforcement", value);
-    }
+    [TerraformPropertyName("file_upload_enforcement")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> FileUploadEnforcement { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "file_upload_enforcement");
 
     /// <summary>
     /// The file_upload_limit_in_mb attribute.
     /// </summary>
-    public TerraformProperty<double>? FileUploadLimitInMb
-    {
-        set => SetProperty("file_upload_limit_in_mb", value);
-    }
+    [TerraformPropertyName("file_upload_limit_in_mb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? FileUploadLimitInMb { get; set; }
 
     /// <summary>
     /// The js_challenge_cookie_expiration_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? JsChallengeCookieExpirationInMinutes
-    {
-        set => SetProperty("js_challenge_cookie_expiration_in_minutes", value);
-    }
+    [TerraformPropertyName("js_challenge_cookie_expiration_in_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? JsChallengeCookieExpirationInMinutes { get; set; }
 
     /// <summary>
     /// The max_request_body_size_in_kb attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxRequestBodySizeInKb
-    {
-        set => SetProperty("max_request_body_size_in_kb", value);
-    }
+    [TerraformPropertyName("max_request_body_size_in_kb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxRequestBodySizeInKb { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string>? Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
 
     /// <summary>
     /// The request_body_check attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequestBodyCheck
-    {
-        set => SetProperty("request_body_check", value);
-    }
+    [TerraformPropertyName("request_body_check")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequestBodyCheck { get; set; }
 
     /// <summary>
     /// The request_body_enforcement attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequestBodyEnforcement
-    {
-        set => SetProperty("request_body_enforcement", value);
-    }
+    [TerraformPropertyName("request_body_enforcement")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequestBodyEnforcement { get; set; }
 
     /// <summary>
     /// The request_body_inspect_limit_in_kb attribute.
     /// </summary>
-    public TerraformProperty<double>? RequestBodyInspectLimitInKb
-    {
-        set => SetProperty("request_body_inspect_limit_in_kb", value);
-    }
+    [TerraformPropertyName("request_body_inspect_limit_in_kb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RequestBodyInspectLimitInKb { get; set; }
 
 }
 
@@ -169,39 +152,35 @@ public class AzurermWebApplicationFirewallPolicyPolicySettingsBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermWebApplicationFirewallPolicyTimeoutsBlock : TerraformBlock
+public class AzurermWebApplicationFirewallPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -213,76 +192,52 @@ public class AzurermWebApplicationFirewallPolicy : TerraformResource
 {
     public AzurermWebApplicationFirewallPolicy(string name) : base("azurerm_web_application_firewall_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("http_listener_ids");
-        SetOutput("path_based_rule_ids");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for custom_rules.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermWebApplicationFirewallPolicyCustomRulesBlock>? CustomRules
-    {
-        set => SetProperty("custom_rules", value);
-    }
+    [TerraformPropertyName("custom_rules")]
+    public TerraformList<TerraformBlock<AzurermWebApplicationFirewallPolicyCustomRulesBlock>>? CustomRules { get; set; } = new();
 
     /// <summary>
     /// Block for managed_rules.
@@ -291,38 +246,36 @@ public class AzurermWebApplicationFirewallPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedRules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagedRules block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedRules block(s) allowed")]
-    public List<AzurermWebApplicationFirewallPolicyManagedRulesBlock>? ManagedRules
-    {
-        set => SetProperty("managed_rules", value);
-    }
+    [TerraformPropertyName("managed_rules")]
+    public TerraformList<TerraformBlock<AzurermWebApplicationFirewallPolicyManagedRulesBlock>>? ManagedRules { get; set; } = new();
 
     /// <summary>
     /// Block for policy_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PolicySettings block(s) allowed")]
-    public List<AzurermWebApplicationFirewallPolicyPolicySettingsBlock>? PolicySettings
-    {
-        set => SetProperty("policy_settings", value);
-    }
+    [TerraformPropertyName("policy_settings")]
+    public TerraformList<TerraformBlock<AzurermWebApplicationFirewallPolicyPolicySettingsBlock>>? PolicySettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermWebApplicationFirewallPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermWebApplicationFirewallPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The http_listener_ids attribute.
     /// </summary>
-    public TerraformExpression HttpListenerIds => this["http_listener_ids"];
+    [TerraformPropertyName("http_listener_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> HttpListenerIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "http_listener_ids");
 
     /// <summary>
     /// The path_based_rule_ids attribute.
     /// </summary>
-    public TerraformExpression PathBasedRuleIds => this["path_based_rule_ids"];
+    [TerraformPropertyName("path_based_rule_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> PathBasedRuleIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "path_based_rule_ids");
 
 }

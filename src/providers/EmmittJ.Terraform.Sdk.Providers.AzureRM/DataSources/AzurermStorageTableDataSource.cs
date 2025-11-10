@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageTableDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermStorageTableDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,60 +24,50 @@ public class AzurermStorageTableDataSource : TerraformDataSource
 {
     public AzurermStorageTableDataSource(string name) : base("azurerm_storage_table", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("acl");
-        SetOutput("id");
-        SetOutput("resource_manager_id");
-        SetOutput("name");
-        SetOutput("storage_account_name");
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
-    public required TerraformProperty<string> StorageAccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_name");
-        set => SetProperty("storage_account_name", value);
-    }
+    [TerraformPropertyName("storage_account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStorageTableDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStorageTableDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The acl attribute.
     /// </summary>
-    public TerraformExpression Acl => this["acl"];
+    [TerraformPropertyName("acl")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Acl => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "acl");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
-    public TerraformExpression ResourceManagerId => this["resource_manager_id"];
+    [TerraformPropertyName("resource_manager_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceManagerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_manager_id");
 
 }

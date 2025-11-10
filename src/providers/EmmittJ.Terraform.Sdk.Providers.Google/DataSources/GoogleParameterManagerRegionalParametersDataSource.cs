@@ -9,59 +9,43 @@ public class GoogleParameterManagerRegionalParametersDataSource : TerraformDataS
 {
     public GoogleParameterManagerRegionalParametersDataSource(string name) : base("google_parameter_manager_regional_parameters", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("parameters");
-        SetOutput("filter");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
     /// Filter string, adhering to the rules in List-operation filtering. List only parameters matching the filter. 
     /// If filter is empty, all regional parameters are listed from specific location.
     /// </summary>
-    public TerraformProperty<string> Filter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filter");
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformExpression Parameters => this["parameters"];
+    [TerraformPropertyName("parameters")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Parameters => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "parameters");
 
 }

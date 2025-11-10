@@ -9,68 +9,49 @@ public class AwsApigatewayv2Deployment : TerraformResource
 {
     public AwsApigatewayv2Deployment(string name) : base("aws_apigatewayv2_deployment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("auto_deployed");
-        SetOutput("api_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("triggers");
     }
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
-    public required TerraformProperty<string> ApiId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
-        set => SetProperty("api_id", value);
-    }
+    [TerraformPropertyName("api_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Triggers
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("triggers");
-        set => SetProperty("triggers", value);
-    }
+    [TerraformPropertyName("triggers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Triggers { get; set; }
 
     /// <summary>
     /// The auto_deployed attribute.
     /// </summary>
-    public TerraformExpression AutoDeployed => this["auto_deployed"];
+    [TerraformPropertyName("auto_deployed")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AutoDeployed => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "auto_deployed");
 
 }

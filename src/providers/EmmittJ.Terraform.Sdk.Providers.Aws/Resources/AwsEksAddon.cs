@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for pod_identity_association in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEksAddonPodIdentityAssociationBlock : TerraformBlock
+public class AwsEksAddonPodIdentityAssociationBlock : ITerraformBlock
 {
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
     /// <summary>
     /// The service_account attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
-    public required TerraformProperty<string> ServiceAccount
-    {
-        set => SetProperty("service_account", value);
-    }
+    [TerraformPropertyName("service_account")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceAccount { get; set; }
 
 }
 
@@ -32,31 +30,28 @@ public class AwsEksAddonPodIdentityAssociationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEksAddonTimeoutsBlock : TerraformBlock
+public class AwsEksAddonTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -67,169 +62,127 @@ public class AwsEksAddon : TerraformResource
 {
     public AwsEksAddon(string name) : base("aws_eks_addon", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("created_at");
-        SetOutput("modified_at");
-        SetOutput("addon_name");
-        SetOutput("addon_version");
-        SetOutput("cluster_name");
-        SetOutput("configuration_values");
-        SetOutput("id");
-        SetOutput("preserve");
-        SetOutput("region");
-        SetOutput("resolve_conflicts_on_create");
-        SetOutput("resolve_conflicts_on_update");
-        SetOutput("service_account_role_arn");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The addon_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddonName is required")]
-    public required TerraformProperty<string> AddonName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("addon_name");
-        set => SetProperty("addon_name", value);
-    }
+    [TerraformPropertyName("addon_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AddonName { get; set; }
 
     /// <summary>
     /// The addon_version attribute.
     /// </summary>
-    public TerraformProperty<string> AddonVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("addon_version");
-        set => SetProperty("addon_version", value);
-    }
+    [TerraformPropertyName("addon_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AddonVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "addon_version");
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    public required TerraformProperty<string> ClusterName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
-        set => SetProperty("cluster_name", value);
-    }
+    [TerraformPropertyName("cluster_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterName { get; set; }
 
     /// <summary>
     /// The configuration_values attribute.
     /// </summary>
-    public TerraformProperty<string> ConfigurationValues
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("configuration_values");
-        set => SetProperty("configuration_values", value);
-    }
+    [TerraformPropertyName("configuration_values")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ConfigurationValues { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "configuration_values");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The preserve attribute.
     /// </summary>
-    public TerraformProperty<bool> Preserve
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("preserve");
-        set => SetProperty("preserve", value);
-    }
+    [TerraformPropertyName("preserve")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Preserve { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resolve_conflicts_on_create attribute.
     /// </summary>
-    public TerraformProperty<string> ResolveConflictsOnCreate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resolve_conflicts_on_create");
-        set => SetProperty("resolve_conflicts_on_create", value);
-    }
+    [TerraformPropertyName("resolve_conflicts_on_create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResolveConflictsOnCreate { get; set; }
 
     /// <summary>
     /// The resolve_conflicts_on_update attribute.
     /// </summary>
-    public TerraformProperty<string> ResolveConflictsOnUpdate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resolve_conflicts_on_update");
-        set => SetProperty("resolve_conflicts_on_update", value);
-    }
+    [TerraformPropertyName("resolve_conflicts_on_update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResolveConflictsOnUpdate { get; set; }
 
     /// <summary>
     /// The service_account_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> ServiceAccountRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_account_role_arn");
-        set => SetProperty("service_account_role_arn", value);
-    }
+    [TerraformPropertyName("service_account_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServiceAccountRoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for pod_identity_association.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsEksAddonPodIdentityAssociationBlock>? PodIdentityAssociation
-    {
-        set => SetProperty("pod_identity_association", value);
-    }
+    [TerraformPropertyName("pod_identity_association")]
+    public TerraformSet<TerraformBlock<AwsEksAddonPodIdentityAssociationBlock>>? PodIdentityAssociation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEksAddonTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEksAddonTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
-    public TerraformExpression ModifiedAt => this["modified_at"];
+    [TerraformPropertyName("modified_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ModifiedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "modified_at");
 
 }

@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for target_dns_servers in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock : TerraformBlock
+public class AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock : ITerraformBlock
 {
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
-    public required TerraformProperty<string> IpAddress
-    {
-        set => SetProperty("ip_address", value);
-    }
+    [TerraformPropertyName("ip_address")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IpAddress { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
 }
 
@@ -31,39 +29,35 @@ public class AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock : TerraformBlock
+public class AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -75,75 +69,52 @@ public class AzurermPrivateDnsResolverForwardingRule : TerraformResource
 {
     public AzurermPrivateDnsResolverForwardingRule(string name) : base("azurerm_private_dns_resolver_forwarding_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("dns_forwarding_ruleset_id");
-        SetOutput("domain_name");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("metadata");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The dns_forwarding_ruleset_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
-    public required TerraformProperty<string> DnsForwardingRulesetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dns_forwarding_ruleset_id");
-        set => SetProperty("dns_forwarding_ruleset_id", value);
-    }
+    [TerraformPropertyName("dns_forwarding_ruleset_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DnsForwardingRulesetId { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    public required TerraformProperty<string> DomainName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Metadata
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => SetProperty("metadata", value);
-    }
+    [TerraformPropertyName("metadata")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for target_dns_servers.
@@ -151,18 +122,14 @@ public class AzurermPrivateDnsResolverForwardingRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDnsServers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetDnsServers block(s) required")]
-    public List<AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock>? TargetDnsServers
-    {
-        set => SetProperty("target_dns_servers", value);
-    }
+    [TerraformPropertyName("target_dns_servers")]
+    public TerraformList<TerraformBlock<AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock>>? TargetDnsServers { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

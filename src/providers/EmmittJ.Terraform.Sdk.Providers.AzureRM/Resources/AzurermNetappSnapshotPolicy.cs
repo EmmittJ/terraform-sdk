@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for daily_schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetappSnapshotPolicyDailyScheduleBlock : TerraformBlock
+public class AzurermNetappSnapshotPolicyDailyScheduleBlock : ITerraformBlock
 {
     /// <summary>
     /// The hour attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hour is required")]
-    public required TerraformProperty<double> Hour
-    {
-        set => SetProperty("hour", value);
-    }
+    [TerraformPropertyName("hour")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Hour { get; set; }
 
     /// <summary>
     /// The minute attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
-    public required TerraformProperty<double> Minute
-    {
-        set => SetProperty("minute", value);
-    }
+    [TerraformPropertyName("minute")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Minute { get; set; }
 
     /// <summary>
     /// The snapshots_to_keep attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
-    public required TerraformProperty<double> SnapshotsToKeep
-    {
-        set => SetProperty("snapshots_to_keep", value);
-    }
+    [TerraformPropertyName("snapshots_to_keep")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> SnapshotsToKeep { get; set; }
 
 }
 
@@ -41,25 +38,23 @@ public class AzurermNetappSnapshotPolicyDailyScheduleBlock : TerraformBlock
 /// Block type for hourly_schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetappSnapshotPolicyHourlyScheduleBlock : TerraformBlock
+public class AzurermNetappSnapshotPolicyHourlyScheduleBlock : ITerraformBlock
 {
     /// <summary>
     /// The minute attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
-    public required TerraformProperty<double> Minute
-    {
-        set => SetProperty("minute", value);
-    }
+    [TerraformPropertyName("minute")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Minute { get; set; }
 
     /// <summary>
     /// The snapshots_to_keep attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
-    public required TerraformProperty<double> SnapshotsToKeep
-    {
-        set => SetProperty("snapshots_to_keep", value);
-    }
+    [TerraformPropertyName("snapshots_to_keep")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> SnapshotsToKeep { get; set; }
 
 }
 
@@ -67,43 +62,39 @@ public class AzurermNetappSnapshotPolicyHourlyScheduleBlock : TerraformBlock
 /// Block type for monthly_schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : TerraformBlock
+public class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : ITerraformBlock
 {
     /// <summary>
     /// The days_of_month attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DaysOfMonth is required")]
-    public HashSet<TerraformProperty<double>>? DaysOfMonth
-    {
-        set => SetProperty("days_of_month", value);
-    }
+    [TerraformPropertyName("days_of_month")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<double>>>? DaysOfMonth { get; set; }
 
     /// <summary>
     /// The hour attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hour is required")]
-    public required TerraformProperty<double> Hour
-    {
-        set => SetProperty("hour", value);
-    }
+    [TerraformPropertyName("hour")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Hour { get; set; }
 
     /// <summary>
     /// The minute attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
-    public required TerraformProperty<double> Minute
-    {
-        set => SetProperty("minute", value);
-    }
+    [TerraformPropertyName("minute")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Minute { get; set; }
 
     /// <summary>
     /// The snapshots_to_keep attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
-    public required TerraformProperty<double> SnapshotsToKeep
-    {
-        set => SetProperty("snapshots_to_keep", value);
-    }
+    [TerraformPropertyName("snapshots_to_keep")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> SnapshotsToKeep { get; set; }
 
 }
 
@@ -111,39 +102,35 @@ public class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetappSnapshotPolicyTimeoutsBlock : TerraformBlock
+public class AzurermNetappSnapshotPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -151,43 +138,39 @@ public class AzurermNetappSnapshotPolicyTimeoutsBlock : TerraformBlock
 /// Block type for weekly_schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlock
+public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : ITerraformBlock
 {
     /// <summary>
     /// The days_of_week attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DaysOfWeek is required")]
-    public HashSet<TerraformProperty<string>>? DaysOfWeek
-    {
-        set => SetProperty("days_of_week", value);
-    }
+    [TerraformPropertyName("days_of_week")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DaysOfWeek { get; set; }
 
     /// <summary>
     /// The hour attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hour is required")]
-    public required TerraformProperty<double> Hour
-    {
-        set => SetProperty("hour", value);
-    }
+    [TerraformPropertyName("hour")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Hour { get; set; }
 
     /// <summary>
     /// The minute attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
-    public required TerraformProperty<double> Minute
-    {
-        set => SetProperty("minute", value);
-    }
+    [TerraformPropertyName("minute")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Minute { get; set; }
 
     /// <summary>
     /// The snapshots_to_keep attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
-    public required TerraformProperty<double> SnapshotsToKeep
-    {
-        set => SetProperty("snapshots_to_keep", value);
-    }
+    [TerraformPropertyName("snapshots_to_keep")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> SnapshotsToKeep { get; set; }
 
 }
 
@@ -199,135 +182,99 @@ public class AzurermNetappSnapshotPolicy : TerraformResource
 {
     public AzurermNetappSnapshotPolicy(string name) : base("azurerm_netapp_snapshot_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account_name");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    public required TerraformProperty<string> AccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
-        set => SetProperty("account_name", value);
-    }
+    [TerraformPropertyName("account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for daily_schedule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DailySchedule block(s) allowed")]
-    public List<AzurermNetappSnapshotPolicyDailyScheduleBlock>? DailySchedule
-    {
-        set => SetProperty("daily_schedule", value);
-    }
+    [TerraformPropertyName("daily_schedule")]
+    public TerraformList<TerraformBlock<AzurermNetappSnapshotPolicyDailyScheduleBlock>>? DailySchedule { get; set; } = new();
 
     /// <summary>
     /// Block for hourly_schedule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourlySchedule block(s) allowed")]
-    public List<AzurermNetappSnapshotPolicyHourlyScheduleBlock>? HourlySchedule
-    {
-        set => SetProperty("hourly_schedule", value);
-    }
+    [TerraformPropertyName("hourly_schedule")]
+    public TerraformList<TerraformBlock<AzurermNetappSnapshotPolicyHourlyScheduleBlock>>? HourlySchedule { get; set; } = new();
 
     /// <summary>
     /// Block for monthly_schedule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonthlySchedule block(s) allowed")]
-    public List<AzurermNetappSnapshotPolicyMonthlyScheduleBlock>? MonthlySchedule
-    {
-        set => SetProperty("monthly_schedule", value);
-    }
+    [TerraformPropertyName("monthly_schedule")]
+    public TerraformList<TerraformBlock<AzurermNetappSnapshotPolicyMonthlyScheduleBlock>>? MonthlySchedule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNetappSnapshotPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNetappSnapshotPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for weekly_schedule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeeklySchedule block(s) allowed")]
-    public List<AzurermNetappSnapshotPolicyWeeklyScheduleBlock>? WeeklySchedule
-    {
-        set => SetProperty("weekly_schedule", value);
-    }
+    [TerraformPropertyName("weekly_schedule")]
+    public TerraformList<TerraformBlock<AzurermNetappSnapshotPolicyWeeklyScheduleBlock>>? WeeklySchedule { get; set; } = new();
 
 }

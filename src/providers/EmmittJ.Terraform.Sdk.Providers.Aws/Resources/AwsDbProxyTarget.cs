@@ -9,109 +9,92 @@ public class AwsDbProxyTarget : TerraformResource
 {
     public AwsDbProxyTarget(string name) : base("aws_db_proxy_target", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("endpoint");
-        SetOutput("port");
-        SetOutput("rds_resource_id");
-        SetOutput("target_arn");
-        SetOutput("tracked_cluster_id");
-        SetOutput("type");
-        SetOutput("db_cluster_identifier");
-        SetOutput("db_instance_identifier");
-        SetOutput("db_proxy_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("target_group_name");
     }
 
     /// <summary>
     /// The db_cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> DbClusterIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_cluster_identifier");
-        set => SetProperty("db_cluster_identifier", value);
-    }
+    [TerraformPropertyName("db_cluster_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DbClusterIdentifier { get; set; }
 
     /// <summary>
     /// The db_instance_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> DbInstanceIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_instance_identifier");
-        set => SetProperty("db_instance_identifier", value);
-    }
+    [TerraformPropertyName("db_instance_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DbInstanceIdentifier { get; set; }
 
     /// <summary>
     /// The db_proxy_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyName is required")]
-    public required TerraformProperty<string> DbProxyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_proxy_name");
-        set => SetProperty("db_proxy_name", value);
-    }
+    [TerraformPropertyName("db_proxy_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DbProxyName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The target_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetGroupName is required")]
-    public required TerraformProperty<string> TargetGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_group_name");
-        set => SetProperty("target_group_name", value);
-    }
+    [TerraformPropertyName("target_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetGroupName { get; set; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformExpression Port => this["port"];
+    [TerraformPropertyName("port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Port => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "port");
 
     /// <summary>
     /// The rds_resource_id attribute.
     /// </summary>
-    public TerraformExpression RdsResourceId => this["rds_resource_id"];
+    [TerraformPropertyName("rds_resource_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RdsResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "rds_resource_id");
 
     /// <summary>
     /// The target_arn attribute.
     /// </summary>
-    public TerraformExpression TargetArn => this["target_arn"];
+    [TerraformPropertyName("target_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TargetArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "target_arn");
 
     /// <summary>
     /// The tracked_cluster_id attribute.
     /// </summary>
-    public TerraformExpression TrackedClusterId => this["tracked_cluster_id"];
+    [TerraformPropertyName("tracked_cluster_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TrackedClusterId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tracked_cluster_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
 }

@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetappVolumeGroupSapHanaTimeoutsBlock : TerraformBlock
+public class AzurermNetappVolumeGroupSapHanaTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -46,138 +42,123 @@ public class AzurermNetappVolumeGroupSapHanaTimeoutsBlock : TerraformBlock
 /// Block type for volume in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlock
+public class AzurermNetappVolumeGroupSapHanaVolumeBlock : ITerraformBlock
 {
     /// <summary>
     /// The capacity_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityPoolId is required")]
-    public required TerraformProperty<string> CapacityPoolId
-    {
-        set => SetProperty("capacity_pool_id", value);
-    }
+    [TerraformPropertyName("capacity_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CapacityPoolId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The mount_ip_addresses attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? MountIpAddresses
-    {
-        set => SetProperty("mount_ip_addresses", value);
-    }
+    [TerraformPropertyName("mount_ip_addresses")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> MountIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "mount_ip_addresses");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
-    public List<TerraformProperty<string>>? Protocols
-    {
-        set => SetProperty("protocols", value);
-    }
+    [TerraformPropertyName("protocols")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Protocols { get; set; }
 
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ProximityPlacementGroupId
-    {
-        set => SetProperty("proximity_placement_group_id", value);
-    }
+    [TerraformPropertyName("proximity_placement_group_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProximityPlacementGroupId { get; set; }
 
     /// <summary>
     /// The security_style attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityStyle is required")]
-    public required TerraformProperty<string> SecurityStyle
-    {
-        set => SetProperty("security_style", value);
-    }
+    [TerraformPropertyName("security_style")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SecurityStyle { get; set; }
 
     /// <summary>
     /// The service_level attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
-    public required TerraformProperty<string> ServiceLevel
-    {
-        set => SetProperty("service_level", value);
-    }
+    [TerraformPropertyName("service_level")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceLevel { get; set; }
 
     /// <summary>
     /// The snapshot_directory_visible attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotDirectoryVisible is required")]
-    public required TerraformProperty<bool> SnapshotDirectoryVisible
-    {
-        set => SetProperty("snapshot_directory_visible", value);
-    }
+    [TerraformPropertyName("snapshot_directory_visible")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> SnapshotDirectoryVisible { get; set; }
 
     /// <summary>
     /// The storage_quota_in_gb attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageQuotaInGb is required")]
-    public required TerraformProperty<double> StorageQuotaInGb
-    {
-        set => SetProperty("storage_quota_in_gb", value);
-    }
+    [TerraformPropertyName("storage_quota_in_gb")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> StorageQuotaInGb { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
-    {
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The throughput_in_mibps attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThroughputInMibps is required")]
-    public required TerraformProperty<double> ThroughputInMibps
-    {
-        set => SetProperty("throughput_in_mibps", value);
-    }
+    [TerraformPropertyName("throughput_in_mibps")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ThroughputInMibps { get; set; }
 
     /// <summary>
     /// The volume_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumePath is required")]
-    public required TerraformProperty<string> VolumePath
-    {
-        set => SetProperty("volume_path", value);
-    }
+    [TerraformPropertyName("volume_path")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VolumePath { get; set; }
 
     /// <summary>
     /// The volume_spec_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeSpecName is required")]
-    public required TerraformProperty<string> VolumeSpecName
-    {
-        set => SetProperty("volume_spec_name", value);
-    }
+    [TerraformPropertyName("volume_spec_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VolumeSpecName { get; set; }
 
 }
 
@@ -189,97 +170,69 @@ public class AzurermNetappVolumeGroupSapHana : TerraformResource
 {
     public AzurermNetappVolumeGroupSapHana(string name) : base("azurerm_netapp_volume_group_sap_hana", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account_name");
-        SetOutput("application_identifier");
-        SetOutput("group_description");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    public required TerraformProperty<string> AccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
-        set => SetProperty("account_name", value);
-    }
+    [TerraformPropertyName("account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountName { get; set; }
 
     /// <summary>
     /// The application_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationIdentifier is required")]
-    public required TerraformProperty<string> ApplicationIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_identifier");
-        set => SetProperty("application_identifier", value);
-    }
+    [TerraformPropertyName("application_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationIdentifier { get; set; }
 
     /// <summary>
     /// The group_description attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupDescription is required")]
-    public required TerraformProperty<string> GroupDescription
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("group_description");
-        set => SetProperty("group_description", value);
-    }
+    [TerraformPropertyName("group_description")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GroupDescription { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNetappVolumeGroupSapHanaTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNetappVolumeGroupSapHanaTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for volume.
@@ -287,9 +240,7 @@ public class AzurermNetappVolumeGroupSapHana : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 Volume block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Volume block(s) allowed")]
-    public List<AzurermNetappVolumeGroupSapHanaVolumeBlock>? Volume
-    {
-        set => SetProperty("volume", value);
-    }
+    [TerraformPropertyName("volume")]
+    public TerraformList<TerraformBlock<AzurermNetappVolumeGroupSapHanaVolumeBlock>>? Volume { get; set; } = new();
 
 }

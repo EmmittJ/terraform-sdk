@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscale in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryReservationAutoscaleBlock : TerraformBlock
+public class GoogleBigqueryReservationAutoscaleBlock : ITerraformBlock
 {
     /// <summary>
     /// The slot capacity added to this reservation when autoscale happens. Will be between [0, max_slots].
     /// </summary>
-    public TerraformProperty<double>? CurrentSlots
-    {
-        set => SetProperty("current_slots", value);
-    }
+    [TerraformPropertyName("current_slots")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> CurrentSlots => new TerraformReferenceProperty<TerraformProperty<double>>("", "current_slots");
 
     /// <summary>
     /// Number of slots to be scaled when needed.
     /// </summary>
-    public TerraformProperty<double>? MaxSlots
-    {
-        set => SetProperty("max_slots", value);
-    }
+    [TerraformPropertyName("max_slots")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxSlots { get; set; }
 
 }
 
@@ -30,31 +28,28 @@ public class GoogleBigqueryReservationAutoscaleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryReservationTimeoutsBlock : TerraformBlock
+public class GoogleBigqueryReservationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -66,91 +61,60 @@ public class GoogleBigqueryReservation : TerraformResource
 {
     public GoogleBigqueryReservation(string name) : base("google_bigquery_reservation", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("original_primary_location");
-        SetOutput("primary_location");
-        SetOutput("replication_status");
-        SetOutput("concurrency");
-        SetOutput("edition");
-        SetOutput("id");
-        SetOutput("ignore_idle_slots");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("secondary_location");
-        SetOutput("slot_capacity");
     }
 
     /// <summary>
     /// Maximum number of queries that are allowed to run concurrently in this reservation. This is a soft limit due to asynchronous nature of the system and various optimizations for small queries. Default value is 0 which means that concurrency will be automatically set based on the reservation size.
     /// </summary>
-    public TerraformProperty<double> Concurrency
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("concurrency");
-        set => SetProperty("concurrency", value);
-    }
+    [TerraformPropertyName("concurrency")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Concurrency { get; set; }
 
     /// <summary>
     /// The edition type. Valid values are STANDARD, ENTERPRISE, ENTERPRISE_PLUS
     /// </summary>
-    public TerraformProperty<string> Edition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("edition");
-        set => SetProperty("edition", value);
-    }
+    [TerraformPropertyName("edition")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Edition { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "edition");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// If false, any query using this reservation will use idle slots from other reservations within
     /// the same admin project. If true, a query using this reservation will execute with the slot
     /// capacity specified above at most.
     /// </summary>
-    public TerraformProperty<bool> IgnoreIdleSlots
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_idle_slots");
-        set => SetProperty("ignore_idle_slots", value);
-    }
+    [TerraformPropertyName("ignore_idle_slots")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IgnoreIdleSlots { get; set; }
 
     /// <summary>
     /// The geographic location where the transfer config should reside.
     /// Examples: US, EU, asia-northeast1. The default value is US.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The name of the reservation. This field must only contain alphanumeric characters or dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The current location of the reservation&#39;s secondary replica. This field is only set for
@@ -158,54 +122,50 @@ public class GoogleBigqueryReservation : TerraformResource
     /// reservation calls to create a failover reservation or in update reservation calls to convert
     /// a non-failover reservation to a failover reservation(or vice versa).
     /// </summary>
-    public TerraformProperty<string> SecondaryLocation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("secondary_location");
-        set => SetProperty("secondary_location", value);
-    }
+    [TerraformPropertyName("secondary_location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecondaryLocation { get; set; }
 
     /// <summary>
     /// Minimum slots available to this reservation. A slot is a unit of computational power in BigQuery, and serves as the
     /// unit of parallelism. Queries using this reservation might use more slots during runtime if ignoreIdleSlots is set to false.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotCapacity is required")]
-    public required TerraformProperty<double> SlotCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("slot_capacity");
-        set => SetProperty("slot_capacity", value);
-    }
+    [TerraformPropertyName("slot_capacity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> SlotCapacity { get; set; }
 
     /// <summary>
     /// Block for autoscale.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoscale block(s) allowed")]
-    public List<GoogleBigqueryReservationAutoscaleBlock>? Autoscale
-    {
-        set => SetProperty("autoscale", value);
-    }
+    [TerraformPropertyName("autoscale")]
+    public TerraformList<TerraformBlock<GoogleBigqueryReservationAutoscaleBlock>>? Autoscale { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleBigqueryReservationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleBigqueryReservationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The location where the reservation was originally created. This is set only during the
     /// failover reservation&#39;s creation. All billing charges for the failover reservation will be
     /// applied to this location.
     /// </summary>
-    public TerraformExpression OriginalPrimaryLocation => this["original_primary_location"];
+    [TerraformPropertyName("original_primary_location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OriginalPrimaryLocation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "original_primary_location");
 
     /// <summary>
     /// The current location of the reservation&#39;s primary replica. This field is only set for
     /// reservations using the managed disaster recovery feature.
     /// </summary>
-    public TerraformExpression PrimaryLocation => this["primary_location"];
+    [TerraformPropertyName("primary_location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryLocation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_location");
 
     /// <summary>
     /// The Disaster Recovery(DR) replication status of the reservation. This is only available for
@@ -215,6 +175,8 @@ public class GoogleBigqueryReservation : TerraformResource
     /// either not a DR reservation or the reservation is a DR secondary or that any replication
     /// operations on the reservation have succeeded.
     /// </summary>
-    public TerraformExpression ReplicationStatus => this["replication_status"];
+    [TerraformPropertyName("replication_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ReplicationStatus => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "replication_status");
 
 }

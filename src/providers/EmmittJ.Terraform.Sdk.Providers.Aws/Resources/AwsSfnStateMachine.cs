@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSfnStateMachineEncryptionConfigurationBlock : TerraformBlock
+public class AwsSfnStateMachineEncryptionConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The kms_data_key_reuse_period_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? KmsDataKeyReusePeriodSeconds
-    {
-        set => SetProperty("kms_data_key_reuse_period_seconds", value);
-    }
+    [TerraformPropertyName("kms_data_key_reuse_period_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? KmsDataKeyReusePeriodSeconds { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
-    {
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -38,31 +35,28 @@ public class AwsSfnStateMachineEncryptionConfigurationBlock : TerraformBlock
 /// Block type for logging_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSfnStateMachineLoggingConfigurationBlock : TerraformBlock
+public class AwsSfnStateMachineLoggingConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The include_execution_data attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeExecutionData
-    {
-        set => SetProperty("include_execution_data", value);
-    }
+    [TerraformPropertyName("include_execution_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeExecutionData { get; set; }
 
     /// <summary>
     /// The level attribute.
     /// </summary>
-    public TerraformProperty<string>? Level
-    {
-        set => SetProperty("level", value);
-    }
+    [TerraformPropertyName("level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Level { get; set; }
 
     /// <summary>
     /// The log_destination attribute.
     /// </summary>
-    public TerraformProperty<string>? LogDestination
-    {
-        set => SetProperty("log_destination", value);
-    }
+    [TerraformPropertyName("log_destination")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LogDestination { get; set; }
 
 }
 
@@ -70,31 +64,28 @@ public class AwsSfnStateMachineLoggingConfigurationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSfnStateMachineTimeoutsBlock : TerraformBlock
+public class AwsSfnStateMachineTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -102,15 +93,14 @@ public class AwsSfnStateMachineTimeoutsBlock : TerraformBlock
 /// Block type for tracing_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSfnStateMachineTracingConfigurationBlock : TerraformBlock
+public class AwsSfnStateMachineTracingConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
 }
 
@@ -122,194 +112,158 @@ public class AwsSfnStateMachine : TerraformResource
 {
     public AwsSfnStateMachine(string name) : base("aws_sfn_state_machine", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("creation_date");
-        SetOutput("description");
-        SetOutput("revision_id");
-        SetOutput("state_machine_version_arn");
-        SetOutput("status");
-        SetOutput("version_description");
-        SetOutput("definition");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("publish");
-        SetOutput("region");
-        SetOutput("role_arn");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The definition attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
-    public required TerraformProperty<string> Definition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("definition");
-        set => SetProperty("definition", value);
-    }
+    [TerraformPropertyName("definition")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Definition { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
 
     /// <summary>
     /// The publish attribute.
     /// </summary>
-    public TerraformProperty<bool> Publish
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("publish");
-        set => SetProperty("publish", value);
-    }
+    [TerraformPropertyName("publish")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Publish { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
     /// <summary>
     /// Block for encryption_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
-    public List<AwsSfnStateMachineEncryptionConfigurationBlock>? EncryptionConfiguration
-    {
-        set => SetProperty("encryption_configuration", value);
-    }
+    [TerraformPropertyName("encryption_configuration")]
+    public TerraformList<TerraformBlock<AwsSfnStateMachineEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for logging_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
-    public List<AwsSfnStateMachineLoggingConfigurationBlock>? LoggingConfiguration
-    {
-        set => SetProperty("logging_configuration", value);
-    }
+    [TerraformPropertyName("logging_configuration")]
+    public TerraformList<TerraformBlock<AwsSfnStateMachineLoggingConfigurationBlock>>? LoggingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsSfnStateMachineTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsSfnStateMachineTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tracing_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TracingConfiguration block(s) allowed")]
-    public List<AwsSfnStateMachineTracingConfigurationBlock>? TracingConfiguration
-    {
-        set => SetProperty("tracing_configuration", value);
-    }
+    [TerraformPropertyName("tracing_configuration")]
+    public TerraformList<TerraformBlock<AwsSfnStateMachineTracingConfigurationBlock>>? TracingConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
-    public TerraformExpression CreationDate => this["creation_date"];
+    [TerraformPropertyName("creation_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_date");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The revision_id attribute.
     /// </summary>
-    public TerraformExpression RevisionId => this["revision_id"];
+    [TerraformPropertyName("revision_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RevisionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "revision_id");
 
     /// <summary>
     /// The state_machine_version_arn attribute.
     /// </summary>
-    public TerraformExpression StateMachineVersionArn => this["state_machine_version_arn"];
+    [TerraformPropertyName("state_machine_version_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StateMachineVersionArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state_machine_version_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The version_description attribute.
     /// </summary>
-    public TerraformExpression VersionDescription => this["version_description"];
+    [TerraformPropertyName("version_description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VersionDescription => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version_description");
 
 }

@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for customer_managed_policy_reference in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsoadminCustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceBlock : TerraformBlock
+public class AwsSsoadminCustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
-    {
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
 
 }
 
@@ -31,23 +29,21 @@ public class AwsSsoadminCustomerManagedPolicyAttachmentCustomerManagedPolicyRefe
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSsoadminCustomerManagedPolicyAttachmentTimeoutsBlock : TerraformBlock
+public class AwsSsoadminCustomerManagedPolicyAttachmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -59,54 +55,37 @@ public class AwsSsoadminCustomerManagedPolicyAttachment : TerraformResource
 {
     public AwsSsoadminCustomerManagedPolicyAttachment(string name) : base("aws_ssoadmin_customer_managed_policy_attachment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("instance_arn");
-        SetOutput("permission_set_arn");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
-    public required TerraformProperty<string> InstanceArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_arn");
-        set => SetProperty("instance_arn", value);
-    }
+    [TerraformPropertyName("instance_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceArn { get; set; }
 
     /// <summary>
     /// The permission_set_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionSetArn is required")]
-    public required TerraformProperty<string> PermissionSetArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("permission_set_arn");
-        set => SetProperty("permission_set_arn", value);
-    }
+    [TerraformPropertyName("permission_set_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PermissionSetArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for customer_managed_policy_reference.
@@ -115,18 +94,14 @@ public class AwsSsoadminCustomerManagedPolicyAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerManagedPolicyReference is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CustomerManagedPolicyReference block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedPolicyReference block(s) allowed")]
-    public List<AwsSsoadminCustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceBlock>? CustomerManagedPolicyReference
-    {
-        set => SetProperty("customer_managed_policy_reference", value);
-    }
+    [TerraformPropertyName("customer_managed_policy_reference")]
+    public TerraformList<TerraformBlock<AwsSsoadminCustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceBlock>>? CustomerManagedPolicyReference { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsSsoadminCustomerManagedPolicyAttachmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsSsoadminCustomerManagedPolicyAttachmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

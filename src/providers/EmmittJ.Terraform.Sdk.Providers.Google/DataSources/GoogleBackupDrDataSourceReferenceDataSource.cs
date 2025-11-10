@@ -9,101 +9,92 @@ public class GoogleBackupDrDataSourceReferenceDataSource : TerraformDataSource
 {
     public GoogleBackupDrDataSourceReferenceDataSource(string name) : base("google_backup_dr_data_source_reference", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("backup_config_state");
-        SetOutput("backup_count");
-        SetOutput("data_source");
-        SetOutput("gcp_resource_name");
-        SetOutput("last_backup_state");
-        SetOutput("last_successful_backup_time");
-        SetOutput("name");
-        SetOutput("resource_type");
-        SetOutput("data_source_reference_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The `id` of the data source reference.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceReferenceId is required")]
-    public required TerraformProperty<string> DataSourceReferenceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_source_reference_id");
-        set => SetProperty("data_source_reference_id", value);
-    }
+    [TerraformPropertyName("data_source_reference_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataSourceReferenceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location of the data source reference.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The state of the backup config for the data source.
     /// </summary>
-    public TerraformExpression BackupConfigState => this["backup_config_state"];
+    [TerraformPropertyName("backup_config_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BackupConfigState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backup_config_state");
 
     /// <summary>
     /// The number of backups for the data source.
     /// </summary>
-    public TerraformExpression BackupCount => this["backup_count"];
+    [TerraformPropertyName("backup_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> BackupCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "backup_count");
 
     /// <summary>
     /// The underlying data source resource.
     /// </summary>
-    public TerraformExpression DataSource => this["data_source"];
+    [TerraformPropertyName("data_source")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DataSource => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "data_source");
 
     /// <summary>
     /// The GCP resource name for the data source.
     /// </summary>
-    public TerraformExpression GcpResourceName => this["gcp_resource_name"];
+    [TerraformPropertyName("gcp_resource_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GcpResourceName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gcp_resource_name");
 
     /// <summary>
     /// The state of the last backup.
     /// </summary>
-    public TerraformExpression LastBackupState => this["last_backup_state"];
+    [TerraformPropertyName("last_backup_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastBackupState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_backup_state");
 
     /// <summary>
     /// The last time a successful backup was made.
     /// </summary>
-    public TerraformExpression LastSuccessfulBackupTime => this["last_successful_backup_time"];
+    [TerraformPropertyName("last_successful_backup_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastSuccessfulBackupTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_successful_backup_time");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformExpression ResourceType => this["resource_type"];
+    [TerraformPropertyName("resource_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_type");
 
 }

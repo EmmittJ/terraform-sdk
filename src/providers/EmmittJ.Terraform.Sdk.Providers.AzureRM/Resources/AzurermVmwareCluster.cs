@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVmwareClusterTimeoutsBlock : TerraformBlock
+public class AzurermVmwareClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,86 +45,66 @@ public class AzurermVmwareCluster : TerraformResource
 {
     public AzurermVmwareCluster(string name) : base("azurerm_vmware_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cluster_number");
-        SetOutput("hosts");
-        SetOutput("cluster_node_count");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("sku_name");
-        SetOutput("vmware_cloud_id");
     }
 
     /// <summary>
     /// The cluster_node_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterNodeCount is required")]
-    public required TerraformProperty<double> ClusterNodeCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("cluster_node_count");
-        set => SetProperty("cluster_node_count", value);
-    }
+    [TerraformPropertyName("cluster_node_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ClusterNodeCount { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    public required TerraformProperty<string> SkuName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
-        set => SetProperty("sku_name", value);
-    }
+    [TerraformPropertyName("sku_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SkuName { get; set; }
 
     /// <summary>
     /// The vmware_cloud_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareCloudId is required")]
-    public required TerraformProperty<string> VmwareCloudId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vmware_cloud_id");
-        set => SetProperty("vmware_cloud_id", value);
-    }
+    [TerraformPropertyName("vmware_cloud_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VmwareCloudId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVmwareClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVmwareClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The cluster_number attribute.
     /// </summary>
-    public TerraformExpression ClusterNumber => this["cluster_number"];
+    [TerraformPropertyName("cluster_number")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ClusterNumber => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "cluster_number");
 
     /// <summary>
     /// The hosts attribute.
     /// </summary>
-    public TerraformExpression Hosts => this["hosts"];
+    [TerraformPropertyName("hosts")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Hosts => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "hosts");
 
 }

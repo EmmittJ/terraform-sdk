@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSynapseWorkspaceKeyTimeoutsBlock : TerraformBlock
+public class AzurermSynapseWorkspaceKeyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,73 +45,51 @@ public class AzurermSynapseWorkspaceKey : TerraformResource
 {
     public AzurermSynapseWorkspaceKey(string name) : base("azurerm_synapse_workspace_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("active");
-        SetOutput("customer_managed_key_name");
-        SetOutput("customer_managed_key_versionless_id");
-        SetOutput("id");
-        SetOutput("synapse_workspace_id");
     }
 
     /// <summary>
     /// The active attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
-    public required TerraformProperty<bool> Active
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("active");
-        set => SetProperty("active", value);
-    }
+    [TerraformPropertyName("active")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Active { get; set; }
 
     /// <summary>
     /// The customer_managed_key_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerManagedKeyName is required")]
-    public required TerraformProperty<string> CustomerManagedKeyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("customer_managed_key_name");
-        set => SetProperty("customer_managed_key_name", value);
-    }
+    [TerraformPropertyName("customer_managed_key_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CustomerManagedKeyName { get; set; }
 
     /// <summary>
     /// The customer_managed_key_versionless_id attribute.
     /// </summary>
-    public TerraformProperty<string> CustomerManagedKeyVersionlessId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("customer_managed_key_versionless_id");
-        set => SetProperty("customer_managed_key_versionless_id", value);
-    }
+    [TerraformPropertyName("customer_managed_key_versionless_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomerManagedKeyVersionlessId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The synapse_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
-    public required TerraformProperty<string> SynapseWorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("synapse_workspace_id");
-        set => SetProperty("synapse_workspace_id", value);
-    }
+    [TerraformPropertyName("synapse_workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SynapseWorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSynapseWorkspaceKeyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSynapseWorkspaceKeyTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

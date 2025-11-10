@@ -9,59 +9,43 @@ public class GoogleOracleDatabaseDbServersDataSource : TerraformDataSource
 {
     public GoogleOracleDatabaseDbServersDataSource(string name) : base("google_oracle_database_db_servers", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("db_servers");
-        SetOutput("cloud_exadata_infrastructure");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
     /// exadata
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructure is required")]
-    public required TerraformProperty<string> CloudExadataInfrastructure
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_exadata_infrastructure");
-        set => SetProperty("cloud_exadata_infrastructure", value);
-    }
+    [TerraformPropertyName("cloud_exadata_infrastructure")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CloudExadataInfrastructure { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// location
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The ID of the project in which the dataset is located. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The db_servers attribute.
     /// </summary>
-    public TerraformExpression DbServers => this["db_servers"];
+    [TerraformPropertyName("db_servers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DbServers => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "db_servers");
 
 }

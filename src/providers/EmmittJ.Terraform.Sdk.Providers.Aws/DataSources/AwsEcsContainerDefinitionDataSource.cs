@@ -9,101 +9,92 @@ public class AwsEcsContainerDefinitionDataSource : TerraformDataSource
 {
     public AwsEcsContainerDefinitionDataSource(string name) : base("aws_ecs_container_definition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cpu");
-        SetOutput("disable_networking");
-        SetOutput("docker_labels");
-        SetOutput("environment");
-        SetOutput("image");
-        SetOutput("image_digest");
-        SetOutput("memory");
-        SetOutput("memory_reservation");
-        SetOutput("container_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("task_definition");
     }
 
     /// <summary>
     /// The container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
-    public required TerraformProperty<string> ContainerName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_name");
-        set => SetProperty("container_name", value);
-    }
+    [TerraformPropertyName("container_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContainerName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The task_definition attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
-    public required TerraformProperty<string> TaskDefinition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("task_definition");
-        set => SetProperty("task_definition", value);
-    }
+    [TerraformPropertyName("task_definition")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TaskDefinition { get; set; }
 
     /// <summary>
     /// The cpu attribute.
     /// </summary>
-    public TerraformExpression Cpu => this["cpu"];
+    [TerraformPropertyName("cpu")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Cpu => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "cpu");
 
     /// <summary>
     /// The disable_networking attribute.
     /// </summary>
-    public TerraformExpression DisableNetworking => this["disable_networking"];
+    [TerraformPropertyName("disable_networking")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DisableNetworking => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "disable_networking");
 
     /// <summary>
     /// The docker_labels attribute.
     /// </summary>
-    public TerraformExpression DockerLabels => this["docker_labels"];
+    [TerraformPropertyName("docker_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> DockerLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "docker_labels");
 
     /// <summary>
     /// The environment attribute.
     /// </summary>
-    public TerraformExpression Environment => this["environment"];
+    [TerraformPropertyName("environment")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Environment => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "environment");
 
     /// <summary>
     /// The image attribute.
     /// </summary>
-    public TerraformExpression Image => this["image"];
+    [TerraformPropertyName("image")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Image => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image");
 
     /// <summary>
     /// The image_digest attribute.
     /// </summary>
-    public TerraformExpression ImageDigest => this["image_digest"];
+    [TerraformPropertyName("image_digest")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ImageDigest => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_digest");
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    public TerraformExpression Memory => this["memory"];
+    [TerraformPropertyName("memory")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Memory => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "memory");
 
     /// <summary>
     /// The memory_reservation attribute.
     /// </summary>
-    public TerraformExpression MemoryReservation => this["memory_reservation"];
+    [TerraformPropertyName("memory_reservation")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MemoryReservation => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "memory_reservation");
 
 }

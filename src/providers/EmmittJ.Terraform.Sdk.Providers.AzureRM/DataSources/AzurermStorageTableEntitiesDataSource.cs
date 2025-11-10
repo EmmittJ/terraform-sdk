@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageTableEntitiesDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermStorageTableEntitiesDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,68 +24,50 @@ public class AzurermStorageTableEntitiesDataSource : TerraformDataSource
 {
     public AzurermStorageTableEntitiesDataSource(string name) : base("azurerm_storage_table_entities", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("items");
-        SetOutput("filter");
-        SetOutput("id");
-        SetOutput("select");
-        SetOutput("storage_table_id");
     }
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
-    public required TerraformProperty<string> Filter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filter");
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The select attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Select
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("select");
-        set => SetProperty("select", value);
-    }
+    [TerraformPropertyName("select")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Select { get; set; }
 
     /// <summary>
     /// The storage_table_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
-    public required TerraformProperty<string> StorageTableId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_table_id");
-        set => SetProperty("storage_table_id", value);
-    }
+    [TerraformPropertyName("storage_table_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageTableId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStorageTableEntitiesDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStorageTableEntitiesDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The items attribute.
     /// </summary>
-    public TerraformExpression Items => this["items"];
+    [TerraformPropertyName("items")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Items => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "items");
 
 }

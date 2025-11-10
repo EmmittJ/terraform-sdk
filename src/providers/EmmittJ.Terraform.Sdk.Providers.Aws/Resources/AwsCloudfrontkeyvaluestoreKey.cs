@@ -9,56 +9,44 @@ public class AwsCloudfrontkeyvaluestoreKey : TerraformResource
 {
     public AwsCloudfrontkeyvaluestoreKey(string name) : base("aws_cloudfrontkeyvaluestore_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("total_size_in_bytes");
-        SetOutput("key");
-        SetOutput("key_value_store_arn");
-        SetOutput("value");
     }
 
     /// <summary>
     /// The key to put.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key");
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// The Amazon Resource Name (ARN) of the Key Value Store.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValueStoreArn is required")]
-    public required TerraformProperty<string> KeyValueStoreArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_value_store_arn");
-        set => SetProperty("key_value_store_arn", value);
-    }
+    [TerraformPropertyName("key_value_store_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyValueStoreArn { get; set; }
 
     /// <summary>
     /// The value to put.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<string> Value
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("value");
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Total size of the Key Value Store in bytes.
     /// </summary>
-    public TerraformExpression TotalSizeInBytes => this["total_size_in_bytes"];
+    [TerraformPropertyName("total_size_in_bytes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalSizeInBytes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_size_in_bytes");
 
 }

@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for compute_environment_order in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBatchJobQueueComputeEnvironmentOrderBlock : TerraformBlock
+public class AwsBatchJobQueueComputeEnvironmentOrderBlock : ITerraformBlock
 {
     /// <summary>
     /// The compute_environment attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeEnvironment is required")]
-    public required TerraformProperty<string> ComputeEnvironment
-    {
-        set => SetProperty("compute_environment", value);
-    }
+    [TerraformPropertyName("compute_environment")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ComputeEnvironment { get; set; }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
-    public required TerraformProperty<double> Order
-    {
-        set => SetProperty("order", value);
-    }
+    [TerraformPropertyName("order")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Order { get; set; }
 
 }
 
@@ -32,43 +30,39 @@ public class AwsBatchJobQueueComputeEnvironmentOrderBlock : TerraformBlock
 /// Block type for job_state_time_limit_action in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
+public class AwsBatchJobQueueJobStateTimeLimitActionBlock : ITerraformBlock
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// The max_time_seconds attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxTimeSeconds is required")]
-    public required TerraformProperty<double> MaxTimeSeconds
-    {
-        set => SetProperty("max_time_seconds", value);
-    }
+    [TerraformPropertyName("max_time_seconds")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxTimeSeconds { get; set; }
 
     /// <summary>
     /// The reason attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reason is required")]
-    public required TerraformProperty<string> Reason
-    {
-        set => SetProperty("reason", value);
-    }
+    [TerraformPropertyName("reason")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Reason { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
-    public required TerraformProperty<string> State
-    {
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> State { get; set; }
 
 }
 
@@ -76,31 +70,28 @@ public class AwsBatchJobQueueJobStateTimeLimitActionBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsBatchJobQueueTimeoutsBlock : TerraformBlock
+public class AwsBatchJobQueueTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -111,119 +102,93 @@ public class AwsBatchJobQueue : TerraformResource
 {
     public AwsBatchJobQueue(string name) : base("aws_batch_job_queue", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("tags_all");
-        SetOutput("name");
-        SetOutput("priority");
-        SetOutput("region");
-        SetOutput("scheduling_policy_arn");
-        SetOutput("state");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    public required TerraformProperty<double> Priority
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("priority");
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The scheduling_policy_arn attribute.
     /// </summary>
-    public TerraformProperty<string> SchedulingPolicyArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("scheduling_policy_arn");
-        set => SetProperty("scheduling_policy_arn", value);
-    }
+    [TerraformPropertyName("scheduling_policy_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SchedulingPolicyArn { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
-    public required TerraformProperty<string> State
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("state");
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> State { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for compute_environment_order.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBatchJobQueueComputeEnvironmentOrderBlock>? ComputeEnvironmentOrder
-    {
-        set => SetProperty("compute_environment_order", value);
-    }
+    [TerraformPropertyName("compute_environment_order")]
+    public TerraformList<TerraformBlock<AwsBatchJobQueueComputeEnvironmentOrderBlock>>? ComputeEnvironmentOrder { get; set; } = new();
 
     /// <summary>
     /// Block for job_state_time_limit_action.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBatchJobQueueJobStateTimeLimitActionBlock>? JobStateTimeLimitAction
-    {
-        set => SetProperty("job_state_time_limit_action", value);
-    }
+    [TerraformPropertyName("job_state_time_limit_action")]
+    public TerraformList<TerraformBlock<AwsBatchJobQueueJobStateTimeLimitActionBlock>>? JobStateTimeLimitAction { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsBatchJobQueueTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsBatchJobQueueTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

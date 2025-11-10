@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for storage_account in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBlock
+public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
-    public required TerraformProperty<string> SubscriptionId
-    {
-        set => SetProperty("subscription_id", value);
-    }
+    [TerraformPropertyName("subscription_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubscriptionId { get; set; }
 
 }
 
@@ -41,31 +38,28 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataShareDatasetBlobStorageTimeoutsBlock : TerraformBlock
+public class AzurermDataShareDatasetBlobStorageTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -77,76 +71,52 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
 {
     public AzurermDataShareDatasetBlobStorage(string name) : base("azurerm_data_share_dataset_blob_storage", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("display_name");
-        SetOutput("container_name");
-        SetOutput("data_share_id");
-        SetOutput("file_path");
-        SetOutput("folder_path");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
-    public required TerraformProperty<string> ContainerName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_name");
-        set => SetProperty("container_name", value);
-    }
+    [TerraformPropertyName("container_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContainerName { get; set; }
 
     /// <summary>
     /// The data_share_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareId is required")]
-    public required TerraformProperty<string> DataShareId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_share_id");
-        set => SetProperty("data_share_id", value);
-    }
+    [TerraformPropertyName("data_share_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataShareId { get; set; }
 
     /// <summary>
     /// The file_path attribute.
     /// </summary>
-    public TerraformProperty<string> FilePath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("file_path");
-        set => SetProperty("file_path", value);
-    }
+    [TerraformPropertyName("file_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FilePath { get; set; }
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
-    public TerraformProperty<string> FolderPath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("folder_path");
-        set => SetProperty("folder_path", value);
-    }
+    [TerraformPropertyName("folder_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FolderPath { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for storage_account.
@@ -155,23 +125,21 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccount is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageAccount block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccount block(s) allowed")]
-    public List<AzurermDataShareDatasetBlobStorageStorageAccountBlock>? StorageAccount
-    {
-        set => SetProperty("storage_account", value);
-    }
+    [TerraformPropertyName("storage_account")]
+    public TerraformList<TerraformBlock<AzurermDataShareDatasetBlobStorageStorageAccountBlock>>? StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDataShareDatasetBlobStorageTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDataShareDatasetBlobStorageTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
 }

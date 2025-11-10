@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorWorkspaceDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermMonitorWorkspaceDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,88 +24,78 @@ public class AzurermMonitorWorkspaceDataSource : TerraformDataSource
 {
     public AzurermMonitorWorkspaceDataSource(string name) : base("azurerm_monitor_workspace", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("default_data_collection_endpoint_id");
-        SetOutput("default_data_collection_rule_id");
-        SetOutput("location");
-        SetOutput("public_network_access_enabled");
-        SetOutput("query_endpoint");
-        SetOutput("tags");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMonitorWorkspaceDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMonitorWorkspaceDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The default_data_collection_endpoint_id attribute.
     /// </summary>
-    public TerraformExpression DefaultDataCollectionEndpointId => this["default_data_collection_endpoint_id"];
+    [TerraformPropertyName("default_data_collection_endpoint_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultDataCollectionEndpointId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_data_collection_endpoint_id");
 
     /// <summary>
     /// The default_data_collection_rule_id attribute.
     /// </summary>
-    public TerraformExpression DefaultDataCollectionRuleId => this["default_data_collection_rule_id"];
+    [TerraformPropertyName("default_data_collection_rule_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultDataCollectionRuleId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_data_collection_rule_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformExpression PublicNetworkAccessEnabled => this["public_network_access_enabled"];
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PublicNetworkAccessEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "public_network_access_enabled");
 
     /// <summary>
     /// The query_endpoint attribute.
     /// </summary>
-    public TerraformExpression QueryEndpoint => this["query_endpoint"];
+    [TerraformPropertyName("query_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> QueryEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "query_endpoint");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
 }

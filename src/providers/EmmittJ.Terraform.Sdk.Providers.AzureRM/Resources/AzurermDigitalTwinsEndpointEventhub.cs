@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDigitalTwinsEndpointEventhubTimeoutsBlock : TerraformBlock
+public class AzurermDigitalTwinsEndpointEventhubTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,84 +45,59 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
 {
     public AzurermDigitalTwinsEndpointEventhub(string name) : base("azurerm_digital_twins_endpoint_eventhub", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("dead_letter_storage_secret");
-        SetOutput("digital_twins_id");
-        SetOutput("eventhub_primary_connection_string");
-        SetOutput("eventhub_secondary_connection_string");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The dead_letter_storage_secret attribute.
     /// </summary>
-    public TerraformProperty<string> DeadLetterStorageSecret
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dead_letter_storage_secret");
-        set => SetProperty("dead_letter_storage_secret", value);
-    }
+    [TerraformPropertyName("dead_letter_storage_secret")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeadLetterStorageSecret { get; set; }
 
     /// <summary>
     /// The digital_twins_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
-    public required TerraformProperty<string> DigitalTwinsId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("digital_twins_id");
-        set => SetProperty("digital_twins_id", value);
-    }
+    [TerraformPropertyName("digital_twins_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DigitalTwinsId { get; set; }
 
     /// <summary>
     /// The eventhub_primary_connection_string attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubPrimaryConnectionString is required")]
-    public required TerraformProperty<string> EventhubPrimaryConnectionString
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_primary_connection_string");
-        set => SetProperty("eventhub_primary_connection_string", value);
-    }
+    [TerraformPropertyName("eventhub_primary_connection_string")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventhubPrimaryConnectionString { get; set; }
 
     /// <summary>
     /// The eventhub_secondary_connection_string attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubSecondaryConnectionString is required")]
-    public required TerraformProperty<string> EventhubSecondaryConnectionString
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_secondary_connection_string");
-        set => SetProperty("eventhub_secondary_connection_string", value);
-    }
+    [TerraformPropertyName("eventhub_secondary_connection_string")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventhubSecondaryConnectionString { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDigitalTwinsEndpointEventhubTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDigitalTwinsEndpointEventhubTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

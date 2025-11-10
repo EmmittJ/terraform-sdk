@@ -9,105 +9,83 @@ public class AwsVerifiedaccessInstance : TerraformResource
 {
     public AwsVerifiedaccessInstance(string name) : base("aws_verifiedaccess_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_time");
-        SetOutput("last_updated_time");
-        SetOutput("name_servers");
-        SetOutput("verified_access_trust_providers");
-        SetOutput("cidr_endpoints_custom_subdomain");
-        SetOutput("description");
-        SetOutput("fips_enabled");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The cidr_endpoints_custom_subdomain attribute.
     /// </summary>
-    public TerraformProperty<string> CidrEndpointsCustomSubdomain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cidr_endpoints_custom_subdomain");
-        set => SetProperty("cidr_endpoints_custom_subdomain", value);
-    }
+    [TerraformPropertyName("cidr_endpoints_custom_subdomain")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CidrEndpointsCustomSubdomain { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The fips_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> FipsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("fips_enabled");
-        set => SetProperty("fips_enabled", value);
-    }
+    [TerraformPropertyName("fips_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? FipsEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    public TerraformExpression CreationTime => this["creation_time"];
+    [TerraformPropertyName("creation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
-    public TerraformExpression LastUpdatedTime => this["last_updated_time"];
+    [TerraformPropertyName("last_updated_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastUpdatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_updated_time");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
-    public TerraformExpression NameServers => this["name_servers"];
+    [TerraformPropertyName("name_servers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> NameServers => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "name_servers");
 
     /// <summary>
     /// The verified_access_trust_providers attribute.
     /// </summary>
-    public TerraformExpression VerifiedAccessTrustProviders => this["verified_access_trust_providers"];
+    [TerraformPropertyName("verified_access_trust_providers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> VerifiedAccessTrustProviders => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "verified_access_trust_providers");
 
 }

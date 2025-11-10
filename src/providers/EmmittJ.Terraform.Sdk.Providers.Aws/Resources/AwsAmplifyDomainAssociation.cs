@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for certificate_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAmplifyDomainAssociationCertificateSettingsBlock : TerraformBlock
+public class AwsAmplifyDomainAssociationCertificateSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The certificate_verification_dns_record attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateVerificationDnsRecord
-    {
-        set => SetProperty("certificate_verification_dns_record", value);
-    }
+    [TerraformPropertyName("certificate_verification_dns_record")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CertificateVerificationDnsRecord => new TerraformReferenceProperty<TerraformProperty<string>>("", "certificate_verification_dns_record");
 
     /// <summary>
     /// The custom_certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomCertificateArn
-    {
-        set => SetProperty("custom_certificate_arn", value);
-    }
+    [TerraformPropertyName("custom_certificate_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomCertificateArn { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -39,41 +36,37 @@ public class AwsAmplifyDomainAssociationCertificateSettingsBlock : TerraformBloc
 /// Block type for sub_domain in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAmplifyDomainAssociationSubDomainBlock : TerraformBlock
+public class AwsAmplifyDomainAssociationSubDomainBlock : ITerraformBlock
 {
     /// <summary>
     /// The branch_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
-    public required TerraformProperty<string> BranchName
-    {
-        set => SetProperty("branch_name", value);
-    }
+    [TerraformPropertyName("branch_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BranchName { get; set; }
 
     /// <summary>
     /// The dns_record attribute.
     /// </summary>
-    public TerraformProperty<string>? DnsRecord
-    {
-        set => SetProperty("dns_record", value);
-    }
+    [TerraformPropertyName("dns_record")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsRecord => new TerraformReferenceProperty<TerraformProperty<string>>("", "dns_record");
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
-    public required TerraformProperty<string> Prefix
-    {
-        set => SetProperty("prefix", value);
-    }
+    [TerraformPropertyName("prefix")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Prefix { get; set; }
 
     /// <summary>
     /// The verified attribute.
     /// </summary>
-    public TerraformProperty<bool>? Verified
-    {
-        set => SetProperty("verified", value);
-    }
+    [TerraformPropertyName("verified")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Verified => new TerraformReferenceProperty<TerraformProperty<bool>>("", "verified");
 
 }
 
@@ -85,86 +78,59 @@ public class AwsAmplifyDomainAssociation : TerraformResource
 {
     public AwsAmplifyDomainAssociation(string name) : base("aws_amplify_domain_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("certificate_verification_dns_record");
-        SetOutput("app_id");
-        SetOutput("domain_name");
-        SetOutput("enable_auto_sub_domain");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("wait_for_verification");
     }
 
     /// <summary>
     /// The app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
-    public required TerraformProperty<string> AppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
-        set => SetProperty("app_id", value);
-    }
+    [TerraformPropertyName("app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppId { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    public required TerraformProperty<string> DomainName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
 
     /// <summary>
     /// The enable_auto_sub_domain attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableAutoSubDomain
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_auto_sub_domain");
-        set => SetProperty("enable_auto_sub_domain", value);
-    }
+    [TerraformPropertyName("enable_auto_sub_domain")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableAutoSubDomain { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The wait_for_verification attribute.
     /// </summary>
-    public TerraformProperty<bool> WaitForVerification
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("wait_for_verification");
-        set => SetProperty("wait_for_verification", value);
-    }
+    [TerraformPropertyName("wait_for_verification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WaitForVerification { get; set; }
 
     /// <summary>
     /// Block for certificate_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateSettings block(s) allowed")]
-    public List<AwsAmplifyDomainAssociationCertificateSettingsBlock>? CertificateSettings
-    {
-        set => SetProperty("certificate_settings", value);
-    }
+    [TerraformPropertyName("certificate_settings")]
+    public TerraformList<TerraformBlock<AwsAmplifyDomainAssociationCertificateSettingsBlock>>? CertificateSettings { get; set; } = new();
 
     /// <summary>
     /// Block for sub_domain.
@@ -172,19 +138,21 @@ public class AwsAmplifyDomainAssociation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubDomain is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SubDomain block(s) required")]
-    public HashSet<AwsAmplifyDomainAssociationSubDomainBlock>? SubDomain
-    {
-        set => SetProperty("sub_domain", value);
-    }
+    [TerraformPropertyName("sub_domain")]
+    public TerraformSet<TerraformBlock<AwsAmplifyDomainAssociationSubDomainBlock>>? SubDomain { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The certificate_verification_dns_record attribute.
     /// </summary>
-    public TerraformExpression CertificateVerificationDnsRecord => this["certificate_verification_dns_record"];
+    [TerraformPropertyName("certificate_verification_dns_record")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CertificateVerificationDnsRecord => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_verification_dns_record");
 
 }

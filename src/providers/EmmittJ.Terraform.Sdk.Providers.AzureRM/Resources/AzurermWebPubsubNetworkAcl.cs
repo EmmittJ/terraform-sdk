@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for private_endpoint in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformBlock
+public class AzurermWebPubsubNetworkAclPrivateEndpointBlock : ITerraformBlock
 {
     /// <summary>
     /// The allowed_request_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowedRequestTypes
-    {
-        set => SetProperty("allowed_request_types", value);
-    }
+    [TerraformPropertyName("allowed_request_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedRequestTypes { get; set; }
 
     /// <summary>
     /// The denied_request_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DeniedRequestTypes
-    {
-        set => SetProperty("denied_request_types", value);
-    }
+    [TerraformPropertyName("denied_request_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DeniedRequestTypes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
 }
 
@@ -39,23 +36,21 @@ public class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformBlock
 /// Block type for public_network in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWebPubsubNetworkAclPublicNetworkBlock : TerraformBlock
+public class AzurermWebPubsubNetworkAclPublicNetworkBlock : ITerraformBlock
 {
     /// <summary>
     /// The allowed_request_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowedRequestTypes
-    {
-        set => SetProperty("allowed_request_types", value);
-    }
+    [TerraformPropertyName("allowed_request_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedRequestTypes { get; set; }
 
     /// <summary>
     /// The denied_request_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DeniedRequestTypes
-    {
-        set => SetProperty("denied_request_types", value);
-    }
+    [TerraformPropertyName("denied_request_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DeniedRequestTypes { get; set; }
 
 }
 
@@ -63,39 +58,35 @@ public class AzurermWebPubsubNetworkAclPublicNetworkBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlock
+public class AzurermWebPubsubNetworkAclTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -107,52 +98,36 @@ public class AzurermWebPubsubNetworkAcl : TerraformResource
 {
     public AzurermWebPubsubNetworkAcl(string name) : base("azurerm_web_pubsub_network_acl", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("default_action");
-        SetOutput("id");
-        SetOutput("web_pubsub_id");
     }
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultAction
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_action");
-        set => SetProperty("default_action", value);
-    }
+    [TerraformPropertyName("default_action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultAction { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The web_pubsub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
-    public required TerraformProperty<string> WebPubsubId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("web_pubsub_id");
-        set => SetProperty("web_pubsub_id", value);
-    }
+    [TerraformPropertyName("web_pubsub_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WebPubsubId { get; set; }
 
     /// <summary>
     /// Block for private_endpoint.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermWebPubsubNetworkAclPrivateEndpointBlock>? PrivateEndpoint
-    {
-        set => SetProperty("private_endpoint", value);
-    }
+    [TerraformPropertyName("private_endpoint")]
+    public TerraformSet<TerraformBlock<AzurermWebPubsubNetworkAclPrivateEndpointBlock>>? PrivateEndpoint { get; set; } = new();
 
     /// <summary>
     /// Block for public_network.
@@ -161,18 +136,14 @@ public class AzurermWebPubsubNetworkAcl : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicNetwork is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PublicNetwork block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicNetwork block(s) allowed")]
-    public List<AzurermWebPubsubNetworkAclPublicNetworkBlock>? PublicNetwork
-    {
-        set => SetProperty("public_network", value);
-    }
+    [TerraformPropertyName("public_network")]
+    public TerraformList<TerraformBlock<AzurermWebPubsubNetworkAclPublicNetworkBlock>>? PublicNetwork { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermWebPubsubNetworkAclTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermWebPubsubNetworkAclTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

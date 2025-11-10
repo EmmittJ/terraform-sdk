@@ -9,66 +9,56 @@ public class AwsDxLocationDataSource : TerraformDataSource
 {
     public AwsDxLocationDataSource(string name) : base("aws_dx_location", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("available_macsec_port_speeds");
-        SetOutput("available_port_speeds");
-        SetOutput("available_providers");
-        SetOutput("location_name");
-        SetOutput("id");
-        SetOutput("location_code");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationCode is required")]
-    public required TerraformProperty<string> LocationCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location_code");
-        set => SetProperty("location_code", value);
-    }
+    [TerraformPropertyName("location_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LocationCode { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The available_macsec_port_speeds attribute.
     /// </summary>
-    public TerraformExpression AvailableMacsecPortSpeeds => this["available_macsec_port_speeds"];
+    [TerraformPropertyName("available_macsec_port_speeds")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AvailableMacsecPortSpeeds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "available_macsec_port_speeds");
 
     /// <summary>
     /// The available_port_speeds attribute.
     /// </summary>
-    public TerraformExpression AvailablePortSpeeds => this["available_port_speeds"];
+    [TerraformPropertyName("available_port_speeds")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AvailablePortSpeeds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "available_port_speeds");
 
     /// <summary>
     /// The available_providers attribute.
     /// </summary>
-    public TerraformExpression AvailableProviders => this["available_providers"];
+    [TerraformPropertyName("available_providers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AvailableProviders => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "available_providers");
 
     /// <summary>
     /// The location_name attribute.
     /// </summary>
-    public TerraformExpression LocationName => this["location_name"];
+    [TerraformPropertyName("location_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LocationName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location_name");
 
 }

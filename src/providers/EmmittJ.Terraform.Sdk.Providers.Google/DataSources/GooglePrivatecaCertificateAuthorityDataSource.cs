@@ -9,95 +9,57 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
 {
     public GooglePrivatecaCertificateAuthorityDataSource(string name) : base("google_privateca_certificate_authority", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_urls");
-        SetOutput("config");
-        SetOutput("create_time");
-        SetOutput("deletion_protection");
-        SetOutput("desired_state");
-        SetOutput("effective_labels");
-        SetOutput("gcs_bucket");
-        SetOutput("ignore_active_certificates_on_deletion");
-        SetOutput("key_spec");
-        SetOutput("labels");
-        SetOutput("lifetime");
-        SetOutput("name");
-        SetOutput("pem_ca_certificate");
-        SetOutput("pem_ca_certificates");
-        SetOutput("pem_csr");
-        SetOutput("skip_grace_period");
-        SetOutput("state");
-        SetOutput("subordinate_config");
-        SetOutput("terraform_labels");
-        SetOutput("type");
-        SetOutput("update_time");
-        SetOutput("user_defined_access_urls");
-        SetOutput("certificate_authority_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("pool");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The user provided Resource ID for this Certificate Authority.
     /// </summary>
-    public TerraformProperty<string> CertificateAuthorityId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate_authority_id");
-        set => SetProperty("certificate_authority_id", value);
-    }
+    [TerraformPropertyName("certificate_authority_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CertificateAuthorityId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Location of the CertificateAuthority. A full list of valid locations can be found by
     /// running &#39;gcloud privateca locations list&#39;.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The name of the CaPool this Certificate Authority belongs to.
     /// </summary>
-    public TerraformProperty<string> Pool
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pool");
-        set => SetProperty("pool", value);
-    }
+    [TerraformPropertyName("pool")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Pool { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// URLs for accessing content published by this CA, such as the CA certificate and CRLs.
     /// </summary>
-    public TerraformExpression AccessUrls => this["access_urls"];
+    [TerraformPropertyName("access_urls")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AccessUrls => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "access_urls");
 
     /// <summary>
     /// The config used to create a self-signed X.509 certificate or CSR.
     /// </summary>
-    public TerraformExpression Config => this["config"];
+    [TerraformPropertyName("config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Config => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "config");
 
     /// <summary>
     /// The time at which this CertificateAuthority was created.
@@ -105,7 +67,9 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the CertificateAuthority.
@@ -113,18 +77,24 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
     /// or &#39;terraform destroy&#39; that would delete the CertificateAuthority will fail.
     /// When the field is set to false, deleting the CertificateAuthority is allowed.
     /// </summary>
-    public TerraformExpression DeletionProtection => this["deletion_protection"];
+    [TerraformPropertyName("deletion_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection");
 
     /// <summary>
     /// Desired state of the CertificateAuthority. Set this field to &#39;STAGED&#39; to create a &#39;STAGED&#39; root CA.
     /// Possible values: ENABLED, DISABLED, STAGED.
     /// </summary>
-    public TerraformExpression DesiredState => this["desired_state"];
+    [TerraformPropertyName("desired_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DesiredState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "desired_state");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The name of a Cloud Storage bucket where this CertificateAuthority will publish content,
@@ -133,20 +103,26 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
     /// my-bucket, you would simply specify &#39;my-bucket&#39;. If not specified, a managed bucket will be
     /// created.
     /// </summary>
-    public TerraformExpression GcsBucket => this["gcs_bucket"];
+    [TerraformPropertyName("gcs_bucket")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GcsBucket => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gcs_bucket");
 
     /// <summary>
     /// This field allows the CA to be deleted even if the CA has active certs. Active certs include both unrevoked and unexpired certs.
     /// Use with care. Defaults to &#39;false&#39;.
     /// </summary>
-    public TerraformExpression IgnoreActiveCertificatesOnDeletion => this["ignore_active_certificates_on_deletion"];
+    [TerraformPropertyName("ignore_active_certificates_on_deletion")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> IgnoreActiveCertificatesOnDeletion => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "ignore_active_certificates_on_deletion");
 
     /// <summary>
     /// Used when issuing certificates for this CertificateAuthority. If this CertificateAuthority
     /// is a self-signed CertificateAuthority, this key is also used to sign the self-signed CA
     /// certificate. Otherwise, it is used to sign a CSR.
     /// </summary>
-    public TerraformExpression KeySpec => this["key_spec"];
+    [TerraformPropertyName("key_spec")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> KeySpec => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "key_spec");
 
     /// <summary>
     /// Labels with user-defined metadata.
@@ -158,25 +134,33 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformExpression Labels => this["labels"];
+    [TerraformPropertyName("labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
 
     /// <summary>
     /// The desired lifetime of the CA certificate. Used to create the &amp;quot;notBeforeTime&amp;quot; and
     /// &amp;quot;notAfterTime&amp;quot; fields inside an X.509 certificate. A duration in seconds with up to nine
     /// fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformExpression Lifetime => this["lifetime"];
+    [TerraformPropertyName("lifetime")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Lifetime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "lifetime");
 
     /// <summary>
     /// The resource name for this CertificateAuthority in the format
     /// projects/*/locations/*/certificateAuthorities/*.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The signed CA certificate issued from the subordinated CA&#39;s CSR. This is needed when activating the subordiante CA with a third party issuer.
     /// </summary>
-    public TerraformExpression PemCaCertificate => this["pem_ca_certificate"];
+    [TerraformPropertyName("pem_ca_certificate")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PemCaCertificate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "pem_ca_certificate");
 
     /// <summary>
     /// This CertificateAuthority&#39;s certificate chain, including the current
@@ -184,12 +168,16 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
     /// element (consistent with RFC 5246). For a self-signed CA, this will only list the current
     /// CertificateAuthority&#39;s certificate.
     /// </summary>
-    public TerraformExpression PemCaCertificates => this["pem_ca_certificates"];
+    [TerraformPropertyName("pem_ca_certificates")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> PemCaCertificates => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "pem_ca_certificates");
 
     /// <summary>
     /// The pem_csr attribute.
     /// </summary>
-    public TerraformExpression PemCsr => this["pem_csr"];
+    [TerraformPropertyName("pem_csr")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PemCsr => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "pem_csr");
 
     /// <summary>
     /// If this flag is set, the Certificate Authority will be deleted as soon as
@@ -197,24 +185,32 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
     /// allowed. If you proceed, there will be no way to recover this CA.
     /// Use with care. Defaults to &#39;false&#39;.
     /// </summary>
-    public TerraformExpression SkipGracePeriod => this["skip_grace_period"];
+    [TerraformPropertyName("skip_grace_period")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> SkipGracePeriod => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "skip_grace_period");
 
     /// <summary>
     /// The State for this CertificateAuthority.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// If this is a subordinate CertificateAuthority, this field will be set
     /// with the subordinate configuration, which describes its issuers.
     /// </summary>
-    public TerraformExpression SubordinateConfig => this["subordinate_config"];
+    [TerraformPropertyName("subordinate_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SubordinateConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "subordinate_config");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// The Type of this CertificateAuthority.
@@ -222,7 +218,9 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
     /// ~&amp;gt; **Note:** For &#39;SUBORDINATE&#39; Certificate Authorities, they need to
     /// be activated before they can issue certificates. Default value: &amp;quot;SELF_SIGNED&amp;quot; Possible values: [&amp;quot;SELF_SIGNED&amp;quot;, &amp;quot;SUBORDINATE&amp;quot;]
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
     /// <summary>
     /// The time at which this CertificateAuthority was updated.
@@ -230,12 +228,16 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
     /// <summary>
     /// Custom URLs for accessing content published by this CA, such as the CA certificate and CRLs,
     /// that can be specified by users.
     /// </summary>
-    public TerraformExpression UserDefinedAccessUrls => this["user_defined_access_urls"];
+    [TerraformPropertyName("user_defined_access_urls")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> UserDefinedAccessUrls => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "user_defined_access_urls");
 
 }

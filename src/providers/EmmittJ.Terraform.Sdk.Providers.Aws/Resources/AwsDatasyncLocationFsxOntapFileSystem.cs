@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for protocol in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDatasyncLocationFsxOntapFileSystemProtocolBlock : TerraformBlock
+public class AwsDatasyncLocationFsxOntapFileSystemProtocolBlock : ITerraformBlock
 {
 }
 
@@ -18,88 +18,58 @@ public class AwsDatasyncLocationFsxOntapFileSystem : TerraformResource
 {
     public AwsDatasyncLocationFsxOntapFileSystem(string name) : base("aws_datasync_location_fsx_ontap_file_system", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("creation_time");
-        SetOutput("fsx_filesystem_arn");
-        SetOutput("uri");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("security_group_arns");
-        SetOutput("storage_virtual_machine_arn");
-        SetOutput("subdirectory");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The security_group_arns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupArns is required")]
-    public HashSet<TerraformProperty<string>> SecurityGroupArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_arns");
-        set => SetProperty("security_group_arns", value);
-    }
+    [TerraformPropertyName("security_group_arns")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupArns { get; set; }
 
     /// <summary>
     /// The storage_virtual_machine_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageVirtualMachineArn is required")]
-    public required TerraformProperty<string> StorageVirtualMachineArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_virtual_machine_arn");
-        set => SetProperty("storage_virtual_machine_arn", value);
-    }
+    [TerraformPropertyName("storage_virtual_machine_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageVirtualMachineArn { get; set; }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformProperty<string> Subdirectory
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subdirectory");
-        set => SetProperty("subdirectory", value);
-    }
+    [TerraformPropertyName("subdirectory")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Subdirectory { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subdirectory");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for protocol.
@@ -108,29 +78,35 @@ public class AwsDatasyncLocationFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Protocol block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Protocol block(s) allowed")]
-    public List<AwsDatasyncLocationFsxOntapFileSystemProtocolBlock>? Protocol
-    {
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    public TerraformList<TerraformBlock<AwsDatasyncLocationFsxOntapFileSystemProtocolBlock>>? Protocol { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    public TerraformExpression CreationTime => this["creation_time"];
+    [TerraformPropertyName("creation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
 
     /// <summary>
     /// The fsx_filesystem_arn attribute.
     /// </summary>
-    public TerraformExpression FsxFilesystemArn => this["fsx_filesystem_arn"];
+    [TerraformPropertyName("fsx_filesystem_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FsxFilesystemArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fsx_filesystem_arn");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformExpression Uri => this["uri"];
+    [TerraformPropertyName("uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uri");
 
 }

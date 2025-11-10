@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for extension_chains in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesLbRouteExtensionExtensionChainsBlock : TerraformBlock
+public class GoogleNetworkServicesLbRouteExtensionExtensionChainsBlock : ITerraformBlock
 {
     /// <summary>
     /// The name for this extension chain. The name is logged as part of the HTTP request logs.
@@ -15,10 +15,9 @@ public class GoogleNetworkServicesLbRouteExtensionExtensionChainsBlock : Terrafo
     /// and the last character must be a letter or a number.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -26,31 +25,28 @@ public class GoogleNetworkServicesLbRouteExtensionExtensionChainsBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkServicesLbRouteExtensionTimeoutsBlock : TerraformBlock
+public class GoogleNetworkServicesLbRouteExtensionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -62,51 +58,30 @@ public class GoogleNetworkServicesLbRouteExtension : TerraformResource
 {
     public GoogleNetworkServicesLbRouteExtension(string name) : base("google_network_services_lb_route_extension", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("effective_labels");
-        SetOutput("terraform_labels");
-        SetOutput("description");
-        SetOutput("forwarding_rules");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("load_balancing_scheme");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// A list of references to the forwarding rules to which this service extension is attached to.
     /// At least one forwarding rule is required. There can be only one LbRouteExtension resource per forwarding rule.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRules is required")]
-    public List<TerraformProperty<string>> ForwardingRules
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("forwarding_rules");
-        set => SetProperty("forwarding_rules", value);
-    }
+    [TerraformPropertyName("forwarding_rules")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? ForwardingRules { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Set of labels associated with the LbRouteExtension resource.
@@ -114,11 +89,9 @@ public class GoogleNetworkServicesLbRouteExtension : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// All backend services and forwarding rules referenced by this extension must share the same load balancing scheme.
@@ -126,40 +99,32 @@ public class GoogleNetworkServicesLbRouteExtension : TerraformResource
     /// [Supported application load balancers](https://cloud.google.com/service-extensions/docs/callouts-overview#supported-lbs). Possible values: [&amp;quot;INTERNAL_MANAGED&amp;quot;, &amp;quot;EXTERNAL_MANAGED&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingScheme is required")]
-    public required TerraformProperty<string> LoadBalancingScheme
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("load_balancing_scheme");
-        set => SetProperty("load_balancing_scheme", value);
-    }
+    [TerraformPropertyName("load_balancing_scheme")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LoadBalancingScheme { get; set; }
 
     /// <summary>
     /// The location of the route extension
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// Name of the LbRouteExtension resource in the following format: projects/{project}/locations/{location}/lbRouteExtensions/{lbRouteExtension}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for extension_chains.
@@ -167,29 +132,29 @@ public class GoogleNetworkServicesLbRouteExtension : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionChains is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExtensionChains block(s) required")]
-    public List<GoogleNetworkServicesLbRouteExtensionExtensionChainsBlock>? ExtensionChains
-    {
-        set => SetProperty("extension_chains", value);
-    }
+    [TerraformPropertyName("extension_chains")]
+    public TerraformList<TerraformBlock<GoogleNetworkServicesLbRouteExtensionExtensionChainsBlock>>? ExtensionChains { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleNetworkServicesLbRouteExtensionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleNetworkServicesLbRouteExtensionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

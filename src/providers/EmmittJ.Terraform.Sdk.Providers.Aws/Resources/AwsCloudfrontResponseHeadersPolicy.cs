@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cors_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : TerraformBlock
+public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The access_control_allow_credentials attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessControlAllowCredentials is required")]
-    public required TerraformProperty<bool> AccessControlAllowCredentials
-    {
-        set => SetProperty("access_control_allow_credentials", value);
-    }
+    [TerraformPropertyName("access_control_allow_credentials")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> AccessControlAllowCredentials { get; set; }
 
     /// <summary>
     /// The access_control_max_age_sec attribute.
     /// </summary>
-    public TerraformProperty<double>? AccessControlMaxAgeSec
-    {
-        set => SetProperty("access_control_max_age_sec", value);
-    }
+    [TerraformPropertyName("access_control_max_age_sec")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AccessControlMaxAgeSec { get; set; }
 
     /// <summary>
     /// The origin_override attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginOverride is required")]
-    public required TerraformProperty<bool> OriginOverride
-    {
-        set => SetProperty("origin_override", value);
-    }
+    [TerraformPropertyName("origin_override")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> OriginOverride { get; set; }
 
 }
 
@@ -40,7 +37,7 @@ public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : TerraformBlock
 /// Block type for custom_headers_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock : TerraformBlock
+public class AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock : ITerraformBlock
 {
 }
 
@@ -48,7 +45,7 @@ public class AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock : Terraf
 /// Block type for remove_headers_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock : TerraformBlock
+public class AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock : ITerraformBlock
 {
 }
 
@@ -56,7 +53,7 @@ public class AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock : Terraf
 /// Block type for security_headers_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlock : TerraformBlock
+public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlock : ITerraformBlock
 {
 }
 
@@ -64,25 +61,23 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlock : Terr
 /// Block type for server_timing_headers_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock : TerraformBlock
+public class AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The sampling_rate attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRate is required")]
-    public required TerraformProperty<double> SamplingRate
-    {
-        set => SetProperty("sampling_rate", value);
-    }
+    [TerraformPropertyName("sampling_rate")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> SamplingRate { get; set; }
 
 }
 
@@ -94,104 +89,82 @@ public class AwsCloudfrontResponseHeadersPolicy : TerraformResource
 {
     public AwsCloudfrontResponseHeadersPolicy(string name) : base("aws_cloudfront_response_headers_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("etag");
-        SetOutput("comment");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string> Comment
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("comment");
-        set => SetProperty("comment", value);
-    }
+    [TerraformPropertyName("comment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Comment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for cors_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorsConfig block(s) allowed")]
-    public List<AwsCloudfrontResponseHeadersPolicyCorsConfigBlock>? CorsConfig
-    {
-        set => SetProperty("cors_config", value);
-    }
+    [TerraformPropertyName("cors_config")]
+    public TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyCorsConfigBlock>>? CorsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for custom_headers_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomHeadersConfig block(s) allowed")]
-    public List<AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock>? CustomHeadersConfig
-    {
-        set => SetProperty("custom_headers_config", value);
-    }
+    [TerraformPropertyName("custom_headers_config")]
+    public TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlock>>? CustomHeadersConfig { get; set; } = new();
 
     /// <summary>
     /// Block for remove_headers_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoveHeadersConfig block(s) allowed")]
-    public List<AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock>? RemoveHeadersConfig
-    {
-        set => SetProperty("remove_headers_config", value);
-    }
+    [TerraformPropertyName("remove_headers_config")]
+    public TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlock>>? RemoveHeadersConfig { get; set; } = new();
 
     /// <summary>
     /// Block for security_headers_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityHeadersConfig block(s) allowed")]
-    public List<AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlock>? SecurityHeadersConfig
-    {
-        set => SetProperty("security_headers_config", value);
-    }
+    [TerraformPropertyName("security_headers_config")]
+    public TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlock>>? SecurityHeadersConfig { get; set; } = new();
 
     /// <summary>
     /// Block for server_timing_headers_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerTimingHeadersConfig block(s) allowed")]
-    public List<AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock>? ServerTimingHeadersConfig
-    {
-        set => SetProperty("server_timing_headers_config", value);
-    }
+    [TerraformPropertyName("server_timing_headers_config")]
+    public TerraformList<TerraformBlock<AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock>>? ServerTimingHeadersConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
 }

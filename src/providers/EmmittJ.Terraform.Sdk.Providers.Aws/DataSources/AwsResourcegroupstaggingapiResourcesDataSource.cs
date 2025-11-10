@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for tag_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock : TerraformBlock
+public class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -35,87 +33,63 @@ public class AwsResourcegroupstaggingapiResourcesDataSource : TerraformDataSourc
 {
     public AwsResourcegroupstaggingapiResourcesDataSource(string name) : base("aws_resourcegroupstaggingapi_resources", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("resource_tag_mapping_list");
-        SetOutput("exclude_compliant_resources");
-        SetOutput("id");
-        SetOutput("include_compliance_details");
-        SetOutput("region");
-        SetOutput("resource_arn_list");
-        SetOutput("resource_type_filters");
     }
 
     /// <summary>
     /// The exclude_compliant_resources attribute.
     /// </summary>
-    public TerraformProperty<bool> ExcludeCompliantResources
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("exclude_compliant_resources");
-        set => SetProperty("exclude_compliant_resources", value);
-    }
+    [TerraformPropertyName("exclude_compliant_resources")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExcludeCompliantResources { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The include_compliance_details attribute.
     /// </summary>
-    public TerraformProperty<bool> IncludeComplianceDetails
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("include_compliance_details");
-        set => SetProperty("include_compliance_details", value);
-    }
+    [TerraformPropertyName("include_compliance_details")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeComplianceDetails { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource_arn_list attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ResourceArnList
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("resource_arn_list");
-        set => SetProperty("resource_arn_list", value);
-    }
+    [TerraformPropertyName("resource_arn_list")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ResourceArnList { get; set; }
 
     /// <summary>
     /// The resource_type_filters attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ResourceTypeFilters
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("resource_type_filters");
-        set => SetProperty("resource_type_filters", value);
-    }
+    [TerraformPropertyName("resource_type_filters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ResourceTypeFilters { get; set; }
 
     /// <summary>
     /// Block for tag_filter.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 TagFilter block(s) allowed")]
-    public List<AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock>? TagFilter
-    {
-        set => SetProperty("tag_filter", value);
-    }
+    [TerraformPropertyName("tag_filter")]
+    public TerraformList<TerraformBlock<AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock>>? TagFilter { get; set; } = new();
 
     /// <summary>
     /// The resource_tag_mapping_list attribute.
     /// </summary>
-    public TerraformExpression ResourceTagMappingList => this["resource_tag_mapping_list"];
+    [TerraformPropertyName("resource_tag_mapping_list")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ResourceTagMappingList => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "resource_tag_mapping_list");
 
 }

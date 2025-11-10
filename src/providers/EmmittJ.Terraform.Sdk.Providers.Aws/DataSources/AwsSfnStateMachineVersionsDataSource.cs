@@ -9,48 +9,35 @@ public class AwsSfnStateMachineVersionsDataSource : TerraformDataSource
 {
     public AwsSfnStateMachineVersionsDataSource(string name) : base("aws_sfn_state_machine_versions", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("statemachine_versions");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("statemachine_arn");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The statemachine_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatemachineArn is required")]
-    public required TerraformProperty<string> StatemachineArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("statemachine_arn");
-        set => SetProperty("statemachine_arn", value);
-    }
+    [TerraformPropertyName("statemachine_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StatemachineArn { get; set; }
 
     /// <summary>
     /// The statemachine_versions attribute.
     /// </summary>
-    public TerraformExpression StatemachineVersions => this["statemachine_versions"];
+    [TerraformPropertyName("statemachine_versions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> StatemachineVersions => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "statemachine_versions");
 
 }

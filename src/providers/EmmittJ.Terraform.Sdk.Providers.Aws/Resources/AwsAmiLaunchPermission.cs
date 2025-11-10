@@ -9,82 +9,56 @@ public class AwsAmiLaunchPermission : TerraformResource
 {
     public AwsAmiLaunchPermission(string name) : base("aws_ami_launch_permission", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account_id");
-        SetOutput("group");
-        SetOutput("id");
-        SetOutput("image_id");
-        SetOutput("organization_arn");
-        SetOutput("organizational_unit_arn");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string> AccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AccountId { get; set; }
 
     /// <summary>
     /// The group attribute.
     /// </summary>
-    public TerraformProperty<string> Group
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("group");
-        set => SetProperty("group", value);
-    }
+    [TerraformPropertyName("group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Group { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageId is required")]
-    public required TerraformProperty<string> ImageId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("image_id");
-        set => SetProperty("image_id", value);
-    }
+    [TerraformPropertyName("image_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ImageId { get; set; }
 
     /// <summary>
     /// The organization_arn attribute.
     /// </summary>
-    public TerraformProperty<string> OrganizationArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("organization_arn");
-        set => SetProperty("organization_arn", value);
-    }
+    [TerraformPropertyName("organization_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OrganizationArn { get; set; }
 
     /// <summary>
     /// The organizational_unit_arn attribute.
     /// </summary>
-    public TerraformProperty<string> OrganizationalUnitArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("organizational_unit_arn");
-        set => SetProperty("organizational_unit_arn", value);
-    }
+    [TerraformPropertyName("organizational_unit_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OrganizationalUnitArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
 }

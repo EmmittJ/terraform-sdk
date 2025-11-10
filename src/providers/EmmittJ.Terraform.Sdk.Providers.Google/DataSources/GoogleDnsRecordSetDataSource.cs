@@ -9,76 +9,58 @@ public class GoogleDnsRecordSetDataSource : TerraformDataSource
 {
     public GoogleDnsRecordSetDataSource(string name) : base("google_dns_record_set", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("rrdatas");
-        SetOutput("ttl");
-        SetOutput("id");
-        SetOutput("managed_zone");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The managed_zone attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedZone is required")]
-    public required TerraformProperty<string> ManagedZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_zone");
-        set => SetProperty("managed_zone", value);
-    }
+    [TerraformPropertyName("managed_zone")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ManagedZone { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// The rrdatas attribute.
     /// </summary>
-    public TerraformExpression Rrdatas => this["rrdatas"];
+    [TerraformPropertyName("rrdatas")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Rrdatas => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "rrdatas");
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformExpression Ttl => this["ttl"];
+    [TerraformPropertyName("ttl")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Ttl => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ttl");
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for accepter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVpcPeeringConnectionOptionsAccepterBlock : TerraformBlock
+public class AwsVpcPeeringConnectionOptionsAccepterBlock : ITerraformBlock
 {
     /// <summary>
     /// The allow_remote_vpc_dns_resolution attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowRemoteVpcDnsResolution
-    {
-        set => SetProperty("allow_remote_vpc_dns_resolution", value);
-    }
+    [TerraformPropertyName("allow_remote_vpc_dns_resolution")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowRemoteVpcDnsResolution { get; set; }
 
 }
 
@@ -22,15 +21,14 @@ public class AwsVpcPeeringConnectionOptionsAccepterBlock : TerraformBlock
 /// Block type for requester in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVpcPeeringConnectionOptionsRequesterBlock : TerraformBlock
+public class AwsVpcPeeringConnectionOptionsRequesterBlock : ITerraformBlock
 {
     /// <summary>
     /// The allow_remote_vpc_dns_resolution attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowRemoteVpcDnsResolution
-    {
-        set => SetProperty("allow_remote_vpc_dns_resolution", value);
-    }
+    [TerraformPropertyName("allow_remote_vpc_dns_resolution")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowRemoteVpcDnsResolution { get; set; }
 
 }
 
@@ -42,62 +40,44 @@ public class AwsVpcPeeringConnectionOptions : TerraformResource
 {
     public AwsVpcPeeringConnectionOptions(string name) : base("aws_vpc_peering_connection_options", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("vpc_peering_connection_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The vpc_peering_connection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcPeeringConnectionId is required")]
-    public required TerraformProperty<string> VpcPeeringConnectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_peering_connection_id");
-        set => SetProperty("vpc_peering_connection_id", value);
-    }
+    [TerraformPropertyName("vpc_peering_connection_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VpcPeeringConnectionId { get; set; }
 
     /// <summary>
     /// Block for accepter.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Accepter block(s) allowed")]
-    public List<AwsVpcPeeringConnectionOptionsAccepterBlock>? Accepter
-    {
-        set => SetProperty("accepter", value);
-    }
+    [TerraformPropertyName("accepter")]
+    public TerraformList<TerraformBlock<AwsVpcPeeringConnectionOptionsAccepterBlock>>? Accepter { get; set; } = new();
 
     /// <summary>
     /// Block for requester.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Requester block(s) allowed")]
-    public List<AwsVpcPeeringConnectionOptionsRequesterBlock>? Requester
-    {
-        set => SetProperty("requester", value);
-    }
+    [TerraformPropertyName("requester")]
+    public TerraformList<TerraformBlock<AwsVpcPeeringConnectionOptionsRequesterBlock>>? Requester { get; set; } = new();
 
 }

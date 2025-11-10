@@ -9,47 +9,34 @@ public class GoogleCertificateManagerCertificatesDataSource : TerraformDataSourc
 {
     public GoogleCertificateManagerCertificatesDataSource(string name) : base("google_certificate_manager_certificates", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("certificates");
-        SetOutput("filter");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    public TerraformProperty<string> Filter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filter");
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
     /// <summary>
     /// The certificates attribute.
     /// </summary>
-    public TerraformExpression Certificates => this["certificates"];
+    [TerraformPropertyName("certificates")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Certificates => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "certificates");
 
 }

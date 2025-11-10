@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target_grant in .
 /// Nesting mode: set
 /// </summary>
-public class AwsS3BucketLoggingTargetGrantBlock : TerraformBlock
+public class AwsS3BucketLoggingTargetGrantBlock : ITerraformBlock
 {
     /// <summary>
     /// The permission attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
-    public required TerraformProperty<string> Permission
-    {
-        set => SetProperty("permission", value);
-    }
+    [TerraformPropertyName("permission")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Permission { get; set; }
 
 }
 
@@ -23,7 +22,7 @@ public class AwsS3BucketLoggingTargetGrantBlock : TerraformBlock
 /// Block type for target_object_key_format in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketLoggingTargetObjectKeyFormatBlock : TerraformBlock
+public class AwsS3BucketLoggingTargetObjectKeyFormatBlock : ITerraformBlock
 {
 }
 
@@ -35,93 +34,66 @@ public class AwsS3BucketLogging : TerraformResource
 {
     public AwsS3BucketLogging(string name) : base("aws_s3_bucket_logging", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bucket");
-        SetOutput("expected_bucket_owner");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("target_bucket");
-        SetOutput("target_prefix");
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string> ExpectedBucketOwner
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("expected_bucket_owner");
-        set => SetProperty("expected_bucket_owner", value);
-    }
+    [TerraformPropertyName("expected_bucket_owner")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The target_bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetBucket is required")]
-    public required TerraformProperty<string> TargetBucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_bucket");
-        set => SetProperty("target_bucket", value);
-    }
+    [TerraformPropertyName("target_bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetBucket { get; set; }
 
     /// <summary>
     /// The target_prefix attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPrefix is required")]
-    public required TerraformProperty<string> TargetPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_prefix");
-        set => SetProperty("target_prefix", value);
-    }
+    [TerraformPropertyName("target_prefix")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetPrefix { get; set; }
 
     /// <summary>
     /// Block for target_grant.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsS3BucketLoggingTargetGrantBlock>? TargetGrant
-    {
-        set => SetProperty("target_grant", value);
-    }
+    [TerraformPropertyName("target_grant")]
+    public TerraformSet<TerraformBlock<AwsS3BucketLoggingTargetGrantBlock>>? TargetGrant { get; set; } = new();
 
     /// <summary>
     /// Block for target_object_key_format.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetObjectKeyFormat block(s) allowed")]
-    public List<AwsS3BucketLoggingTargetObjectKeyFormatBlock>? TargetObjectKeyFormat
-    {
-        set => SetProperty("target_object_key_format", value);
-    }
+    [TerraformPropertyName("target_object_key_format")]
+    public TerraformList<TerraformBlock<AwsS3BucketLoggingTargetObjectKeyFormatBlock>>? TargetObjectKeyFormat { get; set; } = new();
 
 }

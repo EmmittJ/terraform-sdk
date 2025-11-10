@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filters in .
 /// Nesting mode: list
 /// </summary>
-public class AwsResourceexplorer2ViewFiltersBlock : TerraformBlock
+public class AwsResourceexplorer2ViewFiltersBlock : ITerraformBlock
 {
     /// <summary>
     /// The filter_string attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterString is required")]
-    public required TerraformProperty<string> FilterString
-    {
-        set => SetProperty("filter_string", value);
-    }
+    [TerraformPropertyName("filter_string")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FilterString { get; set; }
 
 }
 
@@ -23,16 +22,15 @@ public class AwsResourceexplorer2ViewFiltersBlock : TerraformBlock
 /// Block type for included_property in .
 /// Nesting mode: list
 /// </summary>
-public class AwsResourceexplorer2ViewIncludedPropertyBlock : TerraformBlock
+public class AwsResourceexplorer2ViewIncludedPropertyBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -43,98 +41,77 @@ public class AwsResourceexplorer2View : TerraformResource
 {
     public AwsResourceexplorer2View(string name) : base("aws_resourceexplorer2_view", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("tags_all");
-        SetOutput("default_view");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("scope");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The default_view attribute.
     /// </summary>
-    public TerraformProperty<bool> DefaultView
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("default_view");
-        set => SetProperty("default_view", value);
-    }
+    [TerraformPropertyName("default_view")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> DefaultView { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "default_view");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string> Scope
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("scope");
-        set => SetProperty("scope", value);
-    }
+    [TerraformPropertyName("scope")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Scope { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "scope");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for filters.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsResourceexplorer2ViewFiltersBlock>? Filters
-    {
-        set => SetProperty("filters", value);
-    }
+    [TerraformPropertyName("filters")]
+    public TerraformList<TerraformBlock<AwsResourceexplorer2ViewFiltersBlock>>? Filters { get; set; } = new();
 
     /// <summary>
     /// Block for included_property.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsResourceexplorer2ViewIncludedPropertyBlock>? IncludedProperty
-    {
-        set => SetProperty("included_property", value);
-    }
+    [TerraformPropertyName("included_property")]
+    public TerraformList<TerraformBlock<AwsResourceexplorer2ViewIncludedPropertyBlock>>? IncludedProperty { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

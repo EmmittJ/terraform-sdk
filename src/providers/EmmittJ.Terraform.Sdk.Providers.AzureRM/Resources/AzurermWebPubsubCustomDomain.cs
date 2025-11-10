@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermWebPubsubCustomDomainTimeoutsBlock : TerraformBlock
+public class AzurermWebPubsubCustomDomainTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,74 +38,52 @@ public class AzurermWebPubsubCustomDomain : TerraformResource
 {
     public AzurermWebPubsubCustomDomain(string name) : base("azurerm_web_pubsub_custom_domain", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("domain_name");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("web_pubsub_custom_certificate_id");
-        SetOutput("web_pubsub_id");
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    public required TerraformProperty<string> DomainName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The web_pubsub_custom_certificate_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubCustomCertificateId is required")]
-    public required TerraformProperty<string> WebPubsubCustomCertificateId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("web_pubsub_custom_certificate_id");
-        set => SetProperty("web_pubsub_custom_certificate_id", value);
-    }
+    [TerraformPropertyName("web_pubsub_custom_certificate_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WebPubsubCustomCertificateId { get; set; }
 
     /// <summary>
     /// The web_pubsub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
-    public required TerraformProperty<string> WebPubsubId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("web_pubsub_id");
-        set => SetProperty("web_pubsub_id", value);
-    }
+    [TerraformPropertyName("web_pubsub_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WebPubsubId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermWebPubsubCustomDomainTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermWebPubsubCustomDomainTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

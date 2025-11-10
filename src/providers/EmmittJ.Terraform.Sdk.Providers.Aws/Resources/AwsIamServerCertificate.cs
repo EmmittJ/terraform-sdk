@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsIamServerCertificateTimeoutsBlock : TerraformBlock
+public class AwsIamServerCertificateTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -25,130 +24,99 @@ public class AwsIamServerCertificate : TerraformResource
 {
     public AwsIamServerCertificate(string name) : base("aws_iam_server_certificate", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("expiration");
-        SetOutput("upload_date");
-        SetOutput("certificate_body");
-        SetOutput("certificate_chain");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("path");
-        SetOutput("private_key");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The certificate_body attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBody is required")]
-    public required TerraformProperty<string> CertificateBody
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate_body");
-        set => SetProperty("certificate_body", value);
-    }
+    [TerraformPropertyName("certificate_body")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CertificateBody { get; set; }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    public TerraformProperty<string> CertificateChain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate_chain");
-        set => SetProperty("certificate_chain", value);
-    }
+    [TerraformPropertyName("certificate_chain")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CertificateChain { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string> Path
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("path");
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
-    public required TerraformProperty<string> PrivateKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("private_key");
-        set => SetProperty("private_key", value);
-    }
+    [TerraformPropertyName("private_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrivateKey { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsIamServerCertificateTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsIamServerCertificateTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
-    public TerraformExpression Expiration => this["expiration"];
+    [TerraformPropertyName("expiration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Expiration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration");
 
     /// <summary>
     /// The upload_date attribute.
     /// </summary>
-    public TerraformExpression UploadDate => this["upload_date"];
+    [TerraformPropertyName("upload_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UploadDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "upload_date");
 
 }

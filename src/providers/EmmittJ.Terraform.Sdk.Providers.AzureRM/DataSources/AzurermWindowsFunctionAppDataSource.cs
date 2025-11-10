@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermWindowsFunctionAppDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermWindowsFunctionAppDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,280 +24,302 @@ public class AzurermWindowsFunctionAppDataSource : TerraformDataSource
 {
     public AzurermWindowsFunctionAppDataSource(string name) : base("azurerm_windows_function_app", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("app_settings");
-        SetOutput("auth_settings");
-        SetOutput("auth_settings_v2");
-        SetOutput("backup");
-        SetOutput("builtin_logging_enabled");
-        SetOutput("client_certificate_enabled");
-        SetOutput("client_certificate_exclusion_paths");
-        SetOutput("client_certificate_mode");
-        SetOutput("connection_string");
-        SetOutput("content_share_force_disabled");
-        SetOutput("custom_domain_verification_id");
-        SetOutput("daily_memory_time_quota");
-        SetOutput("default_hostname");
-        SetOutput("enabled");
-        SetOutput("ftp_publish_basic_authentication_enabled");
-        SetOutput("functions_extension_version");
-        SetOutput("hosting_environment_id");
-        SetOutput("https_only");
-        SetOutput("identity");
-        SetOutput("kind");
-        SetOutput("location");
-        SetOutput("outbound_ip_address_list");
-        SetOutput("outbound_ip_addresses");
-        SetOutput("possible_outbound_ip_address_list");
-        SetOutput("possible_outbound_ip_addresses");
-        SetOutput("public_network_access_enabled");
-        SetOutput("service_plan_id");
-        SetOutput("site_config");
-        SetOutput("site_credential");
-        SetOutput("sticky_settings");
-        SetOutput("storage_account_access_key");
-        SetOutput("storage_account_name");
-        SetOutput("storage_key_vault_secret_id");
-        SetOutput("storage_uses_managed_identity");
-        SetOutput("tags");
-        SetOutput("virtual_network_backup_restore_enabled");
-        SetOutput("virtual_network_subnet_id");
-        SetOutput("webdeploy_publish_basic_authentication_enabled");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermWindowsFunctionAppDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermWindowsFunctionAppDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The app_settings attribute.
     /// </summary>
-    public TerraformExpression AppSettings => this["app_settings"];
+    [TerraformPropertyName("app_settings")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> AppSettings => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "app_settings");
 
     /// <summary>
     /// The auth_settings attribute.
     /// </summary>
-    public TerraformExpression AuthSettings => this["auth_settings"];
+    [TerraformPropertyName("auth_settings")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AuthSettings => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "auth_settings");
 
     /// <summary>
     /// The auth_settings_v2 attribute.
     /// </summary>
-    public TerraformExpression AuthSettingsV2 => this["auth_settings_v2"];
+    [TerraformPropertyName("auth_settings_v2")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AuthSettingsV2 => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "auth_settings_v2");
 
     /// <summary>
     /// The backup attribute.
     /// </summary>
-    public TerraformExpression Backup => this["backup"];
+    [TerraformPropertyName("backup")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Backup => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "backup");
 
     /// <summary>
     /// The builtin_logging_enabled attribute.
     /// </summary>
-    public TerraformExpression BuiltinLoggingEnabled => this["builtin_logging_enabled"];
+    [TerraformPropertyName("builtin_logging_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> BuiltinLoggingEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "builtin_logging_enabled");
 
     /// <summary>
     /// The client_certificate_enabled attribute.
     /// </summary>
-    public TerraformExpression ClientCertificateEnabled => this["client_certificate_enabled"];
+    [TerraformPropertyName("client_certificate_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ClientCertificateEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "client_certificate_enabled");
 
     /// <summary>
     /// Paths to exclude when using client certificates, separated by ;
     /// </summary>
-    public TerraformExpression ClientCertificateExclusionPaths => this["client_certificate_exclusion_paths"];
+    [TerraformPropertyName("client_certificate_exclusion_paths")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClientCertificateExclusionPaths => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "client_certificate_exclusion_paths");
 
     /// <summary>
     /// The client_certificate_mode attribute.
     /// </summary>
-    public TerraformExpression ClientCertificateMode => this["client_certificate_mode"];
+    [TerraformPropertyName("client_certificate_mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClientCertificateMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "client_certificate_mode");
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformExpression ConnectionString => this["connection_string"];
+    [TerraformPropertyName("connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> ConnectionString => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "connection_string");
 
     /// <summary>
     /// The content_share_force_disabled attribute.
     /// </summary>
-    public TerraformExpression ContentShareForceDisabled => this["content_share_force_disabled"];
+    [TerraformPropertyName("content_share_force_disabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ContentShareForceDisabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "content_share_force_disabled");
 
     /// <summary>
     /// The custom_domain_verification_id attribute.
     /// </summary>
-    public TerraformExpression CustomDomainVerificationId => this["custom_domain_verification_id"];
+    [TerraformPropertyName("custom_domain_verification_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CustomDomainVerificationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "custom_domain_verification_id");
 
     /// <summary>
     /// The daily_memory_time_quota attribute.
     /// </summary>
-    public TerraformExpression DailyMemoryTimeQuota => this["daily_memory_time_quota"];
+    [TerraformPropertyName("daily_memory_time_quota")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DailyMemoryTimeQuota => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "daily_memory_time_quota");
 
     /// <summary>
     /// The default_hostname attribute.
     /// </summary>
-    public TerraformExpression DefaultHostname => this["default_hostname"];
+    [TerraformPropertyName("default_hostname")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultHostname => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_hostname");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformExpression Enabled => this["enabled"];
+    [TerraformPropertyName("enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Enabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enabled");
 
     /// <summary>
     /// The ftp_publish_basic_authentication_enabled attribute.
     /// </summary>
-    public TerraformExpression FtpPublishBasicAuthenticationEnabled => this["ftp_publish_basic_authentication_enabled"];
+    [TerraformPropertyName("ftp_publish_basic_authentication_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> FtpPublishBasicAuthenticationEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "ftp_publish_basic_authentication_enabled");
 
     /// <summary>
     /// The functions_extension_version attribute.
     /// </summary>
-    public TerraformExpression FunctionsExtensionVersion => this["functions_extension_version"];
+    [TerraformPropertyName("functions_extension_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FunctionsExtensionVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "functions_extension_version");
 
     /// <summary>
     /// The hosting_environment_id attribute.
     /// </summary>
-    public TerraformExpression HostingEnvironmentId => this["hosting_environment_id"];
+    [TerraformPropertyName("hosting_environment_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostingEnvironmentId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hosting_environment_id");
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    public TerraformExpression HttpsOnly => this["https_only"];
+    [TerraformPropertyName("https_only")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> HttpsOnly => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "https_only");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformExpression Identity => this["identity"];
+    [TerraformPropertyName("identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformExpression Kind => this["kind"];
+    [TerraformPropertyName("kind")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Kind => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The outbound_ip_address_list attribute.
     /// </summary>
-    public TerraformExpression OutboundIpAddressList => this["outbound_ip_address_list"];
+    [TerraformPropertyName("outbound_ip_address_list")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> OutboundIpAddressList => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "outbound_ip_address_list");
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression OutboundIpAddresses => this["outbound_ip_addresses"];
+    [TerraformPropertyName("outbound_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OutboundIpAddresses => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "outbound_ip_addresses");
 
     /// <summary>
     /// The possible_outbound_ip_address_list attribute.
     /// </summary>
-    public TerraformExpression PossibleOutboundIpAddressList => this["possible_outbound_ip_address_list"];
+    [TerraformPropertyName("possible_outbound_ip_address_list")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> PossibleOutboundIpAddressList => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "possible_outbound_ip_address_list");
 
     /// <summary>
     /// The possible_outbound_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression PossibleOutboundIpAddresses => this["possible_outbound_ip_addresses"];
+    [TerraformPropertyName("possible_outbound_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PossibleOutboundIpAddresses => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "possible_outbound_ip_addresses");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformExpression PublicNetworkAccessEnabled => this["public_network_access_enabled"];
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PublicNetworkAccessEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "public_network_access_enabled");
 
     /// <summary>
     /// The service_plan_id attribute.
     /// </summary>
-    public TerraformExpression ServicePlanId => this["service_plan_id"];
+    [TerraformPropertyName("service_plan_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServicePlanId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_plan_id");
 
     /// <summary>
     /// The site_config attribute.
     /// </summary>
-    public TerraformExpression SiteConfig => this["site_config"];
+    [TerraformPropertyName("site_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SiteConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "site_config");
 
     /// <summary>
     /// The site_credential attribute.
     /// </summary>
-    public TerraformExpression SiteCredential => this["site_credential"];
+    [TerraformPropertyName("site_credential")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SiteCredential => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "site_credential");
 
     /// <summary>
     /// The sticky_settings attribute.
     /// </summary>
-    public TerraformExpression StickySettings => this["sticky_settings"];
+    [TerraformPropertyName("sticky_settings")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> StickySettings => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "sticky_settings");
 
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
-    public TerraformExpression StorageAccountAccessKey => this["storage_account_access_key"];
+    [TerraformPropertyName("storage_account_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StorageAccountAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_account_access_key");
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
-    public TerraformExpression StorageAccountName => this["storage_account_name"];
+    [TerraformPropertyName("storage_account_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StorageAccountName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_account_name");
 
     /// <summary>
     /// The Key Vault Secret ID, including version, that contains the Connection String used to connect to the storage account for this Function App.
     /// </summary>
-    public TerraformExpression StorageKeyVaultSecretId => this["storage_key_vault_secret_id"];
+    [TerraformPropertyName("storage_key_vault_secret_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StorageKeyVaultSecretId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_key_vault_secret_id");
 
     /// <summary>
     /// The storage_uses_managed_identity attribute.
     /// </summary>
-    public TerraformExpression StorageUsesManagedIdentity => this["storage_uses_managed_identity"];
+    [TerraformPropertyName("storage_uses_managed_identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> StorageUsesManagedIdentity => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "storage_uses_managed_identity");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The virtual_network_backup_restore_enabled attribute.
     /// </summary>
-    public TerraformExpression VirtualNetworkBackupRestoreEnabled => this["virtual_network_backup_restore_enabled"];
+    [TerraformPropertyName("virtual_network_backup_restore_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> VirtualNetworkBackupRestoreEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "virtual_network_backup_restore_enabled");
 
     /// <summary>
     /// The virtual_network_subnet_id attribute.
     /// </summary>
-    public TerraformExpression VirtualNetworkSubnetId => this["virtual_network_subnet_id"];
+    [TerraformPropertyName("virtual_network_subnet_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VirtualNetworkSubnetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "virtual_network_subnet_id");
 
     /// <summary>
     /// The webdeploy_publish_basic_authentication_enabled attribute.
     /// </summary>
-    public TerraformExpression WebdeployPublishBasicAuthenticationEnabled => this["webdeploy_publish_basic_authentication_enabled"];
+    [TerraformPropertyName("webdeploy_publish_basic_authentication_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> WebdeployPublishBasicAuthenticationEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "webdeploy_publish_basic_authentication_enabled");
 
 }

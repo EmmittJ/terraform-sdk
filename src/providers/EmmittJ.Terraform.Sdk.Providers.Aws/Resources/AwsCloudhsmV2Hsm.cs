@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsCloudhsmV2HsmTimeoutsBlock : TerraformBlock
+public class AwsCloudhsmV2HsmTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,99 +31,77 @@ public class AwsCloudhsmV2Hsm : TerraformResource
 {
     public AwsCloudhsmV2Hsm(string name) : base("aws_cloudhsm_v2_hsm", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("hsm_eni_id");
-        SetOutput("hsm_id");
-        SetOutput("hsm_state");
-        SetOutput("availability_zone");
-        SetOutput("cluster_id");
-        SetOutput("id");
-        SetOutput("ip_address");
-        SetOutput("region");
-        SetOutput("subnet_id");
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformProperty<string> AvailabilityZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone");
-        set => SetProperty("availability_zone", value);
-    }
+    [TerraformPropertyName("availability_zone")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone");
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    public required TerraformProperty<string> ClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
-        set => SetProperty("cluster_id", value);
-    }
+    [TerraformPropertyName("cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformProperty<string> IpAddress
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ip_address");
-        set => SetProperty("ip_address", value);
-    }
+    [TerraformPropertyName("ip_address")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IpAddress { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string> SubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SubnetId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subnet_id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsCloudhsmV2HsmTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsCloudhsmV2HsmTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The hsm_eni_id attribute.
     /// </summary>
-    public TerraformExpression HsmEniId => this["hsm_eni_id"];
+    [TerraformPropertyName("hsm_eni_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HsmEniId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hsm_eni_id");
 
     /// <summary>
     /// The hsm_id attribute.
     /// </summary>
-    public TerraformExpression HsmId => this["hsm_id"];
+    [TerraformPropertyName("hsm_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HsmId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hsm_id");
 
     /// <summary>
     /// The hsm_state attribute.
     /// </summary>
-    public TerraformExpression HsmState => this["hsm_state"];
+    [TerraformPropertyName("hsm_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HsmState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hsm_state");
 
 }

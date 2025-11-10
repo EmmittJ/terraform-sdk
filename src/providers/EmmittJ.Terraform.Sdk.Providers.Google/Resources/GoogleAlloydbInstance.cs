@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for client_connection_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAlloydbInstanceClientConnectionConfigBlock : TerraformBlock
+public class GoogleAlloydbInstanceClientConnectionConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Configuration to enforce connectors only (ex: AuthProxy) connections to the database.
     /// </summary>
-    public TerraformProperty<bool>? RequireConnectors
-    {
-        set => SetProperty("require_connectors", value);
-    }
+    [TerraformPropertyName("require_connectors")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequireConnectors { get; set; }
 
 }
 
@@ -22,25 +21,23 @@ public class GoogleAlloydbInstanceClientConnectionConfigBlock : TerraformBlock
 /// Block type for machine_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlock
+public class GoogleAlloydbInstanceMachineConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The number of CPU&#39;s in the VM instance.
     /// </summary>
-    public TerraformProperty<double>? CpuCount
-    {
-        set => SetProperty("cpu_count", value);
-    }
+    [TerraformPropertyName("cpu_count")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> CpuCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "cpu_count");
 
     /// <summary>
     /// Machine type of the VM instance.
     /// E.g. &amp;quot;n2-highmem-4&amp;quot;, &amp;quot;n2-highmem-8&amp;quot;, &amp;quot;c4a-highmem-4-lssd&amp;quot;.
     /// &#39;cpu_count&#39; must match the number of vCPUs in the machine type.
     /// </summary>
-    public TerraformProperty<string>? MachineType
-    {
-        set => SetProperty("machine_type", value);
-    }
+    [TerraformPropertyName("machine_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MachineType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "machine_type");
 
 }
 
@@ -48,35 +45,32 @@ public class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlock
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAlloydbInstanceNetworkConfigBlock : TerraformBlock
+public class GoogleAlloydbInstanceNetworkConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Name of the allocated IP range for the private IP AlloyDB instance, for example: &amp;quot;google-managed-services-default&amp;quot;.
     /// If set, the instance IPs will be created from this allocated range and will override the IP range used by the parent cluster.
     /// The range name must comply with RFC 1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?.
     /// </summary>
-    public TerraformProperty<string>? AllocatedIpRangeOverride
-    {
-        set => SetProperty("allocated_ip_range_override", value);
-    }
+    [TerraformPropertyName("allocated_ip_range_override")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AllocatedIpRangeOverride { get; set; }
 
     /// <summary>
     /// Enabling outbound public ip for the instance.
     /// </summary>
-    public TerraformProperty<bool>? EnableOutboundPublicIp
-    {
-        set => SetProperty("enable_outbound_public_ip", value);
-    }
+    [TerraformPropertyName("enable_outbound_public_ip")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableOutboundPublicIp { get; set; }
 
     /// <summary>
     /// Enabling public ip for the instance. If a user wishes to disable this,
     /// please also clear the list of the authorized external networks set on
     /// the same instance.
     /// </summary>
-    public TerraformProperty<bool>? EnablePublicIp
-    {
-        set => SetProperty("enable_public_ip", value);
-    }
+    [TerraformPropertyName("enable_public_ip")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnablePublicIp { get; set; }
 
 }
 
@@ -84,35 +78,32 @@ public class GoogleAlloydbInstanceNetworkConfigBlock : TerraformBlock
 /// Block type for psc_instance_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBlock
+public class GoogleAlloydbInstancePscInstanceConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// List of consumer projects that are allowed to create PSC endpoints to service-attachments to this instance.
     /// These should be specified as project numbers only.
     /// </summary>
-    public List<TerraformProperty<string>>? AllowedConsumerProjects
-    {
-        set => SetProperty("allowed_consumer_projects", value);
-    }
+    [TerraformPropertyName("allowed_consumer_projects")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AllowedConsumerProjects { get; set; }
 
     /// <summary>
     /// The DNS name of the instance for PSC connectivity.
     /// Name convention: &amp;lt;uid&amp;gt;.&amp;lt;uid&amp;gt;.&amp;lt;region&amp;gt;.alloydb-psc.goog
     /// </summary>
-    public TerraformProperty<string>? PscDnsName
-    {
-        set => SetProperty("psc_dns_name", value);
-    }
+    [TerraformPropertyName("psc_dns_name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PscDnsName => new TerraformReferenceProperty<TerraformProperty<string>>("", "psc_dns_name");
 
     /// <summary>
     /// The service attachment created when Private Service Connect (PSC) is enabled for the instance.
     /// The name of the resource will be in the format of
     /// &#39;projects/&amp;lt;alloydb-tenant-project-number&amp;gt;/regions/&amp;lt;region-name&amp;gt;/serviceAttachments/&amp;lt;service-attachment-name&amp;gt;&#39;
     /// </summary>
-    public TerraformProperty<string>? ServiceAttachmentLink
-    {
-        set => SetProperty("service_attachment_link", value);
-    }
+    [TerraformPropertyName("service_attachment_link")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceAttachmentLink => new TerraformReferenceProperty<TerraformProperty<string>>("", "service_attachment_link");
 
 }
 
@@ -120,39 +111,35 @@ public class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBlock
 /// Block type for query_insights_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBlock
+public class GoogleAlloydbInstanceQueryInsightsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Number of query execution plans captured by Insights per minute for all queries combined. The default value is 5. Any integer between 0 and 20 is considered valid.
     /// </summary>
-    public TerraformProperty<double>? QueryPlansPerMinute
-    {
-        set => SetProperty("query_plans_per_minute", value);
-    }
+    [TerraformPropertyName("query_plans_per_minute")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? QueryPlansPerMinute { get; set; }
 
     /// <summary>
     /// Query string length. The default value is 1024. Any integer between 256 and 4500 is considered valid.
     /// </summary>
-    public TerraformProperty<double>? QueryStringLength
-    {
-        set => SetProperty("query_string_length", value);
-    }
+    [TerraformPropertyName("query_string_length")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? QueryStringLength { get; set; }
 
     /// <summary>
     /// Record application tags for an instance. This flag is turned &amp;quot;on&amp;quot; by default.
     /// </summary>
-    public TerraformProperty<bool>? RecordApplicationTags
-    {
-        set => SetProperty("record_application_tags", value);
-    }
+    [TerraformPropertyName("record_application_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RecordApplicationTags { get; set; }
 
     /// <summary>
     /// Record client address for an instance. Client address is PII information. This flag is turned &amp;quot;on&amp;quot; by default.
     /// </summary>
-    public TerraformProperty<bool>? RecordClientAddress
-    {
-        set => SetProperty("record_client_address", value);
-    }
+    [TerraformPropertyName("record_client_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RecordClientAddress { get; set; }
 
 }
 
@@ -160,15 +147,14 @@ public class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBlock
 /// Block type for read_pool_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAlloydbInstanceReadPoolConfigBlock : TerraformBlock
+public class GoogleAlloydbInstanceReadPoolConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Read capacity, i.e. number of nodes in a read pool instance.
     /// </summary>
-    public TerraformProperty<double>? NodeCount
-    {
-        set => SetProperty("node_count", value);
-    }
+    [TerraformPropertyName("node_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? NodeCount { get; set; }
 
 }
 
@@ -176,31 +162,28 @@ public class GoogleAlloydbInstanceReadPoolConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAlloydbInstanceTimeoutsBlock : TerraformBlock
+public class GoogleAlloydbInstanceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -212,34 +195,6 @@ public class GoogleAlloydbInstance : TerraformResource
 {
     public GoogleAlloydbInstance(string name) : base("google_alloydb_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_annotations");
-        SetOutput("effective_labels");
-        SetOutput("ip_address");
-        SetOutput("name");
-        SetOutput("outbound_public_ip_addresses");
-        SetOutput("public_ip_address");
-        SetOutput("reconciling");
-        SetOutput("state");
-        SetOutput("terraform_labels");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("activation_policy");
-        SetOutput("annotations");
-        SetOutput("availability_type");
-        SetOutput("cluster");
-        SetOutput("database_flags");
-        SetOutput("display_name");
-        SetOutput("gce_zone");
-        SetOutput("id");
-        SetOutput("instance_id");
-        SetOutput("instance_type");
-        SetOutput("labels");
     }
 
     /// <summary>
@@ -252,11 +207,9 @@ public class GoogleAlloydbInstance : TerraformResource
     /// etc.). Please refer to the API documentation for more details.
     /// Possible values are: &#39;ACTIVATION_POLICY_UNSPECIFIED&#39;, &#39;ALWAYS&#39;, &#39;NEVER&#39;.&#39; Possible values: [&amp;quot;ACTIVATION_POLICY_UNSPECIFIED&amp;quot;, &amp;quot;ALWAYS&amp;quot;, &amp;quot;NEVER&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> ActivationPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("activation_policy");
-        set => SetProperty("activation_policy", value);
-    }
+    [TerraformPropertyName("activation_policy")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ActivationPolicy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "activation_policy");
 
     /// <summary>
     /// Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels.
@@ -264,11 +217,9 @@ public class GoogleAlloydbInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// &#39;Availability type of an Instance. Defaults to REGIONAL for both primary and read instances.
@@ -278,68 +229,54 @@ public class GoogleAlloydbInstance : TerraformResource
     /// can have regional availability (nodes are present in 2 or more zones in a region).
     /// Possible values are: &#39;AVAILABILITY_TYPE_UNSPECIFIED&#39;, &#39;ZONAL&#39;, &#39;REGIONAL&#39;.&#39; Possible values: [&amp;quot;AVAILABILITY_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;ZONAL&amp;quot;, &amp;quot;REGIONAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> AvailabilityType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("availability_type");
-        set => SetProperty("availability_type", value);
-    }
+    [TerraformPropertyName("availability_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AvailabilityType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_type");
 
     /// <summary>
     /// Identifies the alloydb cluster. Must be in the format
     /// &#39;projects/{project}/locations/{location}/clusters/{cluster_id}&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
-    public required TerraformProperty<string> Cluster
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
-        set => SetProperty("cluster", value);
-    }
+    [TerraformPropertyName("cluster")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Cluster { get; set; }
 
     /// <summary>
     /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> DatabaseFlags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("database_flags");
-        set => SetProperty("database_flags", value);
-    }
+    [TerraformPropertyName("database_flags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> DatabaseFlags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "database_flags");
 
     /// <summary>
     /// User-settable and human-readable display name for the Instance.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The Compute Engine zone that the instance should serve from, per https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a ZONAL instance, instance is created in a random zone with available capacity.
     /// </summary>
-    public TerraformProperty<string> GceZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gce_zone");
-        set => SetProperty("gce_zone", value);
-    }
+    [TerraformPropertyName("gce_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GceZone { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID of the alloydb instance.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
-    public required TerraformProperty<string> InstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
-        set => SetProperty("instance_id", value);
-    }
+    [TerraformPropertyName("instance_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
 
     /// <summary>
     /// The type of the instance.
@@ -351,11 +288,9 @@ public class GoogleAlloydbInstance : TerraformResource
     /// Users can undo the delete secondary instance action by importing the deleted secondary instance by calling terraform import. Possible values: [&amp;quot;PRIMARY&amp;quot;, &amp;quot;READ_POOL&amp;quot;, &amp;quot;SECONDARY&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    public required TerraformProperty<string> InstanceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceType { get; set; }
 
     /// <summary>
     /// User-defined labels for the alloydb instance.
@@ -363,144 +298,152 @@ public class GoogleAlloydbInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Block for client_connection_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientConnectionConfig block(s) allowed")]
-    public List<GoogleAlloydbInstanceClientConnectionConfigBlock>? ClientConnectionConfig
-    {
-        set => SetProperty("client_connection_config", value);
-    }
+    [TerraformPropertyName("client_connection_config")]
+    public TerraformList<TerraformBlock<GoogleAlloydbInstanceClientConnectionConfigBlock>>? ClientConnectionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for machine_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MachineConfig block(s) allowed")]
-    public List<GoogleAlloydbInstanceMachineConfigBlock>? MachineConfig
-    {
-        set => SetProperty("machine_config", value);
-    }
+    [TerraformPropertyName("machine_config")]
+    public TerraformList<TerraformBlock<GoogleAlloydbInstanceMachineConfigBlock>>? MachineConfig { get; set; } = new();
 
     /// <summary>
     /// Block for network_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
-    public List<GoogleAlloydbInstanceNetworkConfigBlock>? NetworkConfig
-    {
-        set => SetProperty("network_config", value);
-    }
+    [TerraformPropertyName("network_config")]
+    public TerraformList<TerraformBlock<GoogleAlloydbInstanceNetworkConfigBlock>>? NetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for psc_instance_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscInstanceConfig block(s) allowed")]
-    public List<GoogleAlloydbInstancePscInstanceConfigBlock>? PscInstanceConfig
-    {
-        set => SetProperty("psc_instance_config", value);
-    }
+    [TerraformPropertyName("psc_instance_config")]
+    public TerraformList<TerraformBlock<GoogleAlloydbInstancePscInstanceConfigBlock>>? PscInstanceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for query_insights_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueryInsightsConfig block(s) allowed")]
-    public List<GoogleAlloydbInstanceQueryInsightsConfigBlock>? QueryInsightsConfig
-    {
-        set => SetProperty("query_insights_config", value);
-    }
+    [TerraformPropertyName("query_insights_config")]
+    public TerraformList<TerraformBlock<GoogleAlloydbInstanceQueryInsightsConfigBlock>>? QueryInsightsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for read_pool_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadPoolConfig block(s) allowed")]
-    public List<GoogleAlloydbInstanceReadPoolConfigBlock>? ReadPoolConfig
-    {
-        set => SetProperty("read_pool_config", value);
-    }
+    [TerraformPropertyName("read_pool_config")]
+    public TerraformList<TerraformBlock<GoogleAlloydbInstanceReadPoolConfigBlock>>? ReadPoolConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleAlloydbInstanceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleAlloydbInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the Instance was created in UTC.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+    [TerraformPropertyName("effective_annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The IP address for the Instance. This is the connection endpoint for an end-user application.
     /// </summary>
-    public TerraformExpression IpAddress => this["ip_address"];
+    [TerraformPropertyName("ip_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address");
 
     /// <summary>
     /// The name of the instance resource.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The outbound public IP addresses for the instance. This is available ONLY when
     /// networkConfig.enableOutboundPublicIp is set to true. These IP addresses are used
     /// for outbound connections.
     /// </summary>
-    public TerraformExpression OutboundPublicIpAddresses => this["outbound_public_ip_addresses"];
+    [TerraformPropertyName("outbound_public_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> OutboundPublicIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "outbound_public_ip_addresses");
 
     /// <summary>
     /// The public IP addresses for the Instance. This is available ONLY when
     /// networkConfig.enablePublicIp is set to true. This is the connection
     /// endpoint for an end-user application.
     /// </summary>
-    public TerraformExpression PublicIpAddress => this["public_ip_address"];
+    [TerraformPropertyName("public_ip_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublicIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_ip_address");
 
     /// <summary>
     /// Set to true if the current state of Instance does not match the user&#39;s intended state, and the service is actively updating the resource to reconcile them. This can happen due to user-triggered updates or system actions like failover or maintenance.
     /// </summary>
-    public TerraformExpression Reconciling => this["reconciling"];
+    [TerraformPropertyName("reconciling")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
 
     /// <summary>
     /// The current state of the alloydb instance.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// The system-generated UID of the resource.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// Time the Instance was updated in UTC.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

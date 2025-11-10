@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for schema_column in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryDatasetHttpSchemaColumnBlock : TerraformBlock
+public class AzurermDataFactoryDatasetHttpSchemaColumnBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -39,39 +36,35 @@ public class AzurermDataFactoryDatasetHttpSchemaColumnBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryDatasetHttpTimeoutsBlock : TerraformBlock
+public class AzurermDataFactoryDatasetHttpTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -82,152 +75,107 @@ public class AzurermDataFactoryDatasetHttp : TerraformResource
 {
     public AzurermDataFactoryDatasetHttp(string name) : base("azurerm_data_factory_dataset_http", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("additional_properties");
-        SetOutput("annotations");
-        SetOutput("data_factory_id");
-        SetOutput("description");
-        SetOutput("folder");
-        SetOutput("id");
-        SetOutput("linked_service_name");
-        SetOutput("name");
-        SetOutput("parameters");
-        SetOutput("relative_url");
-        SetOutput("request_body");
-        SetOutput("request_method");
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> AdditionalProperties
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_properties");
-        set => SetProperty("additional_properties", value);
-    }
+    [TerraformPropertyName("additional_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    public required TerraformProperty<string> DataFactoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
-        set => SetProperty("data_factory_id", value);
-    }
+    [TerraformPropertyName("data_factory_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public TerraformProperty<string> Folder
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("folder");
-        set => SetProperty("folder", value);
-    }
+    [TerraformPropertyName("folder")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The linked_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
-    public required TerraformProperty<string> LinkedServiceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("linked_service_name");
-        set => SetProperty("linked_service_name", value);
-    }
+    [TerraformPropertyName("linked_service_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Parameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// The relative_url attribute.
     /// </summary>
-    public TerraformProperty<string> RelativeUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("relative_url");
-        set => SetProperty("relative_url", value);
-    }
+    [TerraformPropertyName("relative_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RelativeUrl { get; set; }
 
     /// <summary>
     /// The request_body attribute.
     /// </summary>
-    public TerraformProperty<string> RequestBody
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("request_body");
-        set => SetProperty("request_body", value);
-    }
+    [TerraformPropertyName("request_body")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RequestBody { get; set; }
 
     /// <summary>
     /// The request_method attribute.
     /// </summary>
-    public TerraformProperty<string> RequestMethod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("request_method");
-        set => SetProperty("request_method", value);
-    }
+    [TerraformPropertyName("request_method")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RequestMethod { get; set; }
 
     /// <summary>
     /// Block for schema_column.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermDataFactoryDatasetHttpSchemaColumnBlock>? SchemaColumn
-    {
-        set => SetProperty("schema_column", value);
-    }
+    [TerraformPropertyName("schema_column")]
+    public TerraformList<TerraformBlock<AzurermDataFactoryDatasetHttpSchemaColumnBlock>>? SchemaColumn { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDataFactoryDatasetHttpTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDataFactoryDatasetHttpTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

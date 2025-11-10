@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for basic_sli in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMonitoringSloBasicSliBlock : TerraformBlock
+public class GoogleMonitoringSloBasicSliBlock : ITerraformBlock
 {
     /// <summary>
     /// An optional set of locations to which this SLI is relevant.
@@ -16,10 +16,9 @@ public class GoogleMonitoringSloBasicSliBlock : TerraformBlock
     /// that don&#39;t support breaking down by location, setting this
     /// field will result in an error.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Location
-    {
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Location { get; set; }
 
     /// <summary>
     /// An optional set of RPCs to which this SLI is relevant.
@@ -29,10 +28,9 @@ public class GoogleMonitoringSloBasicSliBlock : TerraformBlock
     /// breaking down by method, setting this field will result in an
     /// error.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Method
-    {
-        set => SetProperty("method", value);
-    }
+    [TerraformPropertyName("method")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Method { get; set; }
 
     /// <summary>
     /// The set of API versions to which this SLI is relevant.
@@ -42,10 +40,9 @@ public class GoogleMonitoringSloBasicSliBlock : TerraformBlock
     /// that don&#39;t support breaking down by version, setting this
     /// field will result in an error.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Version { get; set; }
 
 }
 
@@ -53,7 +50,7 @@ public class GoogleMonitoringSloBasicSliBlock : TerraformBlock
 /// Block type for request_based_sli in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMonitoringSloRequestBasedSliBlock : TerraformBlock
+public class GoogleMonitoringSloRequestBasedSliBlock : ITerraformBlock
 {
 }
 
@@ -61,31 +58,28 @@ public class GoogleMonitoringSloRequestBasedSliBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleMonitoringSloTimeoutsBlock : TerraformBlock
+public class GoogleMonitoringSloTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -93,7 +87,7 @@ public class GoogleMonitoringSloTimeoutsBlock : TerraformBlock
 /// Block type for windows_based_sli in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMonitoringSloWindowsBasedSliBlock : TerraformBlock
+public class GoogleMonitoringSloWindowsBasedSliBlock : ITerraformBlock
 {
     /// <summary>
     /// A TimeSeries [monitoring filter](https://cloud.google.com/monitoring/api/v3/filters)
@@ -102,20 +96,18 @@ public class GoogleMonitoringSloWindowsBasedSliBlock : TerraformBlock
     /// &#39;good_total_ratio_threshold&#39;, &#39;metric_mean_in_range&#39;,
     /// &#39;metric_sum_in_range&#39; must be set for &#39;windows_based_sli&#39;.
     /// </summary>
-    public TerraformProperty<string>? GoodBadMetricFilter
-    {
-        set => SetProperty("good_bad_metric_filter", value);
-    }
+    [TerraformPropertyName("good_bad_metric_filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GoodBadMetricFilter { get; set; }
 
     /// <summary>
     /// Duration over which window quality is evaluated, given as a
     /// duration string &amp;quot;{X}s&amp;quot; representing X seconds. Must be an
     /// integer fraction of a day and at least 60s.
     /// </summary>
-    public TerraformProperty<string>? WindowPeriod
-    {
-        set => SetProperty("window_period", value);
-    }
+    [TerraformPropertyName("window_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WindowPeriod { get; set; }
 
 }
 
@@ -127,99 +119,68 @@ public class GoogleMonitoringSlo : TerraformResource
 {
     public GoogleMonitoringSlo(string name) : base("google_monitoring_slo", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("calendar_period");
-        SetOutput("display_name");
-        SetOutput("goal");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("rolling_period_days");
-        SetOutput("service");
-        SetOutput("slo_id");
-        SetOutput("user_labels");
     }
 
     /// <summary>
     /// A calendar period, semantically &amp;quot;since the start of the current
     /// &amp;lt;calendarPeriod&amp;gt;&amp;quot;. Possible values: [&amp;quot;DAY&amp;quot;, &amp;quot;WEEK&amp;quot;, &amp;quot;FORTNIGHT&amp;quot;, &amp;quot;MONTH&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> CalendarPeriod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("calendar_period");
-        set => SetProperty("calendar_period", value);
-    }
+    [TerraformPropertyName("calendar_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CalendarPeriod { get; set; }
 
     /// <summary>
     /// Name used for UI elements listing this SLO.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The fraction of service that must be good in order for this objective
     /// to be met. 0 &amp;lt; goal &amp;lt;= 0.999
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Goal is required")]
-    public required TerraformProperty<double> Goal
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("goal");
-        set => SetProperty("goal", value);
-    }
+    [TerraformPropertyName("goal")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Goal { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// A rolling time period, semantically &amp;quot;in the past X days&amp;quot;.
     /// Must be between 1 to 30 days, inclusive.
     /// </summary>
-    public TerraformProperty<double> RollingPeriodDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("rolling_period_days");
-        set => SetProperty("rolling_period_days", value);
-    }
+    [TerraformPropertyName("rolling_period_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RollingPeriodDays { get; set; }
 
     /// <summary>
     /// ID of the service to which this SLO belongs.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
-    public required TerraformProperty<string> Service
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service");
-        set => SetProperty("service", value);
-    }
+    [TerraformPropertyName("service")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Service { get; set; }
 
     /// <summary>
     /// The id to use for this ServiceLevelObjective. If omitted, an id will be generated instead.
     /// </summary>
-    public TerraformProperty<string> SloId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("slo_id");
-        set => SetProperty("slo_id", value);
-    }
+    [TerraformPropertyName("slo_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SloId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "slo_id");
 
     /// <summary>
     /// This field is intended to be used for organizing and identifying the AlertPolicy
@@ -228,55 +189,47 @@ public class GoogleMonitoringSlo : TerraformResource
     /// can contain only lowercase letters, numerals, underscores, and dashes. Keys
     /// must begin with a letter.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> UserLabels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("user_labels");
-        set => SetProperty("user_labels", value);
-    }
+    [TerraformPropertyName("user_labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? UserLabels { get; set; }
 
     /// <summary>
     /// Block for basic_sli.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicSli block(s) allowed")]
-    public List<GoogleMonitoringSloBasicSliBlock>? BasicSli
-    {
-        set => SetProperty("basic_sli", value);
-    }
+    [TerraformPropertyName("basic_sli")]
+    public TerraformList<TerraformBlock<GoogleMonitoringSloBasicSliBlock>>? BasicSli { get; set; } = new();
 
     /// <summary>
     /// Block for request_based_sli.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequestBasedSli block(s) allowed")]
-    public List<GoogleMonitoringSloRequestBasedSliBlock>? RequestBasedSli
-    {
-        set => SetProperty("request_based_sli", value);
-    }
+    [TerraformPropertyName("request_based_sli")]
+    public TerraformList<TerraformBlock<GoogleMonitoringSloRequestBasedSliBlock>>? RequestBasedSli { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleMonitoringSloTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleMonitoringSloTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for windows_based_sli.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WindowsBasedSli block(s) allowed")]
-    public List<GoogleMonitoringSloWindowsBasedSliBlock>? WindowsBasedSli
-    {
-        set => SetProperty("windows_based_sli", value);
-    }
+    [TerraformPropertyName("windows_based_sli")]
+    public TerraformList<TerraformBlock<GoogleMonitoringSloWindowsBasedSliBlock>>? WindowsBasedSli { get; set; } = new();
 
     /// <summary>
     /// The full resource name for this service. The syntax is:
     /// projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

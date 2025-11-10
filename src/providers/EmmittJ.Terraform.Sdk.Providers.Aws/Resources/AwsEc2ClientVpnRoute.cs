@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2ClientVpnRouteTimeoutsBlock : TerraformBlock
+public class AwsEc2ClientVpnRouteTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,95 +31,72 @@ public class AwsEc2ClientVpnRoute : TerraformResource
 {
     public AwsEc2ClientVpnRoute(string name) : base("aws_ec2_client_vpn_route", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("origin");
-        SetOutput("type");
-        SetOutput("client_vpn_endpoint_id");
-        SetOutput("description");
-        SetOutput("destination_cidr_block");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("target_vpc_subnet_id");
     }
 
     /// <summary>
     /// The client_vpn_endpoint_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientVpnEndpointId is required")]
-    public required TerraformProperty<string> ClientVpnEndpointId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_vpn_endpoint_id");
-        set => SetProperty("client_vpn_endpoint_id", value);
-    }
+    [TerraformPropertyName("client_vpn_endpoint_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientVpnEndpointId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
-    public required TerraformProperty<string> DestinationCidrBlock
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_cidr_block");
-        set => SetProperty("destination_cidr_block", value);
-    }
+    [TerraformPropertyName("destination_cidr_block")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DestinationCidrBlock { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The target_vpc_subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVpcSubnetId is required")]
-    public required TerraformProperty<string> TargetVpcSubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_vpc_subnet_id");
-        set => SetProperty("target_vpc_subnet_id", value);
-    }
+    [TerraformPropertyName("target_vpc_subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetVpcSubnetId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEc2ClientVpnRouteTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEc2ClientVpnRouteTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The origin attribute.
     /// </summary>
-    public TerraformExpression Origin => this["origin"];
+    [TerraformPropertyName("origin")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Origin => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "origin");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
 }

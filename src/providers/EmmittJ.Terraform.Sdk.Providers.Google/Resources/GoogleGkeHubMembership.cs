@@ -6,17 +6,16 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for authority in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeHubMembershipAuthorityBlock : TerraformBlock
+public class GoogleGkeHubMembershipAuthorityBlock : ITerraformBlock
 {
     /// <summary>
     /// A JSON Web Token (JWT) issuer URI. &#39;issuer&#39; must start with &#39;https://&#39; and // be a valid
     /// with length &amp;lt;2000 characters. For example: &#39;https://container.googleapis.com/v1/projects/my-project/locations/us-west1/clusters/my-cluster&#39;. If the cluster is provisioned with Terraform, this is &#39;&amp;quot;https://container.googleapis.com/v1/${google_container_cluster.my-cluster.id}&amp;quot;&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
-    public required TerraformProperty<string> Issuer
-    {
-        set => SetProperty("issuer", value);
-    }
+    [TerraformPropertyName("issuer")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Issuer { get; set; }
 
 }
 
@@ -24,7 +23,7 @@ public class GoogleGkeHubMembershipAuthorityBlock : TerraformBlock
 /// Block type for endpoint in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeHubMembershipEndpointBlock : TerraformBlock
+public class GoogleGkeHubMembershipEndpointBlock : ITerraformBlock
 {
 }
 
@@ -32,31 +31,28 @@ public class GoogleGkeHubMembershipEndpointBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleGkeHubMembershipTimeoutsBlock : TerraformBlock
+public class GoogleGkeHubMembershipTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -68,29 +64,14 @@ public class GoogleGkeHubMembership : TerraformResource
 {
     public GoogleGkeHubMembership(string name) : base("google_gke_hub_membership", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("effective_labels");
-        SetOutput("name");
-        SetOutput("terraform_labels");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("membership_id");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Labels to apply to this membership.
@@ -99,84 +80,76 @@ public class GoogleGkeHubMembership : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Location of the membership.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The client-provided identifier of the membership.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
-    public required TerraformProperty<string> MembershipId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("membership_id");
-        set => SetProperty("membership_id", value);
-    }
+    [TerraformPropertyName("membership_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MembershipId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for authority.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authority block(s) allowed")]
-    public List<GoogleGkeHubMembershipAuthorityBlock>? Authority
-    {
-        set => SetProperty("authority", value);
-    }
+    [TerraformPropertyName("authority")]
+    public TerraformList<TerraformBlock<GoogleGkeHubMembershipAuthorityBlock>>? Authority { get; set; } = new();
 
     /// <summary>
     /// Block for endpoint.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Endpoint block(s) allowed")]
-    public List<GoogleGkeHubMembershipEndpointBlock>? Endpoint
-    {
-        set => SetProperty("endpoint", value);
-    }
+    [TerraformPropertyName("endpoint")]
+    public TerraformList<TerraformBlock<GoogleGkeHubMembershipEndpointBlock>>? Endpoint { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleGkeHubMembershipTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleGkeHubMembershipTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The unique identifier of the membership.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

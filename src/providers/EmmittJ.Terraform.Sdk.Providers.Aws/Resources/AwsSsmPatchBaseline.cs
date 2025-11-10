@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for approval_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsmPatchBaselineApprovalRuleBlock : TerraformBlock
+public class AwsSsmPatchBaselineApprovalRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The approve_after_days attribute.
     /// </summary>
-    public TerraformProperty<double>? ApproveAfterDays
-    {
-        set => SetProperty("approve_after_days", value);
-    }
+    [TerraformPropertyName("approve_after_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ApproveAfterDays { get; set; }
 
     /// <summary>
     /// The approve_until_date attribute.
     /// </summary>
-    public TerraformProperty<string>? ApproveUntilDate
-    {
-        set => SetProperty("approve_until_date", value);
-    }
+    [TerraformPropertyName("approve_until_date")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ApproveUntilDate { get; set; }
 
     /// <summary>
     /// The compliance_level attribute.
     /// </summary>
-    public TerraformProperty<string>? ComplianceLevel
-    {
-        set => SetProperty("compliance_level", value);
-    }
+    [TerraformPropertyName("compliance_level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ComplianceLevel { get; set; }
 
     /// <summary>
     /// The enable_non_security attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableNonSecurity
-    {
-        set => SetProperty("enable_non_security", value);
-    }
+    [TerraformPropertyName("enable_non_security")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableNonSecurity { get; set; }
 
 }
 
@@ -46,25 +42,23 @@ public class AwsSsmPatchBaselineApprovalRuleBlock : TerraformBlock
 /// Block type for global_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsmPatchBaselineGlobalFilterBlock : TerraformBlock
+public class AwsSsmPatchBaselineGlobalFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public List<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -72,34 +66,31 @@ public class AwsSsmPatchBaselineGlobalFilterBlock : TerraformBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsmPatchBaselineSourceBlock : TerraformBlock
+public class AwsSsmPatchBaselineSourceBlock : ITerraformBlock
 {
     /// <summary>
     /// The configuration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Configuration is required")]
-    public required TerraformProperty<string> Configuration
-    {
-        set => SetProperty("configuration", value);
-    }
+    [TerraformPropertyName("configuration")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Configuration { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The products attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Products is required")]
-    public List<TerraformProperty<string>>? Products
-    {
-        set => SetProperty("products", value);
-    }
+    [TerraformPropertyName("products")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Products { get; set; }
 
 }
 
@@ -111,183 +102,135 @@ public class AwsSsmPatchBaseline : TerraformResource
 {
     public AwsSsmPatchBaseline(string name) : base("aws_ssm_patch_baseline", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("json");
-        SetOutput("approved_patches");
-        SetOutput("approved_patches_compliance_level");
-        SetOutput("approved_patches_enable_non_security");
-        SetOutput("available_security_updates_compliance_status");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("operating_system");
-        SetOutput("region");
-        SetOutput("rejected_patches");
-        SetOutput("rejected_patches_action");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The approved_patches attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ApprovedPatches
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("approved_patches");
-        set => SetProperty("approved_patches", value);
-    }
+    [TerraformPropertyName("approved_patches")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ApprovedPatches { get; set; }
 
     /// <summary>
     /// The approved_patches_compliance_level attribute.
     /// </summary>
-    public TerraformProperty<string> ApprovedPatchesComplianceLevel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("approved_patches_compliance_level");
-        set => SetProperty("approved_patches_compliance_level", value);
-    }
+    [TerraformPropertyName("approved_patches_compliance_level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ApprovedPatchesComplianceLevel { get; set; }
 
     /// <summary>
     /// The approved_patches_enable_non_security attribute.
     /// </summary>
-    public TerraformProperty<bool> ApprovedPatchesEnableNonSecurity
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("approved_patches_enable_non_security");
-        set => SetProperty("approved_patches_enable_non_security", value);
-    }
+    [TerraformPropertyName("approved_patches_enable_non_security")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ApprovedPatchesEnableNonSecurity { get; set; }
 
     /// <summary>
     /// The available_security_updates_compliance_status attribute.
     /// </summary>
-    public TerraformProperty<string> AvailableSecurityUpdatesComplianceStatus
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("available_security_updates_compliance_status");
-        set => SetProperty("available_security_updates_compliance_status", value);
-    }
+    [TerraformPropertyName("available_security_updates_compliance_status")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AvailableSecurityUpdatesComplianceStatus { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "available_security_updates_compliance_status");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The operating_system attribute.
     /// </summary>
-    public TerraformProperty<string> OperatingSystem
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("operating_system");
-        set => SetProperty("operating_system", value);
-    }
+    [TerraformPropertyName("operating_system")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OperatingSystem { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The rejected_patches attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> RejectedPatches
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("rejected_patches");
-        set => SetProperty("rejected_patches", value);
-    }
+    [TerraformPropertyName("rejected_patches")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? RejectedPatches { get; set; }
 
     /// <summary>
     /// The rejected_patches_action attribute.
     /// </summary>
-    public TerraformProperty<string> RejectedPatchesAction
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rejected_patches_action");
-        set => SetProperty("rejected_patches_action", value);
-    }
+    [TerraformPropertyName("rejected_patches_action")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> RejectedPatchesAction { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "rejected_patches_action");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for approval_rule.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsSsmPatchBaselineApprovalRuleBlock>? ApprovalRule
-    {
-        set => SetProperty("approval_rule", value);
-    }
+    [TerraformPropertyName("approval_rule")]
+    public TerraformList<TerraformBlock<AwsSsmPatchBaselineApprovalRuleBlock>>? ApprovalRule { get; set; } = new();
 
     /// <summary>
     /// Block for global_filter.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 GlobalFilter block(s) allowed")]
-    public List<AwsSsmPatchBaselineGlobalFilterBlock>? GlobalFilter
-    {
-        set => SetProperty("global_filter", value);
-    }
+    [TerraformPropertyName("global_filter")]
+    public TerraformList<TerraformBlock<AwsSsmPatchBaselineGlobalFilterBlock>>? GlobalFilter { get; set; } = new();
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 Source block(s) allowed")]
-    public List<AwsSsmPatchBaselineSourceBlock>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    public TerraformList<TerraformBlock<AwsSsmPatchBaselineSourceBlock>>? Source { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The json attribute.
     /// </summary>
-    public TerraformExpression Json => this["json"];
+    [TerraformPropertyName("json")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Json => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "json");
 
 }

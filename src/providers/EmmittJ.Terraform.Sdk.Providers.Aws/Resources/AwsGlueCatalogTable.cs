@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for open_table_format_input in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCatalogTableOpenTableFormatInputBlock : TerraformBlock
+public class AwsGlueCatalogTableOpenTableFormatInputBlock : ITerraformBlock
 {
 }
 
@@ -14,33 +14,30 @@ public class AwsGlueCatalogTableOpenTableFormatInputBlock : TerraformBlock
 /// Block type for partition_index in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlock
+public class AwsGlueCatalogTablePartitionIndexBlock : ITerraformBlock
 {
     /// <summary>
     /// The index_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
-    public required TerraformProperty<string> IndexName
-    {
-        set => SetProperty("index_name", value);
-    }
+    [TerraformPropertyName("index_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IndexName { get; set; }
 
     /// <summary>
     /// The index_status attribute.
     /// </summary>
-    public TerraformProperty<string>? IndexStatus
-    {
-        set => SetProperty("index_status", value);
-    }
+    [TerraformPropertyName("index_status")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IndexStatus => new TerraformReferenceProperty<TerraformProperty<string>>("", "index_status");
 
     /// <summary>
     /// The keys attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keys is required")]
-    public List<TerraformProperty<string>>? Keys
-    {
-        set => SetProperty("keys", value);
-    }
+    [TerraformPropertyName("keys")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Keys { get; set; }
 
 }
 
@@ -48,40 +45,36 @@ public class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlock
 /// Block type for partition_keys in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlock
+public class AwsGlueCatalogTablePartitionKeysBlock : ITerraformBlock
 {
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string>? Comment
-    {
-        set => SetProperty("comment", value);
-    }
+    [TerraformPropertyName("comment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Comment { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
-    {
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -89,79 +82,70 @@ public class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlock
 /// Block type for storage_descriptor in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
+public class AwsGlueCatalogTableStorageDescriptorBlock : ITerraformBlock
 {
     /// <summary>
     /// The additional_locations attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AdditionalLocations
-    {
-        set => SetProperty("additional_locations", value);
-    }
+    [TerraformPropertyName("additional_locations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AdditionalLocations { get; set; }
 
     /// <summary>
     /// The bucket_columns attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? BucketColumns
-    {
-        set => SetProperty("bucket_columns", value);
-    }
+    [TerraformPropertyName("bucket_columns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? BucketColumns { get; set; }
 
     /// <summary>
     /// The compressed attribute.
     /// </summary>
-    public TerraformProperty<bool>? Compressed
-    {
-        set => SetProperty("compressed", value);
-    }
+    [TerraformPropertyName("compressed")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Compressed { get; set; }
 
     /// <summary>
     /// The input_format attribute.
     /// </summary>
-    public TerraformProperty<string>? InputFormat
-    {
-        set => SetProperty("input_format", value);
-    }
+    [TerraformPropertyName("input_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InputFormat { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
-    {
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The number_of_buckets attribute.
     /// </summary>
-    public TerraformProperty<double>? NumberOfBuckets
-    {
-        set => SetProperty("number_of_buckets", value);
-    }
+    [TerraformPropertyName("number_of_buckets")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? NumberOfBuckets { get; set; }
 
     /// <summary>
     /// The output_format attribute.
     /// </summary>
-    public TerraformProperty<string>? OutputFormat
-    {
-        set => SetProperty("output_format", value);
-    }
+    [TerraformPropertyName("output_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OutputFormat { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
-    {
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// The stored_as_sub_directories attribute.
     /// </summary>
-    public TerraformProperty<bool>? StoredAsSubDirectories
-    {
-        set => SetProperty("stored_as_sub_directories", value);
-    }
+    [TerraformPropertyName("stored_as_sub_directories")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StoredAsSubDirectories { get; set; }
 
 }
 
@@ -169,42 +153,38 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
 /// Block type for target_table in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
+public class AwsGlueCatalogTableTargetTableBlock : ITerraformBlock
 {
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
-    public required TerraformProperty<string> CatalogId
-    {
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CatalogId { get; set; }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    public required TerraformProperty<string> DatabaseName
-    {
-        set => SetProperty("database_name", value);
-    }
+    [TerraformPropertyName("database_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformProperty<string>? Region
-    {
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
 }
 
@@ -216,188 +196,138 @@ public class AwsGlueCatalogTable : TerraformResource
 {
     public AwsGlueCatalogTable(string name) : base("aws_glue_catalog_table", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("catalog_id");
-        SetOutput("database_name");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("owner");
-        SetOutput("parameters");
-        SetOutput("region");
-        SetOutput("retention");
-        SetOutput("table_type");
-        SetOutput("view_expanded_text");
-        SetOutput("view_original_text");
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string> CatalogId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "catalog_id");
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    public required TerraformProperty<string> DatabaseName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
-        set => SetProperty("database_name", value);
-    }
+    [TerraformPropertyName("database_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformProperty<string> Owner
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("owner");
-        set => SetProperty("owner", value);
-    }
+    [TerraformPropertyName("owner")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Owner { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Parameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The retention attribute.
     /// </summary>
-    public TerraformProperty<double> Retention
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("retention");
-        set => SetProperty("retention", value);
-    }
+    [TerraformPropertyName("retention")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Retention { get; set; }
 
     /// <summary>
     /// The table_type attribute.
     /// </summary>
-    public TerraformProperty<string> TableType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_type");
-        set => SetProperty("table_type", value);
-    }
+    [TerraformPropertyName("table_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TableType { get; set; }
 
     /// <summary>
     /// The view_expanded_text attribute.
     /// </summary>
-    public TerraformProperty<string> ViewExpandedText
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("view_expanded_text");
-        set => SetProperty("view_expanded_text", value);
-    }
+    [TerraformPropertyName("view_expanded_text")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ViewExpandedText { get; set; }
 
     /// <summary>
     /// The view_original_text attribute.
     /// </summary>
-    public TerraformProperty<string> ViewOriginalText
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("view_original_text");
-        set => SetProperty("view_original_text", value);
-    }
+    [TerraformPropertyName("view_original_text")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ViewOriginalText { get; set; }
 
     /// <summary>
     /// Block for open_table_format_input.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenTableFormatInput block(s) allowed")]
-    public List<AwsGlueCatalogTableOpenTableFormatInputBlock>? OpenTableFormatInput
-    {
-        set => SetProperty("open_table_format_input", value);
-    }
+    [TerraformPropertyName("open_table_format_input")]
+    public TerraformList<TerraformBlock<AwsGlueCatalogTableOpenTableFormatInputBlock>>? OpenTableFormatInput { get; set; } = new();
 
     /// <summary>
     /// Block for partition_index.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 PartitionIndex block(s) allowed")]
-    public List<AwsGlueCatalogTablePartitionIndexBlock>? PartitionIndex
-    {
-        set => SetProperty("partition_index", value);
-    }
+    [TerraformPropertyName("partition_index")]
+    public TerraformList<TerraformBlock<AwsGlueCatalogTablePartitionIndexBlock>>? PartitionIndex { get; set; } = new();
 
     /// <summary>
     /// Block for partition_keys.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsGlueCatalogTablePartitionKeysBlock>? PartitionKeys
-    {
-        set => SetProperty("partition_keys", value);
-    }
+    [TerraformPropertyName("partition_keys")]
+    public TerraformList<TerraformBlock<AwsGlueCatalogTablePartitionKeysBlock>>? PartitionKeys { get; set; } = new();
 
     /// <summary>
     /// Block for storage_descriptor.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageDescriptor block(s) allowed")]
-    public List<AwsGlueCatalogTableStorageDescriptorBlock>? StorageDescriptor
-    {
-        set => SetProperty("storage_descriptor", value);
-    }
+    [TerraformPropertyName("storage_descriptor")]
+    public TerraformList<TerraformBlock<AwsGlueCatalogTableStorageDescriptorBlock>>? StorageDescriptor { get; set; } = new();
 
     /// <summary>
     /// Block for target_table.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetTable block(s) allowed")]
-    public List<AwsGlueCatalogTableTargetTableBlock>? TargetTable
-    {
-        set => SetProperty("target_table", value);
-    }
+    [TerraformPropertyName("target_table")]
+    public TerraformList<TerraformBlock<AwsGlueCatalogTableTargetTableBlock>>? TargetTable { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

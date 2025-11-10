@@ -9,102 +9,98 @@ public class GoogleComputeGlobalAddressDataSource : TerraformDataSource
 {
     public GoogleComputeGlobalAddressDataSource(string name) : base("google_compute_global_address", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("address");
-        SetOutput("address_type");
-        SetOutput("network");
-        SetOutput("network_tier");
-        SetOutput("prefix_length");
-        SetOutput("purpose");
-        SetOutput("self_link");
-        SetOutput("status");
-        SetOutput("subnetwork");
-        SetOutput("users");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The address attribute.
     /// </summary>
-    public TerraformExpression Address => this["address"];
+    [TerraformPropertyName("address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Address => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "address");
 
     /// <summary>
     /// The address_type attribute.
     /// </summary>
-    public TerraformExpression AddressType => this["address_type"];
+    [TerraformPropertyName("address_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AddressType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "address_type");
 
     /// <summary>
     /// The network attribute.
     /// </summary>
-    public TerraformExpression Network => this["network"];
+    [TerraformPropertyName("network")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Network => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network");
 
     /// <summary>
     /// The network_tier attribute.
     /// </summary>
-    public TerraformExpression NetworkTier => this["network_tier"];
+    [TerraformPropertyName("network_tier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NetworkTier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_tier");
 
     /// <summary>
     /// The prefix_length attribute.
     /// </summary>
-    public TerraformExpression PrefixLength => this["prefix_length"];
+    [TerraformPropertyName("prefix_length")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> PrefixLength => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "prefix_length");
 
     /// <summary>
     /// The purpose attribute.
     /// </summary>
-    public TerraformExpression Purpose => this["purpose"];
+    [TerraformPropertyName("purpose")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Purpose => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "purpose");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The subnetwork attribute.
     /// </summary>
-    public TerraformExpression Subnetwork => this["subnetwork"];
+    [TerraformPropertyName("subnetwork")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Subnetwork => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subnetwork");
 
     /// <summary>
     /// The users attribute.
     /// </summary>
-    public TerraformExpression Users => this["users"];
+    [TerraformPropertyName("users")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Users => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "users");
 
 }

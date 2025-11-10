@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsNetworkmanagerLinkAssociationTimeoutsBlock : TerraformBlock
+public class AwsNetworkmanagerLinkAssociationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,63 +31,44 @@ public class AwsNetworkmanagerLinkAssociation : TerraformResource
 {
     public AwsNetworkmanagerLinkAssociation(string name) : base("aws_networkmanager_link_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("device_id");
-        SetOutput("global_network_id");
-        SetOutput("id");
-        SetOutput("link_id");
     }
 
     /// <summary>
     /// The device_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
-    public required TerraformProperty<string> DeviceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("device_id");
-        set => SetProperty("device_id", value);
-    }
+    [TerraformPropertyName("device_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DeviceId { get; set; }
 
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
-    public required TerraformProperty<string> GlobalNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("global_network_id");
-        set => SetProperty("global_network_id", value);
-    }
+    [TerraformPropertyName("global_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GlobalNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The link_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkId is required")]
-    public required TerraformProperty<string> LinkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("link_id");
-        set => SetProperty("link_id", value);
-    }
+    [TerraformPropertyName("link_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LinkId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsNetworkmanagerLinkAssociationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsNetworkmanagerLinkAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

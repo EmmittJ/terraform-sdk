@@ -6,17 +6,16 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for features in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowFulfillmentFeaturesBlock : TerraformBlock
+public class GoogleDialogflowFulfillmentFeaturesBlock : ITerraformBlock
 {
     /// <summary>
     /// The type of the feature that enabled for fulfillment.
     /// * SMALLTALK: Fulfillment is enabled for SmallTalk. Possible values: [&amp;quot;SMALLTALK&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -24,40 +23,36 @@ public class GoogleDialogflowFulfillmentFeaturesBlock : TerraformBlock
 /// Block type for generic_web_service in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowFulfillmentGenericWebServiceBlock : TerraformBlock
+public class GoogleDialogflowFulfillmentGenericWebServiceBlock : ITerraformBlock
 {
     /// <summary>
     /// The password for HTTP Basic authentication.
     /// </summary>
-    public TerraformProperty<string>? Password
-    {
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Password { get; set; }
 
     /// <summary>
     /// The HTTP request headers to send together with fulfillment requests.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? RequestHeaders
-    {
-        set => SetProperty("request_headers", value);
-    }
+    [TerraformPropertyName("request_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? RequestHeaders { get; set; }
 
     /// <summary>
     /// The fulfillment URI for receiving POST requests. It must use https protocol.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    public required TerraformProperty<string> Uri
-    {
-        set => SetProperty("uri", value);
-    }
+    [TerraformPropertyName("uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Uri { get; set; }
 
     /// <summary>
     /// The user name for HTTP Basic authentication.
     /// </summary>
-    public TerraformProperty<string>? Username
-    {
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Username { get; set; }
 
 }
 
@@ -65,31 +60,28 @@ public class GoogleDialogflowFulfillmentGenericWebServiceBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowFulfillmentTimeoutsBlock : TerraformBlock
+public class GoogleDialogflowFulfillmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -101,87 +93,65 @@ public class GoogleDialogflowFulfillment : TerraformResource
 {
     public GoogleDialogflowFulfillment(string name) : base("google_dialogflow_fulfillment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("display_name");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The human-readable name of the fulfillment, unique within the agent.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// Whether fulfillment is enabled.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for features.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleDialogflowFulfillmentFeaturesBlock>? Features
-    {
-        set => SetProperty("features", value);
-    }
+    [TerraformPropertyName("features")]
+    public TerraformList<TerraformBlock<GoogleDialogflowFulfillmentFeaturesBlock>>? Features { get; set; } = new();
 
     /// <summary>
     /// Block for generic_web_service.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenericWebService block(s) allowed")]
-    public List<GoogleDialogflowFulfillmentGenericWebServiceBlock>? GenericWebService
-    {
-        set => SetProperty("generic_web_service", value);
-    }
+    [TerraformPropertyName("generic_web_service")]
+    public TerraformList<TerraformBlock<GoogleDialogflowFulfillmentGenericWebServiceBlock>>? GenericWebService { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDialogflowFulfillmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDialogflowFulfillmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the fulfillment.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/agent/fulfillment - projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agent/fulfillment
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaFunctionEventInvokeConfigDestinationConfigBlock : TerraformBlock
+public class AwsLambdaFunctionEventInvokeConfigDestinationConfigBlock : ITerraformBlock
 {
 }
 
@@ -18,82 +18,57 @@ public class AwsLambdaFunctionEventInvokeConfig : TerraformResource
 {
     public AwsLambdaFunctionEventInvokeConfig(string name) : base("aws_lambda_function_event_invoke_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("function_name");
-        SetOutput("id");
-        SetOutput("maximum_event_age_in_seconds");
-        SetOutput("maximum_retry_attempts");
-        SetOutput("qualifier");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The function_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
-    public required TerraformProperty<string> FunctionName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
-        set => SetProperty("function_name", value);
-    }
+    [TerraformPropertyName("function_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FunctionName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The maximum_event_age_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> MaximumEventAgeInSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("maximum_event_age_in_seconds");
-        set => SetProperty("maximum_event_age_in_seconds", value);
-    }
+    [TerraformPropertyName("maximum_event_age_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaximumEventAgeInSeconds { get; set; }
 
     /// <summary>
     /// The maximum_retry_attempts attribute.
     /// </summary>
-    public TerraformProperty<double> MaximumRetryAttempts
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("maximum_retry_attempts");
-        set => SetProperty("maximum_retry_attempts", value);
-    }
+    [TerraformPropertyName("maximum_retry_attempts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaximumRetryAttempts { get; set; }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public TerraformProperty<string> Qualifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("qualifier");
-        set => SetProperty("qualifier", value);
-    }
+    [TerraformPropertyName("qualifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Qualifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for destination_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationConfig block(s) allowed")]
-    public List<AwsLambdaFunctionEventInvokeConfigDestinationConfigBlock>? DestinationConfig
-    {
-        set => SetProperty("destination_config", value);
-    }
+    [TerraformPropertyName("destination_config")]
+    public TerraformList<TerraformBlock<AwsLambdaFunctionEventInvokeConfigDestinationConfigBlock>>? DestinationConfig { get; set; } = new();
 
 }

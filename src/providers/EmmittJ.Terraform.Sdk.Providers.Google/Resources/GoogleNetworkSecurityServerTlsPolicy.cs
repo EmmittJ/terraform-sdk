@@ -6,26 +6,24 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for mtls_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock : TerraformBlock
+public class GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// When the client presents an invalid certificate or no certificate to the load balancer, the clientValidationMode specifies how the client connection is handled.
     /// Required if the policy is to be used with the external HTTPS load balancing. For Traffic Director it must be empty. Possible values: [&amp;quot;CLIENT_VALIDATION_MODE_UNSPECIFIED&amp;quot;, &amp;quot;ALLOW_INVALID_OR_MISSING_CLIENT_CERT&amp;quot;, &amp;quot;REJECT_INVALID&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ClientValidationMode
-    {
-        set => SetProperty("client_validation_mode", value);
-    }
+    [TerraformPropertyName("client_validation_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientValidationMode { get; set; }
 
     /// <summary>
     /// Reference to the TrustConfig from certificatemanager.googleapis.com namespace.
     /// If specified, the chain validation will be performed against certificates configured in the given TrustConfig.
     /// Allowed only if the policy is to be used with external HTTPS load balancers.
     /// </summary>
-    public TerraformProperty<string>? ClientValidationTrustConfig
-    {
-        set => SetProperty("client_validation_trust_config", value);
-    }
+    [TerraformPropertyName("client_validation_trust_config")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientValidationTrustConfig { get; set; }
 
 }
 
@@ -33,7 +31,7 @@ public class GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock : TerraformBloc
 /// Block type for server_certificate in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock : TerraformBlock
+public class GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock : ITerraformBlock
 {
 }
 
@@ -41,31 +39,28 @@ public class GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock : TerraformBlock
+public class GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -77,22 +72,6 @@ public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
 {
     public GoogleNetworkSecurityServerTlsPolicy(string name) : base("google_network_security_server_tls_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("allow_open");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -100,29 +79,23 @@ public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
     /// Determines if server allows plaintext connections. If set to true, server allows plain text connections. By default, it is set to false. This setting is not exclusive of other encryption modes. For example, if allowOpen and mtlsPolicy are set, server allows both plain text and mTLS connections. See documentation of other encryption modes to confirm compatibility.
     /// Consider using it if you wish to upgrade in place your deployment to TLS while having mixed TLS and non-TLS traffic reaching port :80.
     /// </summary>
-    public TerraformProperty<bool> AllowOpen
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_open");
-        set => SetProperty("allow_open", value);
-    }
+    [TerraformPropertyName("allow_open")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowOpen { get; set; }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Set of label tags associated with the ServerTlsPolicy resource.
@@ -130,89 +103,83 @@ public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The location of the server tls policy.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// Name of the ServerTlsPolicy resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for mtls_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MtlsPolicy block(s) allowed")]
-    public List<GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock>? MtlsPolicy
-    {
-        set => SetProperty("mtls_policy", value);
-    }
+    [TerraformPropertyName("mtls_policy")]
+    public TerraformList<TerraformBlock<GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock>>? MtlsPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for server_certificate.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerCertificate block(s) allowed")]
-    public List<GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock>? ServerCertificate
-    {
-        set => SetProperty("server_certificate", value);
-    }
+    [TerraformPropertyName("server_certificate")]
+    public TerraformList<TerraformBlock<GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock>>? ServerCertificate { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the ServerTlsPolicy was created in UTC.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Time the ServerTlsPolicy was updated in UTC.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

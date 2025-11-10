@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for site in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermBotChannelWebChatSiteBlock : TerraformBlock
+public class AzurermBotChannelWebChatSiteBlock : ITerraformBlock
 {
     /// <summary>
     /// The endpoint_parameters_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EndpointParametersEnabled
-    {
-        set => SetProperty("endpoint_parameters_enabled", value);
-    }
+    [TerraformPropertyName("endpoint_parameters_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EndpointParametersEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The storage_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? StorageEnabled
-    {
-        set => SetProperty("storage_enabled", value);
-    }
+    [TerraformPropertyName("storage_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StorageEnabled { get; set; }
 
     /// <summary>
     /// The user_upload_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? UserUploadEnabled
-    {
-        set => SetProperty("user_upload_enabled", value);
-    }
+    [TerraformPropertyName("user_upload_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UserUploadEnabled { get; set; }
 
 }
 
@@ -47,39 +43,35 @@ public class AzurermBotChannelWebChatSiteBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBotChannelWebChatTimeoutsBlock : TerraformBlock
+public class AzurermBotChannelWebChatTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -90,72 +82,51 @@ public class AzurermBotChannelWebChat : TerraformResource
 {
     public AzurermBotChannelWebChat(string name) : base("azurerm_bot_channel_web_chat", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bot_name");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
-    public required TerraformProperty<string> BotName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bot_name");
-        set => SetProperty("bot_name", value);
-    }
+    [TerraformPropertyName("bot_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BotName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for site.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermBotChannelWebChatSiteBlock>? Site
-    {
-        set => SetProperty("site", value);
-    }
+    [TerraformPropertyName("site")]
+    public TerraformSet<TerraformBlock<AzurermBotChannelWebChatSiteBlock>>? Site { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermBotChannelWebChatTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermBotChannelWebChatTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

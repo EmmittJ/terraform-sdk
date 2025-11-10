@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationPermissionScopeTimeoutsBlock : TerraformBlock
+public class AzureadApplicationPermissionScopeTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,115 +45,81 @@ public class AzureadApplicationPermissionScope : TerraformResource
 {
     public AzureadApplicationPermissionScope(string name) : base("azuread_application_permission_scope", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("admin_consent_description");
-        SetOutput("admin_consent_display_name");
-        SetOutput("application_id");
-        SetOutput("id");
-        SetOutput("scope_id");
-        SetOutput("type");
-        SetOutput("user_consent_description");
-        SetOutput("user_consent_display_name");
-        SetOutput("value");
     }
 
     /// <summary>
     /// Delegated permission description that appears in all tenant-wide admin consent experiences, intended to be read by an administrator granting the permission on behalf of all users
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminConsentDescription is required")]
-    public required TerraformProperty<string> AdminConsentDescription
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("admin_consent_description");
-        set => SetProperty("admin_consent_description", value);
-    }
+    [TerraformPropertyName("admin_consent_description")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AdminConsentDescription { get; set; }
 
     /// <summary>
     /// Display name for the delegated permission, intended to be read by an administrator granting the permission on behalf of all users
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminConsentDisplayName is required")]
-    public required TerraformProperty<string> AdminConsentDisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("admin_consent_display_name");
-        set => SetProperty("admin_consent_display_name", value);
-    }
+    [TerraformPropertyName("admin_consent_display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AdminConsentDisplayName { get; set; }
 
     /// <summary>
     /// The resource ID of the application to which this permission scope should be applied
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    public required TerraformProperty<string> ApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
-        set => SetProperty("application_id", value);
-    }
+    [TerraformPropertyName("application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The unique identifier of the permission scope
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
-    public required TerraformProperty<string> ScopeId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("scope_id");
-        set => SetProperty("scope_id", value);
-    }
+    [TerraformPropertyName("scope_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScopeId { get; set; }
 
     /// <summary>
     /// Whether this delegated permission should be considered safe for non-admin users to consent to on behalf of themselves, or whether an administrator should be required for consent to the permissions
     /// </summary>
-    public TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
     /// <summary>
     /// Delegated permission description that appears in the end user consent experience, intended to be read by a user consenting on their own behalf
     /// </summary>
-    public TerraformProperty<string> UserConsentDescription
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_consent_description");
-        set => SetProperty("user_consent_description", value);
-    }
+    [TerraformPropertyName("user_consent_description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserConsentDescription { get; set; }
 
     /// <summary>
     /// Display name for the delegated permission that appears in the end user consent experience
     /// </summary>
-    public TerraformProperty<string> UserConsentDisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_consent_display_name");
-        set => SetProperty("user_consent_display_name", value);
-    }
+    [TerraformPropertyName("user_consent_display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserConsentDisplayName { get; set; }
 
     /// <summary>
     /// The value that is used for the `scp` claim in OAuth access tokens
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<string> Value
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("value");
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadApplicationPermissionScopeTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadApplicationPermissionScopeTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

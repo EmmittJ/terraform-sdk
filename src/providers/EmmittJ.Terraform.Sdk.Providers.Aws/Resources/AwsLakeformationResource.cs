@@ -9,98 +9,70 @@ public class AwsLakeformationResource : TerraformResource
 {
     public AwsLakeformationResource(string name) : base("aws_lakeformation_resource", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("last_modified");
-        SetOutput("arn");
-        SetOutput("hybrid_access_enabled");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("role_arn");
-        SetOutput("use_service_linked_role");
-        SetOutput("with_federation");
-        SetOutput("with_privileged_access");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    public required TerraformProperty<string> Arn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arn");
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
 
     /// <summary>
     /// The hybrid_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> HybridAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("hybrid_access_enabled");
-        set => SetProperty("hybrid_access_enabled", value);
-    }
+    [TerraformPropertyName("hybrid_access_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> HybridAccessEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "hybrid_access_enabled");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> RoleArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_arn");
 
     /// <summary>
     /// The use_service_linked_role attribute.
     /// </summary>
-    public TerraformProperty<bool> UseServiceLinkedRole
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("use_service_linked_role");
-        set => SetProperty("use_service_linked_role", value);
-    }
+    [TerraformPropertyName("use_service_linked_role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseServiceLinkedRole { get; set; }
 
     /// <summary>
     /// The with_federation attribute.
     /// </summary>
-    public TerraformProperty<bool> WithFederation
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("with_federation");
-        set => SetProperty("with_federation", value);
-    }
+    [TerraformPropertyName("with_federation")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> WithFederation { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "with_federation");
 
     /// <summary>
     /// The with_privileged_access attribute.
     /// </summary>
-    public TerraformProperty<bool> WithPrivilegedAccess
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("with_privileged_access");
-        set => SetProperty("with_privileged_access", value);
-    }
+    [TerraformPropertyName("with_privileged_access")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> WithPrivilegedAccess { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "with_privileged_access");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
-    public TerraformExpression LastModified => this["last_modified"];
+    [TerraformPropertyName("last_modified")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModified => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified");
 
 }

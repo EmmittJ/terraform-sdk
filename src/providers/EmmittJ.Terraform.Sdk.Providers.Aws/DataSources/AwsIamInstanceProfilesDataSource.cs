@@ -9,50 +9,42 @@ public class AwsIamInstanceProfilesDataSource : TerraformDataSource
 {
     public AwsIamInstanceProfilesDataSource(string name) : base("aws_iam_instance_profiles", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arns");
-        SetOutput("names");
-        SetOutput("paths");
-        SetOutput("id");
-        SetOutput("role_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
-    public required TerraformProperty<string> RoleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_name");
-        set => SetProperty("role_name", value);
-    }
+    [TerraformPropertyName("role_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleName { get; set; }
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
-    public TerraformExpression Arns => this["arns"];
+    [TerraformPropertyName("arns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Arns => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "arns");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
-    public TerraformExpression Names => this["names"];
+    [TerraformPropertyName("names")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Names => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "names");
 
     /// <summary>
     /// The paths attribute.
     /// </summary>
-    public TerraformExpression Paths => this["paths"];
+    [TerraformPropertyName("paths")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Paths => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "paths");
 
 }

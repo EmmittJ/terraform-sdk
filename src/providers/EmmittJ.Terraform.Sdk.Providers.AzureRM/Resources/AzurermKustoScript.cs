@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKustoScriptTimeoutsBlock : TerraformBlock
+public class AzurermKustoScriptTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,102 +45,71 @@ public class AzurermKustoScript : TerraformResource
 {
     public AzurermKustoScript(string name) : base("azurerm_kusto_script", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("continue_on_errors_enabled");
-        SetOutput("database_id");
-        SetOutput("force_an_update_when_value_changed");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("sas_token");
-        SetOutput("script_content");
-        SetOutput("url");
     }
 
     /// <summary>
     /// The continue_on_errors_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ContinueOnErrorsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("continue_on_errors_enabled");
-        set => SetProperty("continue_on_errors_enabled", value);
-    }
+    [TerraformPropertyName("continue_on_errors_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ContinueOnErrorsEnabled { get; set; }
 
     /// <summary>
     /// The database_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
-    public required TerraformProperty<string> DatabaseId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_id");
-        set => SetProperty("database_id", value);
-    }
+    [TerraformPropertyName("database_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseId { get; set; }
 
     /// <summary>
     /// The force_an_update_when_value_changed attribute.
     /// </summary>
-    public TerraformProperty<string> ForceAnUpdateWhenValueChanged
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("force_an_update_when_value_changed");
-        set => SetProperty("force_an_update_when_value_changed", value);
-    }
+    [TerraformPropertyName("force_an_update_when_value_changed")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ForceAnUpdateWhenValueChanged { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "force_an_update_when_value_changed");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The sas_token attribute.
     /// </summary>
-    public TerraformProperty<string> SasToken
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sas_token");
-        set => SetProperty("sas_token", value);
-    }
+    [TerraformPropertyName("sas_token")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SasToken { get; set; }
 
     /// <summary>
     /// The script_content attribute.
     /// </summary>
-    public TerraformProperty<string> ScriptContent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("script_content");
-        set => SetProperty("script_content", value);
-    }
+    [TerraformPropertyName("script_content")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ScriptContent { get; set; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformProperty<string> Url
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("url");
-        set => SetProperty("url", value);
-    }
+    [TerraformPropertyName("url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Url { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermKustoScriptTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermKustoScriptTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

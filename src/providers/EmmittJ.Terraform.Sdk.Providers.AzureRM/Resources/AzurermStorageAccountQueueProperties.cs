@@ -6,52 +6,47 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for cors_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountQueuePropertiesCorsRuleBlock : TerraformBlock
+public class AzurermStorageAccountQueuePropertiesCorsRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The allowed_headers attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
-    public List<TerraformProperty<string>>? AllowedHeaders
-    {
-        set => SetProperty("allowed_headers", value);
-    }
+    [TerraformPropertyName("allowed_headers")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? AllowedHeaders { get; set; }
 
     /// <summary>
     /// The allowed_methods attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
-    public List<TerraformProperty<string>>? AllowedMethods
-    {
-        set => SetProperty("allowed_methods", value);
-    }
+    [TerraformPropertyName("allowed_methods")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? AllowedMethods { get; set; }
 
     /// <summary>
     /// The allowed_origins attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
-    public List<TerraformProperty<string>>? AllowedOrigins
-    {
-        set => SetProperty("allowed_origins", value);
-    }
+    [TerraformPropertyName("allowed_origins")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? AllowedOrigins { get; set; }
 
     /// <summary>
     /// The exposed_headers attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExposedHeaders is required")]
-    public List<TerraformProperty<string>>? ExposedHeaders
-    {
-        set => SetProperty("exposed_headers", value);
-    }
+    [TerraformPropertyName("exposed_headers")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? ExposedHeaders { get; set; }
 
     /// <summary>
     /// The max_age_in_seconds attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAgeInSeconds is required")]
-    public required TerraformProperty<double> MaxAgeInSeconds
-    {
-        set => SetProperty("max_age_in_seconds", value);
-    }
+    [TerraformPropertyName("max_age_in_seconds")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxAgeInSeconds { get; set; }
 
 }
 
@@ -59,32 +54,29 @@ public class AzurermStorageAccountQueuePropertiesCorsRuleBlock : TerraformBlock
 /// Block type for hour_metrics in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountQueuePropertiesHourMetricsBlock : TerraformBlock
+public class AzurermStorageAccountQueuePropertiesHourMetricsBlock : ITerraformBlock
 {
     /// <summary>
     /// The include_apis attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeApis
-    {
-        set => SetProperty("include_apis", value);
-    }
+    [TerraformPropertyName("include_apis")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeApis { get; set; }
 
     /// <summary>
     /// The retention_policy_days attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionPolicyDays
-    {
-        set => SetProperty("retention_policy_days", value);
-    }
+    [TerraformPropertyName("retention_policy_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RetentionPolicyDays { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
 }
 
@@ -92,51 +84,46 @@ public class AzurermStorageAccountQueuePropertiesHourMetricsBlock : TerraformBlo
 /// Block type for logging in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlock
+public class AzurermStorageAccountQueuePropertiesLoggingBlock : ITerraformBlock
 {
     /// <summary>
     /// The delete attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
-    public required TerraformProperty<bool> Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
-    public required TerraformProperty<bool> Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Read { get; set; }
 
     /// <summary>
     /// The retention_policy_days attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionPolicyDays
-    {
-        set => SetProperty("retention_policy_days", value);
-    }
+    [TerraformPropertyName("retention_policy_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RetentionPolicyDays { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
     /// <summary>
     /// The write attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
-    public required TerraformProperty<bool> Write
-    {
-        set => SetProperty("write", value);
-    }
+    [TerraformPropertyName("write")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Write { get; set; }
 
 }
 
@@ -144,32 +131,29 @@ public class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlock
 /// Block type for minute_metrics in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock : TerraformBlock
+public class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock : ITerraformBlock
 {
     /// <summary>
     /// The include_apis attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeApis
-    {
-        set => SetProperty("include_apis", value);
-    }
+    [TerraformPropertyName("include_apis")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeApis { get; set; }
 
     /// <summary>
     /// The retention_policy_days attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionPolicyDays
-    {
-        set => SetProperty("retention_policy_days", value);
-    }
+    [TerraformPropertyName("retention_policy_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RetentionPolicyDays { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
 }
 
@@ -177,39 +161,35 @@ public class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageAccountQueuePropertiesTimeoutsBlock : TerraformBlock
+public class AzurermStorageAccountQueuePropertiesTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -221,81 +201,60 @@ public class AzurermStorageAccountQueueProperties : TerraformResource
 {
     public AzurermStorageAccountQueueProperties(string name) : base("azurerm_storage_account_queue_properties", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("storage_account_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    public required TerraformProperty<string> StorageAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
-        set => SetProperty("storage_account_id", value);
-    }
+    [TerraformPropertyName("storage_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for cors_rule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 CorsRule block(s) allowed")]
-    public List<AzurermStorageAccountQueuePropertiesCorsRuleBlock>? CorsRule
-    {
-        set => SetProperty("cors_rule", value);
-    }
+    [TerraformPropertyName("cors_rule")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesCorsRuleBlock>>? CorsRule { get; set; } = new();
 
     /// <summary>
     /// Block for hour_metrics.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourMetrics block(s) allowed")]
-    public List<AzurermStorageAccountQueuePropertiesHourMetricsBlock>? HourMetrics
-    {
-        set => SetProperty("hour_metrics", value);
-    }
+    [TerraformPropertyName("hour_metrics")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesHourMetricsBlock>>? HourMetrics { get; set; } = new();
 
     /// <summary>
     /// Block for logging.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
-    public List<AzurermStorageAccountQueuePropertiesLoggingBlock>? Logging
-    {
-        set => SetProperty("logging", value);
-    }
+    [TerraformPropertyName("logging")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesLoggingBlock>>? Logging { get; set; } = new();
 
     /// <summary>
     /// Block for minute_metrics.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinuteMetrics block(s) allowed")]
-    public List<AzurermStorageAccountQueuePropertiesMinuteMetricsBlock>? MinuteMetrics
-    {
-        set => SetProperty("minute_metrics", value);
-    }
+    [TerraformPropertyName("minute_metrics")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesMinuteMetricsBlock>>? MinuteMetrics { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStorageAccountQueuePropertiesTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStorageAccountQueuePropertiesTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

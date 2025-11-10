@@ -9,64 +9,44 @@ public class AwsDirectoryServiceConditionalForwarder : TerraformResource
 {
     public AwsDirectoryServiceConditionalForwarder(string name) : base("aws_directory_service_conditional_forwarder", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("directory_id");
-        SetOutput("dns_ips");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("remote_domain_name");
     }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
-    public required TerraformProperty<string> DirectoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
-        set => SetProperty("directory_id", value);
-    }
+    [TerraformPropertyName("directory_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DirectoryId { get; set; }
 
     /// <summary>
     /// The dns_ips attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsIps is required")]
-    public List<TerraformProperty<string>> DnsIps
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("dns_ips");
-        set => SetProperty("dns_ips", value);
-    }
+    [TerraformPropertyName("dns_ips")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? DnsIps { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The remote_domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteDomainName is required")]
-    public required TerraformProperty<string> RemoteDomainName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("remote_domain_name");
-        set => SetProperty("remote_domain_name", value);
-    }
+    [TerraformPropertyName("remote_domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RemoteDomainName { get; set; }
 
 }

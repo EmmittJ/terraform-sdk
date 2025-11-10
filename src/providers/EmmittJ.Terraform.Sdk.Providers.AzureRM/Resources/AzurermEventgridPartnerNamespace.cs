@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for inbound_ip_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermEventgridPartnerNamespaceInboundIpRuleBlock : TerraformBlock
+public class AzurermEventgridPartnerNamespaceInboundIpRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformProperty<string>? Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Action { get; set; }
 
     /// <summary>
     /// The ip_mask attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
-    public required TerraformProperty<string> IpMask
-    {
-        set => SetProperty("ip_mask", value);
-    }
+    [TerraformPropertyName("ip_mask")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IpMask { get; set; }
 
 }
 
@@ -31,39 +29,35 @@ public class AzurermEventgridPartnerNamespaceInboundIpRuleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlock
+public class AzurermEventgridPartnerNamespaceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -75,130 +69,95 @@ public class AzurermEventgridPartnerNamespace : TerraformResource
 {
     public AzurermEventgridPartnerNamespace(string name) : base("azurerm_eventgrid_partner_namespace", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("endpoint");
-        SetOutput("id");
-        SetOutput("local_authentication_enabled");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("partner_registration_id");
-        SetOutput("partner_topic_routing_mode");
-        SetOutput("public_network_access");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LocalAuthenticationEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("local_authentication_enabled");
-        set => SetProperty("local_authentication_enabled", value);
-    }
+    [TerraformPropertyName("local_authentication_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LocalAuthenticationEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The partner_registration_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerRegistrationId is required")]
-    public required TerraformProperty<string> PartnerRegistrationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("partner_registration_id");
-        set => SetProperty("partner_registration_id", value);
-    }
+    [TerraformPropertyName("partner_registration_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PartnerRegistrationId { get; set; }
 
     /// <summary>
     /// The partner_topic_routing_mode attribute.
     /// </summary>
-    public TerraformProperty<string> PartnerTopicRoutingMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("partner_topic_routing_mode");
-        set => SetProperty("partner_topic_routing_mode", value);
-    }
+    [TerraformPropertyName("partner_topic_routing_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PartnerTopicRoutingMode { get; set; }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public TerraformProperty<string> PublicNetworkAccess
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("public_network_access");
-        set => SetProperty("public_network_access", value);
-    }
+    [TerraformPropertyName("public_network_access")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PublicNetworkAccess { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for inbound_ip_rule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(16, ErrorMessage = "Maximum 16 InboundIpRule block(s) allowed")]
-    public List<AzurermEventgridPartnerNamespaceInboundIpRuleBlock>? InboundIpRule
-    {
-        set => SetProperty("inbound_ip_rule", value);
-    }
+    [TerraformPropertyName("inbound_ip_rule")]
+    public TerraformList<TerraformBlock<AzurermEventgridPartnerNamespaceInboundIpRuleBlock>>? InboundIpRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermEventgridPartnerNamespaceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermEventgridPartnerNamespaceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
 }

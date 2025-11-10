@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPrivateDnsSoaRecordDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermPrivateDnsSoaRecordDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,122 +24,113 @@ public class AzurermPrivateDnsSoaRecordDataSource : TerraformDataSource
 {
     public AzurermPrivateDnsSoaRecordDataSource(string name) : base("azurerm_private_dns_soa_record", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("email");
-        SetOutput("expire_time");
-        SetOutput("fqdn");
-        SetOutput("host_name");
-        SetOutput("minimum_ttl");
-        SetOutput("refresh_time");
-        SetOutput("retry_time");
-        SetOutput("serial_number");
-        SetOutput("tags");
-        SetOutput("ttl");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("zone_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The zone_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
-    public required TerraformProperty<string> ZoneName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("zone_name");
-        set => SetProperty("zone_name", value);
-    }
+    [TerraformPropertyName("zone_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ZoneName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermPrivateDnsSoaRecordDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermPrivateDnsSoaRecordDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformExpression Email => this["email"];
+    [TerraformPropertyName("email")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Email => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "email");
 
     /// <summary>
     /// The expire_time attribute.
     /// </summary>
-    public TerraformExpression ExpireTime => this["expire_time"];
+    [TerraformPropertyName("expire_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ExpireTime => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "expire_time");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    public TerraformExpression Fqdn => this["fqdn"];
+    [TerraformPropertyName("fqdn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fqdn");
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
-    public TerraformExpression HostName => this["host_name"];
+    [TerraformPropertyName("host_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "host_name");
 
     /// <summary>
     /// The minimum_ttl attribute.
     /// </summary>
-    public TerraformExpression MinimumTtl => this["minimum_ttl"];
+    [TerraformPropertyName("minimum_ttl")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MinimumTtl => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "minimum_ttl");
 
     /// <summary>
     /// The refresh_time attribute.
     /// </summary>
-    public TerraformExpression RefreshTime => this["refresh_time"];
+    [TerraformPropertyName("refresh_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RefreshTime => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "refresh_time");
 
     /// <summary>
     /// The retry_time attribute.
     /// </summary>
-    public TerraformExpression RetryTime => this["retry_time"];
+    [TerraformPropertyName("retry_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RetryTime => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "retry_time");
 
     /// <summary>
     /// The serial_number attribute.
     /// </summary>
-    public TerraformExpression SerialNumber => this["serial_number"];
+    [TerraformPropertyName("serial_number")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SerialNumber => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "serial_number");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformExpression Ttl => this["ttl"];
+    [TerraformPropertyName("ttl")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Ttl => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ttl");
 
 }

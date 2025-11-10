@@ -9,65 +9,50 @@ public class AwsEc2TransitGatewayPolicyTableAssociation : TerraformResource
 {
     public AwsEc2TransitGatewayPolicyTableAssociation(string name) : base("aws_ec2_transit_gateway_policy_table_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("resource_id");
-        SetOutput("resource_type");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("transit_gateway_attachment_id");
-        SetOutput("transit_gateway_policy_table_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayAttachmentId is required")]
-    public required TerraformProperty<string> TransitGatewayAttachmentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_attachment_id");
-        set => SetProperty("transit_gateway_attachment_id", value);
-    }
+    [TerraformPropertyName("transit_gateway_attachment_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TransitGatewayAttachmentId { get; set; }
 
     /// <summary>
     /// The transit_gateway_policy_table_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayPolicyTableId is required")]
-    public required TerraformProperty<string> TransitGatewayPolicyTableId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_policy_table_id");
-        set => SetProperty("transit_gateway_policy_table_id", value);
-    }
+    [TerraformPropertyName("transit_gateway_policy_table_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TransitGatewayPolicyTableId { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformExpression ResourceId => this["resource_id"];
+    [TerraformPropertyName("resource_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_id");
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformExpression ResourceType => this["resource_type"];
+    [TerraformPropertyName("resource_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_type");
 
 }

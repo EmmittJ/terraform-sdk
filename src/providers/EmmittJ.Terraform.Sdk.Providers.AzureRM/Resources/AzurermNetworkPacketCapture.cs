@@ -6,48 +6,43 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
+public class AzurermNetworkPacketCaptureFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The local_ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? LocalIpAddress
-    {
-        set => SetProperty("local_ip_address", value);
-    }
+    [TerraformPropertyName("local_ip_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LocalIpAddress { get; set; }
 
     /// <summary>
     /// The local_port attribute.
     /// </summary>
-    public TerraformProperty<string>? LocalPort
-    {
-        set => SetProperty("local_port", value);
-    }
+    [TerraformPropertyName("local_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LocalPort { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    public required TerraformProperty<string> Protocol
-    {
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
 
     /// <summary>
     /// The remote_ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? RemoteIpAddress
-    {
-        set => SetProperty("remote_ip_address", value);
-    }
+    [TerraformPropertyName("remote_ip_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RemoteIpAddress { get; set; }
 
     /// <summary>
     /// The remote_port attribute.
     /// </summary>
-    public TerraformProperty<string>? RemotePort
-    {
-        set => SetProperty("remote_port", value);
-    }
+    [TerraformPropertyName("remote_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RemotePort { get; set; }
 
 }
 
@@ -55,31 +50,28 @@ public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
 /// Block type for storage_location in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetworkPacketCaptureStorageLocationBlock : TerraformBlock
+public class AzurermNetworkPacketCaptureStorageLocationBlock : ITerraformBlock
 {
     /// <summary>
     /// The file_path attribute.
     /// </summary>
-    public TerraformProperty<string>? FilePath
-    {
-        set => SetProperty("file_path", value);
-    }
+    [TerraformPropertyName("file_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FilePath { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountId
-    {
-        set => SetProperty("storage_account_id", value);
-    }
+    [TerraformPropertyName("storage_account_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageAccountId { get; set; }
 
     /// <summary>
     /// The storage_path attribute.
     /// </summary>
-    public TerraformProperty<string>? StoragePath
-    {
-        set => SetProperty("storage_path", value);
-    }
+    [TerraformPropertyName("storage_path")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StoragePath => new TerraformReferenceProperty<TerraformProperty<string>>("", "storage_path");
 
 }
 
@@ -87,31 +79,28 @@ public class AzurermNetworkPacketCaptureStorageLocationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetworkPacketCaptureTimeoutsBlock : TerraformBlock
+public class AzurermNetworkPacketCaptureTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -124,105 +113,74 @@ public class AzurermNetworkPacketCapture : TerraformResource
 {
     public AzurermNetworkPacketCapture(string name) : base("azurerm_network_packet_capture", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("maximum_bytes_per_packet");
-        SetOutput("maximum_bytes_per_session");
-        SetOutput("maximum_capture_duration");
-        SetOutput("name");
-        SetOutput("network_watcher_name");
-        SetOutput("resource_group_name");
-        SetOutput("target_resource_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The maximum_bytes_per_packet attribute.
     /// </summary>
-    public TerraformProperty<double> MaximumBytesPerPacket
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("maximum_bytes_per_packet");
-        set => SetProperty("maximum_bytes_per_packet", value);
-    }
+    [TerraformPropertyName("maximum_bytes_per_packet")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaximumBytesPerPacket { get; set; }
 
     /// <summary>
     /// The maximum_bytes_per_session attribute.
     /// </summary>
-    public TerraformProperty<double> MaximumBytesPerSession
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("maximum_bytes_per_session");
-        set => SetProperty("maximum_bytes_per_session", value);
-    }
+    [TerraformPropertyName("maximum_bytes_per_session")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaximumBytesPerSession { get; set; }
 
     /// <summary>
     /// The maximum_capture_duration attribute.
     /// </summary>
-    public TerraformProperty<double> MaximumCaptureDuration
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("maximum_capture_duration");
-        set => SetProperty("maximum_capture_duration", value);
-    }
+    [TerraformPropertyName("maximum_capture_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaximumCaptureDuration { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The network_watcher_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherName is required")]
-    public required TerraformProperty<string> NetworkWatcherName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_watcher_name");
-        set => SetProperty("network_watcher_name", value);
-    }
+    [TerraformPropertyName("network_watcher_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NetworkWatcherName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
-    public required TerraformProperty<string> TargetResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
-        set => SetProperty("target_resource_id", value);
-    }
+    [TerraformPropertyName("target_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetResourceId { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermNetworkPacketCaptureFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformList<TerraformBlock<AzurermNetworkPacketCaptureFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// Block for storage_location.
@@ -231,18 +189,14 @@ public class AzurermNetworkPacketCapture : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
-    public List<AzurermNetworkPacketCaptureStorageLocationBlock>? StorageLocation
-    {
-        set => SetProperty("storage_location", value);
-    }
+    [TerraformPropertyName("storage_location")]
+    public TerraformList<TerraformBlock<AzurermNetworkPacketCaptureStorageLocationBlock>>? StorageLocation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNetworkPacketCaptureTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNetworkPacketCaptureTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

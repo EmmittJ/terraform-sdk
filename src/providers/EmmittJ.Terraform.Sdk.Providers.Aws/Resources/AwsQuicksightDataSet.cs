@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for column_groups in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDataSetColumnGroupsBlock : TerraformBlock
+public class AwsQuicksightDataSetColumnGroupsBlock : ITerraformBlock
 {
 }
 
@@ -14,23 +14,21 @@ public class AwsQuicksightDataSetColumnGroupsBlock : TerraformBlock
 /// Block type for column_level_permission_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDataSetColumnLevelPermissionRulesBlock : TerraformBlock
+public class AwsQuicksightDataSetColumnLevelPermissionRulesBlock : ITerraformBlock
 {
     /// <summary>
     /// The column_names attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ColumnNames
-    {
-        set => SetProperty("column_names", value);
-    }
+    [TerraformPropertyName("column_names")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ColumnNames { get; set; }
 
     /// <summary>
     /// The principals attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Principals
-    {
-        set => SetProperty("principals", value);
-    }
+    [TerraformPropertyName("principals")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Principals { get; set; }
 
 }
 
@@ -38,23 +36,21 @@ public class AwsQuicksightDataSetColumnLevelPermissionRulesBlock : TerraformBloc
 /// Block type for data_set_usage_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDataSetDataSetUsageConfigurationBlock : TerraformBlock
+public class AwsQuicksightDataSetDataSetUsageConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The disable_use_as_direct_query_source attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableUseAsDirectQuerySource
-    {
-        set => SetProperty("disable_use_as_direct_query_source", value);
-    }
+    [TerraformPropertyName("disable_use_as_direct_query_source")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> DisableUseAsDirectQuerySource { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "disable_use_as_direct_query_source");
 
     /// <summary>
     /// The disable_use_as_imported_source attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableUseAsImportedSource
-    {
-        set => SetProperty("disable_use_as_imported_source", value);
-    }
+    [TerraformPropertyName("disable_use_as_imported_source")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> DisableUseAsImportedSource { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "disable_use_as_imported_source");
 
 }
 
@@ -62,32 +58,29 @@ public class AwsQuicksightDataSetDataSetUsageConfigurationBlock : TerraformBlock
 /// Block type for field_folders in .
 /// Nesting mode: set
 /// </summary>
-public class AwsQuicksightDataSetFieldFoldersBlock : TerraformBlock
+public class AwsQuicksightDataSetFieldFoldersBlock : ITerraformBlock
 {
     /// <summary>
     /// The columns attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Columns
-    {
-        set => SetProperty("columns", value);
-    }
+    [TerraformPropertyName("columns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Columns { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The field_folders_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldFoldersId is required")]
-    public required TerraformProperty<string> FieldFoldersId
-    {
-        set => SetProperty("field_folders_id", value);
-    }
+    [TerraformPropertyName("field_folders_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FieldFoldersId { get; set; }
 
 }
 
@@ -95,25 +88,23 @@ public class AwsQuicksightDataSetFieldFoldersBlock : TerraformBlock
 /// Block type for logical_table_map in .
 /// Nesting mode: set
 /// </summary>
-public class AwsQuicksightDataSetLogicalTableMapBlock : TerraformBlock
+public class AwsQuicksightDataSetLogicalTableMapBlock : ITerraformBlock
 {
     /// <summary>
     /// The alias attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
-    public required TerraformProperty<string> Alias
-    {
-        set => SetProperty("alias", value);
-    }
+    [TerraformPropertyName("alias")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Alias { get; set; }
 
     /// <summary>
     /// The logical_table_map_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicalTableMapId is required")]
-    public required TerraformProperty<string> LogicalTableMapId
-    {
-        set => SetProperty("logical_table_map_id", value);
-    }
+    [TerraformPropertyName("logical_table_map_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogicalTableMapId { get; set; }
 
 }
 
@@ -121,25 +112,23 @@ public class AwsQuicksightDataSetLogicalTableMapBlock : TerraformBlock
 /// Block type for permissions in .
 /// Nesting mode: set
 /// </summary>
-public class AwsQuicksightDataSetPermissionsBlock : TerraformBlock
+public class AwsQuicksightDataSetPermissionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The actions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
-    public HashSet<TerraformProperty<string>>? Actions
-    {
-        set => SetProperty("actions", value);
-    }
+    [TerraformPropertyName("actions")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Actions { get; set; }
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
-    public required TerraformProperty<string> Principal
-    {
-        set => SetProperty("principal", value);
-    }
+    [TerraformPropertyName("principal")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
 
 }
 
@@ -147,16 +136,15 @@ public class AwsQuicksightDataSetPermissionsBlock : TerraformBlock
 /// Block type for physical_table_map in .
 /// Nesting mode: set
 /// </summary>
-public class AwsQuicksightDataSetPhysicalTableMapBlock : TerraformBlock
+public class AwsQuicksightDataSetPhysicalTableMapBlock : ITerraformBlock
 {
     /// <summary>
     /// The physical_table_map_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhysicalTableMapId is required")]
-    public required TerraformProperty<string> PhysicalTableMapId
-    {
-        set => SetProperty("physical_table_map_id", value);
-    }
+    [TerraformPropertyName("physical_table_map_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PhysicalTableMapId { get; set; }
 
 }
 
@@ -164,7 +152,7 @@ public class AwsQuicksightDataSetPhysicalTableMapBlock : TerraformBlock
 /// Block type for refresh_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDataSetRefreshPropertiesBlock : TerraformBlock
+public class AwsQuicksightDataSetRefreshPropertiesBlock : ITerraformBlock
 {
 }
 
@@ -172,49 +160,44 @@ public class AwsQuicksightDataSetRefreshPropertiesBlock : TerraformBlock
 /// Block type for row_level_permission_data_set in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDataSetRowLevelPermissionDataSetBlock : TerraformBlock
+public class AwsQuicksightDataSetRowLevelPermissionDataSetBlock : ITerraformBlock
 {
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    public required TerraformProperty<string> Arn
-    {
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
 
     /// <summary>
     /// The format_version attribute.
     /// </summary>
-    public TerraformProperty<string>? FormatVersion
-    {
-        set => SetProperty("format_version", value);
-    }
+    [TerraformPropertyName("format_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FormatVersion { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformProperty<string>? Namespace
-    {
-        set => SetProperty("namespace", value);
-    }
+    [TerraformPropertyName("namespace")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Namespace { get; set; }
 
     /// <summary>
     /// The permission_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionPolicy is required")]
-    public required TerraformProperty<string> PermissionPolicy
-    {
-        set => SetProperty("permission_policy", value);
-    }
+    [TerraformPropertyName("permission_policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PermissionPolicy { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
 }
 
@@ -222,15 +205,14 @@ public class AwsQuicksightDataSetRowLevelPermissionDataSetBlock : TerraformBlock
 /// Block type for row_level_permission_tag_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightDataSetRowLevelPermissionTagConfigurationBlock : TerraformBlock
+public class AwsQuicksightDataSetRowLevelPermissionTagConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
 }
 
@@ -242,205 +224,158 @@ public class AwsQuicksightDataSet : TerraformResource
 {
     public AwsQuicksightDataSet(string name) : base("aws_quicksight_data_set", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("output_columns");
-        SetOutput("aws_account_id");
-        SetOutput("data_set_id");
-        SetOutput("id");
-        SetOutput("import_mode");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string> AwsAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
-        set => SetProperty("aws_account_id", value);
-    }
+    [TerraformPropertyName("aws_account_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AwsAccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_account_id");
 
     /// <summary>
     /// The data_set_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
-    public required TerraformProperty<string> DataSetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_set_id");
-        set => SetProperty("data_set_id", value);
-    }
+    [TerraformPropertyName("data_set_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataSetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The import_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportMode is required")]
-    public required TerraformProperty<string> ImportMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("import_mode");
-        set => SetProperty("import_mode", value);
-    }
+    [TerraformPropertyName("import_mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ImportMode { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for column_groups.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(8, ErrorMessage = "Maximum 8 ColumnGroups block(s) allowed")]
-    public List<AwsQuicksightDataSetColumnGroupsBlock>? ColumnGroups
-    {
-        set => SetProperty("column_groups", value);
-    }
+    [TerraformPropertyName("column_groups")]
+    public TerraformList<TerraformBlock<AwsQuicksightDataSetColumnGroupsBlock>>? ColumnGroups { get; set; } = new();
 
     /// <summary>
     /// Block for column_level_permission_rules.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsQuicksightDataSetColumnLevelPermissionRulesBlock>? ColumnLevelPermissionRules
-    {
-        set => SetProperty("column_level_permission_rules", value);
-    }
+    [TerraformPropertyName("column_level_permission_rules")]
+    public TerraformList<TerraformBlock<AwsQuicksightDataSetColumnLevelPermissionRulesBlock>>? ColumnLevelPermissionRules { get; set; } = new();
 
     /// <summary>
     /// Block for data_set_usage_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSetUsageConfiguration block(s) allowed")]
-    public List<AwsQuicksightDataSetDataSetUsageConfigurationBlock>? DataSetUsageConfiguration
-    {
-        set => SetProperty("data_set_usage_configuration", value);
-    }
+    [TerraformPropertyName("data_set_usage_configuration")]
+    public TerraformList<TerraformBlock<AwsQuicksightDataSetDataSetUsageConfigurationBlock>>? DataSetUsageConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for field_folders.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1000, ErrorMessage = "Maximum 1000 FieldFolders block(s) allowed")]
-    public HashSet<AwsQuicksightDataSetFieldFoldersBlock>? FieldFolders
-    {
-        set => SetProperty("field_folders", value);
-    }
+    [TerraformPropertyName("field_folders")]
+    public TerraformSet<TerraformBlock<AwsQuicksightDataSetFieldFoldersBlock>>? FieldFolders { get; set; } = new();
 
     /// <summary>
     /// Block for logical_table_map.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 LogicalTableMap block(s) allowed")]
-    public HashSet<AwsQuicksightDataSetLogicalTableMapBlock>? LogicalTableMap
-    {
-        set => SetProperty("logical_table_map", value);
-    }
+    [TerraformPropertyName("logical_table_map")]
+    public TerraformSet<TerraformBlock<AwsQuicksightDataSetLogicalTableMapBlock>>? LogicalTableMap { get; set; } = new();
 
     /// <summary>
     /// Block for permissions.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
-    public HashSet<AwsQuicksightDataSetPermissionsBlock>? Permissions
-    {
-        set => SetProperty("permissions", value);
-    }
+    [TerraformPropertyName("permissions")]
+    public TerraformSet<TerraformBlock<AwsQuicksightDataSetPermissionsBlock>>? Permissions { get; set; } = new();
 
     /// <summary>
     /// Block for physical_table_map.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(32, ErrorMessage = "Maximum 32 PhysicalTableMap block(s) allowed")]
-    public HashSet<AwsQuicksightDataSetPhysicalTableMapBlock>? PhysicalTableMap
-    {
-        set => SetProperty("physical_table_map", value);
-    }
+    [TerraformPropertyName("physical_table_map")]
+    public TerraformSet<TerraformBlock<AwsQuicksightDataSetPhysicalTableMapBlock>>? PhysicalTableMap { get; set; } = new();
 
     /// <summary>
     /// Block for refresh_properties.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RefreshProperties block(s) allowed")]
-    public List<AwsQuicksightDataSetRefreshPropertiesBlock>? RefreshProperties
-    {
-        set => SetProperty("refresh_properties", value);
-    }
+    [TerraformPropertyName("refresh_properties")]
+    public TerraformList<TerraformBlock<AwsQuicksightDataSetRefreshPropertiesBlock>>? RefreshProperties { get; set; } = new();
 
     /// <summary>
     /// Block for row_level_permission_data_set.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RowLevelPermissionDataSet block(s) allowed")]
-    public List<AwsQuicksightDataSetRowLevelPermissionDataSetBlock>? RowLevelPermissionDataSet
-    {
-        set => SetProperty("row_level_permission_data_set", value);
-    }
+    [TerraformPropertyName("row_level_permission_data_set")]
+    public TerraformList<TerraformBlock<AwsQuicksightDataSetRowLevelPermissionDataSetBlock>>? RowLevelPermissionDataSet { get; set; } = new();
 
     /// <summary>
     /// Block for row_level_permission_tag_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RowLevelPermissionTagConfiguration block(s) allowed")]
-    public List<AwsQuicksightDataSetRowLevelPermissionTagConfigurationBlock>? RowLevelPermissionTagConfiguration
-    {
-        set => SetProperty("row_level_permission_tag_configuration", value);
-    }
+    [TerraformPropertyName("row_level_permission_tag_configuration")]
+    public TerraformList<TerraformBlock<AwsQuicksightDataSetRowLevelPermissionTagConfigurationBlock>>? RowLevelPermissionTagConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The output_columns attribute.
     /// </summary>
-    public TerraformExpression OutputColumns => this["output_columns"];
+    [TerraformPropertyName("output_columns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> OutputColumns => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "output_columns");
 
 }

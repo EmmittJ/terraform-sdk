@@ -9,54 +9,42 @@ public class GoogleServiceAccountKeyDataSource : TerraformDataSource
 {
     public GoogleServiceAccountKeyDataSource(string name) : base("google_service_account_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("key_algorithm");
-        SetOutput("public_key");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("public_key_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The public_key_type attribute.
     /// </summary>
-    public TerraformProperty<string> PublicKeyType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("public_key_type");
-        set => SetProperty("public_key_type", value);
-    }
+    [TerraformPropertyName("public_key_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PublicKeyType { get; set; }
 
     /// <summary>
     /// The key_algorithm attribute.
     /// </summary>
-    public TerraformExpression KeyAlgorithm => this["key_algorithm"];
+    [TerraformPropertyName("key_algorithm")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyAlgorithm => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_algorithm");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
-    public TerraformExpression PublicKey => this["public_key"];
+    [TerraformPropertyName("public_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublicKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_key");
 
 }

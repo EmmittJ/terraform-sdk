@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for subnet in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStackHciLogicalNetworkSubnetBlock : TerraformBlock
+public class AzurermStackHciLogicalNetworkSubnetBlock : ITerraformBlock
 {
     /// <summary>
     /// The address_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? AddressPrefix
-    {
-        set => SetProperty("address_prefix", value);
-    }
+    [TerraformPropertyName("address_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AddressPrefix { get; set; }
 
     /// <summary>
     /// The ip_allocation_method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAllocationMethod is required")]
-    public required TerraformProperty<string> IpAllocationMethod
-    {
-        set => SetProperty("ip_allocation_method", value);
-    }
+    [TerraformPropertyName("ip_allocation_method")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IpAllocationMethod { get; set; }
 
     /// <summary>
     /// The vlan_id attribute.
     /// </summary>
-    public TerraformProperty<double>? VlanId
-    {
-        set => SetProperty("vlan_id", value);
-    }
+    [TerraformPropertyName("vlan_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? VlanId { get; set; }
 
 }
 
@@ -39,39 +36,35 @@ public class AzurermStackHciLogicalNetworkSubnetBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStackHciLogicalNetworkTimeoutsBlock : TerraformBlock
+public class AzurermStackHciLogicalNetworkTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -83,97 +76,68 @@ public class AzurermStackHciLogicalNetwork : TerraformResource
 {
     public AzurermStackHciLogicalNetwork(string name) : base("azurerm_stack_hci_logical_network", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("custom_location_id");
-        SetOutput("dns_servers");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
-        SetOutput("virtual_switch_name");
     }
 
     /// <summary>
     /// The custom_location_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
-    public required TerraformProperty<string> CustomLocationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("custom_location_id");
-        set => SetProperty("custom_location_id", value);
-    }
+    [TerraformPropertyName("custom_location_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CustomLocationId { get; set; }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public List<TerraformProperty<string>> DnsServers
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("dns_servers");
-        set => SetProperty("dns_servers", value);
-    }
+    [TerraformPropertyName("dns_servers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? DnsServers { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The virtual_switch_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualSwitchName is required")]
-    public required TerraformProperty<string> VirtualSwitchName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_switch_name");
-        set => SetProperty("virtual_switch_name", value);
-    }
+    [TerraformPropertyName("virtual_switch_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualSwitchName { get; set; }
 
     /// <summary>
     /// Block for subnet.
@@ -182,18 +146,14 @@ public class AzurermStackHciLogicalNetwork : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnet is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subnet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]
-    public List<AzurermStackHciLogicalNetworkSubnetBlock>? Subnet
-    {
-        set => SetProperty("subnet", value);
-    }
+    [TerraformPropertyName("subnet")]
+    public TerraformList<TerraformBlock<AzurermStackHciLogicalNetworkSubnetBlock>>? Subnet { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStackHciLogicalNetworkTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStackHciLogicalNetworkTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

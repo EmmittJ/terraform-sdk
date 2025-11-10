@@ -9,179 +9,141 @@ public class AwsCognitoUser : TerraformResource
 {
     public AwsCognitoUser(string name) : base("aws_cognito_user", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_date");
-        SetOutput("last_modified_date");
-        SetOutput("mfa_setting_list");
-        SetOutput("preferred_mfa_setting");
-        SetOutput("status");
-        SetOutput("sub");
-        SetOutput("attributes");
-        SetOutput("client_metadata");
-        SetOutput("desired_delivery_mediums");
-        SetOutput("enabled");
-        SetOutput("force_alias_creation");
-        SetOutput("id");
-        SetOutput("message_action");
-        SetOutput("password");
-        SetOutput("region");
-        SetOutput("temporary_password");
-        SetOutput("user_pool_id");
-        SetOutput("username");
-        SetOutput("validation_data");
     }
 
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Attributes
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("attributes");
-        set => SetProperty("attributes", value);
-    }
+    [TerraformPropertyName("attributes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Attributes { get; set; }
 
     /// <summary>
     /// The client_metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> ClientMetadata
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("client_metadata");
-        set => SetProperty("client_metadata", value);
-    }
+    [TerraformPropertyName("client_metadata")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ClientMetadata { get; set; }
 
     /// <summary>
     /// The desired_delivery_mediums attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> DesiredDeliveryMediums
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("desired_delivery_mediums");
-        set => SetProperty("desired_delivery_mediums", value);
-    }
+    [TerraformPropertyName("desired_delivery_mediums")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DesiredDeliveryMediums { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The force_alias_creation attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceAliasCreation
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_alias_creation");
-        set => SetProperty("force_alias_creation", value);
-    }
+    [TerraformPropertyName("force_alias_creation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceAliasCreation { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The message_action attribute.
     /// </summary>
-    public TerraformProperty<string> MessageAction
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("message_action");
-        set => SetProperty("message_action", value);
-    }
+    [TerraformPropertyName("message_action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MessageAction { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string> Password
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("password");
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Password { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The temporary_password attribute.
     /// </summary>
-    public TerraformProperty<string> TemporaryPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("temporary_password");
-        set => SetProperty("temporary_password", value);
-    }
+    [TerraformPropertyName("temporary_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TemporaryPassword { get; set; }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
-    public required TerraformProperty<string> UserPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
-        set => SetProperty("user_pool_id", value);
-    }
+    [TerraformPropertyName("user_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserPoolId { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    public required TerraformProperty<string> Username
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("username");
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
 
     /// <summary>
     /// The validation_data attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> ValidationData
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("validation_data");
-        set => SetProperty("validation_data", value);
-    }
+    [TerraformPropertyName("validation_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ValidationData { get; set; }
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
-    public TerraformExpression CreationDate => this["creation_date"];
+    [TerraformPropertyName("creation_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_date");
 
     /// <summary>
     /// The last_modified_date attribute.
     /// </summary>
-    public TerraformExpression LastModifiedDate => this["last_modified_date"];
+    [TerraformPropertyName("last_modified_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_date");
 
     /// <summary>
     /// The mfa_setting_list attribute.
     /// </summary>
-    public TerraformExpression MfaSettingList => this["mfa_setting_list"];
+    [TerraformPropertyName("mfa_setting_list")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> MfaSettingList => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "mfa_setting_list");
 
     /// <summary>
     /// The preferred_mfa_setting attribute.
     /// </summary>
-    public TerraformExpression PreferredMfaSetting => this["preferred_mfa_setting"];
+    [TerraformPropertyName("preferred_mfa_setting")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PreferredMfaSetting => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_mfa_setting");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The sub attribute.
     /// </summary>
-    public TerraformExpression Sub => this["sub"];
+    [TerraformPropertyName("sub")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Sub => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sub");
 
 }

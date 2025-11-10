@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermEventhubSasDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermEventhubSasDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,58 +24,43 @@ public class AzurermEventhubSasDataSource : TerraformDataSource
 {
     public AzurermEventhubSasDataSource(string name) : base("azurerm_eventhub_sas", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("sas");
-        SetOutput("connection_string");
-        SetOutput("expiry");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
-    public required TerraformProperty<string> ConnectionString
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connection_string");
-        set => SetProperty("connection_string", value);
-    }
+    [TerraformPropertyName("connection_string")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConnectionString { get; set; }
 
     /// <summary>
     /// The expiry attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
-    public required TerraformProperty<string> Expiry
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("expiry");
-        set => SetProperty("expiry", value);
-    }
+    [TerraformPropertyName("expiry")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Expiry { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermEventhubSasDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermEventhubSasDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The sas attribute.
     /// </summary>
-    public TerraformExpression Sas => this["sas"];
+    [TerraformPropertyName("sas")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Sas => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sas");
 
 }

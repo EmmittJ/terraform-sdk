@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDocdbelasticClusterTimeoutsBlock : TerraformBlock
+public class AwsDocdbelasticClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,190 +38,145 @@ public class AwsDocdbelasticCluster : TerraformResource
 {
     public AwsDocdbelasticCluster(string name) : base("aws_docdbelastic_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("endpoint");
-        SetOutput("id");
-        SetOutput("tags_all");
-        SetOutput("admin_user_name");
-        SetOutput("admin_user_password");
-        SetOutput("auth_type");
-        SetOutput("backup_retention_period");
-        SetOutput("kms_key_id");
-        SetOutput("name");
-        SetOutput("preferred_backup_window");
-        SetOutput("preferred_maintenance_window");
-        SetOutput("region");
-        SetOutput("shard_capacity");
-        SetOutput("shard_count");
-        SetOutput("subnet_ids");
-        SetOutput("tags");
-        SetOutput("vpc_security_group_ids");
     }
 
     /// <summary>
     /// The admin_user_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUserName is required")]
-    public required TerraformProperty<string> AdminUserName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("admin_user_name");
-        set => SetProperty("admin_user_name", value);
-    }
+    [TerraformPropertyName("admin_user_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AdminUserName { get; set; }
 
     /// <summary>
     /// The admin_user_password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUserPassword is required")]
-    public required TerraformProperty<string> AdminUserPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("admin_user_password");
-        set => SetProperty("admin_user_password", value);
-    }
+    [TerraformPropertyName("admin_user_password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AdminUserPassword { get; set; }
 
     /// <summary>
     /// The auth_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
-    public required TerraformProperty<string> AuthType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("auth_type");
-        set => SetProperty("auth_type", value);
-    }
+    [TerraformPropertyName("auth_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthType { get; set; }
 
     /// <summary>
     /// The backup_retention_period attribute.
     /// </summary>
-    public TerraformProperty<double> BackupRetentionPeriod
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("backup_retention_period");
-        set => SetProperty("backup_retention_period", value);
-    }
+    [TerraformPropertyName("backup_retention_period")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> BackupRetentionPeriod { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "backup_retention_period");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
-    public TerraformProperty<string> PreferredBackupWindow
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("preferred_backup_window");
-        set => SetProperty("preferred_backup_window", value);
-    }
+    [TerraformPropertyName("preferred_backup_window")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PreferredBackupWindow { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_backup_window");
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string> PreferredMaintenanceWindow
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("preferred_maintenance_window");
-        set => SetProperty("preferred_maintenance_window", value);
-    }
+    [TerraformPropertyName("preferred_maintenance_window")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PreferredMaintenanceWindow { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_maintenance_window");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The shard_capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCapacity is required")]
-    public required TerraformProperty<double> ShardCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("shard_capacity");
-        set => SetProperty("shard_capacity", value);
-    }
+    [TerraformPropertyName("shard_capacity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ShardCapacity { get; set; }
 
     /// <summary>
     /// The shard_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCount is required")]
-    public required TerraformProperty<double> ShardCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("shard_count");
-        set => SetProperty("shard_count", value);
-    }
+    [TerraformPropertyName("shard_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ShardCount { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SubnetIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SubnetIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "subnet_ids");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> VpcSecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
-        set => SetProperty("vpc_security_group_ids", value);
-    }
+    [TerraformPropertyName("vpc_security_group_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> VpcSecurityGroupIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "vpc_security_group_ids");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDocdbelasticClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDocdbelasticClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadDomainsDataSourceTimeoutsBlock : TerraformBlock
+public class AzureadDomainsDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,96 +24,69 @@ public class AzureadDomainsDataSource : TerraformDataSource
 {
     public AzureadDomainsDataSource(string name) : base("azuread_domains", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("domains");
-        SetOutput("admin_managed");
-        SetOutput("id");
-        SetOutput("include_unverified");
-        SetOutput("only_default");
-        SetOutput("only_initial");
-        SetOutput("only_root");
-        SetOutput("supports_services");
     }
 
     /// <summary>
     /// Set to `true` to only return domains whose DNS is managed by Microsoft 365
     /// </summary>
-    public TerraformProperty<bool> AdminManaged
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("admin_managed");
-        set => SetProperty("admin_managed", value);
-    }
+    [TerraformPropertyName("admin_managed")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AdminManaged { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Set to `true` if unverified Azure AD domains should be included
     /// </summary>
-    public TerraformProperty<bool> IncludeUnverified
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("include_unverified");
-        set => SetProperty("include_unverified", value);
-    }
+    [TerraformPropertyName("include_unverified")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeUnverified { get; set; }
 
     /// <summary>
     /// Set to `true` to only return the default domain
     /// </summary>
-    public TerraformProperty<bool> OnlyDefault
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("only_default");
-        set => SetProperty("only_default", value);
-    }
+    [TerraformPropertyName("only_default")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? OnlyDefault { get; set; }
 
     /// <summary>
     /// Set to `true` to only return the initial domain, which is your primary Azure Active Directory tenant domain
     /// </summary>
-    public TerraformProperty<bool> OnlyInitial
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("only_initial");
-        set => SetProperty("only_initial", value);
-    }
+    [TerraformPropertyName("only_initial")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? OnlyInitial { get; set; }
 
     /// <summary>
     /// Set to `true` to only return verified root domains. Excludes subdomains and unverified domains
     /// </summary>
-    public TerraformProperty<bool> OnlyRoot
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("only_root");
-        set => SetProperty("only_root", value);
-    }
+    [TerraformPropertyName("only_root")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? OnlyRoot { get; set; }
 
     /// <summary>
     /// A list of supported services that must be supported by a domain
     /// </summary>
-    public List<TerraformProperty<string>> SupportsServices
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("supports_services");
-        set => SetProperty("supports_services", value);
-    }
+    [TerraformPropertyName("supports_services")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SupportsServices { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadDomainsDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadDomainsDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// A list of tenant domains
     /// </summary>
-    public TerraformExpression Domains => this["domains"];
+    [TerraformPropertyName("domains")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Domains => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "domains");
 
 }

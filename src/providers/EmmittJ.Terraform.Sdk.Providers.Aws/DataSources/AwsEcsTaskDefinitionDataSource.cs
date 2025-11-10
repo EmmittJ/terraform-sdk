@@ -9,162 +9,168 @@ public class AwsEcsTaskDefinitionDataSource : TerraformDataSource
 {
     public AwsEcsTaskDefinitionDataSource(string name) : base("aws_ecs_task_definition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("arn_without_revision");
-        SetOutput("container_definitions");
-        SetOutput("cpu");
-        SetOutput("enable_fault_injection");
-        SetOutput("ephemeral_storage");
-        SetOutput("execution_role_arn");
-        SetOutput("family");
-        SetOutput("ipc_mode");
-        SetOutput("memory");
-        SetOutput("network_mode");
-        SetOutput("pid_mode");
-        SetOutput("placement_constraints");
-        SetOutput("proxy_configuration");
-        SetOutput("requires_compatibilities");
-        SetOutput("revision");
-        SetOutput("runtime_platform");
-        SetOutput("status");
-        SetOutput("task_role_arn");
-        SetOutput("volume");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("task_definition");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The task_definition attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
-    public required TerraformProperty<string> TaskDefinition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("task_definition");
-        set => SetProperty("task_definition", value);
-    }
+    [TerraformPropertyName("task_definition")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TaskDefinition { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The arn_without_revision attribute.
     /// </summary>
-    public TerraformExpression ArnWithoutRevision => this["arn_without_revision"];
+    [TerraformPropertyName("arn_without_revision")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ArnWithoutRevision => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn_without_revision");
 
     /// <summary>
     /// The container_definitions attribute.
     /// </summary>
-    public TerraformExpression ContainerDefinitions => this["container_definitions"];
+    [TerraformPropertyName("container_definitions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContainerDefinitions => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "container_definitions");
 
     /// <summary>
     /// The cpu attribute.
     /// </summary>
-    public TerraformExpression Cpu => this["cpu"];
+    [TerraformPropertyName("cpu")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Cpu => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cpu");
 
     /// <summary>
     /// The enable_fault_injection attribute.
     /// </summary>
-    public TerraformExpression EnableFaultInjection => this["enable_fault_injection"];
+    [TerraformPropertyName("enable_fault_injection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableFaultInjection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_fault_injection");
 
     /// <summary>
     /// The ephemeral_storage attribute.
     /// </summary>
-    public TerraformExpression EphemeralStorage => this["ephemeral_storage"];
+    [TerraformPropertyName("ephemeral_storage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> EphemeralStorage => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ephemeral_storage");
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    public TerraformExpression ExecutionRoleArn => this["execution_role_arn"];
+    [TerraformPropertyName("execution_role_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExecutionRoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "execution_role_arn");
 
     /// <summary>
     /// The family attribute.
     /// </summary>
-    public TerraformExpression Family => this["family"];
+    [TerraformPropertyName("family")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Family => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "family");
 
     /// <summary>
     /// The ipc_mode attribute.
     /// </summary>
-    public TerraformExpression IpcMode => this["ipc_mode"];
+    [TerraformPropertyName("ipc_mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpcMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ipc_mode");
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    public TerraformExpression Memory => this["memory"];
+    [TerraformPropertyName("memory")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Memory => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "memory");
 
     /// <summary>
     /// The network_mode attribute.
     /// </summary>
-    public TerraformExpression NetworkMode => this["network_mode"];
+    [TerraformPropertyName("network_mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NetworkMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_mode");
 
     /// <summary>
     /// The pid_mode attribute.
     /// </summary>
-    public TerraformExpression PidMode => this["pid_mode"];
+    [TerraformPropertyName("pid_mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PidMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "pid_mode");
 
     /// <summary>
     /// The placement_constraints attribute.
     /// </summary>
-    public TerraformExpression PlacementConstraints => this["placement_constraints"];
+    [TerraformPropertyName("placement_constraints")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> PlacementConstraints => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "placement_constraints");
 
     /// <summary>
     /// The proxy_configuration attribute.
     /// </summary>
-    public TerraformExpression ProxyConfiguration => this["proxy_configuration"];
+    [TerraformPropertyName("proxy_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ProxyConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "proxy_configuration");
 
     /// <summary>
     /// The requires_compatibilities attribute.
     /// </summary>
-    public TerraformExpression RequiresCompatibilities => this["requires_compatibilities"];
+    [TerraformPropertyName("requires_compatibilities")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> RequiresCompatibilities => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "requires_compatibilities");
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
-    public TerraformExpression Revision => this["revision"];
+    [TerraformPropertyName("revision")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Revision => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "revision");
 
     /// <summary>
     /// The runtime_platform attribute.
     /// </summary>
-    public TerraformExpression RuntimePlatform => this["runtime_platform"];
+    [TerraformPropertyName("runtime_platform")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RuntimePlatform => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "runtime_platform");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The task_role_arn attribute.
     /// </summary>
-    public TerraformExpression TaskRoleArn => this["task_role_arn"];
+    [TerraformPropertyName("task_role_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TaskRoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "task_role_arn");
 
     /// <summary>
     /// The volume attribute.
     /// </summary>
-    public TerraformExpression Volume => this["volume"];
+    [TerraformPropertyName("volume")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Volume => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "volume");
 
 }

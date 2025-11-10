@@ -6,64 +6,57 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authentication in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
+public class AzurermFunctionAppConnectionAuthenticationBlock : ITerraformBlock
 {
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    public TerraformProperty<string>? Certificate
-    {
-        set => SetProperty("certificate", value);
-    }
+    [TerraformPropertyName("certificate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Certificate { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientId
-    {
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrincipalId { get; set; }
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
-    public TerraformProperty<string>? Secret
-    {
-        set => SetProperty("secret", value);
-    }
+    [TerraformPropertyName("secret")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Secret { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubscriptionId
-    {
-        set => SetProperty("subscription_id", value);
-    }
+    [TerraformPropertyName("subscription_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SubscriptionId { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -71,16 +64,15 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
 /// Block type for secret_store in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFunctionAppConnectionSecretStoreBlock : TerraformBlock
+public class AzurermFunctionAppConnectionSecretStoreBlock : ITerraformBlock
 {
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    public required TerraformProperty<string> KeyVaultId
-    {
-        set => SetProperty("key_vault_id", value);
-    }
+    [TerraformPropertyName("key_vault_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyVaultId { get; set; }
 
 }
 
@@ -88,39 +80,35 @@ public class AzurermFunctionAppConnectionSecretStoreBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
+public class AzurermFunctionAppConnectionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -132,75 +120,52 @@ public class AzurermFunctionAppConnection : TerraformResource
 {
     public AzurermFunctionAppConnection(string name) : base("azurerm_function_app_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("client_type");
-        SetOutput("function_app_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("target_resource_id");
-        SetOutput("vnet_solution");
     }
 
     /// <summary>
     /// The client_type attribute.
     /// </summary>
-    public TerraformProperty<string> ClientType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_type");
-        set => SetProperty("client_type", value);
-    }
+    [TerraformPropertyName("client_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientType { get; set; }
 
     /// <summary>
     /// The function_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
-    public required TerraformProperty<string> FunctionAppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("function_app_id");
-        set => SetProperty("function_app_id", value);
-    }
+    [TerraformPropertyName("function_app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FunctionAppId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
-    public required TerraformProperty<string> TargetResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
-        set => SetProperty("target_resource_id", value);
-    }
+    [TerraformPropertyName("target_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetResourceId { get; set; }
 
     /// <summary>
     /// The vnet_solution attribute.
     /// </summary>
-    public TerraformProperty<string> VnetSolution
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vnet_solution");
-        set => SetProperty("vnet_solution", value);
-    }
+    [TerraformPropertyName("vnet_solution")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VnetSolution { get; set; }
 
     /// <summary>
     /// Block for authentication.
@@ -209,28 +174,22 @@ public class AzurermFunctionAppConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
-    public List<AzurermFunctionAppConnectionAuthenticationBlock>? Authentication
-    {
-        set => SetProperty("authentication", value);
-    }
+    [TerraformPropertyName("authentication")]
+    public TerraformList<TerraformBlock<AzurermFunctionAppConnectionAuthenticationBlock>>? Authentication { get; set; } = new();
 
     /// <summary>
     /// Block for secret_store.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecretStore block(s) allowed")]
-    public List<AzurermFunctionAppConnectionSecretStoreBlock>? SecretStore
-    {
-        set => SetProperty("secret_store", value);
-    }
+    [TerraformPropertyName("secret_store")]
+    public TerraformList<TerraformBlock<AzurermFunctionAppConnectionSecretStoreBlock>>? SecretStore { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermFunctionAppConnectionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermFunctionAppConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

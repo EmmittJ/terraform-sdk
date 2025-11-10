@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksClusterAccessConfigBlock : TerraformBlock
+public class AwsEksClusterAccessConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationMode
-    {
-        set => SetProperty("authentication_mode", value);
-    }
+    [TerraformPropertyName("authentication_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AuthenticationMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "authentication_mode");
 
     /// <summary>
     /// The bootstrap_cluster_creator_admin_permissions attribute.
     /// </summary>
-    public TerraformProperty<bool>? BootstrapClusterCreatorAdminPermissions
-    {
-        set => SetProperty("bootstrap_cluster_creator_admin_permissions", value);
-    }
+    [TerraformPropertyName("bootstrap_cluster_creator_admin_permissions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BootstrapClusterCreatorAdminPermissions { get; set; }
 
 }
 
@@ -30,31 +28,28 @@ public class AwsEksClusterAccessConfigBlock : TerraformBlock
 /// Block type for compute_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksClusterComputeConfigBlock : TerraformBlock
+public class AwsEksClusterComputeConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> Enabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "enabled");
 
     /// <summary>
     /// The node_pools attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? NodePools
-    {
-        set => SetProperty("node_pools", value);
-    }
+    [TerraformPropertyName("node_pools")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? NodePools { get; set; }
 
     /// <summary>
     /// The node_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? NodeRoleArn
-    {
-        set => SetProperty("node_role_arn", value);
-    }
+    [TerraformPropertyName("node_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NodeRoleArn { get; set; }
 
 }
 
@@ -62,16 +57,15 @@ public class AwsEksClusterComputeConfigBlock : TerraformBlock
 /// Block type for encryption_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksClusterEncryptionConfigBlock : TerraformBlock
+public class AwsEksClusterEncryptionConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The resources attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resources is required")]
-    public HashSet<TerraformProperty<string>>? Resources
-    {
-        set => SetProperty("resources", value);
-    }
+    [TerraformPropertyName("resources")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Resources { get; set; }
 
 }
 
@@ -79,31 +73,28 @@ public class AwsEksClusterEncryptionConfigBlock : TerraformBlock
 /// Block type for kubernetes_network_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksClusterKubernetesNetworkConfigBlock : TerraformBlock
+public class AwsEksClusterKubernetesNetworkConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The ip_family attribute.
     /// </summary>
-    public TerraformProperty<string>? IpFamily
-    {
-        set => SetProperty("ip_family", value);
-    }
+    [TerraformPropertyName("ip_family")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IpFamily { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "ip_family");
 
     /// <summary>
     /// The service_ipv4_cidr attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceIpv4Cidr
-    {
-        set => SetProperty("service_ipv4_cidr", value);
-    }
+    [TerraformPropertyName("service_ipv4_cidr")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ServiceIpv4Cidr { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "service_ipv4_cidr");
 
     /// <summary>
     /// The service_ipv6_cidr attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceIpv6Cidr
-    {
-        set => SetProperty("service_ipv6_cidr", value);
-    }
+    [TerraformPropertyName("service_ipv6_cidr")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceIpv6Cidr => new TerraformReferenceProperty<TerraformProperty<string>>("", "service_ipv6_cidr");
 
 }
 
@@ -111,25 +102,23 @@ public class AwsEksClusterKubernetesNetworkConfigBlock : TerraformBlock
 /// Block type for outpost_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksClusterOutpostConfigBlock : TerraformBlock
+public class AwsEksClusterOutpostConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The control_plane_instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPlaneInstanceType is required")]
-    public required TerraformProperty<string> ControlPlaneInstanceType
-    {
-        set => SetProperty("control_plane_instance_type", value);
-    }
+    [TerraformPropertyName("control_plane_instance_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ControlPlaneInstanceType { get; set; }
 
     /// <summary>
     /// The outpost_arns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutpostArns is required")]
-    public HashSet<TerraformProperty<string>>? OutpostArns
-    {
-        set => SetProperty("outpost_arns", value);
-    }
+    [TerraformPropertyName("outpost_arns")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? OutpostArns { get; set; }
 
 }
 
@@ -137,7 +126,7 @@ public class AwsEksClusterOutpostConfigBlock : TerraformBlock
 /// Block type for remote_network_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksClusterRemoteNetworkConfigBlock : TerraformBlock
+public class AwsEksClusterRemoteNetworkConfigBlock : ITerraformBlock
 {
 }
 
@@ -145,7 +134,7 @@ public class AwsEksClusterRemoteNetworkConfigBlock : TerraformBlock
 /// Block type for storage_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksClusterStorageConfigBlock : TerraformBlock
+public class AwsEksClusterStorageConfigBlock : ITerraformBlock
 {
 }
 
@@ -153,31 +142,28 @@ public class AwsEksClusterStorageConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEksClusterTimeoutsBlock : TerraformBlock
+public class AwsEksClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -185,15 +171,14 @@ public class AwsEksClusterTimeoutsBlock : TerraformBlock
 /// Block type for upgrade_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksClusterUpgradePolicyBlock : TerraformBlock
+public class AwsEksClusterUpgradePolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The support_type attribute.
     /// </summary>
-    public TerraformProperty<string>? SupportType
-    {
-        set => SetProperty("support_type", value);
-    }
+    [TerraformPropertyName("support_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SupportType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "support_type");
 
 }
 
@@ -201,64 +186,57 @@ public class AwsEksClusterUpgradePolicyBlock : TerraformBlock
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksClusterVpcConfigBlock : TerraformBlock
+public class AwsEksClusterVpcConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The cluster_security_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterSecurityGroupId
-    {
-        set => SetProperty("cluster_security_group_id", value);
-    }
+    [TerraformPropertyName("cluster_security_group_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClusterSecurityGroupId => new TerraformReferenceProperty<TerraformProperty<string>>("", "cluster_security_group_id");
 
     /// <summary>
     /// The endpoint_private_access attribute.
     /// </summary>
-    public TerraformProperty<bool>? EndpointPrivateAccess
-    {
-        set => SetProperty("endpoint_private_access", value);
-    }
+    [TerraformPropertyName("endpoint_private_access")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EndpointPrivateAccess { get; set; }
 
     /// <summary>
     /// The endpoint_public_access attribute.
     /// </summary>
-    public TerraformProperty<bool>? EndpointPublicAccess
-    {
-        set => SetProperty("endpoint_public_access", value);
-    }
+    [TerraformPropertyName("endpoint_public_access")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EndpointPublicAccess { get; set; }
 
     /// <summary>
     /// The public_access_cidrs attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? PublicAccessCidrs
-    {
-        set => SetProperty("public_access_cidrs", value);
-    }
+    [TerraformPropertyName("public_access_cidrs")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> PublicAccessCidrs { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "public_access_cidrs");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
-    {
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public HashSet<TerraformProperty<string>>? SubnetIds
-    {
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
-    {
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>("", "vpc_id");
 
 }
 
@@ -266,15 +244,14 @@ public class AwsEksClusterVpcConfigBlock : TerraformBlock
 /// Block type for zonal_shift_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksClusterZonalShiftConfigBlock : TerraformBlock
+public class AwsEksClusterZonalShiftConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
 }
 
@@ -286,221 +263,157 @@ public class AwsEksCluster : TerraformResource
 {
     public AwsEksCluster(string name) : base("aws_eks_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("certificate_authority");
-        SetOutput("cluster_id");
-        SetOutput("created_at");
-        SetOutput("endpoint");
-        SetOutput("identity");
-        SetOutput("platform_version");
-        SetOutput("status");
-        SetOutput("bootstrap_self_managed_addons");
-        SetOutput("deletion_protection");
-        SetOutput("enabled_cluster_log_types");
-        SetOutput("force_update_version");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("role_arn");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The bootstrap_self_managed_addons attribute.
     /// </summary>
-    public TerraformProperty<bool> BootstrapSelfManagedAddons
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("bootstrap_self_managed_addons");
-        set => SetProperty("bootstrap_self_managed_addons", value);
-    }
+    [TerraformPropertyName("bootstrap_self_managed_addons")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BootstrapSelfManagedAddons { get; set; }
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    public TerraformProperty<bool> DeletionProtection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
-        set => SetProperty("deletion_protection", value);
-    }
+    [TerraformPropertyName("deletion_protection")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtection { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection");
 
     /// <summary>
     /// The enabled_cluster_log_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> EnabledClusterLogTypes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("enabled_cluster_log_types");
-        set => SetProperty("enabled_cluster_log_types", value);
-    }
+    [TerraformPropertyName("enabled_cluster_log_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? EnabledClusterLogTypes { get; set; }
 
     /// <summary>
     /// The force_update_version attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceUpdateVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_update_version");
-        set => SetProperty("force_update_version", value);
-    }
+    [TerraformPropertyName("force_update_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceUpdateVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Version { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
     /// <summary>
     /// Block for access_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessConfig block(s) allowed")]
-    public List<AwsEksClusterAccessConfigBlock>? AccessConfig
-    {
-        set => SetProperty("access_config", value);
-    }
+    [TerraformPropertyName("access_config")]
+    public TerraformList<TerraformBlock<AwsEksClusterAccessConfigBlock>>? AccessConfig { get; set; } = new();
 
     /// <summary>
     /// Block for compute_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeConfig block(s) allowed")]
-    public List<AwsEksClusterComputeConfigBlock>? ComputeConfig
-    {
-        set => SetProperty("compute_config", value);
-    }
+    [TerraformPropertyName("compute_config")]
+    public TerraformList<TerraformBlock<AwsEksClusterComputeConfigBlock>>? ComputeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
-    public List<AwsEksClusterEncryptionConfigBlock>? EncryptionConfig
-    {
-        set => SetProperty("encryption_config", value);
-    }
+    [TerraformPropertyName("encryption_config")]
+    public TerraformList<TerraformBlock<AwsEksClusterEncryptionConfigBlock>>? EncryptionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for kubernetes_network_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KubernetesNetworkConfig block(s) allowed")]
-    public List<AwsEksClusterKubernetesNetworkConfigBlock>? KubernetesNetworkConfig
-    {
-        set => SetProperty("kubernetes_network_config", value);
-    }
+    [TerraformPropertyName("kubernetes_network_config")]
+    public TerraformList<TerraformBlock<AwsEksClusterKubernetesNetworkConfigBlock>>? KubernetesNetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for outpost_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutpostConfig block(s) allowed")]
-    public List<AwsEksClusterOutpostConfigBlock>? OutpostConfig
-    {
-        set => SetProperty("outpost_config", value);
-    }
+    [TerraformPropertyName("outpost_config")]
+    public TerraformList<TerraformBlock<AwsEksClusterOutpostConfigBlock>>? OutpostConfig { get; set; } = new();
 
     /// <summary>
     /// Block for remote_network_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteNetworkConfig block(s) allowed")]
-    public List<AwsEksClusterRemoteNetworkConfigBlock>? RemoteNetworkConfig
-    {
-        set => SetProperty("remote_network_config", value);
-    }
+    [TerraformPropertyName("remote_network_config")]
+    public TerraformList<TerraformBlock<AwsEksClusterRemoteNetworkConfigBlock>>? RemoteNetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for storage_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageConfig block(s) allowed")]
-    public List<AwsEksClusterStorageConfigBlock>? StorageConfig
-    {
-        set => SetProperty("storage_config", value);
-    }
+    [TerraformPropertyName("storage_config")]
+    public TerraformList<TerraformBlock<AwsEksClusterStorageConfigBlock>>? StorageConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEksClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEksClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for upgrade_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradePolicy block(s) allowed")]
-    public List<AwsEksClusterUpgradePolicyBlock>? UpgradePolicy
-    {
-        set => SetProperty("upgrade_policy", value);
-    }
+    [TerraformPropertyName("upgrade_policy")]
+    public TerraformList<TerraformBlock<AwsEksClusterUpgradePolicyBlock>>? UpgradePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
@@ -509,59 +422,71 @@ public class AwsEksCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
-    public List<AwsEksClusterVpcConfigBlock>? VpcConfig
-    {
-        set => SetProperty("vpc_config", value);
-    }
+    [TerraformPropertyName("vpc_config")]
+    public TerraformList<TerraformBlock<AwsEksClusterVpcConfigBlock>>? VpcConfig { get; set; } = new();
 
     /// <summary>
     /// Block for zonal_shift_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZonalShiftConfig block(s) allowed")]
-    public List<AwsEksClusterZonalShiftConfigBlock>? ZonalShiftConfig
-    {
-        set => SetProperty("zonal_shift_config", value);
-    }
+    [TerraformPropertyName("zonal_shift_config")]
+    public TerraformList<TerraformBlock<AwsEksClusterZonalShiftConfigBlock>>? ZonalShiftConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The certificate_authority attribute.
     /// </summary>
-    public TerraformExpression CertificateAuthority => this["certificate_authority"];
+    [TerraformPropertyName("certificate_authority")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> CertificateAuthority => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "certificate_authority");
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformExpression ClusterId => this["cluster_id"];
+    [TerraformPropertyName("cluster_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClusterId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_id");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformExpression Identity => this["identity"];
+    [TerraformPropertyName("identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
 
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
-    public TerraformExpression PlatformVersion => this["platform_version"];
+    [TerraformPropertyName("platform_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PlatformVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "platform_version");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

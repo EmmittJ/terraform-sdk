@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_logs in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbAccessLogsBlock : TerraformBlock
+public class AwsAlbAccessLogsBlock : ITerraformBlock
 {
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? Prefix
-    {
-        set => SetProperty("prefix", value);
-    }
+    [TerraformPropertyName("prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Prefix { get; set; }
 
 }
 
@@ -39,32 +36,29 @@ public class AwsAlbAccessLogsBlock : TerraformBlock
 /// Block type for connection_logs in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbConnectionLogsBlock : TerraformBlock
+public class AwsAlbConnectionLogsBlock : ITerraformBlock
 {
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? Prefix
-    {
-        set => SetProperty("prefix", value);
-    }
+    [TerraformPropertyName("prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Prefix { get; set; }
 
 }
 
@@ -72,16 +66,15 @@ public class AwsAlbConnectionLogsBlock : TerraformBlock
 /// Block type for ipam_pools in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbIpamPoolsBlock : TerraformBlock
+public class AwsAlbIpamPoolsBlock : ITerraformBlock
 {
     /// <summary>
     /// The ipv4_ipam_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ipv4IpamPoolId is required")]
-    public required TerraformProperty<string> Ipv4IpamPoolId
-    {
-        set => SetProperty("ipv4_ipam_pool_id", value);
-    }
+    [TerraformPropertyName("ipv4_ipam_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Ipv4IpamPoolId { get; set; }
 
 }
 
@@ -89,16 +82,15 @@ public class AwsAlbIpamPoolsBlock : TerraformBlock
 /// Block type for minimum_load_balancer_capacity in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbMinimumLoadBalancerCapacityBlock : TerraformBlock
+public class AwsAlbMinimumLoadBalancerCapacityBlock : ITerraformBlock
 {
     /// <summary>
     /// The capacity_units attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityUnits is required")]
-    public required TerraformProperty<double> CapacityUnits
-    {
-        set => SetProperty("capacity_units", value);
-    }
+    [TerraformPropertyName("capacity_units")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> CapacityUnits { get; set; }
 
 }
 
@@ -106,48 +98,43 @@ public class AwsAlbMinimumLoadBalancerCapacityBlock : TerraformBlock
 /// Block type for subnet_mapping in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAlbSubnetMappingBlock : TerraformBlock
+public class AwsAlbSubnetMappingBlock : ITerraformBlock
 {
     /// <summary>
     /// The allocation_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AllocationId
-    {
-        set => SetProperty("allocation_id", value);
-    }
+    [TerraformPropertyName("allocation_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AllocationId { get; set; }
 
     /// <summary>
     /// The ipv6_address attribute.
     /// </summary>
-    public TerraformProperty<string>? Ipv6Address
-    {
-        set => SetProperty("ipv6_address", value);
-    }
+    [TerraformPropertyName("ipv6_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Ipv6Address { get; set; }
 
     /// <summary>
     /// The outpost_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OutpostId
-    {
-        set => SetProperty("outpost_id", value);
-    }
+    [TerraformPropertyName("outpost_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OutpostId => new TerraformReferenceProperty<TerraformProperty<string>>("", "outpost_id");
 
     /// <summary>
     /// The private_ipv4_address attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateIpv4Address
-    {
-        set => SetProperty("private_ipv4_address", value);
-    }
+    [TerraformPropertyName("private_ipv4_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrivateIpv4Address { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
 }
 
@@ -155,31 +142,28 @@ public class AwsAlbSubnetMappingBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsAlbTimeoutsBlock : TerraformBlock
+public class AwsAlbTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -191,379 +175,283 @@ public class AwsAlb : TerraformResource
 {
     public AwsAlb(string name) : base("aws_alb", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("arn_suffix");
-        SetOutput("dns_name");
-        SetOutput("vpc_id");
-        SetOutput("zone_id");
-        SetOutput("client_keep_alive");
-        SetOutput("customer_owned_ipv4_pool");
-        SetOutput("desync_mitigation_mode");
-        SetOutput("dns_record_client_routing_policy");
-        SetOutput("drop_invalid_header_fields");
-        SetOutput("enable_cross_zone_load_balancing");
-        SetOutput("enable_deletion_protection");
-        SetOutput("enable_http2");
-        SetOutput("enable_tls_version_and_cipher_suite_headers");
-        SetOutput("enable_waf_fail_open");
-        SetOutput("enable_xff_client_port");
-        SetOutput("enable_zonal_shift");
-        SetOutput("enforce_security_group_inbound_rules_on_private_link_traffic");
-        SetOutput("id");
-        SetOutput("idle_timeout");
-        SetOutput("internal");
-        SetOutput("ip_address_type");
-        SetOutput("load_balancer_type");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("preserve_host_header");
-        SetOutput("region");
-        SetOutput("secondary_ips_auto_assigned_per_subnet");
-        SetOutput("security_groups");
-        SetOutput("subnets");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("xff_header_processing_mode");
     }
 
     /// <summary>
     /// The client_keep_alive attribute.
     /// </summary>
-    public TerraformProperty<double> ClientKeepAlive
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("client_keep_alive");
-        set => SetProperty("client_keep_alive", value);
-    }
+    [TerraformPropertyName("client_keep_alive")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ClientKeepAlive { get; set; }
 
     /// <summary>
     /// The customer_owned_ipv4_pool attribute.
     /// </summary>
-    public TerraformProperty<string> CustomerOwnedIpv4Pool
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("customer_owned_ipv4_pool");
-        set => SetProperty("customer_owned_ipv4_pool", value);
-    }
+    [TerraformPropertyName("customer_owned_ipv4_pool")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomerOwnedIpv4Pool { get; set; }
 
     /// <summary>
     /// The desync_mitigation_mode attribute.
     /// </summary>
-    public TerraformProperty<string> DesyncMitigationMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("desync_mitigation_mode");
-        set => SetProperty("desync_mitigation_mode", value);
-    }
+    [TerraformPropertyName("desync_mitigation_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DesyncMitigationMode { get; set; }
 
     /// <summary>
     /// The dns_record_client_routing_policy attribute.
     /// </summary>
-    public TerraformProperty<string> DnsRecordClientRoutingPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dns_record_client_routing_policy");
-        set => SetProperty("dns_record_client_routing_policy", value);
-    }
+    [TerraformPropertyName("dns_record_client_routing_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DnsRecordClientRoutingPolicy { get; set; }
 
     /// <summary>
     /// The drop_invalid_header_fields attribute.
     /// </summary>
-    public TerraformProperty<bool> DropInvalidHeaderFields
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("drop_invalid_header_fields");
-        set => SetProperty("drop_invalid_header_fields", value);
-    }
+    [TerraformPropertyName("drop_invalid_header_fields")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DropInvalidHeaderFields { get; set; }
 
     /// <summary>
     /// The enable_cross_zone_load_balancing attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableCrossZoneLoadBalancing
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_cross_zone_load_balancing");
-        set => SetProperty("enable_cross_zone_load_balancing", value);
-    }
+    [TerraformPropertyName("enable_cross_zone_load_balancing")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableCrossZoneLoadBalancing { get; set; }
 
     /// <summary>
     /// The enable_deletion_protection attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableDeletionProtection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_deletion_protection");
-        set => SetProperty("enable_deletion_protection", value);
-    }
+    [TerraformPropertyName("enable_deletion_protection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableDeletionProtection { get; set; }
 
     /// <summary>
     /// The enable_http2 attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableHttp2
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_http2");
-        set => SetProperty("enable_http2", value);
-    }
+    [TerraformPropertyName("enable_http2")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableHttp2 { get; set; }
 
     /// <summary>
     /// The enable_tls_version_and_cipher_suite_headers attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableTlsVersionAndCipherSuiteHeaders
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_tls_version_and_cipher_suite_headers");
-        set => SetProperty("enable_tls_version_and_cipher_suite_headers", value);
-    }
+    [TerraformPropertyName("enable_tls_version_and_cipher_suite_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableTlsVersionAndCipherSuiteHeaders { get; set; }
 
     /// <summary>
     /// The enable_waf_fail_open attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableWafFailOpen
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_waf_fail_open");
-        set => SetProperty("enable_waf_fail_open", value);
-    }
+    [TerraformPropertyName("enable_waf_fail_open")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableWafFailOpen { get; set; }
 
     /// <summary>
     /// The enable_xff_client_port attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableXffClientPort
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_xff_client_port");
-        set => SetProperty("enable_xff_client_port", value);
-    }
+    [TerraformPropertyName("enable_xff_client_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableXffClientPort { get; set; }
 
     /// <summary>
     /// The enable_zonal_shift attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableZonalShift
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_zonal_shift");
-        set => SetProperty("enable_zonal_shift", value);
-    }
+    [TerraformPropertyName("enable_zonal_shift")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableZonalShift { get; set; }
 
     /// <summary>
     /// The enforce_security_group_inbound_rules_on_private_link_traffic attribute.
     /// </summary>
-    public TerraformProperty<string> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("enforce_security_group_inbound_rules_on_private_link_traffic");
-        set => SetProperty("enforce_security_group_inbound_rules_on_private_link_traffic", value);
-    }
+    [TerraformPropertyName("enforce_security_group_inbound_rules_on_private_link_traffic")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "enforce_security_group_inbound_rules_on_private_link_traffic");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The idle_timeout attribute.
     /// </summary>
-    public TerraformProperty<double> IdleTimeout
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("idle_timeout");
-        set => SetProperty("idle_timeout", value);
-    }
+    [TerraformPropertyName("idle_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? IdleTimeout { get; set; }
 
     /// <summary>
     /// The internal attribute.
     /// </summary>
-    public TerraformProperty<bool> Internal
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("internal");
-        set => SetProperty("internal", value);
-    }
+    [TerraformPropertyName("internal")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> Internal { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "internal");
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformProperty<string> IpAddressType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ip_address_type");
-        set => SetProperty("ip_address_type", value);
-    }
+    [TerraformPropertyName("ip_address_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IpAddressType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address_type");
 
     /// <summary>
     /// The load_balancer_type attribute.
     /// </summary>
-    public TerraformProperty<string> LoadBalancerType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("load_balancer_type");
-        set => SetProperty("load_balancer_type", value);
-    }
+    [TerraformPropertyName("load_balancer_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LoadBalancerType { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
 
     /// <summary>
     /// The preserve_host_header attribute.
     /// </summary>
-    public TerraformProperty<bool> PreserveHostHeader
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("preserve_host_header");
-        set => SetProperty("preserve_host_header", value);
-    }
+    [TerraformPropertyName("preserve_host_header")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PreserveHostHeader { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The secondary_ips_auto_assigned_per_subnet attribute.
     /// </summary>
-    public TerraformProperty<double> SecondaryIpsAutoAssignedPerSubnet
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("secondary_ips_auto_assigned_per_subnet");
-        set => SetProperty("secondary_ips_auto_assigned_per_subnet", value);
-    }
+    [TerraformPropertyName("secondary_ips_auto_assigned_per_subnet")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> SecondaryIpsAutoAssignedPerSubnet { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "secondary_ips_auto_assigned_per_subnet");
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SecurityGroups
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_groups");
-        set => SetProperty("security_groups", value);
-    }
+    [TerraformPropertyName("security_groups")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SecurityGroups { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "security_groups");
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Subnets
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnets");
-        set => SetProperty("subnets", value);
-    }
+    [TerraformPropertyName("subnets")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Subnets { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "subnets");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The xff_header_processing_mode attribute.
     /// </summary>
-    public TerraformProperty<string> XffHeaderProcessingMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("xff_header_processing_mode");
-        set => SetProperty("xff_header_processing_mode", value);
-    }
+    [TerraformPropertyName("xff_header_processing_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? XffHeaderProcessingMode { get; set; }
 
     /// <summary>
     /// Block for access_logs.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogs block(s) allowed")]
-    public List<AwsAlbAccessLogsBlock>? AccessLogs
-    {
-        set => SetProperty("access_logs", value);
-    }
+    [TerraformPropertyName("access_logs")]
+    public TerraformList<TerraformBlock<AwsAlbAccessLogsBlock>>? AccessLogs { get; set; } = new();
 
     /// <summary>
     /// Block for connection_logs.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionLogs block(s) allowed")]
-    public List<AwsAlbConnectionLogsBlock>? ConnectionLogs
-    {
-        set => SetProperty("connection_logs", value);
-    }
+    [TerraformPropertyName("connection_logs")]
+    public TerraformList<TerraformBlock<AwsAlbConnectionLogsBlock>>? ConnectionLogs { get; set; } = new();
 
     /// <summary>
     /// Block for ipam_pools.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpamPools block(s) allowed")]
-    public List<AwsAlbIpamPoolsBlock>? IpamPools
-    {
-        set => SetProperty("ipam_pools", value);
-    }
+    [TerraformPropertyName("ipam_pools")]
+    public TerraformList<TerraformBlock<AwsAlbIpamPoolsBlock>>? IpamPools { get; set; } = new();
 
     /// <summary>
     /// Block for minimum_load_balancer_capacity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinimumLoadBalancerCapacity block(s) allowed")]
-    public List<AwsAlbMinimumLoadBalancerCapacityBlock>? MinimumLoadBalancerCapacity
-    {
-        set => SetProperty("minimum_load_balancer_capacity", value);
-    }
+    [TerraformPropertyName("minimum_load_balancer_capacity")]
+    public TerraformList<TerraformBlock<AwsAlbMinimumLoadBalancerCapacityBlock>>? MinimumLoadBalancerCapacity { get; set; } = new();
 
     /// <summary>
     /// Block for subnet_mapping.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsAlbSubnetMappingBlock>? SubnetMapping
-    {
-        set => SetProperty("subnet_mapping", value);
-    }
+    [TerraformPropertyName("subnet_mapping")]
+    public TerraformSet<TerraformBlock<AwsAlbSubnetMappingBlock>>? SubnetMapping { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsAlbTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsAlbTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The arn_suffix attribute.
     /// </summary>
-    public TerraformExpression ArnSuffix => this["arn_suffix"];
+    [TerraformPropertyName("arn_suffix")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ArnSuffix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn_suffix");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformExpression DnsName => this["dns_name"];
+    [TerraformPropertyName("dns_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformExpression VpcId => this["vpc_id"];
+    [TerraformPropertyName("vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformExpression ZoneId => this["zone_id"];
+    [TerraformPropertyName("zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone_id");
 
 }

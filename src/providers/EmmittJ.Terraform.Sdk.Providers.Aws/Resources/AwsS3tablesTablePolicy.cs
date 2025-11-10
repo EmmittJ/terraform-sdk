@@ -9,65 +9,45 @@ public class AwsS3tablesTablePolicy : TerraformResource
 {
     public AwsS3tablesTablePolicy(string name) : base("aws_s3tables_table_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("namespace");
-        SetOutput("region");
-        SetOutput("resource_policy");
-        SetOutput("table_bucket_arn");
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
-    public required TerraformProperty<string> Namespace
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace");
-        set => SetProperty("namespace", value);
-    }
+    [TerraformPropertyName("namespace")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Namespace { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourcePolicy is required")]
-    public required TerraformProperty<string> ResourcePolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_policy");
-        set => SetProperty("resource_policy", value);
-    }
+    [TerraformPropertyName("resource_policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourcePolicy { get; set; }
 
     /// <summary>
     /// The table_bucket_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableBucketArn is required")]
-    public required TerraformProperty<string> TableBucketArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_bucket_arn");
-        set => SetProperty("table_bucket_arn", value);
-    }
+    [TerraformPropertyName("table_bucket_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TableBucketArn { get; set; }
 
 }

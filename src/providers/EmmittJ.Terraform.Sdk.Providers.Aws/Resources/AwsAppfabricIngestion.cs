@@ -9,93 +9,73 @@ public class AwsAppfabricIngestion : TerraformResource
 {
     public AwsAppfabricIngestion(string name) : base("aws_appfabric_ingestion", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("tags_all");
-        SetOutput("app");
-        SetOutput("app_bundle_arn");
-        SetOutput("ingestion_type");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tenant_id");
     }
 
     /// <summary>
     /// The app attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "App is required")]
-    public required TerraformProperty<string> App
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app");
-        set => SetProperty("app", value);
-    }
+    [TerraformPropertyName("app")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> App { get; set; }
 
     /// <summary>
     /// The app_bundle_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
-    public required TerraformProperty<string> AppBundleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_bundle_arn");
-        set => SetProperty("app_bundle_arn", value);
-    }
+    [TerraformPropertyName("app_bundle_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppBundleArn { get; set; }
 
     /// <summary>
     /// The ingestion_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionType is required")]
-    public required TerraformProperty<string> IngestionType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ingestion_type");
-        set => SetProperty("ingestion_type", value);
-    }
+    [TerraformPropertyName("ingestion_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IngestionType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
-    public required TerraformProperty<string> TenantId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tenant_id");
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TenantId { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

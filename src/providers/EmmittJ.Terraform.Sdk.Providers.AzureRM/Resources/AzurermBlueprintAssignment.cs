@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBlueprintAssignmentIdentityBlock : TerraformBlock
+public class AzurermBlueprintAssignmentIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -47,39 +43,35 @@ public class AzurermBlueprintAssignmentIdentityBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBlueprintAssignmentTimeoutsBlock : TerraformBlock
+public class AzurermBlueprintAssignmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -91,120 +83,81 @@ public class AzurermBlueprintAssignment : TerraformResource
 {
     public AzurermBlueprintAssignment(string name) : base("azurerm_blueprint_assignment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("blueprint_name");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("type");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("lock_exclude_actions");
-        SetOutput("lock_exclude_principals");
-        SetOutput("lock_mode");
-        SetOutput("name");
-        SetOutput("parameter_values");
-        SetOutput("resource_groups");
-        SetOutput("target_subscription_id");
-        SetOutput("version_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The lock_exclude_actions attribute.
     /// </summary>
-    public List<TerraformProperty<string>> LockExcludeActions
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("lock_exclude_actions");
-        set => SetProperty("lock_exclude_actions", value);
-    }
+    [TerraformPropertyName("lock_exclude_actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? LockExcludeActions { get; set; }
 
     /// <summary>
     /// The lock_exclude_principals attribute.
     /// </summary>
-    public List<TerraformProperty<string>> LockExcludePrincipals
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("lock_exclude_principals");
-        set => SetProperty("lock_exclude_principals", value);
-    }
+    [TerraformPropertyName("lock_exclude_principals")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? LockExcludePrincipals { get; set; }
 
     /// <summary>
     /// The lock_mode attribute.
     /// </summary>
-    public TerraformProperty<string> LockMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("lock_mode");
-        set => SetProperty("lock_mode", value);
-    }
+    [TerraformPropertyName("lock_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LockMode { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parameter_values attribute.
     /// </summary>
-    public TerraformProperty<string> ParameterValues
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parameter_values");
-        set => SetProperty("parameter_values", value);
-    }
+    [TerraformPropertyName("parameter_values")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ParameterValues { get; set; }
 
     /// <summary>
     /// The resource_groups attribute.
     /// </summary>
-    public TerraformProperty<string> ResourceGroups
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_groups");
-        set => SetProperty("resource_groups", value);
-    }
+    [TerraformPropertyName("resource_groups")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceGroups { get; set; }
 
     /// <summary>
     /// The target_subscription_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetSubscriptionId is required")]
-    public required TerraformProperty<string> TargetSubscriptionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_subscription_id");
-        set => SetProperty("target_subscription_id", value);
-    }
+    [TerraformPropertyName("target_subscription_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetSubscriptionId { get; set; }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionId is required")]
-    public required TerraformProperty<string> VersionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version_id");
-        set => SetProperty("version_id", value);
-    }
+    [TerraformPropertyName("version_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VersionId { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -213,38 +166,42 @@ public class AzurermBlueprintAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermBlueprintAssignmentIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermBlueprintAssignmentIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermBlueprintAssignmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermBlueprintAssignmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The blueprint_name attribute.
     /// </summary>
-    public TerraformExpression BlueprintName => this["blueprint_name"];
+    [TerraformPropertyName("blueprint_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BlueprintName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "blueprint_name");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
 }

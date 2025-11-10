@@ -9,92 +9,72 @@ public class GoogleStorageNotification : TerraformResource
 {
     public GoogleStorageNotification(string name) : base("google_storage_notification", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("notification_id");
-        SetOutput("self_link");
-        SetOutput("bucket");
-        SetOutput("custom_attributes");
-        SetOutput("event_types");
-        SetOutput("object_name_prefix");
-        SetOutput("payload_format");
-        SetOutput("topic");
     }
 
     /// <summary>
     /// The name of the bucket.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// A set of key/value attribute pairs to attach to each Cloud Pub/Sub message published for this notification subscription.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> CustomAttributes
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("custom_attributes");
-        set => SetProperty("custom_attributes", value);
-    }
+    [TerraformPropertyName("custom_attributes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? CustomAttributes { get; set; }
 
     /// <summary>
     /// List of event type filters for this notification config. If not specified, Cloud Storage will send notifications for all event types. The valid types are: &amp;quot;OBJECT_FINALIZE&amp;quot;, &amp;quot;OBJECT_METADATA_UPDATE&amp;quot;, &amp;quot;OBJECT_DELETE&amp;quot;, &amp;quot;OBJECT_ARCHIVE&amp;quot;
     /// </summary>
-    public HashSet<TerraformProperty<string>> EventTypes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("event_types");
-        set => SetProperty("event_types", value);
-    }
+    [TerraformPropertyName("event_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? EventTypes { get; set; }
 
     /// <summary>
     /// Specifies a prefix path filter for this notification config. Cloud Storage will only send notifications for objects in this bucket whose names begin with the specified prefix.
     /// </summary>
-    public TerraformProperty<string> ObjectNamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("object_name_prefix");
-        set => SetProperty("object_name_prefix", value);
-    }
+    [TerraformPropertyName("object_name_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ObjectNamePrefix { get; set; }
 
     /// <summary>
     /// The desired content of the Payload. One of &amp;quot;JSON_API_V1&amp;quot; or &amp;quot;NONE&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PayloadFormat is required")]
-    public required TerraformProperty<string> PayloadFormat
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("payload_format");
-        set => SetProperty("payload_format", value);
-    }
+    [TerraformPropertyName("payload_format")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PayloadFormat { get; set; }
 
     /// <summary>
     /// The Cloud Pub/Sub topic to which this subscription publishes.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
-    public required TerraformProperty<string> Topic
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("topic");
-        set => SetProperty("topic", value);
-    }
+    [TerraformPropertyName("topic")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Topic { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID of the created notification.
     /// </summary>
-    public TerraformExpression NotificationId => this["notification_id"];
+    [TerraformPropertyName("notification_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NotificationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "notification_id");
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
 }

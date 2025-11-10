@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : TerraformBlock
+public class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,124 +45,87 @@ public class AzurermDashboardGrafanaManagedPrivateEndpoint : TerraformResource
 {
     public AzurermDashboardGrafanaManagedPrivateEndpoint(string name) : base("azurerm_dashboard_grafana_managed_private_endpoint", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("grafana_id");
-        SetOutput("group_ids");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("private_link_resource_id");
-        SetOutput("private_link_resource_region");
-        SetOutput("private_link_service_url");
-        SetOutput("request_message");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The grafana_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrafanaId is required")]
-    public required TerraformProperty<string> GrafanaId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("grafana_id");
-        set => SetProperty("grafana_id", value);
-    }
+    [TerraformPropertyName("grafana_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GrafanaId { get; set; }
 
     /// <summary>
     /// The group_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>> GroupIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("group_ids");
-        set => SetProperty("group_ids", value);
-    }
+    [TerraformPropertyName("group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? GroupIds { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The private_link_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkResourceId is required")]
-    public required TerraformProperty<string> PrivateLinkResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("private_link_resource_id");
-        set => SetProperty("private_link_resource_id", value);
-    }
+    [TerraformPropertyName("private_link_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrivateLinkResourceId { get; set; }
 
     /// <summary>
     /// The private_link_resource_region attribute.
     /// </summary>
-    public TerraformProperty<string> PrivateLinkResourceRegion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("private_link_resource_region");
-        set => SetProperty("private_link_resource_region", value);
-    }
+    [TerraformPropertyName("private_link_resource_region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrivateLinkResourceRegion { get; set; }
 
     /// <summary>
     /// The private_link_service_url attribute.
     /// </summary>
-    public TerraformProperty<string> PrivateLinkServiceUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("private_link_service_url");
-        set => SetProperty("private_link_service_url", value);
-    }
+    [TerraformPropertyName("private_link_service_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrivateLinkServiceUrl { get; set; }
 
     /// <summary>
     /// The request_message attribute.
     /// </summary>
-    public TerraformProperty<string> RequestMessage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("request_message");
-        set => SetProperty("request_message", value);
-    }
+    [TerraformPropertyName("request_message")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RequestMessage { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

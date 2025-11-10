@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermConfidentialLedgerDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermConfidentialLedgerDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,94 +24,85 @@ public class AzurermConfidentialLedgerDataSource : TerraformDataSource
 {
     public AzurermConfidentialLedgerDataSource(string name) : base("azurerm_confidential_ledger", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("azuread_based_service_principal");
-        SetOutput("certificate_based_security_principal");
-        SetOutput("identity_service_endpoint");
-        SetOutput("ledger_endpoint");
-        SetOutput("ledger_type");
-        SetOutput("location");
-        SetOutput("tags");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermConfidentialLedgerDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermConfidentialLedgerDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The azuread_based_service_principal attribute.
     /// </summary>
-    public TerraformExpression AzureadBasedServicePrincipal => this["azuread_based_service_principal"];
+    [TerraformPropertyName("azuread_based_service_principal")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AzureadBasedServicePrincipal => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "azuread_based_service_principal");
 
     /// <summary>
     /// The certificate_based_security_principal attribute.
     /// </summary>
-    public TerraformExpression CertificateBasedSecurityPrincipal => this["certificate_based_security_principal"];
+    [TerraformPropertyName("certificate_based_security_principal")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> CertificateBasedSecurityPrincipal => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "certificate_based_security_principal");
 
     /// <summary>
     /// The identity_service_endpoint attribute.
     /// </summary>
-    public TerraformExpression IdentityServiceEndpoint => this["identity_service_endpoint"];
+    [TerraformPropertyName("identity_service_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IdentityServiceEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "identity_service_endpoint");
 
     /// <summary>
     /// The ledger_endpoint attribute.
     /// </summary>
-    public TerraformExpression LedgerEndpoint => this["ledger_endpoint"];
+    [TerraformPropertyName("ledger_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LedgerEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ledger_endpoint");
 
     /// <summary>
     /// The ledger_type attribute.
     /// </summary>
-    public TerraformExpression LedgerType => this["ledger_type"];
+    [TerraformPropertyName("ledger_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LedgerType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ledger_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
 }

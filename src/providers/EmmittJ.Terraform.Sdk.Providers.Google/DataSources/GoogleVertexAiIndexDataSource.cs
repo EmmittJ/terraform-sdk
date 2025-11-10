@@ -9,115 +9,102 @@ public class GoogleVertexAiIndexDataSource : TerraformDataSource
 {
     public GoogleVertexAiIndexDataSource(string name) : base("google_vertex_ai_index", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("deployed_indexes");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("effective_labels");
-        SetOutput("encryption_spec");
-        SetOutput("etag");
-        SetOutput("index_stats");
-        SetOutput("index_update_method");
-        SetOutput("labels");
-        SetOutput("metadata");
-        SetOutput("metadata_schema_uri");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The resource name of the Index.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The region of the index. eg us-central1
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
-    public required TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Region { get; set; }
 
     /// <summary>
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The pointers to DeployedIndexes created from this Index. An Index can be only deleted if all its DeployedIndexes had been undeployed first.
     /// </summary>
-    public TerraformExpression DeployedIndexes => this["deployed_indexes"];
+    [TerraformPropertyName("deployed_indexes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DeployedIndexes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "deployed_indexes");
 
     /// <summary>
     /// The description of the Index.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The display name of the Index. The name can be up to 128 characters long and can consist of any UTF-8 characters.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Customer-managed encryption key spec for an Index. If set, this Index and all sub-resources of this Index will be secured by this key.
     /// </summary>
-    public TerraformExpression EncryptionSpec => this["encryption_spec"];
+    [TerraformPropertyName("encryption_spec")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> EncryptionSpec => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "encryption_spec");
 
     /// <summary>
     /// Used to perform consistent read-modify-write updates.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// Stats of the index resource.
     /// </summary>
-    public TerraformExpression IndexStats => this["index_stats"];
+    [TerraformPropertyName("index_stats")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> IndexStats => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "index_stats");
 
     /// <summary>
     /// The update method to use with this Index. The value must be the followings. If not set, BATCH_UPDATE will be used by default.
     /// * BATCH_UPDATE: user can call indexes.patch with files on Cloud Storage of datapoints to update.
     /// * STREAM_UPDATE: user can call indexes.upsertDatapoints/DeleteDatapoints to update the Index and the updates will be applied in corresponding DeployedIndexes in nearly real-time.
     /// </summary>
-    public TerraformExpression IndexUpdateMethod => this["index_update_method"];
+    [TerraformPropertyName("index_update_method")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IndexUpdateMethod => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "index_update_method");
 
     /// <summary>
     /// The labels with user-defined metadata to organize your Indexes.
@@ -125,29 +112,39 @@ public class GoogleVertexAiIndexDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformExpression Labels => this["labels"];
+    [TerraformPropertyName("labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
 
     /// <summary>
     /// Additional information about the Index.
     /// Although this field is not marked as required in the API specification, it is currently required when creating an Index and must be provided.
     /// Attempts to create an Index without this field will result in an API error.
     /// </summary>
-    public TerraformExpression Metadata => this["metadata"];
+    [TerraformPropertyName("metadata")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Metadata => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "metadata");
 
     /// <summary>
     /// Points to a YAML file stored on Google Cloud Storage describing additional information about the Index, that is specific to it. Unset if the Index does not have any additional information.
     /// </summary>
-    public TerraformExpression MetadataSchemaUri => this["metadata_schema_uri"];
+    [TerraformPropertyName("metadata_schema_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MetadataSchemaUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "metadata_schema_uri");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// The timestamp of when the Index was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

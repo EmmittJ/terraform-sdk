@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermIothubDpsDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermIothubDpsDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,92 +24,78 @@ public class AzurermIothubDpsDataSource : TerraformDataSource
 {
     public AzurermIothubDpsDataSource(string name) : base("azurerm_iothub_dps", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("allocation_policy");
-        SetOutput("device_provisioning_host_name");
-        SetOutput("id_scope");
-        SetOutput("location");
-        SetOutput("service_operations_host_name");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermIothubDpsDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermIothubDpsDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The allocation_policy attribute.
     /// </summary>
-    public TerraformExpression AllocationPolicy => this["allocation_policy"];
+    [TerraformPropertyName("allocation_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AllocationPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "allocation_policy");
 
     /// <summary>
     /// The device_provisioning_host_name attribute.
     /// </summary>
-    public TerraformExpression DeviceProvisioningHostName => this["device_provisioning_host_name"];
+    [TerraformPropertyName("device_provisioning_host_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeviceProvisioningHostName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "device_provisioning_host_name");
 
     /// <summary>
     /// The id_scope attribute.
     /// </summary>
-    public TerraformExpression IdScope => this["id_scope"];
+    [TerraformPropertyName("id_scope")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IdScope => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id_scope");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The service_operations_host_name attribute.
     /// </summary>
-    public TerraformExpression ServiceOperationsHostName => this["service_operations_host_name"];
+    [TerraformPropertyName("service_operations_host_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceOperationsHostName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_operations_host_name");
 
 }

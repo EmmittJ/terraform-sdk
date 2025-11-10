@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMobileNetworkPacketCoreDataPlaneDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermMobileNetworkPacketCoreDataPlaneDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,88 +24,78 @@ public class AzurermMobileNetworkPacketCoreDataPlaneDataSource : TerraformDataSo
 {
     public AzurermMobileNetworkPacketCoreDataPlaneDataSource(string name) : base("azurerm_mobile_network_packet_core_data_plane", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("location");
-        SetOutput("tags");
-        SetOutput("user_plane_access_ipv4_address");
-        SetOutput("user_plane_access_ipv4_gateway");
-        SetOutput("user_plane_access_ipv4_subnet");
-        SetOutput("user_plane_access_name");
-        SetOutput("id");
-        SetOutput("mobile_network_packet_core_control_plane_id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The mobile_network_packet_core_control_plane_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkPacketCoreControlPlaneId is required")]
-    public required TerraformProperty<string> MobileNetworkPacketCoreControlPlaneId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mobile_network_packet_core_control_plane_id");
-        set => SetProperty("mobile_network_packet_core_control_plane_id", value);
-    }
+    [TerraformPropertyName("mobile_network_packet_core_control_plane_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MobileNetworkPacketCoreControlPlaneId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMobileNetworkPacketCoreDataPlaneDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMobileNetworkPacketCoreDataPlaneDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The user_plane_access_ipv4_address attribute.
     /// </summary>
-    public TerraformExpression UserPlaneAccessIpv4Address => this["user_plane_access_ipv4_address"];
+    [TerraformPropertyName("user_plane_access_ipv4_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserPlaneAccessIpv4Address => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_plane_access_ipv4_address");
 
     /// <summary>
     /// The user_plane_access_ipv4_gateway attribute.
     /// </summary>
-    public TerraformExpression UserPlaneAccessIpv4Gateway => this["user_plane_access_ipv4_gateway"];
+    [TerraformPropertyName("user_plane_access_ipv4_gateway")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserPlaneAccessIpv4Gateway => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_plane_access_ipv4_gateway");
 
     /// <summary>
     /// The user_plane_access_ipv4_subnet attribute.
     /// </summary>
-    public TerraformExpression UserPlaneAccessIpv4Subnet => this["user_plane_access_ipv4_subnet"];
+    [TerraformPropertyName("user_plane_access_ipv4_subnet")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserPlaneAccessIpv4Subnet => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_plane_access_ipv4_subnet");
 
     /// <summary>
     /// The user_plane_access_name attribute.
     /// </summary>
-    public TerraformExpression UserPlaneAccessName => this["user_plane_access_name"];
+    [TerraformPropertyName("user_plane_access_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserPlaneAccessName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_plane_access_name");
 
 }

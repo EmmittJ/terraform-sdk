@@ -9,49 +9,36 @@ public class GoogleHealthcareDicomStoreIamPolicy : TerraformResource
 {
     public GoogleHealthcareDicomStoreIamPolicy(string name) : base("google_healthcare_dicom_store_iam_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("etag");
-        SetOutput("dicom_store_id");
-        SetOutput("id");
-        SetOutput("policy_data");
     }
 
     /// <summary>
     /// The dicom_store_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DicomStoreId is required")]
-    public required TerraformProperty<string> DicomStoreId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dicom_store_id");
-        set => SetProperty("dicom_store_id", value);
-    }
+    [TerraformPropertyName("dicom_store_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DicomStoreId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
-    public required TerraformProperty<string> PolicyData
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_data");
-        set => SetProperty("policy_data", value);
-    }
+    [TerraformPropertyName("policy_data")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyData { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
 }

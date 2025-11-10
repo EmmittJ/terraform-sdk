@@ -6,55 +6,49 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for provisioning_artifact_parameters in .
 /// Nesting mode: list
 /// </summary>
-public class AwsServicecatalogProductProvisioningArtifactParametersBlock : TerraformBlock
+public class AwsServicecatalogProductProvisioningArtifactParametersBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The disable_template_validation attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableTemplateValidation
-    {
-        set => SetProperty("disable_template_validation", value);
-    }
+    [TerraformPropertyName("disable_template_validation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DisableTemplateValidation { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The template_physical_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplatePhysicalId
-    {
-        set => SetProperty("template_physical_id", value);
-    }
+    [TerraformPropertyName("template_physical_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TemplatePhysicalId { get; set; }
 
     /// <summary>
     /// The template_url attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateUrl
-    {
-        set => SetProperty("template_url", value);
-    }
+    [TerraformPropertyName("template_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TemplateUrl { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -62,39 +56,35 @@ public class AwsServicecatalogProductProvisioningArtifactParametersBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsServicecatalogProductTimeoutsBlock : TerraformBlock
+public class AwsServicecatalogProductTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -106,149 +96,101 @@ public class AwsServicecatalogProduct : TerraformResource
 {
     public AwsServicecatalogProduct(string name) : base("aws_servicecatalog_product", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("created_time");
-        SetOutput("has_default_path");
-        SetOutput("status");
-        SetOutput("accept_language");
-        SetOutput("description");
-        SetOutput("distributor");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("owner");
-        SetOutput("region");
-        SetOutput("support_description");
-        SetOutput("support_email");
-        SetOutput("support_url");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The accept_language attribute.
     /// </summary>
-    public TerraformProperty<string> AcceptLanguage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("accept_language");
-        set => SetProperty("accept_language", value);
-    }
+    [TerraformPropertyName("accept_language")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AcceptLanguage { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Description { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The distributor attribute.
     /// </summary>
-    public TerraformProperty<string> Distributor
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("distributor");
-        set => SetProperty("distributor", value);
-    }
+    [TerraformPropertyName("distributor")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Distributor { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "distributor");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
-    public required TerraformProperty<string> Owner
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("owner");
-        set => SetProperty("owner", value);
-    }
+    [TerraformPropertyName("owner")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Owner { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The support_description attribute.
     /// </summary>
-    public TerraformProperty<string> SupportDescription
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("support_description");
-        set => SetProperty("support_description", value);
-    }
+    [TerraformPropertyName("support_description")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SupportDescription { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "support_description");
 
     /// <summary>
     /// The support_email attribute.
     /// </summary>
-    public TerraformProperty<string> SupportEmail
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("support_email");
-        set => SetProperty("support_email", value);
-    }
+    [TerraformPropertyName("support_email")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SupportEmail { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "support_email");
 
     /// <summary>
     /// The support_url attribute.
     /// </summary>
-    public TerraformProperty<string> SupportUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("support_url");
-        set => SetProperty("support_url", value);
-    }
+    [TerraformPropertyName("support_url")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SupportUrl { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "support_url");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// Block for provisioning_artifact_parameters.
@@ -257,38 +199,42 @@ public class AwsServicecatalogProduct : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisioningArtifactParameters is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProvisioningArtifactParameters block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProvisioningArtifactParameters block(s) allowed")]
-    public List<AwsServicecatalogProductProvisioningArtifactParametersBlock>? ProvisioningArtifactParameters
-    {
-        set => SetProperty("provisioning_artifact_parameters", value);
-    }
+    [TerraformPropertyName("provisioning_artifact_parameters")]
+    public TerraformList<TerraformBlock<AwsServicecatalogProductProvisioningArtifactParametersBlock>>? ProvisioningArtifactParameters { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsServicecatalogProductTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsServicecatalogProductTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
-    public TerraformExpression CreatedTime => this["created_time"];
+    [TerraformPropertyName("created_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_time");
 
     /// <summary>
     /// The has_default_path attribute.
     /// </summary>
-    public TerraformExpression HasDefaultPath => this["has_default_path"];
+    [TerraformPropertyName("has_default_path")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> HasDefaultPath => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "has_default_path");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationIdentifierUriTimeoutsBlock : TerraformBlock
+public class AzureadApplicationIdentifierUriTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,52 +38,36 @@ public class AzureadApplicationIdentifierUri : TerraformResource
 {
     public AzureadApplicationIdentifierUri(string name) : base("azuread_application_identifier_uri", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("application_id");
-        SetOutput("id");
-        SetOutput("identifier_uri");
     }
 
     /// <summary>
     /// The resource ID of the application to which the identifier URI should be added
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    public required TerraformProperty<string> ApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
-        set => SetProperty("application_id", value);
-    }
+    [TerraformPropertyName("application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The user-defined URI or URI-like string that uniquely identifies an application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentifierUri is required")]
-    public required TerraformProperty<string> IdentifierUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identifier_uri");
-        set => SetProperty("identifier_uri", value);
-    }
+    [TerraformPropertyName("identifier_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IdentifierUri { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadApplicationIdentifierUriTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadApplicationIdentifierUriTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

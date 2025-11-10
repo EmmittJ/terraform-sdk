@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock : TerraformBlock
+public class AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,85 +45,60 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
 {
     public AzurermActiveDirectoryDomainServiceTrust(string name) : base("azurerm_active_directory_domain_service_trust", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("domain_service_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("password");
-        SetOutput("trusted_domain_dns_ips");
-        SetOutput("trusted_domain_fqdn");
     }
 
     /// <summary>
     /// The domain_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainServiceId is required")]
-    public required TerraformProperty<string> DomainServiceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_service_id");
-        set => SetProperty("domain_service_id", value);
-    }
+    [TerraformPropertyName("domain_service_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainServiceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    public required TerraformProperty<string> Password
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("password");
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
 
     /// <summary>
     /// The trusted_domain_dns_ips attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedDomainDnsIps is required")]
-    public List<TerraformProperty<string>> TrustedDomainDnsIps
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("trusted_domain_dns_ips");
-        set => SetProperty("trusted_domain_dns_ips", value);
-    }
+    [TerraformPropertyName("trusted_domain_dns_ips")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? TrustedDomainDnsIps { get; set; }
 
     /// <summary>
     /// The trusted_domain_fqdn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedDomainFqdn is required")]
-    public required TerraformProperty<string> TrustedDomainFqdn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("trusted_domain_fqdn");
-        set => SetProperty("trusted_domain_fqdn", value);
-    }
+    [TerraformPropertyName("trusted_domain_fqdn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TrustedDomainFqdn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

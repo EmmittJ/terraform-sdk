@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for execution_controls in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConfigRemediationConfigurationExecutionControlsBlock : TerraformBlock
+public class AwsConfigRemediationConfigurationExecutionControlsBlock : ITerraformBlock
 {
 }
 
@@ -14,40 +14,36 @@ public class AwsConfigRemediationConfigurationExecutionControlsBlock : Terraform
 /// Block type for parameter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConfigRemediationConfigurationParameterBlock : TerraformBlock
+public class AwsConfigRemediationConfigurationParameterBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_value attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceValue
-    {
-        set => SetProperty("resource_value", value);
-    }
+    [TerraformPropertyName("resource_value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceValue { get; set; }
 
     /// <summary>
     /// The static_value attribute.
     /// </summary>
-    public TerraformProperty<string>? StaticValue
-    {
-        set => SetProperty("static_value", value);
-    }
+    [TerraformPropertyName("static_value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StaticValue { get; set; }
 
     /// <summary>
     /// The static_values attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? StaticValues
-    {
-        set => SetProperty("static_values", value);
-    }
+    [TerraformPropertyName("static_values")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> StaticValues { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "static_values");
 
 }
 
@@ -59,140 +55,102 @@ public class AwsConfigRemediationConfiguration : TerraformResource
 {
     public AwsConfigRemediationConfiguration(string name) : base("aws_config_remediation_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("automatic");
-        SetOutput("config_rule_name");
-        SetOutput("id");
-        SetOutput("maximum_automatic_attempts");
-        SetOutput("region");
-        SetOutput("resource_type");
-        SetOutput("retry_attempt_seconds");
-        SetOutput("target_id");
-        SetOutput("target_type");
-        SetOutput("target_version");
     }
 
     /// <summary>
     /// The automatic attribute.
     /// </summary>
-    public TerraformProperty<bool> Automatic
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("automatic");
-        set => SetProperty("automatic", value);
-    }
+    [TerraformPropertyName("automatic")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Automatic { get; set; }
 
     /// <summary>
     /// The config_rule_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigRuleName is required")]
-    public required TerraformProperty<string> ConfigRuleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("config_rule_name");
-        set => SetProperty("config_rule_name", value);
-    }
+    [TerraformPropertyName("config_rule_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConfigRuleName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The maximum_automatic_attempts attribute.
     /// </summary>
-    public TerraformProperty<double> MaximumAutomaticAttempts
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("maximum_automatic_attempts");
-        set => SetProperty("maximum_automatic_attempts", value);
-    }
+    [TerraformPropertyName("maximum_automatic_attempts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaximumAutomaticAttempts { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformProperty<string> ResourceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
-        set => SetProperty("resource_type", value);
-    }
+    [TerraformPropertyName("resource_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceType { get; set; }
 
     /// <summary>
     /// The retry_attempt_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> RetryAttemptSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("retry_attempt_seconds");
-        set => SetProperty("retry_attempt_seconds", value);
-    }
+    [TerraformPropertyName("retry_attempt_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RetryAttemptSeconds { get; set; }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
-    public required TerraformProperty<string> TargetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_id");
-        set => SetProperty("target_id", value);
-    }
+    [TerraformPropertyName("target_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetId { get; set; }
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetType is required")]
-    public required TerraformProperty<string> TargetType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_type");
-        set => SetProperty("target_type", value);
-    }
+    [TerraformPropertyName("target_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetType { get; set; }
 
     /// <summary>
     /// The target_version attribute.
     /// </summary>
-    public TerraformProperty<string> TargetVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_version");
-        set => SetProperty("target_version", value);
-    }
+    [TerraformPropertyName("target_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetVersion { get; set; }
 
     /// <summary>
     /// Block for execution_controls.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionControls block(s) allowed")]
-    public List<AwsConfigRemediationConfigurationExecutionControlsBlock>? ExecutionControls
-    {
-        set => SetProperty("execution_controls", value);
-    }
+    [TerraformPropertyName("execution_controls")]
+    public TerraformList<TerraformBlock<AwsConfigRemediationConfigurationExecutionControlsBlock>>? ExecutionControls { get; set; } = new();
 
     /// <summary>
     /// Block for parameter.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(25, ErrorMessage = "Maximum 25 Parameter block(s) allowed")]
-    public List<AwsConfigRemediationConfigurationParameterBlock>? Parameter
-    {
-        set => SetProperty("parameter", value);
-    }
+    [TerraformPropertyName("parameter")]
+    public TerraformList<TerraformBlock<AwsConfigRemediationConfigurationParameterBlock>>? Parameter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

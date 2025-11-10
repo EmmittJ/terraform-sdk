@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for component_version in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterComponentVersionBlock : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterComponentVersionBlock : ITerraformBlock
 {
     /// <summary>
     /// The interactive_hive attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InteractiveHive is required")]
-    public required TerraformProperty<string> InteractiveHive
-    {
-        set => SetProperty("interactive_hive", value);
-    }
+    [TerraformPropertyName("interactive_hive")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InteractiveHive { get; set; }
 
 }
 
@@ -23,23 +22,21 @@ public class AzurermHdinsightInteractiveQueryClusterComponentVersionBlock : Terr
 /// Block type for compute_isolation in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock : ITerraformBlock
 {
     /// <summary>
     /// The compute_isolation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ComputeIsolationEnabled
-    {
-        set => SetProperty("compute_isolation_enabled", value);
-    }
+    [TerraformPropertyName("compute_isolation_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ComputeIsolationEnabled { get; set; }
 
     /// <summary>
     /// The host_sku attribute.
     /// </summary>
-    public TerraformProperty<string>? HostSku
-    {
-        set => SetProperty("host_sku", value);
-    }
+    [TerraformPropertyName("host_sku")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HostSku { get; set; }
 
 }
 
@@ -47,39 +44,35 @@ public class AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock : Terr
 /// Block type for disk_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The encryption_algorithm attribute.
     /// </summary>
-    public TerraformProperty<string>? EncryptionAlgorithm
-    {
-        set => SetProperty("encryption_algorithm", value);
-    }
+    [TerraformPropertyName("encryption_algorithm")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EncryptionAlgorithm { get; set; }
 
     /// <summary>
     /// The encryption_at_host_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EncryptionAtHostEnabled
-    {
-        set => SetProperty("encryption_at_host_enabled", value);
-    }
+    [TerraformPropertyName("encryption_at_host_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EncryptionAtHostEnabled { get; set; }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultKeyId
-    {
-        set => SetProperty("key_vault_key_id", value);
-    }
+    [TerraformPropertyName("key_vault_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The key_vault_managed_identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultManagedIdentityId
-    {
-        set => SetProperty("key_vault_managed_identity_id", value);
-    }
+    [TerraformPropertyName("key_vault_managed_identity_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyVaultManagedIdentityId { get; set; }
 
 }
 
@@ -87,25 +80,23 @@ public class AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock : Terraf
 /// Block type for extension in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterExtensionBlock : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterExtensionBlock : ITerraformBlock
 {
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    public required TerraformProperty<string> LogAnalyticsWorkspaceId
-    {
-        set => SetProperty("log_analytics_workspace_id", value);
-    }
+    [TerraformPropertyName("log_analytics_workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
-    public required TerraformProperty<string> PrimaryKey
-    {
-        set => SetProperty("primary_key", value);
-    }
+    [TerraformPropertyName("primary_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrimaryKey { get; set; }
 
 }
 
@@ -113,25 +104,23 @@ public class AzurermHdinsightInteractiveQueryClusterExtensionBlock : TerraformBl
 /// Block type for gateway in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterGatewayBlock : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterGatewayBlock : ITerraformBlock
 {
     /// <summary>
     /// The password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    public required TerraformProperty<string> Password
-    {
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    public required TerraformProperty<string> Username
-    {
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
 
 }
 
@@ -139,7 +128,7 @@ public class AzurermHdinsightInteractiveQueryClusterGatewayBlock : TerraformBloc
 /// Block type for metastores in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterMetastoresBlock : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterMetastoresBlock : ITerraformBlock
 {
 }
 
@@ -147,25 +136,23 @@ public class AzurermHdinsightInteractiveQueryClusterMetastoresBlock : TerraformB
 /// Block type for monitor in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterMonitorBlock : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterMonitorBlock : ITerraformBlock
 {
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    public required TerraformProperty<string> LogAnalyticsWorkspaceId
-    {
-        set => SetProperty("log_analytics_workspace_id", value);
-    }
+    [TerraformPropertyName("log_analytics_workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
-    public required TerraformProperty<string> PrimaryKey
-    {
-        set => SetProperty("primary_key", value);
-    }
+    [TerraformPropertyName("primary_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrimaryKey { get; set; }
 
 }
 
@@ -173,23 +160,21 @@ public class AzurermHdinsightInteractiveQueryClusterMonitorBlock : TerraformBloc
 /// Block type for network in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterNetworkBlock : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterNetworkBlock : ITerraformBlock
 {
     /// <summary>
     /// The connection_direction attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionDirection
-    {
-        set => SetProperty("connection_direction", value);
-    }
+    [TerraformPropertyName("connection_direction")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConnectionDirection { get; set; }
 
     /// <summary>
     /// The private_link_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PrivateLinkEnabled
-    {
-        set => SetProperty("private_link_enabled", value);
-    }
+    [TerraformPropertyName("private_link_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PrivateLinkEnabled { get; set; }
 
 }
 
@@ -197,25 +182,23 @@ public class AzurermHdinsightInteractiveQueryClusterNetworkBlock : TerraformBloc
 /// Block type for private_link_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
-    public required TerraformProperty<string> GroupId
-    {
-        set => SetProperty("group_id", value);
-    }
+    [TerraformPropertyName("group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GroupId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -223,7 +206,7 @@ public class AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBloc
 /// Block type for roles in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterRolesBlock : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterRolesBlock : ITerraformBlock
 {
 }
 
@@ -231,69 +214,62 @@ public class AzurermHdinsightInteractiveQueryClusterRolesBlock : TerraformBlock
 /// Block type for security_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The aadds_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AaddsResourceId is required")]
-    public required TerraformProperty<string> AaddsResourceId
-    {
-        set => SetProperty("aadds_resource_id", value);
-    }
+    [TerraformPropertyName("aadds_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AaddsResourceId { get; set; }
 
     /// <summary>
     /// The cluster_users_group_dns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ClusterUsersGroupDns
-    {
-        set => SetProperty("cluster_users_group_dns", value);
-    }
+    [TerraformPropertyName("cluster_users_group_dns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ClusterUsersGroupDns { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    public required TerraformProperty<string> DomainName
-    {
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
 
     /// <summary>
     /// The domain_user_password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUserPassword is required")]
-    public required TerraformProperty<string> DomainUserPassword
-    {
-        set => SetProperty("domain_user_password", value);
-    }
+    [TerraformPropertyName("domain_user_password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainUserPassword { get; set; }
 
     /// <summary>
     /// The domain_username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUsername is required")]
-    public required TerraformProperty<string> DomainUsername
-    {
-        set => SetProperty("domain_username", value);
-    }
+    [TerraformPropertyName("domain_username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainUsername { get; set; }
 
     /// <summary>
     /// The ldaps_urls attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LdapsUrls is required")]
-    public HashSet<TerraformProperty<string>>? LdapsUrls
-    {
-        set => SetProperty("ldaps_urls", value);
-    }
+    [TerraformPropertyName("ldaps_urls")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? LdapsUrls { get; set; }
 
     /// <summary>
     /// The msi_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MsiResourceId is required")]
-    public required TerraformProperty<string> MsiResourceId
-    {
-        set => SetProperty("msi_resource_id", value);
-    }
+    [TerraformPropertyName("msi_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MsiResourceId { get; set; }
 
 }
 
@@ -301,42 +277,38 @@ public class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock : Terra
 /// Block type for storage_account in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterStorageAccountBlock : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterStorageAccountBlock : ITerraformBlock
 {
     /// <summary>
     /// The is_default attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
-    public required TerraformProperty<bool> IsDefault
-    {
-        set => SetProperty("is_default", value);
-    }
+    [TerraformPropertyName("is_default")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> IsDefault { get; set; }
 
     /// <summary>
     /// The storage_account_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
-    public required TerraformProperty<string> StorageAccountKey
-    {
-        set => SetProperty("storage_account_key", value);
-    }
+    [TerraformPropertyName("storage_account_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountKey { get; set; }
 
     /// <summary>
     /// The storage_container_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
-    public required TerraformProperty<string> StorageContainerId
-    {
-        set => SetProperty("storage_container_id", value);
-    }
+    [TerraformPropertyName("storage_container_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageContainerId { get; set; }
 
     /// <summary>
     /// The storage_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageResourceId
-    {
-        set => SetProperty("storage_resource_id", value);
-    }
+    [TerraformPropertyName("storage_resource_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageResourceId { get; set; }
 
 }
 
@@ -344,43 +316,39 @@ public class AzurermHdinsightInteractiveQueryClusterStorageAccountBlock : Terraf
 /// Block type for storage_account_gen2 in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block : ITerraformBlock
 {
     /// <summary>
     /// The filesystem_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilesystemId is required")]
-    public required TerraformProperty<string> FilesystemId
-    {
-        set => SetProperty("filesystem_id", value);
-    }
+    [TerraformPropertyName("filesystem_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FilesystemId { get; set; }
 
     /// <summary>
     /// The is_default attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
-    public required TerraformProperty<bool> IsDefault
-    {
-        set => SetProperty("is_default", value);
-    }
+    [TerraformPropertyName("is_default")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> IsDefault { get; set; }
 
     /// <summary>
     /// The managed_identity_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityResourceId is required")]
-    public required TerraformProperty<string> ManagedIdentityResourceId
-    {
-        set => SetProperty("managed_identity_resource_id", value);
-    }
+    [TerraformPropertyName("managed_identity_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ManagedIdentityResourceId { get; set; }
 
     /// <summary>
     /// The storage_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageResourceId is required")]
-    public required TerraformProperty<string> StorageResourceId
-    {
-        set => SetProperty("storage_resource_id", value);
-    }
+    [TerraformPropertyName("storage_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageResourceId { get; set; }
 
 }
 
@@ -388,39 +356,35 @@ public class AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermHdinsightInteractiveQueryClusterTimeoutsBlock : TerraformBlock
+public class AzurermHdinsightInteractiveQueryClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -432,109 +396,75 @@ public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
 {
     public AzurermHdinsightInteractiveQueryCluster(string name) : base("azurerm_hdinsight_interactive_query_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("https_endpoint");
-        SetOutput("ssh_endpoint");
-        SetOutput("cluster_version");
-        SetOutput("encryption_in_transit_enabled");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
-        SetOutput("tier");
-        SetOutput("tls_min_version");
     }
 
     /// <summary>
     /// The cluster_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
-    public required TerraformProperty<string> ClusterVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_version");
-        set => SetProperty("cluster_version", value);
-    }
+    [TerraformPropertyName("cluster_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterVersion { get; set; }
 
     /// <summary>
     /// The encryption_in_transit_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> EncryptionInTransitEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("encryption_in_transit_enabled");
-        set => SetProperty("encryption_in_transit_enabled", value);
-    }
+    [TerraformPropertyName("encryption_in_transit_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EncryptionInTransitEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
-    public required TerraformProperty<string> Tier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tier");
-        set => SetProperty("tier", value);
-    }
+    [TerraformPropertyName("tier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Tier { get; set; }
 
     /// <summary>
     /// The tls_min_version attribute.
     /// </summary>
-    public TerraformProperty<string> TlsMinVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tls_min_version");
-        set => SetProperty("tls_min_version", value);
-    }
+    [TerraformPropertyName("tls_min_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TlsMinVersion { get; set; }
 
     /// <summary>
     /// Block for component_version.
@@ -543,39 +473,31 @@ public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentVersion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComponentVersion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComponentVersion block(s) allowed")]
-    public List<AzurermHdinsightInteractiveQueryClusterComponentVersionBlock>? ComponentVersion
-    {
-        set => SetProperty("component_version", value);
-    }
+    [TerraformPropertyName("component_version")]
+    public TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterComponentVersionBlock>>? ComponentVersion { get; set; } = new();
 
     /// <summary>
     /// Block for compute_isolation.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeIsolation block(s) allowed")]
-    public List<AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock>? ComputeIsolation
-    {
-        set => SetProperty("compute_isolation", value);
-    }
+    [TerraformPropertyName("compute_isolation")]
+    public TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock>>? ComputeIsolation { get; set; } = new();
 
     /// <summary>
     /// Block for disk_encryption.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock>? DiskEncryption
-    {
-        set => SetProperty("disk_encryption", value);
-    }
+    [TerraformPropertyName("disk_encryption")]
+    public TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock>>? DiskEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for extension.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extension block(s) allowed")]
-    public List<AzurermHdinsightInteractiveQueryClusterExtensionBlock>? Extension
-    {
-        set => SetProperty("extension", value);
-    }
+    [TerraformPropertyName("extension")]
+    public TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterExtensionBlock>>? Extension { get; set; } = new();
 
     /// <summary>
     /// Block for gateway.
@@ -584,50 +506,40 @@ public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gateway is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Gateway block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
-    public List<AzurermHdinsightInteractiveQueryClusterGatewayBlock>? Gateway
-    {
-        set => SetProperty("gateway", value);
-    }
+    [TerraformPropertyName("gateway")]
+    public TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterGatewayBlock>>? Gateway { get; set; } = new();
 
     /// <summary>
     /// Block for metastores.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metastores block(s) allowed")]
-    public List<AzurermHdinsightInteractiveQueryClusterMetastoresBlock>? Metastores
-    {
-        set => SetProperty("metastores", value);
-    }
+    [TerraformPropertyName("metastores")]
+    public TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterMetastoresBlock>>? Metastores { get; set; } = new();
 
     /// <summary>
     /// Block for monitor.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitor block(s) allowed")]
-    public List<AzurermHdinsightInteractiveQueryClusterMonitorBlock>? Monitor
-    {
-        set => SetProperty("monitor", value);
-    }
+    [TerraformPropertyName("monitor")]
+    public TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterMonitorBlock>>? Monitor { get; set; } = new();
 
     /// <summary>
     /// Block for network.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
-    public List<AzurermHdinsightInteractiveQueryClusterNetworkBlock>? Network
-    {
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    public TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterNetworkBlock>>? Network { get; set; } = new();
 
     /// <summary>
     /// Block for private_link_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLinkConfiguration block(s) allowed")]
-    public List<AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock>? PrivateLinkConfiguration
-    {
-        set => SetProperty("private_link_configuration", value);
-    }
+    [TerraformPropertyName("private_link_configuration")]
+    public TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock>>? PrivateLinkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for roles.
@@ -636,57 +548,51 @@ public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Roles block(s) allowed")]
-    public List<AzurermHdinsightInteractiveQueryClusterRolesBlock>? Roles
-    {
-        set => SetProperty("roles", value);
-    }
+    [TerraformPropertyName("roles")]
+    public TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterRolesBlock>>? Roles { get; set; } = new();
 
     /// <summary>
     /// Block for security_profile.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
-    public List<AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock>? SecurityProfile
-    {
-        set => SetProperty("security_profile", value);
-    }
+    [TerraformPropertyName("security_profile")]
+    public TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock>>? SecurityProfile { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermHdinsightInteractiveQueryClusterStorageAccountBlock>? StorageAccount
-    {
-        set => SetProperty("storage_account", value);
-    }
+    [TerraformPropertyName("storage_account")]
+    public TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterStorageAccountBlock>>? StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account_gen2.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccountGen2 block(s) allowed")]
-    public List<AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block>? StorageAccountGen2
-    {
-        set => SetProperty("storage_account_gen2", value);
-    }
+    [TerraformPropertyName("storage_account_gen2")]
+    public TerraformList<TerraformBlock<AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block>>? StorageAccountGen2 { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermHdinsightInteractiveQueryClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermHdinsightInteractiveQueryClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The https_endpoint attribute.
     /// </summary>
-    public TerraformExpression HttpsEndpoint => this["https_endpoint"];
+    [TerraformPropertyName("https_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HttpsEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "https_endpoint");
 
     /// <summary>
     /// The ssh_endpoint attribute.
     /// </summary>
-    public TerraformExpression SshEndpoint => this["ssh_endpoint"];
+    [TerraformPropertyName("ssh_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SshEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ssh_endpoint");
 
 }

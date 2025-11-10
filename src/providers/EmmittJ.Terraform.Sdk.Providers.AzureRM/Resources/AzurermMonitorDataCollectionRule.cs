@@ -6,49 +6,44 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for data_flow in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlock
+public class AzurermMonitorDataCollectionRuleDataFlowBlock : ITerraformBlock
 {
     /// <summary>
     /// The built_in_transform attribute.
     /// </summary>
-    public TerraformProperty<string>? BuiltInTransform
-    {
-        set => SetProperty("built_in_transform", value);
-    }
+    [TerraformPropertyName("built_in_transform")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BuiltInTransform { get; set; }
 
     /// <summary>
     /// The destinations attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
-    public List<TerraformProperty<string>>? Destinations
-    {
-        set => SetProperty("destinations", value);
-    }
+    [TerraformPropertyName("destinations")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Destinations { get; set; }
 
     /// <summary>
     /// The output_stream attribute.
     /// </summary>
-    public TerraformProperty<string>? OutputStream
-    {
-        set => SetProperty("output_stream", value);
-    }
+    [TerraformPropertyName("output_stream")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OutputStream { get; set; }
 
     /// <summary>
     /// The streams attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Streams is required")]
-    public List<TerraformProperty<string>>? Streams
-    {
-        set => SetProperty("streams", value);
-    }
+    [TerraformPropertyName("streams")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Streams { get; set; }
 
     /// <summary>
     /// The transform_kql attribute.
     /// </summary>
-    public TerraformProperty<string>? TransformKql
-    {
-        set => SetProperty("transform_kql", value);
-    }
+    [TerraformPropertyName("transform_kql")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TransformKql { get; set; }
 
 }
 
@@ -56,7 +51,7 @@ public class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlock
 /// Block type for data_sources in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorDataCollectionRuleDataSourcesBlock : TerraformBlock
+public class AzurermMonitorDataCollectionRuleDataSourcesBlock : ITerraformBlock
 {
 }
 
@@ -64,7 +59,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlock : TerraformBlock
 /// Block type for destinations in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorDataCollectionRuleDestinationsBlock : TerraformBlock
+public class AzurermMonitorDataCollectionRuleDestinationsBlock : ITerraformBlock
 {
 }
 
@@ -72,40 +67,36 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlock : TerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorDataCollectionRuleIdentityBlock : TerraformBlock
+public class AzurermMonitorDataCollectionRuleIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -113,16 +104,15 @@ public class AzurermMonitorDataCollectionRuleIdentityBlock : TerraformBlock
 /// Block type for stream_declaration in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermMonitorDataCollectionRuleStreamDeclarationBlock : TerraformBlock
+public class AzurermMonitorDataCollectionRuleStreamDeclarationBlock : ITerraformBlock
 {
     /// <summary>
     /// The stream_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
-    public required TerraformProperty<string> StreamName
-    {
-        set => SetProperty("stream_name", value);
-    }
+    [TerraformPropertyName("stream_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StreamName { get; set; }
 
 }
 
@@ -130,39 +120,35 @@ public class AzurermMonitorDataCollectionRuleStreamDeclarationBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorDataCollectionRuleTimeoutsBlock : TerraformBlock
+public class AzurermMonitorDataCollectionRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -174,96 +160,66 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
 {
     public AzurermMonitorDataCollectionRule(string name) : base("azurerm_monitor_data_collection_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("immutable_id");
-        SetOutput("data_collection_endpoint_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("kind");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The data_collection_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string> DataCollectionEndpointId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_collection_endpoint_id");
-        set => SetProperty("data_collection_endpoint_id", value);
-    }
+    [TerraformPropertyName("data_collection_endpoint_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DataCollectionEndpointId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformProperty<string> Kind
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kind");
-        set => SetProperty("kind", value);
-    }
+    [TerraformPropertyName("kind")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Kind { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for data_flow.
@@ -271,20 +227,16 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFlow is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataFlow block(s) required")]
-    public List<AzurermMonitorDataCollectionRuleDataFlowBlock>? DataFlow
-    {
-        set => SetProperty("data_flow", value);
-    }
+    [TerraformPropertyName("data_flow")]
+    public TerraformList<TerraformBlock<AzurermMonitorDataCollectionRuleDataFlowBlock>>? DataFlow { get; set; } = new();
 
     /// <summary>
     /// Block for data_sources.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSources block(s) allowed")]
-    public List<AzurermMonitorDataCollectionRuleDataSourcesBlock>? DataSources
-    {
-        set => SetProperty("data_sources", value);
-    }
+    [TerraformPropertyName("data_sources")]
+    public TerraformList<TerraformBlock<AzurermMonitorDataCollectionRuleDataSourcesBlock>>? DataSources { get; set; } = new();
 
     /// <summary>
     /// Block for destinations.
@@ -293,42 +245,36 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destinations block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destinations block(s) allowed")]
-    public List<AzurermMonitorDataCollectionRuleDestinationsBlock>? Destinations
-    {
-        set => SetProperty("destinations", value);
-    }
+    [TerraformPropertyName("destinations")]
+    public TerraformList<TerraformBlock<AzurermMonitorDataCollectionRuleDestinationsBlock>>? Destinations { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermMonitorDataCollectionRuleIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermMonitorDataCollectionRuleIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for stream_declaration.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermMonitorDataCollectionRuleStreamDeclarationBlock>? StreamDeclaration
-    {
-        set => SetProperty("stream_declaration", value);
-    }
+    [TerraformPropertyName("stream_declaration")]
+    public TerraformSet<TerraformBlock<AzurermMonitorDataCollectionRuleStreamDeclarationBlock>>? StreamDeclaration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMonitorDataCollectionRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMonitorDataCollectionRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The immutable_id attribute.
     /// </summary>
-    public TerraformExpression ImmutableId => this["immutable_id"];
+    [TerraformPropertyName("immutable_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ImmutableId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "immutable_id");
 
 }

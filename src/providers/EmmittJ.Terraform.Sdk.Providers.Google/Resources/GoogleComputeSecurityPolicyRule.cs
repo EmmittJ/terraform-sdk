@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for header_action in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeSecurityPolicyRuleHeaderActionBlock : TerraformBlock
+public class GoogleComputeSecurityPolicyRuleHeaderActionBlock : ITerraformBlock
 {
 }
 
@@ -14,16 +14,15 @@ public class GoogleComputeSecurityPolicyRuleHeaderActionBlock : TerraformBlock
 /// Block type for match in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeSecurityPolicyRuleMatchBlock : TerraformBlock
+public class GoogleComputeSecurityPolicyRuleMatchBlock : ITerraformBlock
 {
     /// <summary>
     /// Preconfigured versioned expression. If this field is specified, config must also be specified.
     /// Available preconfigured expressions along with their requirements are: SRC_IPS_V1 - must specify the corresponding srcIpRange field in config. Possible values: [&amp;quot;SRC_IPS_V1&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? VersionedExpr
-    {
-        set => SetProperty("versioned_expr", value);
-    }
+    [TerraformPropertyName("versioned_expr")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VersionedExpr { get; set; }
 
 }
 
@@ -31,7 +30,7 @@ public class GoogleComputeSecurityPolicyRuleMatchBlock : TerraformBlock
 /// Block type for preconfigured_waf_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeSecurityPolicyRulePreconfiguredWafConfigBlock : TerraformBlock
+public class GoogleComputeSecurityPolicyRulePreconfiguredWafConfigBlock : ITerraformBlock
 {
 }
 
@@ -39,25 +38,23 @@ public class GoogleComputeSecurityPolicyRulePreconfiguredWafConfigBlock : Terraf
 /// Block type for rate_limit_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock : TerraformBlock
+public class GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// Can only be specified if the action for the rule is &amp;quot;rate_based_ban&amp;quot;.
     /// If specified, determines the time (in seconds) the traffic will continue to be banned by the rate limit after the rate falls below the threshold.
     /// </summary>
-    public TerraformProperty<double>? BanDurationSec
-    {
-        set => SetProperty("ban_duration_sec", value);
-    }
+    [TerraformPropertyName("ban_duration_sec")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BanDurationSec { get; set; }
 
     /// <summary>
     /// Action to take for requests that are under the configured rate limit threshold.
     /// Valid option is &amp;quot;allow&amp;quot; only.
     /// </summary>
-    public TerraformProperty<string>? ConformAction
-    {
-        set => SetProperty("conform_action", value);
-    }
+    [TerraformPropertyName("conform_action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConformAction { get; set; }
 
     /// <summary>
     /// Determines the key to enforce the rateLimitThreshold on. Possible values are:
@@ -73,29 +70,26 @@ public class GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock : TerraformBlo
     /// * TLS_JA4_FINGERPRINT: JA4 TLS/SSL fingerprint if the client connects using HTTPS, HTTP/2 or HTTP/3. If not available, the key type defaults to ALL.
     /// * USER_IP: The IP address of the originating client, which is resolved based on &amp;quot;userIpRequestHeaders&amp;quot; configured with the security policy. If there is no &amp;quot;userIpRequestHeaders&amp;quot; configuration or an IP address cannot be resolved from it, the key type defaults to IP. Possible values: [&amp;quot;ALL&amp;quot;, &amp;quot;IP&amp;quot;, &amp;quot;HTTP_HEADER&amp;quot;, &amp;quot;XFF_IP&amp;quot;, &amp;quot;HTTP_COOKIE&amp;quot;, &amp;quot;HTTP_PATH&amp;quot;, &amp;quot;SNI&amp;quot;, &amp;quot;REGION_CODE&amp;quot;, &amp;quot;TLS_JA3_FINGERPRINT&amp;quot;, &amp;quot;TLS_JA4_FINGERPRINT&amp;quot;, &amp;quot;USER_IP&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? EnforceOnKey
-    {
-        set => SetProperty("enforce_on_key", value);
-    }
+    [TerraformPropertyName("enforce_on_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EnforceOnKey { get; set; }
 
     /// <summary>
     /// Rate limit key name applicable only for the following key types:
     /// HTTP_HEADER -- Name of the HTTP header whose value is taken as the key value.
     /// HTTP_COOKIE -- Name of the HTTP cookie whose value is taken as the key value.
     /// </summary>
-    public TerraformProperty<string>? EnforceOnKeyName
-    {
-        set => SetProperty("enforce_on_key_name", value);
-    }
+    [TerraformPropertyName("enforce_on_key_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EnforceOnKeyName { get; set; }
 
     /// <summary>
     /// Action to take for requests that are above the configured rate limit threshold, to either deny with a specified HTTP response code, or redirect to a different endpoint.
     /// Valid options are deny(STATUS), where valid values for STATUS are 403, 404, 429, and 502.
     /// </summary>
-    public TerraformProperty<string>? ExceedAction
-    {
-        set => SetProperty("exceed_action", value);
-    }
+    [TerraformPropertyName("exceed_action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExceedAction { get; set; }
 
 }
 
@@ -103,23 +97,21 @@ public class GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock : TerraformBlo
 /// Block type for redirect_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeSecurityPolicyRuleRedirectOptionsBlock : TerraformBlock
+public class GoogleComputeSecurityPolicyRuleRedirectOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// Target for the redirect action. This is required if the type is EXTERNAL_302 and cannot be specified for GOOGLE_RECAPTCHA.
     /// </summary>
-    public TerraformProperty<string>? Target
-    {
-        set => SetProperty("target", value);
-    }
+    [TerraformPropertyName("target")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Target { get; set; }
 
     /// <summary>
     /// Type of the redirect action.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -127,31 +119,28 @@ public class GoogleComputeSecurityPolicyRuleRedirectOptionsBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeSecurityPolicyRuleTimeoutsBlock : TerraformBlock
+public class GoogleComputeSecurityPolicyRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -163,18 +152,6 @@ public class GoogleComputeSecurityPolicyRule : TerraformResource
 {
     public GoogleComputeSecurityPolicyRule(string name) : base("google_compute_security_policy_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("action");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("preview");
-        SetOutput("priority");
-        SetOutput("project");
-        SetOutput("security_policy");
     }
 
     /// <summary>
@@ -191,38 +168,30 @@ public class GoogleComputeSecurityPolicyRule : TerraformResource
     /// * throttle: limit client traffic to the configured threshold. Configure parameters for this action in rateLimitOptions. Requires rateLimitOptions to be set for this.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("action");
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// If set to true, the specified action is not enforced.
     /// </summary>
-    public TerraformProperty<bool> Preview
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("preview");
-        set => SetProperty("preview", value);
-    }
+    [TerraformPropertyName("preview")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Preview { get; set; }
 
     /// <summary>
     /// An integer indicating the priority of a rule in the list.
@@ -230,88 +199,70 @@ public class GoogleComputeSecurityPolicyRule : TerraformResource
     /// Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest priority.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    public required TerraformProperty<double> Priority
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("priority");
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The name of the security policy this rule belongs to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityPolicy is required")]
-    public required TerraformProperty<string> SecurityPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_policy");
-        set => SetProperty("security_policy", value);
-    }
+    [TerraformPropertyName("security_policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SecurityPolicy { get; set; }
 
     /// <summary>
     /// Block for header_action.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HeaderAction block(s) allowed")]
-    public List<GoogleComputeSecurityPolicyRuleHeaderActionBlock>? HeaderAction
-    {
-        set => SetProperty("header_action", value);
-    }
+    [TerraformPropertyName("header_action")]
+    public TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleHeaderActionBlock>>? HeaderAction { get; set; } = new();
 
     /// <summary>
     /// Block for match.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
-    public List<GoogleComputeSecurityPolicyRuleMatchBlock>? Match
-    {
-        set => SetProperty("match", value);
-    }
+    [TerraformPropertyName("match")]
+    public TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleMatchBlock>>? Match { get; set; } = new();
 
     /// <summary>
     /// Block for preconfigured_waf_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreconfiguredWafConfig block(s) allowed")]
-    public List<GoogleComputeSecurityPolicyRulePreconfiguredWafConfigBlock>? PreconfiguredWafConfig
-    {
-        set => SetProperty("preconfigured_waf_config", value);
-    }
+    [TerraformPropertyName("preconfigured_waf_config")]
+    public TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRulePreconfiguredWafConfigBlock>>? PreconfiguredWafConfig { get; set; } = new();
 
     /// <summary>
     /// Block for rate_limit_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RateLimitOptions block(s) allowed")]
-    public List<GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock>? RateLimitOptions
-    {
-        set => SetProperty("rate_limit_options", value);
-    }
+    [TerraformPropertyName("rate_limit_options")]
+    public TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleRateLimitOptionsBlock>>? RateLimitOptions { get; set; } = new();
 
     /// <summary>
     /// Block for redirect_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedirectOptions block(s) allowed")]
-    public List<GoogleComputeSecurityPolicyRuleRedirectOptionsBlock>? RedirectOptions
-    {
-        set => SetProperty("redirect_options", value);
-    }
+    [TerraformPropertyName("redirect_options")]
+    public TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRuleRedirectOptionsBlock>>? RedirectOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeSecurityPolicyRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeSecurityPolicyRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

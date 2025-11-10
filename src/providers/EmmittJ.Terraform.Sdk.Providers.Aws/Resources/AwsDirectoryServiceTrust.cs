@@ -9,141 +9,115 @@ public class AwsDirectoryServiceTrust : TerraformResource
 {
     public AwsDirectoryServiceTrust(string name) : base("aws_directory_service_trust", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("created_date_time");
-        SetOutput("id");
-        SetOutput("last_updated_date_time");
-        SetOutput("state_last_updated_date_time");
-        SetOutput("trust_state");
-        SetOutput("trust_state_reason");
-        SetOutput("conditional_forwarder_ip_addrs");
-        SetOutput("delete_associated_conditional_forwarder");
-        SetOutput("directory_id");
-        SetOutput("region");
-        SetOutput("remote_domain_name");
-        SetOutput("selective_auth");
-        SetOutput("trust_direction");
-        SetOutput("trust_password");
-        SetOutput("trust_type");
     }
 
     /// <summary>
     /// The conditional_forwarder_ip_addrs attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ConditionalForwarderIpAddrs
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("conditional_forwarder_ip_addrs");
-        set => SetProperty("conditional_forwarder_ip_addrs", value);
-    }
+    [TerraformPropertyName("conditional_forwarder_ip_addrs")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ConditionalForwarderIpAddrs { get; set; }
 
     /// <summary>
     /// The delete_associated_conditional_forwarder attribute.
     /// </summary>
-    public TerraformProperty<bool> DeleteAssociatedConditionalForwarder
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("delete_associated_conditional_forwarder");
-        set => SetProperty("delete_associated_conditional_forwarder", value);
-    }
+    [TerraformPropertyName("delete_associated_conditional_forwarder")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> DeleteAssociatedConditionalForwarder { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "delete_associated_conditional_forwarder");
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
-    public required TerraformProperty<string> DirectoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
-        set => SetProperty("directory_id", value);
-    }
+    [TerraformPropertyName("directory_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DirectoryId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The remote_domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteDomainName is required")]
-    public required TerraformProperty<string> RemoteDomainName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("remote_domain_name");
-        set => SetProperty("remote_domain_name", value);
-    }
+    [TerraformPropertyName("remote_domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RemoteDomainName { get; set; }
 
     /// <summary>
     /// The selective_auth attribute.
     /// </summary>
-    public TerraformProperty<string> SelectiveAuth
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("selective_auth");
-        set => SetProperty("selective_auth", value);
-    }
+    [TerraformPropertyName("selective_auth")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SelectiveAuth { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "selective_auth");
 
     /// <summary>
     /// The trust_direction attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustDirection is required")]
-    public required TerraformProperty<string> TrustDirection
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("trust_direction");
-        set => SetProperty("trust_direction", value);
-    }
+    [TerraformPropertyName("trust_direction")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TrustDirection { get; set; }
 
     /// <summary>
     /// The trust_password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustPassword is required")]
-    public required TerraformProperty<string> TrustPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("trust_password");
-        set => SetProperty("trust_password", value);
-    }
+    [TerraformPropertyName("trust_password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TrustPassword { get; set; }
 
     /// <summary>
     /// The trust_type attribute.
     /// </summary>
-    public TerraformProperty<string> TrustType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("trust_type");
-        set => SetProperty("trust_type", value);
-    }
+    [TerraformPropertyName("trust_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TrustType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "trust_type");
 
     /// <summary>
     /// The created_date_time attribute.
     /// </summary>
-    public TerraformExpression CreatedDateTime => this["created_date_time"];
+    [TerraformPropertyName("created_date_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedDateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_date_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The last_updated_date_time attribute.
     /// </summary>
-    public TerraformExpression LastUpdatedDateTime => this["last_updated_date_time"];
+    [TerraformPropertyName("last_updated_date_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastUpdatedDateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_updated_date_time");
 
     /// <summary>
     /// The state_last_updated_date_time attribute.
     /// </summary>
-    public TerraformExpression StateLastUpdatedDateTime => this["state_last_updated_date_time"];
+    [TerraformPropertyName("state_last_updated_date_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StateLastUpdatedDateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state_last_updated_date_time");
 
     /// <summary>
     /// The trust_state attribute.
     /// </summary>
-    public TerraformExpression TrustState => this["trust_state"];
+    [TerraformPropertyName("trust_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TrustState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "trust_state");
 
     /// <summary>
     /// The trust_state_reason attribute.
     /// </summary>
-    public TerraformExpression TrustStateReason => this["trust_state_reason"];
+    [TerraformPropertyName("trust_state_reason")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TrustStateReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "trust_state_reason");
 
 }

@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for acl_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAthenaDatabaseAclConfigurationBlock : TerraformBlock
+public class AwsAthenaDatabaseAclConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The s3_acl_option attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3AclOption is required")]
-    public required TerraformProperty<string> S3AclOption
-    {
-        set => SetProperty("s3_acl_option", value);
-    }
+    [TerraformPropertyName("s3_acl_option")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> S3AclOption { get; set; }
 
 }
 
@@ -23,24 +22,22 @@ public class AwsAthenaDatabaseAclConfigurationBlock : TerraformBlock
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAthenaDatabaseEncryptionConfigurationBlock : TerraformBlock
+public class AwsAthenaDatabaseEncryptionConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The encryption_option attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionOption is required")]
-    public required TerraformProperty<string> EncryptionOption
-    {
-        set => SetProperty("encryption_option", value);
-    }
+    [TerraformPropertyName("encryption_option")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EncryptionOption { get; set; }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKey
-    {
-        set => SetProperty("kms_key", value);
-    }
+    [TerraformPropertyName("kms_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKey { get; set; }
 
 }
 
@@ -52,122 +49,86 @@ public class AwsAthenaDatabase : TerraformResource
 {
     public AwsAthenaDatabase(string name) : base("aws_athena_database", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bucket");
-        SetOutput("comment");
-        SetOutput("expected_bucket_owner");
-        SetOutput("force_destroy");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("properties");
-        SetOutput("region");
-        SetOutput("workgroup");
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Bucket { get; set; }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string> Comment
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("comment");
-        set => SetProperty("comment", value);
-    }
+    [TerraformPropertyName("comment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Comment { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string> ExpectedBucketOwner
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("expected_bucket_owner");
-        set => SetProperty("expected_bucket_owner", value);
-    }
+    [TerraformPropertyName("expected_bucket_owner")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
-        set => SetProperty("force_destroy", value);
-    }
+    [TerraformPropertyName("force_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Properties
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("properties");
-        set => SetProperty("properties", value);
-    }
+    [TerraformPropertyName("properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Properties { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The workgroup attribute.
     /// </summary>
-    public TerraformProperty<string> Workgroup
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workgroup");
-        set => SetProperty("workgroup", value);
-    }
+    [TerraformPropertyName("workgroup")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Workgroup { get; set; }
 
     /// <summary>
     /// Block for acl_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AclConfiguration block(s) allowed")]
-    public List<AwsAthenaDatabaseAclConfigurationBlock>? AclConfiguration
-    {
-        set => SetProperty("acl_configuration", value);
-    }
+    [TerraformPropertyName("acl_configuration")]
+    public TerraformList<TerraformBlock<AwsAthenaDatabaseAclConfigurationBlock>>? AclConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
-    public List<AwsAthenaDatabaseEncryptionConfigurationBlock>? EncryptionConfiguration
-    {
-        set => SetProperty("encryption_configuration", value);
-    }
+    [TerraformPropertyName("encryption_configuration")]
+    public TerraformList<TerraformBlock<AwsAthenaDatabaseEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; } = new();
 
 }

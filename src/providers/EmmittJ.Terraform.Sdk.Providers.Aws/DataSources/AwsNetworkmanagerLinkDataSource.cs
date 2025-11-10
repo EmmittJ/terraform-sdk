@@ -9,89 +9,78 @@ public class AwsNetworkmanagerLinkDataSource : TerraformDataSource
 {
     public AwsNetworkmanagerLinkDataSource(string name) : base("aws_networkmanager_link", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("bandwidth");
-        SetOutput("description");
-        SetOutput("provider_name");
-        SetOutput("site_id");
-        SetOutput("type");
-        SetOutput("global_network_id");
-        SetOutput("id");
-        SetOutput("link_id");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
-    public required TerraformProperty<string> GlobalNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("global_network_id");
-        set => SetProperty("global_network_id", value);
-    }
+    [TerraformPropertyName("global_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GlobalNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The link_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkId is required")]
-    public required TerraformProperty<string> LinkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("link_id");
-        set => SetProperty("link_id", value);
-    }
+    [TerraformPropertyName("link_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LinkId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The bandwidth attribute.
     /// </summary>
-    public TerraformExpression Bandwidth => this["bandwidth"];
+    [TerraformPropertyName("bandwidth")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Bandwidth => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "bandwidth");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    public TerraformExpression ProviderName => this["provider_name"];
+    [TerraformPropertyName("provider_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProviderName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "provider_name");
 
     /// <summary>
     /// The site_id attribute.
     /// </summary>
-    public TerraformExpression SiteId => this["site_id"];
+    [TerraformPropertyName("site_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SiteId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "site_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
 }

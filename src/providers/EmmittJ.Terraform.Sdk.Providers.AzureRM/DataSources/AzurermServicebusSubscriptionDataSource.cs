@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermServicebusSubscriptionDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermServicebusSubscriptionDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,150 +24,136 @@ public class AzurermServicebusSubscriptionDataSource : TerraformDataSource
 {
     public AzurermServicebusSubscriptionDataSource(string name) : base("azurerm_servicebus_subscription", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("auto_delete_on_idle");
-        SetOutput("batched_operations_enabled");
-        SetOutput("dead_lettering_on_filter_evaluation_error");
-        SetOutput("dead_lettering_on_message_expiration");
-        SetOutput("default_message_ttl");
-        SetOutput("enable_batched_operations");
-        SetOutput("forward_dead_lettered_messages_to");
-        SetOutput("forward_to");
-        SetOutput("lock_duration");
-        SetOutput("max_delivery_count");
-        SetOutput("requires_session");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("namespace_name");
-        SetOutput("resource_group_name");
-        SetOutput("topic_id");
-        SetOutput("topic_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> NamespaceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
-        set => SetProperty("namespace_name", value);
-    }
+    [TerraformPropertyName("namespace_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NamespaceName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceGroupName { get; set; }
 
     /// <summary>
     /// The topic_id attribute.
     /// </summary>
-    public TerraformProperty<string> TopicId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("topic_id");
-        set => SetProperty("topic_id", value);
-    }
+    [TerraformPropertyName("topic_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TopicId { get; set; }
 
     /// <summary>
     /// The topic_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> TopicName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("topic_name");
-        set => SetProperty("topic_name", value);
-    }
+    [TerraformPropertyName("topic_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TopicName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermServicebusSubscriptionDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermServicebusSubscriptionDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The auto_delete_on_idle attribute.
     /// </summary>
-    public TerraformExpression AutoDeleteOnIdle => this["auto_delete_on_idle"];
+    [TerraformPropertyName("auto_delete_on_idle")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AutoDeleteOnIdle => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "auto_delete_on_idle");
 
     /// <summary>
     /// The batched_operations_enabled attribute.
     /// </summary>
-    public TerraformExpression BatchedOperationsEnabled => this["batched_operations_enabled"];
+    [TerraformPropertyName("batched_operations_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> BatchedOperationsEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "batched_operations_enabled");
 
     /// <summary>
     /// The dead_lettering_on_filter_evaluation_error attribute.
     /// </summary>
-    public TerraformExpression DeadLetteringOnFilterEvaluationError => this["dead_lettering_on_filter_evaluation_error"];
+    [TerraformPropertyName("dead_lettering_on_filter_evaluation_error")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeadLetteringOnFilterEvaluationError => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "dead_lettering_on_filter_evaluation_error");
 
     /// <summary>
     /// The dead_lettering_on_message_expiration attribute.
     /// </summary>
-    public TerraformExpression DeadLetteringOnMessageExpiration => this["dead_lettering_on_message_expiration"];
+    [TerraformPropertyName("dead_lettering_on_message_expiration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeadLetteringOnMessageExpiration => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "dead_lettering_on_message_expiration");
 
     /// <summary>
     /// The default_message_ttl attribute.
     /// </summary>
-    public TerraformExpression DefaultMessageTtl => this["default_message_ttl"];
+    [TerraformPropertyName("default_message_ttl")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultMessageTtl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_message_ttl");
 
     /// <summary>
     /// The enable_batched_operations attribute.
     /// </summary>
-    public TerraformExpression EnableBatchedOperations => this["enable_batched_operations"];
+    [TerraformPropertyName("enable_batched_operations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableBatchedOperations => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_batched_operations");
 
     /// <summary>
     /// The forward_dead_lettered_messages_to attribute.
     /// </summary>
-    public TerraformExpression ForwardDeadLetteredMessagesTo => this["forward_dead_lettered_messages_to"];
+    [TerraformPropertyName("forward_dead_lettered_messages_to")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ForwardDeadLetteredMessagesTo => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "forward_dead_lettered_messages_to");
 
     /// <summary>
     /// The forward_to attribute.
     /// </summary>
-    public TerraformExpression ForwardTo => this["forward_to"];
+    [TerraformPropertyName("forward_to")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ForwardTo => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "forward_to");
 
     /// <summary>
     /// The lock_duration attribute.
     /// </summary>
-    public TerraformExpression LockDuration => this["lock_duration"];
+    [TerraformPropertyName("lock_duration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LockDuration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "lock_duration");
 
     /// <summary>
     /// The max_delivery_count attribute.
     /// </summary>
-    public TerraformExpression MaxDeliveryCount => this["max_delivery_count"];
+    [TerraformPropertyName("max_delivery_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxDeliveryCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_delivery_count");
 
     /// <summary>
     /// The requires_session attribute.
     /// </summary>
-    public TerraformExpression RequiresSession => this["requires_session"];
+    [TerraformPropertyName("requires_session")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> RequiresSession => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "requires_session");
 
 }

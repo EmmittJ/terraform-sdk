@@ -9,67 +9,62 @@ public class AwsCloudfrontOriginRequestPolicyDataSource : TerraformDataSource
 {
     public AwsCloudfrontOriginRequestPolicyDataSource(string name) : base("aws_cloudfront_origin_request_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("comment");
-        SetOutput("cookies_config");
-        SetOutput("etag");
-        SetOutput("headers_config");
-        SetOutput("query_strings_config");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformExpression Comment => this["comment"];
+    [TerraformPropertyName("comment")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Comment => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "comment");
 
     /// <summary>
     /// The cookies_config attribute.
     /// </summary>
-    public TerraformExpression CookiesConfig => this["cookies_config"];
+    [TerraformPropertyName("cookies_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> CookiesConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cookies_config");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The headers_config attribute.
     /// </summary>
-    public TerraformExpression HeadersConfig => this["headers_config"];
+    [TerraformPropertyName("headers_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> HeadersConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "headers_config");
 
     /// <summary>
     /// The query_strings_config attribute.
     /// </summary>
-    public TerraformExpression QueryStringsConfig => this["query_strings_config"];
+    [TerraformPropertyName("query_strings_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> QueryStringsConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "query_strings_config");
 
 }

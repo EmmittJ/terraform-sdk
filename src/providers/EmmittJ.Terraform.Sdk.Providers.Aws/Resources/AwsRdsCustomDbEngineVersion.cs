@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRdsCustomDbEngineVersionTimeoutsBlock : TerraformBlock
+public class AwsRdsCustomDbEngineVersionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,208 +38,162 @@ public class AwsRdsCustomDbEngineVersion : TerraformResource
 {
     public AwsRdsCustomDbEngineVersion(string name) : base("aws_rds_custom_db_engine_version", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("create_time");
-        SetOutput("db_parameter_group_family");
-        SetOutput("image_id");
-        SetOutput("major_engine_version");
-        SetOutput("manifest_computed");
-        SetOutput("database_installation_files_s3_bucket_name");
-        SetOutput("database_installation_files_s3_prefix");
-        SetOutput("description");
-        SetOutput("engine");
-        SetOutput("engine_version");
-        SetOutput("filename");
-        SetOutput("id");
-        SetOutput("kms_key_id");
-        SetOutput("manifest");
-        SetOutput("manifest_hash");
-        SetOutput("region");
-        SetOutput("source_image_id");
-        SetOutput("status");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The database_installation_files_s3_bucket_name attribute.
     /// </summary>
-    public TerraformProperty<string> DatabaseInstallationFilesS3BucketName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_installation_files_s3_bucket_name");
-        set => SetProperty("database_installation_files_s3_bucket_name", value);
-    }
+    [TerraformPropertyName("database_installation_files_s3_bucket_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DatabaseInstallationFilesS3BucketName { get; set; }
 
     /// <summary>
     /// The database_installation_files_s3_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> DatabaseInstallationFilesS3Prefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_installation_files_s3_prefix");
-        set => SetProperty("database_installation_files_s3_prefix", value);
-    }
+    [TerraformPropertyName("database_installation_files_s3_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DatabaseInstallationFilesS3Prefix { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
-    public required TerraformProperty<string> Engine
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine");
-        set => SetProperty("engine", value);
-    }
+    [TerraformPropertyName("engine")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Engine { get; set; }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineVersion is required")]
-    public required TerraformProperty<string> EngineVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
-        set => SetProperty("engine_version", value);
-    }
+    [TerraformPropertyName("engine_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EngineVersion { get; set; }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
-    public TerraformProperty<string> Filename
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filename");
-        set => SetProperty("filename", value);
-    }
+    [TerraformPropertyName("filename")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Filename { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_id");
 
     /// <summary>
     /// The manifest attribute.
     /// </summary>
-    public TerraformProperty<string> Manifest
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("manifest");
-        set => SetProperty("manifest", value);
-    }
+    [TerraformPropertyName("manifest")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Manifest { get; set; }
 
     /// <summary>
     /// The manifest_hash attribute.
     /// </summary>
-    public TerraformProperty<string> ManifestHash
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("manifest_hash");
-        set => SetProperty("manifest_hash", value);
-    }
+    [TerraformPropertyName("manifest_hash")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManifestHash { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The source_image_id attribute.
     /// </summary>
-    public TerraformProperty<string> SourceImageId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_image_id");
-        set => SetProperty("source_image_id", value);
-    }
+    [TerraformPropertyName("source_image_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceImageId { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Status { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsRdsCustomDbEngineVersionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsRdsCustomDbEngineVersionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The db_parameter_group_family attribute.
     /// </summary>
-    public TerraformExpression DbParameterGroupFamily => this["db_parameter_group_family"];
+    [TerraformPropertyName("db_parameter_group_family")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DbParameterGroupFamily => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "db_parameter_group_family");
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
-    public TerraformExpression ImageId => this["image_id"];
+    [TerraformPropertyName("image_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ImageId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_id");
 
     /// <summary>
     /// The major_engine_version attribute.
     /// </summary>
-    public TerraformExpression MajorEngineVersion => this["major_engine_version"];
+    [TerraformPropertyName("major_engine_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MajorEngineVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "major_engine_version");
 
     /// <summary>
     /// The manifest_computed attribute.
     /// </summary>
-    public TerraformExpression ManifestComputed => this["manifest_computed"];
+    [TerraformPropertyName("manifest_computed")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ManifestComputed => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "manifest_computed");
 
 }

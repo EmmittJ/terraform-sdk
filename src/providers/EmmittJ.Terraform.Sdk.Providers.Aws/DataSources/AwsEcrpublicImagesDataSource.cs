@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for image_ids in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcrpublicImagesDataSourceImageIdsBlock : TerraformBlock
+public class AwsEcrpublicImagesDataSourceImageIdsBlock : ITerraformBlock
 {
     /// <summary>
     /// Image digest.
     /// </summary>
-    public TerraformProperty<string>? ImageDigest
-    {
-        set => SetProperty("image_digest", value);
-    }
+    [TerraformPropertyName("image_digest")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ImageDigest { get; set; }
 
     /// <summary>
     /// Image tag.
     /// </summary>
-    public TerraformProperty<string>? ImageTag
-    {
-        set => SetProperty("image_tag", value);
-    }
+    [TerraformPropertyName("image_tag")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ImageTag { get; set; }
 
 }
 
@@ -33,57 +31,42 @@ public class AwsEcrpublicImagesDataSource : TerraformDataSource
 {
     public AwsEcrpublicImagesDataSource(string name) : base("aws_ecrpublic_images", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("images");
-        SetOutput("region");
-        SetOutput("registry_id");
-        SetOutput("repository_name");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
     /// </summary>
-    public TerraformProperty<string> RegistryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("registry_id");
-        set => SetProperty("registry_id", value);
-    }
+    [TerraformPropertyName("registry_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RegistryId { get; set; }
 
     /// <summary>
     /// Name of the public repository.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
-    public required TerraformProperty<string> RepositoryName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("repository_name");
-        set => SetProperty("repository_name", value);
-    }
+    [TerraformPropertyName("repository_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RepositoryName { get; set; }
 
     /// <summary>
     /// Block for image_ids.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsEcrpublicImagesDataSourceImageIdsBlock>? ImageIds
-    {
-        set => SetProperty("image_ids", value);
-    }
+    [TerraformPropertyName("image_ids")]
+    public TerraformList<TerraformBlock<AwsEcrpublicImagesDataSourceImageIdsBlock>>? ImageIds { get; set; } = new();
 
     /// <summary>
     /// The images attribute.
     /// </summary>
-    public TerraformExpression Images => this["images"];
+    [TerraformPropertyName("images")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Images => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "images");
 
 }

@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsGuarddutyMemberTimeoutsBlock : TerraformBlock
+public class AwsGuarddutyMemberTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -33,109 +31,79 @@ public class AwsGuarddutyMember : TerraformResource
 {
     public AwsGuarddutyMember(string name) : base("aws_guardduty_member", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("relationship_status");
-        SetOutput("account_id");
-        SetOutput("detector_id");
-        SetOutput("disable_email_notification");
-        SetOutput("email");
-        SetOutput("id");
-        SetOutput("invitation_message");
-        SetOutput("invite");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
-    public required TerraformProperty<string> AccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountId { get; set; }
 
     /// <summary>
     /// The detector_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
-    public required TerraformProperty<string> DetectorId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("detector_id");
-        set => SetProperty("detector_id", value);
-    }
+    [TerraformPropertyName("detector_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DetectorId { get; set; }
 
     /// <summary>
     /// The disable_email_notification attribute.
     /// </summary>
-    public TerraformProperty<bool> DisableEmailNotification
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("disable_email_notification");
-        set => SetProperty("disable_email_notification", value);
-    }
+    [TerraformPropertyName("disable_email_notification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DisableEmailNotification { get; set; }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    public required TerraformProperty<string> Email
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("email");
-        set => SetProperty("email", value);
-    }
+    [TerraformPropertyName("email")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Email { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The invitation_message attribute.
     /// </summary>
-    public TerraformProperty<string> InvitationMessage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("invitation_message");
-        set => SetProperty("invitation_message", value);
-    }
+    [TerraformPropertyName("invitation_message")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InvitationMessage { get; set; }
 
     /// <summary>
     /// The invite attribute.
     /// </summary>
-    public TerraformProperty<bool> Invite
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("invite");
-        set => SetProperty("invite", value);
-    }
+    [TerraformPropertyName("invite")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Invite { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsGuarddutyMemberTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsGuarddutyMemberTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The relationship_status attribute.
     /// </summary>
-    public TerraformExpression RelationshipStatus => this["relationship_status"];
+    [TerraformPropertyName("relationship_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RelationshipStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "relationship_status");
 
 }

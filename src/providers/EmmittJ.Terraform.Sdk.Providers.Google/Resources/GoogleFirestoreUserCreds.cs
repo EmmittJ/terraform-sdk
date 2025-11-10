@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirestoreUserCredsTimeoutsBlock : TerraformBlock
+public class GoogleFirestoreUserCredsTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,40 +31,22 @@ public class GoogleFirestoreUserCreds : TerraformResource
 {
     public GoogleFirestoreUserCreds(string name) : base("google_firestore_user_creds", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("resource_identity");
-        SetOutput("secure_password");
-        SetOutput("state");
-        SetOutput("update_time");
-        SetOutput("database");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The Firestore database ID.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
-    public required TerraformProperty<string> Database
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database");
-        set => SetProperty("database", value);
-    }
+    [TerraformPropertyName("database")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Database { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID to use for the user creds, which will become the final component
@@ -77,53 +57,57 @@ public class GoogleFirestoreUserCreds : TerraformResource
     /// be UUID-like /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleFirestoreUserCredsTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleFirestoreUserCredsTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp at which these user creds were created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Describes the Resource Identity principal.
     /// </summary>
-    public TerraformExpression ResourceIdentity => this["resource_identity"];
+    [TerraformPropertyName("resource_identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ResourceIdentity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "resource_identity");
 
     /// <summary>
     /// The plaintext server-generated password for the user creds.
     /// </summary>
-    public TerraformExpression SecurePassword => this["secure_password"];
+    [TerraformPropertyName("secure_password")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecurePassword => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secure_password");
 
     /// <summary>
     /// The state of the user creds.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The timestamp at which these user creds were updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

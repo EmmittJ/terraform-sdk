@@ -6,41 +6,37 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlock
+public class AzurermLogAnalyticsSolutionPlanBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>("", "name");
 
     /// <summary>
     /// The product attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
-    public required TerraformProperty<string> Product
-    {
-        set => SetProperty("product", value);
-    }
+    [TerraformPropertyName("product")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Product { get; set; }
 
     /// <summary>
     /// The promotion_code attribute.
     /// </summary>
-    public TerraformProperty<string>? PromotionCode
-    {
-        set => SetProperty("promotion_code", value);
-    }
+    [TerraformPropertyName("promotion_code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PromotionCode { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    public required TerraformProperty<string> Publisher
-    {
-        set => SetProperty("publisher", value);
-    }
+    [TerraformPropertyName("publisher")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
 
 }
 
@@ -48,39 +44,35 @@ public class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogAnalyticsSolutionTimeoutsBlock : TerraformBlock
+public class AzurermLogAnalyticsSolutionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -92,87 +84,61 @@ public class AzurermLogAnalyticsSolution : TerraformResource
 {
     public AzurermLogAnalyticsSolution(string name) : base("azurerm_log_analytics_solution", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("resource_group_name");
-        SetOutput("solution_name");
-        SetOutput("tags");
-        SetOutput("workspace_name");
-        SetOutput("workspace_resource_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The solution_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SolutionName is required")]
-    public required TerraformProperty<string> SolutionName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("solution_name");
-        set => SetProperty("solution_name", value);
-    }
+    [TerraformPropertyName("solution_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SolutionName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The workspace_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceName is required")]
-    public required TerraformProperty<string> WorkspaceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workspace_name");
-        set => SetProperty("workspace_name", value);
-    }
+    [TerraformPropertyName("workspace_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceName { get; set; }
 
     /// <summary>
     /// The workspace_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceResourceId is required")]
-    public required TerraformProperty<string> WorkspaceResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workspace_resource_id");
-        set => SetProperty("workspace_resource_id", value);
-    }
+    [TerraformPropertyName("workspace_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceResourceId { get; set; }
 
     /// <summary>
     /// Block for plan.
@@ -181,18 +147,14 @@ public class AzurermLogAnalyticsSolution : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plan block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public List<AzurermLogAnalyticsSolutionPlanBlock>? Plan
-    {
-        set => SetProperty("plan", value);
-    }
+    [TerraformPropertyName("plan")]
+    public TerraformList<TerraformBlock<AzurermLogAnalyticsSolutionPlanBlock>>? Plan { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLogAnalyticsSolutionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLogAnalyticsSolutionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

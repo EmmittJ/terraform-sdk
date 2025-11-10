@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermEventhubConsumerGroupDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermEventhubConsumerGroupDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,80 +24,59 @@ public class AzurermEventhubConsumerGroupDataSource : TerraformDataSource
 {
     public AzurermEventhubConsumerGroupDataSource(string name) : base("azurerm_eventhub_consumer_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("user_metadata");
-        SetOutput("eventhub_name");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("namespace_name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
-    public required TerraformProperty<string> EventhubName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_name");
-        set => SetProperty("eventhub_name", value);
-    }
+    [TerraformPropertyName("eventhub_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventhubName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
-    public required TerraformProperty<string> NamespaceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
-        set => SetProperty("namespace_name", value);
-    }
+    [TerraformPropertyName("namespace_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NamespaceName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermEventhubConsumerGroupDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermEventhubConsumerGroupDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The user_metadata attribute.
     /// </summary>
-    public TerraformExpression UserMetadata => this["user_metadata"];
+    [TerraformPropertyName("user_metadata")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserMetadata => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_metadata");
 
 }

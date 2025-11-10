@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for name_node in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDatasyncLocationHdfsNameNodeBlock : TerraformBlock
+public class AwsDatasyncLocationHdfsNameNodeBlock : ITerraformBlock
 {
     /// <summary>
     /// The hostname attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
-    public required TerraformProperty<string> Hostname
-    {
-        set => SetProperty("hostname", value);
-    }
+    [TerraformPropertyName("hostname")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Hostname { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    public required TerraformProperty<double> Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Port { get; set; }
 
 }
 
@@ -32,23 +30,21 @@ public class AwsDatasyncLocationHdfsNameNodeBlock : TerraformBlock
 /// Block type for qop_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDatasyncLocationHdfsQopConfigurationBlock : TerraformBlock
+public class AwsDatasyncLocationHdfsQopConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The data_transfer_protection attribute.
     /// </summary>
-    public TerraformProperty<string>? DataTransferProtection
-    {
-        set => SetProperty("data_transfer_protection", value);
-    }
+    [TerraformPropertyName("data_transfer_protection")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DataTransferProtection { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "data_transfer_protection");
 
     /// <summary>
     /// The rpc_protection attribute.
     /// </summary>
-    public TerraformProperty<string>? RpcProtection
-    {
-        set => SetProperty("rpc_protection", value);
-    }
+    [TerraformPropertyName("rpc_protection")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> RpcProtection { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "rpc_protection");
 
 }
 
@@ -60,175 +56,120 @@ public class AwsDatasyncLocationHdfs : TerraformResource
 {
     public AwsDatasyncLocationHdfs(string name) : base("aws_datasync_location_hdfs", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("uri");
-        SetOutput("agent_arns");
-        SetOutput("authentication_type");
-        SetOutput("block_size");
-        SetOutput("id");
-        SetOutput("kerberos_keytab");
-        SetOutput("kerberos_keytab_base64");
-        SetOutput("kerberos_krb5_conf");
-        SetOutput("kerberos_krb5_conf_base64");
-        SetOutput("kerberos_principal");
-        SetOutput("kms_key_provider_uri");
-        SetOutput("region");
-        SetOutput("replication_factor");
-        SetOutput("simple_user");
-        SetOutput("subdirectory");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The agent_arns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
-    public HashSet<TerraformProperty<string>> AgentArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("agent_arns");
-        set => SetProperty("agent_arns", value);
-    }
+    [TerraformPropertyName("agent_arns")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AgentArns { get; set; }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformProperty<string> AuthenticationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_type");
-        set => SetProperty("authentication_type", value);
-    }
+    [TerraformPropertyName("authentication_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthenticationType { get; set; }
 
     /// <summary>
     /// The block_size attribute.
     /// </summary>
-    public TerraformProperty<double> BlockSize
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("block_size");
-        set => SetProperty("block_size", value);
-    }
+    [TerraformPropertyName("block_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BlockSize { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kerberos_keytab attribute.
     /// </summary>
-    public TerraformProperty<string> KerberosKeytab
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kerberos_keytab");
-        set => SetProperty("kerberos_keytab", value);
-    }
+    [TerraformPropertyName("kerberos_keytab")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KerberosKeytab { get; set; }
 
     /// <summary>
     /// The kerberos_keytab_base64 attribute.
     /// </summary>
-    public TerraformProperty<string> KerberosKeytabBase64
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kerberos_keytab_base64");
-        set => SetProperty("kerberos_keytab_base64", value);
-    }
+    [TerraformPropertyName("kerberos_keytab_base64")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KerberosKeytabBase64 { get; set; }
 
     /// <summary>
     /// The kerberos_krb5_conf attribute.
     /// </summary>
-    public TerraformProperty<string> KerberosKrb5Conf
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kerberos_krb5_conf");
-        set => SetProperty("kerberos_krb5_conf", value);
-    }
+    [TerraformPropertyName("kerberos_krb5_conf")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KerberosKrb5Conf { get; set; }
 
     /// <summary>
     /// The kerberos_krb5_conf_base64 attribute.
     /// </summary>
-    public TerraformProperty<string> KerberosKrb5ConfBase64
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kerberos_krb5_conf_base64");
-        set => SetProperty("kerberos_krb5_conf_base64", value);
-    }
+    [TerraformPropertyName("kerberos_krb5_conf_base64")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KerberosKrb5ConfBase64 { get; set; }
 
     /// <summary>
     /// The kerberos_principal attribute.
     /// </summary>
-    public TerraformProperty<string> KerberosPrincipal
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kerberos_principal");
-        set => SetProperty("kerberos_principal", value);
-    }
+    [TerraformPropertyName("kerberos_principal")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KerberosPrincipal { get; set; }
 
     /// <summary>
     /// The kms_key_provider_uri attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyProviderUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_provider_uri");
-        set => SetProperty("kms_key_provider_uri", value);
-    }
+    [TerraformPropertyName("kms_key_provider_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyProviderUri { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The replication_factor attribute.
     /// </summary>
-    public TerraformProperty<double> ReplicationFactor
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("replication_factor");
-        set => SetProperty("replication_factor", value);
-    }
+    [TerraformPropertyName("replication_factor")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ReplicationFactor { get; set; }
 
     /// <summary>
     /// The simple_user attribute.
     /// </summary>
-    public TerraformProperty<string> SimpleUser
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("simple_user");
-        set => SetProperty("simple_user", value);
-    }
+    [TerraformPropertyName("simple_user")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SimpleUser { get; set; }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformProperty<string> Subdirectory
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subdirectory");
-        set => SetProperty("subdirectory", value);
-    }
+    [TerraformPropertyName("subdirectory")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Subdirectory { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for name_node.
@@ -236,29 +177,29 @@ public class AwsDatasyncLocationHdfs : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NameNode is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NameNode block(s) required")]
-    public HashSet<AwsDatasyncLocationHdfsNameNodeBlock>? NameNode
-    {
-        set => SetProperty("name_node", value);
-    }
+    [TerraformPropertyName("name_node")]
+    public TerraformSet<TerraformBlock<AwsDatasyncLocationHdfsNameNodeBlock>>? NameNode { get; set; } = new();
 
     /// <summary>
     /// Block for qop_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QopConfiguration block(s) allowed")]
-    public List<AwsDatasyncLocationHdfsQopConfigurationBlock>? QopConfiguration
-    {
-        set => SetProperty("qop_configuration", value);
-    }
+    [TerraformPropertyName("qop_configuration")]
+    public TerraformList<TerraformBlock<AwsDatasyncLocationHdfsQopConfigurationBlock>>? QopConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformExpression Uri => this["uri"];
+    [TerraformPropertyName("uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uri");
 
 }

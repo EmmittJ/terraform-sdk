@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCdnFrontdoorOriginGroupDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermCdnFrontdoorOriginGroupDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,93 +24,79 @@ public class AzurermCdnFrontdoorOriginGroupDataSource : TerraformDataSource
 {
     public AzurermCdnFrontdoorOriginGroupDataSource(string name) : base("azurerm_cdn_frontdoor_origin_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cdn_frontdoor_profile_id");
-        SetOutput("health_probe");
-        SetOutput("load_balancing");
-        SetOutput("restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
-        SetOutput("session_affinity_enabled");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("profile_name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The profile_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
-    public required TerraformProperty<string> ProfileName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("profile_name");
-        set => SetProperty("profile_name", value);
-    }
+    [TerraformPropertyName("profile_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProfileName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCdnFrontdoorOriginGroupDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCdnFrontdoorOriginGroupDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The cdn_frontdoor_profile_id attribute.
     /// </summary>
-    public TerraformExpression CdnFrontdoorProfileId => this["cdn_frontdoor_profile_id"];
+    [TerraformPropertyName("cdn_frontdoor_profile_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CdnFrontdoorProfileId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cdn_frontdoor_profile_id");
 
     /// <summary>
     /// The health_probe attribute.
     /// </summary>
-    public TerraformExpression HealthProbe => this["health_probe"];
+    [TerraformPropertyName("health_probe")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> HealthProbe => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "health_probe");
 
     /// <summary>
     /// The load_balancing attribute.
     /// </summary>
-    public TerraformExpression LoadBalancing => this["load_balancing"];
+    [TerraformPropertyName("load_balancing")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> LoadBalancing => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "load_balancing");
 
     /// <summary>
     /// The restore_traffic_time_to_healed_or_new_endpoint_in_minutes attribute.
     /// </summary>
-    public TerraformExpression RestoreTrafficTimeToHealedOrNewEndpointInMinutes => this["restore_traffic_time_to_healed_or_new_endpoint_in_minutes"];
+    [TerraformPropertyName("restore_traffic_time_to_healed_or_new_endpoint_in_minutes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RestoreTrafficTimeToHealedOrNewEndpointInMinutes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
 
     /// <summary>
     /// The session_affinity_enabled attribute.
     /// </summary>
-    public TerraformExpression SessionAffinityEnabled => this["session_affinity_enabled"];
+    [TerraformPropertyName("session_affinity_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> SessionAffinityEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "session_affinity_enabled");
 
 }

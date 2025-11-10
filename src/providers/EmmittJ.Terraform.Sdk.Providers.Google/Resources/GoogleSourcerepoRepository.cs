@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for pubsub_configs in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
+public class GoogleSourcerepoRepositoryPubsubConfigsBlock : ITerraformBlock
 {
     /// <summary>
     /// The format of the Cloud Pub/Sub messages.
@@ -14,10 +14,9 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     /// - JSON: The message payload is a JSON string of SourceRepoEvent. Possible values: [&amp;quot;PROTOBUF&amp;quot;, &amp;quot;JSON&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageFormat is required")]
-    public required TerraformProperty<string> MessageFormat
-    {
-        set => SetProperty("message_format", value);
-    }
+    [TerraformPropertyName("message_format")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MessageFormat { get; set; }
 
     /// <summary>
     /// Email address of the service account used for publishing Cloud Pub/Sub messages.
@@ -25,19 +24,17 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     /// the caller needs to have iam.serviceAccounts.actAs permission on this service account.
     /// If unspecified, it defaults to the compute engine default service account.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccountEmail
-    {
-        set => SetProperty("service_account_email", value);
-    }
+    [TerraformPropertyName("service_account_email")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ServiceAccountEmail { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "service_account_email");
 
     /// <summary>
     /// The topic attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
-    public required TerraformProperty<string> Topic
-    {
-        set => SetProperty("topic", value);
-    }
+    [TerraformPropertyName("topic")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Topic { get; set; }
 
 }
 
@@ -45,31 +42,28 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSourcerepoRepositoryTimeoutsBlock : TerraformBlock
+public class GoogleSourcerepoRepositoryTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -80,83 +74,64 @@ public class GoogleSourcerepoRepository : TerraformResource
 {
     public GoogleSourcerepoRepository(string name) : base("google_sourcerepo_repository", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("size");
-        SetOutput("url");
-        SetOutput("create_ignore_already_exists");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// If set to true, skip repository creation if a repository with the same name already exists.
     /// </summary>
-    public TerraformProperty<bool> CreateIgnoreAlreadyExists
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("create_ignore_already_exists");
-        set => SetProperty("create_ignore_already_exists", value);
-    }
+    [TerraformPropertyName("create_ignore_already_exists")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CreateIgnoreAlreadyExists { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Resource name of the repository, of the form &#39;{{repo}}&#39;.
     /// The repo name may contain slashes. eg, &#39;name/with/slash&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for pubsub_configs.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<GoogleSourcerepoRepositoryPubsubConfigsBlock>? PubsubConfigs
-    {
-        set => SetProperty("pubsub_configs", value);
-    }
+    [TerraformPropertyName("pubsub_configs")]
+    public TerraformSet<TerraformBlock<GoogleSourcerepoRepositoryPubsubConfigsBlock>>? PubsubConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleSourcerepoRepositoryTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleSourcerepoRepositoryTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The disk usage of the repo, in bytes.
     /// </summary>
-    public TerraformExpression Size => this["size"];
+    [TerraformPropertyName("size")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Size => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "size");
 
     /// <summary>
     /// URL to clone the repository from Google Cloud Source Repositories.
     /// </summary>
-    public TerraformExpression Url => this["url"];
+    [TerraformPropertyName("url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "url");
 
 }

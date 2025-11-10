@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ephemeral_storage in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcsTaskDefinitionEphemeralStorageBlock : TerraformBlock
+public class AwsEcsTaskDefinitionEphemeralStorageBlock : ITerraformBlock
 {
     /// <summary>
     /// The size_in_gib attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
-    public required TerraformProperty<double> SizeInGib
-    {
-        set => SetProperty("size_in_gib", value);
-    }
+    [TerraformPropertyName("size_in_gib")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> SizeInGib { get; set; }
 
 }
 
@@ -23,24 +22,22 @@ public class AwsEcsTaskDefinitionEphemeralStorageBlock : TerraformBlock
 /// Block type for placement_constraints in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEcsTaskDefinitionPlacementConstraintsBlock : TerraformBlock
+public class AwsEcsTaskDefinitionPlacementConstraintsBlock : ITerraformBlock
 {
     /// <summary>
     /// The expression attribute.
     /// </summary>
-    public TerraformProperty<string>? Expression
-    {
-        set => SetProperty("expression", value);
-    }
+    [TerraformPropertyName("expression")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Expression { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -48,32 +45,29 @@ public class AwsEcsTaskDefinitionPlacementConstraintsBlock : TerraformBlock
 /// Block type for proxy_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBlock
+public class AwsEcsTaskDefinitionProxyConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
-    public required TerraformProperty<string> ContainerName
-    {
-        set => SetProperty("container_name", value);
-    }
+    [TerraformPropertyName("container_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContainerName { get; set; }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Properties
-    {
-        set => SetProperty("properties", value);
-    }
+    [TerraformPropertyName("properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Properties { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -81,23 +75,21 @@ public class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBlock
 /// Block type for runtime_platform in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcsTaskDefinitionRuntimePlatformBlock : TerraformBlock
+public class AwsEcsTaskDefinitionRuntimePlatformBlock : ITerraformBlock
 {
     /// <summary>
     /// The cpu_architecture attribute.
     /// </summary>
-    public TerraformProperty<string>? CpuArchitecture
-    {
-        set => SetProperty("cpu_architecture", value);
-    }
+    [TerraformPropertyName("cpu_architecture")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CpuArchitecture { get; set; }
 
     /// <summary>
     /// The operating_system_family attribute.
     /// </summary>
-    public TerraformProperty<string>? OperatingSystemFamily
-    {
-        set => SetProperty("operating_system_family", value);
-    }
+    [TerraformPropertyName("operating_system_family")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OperatingSystemFamily { get; set; }
 
 }
 
@@ -105,32 +97,29 @@ public class AwsEcsTaskDefinitionRuntimePlatformBlock : TerraformBlock
 /// Block type for volume in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEcsTaskDefinitionVolumeBlock : TerraformBlock
+public class AwsEcsTaskDefinitionVolumeBlock : ITerraformBlock
 {
     /// <summary>
     /// The configure_at_launch attribute.
     /// </summary>
-    public TerraformProperty<bool>? ConfigureAtLaunch
-    {
-        set => SetProperty("configure_at_launch", value);
-    }
+    [TerraformPropertyName("configure_at_launch")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> ConfigureAtLaunch { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "configure_at_launch");
 
     /// <summary>
     /// The host_path attribute.
     /// </summary>
-    public TerraformProperty<string>? HostPath
-    {
-        set => SetProperty("host_path", value);
-    }
+    [TerraformPropertyName("host_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HostPath { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -142,250 +131,187 @@ public class AwsEcsTaskDefinition : TerraformResource
 {
     public AwsEcsTaskDefinition(string name) : base("aws_ecs_task_definition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("arn_without_revision");
-        SetOutput("revision");
-        SetOutput("container_definitions");
-        SetOutput("cpu");
-        SetOutput("enable_fault_injection");
-        SetOutput("execution_role_arn");
-        SetOutput("family");
-        SetOutput("id");
-        SetOutput("ipc_mode");
-        SetOutput("memory");
-        SetOutput("network_mode");
-        SetOutput("pid_mode");
-        SetOutput("region");
-        SetOutput("requires_compatibilities");
-        SetOutput("skip_destroy");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("task_role_arn");
-        SetOutput("track_latest");
     }
 
     /// <summary>
     /// The container_definitions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerDefinitions is required")]
-    public required TerraformProperty<string> ContainerDefinitions
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_definitions");
-        set => SetProperty("container_definitions", value);
-    }
+    [TerraformPropertyName("container_definitions")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContainerDefinitions { get; set; }
 
     /// <summary>
     /// The cpu attribute.
     /// </summary>
-    public TerraformProperty<string> Cpu
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cpu");
-        set => SetProperty("cpu", value);
-    }
+    [TerraformPropertyName("cpu")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Cpu { get; set; }
 
     /// <summary>
     /// The enable_fault_injection attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableFaultInjection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_fault_injection");
-        set => SetProperty("enable_fault_injection", value);
-    }
+    [TerraformPropertyName("enable_fault_injection")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnableFaultInjection { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_fault_injection");
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> ExecutionRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
-        set => SetProperty("execution_role_arn", value);
-    }
+    [TerraformPropertyName("execution_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The family attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
-    public required TerraformProperty<string> Family
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("family");
-        set => SetProperty("family", value);
-    }
+    [TerraformPropertyName("family")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Family { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ipc_mode attribute.
     /// </summary>
-    public TerraformProperty<string> IpcMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ipc_mode");
-        set => SetProperty("ipc_mode", value);
-    }
+    [TerraformPropertyName("ipc_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IpcMode { get; set; }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    public TerraformProperty<string> Memory
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("memory");
-        set => SetProperty("memory", value);
-    }
+    [TerraformPropertyName("memory")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Memory { get; set; }
 
     /// <summary>
     /// The network_mode attribute.
     /// </summary>
-    public TerraformProperty<string> NetworkMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_mode");
-        set => SetProperty("network_mode", value);
-    }
+    [TerraformPropertyName("network_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NetworkMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_mode");
 
     /// <summary>
     /// The pid_mode attribute.
     /// </summary>
-    public TerraformProperty<string> PidMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pid_mode");
-        set => SetProperty("pid_mode", value);
-    }
+    [TerraformPropertyName("pid_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PidMode { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The requires_compatibilities attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> RequiresCompatibilities
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("requires_compatibilities");
-        set => SetProperty("requires_compatibilities", value);
-    }
+    [TerraformPropertyName("requires_compatibilities")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? RequiresCompatibilities { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
-        set => SetProperty("skip_destroy", value);
-    }
+    [TerraformPropertyName("skip_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The task_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> TaskRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("task_role_arn");
-        set => SetProperty("task_role_arn", value);
-    }
+    [TerraformPropertyName("task_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TaskRoleArn { get; set; }
 
     /// <summary>
     /// The track_latest attribute.
     /// </summary>
-    public TerraformProperty<bool> TrackLatest
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("track_latest");
-        set => SetProperty("track_latest", value);
-    }
+    [TerraformPropertyName("track_latest")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TrackLatest { get; set; }
 
     /// <summary>
     /// Block for ephemeral_storage.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EphemeralStorage block(s) allowed")]
-    public List<AwsEcsTaskDefinitionEphemeralStorageBlock>? EphemeralStorage
-    {
-        set => SetProperty("ephemeral_storage", value);
-    }
+    [TerraformPropertyName("ephemeral_storage")]
+    public TerraformList<TerraformBlock<AwsEcsTaskDefinitionEphemeralStorageBlock>>? EphemeralStorage { get; set; } = new();
 
     /// <summary>
     /// Block for placement_constraints.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PlacementConstraints block(s) allowed")]
-    public HashSet<AwsEcsTaskDefinitionPlacementConstraintsBlock>? PlacementConstraints
-    {
-        set => SetProperty("placement_constraints", value);
-    }
+    [TerraformPropertyName("placement_constraints")]
+    public TerraformSet<TerraformBlock<AwsEcsTaskDefinitionPlacementConstraintsBlock>>? PlacementConstraints { get; set; } = new();
 
     /// <summary>
     /// Block for proxy_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProxyConfiguration block(s) allowed")]
-    public List<AwsEcsTaskDefinitionProxyConfigurationBlock>? ProxyConfiguration
-    {
-        set => SetProperty("proxy_configuration", value);
-    }
+    [TerraformPropertyName("proxy_configuration")]
+    public TerraformList<TerraformBlock<AwsEcsTaskDefinitionProxyConfigurationBlock>>? ProxyConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for runtime_platform.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimePlatform block(s) allowed")]
-    public List<AwsEcsTaskDefinitionRuntimePlatformBlock>? RuntimePlatform
-    {
-        set => SetProperty("runtime_platform", value);
-    }
+    [TerraformPropertyName("runtime_platform")]
+    public TerraformList<TerraformBlock<AwsEcsTaskDefinitionRuntimePlatformBlock>>? RuntimePlatform { get; set; } = new();
 
     /// <summary>
     /// Block for volume.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsEcsTaskDefinitionVolumeBlock>? Volume
-    {
-        set => SetProperty("volume", value);
-    }
+    [TerraformPropertyName("volume")]
+    public TerraformSet<TerraformBlock<AwsEcsTaskDefinitionVolumeBlock>>? Volume { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The arn_without_revision attribute.
     /// </summary>
-    public TerraformExpression ArnWithoutRevision => this["arn_without_revision"];
+    [TerraformPropertyName("arn_without_revision")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ArnWithoutRevision => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn_without_revision");
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
-    public TerraformExpression Revision => this["revision"];
+    [TerraformPropertyName("revision")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Revision => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "revision");
 
 }

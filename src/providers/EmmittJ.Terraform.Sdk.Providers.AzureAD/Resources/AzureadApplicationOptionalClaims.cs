@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for access_token in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadApplicationOptionalClaimsAccessTokenBlock : TerraformBlock
+public class AzureadApplicationOptionalClaimsAccessTokenBlock : ITerraformBlock
 {
     /// <summary>
     /// List of additional properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim
     /// </summary>
-    public List<TerraformProperty<string>>? AdditionalProperties
-    {
-        set => SetProperty("additional_properties", value);
-    }
+    [TerraformPropertyName("additional_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// Whether the claim specified by the client is necessary to ensure a smooth authorization experience
     /// </summary>
-    public TerraformProperty<bool>? Essential
-    {
-        set => SetProperty("essential", value);
-    }
+    [TerraformPropertyName("essential")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Essential { get; set; }
 
     /// <summary>
     /// The name of the optional claim
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object
     /// </summary>
-    public TerraformProperty<string>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Source { get; set; }
 
 }
 
@@ -47,40 +43,36 @@ public class AzureadApplicationOptionalClaimsAccessTokenBlock : TerraformBlock
 /// Block type for id_token in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadApplicationOptionalClaimsIdTokenBlock : TerraformBlock
+public class AzureadApplicationOptionalClaimsIdTokenBlock : ITerraformBlock
 {
     /// <summary>
     /// List of additional properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim
     /// </summary>
-    public List<TerraformProperty<string>>? AdditionalProperties
-    {
-        set => SetProperty("additional_properties", value);
-    }
+    [TerraformPropertyName("additional_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// Whether the claim specified by the client is necessary to ensure a smooth authorization experience
     /// </summary>
-    public TerraformProperty<bool>? Essential
-    {
-        set => SetProperty("essential", value);
-    }
+    [TerraformPropertyName("essential")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Essential { get; set; }
 
     /// <summary>
     /// The name of the optional claim
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object
     /// </summary>
-    public TerraformProperty<string>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Source { get; set; }
 
 }
 
@@ -88,40 +80,36 @@ public class AzureadApplicationOptionalClaimsIdTokenBlock : TerraformBlock
 /// Block type for saml2_token in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadApplicationOptionalClaimsSaml2TokenBlock : TerraformBlock
+public class AzureadApplicationOptionalClaimsSaml2TokenBlock : ITerraformBlock
 {
     /// <summary>
     /// List of additional properties of the claim. If a property exists in this list, it modifies the behaviour of the optional claim
     /// </summary>
-    public List<TerraformProperty<string>>? AdditionalProperties
-    {
-        set => SetProperty("additional_properties", value);
-    }
+    [TerraformPropertyName("additional_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// Whether the claim specified by the client is necessary to ensure a smooth authorization experience
     /// </summary>
-    public TerraformProperty<bool>? Essential
-    {
-        set => SetProperty("essential", value);
-    }
+    [TerraformPropertyName("essential")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Essential { get; set; }
 
     /// <summary>
     /// The name of the optional claim
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The source of the claim. If `source` is absent, the claim is a predefined optional claim. If `source` is `user`, the value of `name` is the extension property from the user object
     /// </summary>
-    public TerraformProperty<string>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Source { get; set; }
 
 }
 
@@ -129,39 +117,35 @@ public class AzureadApplicationOptionalClaimsSaml2TokenBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationOptionalClaimsTimeoutsBlock : TerraformBlock
+public class AzureadApplicationOptionalClaimsTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -172,68 +156,49 @@ public class AzureadApplicationOptionalClaims : TerraformResource
 {
     public AzureadApplicationOptionalClaims(string name) : base("azuread_application_optional_claims", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("application_id");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The resource ID of the application to which these optional claims belong
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    public required TerraformProperty<string> ApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
-        set => SetProperty("application_id", value);
-    }
+    [TerraformPropertyName("application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for access_token.
     /// Nesting mode: list
     /// </summary>
-    public List<AzureadApplicationOptionalClaimsAccessTokenBlock>? AccessToken
-    {
-        set => SetProperty("access_token", value);
-    }
+    [TerraformPropertyName("access_token")]
+    public TerraformList<TerraformBlock<AzureadApplicationOptionalClaimsAccessTokenBlock>>? AccessToken { get; set; } = new();
 
     /// <summary>
     /// Block for id_token.
     /// Nesting mode: list
     /// </summary>
-    public List<AzureadApplicationOptionalClaimsIdTokenBlock>? IdToken
-    {
-        set => SetProperty("id_token", value);
-    }
+    [TerraformPropertyName("id_token")]
+    public TerraformList<TerraformBlock<AzureadApplicationOptionalClaimsIdTokenBlock>>? IdToken { get; set; } = new();
 
     /// <summary>
     /// Block for saml2_token.
     /// Nesting mode: list
     /// </summary>
-    public List<AzureadApplicationOptionalClaimsSaml2TokenBlock>? Saml2Token
-    {
-        set => SetProperty("saml2_token", value);
-    }
+    [TerraformPropertyName("saml2_token")]
+    public TerraformList<TerraformBlock<AzureadApplicationOptionalClaimsSaml2TokenBlock>>? Saml2Token { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadApplicationOptionalClaimsTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadApplicationOptionalClaimsTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualWanDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermVirtualWanDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,100 +24,92 @@ public class AzurermVirtualWanDataSource : TerraformDataSource
 {
     public AzurermVirtualWanDataSource(string name) : base("azurerm_virtual_wan", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("allow_branch_to_branch_traffic");
-        SetOutput("disable_vpn_encryption");
-        SetOutput("location");
-        SetOutput("office365_local_breakout_category");
-        SetOutput("sku");
-        SetOutput("tags");
-        SetOutput("virtual_hub_ids");
-        SetOutput("vpn_site_ids");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVirtualWanDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVirtualWanDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The allow_branch_to_branch_traffic attribute.
     /// </summary>
-    public TerraformExpression AllowBranchToBranchTraffic => this["allow_branch_to_branch_traffic"];
+    [TerraformPropertyName("allow_branch_to_branch_traffic")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AllowBranchToBranchTraffic => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "allow_branch_to_branch_traffic");
 
     /// <summary>
     /// The disable_vpn_encryption attribute.
     /// </summary>
-    public TerraformExpression DisableVpnEncryption => this["disable_vpn_encryption"];
+    [TerraformPropertyName("disable_vpn_encryption")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DisableVpnEncryption => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "disable_vpn_encryption");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The office365_local_breakout_category attribute.
     /// </summary>
-    public TerraformExpression Office365LocalBreakoutCategory => this["office365_local_breakout_category"];
+    [TerraformPropertyName("office365_local_breakout_category")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Office365LocalBreakoutCategory => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "office365_local_breakout_category");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformExpression Sku => this["sku"];
+    [TerraformPropertyName("sku")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Sku => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The virtual_hub_ids attribute.
     /// </summary>
-    public TerraformExpression VirtualHubIds => this["virtual_hub_ids"];
+    [TerraformPropertyName("virtual_hub_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> VirtualHubIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "virtual_hub_ids");
 
     /// <summary>
     /// The vpn_site_ids attribute.
     /// </summary>
-    public TerraformExpression VpnSiteIds => this["vpn_site_ids"];
+    [TerraformPropertyName("vpn_site_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> VpnSiteIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "vpn_site_ids");
 
 }

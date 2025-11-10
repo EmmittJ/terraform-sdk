@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for cool_access in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetappVolumeCoolAccessBlock : TerraformBlock
+public class AzurermNetappVolumeCoolAccessBlock : ITerraformBlock
 {
     /// <summary>
     /// The coolness_period_in_days attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoolnessPeriodInDays is required")]
-    public required TerraformProperty<double> CoolnessPeriodInDays
-    {
-        set => SetProperty("coolness_period_in_days", value);
-    }
+    [TerraformPropertyName("coolness_period_in_days")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> CoolnessPeriodInDays { get; set; }
 
     /// <summary>
     /// The retrieval_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetrievalPolicy is required")]
-    public required TerraformProperty<string> RetrievalPolicy
-    {
-        set => SetProperty("retrieval_policy", value);
-    }
+    [TerraformPropertyName("retrieval_policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RetrievalPolicy { get; set; }
 
     /// <summary>
     /// The tiering_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TieringPolicy is required")]
-    public required TerraformProperty<string> TieringPolicy
-    {
-        set => SetProperty("tiering_policy", value);
-    }
+    [TerraformPropertyName("tiering_policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TieringPolicy { get; set; }
 
 }
 
@@ -41,33 +38,30 @@ public class AzurermNetappVolumeCoolAccessBlock : TerraformBlock
 /// Block type for data_protection_backup_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetappVolumeDataProtectionBackupPolicyBlock : TerraformBlock
+public class AzurermNetappVolumeDataProtectionBackupPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The ID of the backup policy to associate with this volume.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
-    public required TerraformProperty<string> BackupPolicyId
-    {
-        set => SetProperty("backup_policy_id", value);
-    }
+    [TerraformPropertyName("backup_policy_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BackupPolicyId { get; set; }
 
     /// <summary>
     /// The ID of the backup vault to associate with this volume.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
-    public required TerraformProperty<string> BackupVaultId
-    {
-        set => SetProperty("backup_vault_id", value);
-    }
+    [TerraformPropertyName("backup_vault_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BackupVaultId { get; set; }
 
     /// <summary>
     /// If set to false, the backup policy will not be enabled on this volume, thus disabling scheduled backups.
     /// </summary>
-    public TerraformProperty<bool>? PolicyEnabled
-    {
-        set => SetProperty("policy_enabled", value);
-    }
+    [TerraformPropertyName("policy_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PolicyEnabled { get; set; }
 
 }
 
@@ -75,42 +69,38 @@ public class AzurermNetappVolumeDataProtectionBackupPolicyBlock : TerraformBlock
 /// Block type for data_protection_replication in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
+public class AzurermNetappVolumeDataProtectionReplicationBlock : ITerraformBlock
 {
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointType
-    {
-        set => SetProperty("endpoint_type", value);
-    }
+    [TerraformPropertyName("endpoint_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndpointType { get; set; }
 
     /// <summary>
     /// The remote_volume_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVolumeLocation is required")]
-    public required TerraformProperty<string> RemoteVolumeLocation
-    {
-        set => SetProperty("remote_volume_location", value);
-    }
+    [TerraformPropertyName("remote_volume_location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RemoteVolumeLocation { get; set; }
 
     /// <summary>
     /// The remote_volume_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVolumeResourceId is required")]
-    public required TerraformProperty<string> RemoteVolumeResourceId
-    {
-        set => SetProperty("remote_volume_resource_id", value);
-    }
+    [TerraformPropertyName("remote_volume_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RemoteVolumeResourceId { get; set; }
 
     /// <summary>
     /// The replication_frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFrequency is required")]
-    public required TerraformProperty<string> ReplicationFrequency
-    {
-        set => SetProperty("replication_frequency", value);
-    }
+    [TerraformPropertyName("replication_frequency")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ReplicationFrequency { get; set; }
 
 }
 
@@ -118,16 +108,15 @@ public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
 /// Block type for data_protection_snapshot_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetappVolumeDataProtectionSnapshotPolicyBlock : TerraformBlock
+public class AzurermNetappVolumeDataProtectionSnapshotPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The snapshot_policy_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotPolicyId is required")]
-    public required TerraformProperty<string> SnapshotPolicyId
-    {
-        set => SetProperty("snapshot_policy_id", value);
-    }
+    [TerraformPropertyName("snapshot_policy_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SnapshotPolicyId { get; set; }
 
 }
 
@@ -135,114 +124,101 @@ public class AzurermNetappVolumeDataProtectionSnapshotPolicyBlock : TerraformBlo
 /// Block type for export_policy_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
+public class AzurermNetappVolumeExportPolicyRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The allowed_clients attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedClients is required")]
-    public HashSet<TerraformProperty<string>>? AllowedClients
-    {
-        set => SetProperty("allowed_clients", value);
-    }
+    [TerraformPropertyName("allowed_clients")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedClients { get; set; }
 
     /// <summary>
     /// The kerberos_5_read_only_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Kerberos5ReadOnlyEnabled
-    {
-        set => SetProperty("kerberos_5_read_only_enabled", value);
-    }
+    [TerraformPropertyName("kerberos_5_read_only_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Kerberos5ReadOnlyEnabled { get; set; }
 
     /// <summary>
     /// The kerberos_5_read_write_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Kerberos5ReadWriteEnabled
-    {
-        set => SetProperty("kerberos_5_read_write_enabled", value);
-    }
+    [TerraformPropertyName("kerberos_5_read_write_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Kerberos5ReadWriteEnabled { get; set; }
 
     /// <summary>
     /// The kerberos_5i_read_only_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Kerberos5iReadOnlyEnabled
-    {
-        set => SetProperty("kerberos_5i_read_only_enabled", value);
-    }
+    [TerraformPropertyName("kerberos_5i_read_only_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Kerberos5iReadOnlyEnabled { get; set; }
 
     /// <summary>
     /// The kerberos_5i_read_write_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Kerberos5iReadWriteEnabled
-    {
-        set => SetProperty("kerberos_5i_read_write_enabled", value);
-    }
+    [TerraformPropertyName("kerberos_5i_read_write_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Kerberos5iReadWriteEnabled { get; set; }
 
     /// <summary>
     /// The kerberos_5p_read_only_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Kerberos5pReadOnlyEnabled
-    {
-        set => SetProperty("kerberos_5p_read_only_enabled", value);
-    }
+    [TerraformPropertyName("kerberos_5p_read_only_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Kerberos5pReadOnlyEnabled { get; set; }
 
     /// <summary>
     /// The kerberos_5p_read_write_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Kerberos5pReadWriteEnabled
-    {
-        set => SetProperty("kerberos_5p_read_write_enabled", value);
-    }
+    [TerraformPropertyName("kerberos_5p_read_write_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Kerberos5pReadWriteEnabled { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Protocol
-    {
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> Protocol { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "protocol");
 
     /// <summary>
     /// The protocols_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public List<TerraformProperty<string>>? ProtocolsEnabled
-    {
-        set => SetProperty("protocols_enabled", value);
-    }
+    [TerraformPropertyName("protocols_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> ProtocolsEnabled { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "protocols_enabled");
 
     /// <summary>
     /// The root_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RootAccessEnabled
-    {
-        set => SetProperty("root_access_enabled", value);
-    }
+    [TerraformPropertyName("root_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RootAccessEnabled { get; set; }
 
     /// <summary>
     /// The rule_index attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleIndex is required")]
-    public required TerraformProperty<double> RuleIndex
-    {
-        set => SetProperty("rule_index", value);
-    }
+    [TerraformPropertyName("rule_index")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> RuleIndex { get; set; }
 
     /// <summary>
     /// The unix_read_only attribute.
     /// </summary>
-    public TerraformProperty<bool>? UnixReadOnly
-    {
-        set => SetProperty("unix_read_only", value);
-    }
+    [TerraformPropertyName("unix_read_only")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UnixReadOnly { get; set; }
 
     /// <summary>
     /// The unix_read_write attribute.
     /// </summary>
-    public TerraformProperty<bool>? UnixReadWrite
-    {
-        set => SetProperty("unix_read_write", value);
-    }
+    [TerraformPropertyName("unix_read_write")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UnixReadWrite { get; set; }
 
 }
 
@@ -250,39 +226,35 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetappVolumeTimeoutsBlock : TerraformBlock
+public class AzurermNetappVolumeTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -294,365 +266,265 @@ public class AzurermNetappVolume : TerraformResource
 {
     public AzurermNetappVolume(string name) : base("azurerm_netapp_volume", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("mount_ip_addresses");
-        SetOutput("accept_grow_capacity_pool_for_short_term_clone_split");
-        SetOutput("account_name");
-        SetOutput("azure_vmware_data_store_enabled");
-        SetOutput("create_from_snapshot_resource_id");
-        SetOutput("encryption_key_source");
-        SetOutput("id");
-        SetOutput("kerberos_enabled");
-        SetOutput("key_vault_private_endpoint_id");
-        SetOutput("large_volume_enabled");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("network_features");
-        SetOutput("pool_name");
-        SetOutput("protocols");
-        SetOutput("resource_group_name");
-        SetOutput("security_style");
-        SetOutput("service_level");
-        SetOutput("smb3_protocol_encryption_enabled");
-        SetOutput("smb_access_based_enumeration_enabled");
-        SetOutput("smb_continuous_availability_enabled");
-        SetOutput("smb_non_browsable_enabled");
-        SetOutput("snapshot_directory_visible");
-        SetOutput("storage_quota_in_gb");
-        SetOutput("subnet_id");
-        SetOutput("tags");
-        SetOutput("throughput_in_mibps");
-        SetOutput("volume_path");
-        SetOutput("zone");
     }
 
     /// <summary>
     /// While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as accepted. Can only be used in conjunction with `create_from_snapshot_resource_id`.
     /// </summary>
-    public TerraformProperty<string> AcceptGrowCapacityPoolForShortTermCloneSplit
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("accept_grow_capacity_pool_for_short_term_clone_split");
-        set => SetProperty("accept_grow_capacity_pool_for_short_term_clone_split", value);
-    }
+    [TerraformPropertyName("accept_grow_capacity_pool_for_short_term_clone_split")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AcceptGrowCapacityPoolForShortTermCloneSplit { get; set; }
 
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    public required TerraformProperty<string> AccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
-        set => SetProperty("account_name", value);
-    }
+    [TerraformPropertyName("account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountName { get; set; }
 
     /// <summary>
     /// The azure_vmware_data_store_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AzureVmwareDataStoreEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("azure_vmware_data_store_enabled");
-        set => SetProperty("azure_vmware_data_store_enabled", value);
-    }
+    [TerraformPropertyName("azure_vmware_data_store_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AzureVmwareDataStoreEnabled { get; set; }
 
     /// <summary>
     /// The create_from_snapshot_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string> CreateFromSnapshotResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("create_from_snapshot_resource_id");
-        set => SetProperty("create_from_snapshot_resource_id", value);
-    }
+    [TerraformPropertyName("create_from_snapshot_resource_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CreateFromSnapshotResourceId { get; set; }
 
     /// <summary>
     /// The encryption_key_source attribute.
     /// </summary>
-    public TerraformProperty<string> EncryptionKeySource
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("encryption_key_source");
-        set => SetProperty("encryption_key_source", value);
-    }
+    [TerraformPropertyName("encryption_key_source")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EncryptionKeySource { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "encryption_key_source");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azurerm_netapp_account` having a defined AD connection.
     /// </summary>
-    public TerraformProperty<bool> KerberosEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("kerberos_enabled");
-        set => SetProperty("kerberos_enabled", value);
-    }
+    [TerraformPropertyName("kerberos_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? KerberosEnabled { get; set; }
 
     /// <summary>
     /// The key_vault_private_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string> KeyVaultPrivateEndpointId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_private_endpoint_id");
-        set => SetProperty("key_vault_private_endpoint_id", value);
-    }
+    [TerraformPropertyName("key_vault_private_endpoint_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KeyVaultPrivateEndpointId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_vault_private_endpoint_id");
 
     /// <summary>
     /// Indicates whether the volume is a large volume.
     /// </summary>
-    public TerraformProperty<bool> LargeVolumeEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("large_volume_enabled");
-        set => SetProperty("large_volume_enabled", value);
-    }
+    [TerraformPropertyName("large_volume_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LargeVolumeEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The network_features attribute.
     /// </summary>
-    public TerraformProperty<string> NetworkFeatures
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_features");
-        set => SetProperty("network_features", value);
-    }
+    [TerraformPropertyName("network_features")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NetworkFeatures { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_features");
 
     /// <summary>
     /// The pool_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
-    public required TerraformProperty<string> PoolName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pool_name");
-        set => SetProperty("pool_name", value);
-    }
+    [TerraformPropertyName("pool_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PoolName { get; set; }
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Protocols
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("protocols");
-        set => SetProperty("protocols", value);
-    }
+    [TerraformPropertyName("protocols")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Protocols { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "protocols");
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The security_style attribute.
     /// </summary>
-    public TerraformProperty<string> SecurityStyle
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_style");
-        set => SetProperty("security_style", value);
-    }
+    [TerraformPropertyName("security_style")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SecurityStyle { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "security_style");
 
     /// <summary>
     /// The service_level attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
-    public required TerraformProperty<string> ServiceLevel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_level");
-        set => SetProperty("service_level", value);
-    }
+    [TerraformPropertyName("service_level")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceLevel { get; set; }
 
     /// <summary>
     /// SMB3 encryption option should be used only for SMB/DualProtocol volumes. Using it for any other workloads is not supported.
     /// </summary>
-    public TerraformProperty<bool> Smb3ProtocolEncryptionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("smb3_protocol_encryption_enabled");
-        set => SetProperty("smb3_protocol_encryption_enabled", value);
-    }
+    [TerraformPropertyName("smb3_protocol_encryption_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Smb3ProtocolEncryptionEnabled { get; set; }
 
     /// <summary>
     /// Enable access based enumeration setting for SMB/Dual Protocol volume. When enabled, users who do not have permission to access a shared folder or file underneath it, do not see that shared resource displayed in their environment.
     /// </summary>
-    public TerraformProperty<bool> SmbAccessBasedEnumerationEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("smb_access_based_enumeration_enabled");
-        set => SetProperty("smb_access_based_enumeration_enabled", value);
-    }
+    [TerraformPropertyName("smb_access_based_enumeration_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SmbAccessBasedEnumerationEnabled { get; set; }
 
     /// <summary>
     /// Continuous availability option should be used only for SQL and FSLogix workloads. Using it for any other SMB workloads is not supported.
     /// </summary>
-    public TerraformProperty<bool> SmbContinuousAvailabilityEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("smb_continuous_availability_enabled");
-        set => SetProperty("smb_continuous_availability_enabled", value);
-    }
+    [TerraformPropertyName("smb_continuous_availability_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SmbContinuousAvailabilityEnabled { get; set; }
 
     /// <summary>
     /// Enable non browsable share setting for SMB/Dual Protocol volume. When enabled, it restricts windows clients to browse the share
     /// </summary>
-    public TerraformProperty<bool> SmbNonBrowsableEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("smb_non_browsable_enabled");
-        set => SetProperty("smb_non_browsable_enabled", value);
-    }
+    [TerraformPropertyName("smb_non_browsable_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SmbNonBrowsableEnabled { get; set; }
 
     /// <summary>
     /// The snapshot_directory_visible attribute.
     /// </summary>
-    public TerraformProperty<bool> SnapshotDirectoryVisible
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("snapshot_directory_visible");
-        set => SetProperty("snapshot_directory_visible", value);
-    }
+    [TerraformPropertyName("snapshot_directory_visible")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SnapshotDirectoryVisible { get; set; }
 
     /// <summary>
     /// The storage_quota_in_gb attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageQuotaInGb is required")]
-    public required TerraformProperty<double> StorageQuotaInGb
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("storage_quota_in_gb");
-        set => SetProperty("storage_quota_in_gb", value);
-    }
+    [TerraformPropertyName("storage_quota_in_gb")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> StorageQuotaInGb { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The throughput_in_mibps attribute.
     /// </summary>
-    public TerraformProperty<double> ThroughputInMibps
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("throughput_in_mibps");
-        set => SetProperty("throughput_in_mibps", value);
-    }
+    [TerraformPropertyName("throughput_in_mibps")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> ThroughputInMibps { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "throughput_in_mibps");
 
     /// <summary>
     /// The volume_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumePath is required")]
-    public required TerraformProperty<string> VolumePath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("volume_path");
-        set => SetProperty("volume_path", value);
-    }
+    [TerraformPropertyName("volume_path")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VolumePath { get; set; }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    public TerraformProperty<string> Zone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("zone");
-        set => SetProperty("zone", value);
-    }
+    [TerraformPropertyName("zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Zone { get; set; }
 
     /// <summary>
     /// Block for cool_access.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CoolAccess block(s) allowed")]
-    public List<AzurermNetappVolumeCoolAccessBlock>? CoolAccess
-    {
-        set => SetProperty("cool_access", value);
-    }
+    [TerraformPropertyName("cool_access")]
+    public TerraformList<TerraformBlock<AzurermNetappVolumeCoolAccessBlock>>? CoolAccess { get; set; } = new();
 
     /// <summary>
     /// Block for data_protection_backup_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionBackupPolicy block(s) allowed")]
-    public List<AzurermNetappVolumeDataProtectionBackupPolicyBlock>? DataProtectionBackupPolicy
-    {
-        set => SetProperty("data_protection_backup_policy", value);
-    }
+    [TerraformPropertyName("data_protection_backup_policy")]
+    public TerraformList<TerraformBlock<AzurermNetappVolumeDataProtectionBackupPolicyBlock>>? DataProtectionBackupPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for data_protection_replication.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionReplication block(s) allowed")]
-    public List<AzurermNetappVolumeDataProtectionReplicationBlock>? DataProtectionReplication
-    {
-        set => SetProperty("data_protection_replication", value);
-    }
+    [TerraformPropertyName("data_protection_replication")]
+    public TerraformList<TerraformBlock<AzurermNetappVolumeDataProtectionReplicationBlock>>? DataProtectionReplication { get; set; } = new();
 
     /// <summary>
     /// Block for data_protection_snapshot_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionSnapshotPolicy block(s) allowed")]
-    public List<AzurermNetappVolumeDataProtectionSnapshotPolicyBlock>? DataProtectionSnapshotPolicy
-    {
-        set => SetProperty("data_protection_snapshot_policy", value);
-    }
+    [TerraformPropertyName("data_protection_snapshot_policy")]
+    public TerraformList<TerraformBlock<AzurermNetappVolumeDataProtectionSnapshotPolicyBlock>>? DataProtectionSnapshotPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for export_policy_rule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 ExportPolicyRule block(s) allowed")]
-    public List<AzurermNetappVolumeExportPolicyRuleBlock>? ExportPolicyRule
-    {
-        set => SetProperty("export_policy_rule", value);
-    }
+    [TerraformPropertyName("export_policy_rule")]
+    public TerraformList<TerraformBlock<AzurermNetappVolumeExportPolicyRuleBlock>>? ExportPolicyRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNetappVolumeTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNetappVolumeTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The mount_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression MountIpAddresses => this["mount_ip_addresses"];
+    [TerraformPropertyName("mount_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> MountIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "mount_ip_addresses");
 
 }

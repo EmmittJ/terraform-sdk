@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermOracleDbNodesDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermOracleDbNodesDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,47 +24,35 @@ public class AzurermOracleDbNodesDataSource : TerraformDataSource
 {
     public AzurermOracleDbNodesDataSource(string name) : base("azurerm_oracle_db_nodes", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("db_nodes");
-        SetOutput("cloud_vm_cluster_id");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The cloud_vm_cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
-    public required TerraformProperty<string> CloudVmClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_vm_cluster_id");
-        set => SetProperty("cloud_vm_cluster_id", value);
-    }
+    [TerraformPropertyName("cloud_vm_cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CloudVmClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermOracleDbNodesDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermOracleDbNodesDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The db_nodes attribute.
     /// </summary>
-    public TerraformExpression DbNodes => this["db_nodes"];
+    [TerraformPropertyName("db_nodes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DbNodes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "db_nodes");
 
 }

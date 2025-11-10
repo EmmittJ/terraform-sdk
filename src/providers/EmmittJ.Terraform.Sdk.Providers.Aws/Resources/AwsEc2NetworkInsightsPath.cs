@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter_at_destination in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2NetworkInsightsPathFilterAtDestinationBlock : TerraformBlock
+public class AwsEc2NetworkInsightsPathFilterAtDestinationBlock : ITerraformBlock
 {
     /// <summary>
     /// The destination_address attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationAddress
-    {
-        set => SetProperty("destination_address", value);
-    }
+    [TerraformPropertyName("destination_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DestinationAddress { get; set; }
 
     /// <summary>
     /// The source_address attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceAddress
-    {
-        set => SetProperty("source_address", value);
-    }
+    [TerraformPropertyName("source_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceAddress { get; set; }
 
 }
 
@@ -30,23 +28,21 @@ public class AwsEc2NetworkInsightsPathFilterAtDestinationBlock : TerraformBlock
 /// Block type for filter_at_source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2NetworkInsightsPathFilterAtSourceBlock : TerraformBlock
+public class AwsEc2NetworkInsightsPathFilterAtSourceBlock : ITerraformBlock
 {
     /// <summary>
     /// The destination_address attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationAddress
-    {
-        set => SetProperty("destination_address", value);
-    }
+    [TerraformPropertyName("destination_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DestinationAddress { get; set; }
 
     /// <summary>
     /// The source_address attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceAddress
-    {
-        set => SetProperty("source_address", value);
-    }
+    [TerraformPropertyName("source_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceAddress { get; set; }
 
 }
 
@@ -58,151 +54,115 @@ public class AwsEc2NetworkInsightsPath : TerraformResource
 {
     public AwsEc2NetworkInsightsPath(string name) : base("aws_ec2_network_insights_path", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("destination_arn");
-        SetOutput("source_arn");
-        SetOutput("destination");
-        SetOutput("destination_ip");
-        SetOutput("destination_port");
-        SetOutput("id");
-        SetOutput("protocol");
-        SetOutput("region");
-        SetOutput("source");
-        SetOutput("source_ip");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The destination attribute.
     /// </summary>
-    public TerraformProperty<string> Destination
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination");
-        set => SetProperty("destination", value);
-    }
+    [TerraformPropertyName("destination")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Destination { get; set; }
 
     /// <summary>
     /// The destination_ip attribute.
     /// </summary>
-    public TerraformProperty<string> DestinationIp
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_ip");
-        set => SetProperty("destination_ip", value);
-    }
+    [TerraformPropertyName("destination_ip")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DestinationIp { get; set; }
 
     /// <summary>
     /// The destination_port attribute.
     /// </summary>
-    public TerraformProperty<double> DestinationPort
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("destination_port");
-        set => SetProperty("destination_port", value);
-    }
+    [TerraformPropertyName("destination_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DestinationPort { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    public required TerraformProperty<string> Protocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The source attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
-    public required TerraformProperty<string> Source
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source");
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Source { get; set; }
 
     /// <summary>
     /// The source_ip attribute.
     /// </summary>
-    public TerraformProperty<string> SourceIp
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_ip");
-        set => SetProperty("source_ip", value);
-    }
+    [TerraformPropertyName("source_ip")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceIp { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for filter_at_destination.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAtDestination block(s) allowed")]
-    public List<AwsEc2NetworkInsightsPathFilterAtDestinationBlock>? FilterAtDestination
-    {
-        set => SetProperty("filter_at_destination", value);
-    }
+    [TerraformPropertyName("filter_at_destination")]
+    public TerraformList<TerraformBlock<AwsEc2NetworkInsightsPathFilterAtDestinationBlock>>? FilterAtDestination { get; set; } = new();
 
     /// <summary>
     /// Block for filter_at_source.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAtSource block(s) allowed")]
-    public List<AwsEc2NetworkInsightsPathFilterAtSourceBlock>? FilterAtSource
-    {
-        set => SetProperty("filter_at_source", value);
-    }
+    [TerraformPropertyName("filter_at_source")]
+    public TerraformList<TerraformBlock<AwsEc2NetworkInsightsPathFilterAtSourceBlock>>? FilterAtSource { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
-    public TerraformExpression DestinationArn => this["destination_arn"];
+    [TerraformPropertyName("destination_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DestinationArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "destination_arn");
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
-    public TerraformExpression SourceArn => this["source_arn"];
+    [TerraformPropertyName("source_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_arn");
 
 }

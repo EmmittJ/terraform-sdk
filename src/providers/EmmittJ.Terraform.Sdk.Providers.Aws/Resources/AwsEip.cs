@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEipTimeoutsBlock : TerraformBlock
+public class AwsEipTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,210 +38,174 @@ public class AwsEip : TerraformResource
 {
     public AwsEip(string name) : base("aws_eip", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("allocation_id");
-        SetOutput("arn");
-        SetOutput("association_id");
-        SetOutput("carrier_ip");
-        SetOutput("customer_owned_ip");
-        SetOutput("private_dns");
-        SetOutput("private_ip");
-        SetOutput("ptr_record");
-        SetOutput("public_dns");
-        SetOutput("public_ip");
-        SetOutput("address");
-        SetOutput("associate_with_private_ip");
-        SetOutput("customer_owned_ipv4_pool");
-        SetOutput("domain");
-        SetOutput("id");
-        SetOutput("instance");
-        SetOutput("ipam_pool_id");
-        SetOutput("network_border_group");
-        SetOutput("network_interface");
-        SetOutput("public_ipv4_pool");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The address attribute.
     /// </summary>
-    public TerraformProperty<string> Address
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("address");
-        set => SetProperty("address", value);
-    }
+    [TerraformPropertyName("address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Address { get; set; }
 
     /// <summary>
     /// The associate_with_private_ip attribute.
     /// </summary>
-    public TerraformProperty<string> AssociateWithPrivateIp
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("associate_with_private_ip");
-        set => SetProperty("associate_with_private_ip", value);
-    }
+    [TerraformPropertyName("associate_with_private_ip")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AssociateWithPrivateIp { get; set; }
 
     /// <summary>
     /// The customer_owned_ipv4_pool attribute.
     /// </summary>
-    public TerraformProperty<string> CustomerOwnedIpv4Pool
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("customer_owned_ipv4_pool");
-        set => SetProperty("customer_owned_ipv4_pool", value);
-    }
+    [TerraformPropertyName("customer_owned_ipv4_pool")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomerOwnedIpv4Pool { get; set; }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string> Domain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain");
-        set => SetProperty("domain", value);
-    }
+    [TerraformPropertyName("domain")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Domain { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance attribute.
     /// </summary>
-    public TerraformProperty<string> Instance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance");
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Instance { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "instance");
 
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string> IpamPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ipam_pool_id");
-        set => SetProperty("ipam_pool_id", value);
-    }
+    [TerraformPropertyName("ipam_pool_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IpamPoolId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ipam_pool_id");
 
     /// <summary>
     /// The network_border_group attribute.
     /// </summary>
-    public TerraformProperty<string> NetworkBorderGroup
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_border_group");
-        set => SetProperty("network_border_group", value);
-    }
+    [TerraformPropertyName("network_border_group")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NetworkBorderGroup { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_border_group");
 
     /// <summary>
     /// The network_interface attribute.
     /// </summary>
-    public TerraformProperty<string> NetworkInterface
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_interface");
-        set => SetProperty("network_interface", value);
-    }
+    [TerraformPropertyName("network_interface")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NetworkInterface { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_interface");
 
     /// <summary>
     /// The public_ipv4_pool attribute.
     /// </summary>
-    public TerraformProperty<string> PublicIpv4Pool
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("public_ipv4_pool");
-        set => SetProperty("public_ipv4_pool", value);
-    }
+    [TerraformPropertyName("public_ipv4_pool")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PublicIpv4Pool { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_ipv4_pool");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEipTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEipTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The allocation_id attribute.
     /// </summary>
-    public TerraformExpression AllocationId => this["allocation_id"];
+    [TerraformPropertyName("allocation_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AllocationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "allocation_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
-    public TerraformExpression AssociationId => this["association_id"];
+    [TerraformPropertyName("association_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AssociationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "association_id");
 
     /// <summary>
     /// The carrier_ip attribute.
     /// </summary>
-    public TerraformExpression CarrierIp => this["carrier_ip"];
+    [TerraformPropertyName("carrier_ip")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CarrierIp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "carrier_ip");
 
     /// <summary>
     /// The customer_owned_ip attribute.
     /// </summary>
-    public TerraformExpression CustomerOwnedIp => this["customer_owned_ip"];
+    [TerraformPropertyName("customer_owned_ip")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CustomerOwnedIp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "customer_owned_ip");
 
     /// <summary>
     /// The private_dns attribute.
     /// </summary>
-    public TerraformExpression PrivateDns => this["private_dns"];
+    [TerraformPropertyName("private_dns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateDns => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_dns");
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
-    public TerraformExpression PrivateIp => this["private_ip"];
+    [TerraformPropertyName("private_ip")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateIp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_ip");
 
     /// <summary>
     /// The ptr_record attribute.
     /// </summary>
-    public TerraformExpression PtrRecord => this["ptr_record"];
+    [TerraformPropertyName("ptr_record")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PtrRecord => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ptr_record");
 
     /// <summary>
     /// The public_dns attribute.
     /// </summary>
-    public TerraformExpression PublicDns => this["public_dns"];
+    [TerraformPropertyName("public_dns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublicDns => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_dns");
 
     /// <summary>
     /// The public_ip attribute.
     /// </summary>
-    public TerraformExpression PublicIp => this["public_ip"];
+    [TerraformPropertyName("public_ip")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublicIp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_ip");
 
 }

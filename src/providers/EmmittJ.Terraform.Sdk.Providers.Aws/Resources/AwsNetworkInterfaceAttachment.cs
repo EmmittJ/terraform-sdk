@@ -9,86 +9,65 @@ public class AwsNetworkInterfaceAttachment : TerraformResource
 {
     public AwsNetworkInterfaceAttachment(string name) : base("aws_network_interface_attachment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("attachment_id");
-        SetOutput("status");
-        SetOutput("device_index");
-        SetOutput("id");
-        SetOutput("instance_id");
-        SetOutput("network_card_index");
-        SetOutput("network_interface_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The device_index attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceIndex is required")]
-    public required TerraformProperty<double> DeviceIndex
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("device_index");
-        set => SetProperty("device_index", value);
-    }
+    [TerraformPropertyName("device_index")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> DeviceIndex { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
-    public required TerraformProperty<string> InstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
-        set => SetProperty("instance_id", value);
-    }
+    [TerraformPropertyName("instance_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
 
     /// <summary>
     /// The network_card_index attribute.
     /// </summary>
-    public TerraformProperty<double> NetworkCardIndex
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("network_card_index");
-        set => SetProperty("network_card_index", value);
-    }
+    [TerraformPropertyName("network_card_index")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> NetworkCardIndex { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "network_card_index");
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
-    public required TerraformProperty<string> NetworkInterfaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_interface_id");
-        set => SetProperty("network_interface_id", value);
-    }
+    [TerraformPropertyName("network_interface_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NetworkInterfaceId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The attachment_id attribute.
     /// </summary>
-    public TerraformExpression AttachmentId => this["attachment_id"];
+    [TerraformPropertyName("attachment_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AttachmentId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "attachment_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

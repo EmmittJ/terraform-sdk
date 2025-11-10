@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMachineLearningDatastoreBlobstorageTimeoutsBlock : TerraformBlock
+public class AzurermMachineLearningDatastoreBlobstorageTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,123 +45,86 @@ public class AzurermMachineLearningDatastoreBlobstorage : TerraformResource
 {
     public AzurermMachineLearningDatastoreBlobstorage(string name) : base("azurerm_machine_learning_datastore_blobstorage", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account_key");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("is_default");
-        SetOutput("name");
-        SetOutput("service_data_auth_identity");
-        SetOutput("shared_access_signature");
-        SetOutput("storage_container_id");
-        SetOutput("tags");
-        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The account_key attribute.
     /// </summary>
-    public TerraformProperty<string> AccountKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_key");
-        set => SetProperty("account_key", value);
-    }
+    [TerraformPropertyName("account_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AccountKey { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The is_default attribute.
     /// </summary>
-    public TerraformProperty<bool> IsDefault
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_default");
-        set => SetProperty("is_default", value);
-    }
+    [TerraformPropertyName("is_default")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsDefault { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The service_data_auth_identity attribute.
     /// </summary>
-    public TerraformProperty<string> ServiceDataAuthIdentity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_data_auth_identity");
-        set => SetProperty("service_data_auth_identity", value);
-    }
+    [TerraformPropertyName("service_data_auth_identity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServiceDataAuthIdentity { get; set; }
 
     /// <summary>
     /// The shared_access_signature attribute.
     /// </summary>
-    public TerraformProperty<string> SharedAccessSignature
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("shared_access_signature");
-        set => SetProperty("shared_access_signature", value);
-    }
+    [TerraformPropertyName("shared_access_signature")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SharedAccessSignature { get; set; }
 
     /// <summary>
     /// The storage_container_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
-    public required TerraformProperty<string> StorageContainerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_container_id");
-        set => SetProperty("storage_container_id", value);
-    }
+    [TerraformPropertyName("storage_container_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageContainerId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    public required TerraformProperty<string> WorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
-        set => SetProperty("workspace_id", value);
-    }
+    [TerraformPropertyName("workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMachineLearningDatastoreBlobstorageTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMachineLearningDatastoreBlobstorageTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

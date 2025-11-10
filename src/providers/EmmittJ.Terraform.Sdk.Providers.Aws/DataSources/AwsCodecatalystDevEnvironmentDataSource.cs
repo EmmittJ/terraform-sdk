@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for repositories in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock : TerraformBlock
+public class AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock : ITerraformBlock
 {
     /// <summary>
     /// The branch_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BranchName
-    {
-        set => SetProperty("branch_name", value);
-    }
+    [TerraformPropertyName("branch_name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BranchName => new TerraformReferenceProperty<TerraformProperty<string>>("", "branch_name");
 
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RepositoryName
-    {
-        set => SetProperty("repository_name", value);
-    }
+    [TerraformPropertyName("repository_name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RepositoryName => new TerraformReferenceProperty<TerraformProperty<string>>("", "repository_name");
 
 }
 
@@ -34,146 +32,122 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
 {
     public AwsCodecatalystDevEnvironmentDataSource(string name) : base("aws_codecatalyst_dev_environment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("ides");
-        SetOutput("inactivity_timeout_minutes");
-        SetOutput("instance_type");
-        SetOutput("last_updated_time");
-        SetOutput("persistent_storage");
-        SetOutput("status");
-        SetOutput("status_reason");
-        SetOutput("alias");
-        SetOutput("creator_id");
-        SetOutput("env_id");
-        SetOutput("id");
-        SetOutput("project_name");
-        SetOutput("region");
-        SetOutput("space_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformProperty<string> Alias
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alias");
-        set => SetProperty("alias", value);
-    }
+    [TerraformPropertyName("alias")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Alias { get; set; }
 
     /// <summary>
     /// The creator_id attribute.
     /// </summary>
-    public TerraformProperty<string> CreatorId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("creator_id");
-        set => SetProperty("creator_id", value);
-    }
+    [TerraformPropertyName("creator_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CreatorId { get; set; }
 
     /// <summary>
     /// The env_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
-    public required TerraformProperty<string> EnvId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("env_id");
-        set => SetProperty("env_id", value);
-    }
+    [TerraformPropertyName("env_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EnvId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
-    public required TerraformProperty<string> ProjectName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project_name");
-        set => SetProperty("project_name", value);
-    }
+    [TerraformPropertyName("project_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProjectName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The space_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
-    public required TerraformProperty<string> SpaceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("space_name");
-        set => SetProperty("space_name", value);
-    }
+    [TerraformPropertyName("space_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SpaceName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// Block for repositories.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Repositories block(s) allowed")]
-    public List<AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock>? Repositories
-    {
-        set => SetProperty("repositories", value);
-    }
+    [TerraformPropertyName("repositories")]
+    public TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock>>? Repositories { get; set; } = new();
 
     /// <summary>
     /// The ides attribute.
     /// </summary>
-    public TerraformExpression Ides => this["ides"];
+    [TerraformPropertyName("ides")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Ides => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ides");
 
     /// <summary>
     /// The inactivity_timeout_minutes attribute.
     /// </summary>
-    public TerraformExpression InactivityTimeoutMinutes => this["inactivity_timeout_minutes"];
+    [TerraformPropertyName("inactivity_timeout_minutes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> InactivityTimeoutMinutes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "inactivity_timeout_minutes");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformExpression InstanceType => this["instance_type"];
+    [TerraformPropertyName("instance_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InstanceType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "instance_type");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
-    public TerraformExpression LastUpdatedTime => this["last_updated_time"];
+    [TerraformPropertyName("last_updated_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastUpdatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_updated_time");
 
     /// <summary>
     /// The persistent_storage attribute.
     /// </summary>
-    public TerraformExpression PersistentStorage => this["persistent_storage"];
+    [TerraformPropertyName("persistent_storage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PersistentStorage => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "persistent_storage");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
-    public TerraformExpression StatusReason => this["status_reason"];
+    [TerraformPropertyName("status_reason")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StatusReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status_reason");
 
 }

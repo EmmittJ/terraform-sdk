@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock : TerraformBlock
+public class AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -32,32 +30,29 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock : Terrafor
 /// Block type for three_tier_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBlock : TerraformBlock
+public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The app_resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppResourceGroupName is required")]
-    public required TerraformProperty<string> AppResourceGroupName
-    {
-        set => SetProperty("app_resource_group_name", value);
-    }
+    [TerraformPropertyName("app_resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppResourceGroupName { get; set; }
 
     /// <summary>
     /// The high_availability_type attribute.
     /// </summary>
-    public TerraformProperty<string>? HighAvailabilityType
-    {
-        set => SetProperty("high_availability_type", value);
-    }
+    [TerraformPropertyName("high_availability_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HighAvailabilityType { get; set; }
 
     /// <summary>
     /// The secondary_ip_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SecondaryIpEnabled
-    {
-        set => SetProperty("secondary_ip_enabled", value);
-    }
+    [TerraformPropertyName("secondary_ip_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SecondaryIpEnabled { get; set; }
 
 }
 
@@ -65,39 +60,35 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermWorkloadsSapThreeTierVirtualInstanceTimeoutsBlock : TerraformBlock
+public class AzurermWorkloadsSapThreeTierVirtualInstanceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -109,139 +100,99 @@ public class AzurermWorkloadsSapThreeTierVirtualInstance : TerraformResource
 {
     public AzurermWorkloadsSapThreeTierVirtualInstance(string name) : base("azurerm_workloads_sap_three_tier_virtual_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("app_location");
-        SetOutput("environment");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("managed_resource_group_name");
-        SetOutput("managed_resources_network_access_type");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("sap_fqdn");
-        SetOutput("sap_product");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The app_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppLocation is required")]
-    public required TerraformProperty<string> AppLocation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_location");
-        set => SetProperty("app_location", value);
-    }
+    [TerraformPropertyName("app_location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppLocation { get; set; }
 
     /// <summary>
     /// The environment attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
-    public required TerraformProperty<string> Environment
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("environment");
-        set => SetProperty("environment", value);
-    }
+    [TerraformPropertyName("environment")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Environment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string> ManagedResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_resource_group_name");
-        set => SetProperty("managed_resource_group_name", value);
-    }
+    [TerraformPropertyName("managed_resource_group_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManagedResourceGroupName { get; set; }
 
     /// <summary>
     /// The managed_resources_network_access_type attribute.
     /// </summary>
-    public TerraformProperty<string> ManagedResourcesNetworkAccessType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_resources_network_access_type");
-        set => SetProperty("managed_resources_network_access_type", value);
-    }
+    [TerraformPropertyName("managed_resources_network_access_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManagedResourcesNetworkAccessType { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sap_fqdn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapFqdn is required")]
-    public required TerraformProperty<string> SapFqdn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sap_fqdn");
-        set => SetProperty("sap_fqdn", value);
-    }
+    [TerraformPropertyName("sap_fqdn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SapFqdn { get; set; }
 
     /// <summary>
     /// The sap_product attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapProduct is required")]
-    public required TerraformProperty<string> SapProduct
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sap_product");
-        set => SetProperty("sap_product", value);
-    }
+    [TerraformPropertyName("sap_product")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SapProduct { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for three_tier_configuration.
@@ -250,18 +201,14 @@ public class AzurermWorkloadsSapThreeTierVirtualInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThreeTierConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ThreeTierConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreeTierConfiguration block(s) allowed")]
-    public List<AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBlock>? ThreeTierConfiguration
-    {
-        set => SetProperty("three_tier_configuration", value);
-    }
+    [TerraformPropertyName("three_tier_configuration")]
+    public TerraformList<TerraformBlock<AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBlock>>? ThreeTierConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermWorkloadsSapThreeTierVirtualInstanceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermWorkloadsSapThreeTierVirtualInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

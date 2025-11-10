@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsGrafanaWorkspaceSamlConfigurationTimeoutsBlock : TerraformBlock
+public class AwsGrafanaWorkspaceSamlConfigurationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,178 +31,127 @@ public class AwsGrafanaWorkspaceSamlConfiguration : TerraformResource
 {
     public AwsGrafanaWorkspaceSamlConfiguration(string name) : base("aws_grafana_workspace_saml_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("status");
-        SetOutput("admin_role_values");
-        SetOutput("allowed_organizations");
-        SetOutput("editor_role_values");
-        SetOutput("email_assertion");
-        SetOutput("groups_assertion");
-        SetOutput("id");
-        SetOutput("idp_metadata_url");
-        SetOutput("idp_metadata_xml");
-        SetOutput("login_assertion");
-        SetOutput("login_validity_duration");
-        SetOutput("name_assertion");
-        SetOutput("org_assertion");
-        SetOutput("region");
-        SetOutput("role_assertion");
-        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The admin_role_values attribute.
     /// </summary>
-    public List<TerraformProperty<string>> AdminRoleValues
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("admin_role_values");
-        set => SetProperty("admin_role_values", value);
-    }
+    [TerraformPropertyName("admin_role_values")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AdminRoleValues { get; set; }
 
     /// <summary>
     /// The allowed_organizations attribute.
     /// </summary>
-    public List<TerraformProperty<string>> AllowedOrganizations
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("allowed_organizations");
-        set => SetProperty("allowed_organizations", value);
-    }
+    [TerraformPropertyName("allowed_organizations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AllowedOrganizations { get; set; }
 
     /// <summary>
     /// The editor_role_values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EditorRoleValues is required")]
-    public List<TerraformProperty<string>> EditorRoleValues
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("editor_role_values");
-        set => SetProperty("editor_role_values", value);
-    }
+    [TerraformPropertyName("editor_role_values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? EditorRoleValues { get; set; }
 
     /// <summary>
     /// The email_assertion attribute.
     /// </summary>
-    public TerraformProperty<string> EmailAssertion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("email_assertion");
-        set => SetProperty("email_assertion", value);
-    }
+    [TerraformPropertyName("email_assertion")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EmailAssertion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "email_assertion");
 
     /// <summary>
     /// The groups_assertion attribute.
     /// </summary>
-    public TerraformProperty<string> GroupsAssertion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("groups_assertion");
-        set => SetProperty("groups_assertion", value);
-    }
+    [TerraformPropertyName("groups_assertion")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GroupsAssertion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The idp_metadata_url attribute.
     /// </summary>
-    public TerraformProperty<string> IdpMetadataUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("idp_metadata_url");
-        set => SetProperty("idp_metadata_url", value);
-    }
+    [TerraformPropertyName("idp_metadata_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IdpMetadataUrl { get; set; }
 
     /// <summary>
     /// The idp_metadata_xml attribute.
     /// </summary>
-    public TerraformProperty<string> IdpMetadataXml
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("idp_metadata_xml");
-        set => SetProperty("idp_metadata_xml", value);
-    }
+    [TerraformPropertyName("idp_metadata_xml")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IdpMetadataXml { get; set; }
 
     /// <summary>
     /// The login_assertion attribute.
     /// </summary>
-    public TerraformProperty<string> LoginAssertion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("login_assertion");
-        set => SetProperty("login_assertion", value);
-    }
+    [TerraformPropertyName("login_assertion")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LoginAssertion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "login_assertion");
 
     /// <summary>
     /// The login_validity_duration attribute.
     /// </summary>
-    public TerraformProperty<double> LoginValidityDuration
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("login_validity_duration");
-        set => SetProperty("login_validity_duration", value);
-    }
+    [TerraformPropertyName("login_validity_duration")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> LoginValidityDuration { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "login_validity_duration");
 
     /// <summary>
     /// The name_assertion attribute.
     /// </summary>
-    public TerraformProperty<string> NameAssertion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_assertion");
-        set => SetProperty("name_assertion", value);
-    }
+    [TerraformPropertyName("name_assertion")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NameAssertion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_assertion");
 
     /// <summary>
     /// The org_assertion attribute.
     /// </summary>
-    public TerraformProperty<string> OrgAssertion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("org_assertion");
-        set => SetProperty("org_assertion", value);
-    }
+    [TerraformPropertyName("org_assertion")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OrgAssertion { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_assertion attribute.
     /// </summary>
-    public TerraformProperty<string> RoleAssertion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_assertion");
-        set => SetProperty("role_assertion", value);
-    }
+    [TerraformPropertyName("role_assertion")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleAssertion { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    public required TerraformProperty<string> WorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
-        set => SetProperty("workspace_id", value);
-    }
+    [TerraformPropertyName("workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsGrafanaWorkspaceSamlConfigurationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsGrafanaWorkspaceSamlConfigurationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

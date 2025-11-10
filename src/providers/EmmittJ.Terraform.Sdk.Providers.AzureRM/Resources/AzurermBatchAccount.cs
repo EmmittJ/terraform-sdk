@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchAccountIdentityBlock : TerraformBlock
+public class AzurermBatchAccountIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -47,25 +43,23 @@ public class AzurermBatchAccountIdentityBlock : TerraformBlock
 /// Block type for key_vault_reference in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchAccountKeyVaultReferenceBlock : TerraformBlock
+public class AzurermBatchAccountKeyVaultReferenceBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
-    public required TerraformProperty<string> Url
-    {
-        set => SetProperty("url", value);
-    }
+    [TerraformPropertyName("url")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Url { get; set; }
 
 }
 
@@ -73,7 +67,7 @@ public class AzurermBatchAccountKeyVaultReferenceBlock : TerraformBlock
 /// Block type for network_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchAccountNetworkProfileBlock : TerraformBlock
+public class AzurermBatchAccountNetworkProfileBlock : ITerraformBlock
 {
 }
 
@@ -81,39 +75,35 @@ public class AzurermBatchAccountNetworkProfileBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBatchAccountTimeoutsBlock : TerraformBlock
+public class AzurermBatchAccountTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -125,191 +115,145 @@ public class AzurermBatchAccount : TerraformResource
 {
     public AzurermBatchAccount(string name) : base("azurerm_batch_account", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account_endpoint");
-        SetOutput("primary_access_key");
-        SetOutput("secondary_access_key");
-        SetOutput("allowed_authentication_modes");
-        SetOutput("encryption");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("pool_allocation_mode");
-        SetOutput("public_network_access_enabled");
-        SetOutput("resource_group_name");
-        SetOutput("storage_account_authentication_mode");
-        SetOutput("storage_account_id");
-        SetOutput("storage_account_node_identity");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The allowed_authentication_modes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AllowedAuthenticationModes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("allowed_authentication_modes");
-        set => SetProperty("allowed_authentication_modes", value);
-    }
+    [TerraformPropertyName("allowed_authentication_modes")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AllowedAuthenticationModes { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "allowed_authentication_modes");
 
     /// <summary>
     /// The encryption attribute.
     /// </summary>
-    public List<TerraformProperty<object>> Encryption
-    {
-        get => GetRequiredOutput<List<TerraformProperty<object>>>("encryption");
-        set => SetProperty("encryption", value);
-    }
+    [TerraformPropertyName("encryption")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<object>>>? Encryption { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The pool_allocation_mode attribute.
     /// </summary>
-    public TerraformProperty<string> PoolAllocationMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pool_allocation_mode");
-        set => SetProperty("pool_allocation_mode", value);
-    }
+    [TerraformPropertyName("pool_allocation_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PoolAllocationMode { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PublicNetworkAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
-        set => SetProperty("public_network_access_enabled", value);
-    }
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The storage_account_authentication_mode attribute.
     /// </summary>
-    public TerraformProperty<string> StorageAccountAuthenticationMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_authentication_mode");
-        set => SetProperty("storage_account_authentication_mode", value);
-    }
+    [TerraformPropertyName("storage_account_authentication_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageAccountAuthenticationMode { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string> StorageAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
-        set => SetProperty("storage_account_id", value);
-    }
+    [TerraformPropertyName("storage_account_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageAccountId { get; set; }
 
     /// <summary>
     /// The storage_account_node_identity attribute.
     /// </summary>
-    public TerraformProperty<string> StorageAccountNodeIdentity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_node_identity");
-        set => SetProperty("storage_account_node_identity", value);
-    }
+    [TerraformPropertyName("storage_account_node_identity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageAccountNodeIdentity { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermBatchAccountIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermBatchAccountIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for key_vault_reference.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultReference block(s) allowed")]
-    public List<AzurermBatchAccountKeyVaultReferenceBlock>? KeyVaultReference
-    {
-        set => SetProperty("key_vault_reference", value);
-    }
+    [TerraformPropertyName("key_vault_reference")]
+    public TerraformList<TerraformBlock<AzurermBatchAccountKeyVaultReferenceBlock>>? KeyVaultReference { get; set; } = new();
 
     /// <summary>
     /// Block for network_profile.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
-    public List<AzurermBatchAccountNetworkProfileBlock>? NetworkProfile
-    {
-        set => SetProperty("network_profile", value);
-    }
+    [TerraformPropertyName("network_profile")]
+    public TerraformList<TerraformBlock<AzurermBatchAccountNetworkProfileBlock>>? NetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermBatchAccountTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermBatchAccountTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The account_endpoint attribute.
     /// </summary>
-    public TerraformExpression AccountEndpoint => this["account_endpoint"];
+    [TerraformPropertyName("account_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AccountEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_endpoint");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
-    public TerraformExpression PrimaryAccessKey => this["primary_access_key"];
+    [TerraformPropertyName("primary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_access_key");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
-    public TerraformExpression SecondaryAccessKey => this["secondary_access_key"];
+    [TerraformPropertyName("secondary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_access_key");
 
 }

@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for database in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLakeformationResourceLfTagDatabaseBlock : TerraformBlock
+public class AwsLakeformationResourceLfTagDatabaseBlock : ITerraformBlock
 {
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
-    {
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CatalogId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -31,33 +29,30 @@ public class AwsLakeformationResourceLfTagDatabaseBlock : TerraformBlock
 /// Block type for lf_tag in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLakeformationResourceLfTagLfTagBlock : TerraformBlock
+public class AwsLakeformationResourceLfTagLfTagBlock : ITerraformBlock
 {
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
-    {
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "catalog_id");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<string> Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
 
 }
 
@@ -65,40 +60,36 @@ public class AwsLakeformationResourceLfTagLfTagBlock : TerraformBlock
 /// Block type for table in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLakeformationResourceLfTagTableBlock : TerraformBlock
+public class AwsLakeformationResourceLfTagTableBlock : ITerraformBlock
 {
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
-    {
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CatalogId { get; set; }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    public required TerraformProperty<string> DatabaseName
-    {
-        set => SetProperty("database_name", value);
-    }
+    [TerraformPropertyName("database_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The wildcard attribute.
     /// </summary>
-    public TerraformProperty<bool>? Wildcard
-    {
-        set => SetProperty("wildcard", value);
-    }
+    [TerraformPropertyName("wildcard")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Wildcard { get; set; }
 
 }
 
@@ -106,41 +97,37 @@ public class AwsLakeformationResourceLfTagTableBlock : TerraformBlock
 /// Block type for table_with_columns in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLakeformationResourceLfTagTableWithColumnsBlock : TerraformBlock
+public class AwsLakeformationResourceLfTagTableWithColumnsBlock : ITerraformBlock
 {
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
-    {
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CatalogId { get; set; }
 
     /// <summary>
     /// The column_names attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ColumnNames
-    {
-        set => SetProperty("column_names", value);
-    }
+    [TerraformPropertyName("column_names")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ColumnNames { get; set; }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    public required TerraformProperty<string> DatabaseName
-    {
-        set => SetProperty("database_name", value);
-    }
+    [TerraformPropertyName("database_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -148,23 +135,21 @@ public class AwsLakeformationResourceLfTagTableWithColumnsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLakeformationResourceLfTagTimeoutsBlock : TerraformBlock
+public class AwsLakeformationResourceLfTagTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -175,82 +160,62 @@ public class AwsLakeformationResourceLfTag : TerraformResource
 {
     public AwsLakeformationResourceLfTag(string name) : base("aws_lakeformation_resource_lf_tag", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("catalog_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string> CatalogId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CatalogId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for database.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLakeformationResourceLfTagDatabaseBlock>? Database
-    {
-        set => SetProperty("database", value);
-    }
+    [TerraformPropertyName("database")]
+    public TerraformList<TerraformBlock<AwsLakeformationResourceLfTagDatabaseBlock>>? Database { get; set; } = new();
 
     /// <summary>
     /// Block for lf_tag.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLakeformationResourceLfTagLfTagBlock>? LfTag
-    {
-        set => SetProperty("lf_tag", value);
-    }
+    [TerraformPropertyName("lf_tag")]
+    public TerraformList<TerraformBlock<AwsLakeformationResourceLfTagLfTagBlock>>? LfTag { get; set; } = new();
 
     /// <summary>
     /// Block for table.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLakeformationResourceLfTagTableBlock>? Table
-    {
-        set => SetProperty("table", value);
-    }
+    [TerraformPropertyName("table")]
+    public TerraformList<TerraformBlock<AwsLakeformationResourceLfTagTableBlock>>? Table { get; set; } = new();
 
     /// <summary>
     /// Block for table_with_columns.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLakeformationResourceLfTagTableWithColumnsBlock>? TableWithColumns
-    {
-        set => SetProperty("table_with_columns", value);
-    }
+    [TerraformPropertyName("table_with_columns")]
+    public TerraformList<TerraformBlock<AwsLakeformationResourceLfTagTableWithColumnsBlock>>? TableWithColumns { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsLakeformationResourceLfTagTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsLakeformationResourceLfTagTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

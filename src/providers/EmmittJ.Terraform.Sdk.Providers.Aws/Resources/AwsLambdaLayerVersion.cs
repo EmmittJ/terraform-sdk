@@ -9,190 +9,154 @@ public class AwsLambdaLayerVersion : TerraformResource
 {
     public AwsLambdaLayerVersion(string name) : base("aws_lambda_layer_version", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("code_sha256");
-        SetOutput("created_date");
-        SetOutput("layer_arn");
-        SetOutput("signing_job_arn");
-        SetOutput("signing_profile_version_arn");
-        SetOutput("source_code_size");
-        SetOutput("version");
-        SetOutput("compatible_architectures");
-        SetOutput("compatible_runtimes");
-        SetOutput("description");
-        SetOutput("filename");
-        SetOutput("id");
-        SetOutput("layer_name");
-        SetOutput("license_info");
-        SetOutput("region");
-        SetOutput("s3_bucket");
-        SetOutput("s3_key");
-        SetOutput("s3_object_version");
-        SetOutput("skip_destroy");
-        SetOutput("source_code_hash");
     }
 
     /// <summary>
     /// The compatible_architectures attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> CompatibleArchitectures
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("compatible_architectures");
-        set => SetProperty("compatible_architectures", value);
-    }
+    [TerraformPropertyName("compatible_architectures")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? CompatibleArchitectures { get; set; }
 
     /// <summary>
     /// The compatible_runtimes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> CompatibleRuntimes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("compatible_runtimes");
-        set => SetProperty("compatible_runtimes", value);
-    }
+    [TerraformPropertyName("compatible_runtimes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? CompatibleRuntimes { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
-    public TerraformProperty<string> Filename
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filename");
-        set => SetProperty("filename", value);
-    }
+    [TerraformPropertyName("filename")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Filename { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The layer_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
-    public required TerraformProperty<string> LayerName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("layer_name");
-        set => SetProperty("layer_name", value);
-    }
+    [TerraformPropertyName("layer_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LayerName { get; set; }
 
     /// <summary>
     /// The license_info attribute.
     /// </summary>
-    public TerraformProperty<string> LicenseInfo
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("license_info");
-        set => SetProperty("license_info", value);
-    }
+    [TerraformPropertyName("license_info")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LicenseInfo { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    public TerraformProperty<string> S3Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket");
-        set => SetProperty("s3_bucket", value);
-    }
+    [TerraformPropertyName("s3_bucket")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? S3Bucket { get; set; }
 
     /// <summary>
     /// The s3_key attribute.
     /// </summary>
-    public TerraformProperty<string> S3Key
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_key");
-        set => SetProperty("s3_key", value);
-    }
+    [TerraformPropertyName("s3_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? S3Key { get; set; }
 
     /// <summary>
     /// The s3_object_version attribute.
     /// </summary>
-    public TerraformProperty<string> S3ObjectVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_object_version");
-        set => SetProperty("s3_object_version", value);
-    }
+    [TerraformPropertyName("s3_object_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? S3ObjectVersion { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
-        set => SetProperty("skip_destroy", value);
-    }
+    [TerraformPropertyName("skip_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The source_code_hash attribute.
     /// </summary>
-    public TerraformProperty<string> SourceCodeHash
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_code_hash");
-        set => SetProperty("source_code_hash", value);
-    }
+    [TerraformPropertyName("source_code_hash")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SourceCodeHash { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_code_hash");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The code_sha256 attribute.
     /// </summary>
-    public TerraformExpression CodeSha256 => this["code_sha256"];
+    [TerraformPropertyName("code_sha256")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CodeSha256 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "code_sha256");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
-    public TerraformExpression CreatedDate => this["created_date"];
+    [TerraformPropertyName("created_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_date");
 
     /// <summary>
     /// The layer_arn attribute.
     /// </summary>
-    public TerraformExpression LayerArn => this["layer_arn"];
+    [TerraformPropertyName("layer_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LayerArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "layer_arn");
 
     /// <summary>
     /// The signing_job_arn attribute.
     /// </summary>
-    public TerraformExpression SigningJobArn => this["signing_job_arn"];
+    [TerraformPropertyName("signing_job_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SigningJobArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signing_job_arn");
 
     /// <summary>
     /// The signing_profile_version_arn attribute.
     /// </summary>
-    public TerraformExpression SigningProfileVersionArn => this["signing_profile_version_arn"];
+    [TerraformPropertyName("signing_profile_version_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SigningProfileVersionArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signing_profile_version_arn");
 
     /// <summary>
     /// The source_code_size attribute.
     /// </summary>
-    public TerraformExpression SourceCodeSize => this["source_code_size"];
+    [TerraformPropertyName("source_code_size")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SourceCodeSize => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "source_code_size");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformExpression Version => this["version"];
+    [TerraformPropertyName("version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
 }

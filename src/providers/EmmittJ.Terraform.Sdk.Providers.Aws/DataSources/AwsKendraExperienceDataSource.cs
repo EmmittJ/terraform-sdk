@@ -9,113 +9,106 @@ public class AwsKendraExperienceDataSource : TerraformDataSource
 {
     public AwsKendraExperienceDataSource(string name) : base("aws_kendra_experience", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("configuration");
-        SetOutput("created_at");
-        SetOutput("description");
-        SetOutput("endpoints");
-        SetOutput("error_message");
-        SetOutput("name");
-        SetOutput("role_arn");
-        SetOutput("status");
-        SetOutput("updated_at");
-        SetOutput("experience_id");
-        SetOutput("id");
-        SetOutput("index_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The experience_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExperienceId is required")]
-    public required TerraformProperty<string> ExperienceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("experience_id");
-        set => SetProperty("experience_id", value);
-    }
+    [TerraformPropertyName("experience_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExperienceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The index_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexId is required")]
-    public required TerraformProperty<string> IndexId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("index_id");
-        set => SetProperty("index_id", value);
-    }
+    [TerraformPropertyName("index_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IndexId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The configuration attribute.
     /// </summary>
-    public TerraformExpression Configuration => this["configuration"];
+    [TerraformPropertyName("configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Configuration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "configuration");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
-    public TerraformExpression Endpoints => this["endpoints"];
+    [TerraformPropertyName("endpoints")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Endpoints => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "endpoints");
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
-    public TerraformExpression ErrorMessage => this["error_message"];
+    [TerraformPropertyName("error_message")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ErrorMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "error_message");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformExpression RoleArn => this["role_arn"];
+    [TerraformPropertyName("role_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
-    public TerraformExpression UpdatedAt => this["updated_at"];
+    [TerraformPropertyName("updated_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "updated_at");
 
 }

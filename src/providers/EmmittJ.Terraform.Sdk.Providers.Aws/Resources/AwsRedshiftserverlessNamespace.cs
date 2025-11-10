@@ -9,190 +9,140 @@ public class AwsRedshiftserverlessNamespace : TerraformResource
 {
     public AwsRedshiftserverlessNamespace(string name) : base("aws_redshiftserverless_namespace", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("admin_password_secret_arn");
-        SetOutput("arn");
-        SetOutput("namespace_id");
-        SetOutput("admin_password_secret_kms_key_id");
-        SetOutput("admin_user_password");
-        SetOutput("admin_user_password_wo");
-        SetOutput("admin_user_password_wo_version");
-        SetOutput("admin_username");
-        SetOutput("db_name");
-        SetOutput("default_iam_role_arn");
-        SetOutput("iam_roles");
-        SetOutput("id");
-        SetOutput("kms_key_id");
-        SetOutput("log_exports");
-        SetOutput("manage_admin_password");
-        SetOutput("namespace_name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The admin_password_secret_kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> AdminPasswordSecretKmsKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("admin_password_secret_kms_key_id");
-        set => SetProperty("admin_password_secret_kms_key_id", value);
-    }
+    [TerraformPropertyName("admin_password_secret_kms_key_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AdminPasswordSecretKmsKeyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "admin_password_secret_kms_key_id");
 
     /// <summary>
     /// The admin_user_password attribute.
     /// </summary>
-    public TerraformProperty<string> AdminUserPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("admin_user_password");
-        set => SetProperty("admin_user_password", value);
-    }
+    [TerraformPropertyName("admin_user_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AdminUserPassword { get; set; }
 
     /// <summary>
     /// The admin_user_password_wo attribute.
     /// </summary>
-    public TerraformProperty<string> AdminUserPasswordWo
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("admin_user_password_wo");
-        set => SetProperty("admin_user_password_wo", value);
-    }
+    [TerraformPropertyName("admin_user_password_wo")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AdminUserPasswordWo { get; set; }
 
     /// <summary>
     /// The admin_user_password_wo_version attribute.
     /// </summary>
-    public TerraformProperty<double> AdminUserPasswordWoVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("admin_user_password_wo_version");
-        set => SetProperty("admin_user_password_wo_version", value);
-    }
+    [TerraformPropertyName("admin_user_password_wo_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AdminUserPasswordWoVersion { get; set; }
 
     /// <summary>
     /// The admin_username attribute.
     /// </summary>
-    public TerraformProperty<string> AdminUsername
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("admin_username");
-        set => SetProperty("admin_username", value);
-    }
+    [TerraformPropertyName("admin_username")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AdminUsername { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "admin_username");
 
     /// <summary>
     /// The db_name attribute.
     /// </summary>
-    public TerraformProperty<string> DbName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_name");
-        set => SetProperty("db_name", value);
-    }
+    [TerraformPropertyName("db_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DbName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "db_name");
 
     /// <summary>
     /// The default_iam_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultIamRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_iam_role_arn");
-        set => SetProperty("default_iam_role_arn", value);
-    }
+    [TerraformPropertyName("default_iam_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultIamRoleArn { get; set; }
 
     /// <summary>
     /// The iam_roles attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> IamRoles
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("iam_roles");
-        set => SetProperty("iam_roles", value);
-    }
+    [TerraformPropertyName("iam_roles")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> IamRoles { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "iam_roles");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_id");
 
     /// <summary>
     /// The log_exports attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> LogExports
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("log_exports");
-        set => SetProperty("log_exports", value);
-    }
+    [TerraformPropertyName("log_exports")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? LogExports { get; set; }
 
     /// <summary>
     /// The manage_admin_password attribute.
     /// </summary>
-    public TerraformProperty<bool> ManageAdminPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("manage_admin_password");
-        set => SetProperty("manage_admin_password", value);
-    }
+    [TerraformPropertyName("manage_admin_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ManageAdminPassword { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
-    public required TerraformProperty<string> NamespaceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
-        set => SetProperty("namespace_name", value);
-    }
+    [TerraformPropertyName("namespace_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NamespaceName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The admin_password_secret_arn attribute.
     /// </summary>
-    public TerraformExpression AdminPasswordSecretArn => this["admin_password_secret_arn"];
+    [TerraformPropertyName("admin_password_secret_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AdminPasswordSecretArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "admin_password_secret_arn");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformExpression NamespaceId => this["namespace_id"];
+    [TerraformPropertyName("namespace_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NamespaceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "namespace_id");
 
 }

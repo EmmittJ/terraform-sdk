@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleKmsSecretCiphertextTimeoutsBlock : TerraformBlock
+public class GoogleKmsSecretCiphertextTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,69 +31,51 @@ public class GoogleKmsSecretCiphertext : TerraformResource
 {
     public GoogleKmsSecretCiphertext(string name) : base("google_kms_secret_ciphertext", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("ciphertext");
-        SetOutput("additional_authenticated_data");
-        SetOutput("crypto_key");
-        SetOutput("id");
-        SetOutput("plaintext");
     }
 
     /// <summary>
     /// The additional authenticated data used for integrity checks during encryption and decryption.
     /// </summary>
-    public TerraformProperty<string> AdditionalAuthenticatedData
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("additional_authenticated_data");
-        set => SetProperty("additional_authenticated_data", value);
-    }
+    [TerraformPropertyName("additional_authenticated_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AdditionalAuthenticatedData { get; set; }
 
     /// <summary>
     /// The full name of the CryptoKey that will be used to encrypt the provided plaintext.
     /// Format: &#39;&#39;projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}/cryptoKeys/{{cryptoKey}}&#39;&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
-    public required TerraformProperty<string> CryptoKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("crypto_key");
-        set => SetProperty("crypto_key", value);
-    }
+    [TerraformPropertyName("crypto_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CryptoKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The plaintext to be encrypted.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plaintext is required")]
-    public required TerraformProperty<string> Plaintext
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("plaintext");
-        set => SetProperty("plaintext", value);
-    }
+    [TerraformPropertyName("plaintext")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Plaintext { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleKmsSecretCiphertextTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleKmsSecretCiphertextTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Contains the result of encrypting the provided plaintext, encoded in base64.
     /// </summary>
-    public TerraformExpression Ciphertext => this["ciphertext"];
+    [TerraformPropertyName("ciphertext")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Ciphertext => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ciphertext");
 
 }

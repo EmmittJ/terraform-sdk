@@ -9,77 +9,64 @@ public class AwsOutpostsAssetDataSource : TerraformDataSource
 {
     public AwsOutpostsAssetDataSource(string name) : base("aws_outposts_asset", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("asset_type");
-        SetOutput("host_id");
-        SetOutput("rack_elevation");
-        SetOutput("rack_id");
-        SetOutput("arn");
-        SetOutput("asset_id");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    public required TerraformProperty<string> Arn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arn");
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
 
     /// <summary>
     /// The asset_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssetId is required")]
-    public required TerraformProperty<string> AssetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("asset_id");
-        set => SetProperty("asset_id", value);
-    }
+    [TerraformPropertyName("asset_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AssetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The asset_type attribute.
     /// </summary>
-    public TerraformExpression AssetType => this["asset_type"];
+    [TerraformPropertyName("asset_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AssetType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "asset_type");
 
     /// <summary>
     /// The host_id attribute.
     /// </summary>
-    public TerraformExpression HostId => this["host_id"];
+    [TerraformPropertyName("host_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "host_id");
 
     /// <summary>
     /// The rack_elevation attribute.
     /// </summary>
-    public TerraformExpression RackElevation => this["rack_elevation"];
+    [TerraformPropertyName("rack_elevation")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RackElevation => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "rack_elevation");
 
     /// <summary>
     /// The rack_id attribute.
     /// </summary>
-    public TerraformExpression RackId => this["rack_id"];
+    [TerraformPropertyName("rack_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RackId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "rack_id");
 
 }

@@ -9,71 +9,52 @@ public class AwsNotificationsEventRule : TerraformResource
 {
     public AwsNotificationsEventRule(string name) : base("aws_notifications_event_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("event_pattern");
-        SetOutput("event_type");
-        SetOutput("notification_configuration_arn");
-        SetOutput("regions");
-        SetOutput("source");
     }
 
     /// <summary>
     /// The event_pattern attribute.
     /// </summary>
-    public TerraformProperty<string> EventPattern
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("event_pattern");
-        set => SetProperty("event_pattern", value);
-    }
+    [TerraformPropertyName("event_pattern")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EventPattern { get; set; }
 
     /// <summary>
     /// The event_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
-    public required TerraformProperty<string> EventType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("event_type");
-        set => SetProperty("event_type", value);
-    }
+    [TerraformPropertyName("event_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventType { get; set; }
 
     /// <summary>
     /// The notification_configuration_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationConfigurationArn is required")]
-    public required TerraformProperty<string> NotificationConfigurationArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("notification_configuration_arn");
-        set => SetProperty("notification_configuration_arn", value);
-    }
+    [TerraformPropertyName("notification_configuration_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NotificationConfigurationArn { get; set; }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regions is required")]
-    public HashSet<TerraformProperty<string>> Regions
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("regions");
-        set => SetProperty("regions", value);
-    }
+    [TerraformPropertyName("regions")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Regions { get; set; }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
-    public required TerraformProperty<string> Source
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source");
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Source { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

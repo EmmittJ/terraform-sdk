@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetappVolumeDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermNetappVolumeDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,186 +24,178 @@ public class AzurermNetappVolumeDataSource : TerraformDataSource
 {
     public AzurermNetappVolumeDataSource(string name) : base("azurerm_netapp_volume", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("accept_grow_capacity_pool_for_short_term_clone_split");
-        SetOutput("data_protection_backup_policy");
-        SetOutput("data_protection_replication");
-        SetOutput("encryption_key_source");
-        SetOutput("key_vault_private_endpoint_id");
-        SetOutput("large_volume_enabled");
-        SetOutput("location");
-        SetOutput("mount_ip_addresses");
-        SetOutput("network_features");
-        SetOutput("protocols");
-        SetOutput("service_level");
-        SetOutput("smb_access_based_enumeration_enabled");
-        SetOutput("smb_non_browsable_enabled");
-        SetOutput("storage_quota_in_gb");
-        SetOutput("subnet_id");
-        SetOutput("volume_path");
-        SetOutput("zone");
-        SetOutput("account_name");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("pool_name");
-        SetOutput("resource_group_name");
-        SetOutput("security_style");
     }
 
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    public required TerraformProperty<string> AccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
-        set => SetProperty("account_name", value);
-    }
+    [TerraformPropertyName("account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The pool_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
-    public required TerraformProperty<string> PoolName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pool_name");
-        set => SetProperty("pool_name", value);
-    }
+    [TerraformPropertyName("pool_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PoolName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The security_style attribute.
     /// </summary>
-    public TerraformProperty<string> SecurityStyle
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_style");
-        set => SetProperty("security_style", value);
-    }
+    [TerraformPropertyName("security_style")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecurityStyle { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNetappVolumeDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNetappVolumeDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The accept grow capacity pool for short term clone split property.
     /// </summary>
-    public TerraformExpression AcceptGrowCapacityPoolForShortTermCloneSplit => this["accept_grow_capacity_pool_for_short_term_clone_split"];
+    [TerraformPropertyName("accept_grow_capacity_pool_for_short_term_clone_split")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AcceptGrowCapacityPoolForShortTermCloneSplit => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "accept_grow_capacity_pool_for_short_term_clone_split");
 
     /// <summary>
     /// The data_protection_backup_policy attribute.
     /// </summary>
-    public TerraformExpression DataProtectionBackupPolicy => this["data_protection_backup_policy"];
+    [TerraformPropertyName("data_protection_backup_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DataProtectionBackupPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "data_protection_backup_policy");
 
     /// <summary>
     /// The data_protection_replication attribute.
     /// </summary>
-    public TerraformExpression DataProtectionReplication => this["data_protection_replication"];
+    [TerraformPropertyName("data_protection_replication")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DataProtectionReplication => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "data_protection_replication");
 
     /// <summary>
     /// The encryption_key_source attribute.
     /// </summary>
-    public TerraformExpression EncryptionKeySource => this["encryption_key_source"];
+    [TerraformPropertyName("encryption_key_source")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EncryptionKeySource => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "encryption_key_source");
 
     /// <summary>
     /// The key_vault_private_endpoint_id attribute.
     /// </summary>
-    public TerraformExpression KeyVaultPrivateEndpointId => this["key_vault_private_endpoint_id"];
+    [TerraformPropertyName("key_vault_private_endpoint_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyVaultPrivateEndpointId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_vault_private_endpoint_id");
 
     /// <summary>
     /// The large_volume_enabled attribute.
     /// </summary>
-    public TerraformExpression LargeVolumeEnabled => this["large_volume_enabled"];
+    [TerraformPropertyName("large_volume_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> LargeVolumeEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "large_volume_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The mount_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression MountIpAddresses => this["mount_ip_addresses"];
+    [TerraformPropertyName("mount_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> MountIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "mount_ip_addresses");
 
     /// <summary>
     /// The network_features attribute.
     /// </summary>
-    public TerraformExpression NetworkFeatures => this["network_features"];
+    [TerraformPropertyName("network_features")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NetworkFeatures => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_features");
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public TerraformExpression Protocols => this["protocols"];
+    [TerraformPropertyName("protocols")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Protocols => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "protocols");
 
     /// <summary>
     /// The service_level attribute.
     /// </summary>
-    public TerraformExpression ServiceLevel => this["service_level"];
+    [TerraformPropertyName("service_level")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceLevel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_level");
 
     /// <summary>
     /// The smb_access_based_enumeration_enabled attribute.
     /// </summary>
-    public TerraformExpression SmbAccessBasedEnumerationEnabled => this["smb_access_based_enumeration_enabled"];
+    [TerraformPropertyName("smb_access_based_enumeration_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> SmbAccessBasedEnumerationEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "smb_access_based_enumeration_enabled");
 
     /// <summary>
     /// The smb_non_browsable_enabled attribute.
     /// </summary>
-    public TerraformExpression SmbNonBrowsableEnabled => this["smb_non_browsable_enabled"];
+    [TerraformPropertyName("smb_non_browsable_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> SmbNonBrowsableEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "smb_non_browsable_enabled");
 
     /// <summary>
     /// The storage_quota_in_gb attribute.
     /// </summary>
-    public TerraformExpression StorageQuotaInGb => this["storage_quota_in_gb"];
+    [TerraformPropertyName("storage_quota_in_gb")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> StorageQuotaInGb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "storage_quota_in_gb");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformExpression SubnetId => this["subnet_id"];
+    [TerraformPropertyName("subnet_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SubnetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subnet_id");
 
     /// <summary>
     /// The volume_path attribute.
     /// </summary>
-    public TerraformExpression VolumePath => this["volume_path"];
+    [TerraformPropertyName("volume_path")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VolumePath => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "volume_path");
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    public TerraformExpression Zone => this["zone"];
+    [TerraformPropertyName("zone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Zone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
 
 }

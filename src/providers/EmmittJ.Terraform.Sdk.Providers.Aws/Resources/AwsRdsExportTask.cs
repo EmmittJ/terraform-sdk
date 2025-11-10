@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRdsExportTaskTimeoutsBlock : TerraformBlock
+public class AwsRdsExportTaskTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,159 +31,137 @@ public class AwsRdsExportTask : TerraformResource
 {
     public AwsRdsExportTask(string name) : base("aws_rds_export_task", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("failure_cause");
-        SetOutput("id");
-        SetOutput("percent_progress");
-        SetOutput("snapshot_time");
-        SetOutput("source_type");
-        SetOutput("status");
-        SetOutput("task_end_time");
-        SetOutput("task_start_time");
-        SetOutput("warning_message");
-        SetOutput("export_only");
-        SetOutput("export_task_identifier");
-        SetOutput("iam_role_arn");
-        SetOutput("kms_key_id");
-        SetOutput("region");
-        SetOutput("s3_bucket_name");
-        SetOutput("s3_prefix");
-        SetOutput("source_arn");
     }
 
     /// <summary>
     /// The export_only attribute.
     /// </summary>
-    public List<TerraformProperty<string>> ExportOnly
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("export_only");
-        set => SetProperty("export_only", value);
-    }
+    [TerraformPropertyName("export_only")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ExportOnly { get; set; }
 
     /// <summary>
     /// The export_task_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportTaskIdentifier is required")]
-    public required TerraformProperty<string> ExportTaskIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("export_task_identifier");
-        set => SetProperty("export_task_identifier", value);
-    }
+    [TerraformPropertyName("export_task_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExportTaskIdentifier { get; set; }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
-    public required TerraformProperty<string> IamRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
-        set => SetProperty("iam_role_arn", value);
-    }
+    [TerraformPropertyName("iam_role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IamRoleArn { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
-    public required TerraformProperty<string> KmsKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The s3_bucket_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
-    public required TerraformProperty<string> S3BucketName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket_name");
-        set => SetProperty("s3_bucket_name", value);
-    }
+    [TerraformPropertyName("s3_bucket_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> S3BucketName { get; set; }
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> S3Prefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_prefix");
-        set => SetProperty("s3_prefix", value);
-    }
+    [TerraformPropertyName("s3_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> S3Prefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "s3_prefix");
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
-    public required TerraformProperty<string> SourceArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_arn");
-        set => SetProperty("source_arn", value);
-    }
+    [TerraformPropertyName("source_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceArn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsRdsExportTaskTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsRdsExportTaskTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The failure_cause attribute.
     /// </summary>
-    public TerraformExpression FailureCause => this["failure_cause"];
+    [TerraformPropertyName("failure_cause")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FailureCause => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "failure_cause");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The percent_progress attribute.
     /// </summary>
-    public TerraformExpression PercentProgress => this["percent_progress"];
+    [TerraformPropertyName("percent_progress")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> PercentProgress => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "percent_progress");
 
     /// <summary>
     /// The snapshot_time attribute.
     /// </summary>
-    public TerraformExpression SnapshotTime => this["snapshot_time"];
+    [TerraformPropertyName("snapshot_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SnapshotTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "snapshot_time");
 
     /// <summary>
     /// The source_type attribute.
     /// </summary>
-    public TerraformExpression SourceType => this["source_type"];
+    [TerraformPropertyName("source_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_type");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The task_end_time attribute.
     /// </summary>
-    public TerraformExpression TaskEndTime => this["task_end_time"];
+    [TerraformPropertyName("task_end_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TaskEndTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "task_end_time");
 
     /// <summary>
     /// The task_start_time attribute.
     /// </summary>
-    public TerraformExpression TaskStartTime => this["task_start_time"];
+    [TerraformPropertyName("task_start_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TaskStartTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "task_start_time");
 
     /// <summary>
     /// The warning_message attribute.
     /// </summary>
-    public TerraformExpression WarningMessage => this["warning_message"];
+    [TerraformPropertyName("warning_message")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WarningMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "warning_message");
 
 }

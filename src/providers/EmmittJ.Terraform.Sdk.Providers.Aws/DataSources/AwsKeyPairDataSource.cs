@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsKeyPairDataSourceFilterBlock : TerraformBlock
+public class AwsKeyPairDataSourceFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public HashSet<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -32,15 +30,14 @@ public class AwsKeyPairDataSourceFilterBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsKeyPairDataSourceTimeoutsBlock : TerraformBlock
+public class AwsKeyPairDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -51,119 +48,97 @@ public class AwsKeyPairDataSource : TerraformDataSource
 {
     public AwsKeyPairDataSource(string name) : base("aws_key_pair", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("create_time");
-        SetOutput("fingerprint");
-        SetOutput("key_type");
-        SetOutput("public_key");
-        SetOutput("id");
-        SetOutput("include_public_key");
-        SetOutput("key_name");
-        SetOutput("key_pair_id");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The include_public_key attribute.
     /// </summary>
-    public TerraformProperty<bool> IncludePublicKey
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("include_public_key");
-        set => SetProperty("include_public_key", value);
-    }
+    [TerraformPropertyName("include_public_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludePublicKey { get; set; }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformProperty<string> KeyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_name");
-        set => SetProperty("key_name", value);
-    }
+    [TerraformPropertyName("key_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyName { get; set; }
 
     /// <summary>
     /// The key_pair_id attribute.
     /// </summary>
-    public TerraformProperty<string> KeyPairId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_pair_id");
-        set => SetProperty("key_pair_id", value);
-    }
+    [TerraformPropertyName("key_pair_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyPairId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsKeyPairDataSourceFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformSet<TerraformBlock<AwsKeyPairDataSourceFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsKeyPairDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsKeyPairDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The fingerprint attribute.
     /// </summary>
-    public TerraformExpression Fingerprint => this["fingerprint"];
+    [TerraformPropertyName("fingerprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fingerprint");
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
-    public TerraformExpression KeyType => this["key_type"];
+    [TerraformPropertyName("key_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_type");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
-    public TerraformExpression PublicKey => this["public_key"];
+    [TerraformPropertyName("public_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublicKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_key");
 
 }

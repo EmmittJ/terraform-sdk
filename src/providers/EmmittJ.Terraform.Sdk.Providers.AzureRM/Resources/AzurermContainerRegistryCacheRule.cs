@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerRegistryCacheRuleTimeoutsBlock : TerraformBlock
+public class AzurermContainerRegistryCacheRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,84 +45,59 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
 {
     public AzurermContainerRegistryCacheRule(string name) : base("azurerm_container_registry_cache_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("container_registry_id");
-        SetOutput("credential_set_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("source_repo");
-        SetOutput("target_repo");
     }
 
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
-    public required TerraformProperty<string> ContainerRegistryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_registry_id");
-        set => SetProperty("container_registry_id", value);
-    }
+    [TerraformPropertyName("container_registry_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContainerRegistryId { get; set; }
 
     /// <summary>
     /// The ARM resource ID of the credential store which is associated with the cache rule.
     /// </summary>
-    public TerraformProperty<string> CredentialSetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("credential_set_id");
-        set => SetProperty("credential_set_id", value);
-    }
+    [TerraformPropertyName("credential_set_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CredentialSetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the cache rule.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The full source repository path such as &#39;docker.io/library/ubuntu&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRepo is required")]
-    public required TerraformProperty<string> SourceRepo
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_repo");
-        set => SetProperty("source_repo", value);
-    }
+    [TerraformPropertyName("source_repo")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceRepo { get; set; }
 
     /// <summary>
     /// The target repository namespace such as &#39;ubuntu&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRepo is required")]
-    public required TerraformProperty<string> TargetRepo
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_repo");
-        set => SetProperty("target_repo", value);
-    }
+    [TerraformPropertyName("target_repo")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetRepo { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermContainerRegistryCacheRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermContainerRegistryCacheRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

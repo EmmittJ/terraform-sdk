@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for conclusion_statement in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexIntentConclusionStatementBlock : TerraformBlock
+public class AwsLexIntentConclusionStatementBlock : ITerraformBlock
 {
     /// <summary>
     /// The response_card attribute.
     /// </summary>
-    public TerraformProperty<string>? ResponseCard
-    {
-        set => SetProperty("response_card", value);
-    }
+    [TerraformPropertyName("response_card")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResponseCard { get; set; }
 
 }
 
@@ -22,24 +21,22 @@ public class AwsLexIntentConclusionStatementBlock : TerraformBlock
 /// Block type for confirmation_prompt in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexIntentConfirmationPromptBlock : TerraformBlock
+public class AwsLexIntentConfirmationPromptBlock : ITerraformBlock
 {
     /// <summary>
     /// The max_attempts attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAttempts is required")]
-    public required TerraformProperty<double> MaxAttempts
-    {
-        set => SetProperty("max_attempts", value);
-    }
+    [TerraformPropertyName("max_attempts")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxAttempts { get; set; }
 
     /// <summary>
     /// The response_card attribute.
     /// </summary>
-    public TerraformProperty<string>? ResponseCard
-    {
-        set => SetProperty("response_card", value);
-    }
+    [TerraformPropertyName("response_card")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResponseCard { get; set; }
 
 }
 
@@ -47,25 +44,23 @@ public class AwsLexIntentConfirmationPromptBlock : TerraformBlock
 /// Block type for dialog_code_hook in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexIntentDialogCodeHookBlock : TerraformBlock
+public class AwsLexIntentDialogCodeHookBlock : ITerraformBlock
 {
     /// <summary>
     /// The message_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageVersion is required")]
-    public required TerraformProperty<string> MessageVersion
-    {
-        set => SetProperty("message_version", value);
-    }
+    [TerraformPropertyName("message_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MessageVersion { get; set; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    public required TerraformProperty<string> Uri
-    {
-        set => SetProperty("uri", value);
-    }
+    [TerraformPropertyName("uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Uri { get; set; }
 
 }
 
@@ -73,7 +68,7 @@ public class AwsLexIntentDialogCodeHookBlock : TerraformBlock
 /// Block type for follow_up_prompt in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexIntentFollowUpPromptBlock : TerraformBlock
+public class AwsLexIntentFollowUpPromptBlock : ITerraformBlock
 {
 }
 
@@ -81,16 +76,15 @@ public class AwsLexIntentFollowUpPromptBlock : TerraformBlock
 /// Block type for fulfillment_activity in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexIntentFulfillmentActivityBlock : TerraformBlock
+public class AwsLexIntentFulfillmentActivityBlock : ITerraformBlock
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -98,15 +92,14 @@ public class AwsLexIntentFulfillmentActivityBlock : TerraformBlock
 /// Block type for rejection_statement in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexIntentRejectionStatementBlock : TerraformBlock
+public class AwsLexIntentRejectionStatementBlock : ITerraformBlock
 {
     /// <summary>
     /// The response_card attribute.
     /// </summary>
-    public TerraformProperty<string>? ResponseCard
-    {
-        set => SetProperty("response_card", value);
-    }
+    [TerraformPropertyName("response_card")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResponseCard { get; set; }
 
 }
 
@@ -114,74 +107,66 @@ public class AwsLexIntentRejectionStatementBlock : TerraformBlock
 /// Block type for slot in .
 /// Nesting mode: set
 /// </summary>
-public class AwsLexIntentSlotBlock : TerraformBlock
+public class AwsLexIntentSlotBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double>? Priority
-    {
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Priority { get; set; }
 
     /// <summary>
     /// The response_card attribute.
     /// </summary>
-    public TerraformProperty<string>? ResponseCard
-    {
-        set => SetProperty("response_card", value);
-    }
+    [TerraformPropertyName("response_card")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResponseCard { get; set; }
 
     /// <summary>
     /// The sample_utterances attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SampleUtterances
-    {
-        set => SetProperty("sample_utterances", value);
-    }
+    [TerraformPropertyName("sample_utterances")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SampleUtterances { get; set; }
 
     /// <summary>
     /// The slot_constraint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotConstraint is required")]
-    public required TerraformProperty<string> SlotConstraint
-    {
-        set => SetProperty("slot_constraint", value);
-    }
+    [TerraformPropertyName("slot_constraint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SlotConstraint { get; set; }
 
     /// <summary>
     /// The slot_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotType is required")]
-    public required TerraformProperty<string> SlotType
-    {
-        set => SetProperty("slot_type", value);
-    }
+    [TerraformPropertyName("slot_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SlotType { get; set; }
 
     /// <summary>
     /// The slot_type_version attribute.
     /// </summary>
-    public TerraformProperty<string>? SlotTypeVersion
-    {
-        set => SetProperty("slot_type_version", value);
-    }
+    [TerraformPropertyName("slot_type_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SlotTypeVersion { get; set; }
 
 }
 
@@ -189,31 +174,28 @@ public class AwsLexIntentSlotBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLexIntentTimeoutsBlock : TerraformBlock
+public class AwsLexIntentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -225,128 +207,89 @@ public class AwsLexIntent : TerraformResource
 {
     public AwsLexIntent(string name) : base("aws_lex_intent", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("checksum");
-        SetOutput("created_date");
-        SetOutput("last_updated_date");
-        SetOutput("version");
-        SetOutput("create_version");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("parent_intent_signature");
-        SetOutput("region");
-        SetOutput("sample_utterances");
     }
 
     /// <summary>
     /// The create_version attribute.
     /// </summary>
-    public TerraformProperty<bool> CreateVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("create_version");
-        set => SetProperty("create_version", value);
-    }
+    [TerraformPropertyName("create_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CreateVersion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parent_intent_signature attribute.
     /// </summary>
-    public TerraformProperty<string> ParentIntentSignature
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent_intent_signature");
-        set => SetProperty("parent_intent_signature", value);
-    }
+    [TerraformPropertyName("parent_intent_signature")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ParentIntentSignature { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The sample_utterances attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SampleUtterances
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("sample_utterances");
-        set => SetProperty("sample_utterances", value);
-    }
+    [TerraformPropertyName("sample_utterances")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SampleUtterances { get; set; }
 
     /// <summary>
     /// Block for conclusion_statement.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConclusionStatement block(s) allowed")]
-    public List<AwsLexIntentConclusionStatementBlock>? ConclusionStatement
-    {
-        set => SetProperty("conclusion_statement", value);
-    }
+    [TerraformPropertyName("conclusion_statement")]
+    public TerraformList<TerraformBlock<AwsLexIntentConclusionStatementBlock>>? ConclusionStatement { get; set; } = new();
 
     /// <summary>
     /// Block for confirmation_prompt.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfirmationPrompt block(s) allowed")]
-    public List<AwsLexIntentConfirmationPromptBlock>? ConfirmationPrompt
-    {
-        set => SetProperty("confirmation_prompt", value);
-    }
+    [TerraformPropertyName("confirmation_prompt")]
+    public TerraformList<TerraformBlock<AwsLexIntentConfirmationPromptBlock>>? ConfirmationPrompt { get; set; } = new();
 
     /// <summary>
     /// Block for dialog_code_hook.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DialogCodeHook block(s) allowed")]
-    public List<AwsLexIntentDialogCodeHookBlock>? DialogCodeHook
-    {
-        set => SetProperty("dialog_code_hook", value);
-    }
+    [TerraformPropertyName("dialog_code_hook")]
+    public TerraformList<TerraformBlock<AwsLexIntentDialogCodeHookBlock>>? DialogCodeHook { get; set; } = new();
 
     /// <summary>
     /// Block for follow_up_prompt.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FollowUpPrompt block(s) allowed")]
-    public List<AwsLexIntentFollowUpPromptBlock>? FollowUpPrompt
-    {
-        set => SetProperty("follow_up_prompt", value);
-    }
+    [TerraformPropertyName("follow_up_prompt")]
+    public TerraformList<TerraformBlock<AwsLexIntentFollowUpPromptBlock>>? FollowUpPrompt { get; set; } = new();
 
     /// <summary>
     /// Block for fulfillment_activity.
@@ -355,63 +298,65 @@ public class AwsLexIntent : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FulfillmentActivity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FulfillmentActivity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FulfillmentActivity block(s) allowed")]
-    public List<AwsLexIntentFulfillmentActivityBlock>? FulfillmentActivity
-    {
-        set => SetProperty("fulfillment_activity", value);
-    }
+    [TerraformPropertyName("fulfillment_activity")]
+    public TerraformList<TerraformBlock<AwsLexIntentFulfillmentActivityBlock>>? FulfillmentActivity { get; set; } = new();
 
     /// <summary>
     /// Block for rejection_statement.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RejectionStatement block(s) allowed")]
-    public List<AwsLexIntentRejectionStatementBlock>? RejectionStatement
-    {
-        set => SetProperty("rejection_statement", value);
-    }
+    [TerraformPropertyName("rejection_statement")]
+    public TerraformList<TerraformBlock<AwsLexIntentRejectionStatementBlock>>? RejectionStatement { get; set; } = new();
 
     /// <summary>
     /// Block for slot.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Slot block(s) allowed")]
-    public HashSet<AwsLexIntentSlotBlock>? Slot
-    {
-        set => SetProperty("slot", value);
-    }
+    [TerraformPropertyName("slot")]
+    public TerraformSet<TerraformBlock<AwsLexIntentSlotBlock>>? Slot { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsLexIntentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsLexIntentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The checksum attribute.
     /// </summary>
-    public TerraformExpression Checksum => this["checksum"];
+    [TerraformPropertyName("checksum")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Checksum => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "checksum");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
-    public TerraformExpression CreatedDate => this["created_date"];
+    [TerraformPropertyName("created_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_date");
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
-    public TerraformExpression LastUpdatedDate => this["last_updated_date"];
+    [TerraformPropertyName("last_updated_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastUpdatedDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_updated_date");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformExpression Version => this["version"];
+    [TerraformPropertyName("version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
 }

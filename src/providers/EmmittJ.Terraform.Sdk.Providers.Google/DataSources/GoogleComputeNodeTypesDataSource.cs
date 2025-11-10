@@ -9,47 +9,34 @@ public class GoogleComputeNodeTypesDataSource : TerraformDataSource
 {
     public GoogleComputeNodeTypesDataSource(string name) : base("google_compute_node_types", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("names");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("zone");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    public TerraformProperty<string> Zone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("zone");
-        set => SetProperty("zone", value);
-    }
+    [TerraformPropertyName("zone")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Zone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
-    public TerraformExpression Names => this["names"];
+    [TerraformPropertyName("names")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Names => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "names");
 
 }

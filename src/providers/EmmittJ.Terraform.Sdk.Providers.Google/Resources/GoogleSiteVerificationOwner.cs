@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSiteVerificationOwnerTimeoutsBlock : TerraformBlock
+public class GoogleSiteVerificationOwnerTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,52 +31,36 @@ public class GoogleSiteVerificationOwner : TerraformResource
 {
     public GoogleSiteVerificationOwner(string name) : base("google_site_verification_owner", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("email");
-        SetOutput("id");
-        SetOutput("web_resource_id");
     }
 
     /// <summary>
     /// The email address of the owner.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    public required TerraformProperty<string> Email
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("email");
-        set => SetProperty("email", value);
-    }
+    [TerraformPropertyName("email")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Email { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The id of the Web Resource to add this owner to, in the form &amp;quot;webResource/&amp;lt;web-resource-id&amp;gt;&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebResourceId is required")]
-    public required TerraformProperty<string> WebResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("web_resource_id");
-        set => SetProperty("web_resource_id", value);
-    }
+    [TerraformPropertyName("web_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WebResourceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleSiteVerificationOwnerTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleSiteVerificationOwnerTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

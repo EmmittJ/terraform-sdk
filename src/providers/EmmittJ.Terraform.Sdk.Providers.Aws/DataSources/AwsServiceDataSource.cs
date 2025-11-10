@@ -9,83 +9,62 @@ public class AwsServiceDataSource : TerraformDataSource
 {
     public AwsServiceDataSource(string name) : base("aws_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("partition");
-        SetOutput("supported");
-        SetOutput("dns_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("reverse_dns_name");
-        SetOutput("reverse_dns_prefix");
-        SetOutput("service_id");
     }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformProperty<string> DnsName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dns_name");
-        set => SetProperty("dns_name", value);
-    }
+    [TerraformPropertyName("dns_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DnsName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The reverse_dns_name attribute.
     /// </summary>
-    public TerraformProperty<string> ReverseDnsName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("reverse_dns_name");
-        set => SetProperty("reverse_dns_name", value);
-    }
+    [TerraformPropertyName("reverse_dns_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ReverseDnsName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "reverse_dns_name");
 
     /// <summary>
     /// The reverse_dns_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> ReverseDnsPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("reverse_dns_prefix");
-        set => SetProperty("reverse_dns_prefix", value);
-    }
+    [TerraformPropertyName("reverse_dns_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ReverseDnsPrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "reverse_dns_prefix");
 
     /// <summary>
     /// The service_id attribute.
     /// </summary>
-    public TerraformProperty<string> ServiceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_id");
-        set => SetProperty("service_id", value);
-    }
+    [TerraformPropertyName("service_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ServiceId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_id");
 
     /// <summary>
     /// The partition attribute.
     /// </summary>
-    public TerraformExpression Partition => this["partition"];
+    [TerraformPropertyName("partition")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Partition => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "partition");
 
     /// <summary>
     /// The supported attribute.
     /// </summary>
-    public TerraformExpression Supported => this["supported"];
+    [TerraformPropertyName("supported")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Supported => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "supported");
 
 }

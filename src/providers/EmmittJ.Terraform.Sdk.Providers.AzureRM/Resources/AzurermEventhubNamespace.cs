@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermEventhubNamespaceIdentityBlock : TerraformBlock
+public class AzurermEventhubNamespaceIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -47,39 +43,35 @@ public class AzurermEventhubNamespaceIdentityBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermEventhubNamespaceTimeoutsBlock : TerraformBlock
+public class AzurermEventhubNamespaceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -91,210 +83,165 @@ public class AzurermEventhubNamespace : TerraformResource
 {
     public AzurermEventhubNamespace(string name) : base("azurerm_eventhub_namespace", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("default_primary_connection_string");
-        SetOutput("default_primary_connection_string_alias");
-        SetOutput("default_primary_key");
-        SetOutput("default_secondary_connection_string");
-        SetOutput("default_secondary_connection_string_alias");
-        SetOutput("default_secondary_key");
-        SetOutput("auto_inflate_enabled");
-        SetOutput("capacity");
-        SetOutput("dedicated_cluster_id");
-        SetOutput("id");
-        SetOutput("local_authentication_enabled");
-        SetOutput("location");
-        SetOutput("maximum_throughput_units");
-        SetOutput("minimum_tls_version");
-        SetOutput("name");
-        SetOutput("network_rulesets");
-        SetOutput("public_network_access_enabled");
-        SetOutput("resource_group_name");
-        SetOutput("sku");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The auto_inflate_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoInflateEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_inflate_enabled");
-        set => SetProperty("auto_inflate_enabled", value);
-    }
+    [TerraformPropertyName("auto_inflate_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoInflateEnabled { get; set; }
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformProperty<double> Capacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("capacity");
-        set => SetProperty("capacity", value);
-    }
+    [TerraformPropertyName("capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Capacity { get; set; }
 
     /// <summary>
     /// The dedicated_cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string> DedicatedClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dedicated_cluster_id");
-        set => SetProperty("dedicated_cluster_id", value);
-    }
+    [TerraformPropertyName("dedicated_cluster_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DedicatedClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LocalAuthenticationEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("local_authentication_enabled");
-        set => SetProperty("local_authentication_enabled", value);
-    }
+    [TerraformPropertyName("local_authentication_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LocalAuthenticationEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The maximum_throughput_units attribute.
     /// </summary>
-    public TerraformProperty<double> MaximumThroughputUnits
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("maximum_throughput_units");
-        set => SetProperty("maximum_throughput_units", value);
-    }
+    [TerraformPropertyName("maximum_throughput_units")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaximumThroughputUnits { get; set; }
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
-    public TerraformProperty<string> MinimumTlsVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("minimum_tls_version");
-        set => SetProperty("minimum_tls_version", value);
-    }
+    [TerraformPropertyName("minimum_tls_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MinimumTlsVersion { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The network_rulesets attribute.
     /// </summary>
-    public List<TerraformProperty<object>> NetworkRulesets
-    {
-        get => GetRequiredOutput<List<TerraformProperty<object>>>("network_rulesets");
-        set => SetProperty("network_rulesets", value);
-    }
+    [TerraformPropertyName("network_rulesets")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<object>>> NetworkRulesets { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "network_rulesets");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PublicNetworkAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
-        set => SetProperty("public_network_access_enabled", value);
-    }
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    public required TerraformProperty<string> Sku
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku");
-        set => SetProperty("sku", value);
-    }
+    [TerraformPropertyName("sku")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermEventhubNamespaceIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermEventhubNamespaceIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermEventhubNamespaceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermEventhubNamespaceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The default_primary_connection_string attribute.
     /// </summary>
-    public TerraformExpression DefaultPrimaryConnectionString => this["default_primary_connection_string"];
+    [TerraformPropertyName("default_primary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultPrimaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_primary_connection_string");
 
     /// <summary>
     /// The default_primary_connection_string_alias attribute.
     /// </summary>
-    public TerraformExpression DefaultPrimaryConnectionStringAlias => this["default_primary_connection_string_alias"];
+    [TerraformPropertyName("default_primary_connection_string_alias")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultPrimaryConnectionStringAlias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_primary_connection_string_alias");
 
     /// <summary>
     /// The default_primary_key attribute.
     /// </summary>
-    public TerraformExpression DefaultPrimaryKey => this["default_primary_key"];
+    [TerraformPropertyName("default_primary_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultPrimaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_primary_key");
 
     /// <summary>
     /// The default_secondary_connection_string attribute.
     /// </summary>
-    public TerraformExpression DefaultSecondaryConnectionString => this["default_secondary_connection_string"];
+    [TerraformPropertyName("default_secondary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultSecondaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_secondary_connection_string");
 
     /// <summary>
     /// The default_secondary_connection_string_alias attribute.
     /// </summary>
-    public TerraformExpression DefaultSecondaryConnectionStringAlias => this["default_secondary_connection_string_alias"];
+    [TerraformPropertyName("default_secondary_connection_string_alias")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultSecondaryConnectionStringAlias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_secondary_connection_string_alias");
 
     /// <summary>
     /// The default_secondary_key attribute.
     /// </summary>
-    public TerraformExpression DefaultSecondaryKey => this["default_secondary_key"];
+    [TerraformPropertyName("default_secondary_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultSecondaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_secondary_key");
 
 }

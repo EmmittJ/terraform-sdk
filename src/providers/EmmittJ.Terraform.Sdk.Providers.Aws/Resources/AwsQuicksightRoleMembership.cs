@@ -9,63 +9,43 @@ public class AwsQuicksightRoleMembership : TerraformResource
 {
     public AwsQuicksightRoleMembership(string name) : base("aws_quicksight_role_membership", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("aws_account_id");
-        SetOutput("member_name");
-        SetOutput("namespace");
-        SetOutput("region");
-        SetOutput("role");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string> AwsAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
-        set => SetProperty("aws_account_id", value);
-    }
+    [TerraformPropertyName("aws_account_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AwsAccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_account_id");
 
     /// <summary>
     /// The member_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberName is required")]
-    public required TerraformProperty<string> MemberName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("member_name");
-        set => SetProperty("member_name", value);
-    }
+    [TerraformPropertyName("member_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MemberName { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformProperty<string> Namespace
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace");
-        set => SetProperty("namespace", value);
-    }
+    [TerraformPropertyName("namespace")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Namespace { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "namespace");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
-    public required TerraformProperty<string> Role
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role");
-        set => SetProperty("role", value);
-    }
+    [TerraformPropertyName("role")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Role { get; set; }
 
 }

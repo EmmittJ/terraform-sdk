@@ -9,32 +9,14 @@ public class GoogleComputeResourcePolicyDataSource : TerraformDataSource
 {
     public GoogleComputeResourcePolicyDataSource(string name) : base("google_compute_resource_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("disk_consistency_group_policy");
-        SetOutput("group_placement_policy");
-        SetOutput("instance_schedule_policy");
-        SetOutput("self_link");
-        SetOutput("snapshot_schedule_policy");
-        SetOutput("workload_policy");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the resource, provided by the client when initially creating
@@ -46,63 +28,71 @@ public class GoogleComputeResourcePolicyDataSource : TerraformDataSource
     /// which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// Region where resource policy resides.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// Replication consistency group for asynchronous disk replication.
     /// </summary>
-    public TerraformExpression DiskConsistencyGroupPolicy => this["disk_consistency_group_policy"];
+    [TerraformPropertyName("disk_consistency_group_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DiskConsistencyGroupPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "disk_consistency_group_policy");
 
     /// <summary>
     /// Resource policy for instances used for placement configuration.
     /// </summary>
-    public TerraformExpression GroupPlacementPolicy => this["group_placement_policy"];
+    [TerraformPropertyName("group_placement_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> GroupPlacementPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "group_placement_policy");
 
     /// <summary>
     /// Resource policy for scheduling instance operations.
     /// </summary>
-    public TerraformExpression InstanceSchedulePolicy => this["instance_schedule_policy"];
+    [TerraformPropertyName("instance_schedule_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> InstanceSchedulePolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "instance_schedule_policy");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
     /// <summary>
     /// Policy for creating snapshots of persistent disks.
     /// </summary>
-    public TerraformExpression SnapshotSchedulePolicy => this["snapshot_schedule_policy"];
+    [TerraformPropertyName("snapshot_schedule_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SnapshotSchedulePolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "snapshot_schedule_policy");
 
     /// <summary>
     /// Represents the workload policy.
     /// </summary>
-    public TerraformExpression WorkloadPolicy => this["workload_policy"];
+    [TerraformPropertyName("workload_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> WorkloadPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "workload_policy");
 
 }

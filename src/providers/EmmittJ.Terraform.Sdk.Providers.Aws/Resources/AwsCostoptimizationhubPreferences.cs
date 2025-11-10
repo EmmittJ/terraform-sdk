@@ -9,37 +9,27 @@ public class AwsCostoptimizationhubPreferences : TerraformResource
 {
     public AwsCostoptimizationhubPreferences(string name) : base("aws_costoptimizationhub_preferences", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("member_account_discount_visibility");
-        SetOutput("savings_estimation_mode");
     }
 
     /// <summary>
     /// The member_account_discount_visibility attribute.
     /// </summary>
-    public TerraformProperty<string> MemberAccountDiscountVisibility
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("member_account_discount_visibility");
-        set => SetProperty("member_account_discount_visibility", value);
-    }
+    [TerraformPropertyName("member_account_discount_visibility")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MemberAccountDiscountVisibility { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "member_account_discount_visibility");
 
     /// <summary>
     /// The savings_estimation_mode attribute.
     /// </summary>
-    public TerraformProperty<string> SavingsEstimationMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("savings_estimation_mode");
-        set => SetProperty("savings_estimation_mode", value);
-    }
+    [TerraformPropertyName("savings_estimation_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SavingsEstimationMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "savings_estimation_mode");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

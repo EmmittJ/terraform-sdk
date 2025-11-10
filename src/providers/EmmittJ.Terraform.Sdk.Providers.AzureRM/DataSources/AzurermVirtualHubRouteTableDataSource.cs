@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualHubRouteTableDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermVirtualHubRouteTableDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,81 +24,65 @@ public class AzurermVirtualHubRouteTableDataSource : TerraformDataSource
 {
     public AzurermVirtualHubRouteTableDataSource(string name) : base("azurerm_virtual_hub_route_table", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("labels");
-        SetOutput("route");
-        SetOutput("virtual_hub_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("virtual_hub_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The virtual_hub_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubName is required")]
-    public required TerraformProperty<string> VirtualHubName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_hub_name");
-        set => SetProperty("virtual_hub_name", value);
-    }
+    [TerraformPropertyName("virtual_hub_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualHubName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVirtualHubRouteTableDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVirtualHubRouteTableDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public TerraformExpression Labels => this["labels"];
+    [TerraformPropertyName("labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Labels => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "labels");
 
     /// <summary>
     /// The route attribute.
     /// </summary>
-    public TerraformExpression Route => this["route"];
+    [TerraformPropertyName("route")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Route => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "route");
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
-    public TerraformExpression VirtualHubId => this["virtual_hub_id"];
+    [TerraformPropertyName("virtual_hub_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VirtualHubId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "virtual_hub_id");
 
 }

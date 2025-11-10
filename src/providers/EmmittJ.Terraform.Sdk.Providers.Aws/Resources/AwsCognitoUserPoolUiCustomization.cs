@@ -9,96 +9,77 @@ public class AwsCognitoUserPoolUiCustomization : TerraformResource
 {
     public AwsCognitoUserPoolUiCustomization(string name) : base("aws_cognito_user_pool_ui_customization", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_date");
-        SetOutput("css_version");
-        SetOutput("image_url");
-        SetOutput("last_modified_date");
-        SetOutput("client_id");
-        SetOutput("css");
-        SetOutput("id");
-        SetOutput("image_file");
-        SetOutput("region");
-        SetOutput("user_pool_id");
     }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string> ClientId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientId { get; set; }
 
     /// <summary>
     /// The css attribute.
     /// </summary>
-    public TerraformProperty<string> Css
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("css");
-        set => SetProperty("css", value);
-    }
+    [TerraformPropertyName("css")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Css { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The image_file attribute.
     /// </summary>
-    public TerraformProperty<string> ImageFile
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("image_file");
-        set => SetProperty("image_file", value);
-    }
+    [TerraformPropertyName("image_file")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ImageFile { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
-    public required TerraformProperty<string> UserPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
-        set => SetProperty("user_pool_id", value);
-    }
+    [TerraformPropertyName("user_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserPoolId { get; set; }
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
-    public TerraformExpression CreationDate => this["creation_date"];
+    [TerraformPropertyName("creation_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_date");
 
     /// <summary>
     /// The css_version attribute.
     /// </summary>
-    public TerraformExpression CssVersion => this["css_version"];
+    [TerraformPropertyName("css_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CssVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "css_version");
 
     /// <summary>
     /// The image_url attribute.
     /// </summary>
-    public TerraformExpression ImageUrl => this["image_url"];
+    [TerraformPropertyName("image_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ImageUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_url");
 
     /// <summary>
     /// The last_modified_date attribute.
     /// </summary>
-    public TerraformExpression LastModifiedDate => this["last_modified_date"];
+    [TerraformPropertyName("last_modified_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_date");
 
 }

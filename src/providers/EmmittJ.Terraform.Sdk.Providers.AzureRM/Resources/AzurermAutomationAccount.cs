@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationAccountEncryptionBlock : TerraformBlock
+public class AzurermAutomationAccountEncryptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The key_source attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? KeySource
-    {
-        set => SetProperty("key_source", value);
-    }
+    [TerraformPropertyName("key_source")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeySource { get; set; }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
-    public required TerraformProperty<string> KeyVaultKeyId
-    {
-        set => SetProperty("key_vault_key_id", value);
-    }
+    [TerraformPropertyName("key_vault_key_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserAssignedIdentityId
-    {
-        set => SetProperty("user_assigned_identity_id", value);
-    }
+    [TerraformPropertyName("user_assigned_identity_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserAssignedIdentityId { get; set; }
 
 }
 
@@ -40,40 +37,36 @@ public class AzurermAutomationAccountEncryptionBlock : TerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationAccountIdentityBlock : TerraformBlock
+public class AzurermAutomationAccountIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -81,39 +74,35 @@ public class AzurermAutomationAccountIdentityBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAutomationAccountTimeoutsBlock : TerraformBlock
+public class AzurermAutomationAccountTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -125,153 +114,123 @@ public class AzurermAutomationAccount : TerraformResource
 {
     public AzurermAutomationAccount(string name) : base("azurerm_automation_account", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("dsc_primary_access_key");
-        SetOutput("dsc_secondary_access_key");
-        SetOutput("dsc_server_endpoint");
-        SetOutput("hybrid_service_url");
-        SetOutput("private_endpoint_connection");
-        SetOutput("id");
-        SetOutput("local_authentication_enabled");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("public_network_access_enabled");
-        SetOutput("resource_group_name");
-        SetOutput("sku_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LocalAuthenticationEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("local_authentication_enabled");
-        set => SetProperty("local_authentication_enabled", value);
-    }
+    [TerraformPropertyName("local_authentication_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LocalAuthenticationEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PublicNetworkAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
-        set => SetProperty("public_network_access_enabled", value);
-    }
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    public required TerraformProperty<string> SkuName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
-        set => SetProperty("sku_name", value);
-    }
+    [TerraformPropertyName("sku_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for encryption.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermAutomationAccountEncryptionBlock>? Encryption
-    {
-        set => SetProperty("encryption", value);
-    }
+    [TerraformPropertyName("encryption")]
+    public TerraformList<TerraformBlock<AzurermAutomationAccountEncryptionBlock>>? Encryption { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermAutomationAccountIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermAutomationAccountIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermAutomationAccountTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermAutomationAccountTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The dsc_primary_access_key attribute.
     /// </summary>
-    public TerraformExpression DscPrimaryAccessKey => this["dsc_primary_access_key"];
+    [TerraformPropertyName("dsc_primary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DscPrimaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dsc_primary_access_key");
 
     /// <summary>
     /// The dsc_secondary_access_key attribute.
     /// </summary>
-    public TerraformExpression DscSecondaryAccessKey => this["dsc_secondary_access_key"];
+    [TerraformPropertyName("dsc_secondary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DscSecondaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dsc_secondary_access_key");
 
     /// <summary>
     /// The dsc_server_endpoint attribute.
     /// </summary>
-    public TerraformExpression DscServerEndpoint => this["dsc_server_endpoint"];
+    [TerraformPropertyName("dsc_server_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DscServerEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dsc_server_endpoint");
 
     /// <summary>
     /// The hybrid_service_url attribute.
     /// </summary>
-    public TerraformExpression HybridServiceUrl => this["hybrid_service_url"];
+    [TerraformPropertyName("hybrid_service_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HybridServiceUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hybrid_service_url");
 
     /// <summary>
     /// The private_endpoint_connection attribute.
     /// </summary>
-    public TerraformExpression PrivateEndpointConnection => this["private_endpoint_connection"];
+    [TerraformPropertyName("private_endpoint_connection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PrivateEndpointConnection => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "private_endpoint_connection");
 
 }

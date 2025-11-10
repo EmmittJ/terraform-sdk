@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageContainerImmutabilityPolicyTimeoutsBlock : TerraformBlock
+public class AzurermStorageContainerImmutabilityPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,82 +45,57 @@ public class AzurermStorageContainerImmutabilityPolicy : TerraformResource
 {
     public AzurermStorageContainerImmutabilityPolicy(string name) : base("azurerm_storage_container_immutability_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("immutability_period_in_days");
-        SetOutput("locked");
-        SetOutput("protected_append_writes_all_enabled");
-        SetOutput("protected_append_writes_enabled");
-        SetOutput("storage_container_resource_manager_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The immutability_period_in_days attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImmutabilityPeriodInDays is required")]
-    public required TerraformProperty<double> ImmutabilityPeriodInDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("immutability_period_in_days");
-        set => SetProperty("immutability_period_in_days", value);
-    }
+    [TerraformPropertyName("immutability_period_in_days")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ImmutabilityPeriodInDays { get; set; }
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
-    public TerraformProperty<bool> Locked
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("locked");
-        set => SetProperty("locked", value);
-    }
+    [TerraformPropertyName("locked")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Locked { get; set; }
 
     /// <summary>
     /// The protected_append_writes_all_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ProtectedAppendWritesAllEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("protected_append_writes_all_enabled");
-        set => SetProperty("protected_append_writes_all_enabled", value);
-    }
+    [TerraformPropertyName("protected_append_writes_all_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ProtectedAppendWritesAllEnabled { get; set; }
 
     /// <summary>
     /// The protected_append_writes_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ProtectedAppendWritesEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("protected_append_writes_enabled");
-        set => SetProperty("protected_append_writes_enabled", value);
-    }
+    [TerraformPropertyName("protected_append_writes_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ProtectedAppendWritesEnabled { get; set; }
 
     /// <summary>
     /// The storage_container_resource_manager_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerResourceManagerId is required")]
-    public required TerraformProperty<string> StorageContainerResourceManagerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_container_resource_manager_id");
-        set => SetProperty("storage_container_resource_manager_id", value);
-    }
+    [TerraformPropertyName("storage_container_resource_manager_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageContainerResourceManagerId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStorageContainerImmutabilityPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStorageContainerImmutabilityPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

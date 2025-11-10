@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoint_configuration in .
 /// Nesting mode: set
 /// </summary>
-public class AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock : TerraformBlock
+public class AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The attachment_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? AttachmentArn
-    {
-        set => SetProperty("attachment_arn", value);
-    }
+    [TerraformPropertyName("attachment_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AttachmentArn { get; set; }
 
     /// <summary>
     /// The client_ip_preservation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ClientIpPreservationEnabled
-    {
-        set => SetProperty("client_ip_preservation_enabled", value);
-    }
+    [TerraformPropertyName("client_ip_preservation_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> ClientIpPreservationEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "client_ip_preservation_enabled");
 
     /// <summary>
     /// The endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointId
-    {
-        set => SetProperty("endpoint_id", value);
-    }
+    [TerraformPropertyName("endpoint_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndpointId { get; set; }
 
     /// <summary>
     /// The weight attribute.
     /// </summary>
-    public TerraformProperty<double>? Weight
-    {
-        set => SetProperty("weight", value);
-    }
+    [TerraformPropertyName("weight")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Weight { get; set; }
 
 }
 
@@ -46,25 +42,23 @@ public class AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock : Terra
 /// Block type for port_override in .
 /// Nesting mode: set
 /// </summary>
-public class AwsGlobalacceleratorEndpointGroupPortOverrideBlock : TerraformBlock
+public class AwsGlobalacceleratorEndpointGroupPortOverrideBlock : ITerraformBlock
 {
     /// <summary>
     /// The endpoint_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointPort is required")]
-    public required TerraformProperty<double> EndpointPort
-    {
-        set => SetProperty("endpoint_port", value);
-    }
+    [TerraformPropertyName("endpoint_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> EndpointPort { get; set; }
 
     /// <summary>
     /// The listener_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerPort is required")]
-    public required TerraformProperty<double> ListenerPort
-    {
-        set => SetProperty("listener_port", value);
-    }
+    [TerraformPropertyName("listener_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ListenerPort { get; set; }
 
 }
 
@@ -72,31 +66,28 @@ public class AwsGlobalacceleratorEndpointGroupPortOverrideBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsGlobalacceleratorEndpointGroupTimeoutsBlock : TerraformBlock
+public class AwsGlobalacceleratorEndpointGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -108,136 +99,99 @@ public class AwsGlobalacceleratorEndpointGroup : TerraformResource
 {
     public AwsGlobalacceleratorEndpointGroup(string name) : base("aws_globalaccelerator_endpoint_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("endpoint_group_region");
-        SetOutput("health_check_interval_seconds");
-        SetOutput("health_check_path");
-        SetOutput("health_check_port");
-        SetOutput("health_check_protocol");
-        SetOutput("id");
-        SetOutput("listener_arn");
-        SetOutput("threshold_count");
-        SetOutput("traffic_dial_percentage");
     }
 
     /// <summary>
     /// The endpoint_group_region attribute.
     /// </summary>
-    public TerraformProperty<string> EndpointGroupRegion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_group_region");
-        set => SetProperty("endpoint_group_region", value);
-    }
+    [TerraformPropertyName("endpoint_group_region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EndpointGroupRegion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_group_region");
 
     /// <summary>
     /// The health_check_interval_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> HealthCheckIntervalSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("health_check_interval_seconds");
-        set => SetProperty("health_check_interval_seconds", value);
-    }
+    [TerraformPropertyName("health_check_interval_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? HealthCheckIntervalSeconds { get; set; }
 
     /// <summary>
     /// The health_check_path attribute.
     /// </summary>
-    public TerraformProperty<string> HealthCheckPath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("health_check_path");
-        set => SetProperty("health_check_path", value);
-    }
+    [TerraformPropertyName("health_check_path")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> HealthCheckPath { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "health_check_path");
 
     /// <summary>
     /// The health_check_port attribute.
     /// </summary>
-    public TerraformProperty<double> HealthCheckPort
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("health_check_port");
-        set => SetProperty("health_check_port", value);
-    }
+    [TerraformPropertyName("health_check_port")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> HealthCheckPort { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "health_check_port");
 
     /// <summary>
     /// The health_check_protocol attribute.
     /// </summary>
-    public TerraformProperty<string> HealthCheckProtocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("health_check_protocol");
-        set => SetProperty("health_check_protocol", value);
-    }
+    [TerraformPropertyName("health_check_protocol")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HealthCheckProtocol { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The listener_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
-    public required TerraformProperty<string> ListenerArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("listener_arn");
-        set => SetProperty("listener_arn", value);
-    }
+    [TerraformPropertyName("listener_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ListenerArn { get; set; }
 
     /// <summary>
     /// The threshold_count attribute.
     /// </summary>
-    public TerraformProperty<double> ThresholdCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("threshold_count");
-        set => SetProperty("threshold_count", value);
-    }
+    [TerraformPropertyName("threshold_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ThresholdCount { get; set; }
 
     /// <summary>
     /// The traffic_dial_percentage attribute.
     /// </summary>
-    public TerraformProperty<double> TrafficDialPercentage
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("traffic_dial_percentage");
-        set => SetProperty("traffic_dial_percentage", value);
-    }
+    [TerraformPropertyName("traffic_dial_percentage")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TrafficDialPercentage { get; set; }
 
     /// <summary>
     /// Block for endpoint_configuration.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock>? EndpointConfiguration
-    {
-        set => SetProperty("endpoint_configuration", value);
-    }
+    [TerraformPropertyName("endpoint_configuration")]
+    public TerraformSet<TerraformBlock<AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock>>? EndpointConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for port_override.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PortOverride block(s) allowed")]
-    public HashSet<AwsGlobalacceleratorEndpointGroupPortOverrideBlock>? PortOverride
-    {
-        set => SetProperty("port_override", value);
-    }
+    [TerraformPropertyName("port_override")]
+    public TerraformSet<TerraformBlock<AwsGlobalacceleratorEndpointGroupPortOverrideBlock>>? PortOverride { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsGlobalacceleratorEndpointGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsGlobalacceleratorEndpointGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

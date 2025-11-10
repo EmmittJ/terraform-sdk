@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBillingMpaAccountScopeDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermBillingMpaAccountScopeDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,52 +24,36 @@ public class AzurermBillingMpaAccountScopeDataSource : TerraformDataSource
 {
     public AzurermBillingMpaAccountScopeDataSource(string name) : base("azurerm_billing_mpa_account_scope", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("billing_account_name");
-        SetOutput("customer_name");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The billing_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountName is required")]
-    public required TerraformProperty<string> BillingAccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("billing_account_name");
-        set => SetProperty("billing_account_name", value);
-    }
+    [TerraformPropertyName("billing_account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BillingAccountName { get; set; }
 
     /// <summary>
     /// The customer_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerName is required")]
-    public required TerraformProperty<string> CustomerName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("customer_name");
-        set => SetProperty("customer_name", value);
-    }
+    [TerraformPropertyName("customer_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CustomerName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermBillingMpaAccountScopeDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermBillingMpaAccountScopeDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

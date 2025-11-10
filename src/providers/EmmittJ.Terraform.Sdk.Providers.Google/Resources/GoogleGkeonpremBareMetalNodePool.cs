@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for node_pool_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock : TerraformBlock
+public class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The map of Kubernetes labels (key/value pairs) to be applied to
@@ -20,18 +20,16 @@ public class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock : TerraformBloc
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs.
     /// For example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
-    {
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "labels");
 
     /// <summary>
     /// Specifies the nodes operating system (default: LINUX).
     /// </summary>
-    public TerraformProperty<string>? OperatingSystem
-    {
-        set => SetProperty("operating_system", value);
-    }
+    [TerraformPropertyName("operating_system")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> OperatingSystem { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "operating_system");
 
 }
 
@@ -39,31 +37,28 @@ public class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleGkeonpremBareMetalNodePoolTimeoutsBlock : TerraformBlock
+public class GoogleGkeonpremBareMetalNodePoolTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -75,27 +70,6 @@ public class GoogleGkeonpremBareMetalNodePool : TerraformResource
 {
     public GoogleGkeonpremBareMetalNodePool(string name) : base("google_gkeonprem_bare_metal_node_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("delete_time");
-        SetOutput("effective_annotations");
-        SetOutput("etag");
-        SetOutput("reconciling");
-        SetOutput("state");
-        SetOutput("status");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("annotations");
-        SetOutput("bare_metal_cluster");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -112,68 +86,54 @@ public class GoogleGkeonpremBareMetalNodePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// The cluster this node pool belongs to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BareMetalCluster is required")]
-    public required TerraformProperty<string> BareMetalCluster
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bare_metal_cluster");
-        set => SetProperty("bare_metal_cluster", value);
-    }
+    [TerraformPropertyName("bare_metal_cluster")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BareMetalCluster { get; set; }
 
     /// <summary>
     /// The display name for the Bare Metal Node Pool.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The bare metal node pool name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for node_pool_config.
@@ -182,34 +142,36 @@ public class GoogleGkeonpremBareMetalNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodePoolConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NodePoolConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodePoolConfig block(s) allowed")]
-    public List<GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock>? NodePoolConfig
-    {
-        set => SetProperty("node_pool_config", value);
-    }
+    [TerraformPropertyName("node_pool_config")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock>>? NodePoolConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleGkeonpremBareMetalNodePoolTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleGkeonpremBareMetalNodePoolTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The time the cluster was deleted, in RFC3339 text format.
     /// </summary>
-    public TerraformExpression DeleteTime => this["delete_time"];
+    [TerraformPropertyName("delete_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeleteTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+    [TerraformPropertyName("effective_annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -218,31 +180,43 @@ public class GoogleGkeonpremBareMetalNodePool : TerraformResource
     /// Allows clients to perform consistent read-modify-writes
     /// through optimistic concurrency control.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// If set, there are currently changes in flight to the Bare Metal User Cluster.
     /// </summary>
-    public TerraformExpression Reconciling => this["reconciling"];
+    [TerraformPropertyName("reconciling")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
 
     /// <summary>
     /// The current state of this cluster.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// Specifies detailed node pool status.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Status => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "status");
 
     /// <summary>
     /// The unique identifier of the Bare Metal Node Pool.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

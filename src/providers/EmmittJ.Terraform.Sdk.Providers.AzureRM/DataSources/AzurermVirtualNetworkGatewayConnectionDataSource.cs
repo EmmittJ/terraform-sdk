@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualNetworkGatewayConnectionDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermVirtualNetworkGatewayConnectionDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,184 +24,190 @@ public class AzurermVirtualNetworkGatewayConnectionDataSource : TerraformDataSou
 {
     public AzurermVirtualNetworkGatewayConnectionDataSource(string name) : base("azurerm_virtual_network_gateway_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("authorization_key");
-        SetOutput("connection_protocol");
-        SetOutput("dpd_timeout_seconds");
-        SetOutput("egress_bytes_transferred");
-        SetOutput("enable_bgp");
-        SetOutput("express_route_circuit_id");
-        SetOutput("express_route_gateway_bypass");
-        SetOutput("ingress_bytes_transferred");
-        SetOutput("ipsec_policy");
-        SetOutput("local_azure_ip_address_enabled");
-        SetOutput("local_network_gateway_id");
-        SetOutput("location");
-        SetOutput("peer_virtual_network_gateway_id");
-        SetOutput("private_link_fast_path_enabled");
-        SetOutput("resource_guid");
-        SetOutput("routing_weight");
-        SetOutput("shared_key");
-        SetOutput("tags");
-        SetOutput("traffic_selector_policy");
-        SetOutput("type");
-        SetOutput("use_policy_based_traffic_selectors");
-        SetOutput("virtual_network_gateway_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVirtualNetworkGatewayConnectionDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVirtualNetworkGatewayConnectionDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The authorization_key attribute.
     /// </summary>
-    public TerraformExpression AuthorizationKey => this["authorization_key"];
+    [TerraformPropertyName("authorization_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AuthorizationKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "authorization_key");
 
     /// <summary>
     /// The connection_protocol attribute.
     /// </summary>
-    public TerraformExpression ConnectionProtocol => this["connection_protocol"];
+    [TerraformPropertyName("connection_protocol")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConnectionProtocol => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "connection_protocol");
 
     /// <summary>
     /// The dpd_timeout_seconds attribute.
     /// </summary>
-    public TerraformExpression DpdTimeoutSeconds => this["dpd_timeout_seconds"];
+    [TerraformPropertyName("dpd_timeout_seconds")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DpdTimeoutSeconds => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "dpd_timeout_seconds");
 
     /// <summary>
     /// The egress_bytes_transferred attribute.
     /// </summary>
-    public TerraformExpression EgressBytesTransferred => this["egress_bytes_transferred"];
+    [TerraformPropertyName("egress_bytes_transferred")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> EgressBytesTransferred => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "egress_bytes_transferred");
 
     /// <summary>
     /// The enable_bgp attribute.
     /// </summary>
-    public TerraformExpression EnableBgp => this["enable_bgp"];
+    [TerraformPropertyName("enable_bgp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableBgp => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_bgp");
 
     /// <summary>
     /// The express_route_circuit_id attribute.
     /// </summary>
-    public TerraformExpression ExpressRouteCircuitId => this["express_route_circuit_id"];
+    [TerraformPropertyName("express_route_circuit_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpressRouteCircuitId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "express_route_circuit_id");
 
     /// <summary>
     /// The express_route_gateway_bypass attribute.
     /// </summary>
-    public TerraformExpression ExpressRouteGatewayBypass => this["express_route_gateway_bypass"];
+    [TerraformPropertyName("express_route_gateway_bypass")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ExpressRouteGatewayBypass => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "express_route_gateway_bypass");
 
     /// <summary>
     /// The ingress_bytes_transferred attribute.
     /// </summary>
-    public TerraformExpression IngressBytesTransferred => this["ingress_bytes_transferred"];
+    [TerraformPropertyName("ingress_bytes_transferred")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> IngressBytesTransferred => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ingress_bytes_transferred");
 
     /// <summary>
     /// The ipsec_policy attribute.
     /// </summary>
-    public TerraformExpression IpsecPolicy => this["ipsec_policy"];
+    [TerraformPropertyName("ipsec_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> IpsecPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ipsec_policy");
 
     /// <summary>
     /// The local_azure_ip_address_enabled attribute.
     /// </summary>
-    public TerraformExpression LocalAzureIpAddressEnabled => this["local_azure_ip_address_enabled"];
+    [TerraformPropertyName("local_azure_ip_address_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> LocalAzureIpAddressEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "local_azure_ip_address_enabled");
 
     /// <summary>
     /// The local_network_gateway_id attribute.
     /// </summary>
-    public TerraformExpression LocalNetworkGatewayId => this["local_network_gateway_id"];
+    [TerraformPropertyName("local_network_gateway_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LocalNetworkGatewayId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "local_network_gateway_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The peer_virtual_network_gateway_id attribute.
     /// </summary>
-    public TerraformExpression PeerVirtualNetworkGatewayId => this["peer_virtual_network_gateway_id"];
+    [TerraformPropertyName("peer_virtual_network_gateway_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PeerVirtualNetworkGatewayId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_virtual_network_gateway_id");
 
     /// <summary>
     /// The private_link_fast_path_enabled attribute.
     /// </summary>
-    public TerraformExpression PrivateLinkFastPathEnabled => this["private_link_fast_path_enabled"];
+    [TerraformPropertyName("private_link_fast_path_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PrivateLinkFastPathEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "private_link_fast_path_enabled");
 
     /// <summary>
     /// The resource_guid attribute.
     /// </summary>
-    public TerraformExpression ResourceGuid => this["resource_guid"];
+    [TerraformPropertyName("resource_guid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceGuid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_guid");
 
     /// <summary>
     /// The routing_weight attribute.
     /// </summary>
-    public TerraformExpression RoutingWeight => this["routing_weight"];
+    [TerraformPropertyName("routing_weight")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RoutingWeight => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "routing_weight");
 
     /// <summary>
     /// The shared_key attribute.
     /// </summary>
-    public TerraformExpression SharedKey => this["shared_key"];
+    [TerraformPropertyName("shared_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SharedKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "shared_key");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The traffic_selector_policy attribute.
     /// </summary>
-    public TerraformExpression TrafficSelectorPolicy => this["traffic_selector_policy"];
+    [TerraformPropertyName("traffic_selector_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TrafficSelectorPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "traffic_selector_policy");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
     /// <summary>
     /// The use_policy_based_traffic_selectors attribute.
     /// </summary>
-    public TerraformExpression UsePolicyBasedTrafficSelectors => this["use_policy_based_traffic_selectors"];
+    [TerraformPropertyName("use_policy_based_traffic_selectors")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> UsePolicyBasedTrafficSelectors => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "use_policy_based_traffic_selectors");
 
     /// <summary>
     /// The virtual_network_gateway_id attribute.
     /// </summary>
-    public TerraformExpression VirtualNetworkGatewayId => this["virtual_network_gateway_id"];
+    [TerraformPropertyName("virtual_network_gateway_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VirtualNetworkGatewayId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "virtual_network_gateway_id");
 
 }

@@ -9,82 +9,51 @@ public class GoogleMemcacheInstanceDataSource : TerraformDataSource
 {
     public GoogleMemcacheInstanceDataSource(string name) : base("google_memcache_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("authorized_network");
-        SetOutput("create_time");
-        SetOutput("deletion_protection");
-        SetOutput("discovery_endpoint");
-        SetOutput("display_name");
-        SetOutput("effective_labels");
-        SetOutput("labels");
-        SetOutput("maintenance_policy");
-        SetOutput("maintenance_schedule");
-        SetOutput("memcache_full_version");
-        SetOutput("memcache_nodes");
-        SetOutput("memcache_parameters");
-        SetOutput("memcache_version");
-        SetOutput("node_config");
-        SetOutput("node_count");
-        SetOutput("reserved_ip_range_id");
-        SetOutput("terraform_labels");
-        SetOutput("zones");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The resource name of the instance.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The region of the Memcache instance. If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
     /// <summary>
     /// The full name of the GCE network to connect the instance to.  If not provided,
     /// &#39;default&#39; will be used.
     /// </summary>
-    public TerraformExpression AuthorizedNetwork => this["authorized_network"];
+    [TerraformPropertyName("authorized_network")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AuthorizedNetwork => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "authorized_network");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the instance.
@@ -94,22 +63,30 @@ public class GoogleMemcacheInstanceDataSource : TerraformDataSource
     /// or &#39;terraform destroy&#39; that would delete the instance will fail.
     /// When the field is set to false, deleting the instance is allowed.
     /// </summary>
-    public TerraformExpression DeletionProtection => this["deletion_protection"];
+    [TerraformPropertyName("deletion_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection");
 
     /// <summary>
     /// Endpoint for Discovery API
     /// </summary>
-    public TerraformExpression DiscoveryEndpoint => this["discovery_endpoint"];
+    [TerraformPropertyName("discovery_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DiscoveryEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "discovery_endpoint");
 
     /// <summary>
     /// A user-visible name for the instance.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -118,67 +95,91 @@ public class GoogleMemcacheInstanceDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformExpression Labels => this["labels"];
+    [TerraformPropertyName("labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
 
     /// <summary>
     /// Maintenance policy for an instance.
     /// </summary>
-    public TerraformExpression MaintenancePolicy => this["maintenance_policy"];
+    [TerraformPropertyName("maintenance_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MaintenancePolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maintenance_policy");
 
     /// <summary>
     /// Output only. Published maintenance schedule.
     /// </summary>
-    public TerraformExpression MaintenanceSchedule => this["maintenance_schedule"];
+    [TerraformPropertyName("maintenance_schedule")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MaintenanceSchedule => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maintenance_schedule");
 
     /// <summary>
     /// The full version of memcached server running on this instance.
     /// </summary>
-    public TerraformExpression MemcacheFullVersion => this["memcache_full_version"];
+    [TerraformPropertyName("memcache_full_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MemcacheFullVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "memcache_full_version");
 
     /// <summary>
     /// Additional information about the instance state, if available.
     /// </summary>
-    public TerraformExpression MemcacheNodes => this["memcache_nodes"];
+    [TerraformPropertyName("memcache_nodes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MemcacheNodes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "memcache_nodes");
 
     /// <summary>
     /// User-specified parameters for this memcache instance.
     /// </summary>
-    public TerraformExpression MemcacheParameters => this["memcache_parameters"];
+    [TerraformPropertyName("memcache_parameters")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MemcacheParameters => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "memcache_parameters");
 
     /// <summary>
     /// The major version of Memcached software. If not provided, latest supported version will be used.
     /// Currently the latest supported major version is MEMCACHE_1_5. The minor version will be automatically
     /// determined by our system based on the latest supported minor version. Default value: &amp;quot;MEMCACHE_1_5&amp;quot; Possible values: [&amp;quot;MEMCACHE_1_5&amp;quot;, &amp;quot;MEMCACHE_1_6_15&amp;quot;]
     /// </summary>
-    public TerraformExpression MemcacheVersion => this["memcache_version"];
+    [TerraformPropertyName("memcache_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MemcacheVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "memcache_version");
 
     /// <summary>
     /// Configuration for memcache nodes.
     /// </summary>
-    public TerraformExpression NodeConfig => this["node_config"];
+    [TerraformPropertyName("node_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> NodeConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "node_config");
 
     /// <summary>
     /// Number of nodes in the memcache instance.
     /// </summary>
-    public TerraformExpression NodeCount => this["node_count"];
+    [TerraformPropertyName("node_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NodeCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "node_count");
 
     /// <summary>
     /// Contains the name of allocated IP address ranges associated with
     /// the private service access connection for example, &amp;quot;test-default&amp;quot;
     /// associated with IP range 10.0.0.0/29.
     /// </summary>
-    public TerraformExpression ReservedIpRangeId => this["reserved_ip_range_id"];
+    [TerraformPropertyName("reserved_ip_range_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ReservedIpRangeId => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "reserved_ip_range_id");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Zones where memcache nodes should be provisioned.  If not
     /// provided, all zones will be used.
     /// </summary>
-    public TerraformExpression Zones => this["zones"];
+    [TerraformPropertyName("zones")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Zones => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "zones");
 
 }

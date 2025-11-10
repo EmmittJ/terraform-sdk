@@ -9,69 +9,50 @@ public class GoogleServiceAccountJwtDataSource : TerraformDataSource
 {
     public GoogleServiceAccountJwtDataSource(string name) : base("google_service_account_jwt", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("jwt");
-        SetOutput("delegates");
-        SetOutput("expires_in");
-        SetOutput("id");
-        SetOutput("payload");
-        SetOutput("target_service_account");
     }
 
     /// <summary>
     /// The delegates attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Delegates
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("delegates");
-        set => SetProperty("delegates", value);
-    }
+    [TerraformPropertyName("delegates")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Delegates { get; set; }
 
     /// <summary>
     /// Number of seconds until the JWT expires. If set and non-zero an `exp` claim will be added to the payload derived from the current timestamp plus expires_in seconds.
     /// </summary>
-    public TerraformProperty<double> ExpiresIn
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("expires_in");
-        set => SetProperty("expires_in", value);
-    }
+    [TerraformPropertyName("expires_in")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ExpiresIn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// A JSON-encoded JWT claims set that will be included in the signed JWT.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
-    public required TerraformProperty<string> Payload
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("payload");
-        set => SetProperty("payload", value);
-    }
+    [TerraformPropertyName("payload")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Payload { get; set; }
 
     /// <summary>
     /// The target_service_account attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
-    public required TerraformProperty<string> TargetServiceAccount
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_service_account");
-        set => SetProperty("target_service_account", value);
-    }
+    [TerraformPropertyName("target_service_account")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetServiceAccount { get; set; }
 
     /// <summary>
     /// The jwt attribute.
     /// </summary>
-    public TerraformExpression Jwt => this["jwt"];
+    [TerraformPropertyName("jwt")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Jwt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "jwt");
 
 }

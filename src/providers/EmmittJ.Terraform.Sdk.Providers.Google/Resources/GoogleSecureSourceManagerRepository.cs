@@ -6,42 +6,38 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for initial_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSecureSourceManagerRepositoryInitialConfigBlock : TerraformBlock
+public class GoogleSecureSourceManagerRepositoryInitialConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Default branch name of the repository.
     /// </summary>
-    public TerraformProperty<string>? DefaultBranch
-    {
-        set => SetProperty("default_branch", value);
-    }
+    [TerraformPropertyName("default_branch")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultBranch { get; set; }
 
     /// <summary>
     /// List of gitignore template names user can choose from.
     /// Valid values can be viewed at https://cloud.google.com/secure-source-manager/docs/reference/rest/v1/projects.locations.repositories#initialconfig.
     /// </summary>
-    public List<TerraformProperty<string>>? Gitignores
-    {
-        set => SetProperty("gitignores", value);
-    }
+    [TerraformPropertyName("gitignores")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Gitignores { get; set; }
 
     /// <summary>
     /// License template name user can choose from.
     /// Valid values can be viewed at https://cloud.google.com/secure-source-manager/docs/reference/rest/v1/projects.locations.repositories#initialconfig.
     /// </summary>
-    public TerraformProperty<string>? License
-    {
-        set => SetProperty("license", value);
-    }
+    [TerraformPropertyName("license")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? License { get; set; }
 
     /// <summary>
     /// README template name.
     /// Valid values can be viewed at https://cloud.google.com/secure-source-manager/docs/reference/rest/v1/projects.locations.repositories#initialconfig.
     /// </summary>
-    public TerraformProperty<string>? Readme
-    {
-        set => SetProperty("readme", value);
-    }
+    [TerraformPropertyName("readme")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Readme { get; set; }
 
 }
 
@@ -49,31 +45,28 @@ public class GoogleSecureSourceManagerRepositoryInitialConfigBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSecureSourceManagerRepositoryTimeoutsBlock : TerraformBlock
+public class GoogleSecureSourceManagerRepositoryTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -85,23 +78,6 @@ public class GoogleSecureSourceManagerRepository : TerraformResource
 {
     public GoogleSecureSourceManagerRepository(string name) : base("google_secure_source_manager_repository", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("name");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("uris");
-        SetOutput("deletion_policy");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("instance");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("repository_id");
     }
 
     /// <summary>
@@ -114,111 +90,103 @@ public class GoogleSecureSourceManagerRepository : TerraformResource
     ///   * PREVENT
     ///   * ABANDON
     /// </summary>
-    public TerraformProperty<string> DeletionPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
-        set => SetProperty("deletion_policy", value);
-    }
+    [TerraformPropertyName("deletion_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// Description of the repository, which cannot exceed 500 characters.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the instance in which the repository is hosted.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    public required TerraformProperty<string> Instance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance");
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
 
     /// <summary>
     /// The location for the Repository.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The ID for the Repository.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
-    public required TerraformProperty<string> RepositoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("repository_id");
-        set => SetProperty("repository_id", value);
-    }
+    [TerraformPropertyName("repository_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RepositoryId { get; set; }
 
     /// <summary>
     /// Block for initial_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialConfig block(s) allowed")]
-    public List<GoogleSecureSourceManagerRepositoryInitialConfigBlock>? InitialConfig
-    {
-        set => SetProperty("initial_config", value);
-    }
+    [TerraformPropertyName("initial_config")]
+    public TerraformList<TerraformBlock<GoogleSecureSourceManagerRepositoryInitialConfigBlock>>? InitialConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleSecureSourceManagerRepositoryTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleSecureSourceManagerRepositoryTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time the repository was created in UTC.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The resource name for the Repository.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Unique identifier of the repository.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// Time the repository was updated in UTC.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
     /// <summary>
     /// URIs for the repository.
     /// </summary>
-    public TerraformExpression Uris => this["uris"];
+    [TerraformPropertyName("uris")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Uris => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "uris");
 
 }

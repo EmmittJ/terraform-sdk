@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for data_masking_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock : TerraformBlock
+public class GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// A predefined masking expression.
@@ -20,20 +20,18 @@ public class GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock : Terraf
     /// DATE_YEAR_MASK
     /// RANDOM_HASH
     /// </summary>
-    public TerraformProperty<string>? PredefinedExpression
-    {
-        set => SetProperty("predefined_expression", value);
-    }
+    [TerraformPropertyName("predefined_expression")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PredefinedExpression { get; set; }
 
     /// <summary>
     /// The name of the BigQuery routine that contains the custom masking
     /// routine, in the format of
     /// &#39;projects/{project_number}/datasets/{dataset_id}/routines/{routine_id}&#39;.
     /// </summary>
-    public TerraformProperty<string>? Routine
-    {
-        set => SetProperty("routine", value);
-    }
+    [TerraformPropertyName("routine")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Routine { get; set; }
 
 }
 
@@ -41,31 +39,28 @@ public class GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock : TerraformBlock
+public class GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -77,21 +72,6 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
 {
     public GoogleBigqueryDatapolicyv2DataPolicy(string name) : base("google_bigquery_datapolicyv2_data_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("policy_tag");
-        SetOutput("version");
-        SetOutput("data_policy_id");
-        SetOutput("data_policy_type");
-        SetOutput("etag");
-        SetOutput("grantees");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -100,11 +80,9 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyId is required")]
-    public required TerraformProperty<string> DataPolicyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_policy_id");
-        set => SetProperty("data_policy_id", value);
-    }
+    [TerraformPropertyName("data_policy_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataPolicyId { get; set; }
 
     /// <summary>
     /// Type of data policy.
@@ -114,11 +92,9 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// COLUMN_LEVEL_SECURITY_POLICY
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyType is required")]
-    public required TerraformProperty<string> DataPolicyType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_policy_type");
-        set => SetProperty("data_policy_type", value);
-    }
+    [TerraformPropertyName("data_policy_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataPolicyType { get; set; }
 
     /// <summary>
     /// The etag for this Data Policy.
@@ -127,11 +103,9 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// populated in the response of GetDataPolicy, CreateDataPolicy, and
     /// UpdateDataPolicy calls.
     /// </summary>
-    public TerraformProperty<string> Etag
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("etag");
-        set => SetProperty("etag", value);
-    }
+    [TerraformPropertyName("etag")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Etag { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The list of IAM principals that have Fine Grained Access to the underlying
@@ -143,71 +117,63 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// This field is supported in V2 Data Policy only. In case of V1 data policies
     /// (i.e. verion = 1 and policy_tag is set), this field is not populated.
     /// </summary>
-    public List<TerraformProperty<string>> Grantees
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("grantees");
-        set => SetProperty("grantees", value);
-    }
+    [TerraformPropertyName("grantees")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> Grantees { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "grantees");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for data_masking_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataMaskingPolicy block(s) allowed")]
-    public List<GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock>? DataMaskingPolicy
-    {
-        set => SetProperty("data_masking_policy", value);
-    }
+    [TerraformPropertyName("data_masking_policy")]
+    public TerraformList<TerraformBlock<GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock>>? DataMaskingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Identifier. Resource name of this data policy, in the format of
     /// &#39;projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}&#39;.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Policy tag resource name, in the format of
     /// &#39;projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{policyTag_id}&#39;.
     /// policy_tag is supported only for V1 data policies.
     /// </summary>
-    public TerraformExpression PolicyTag => this["policy_tag"];
+    [TerraformPropertyName("policy_tag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PolicyTag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy_tag");
 
     /// <summary>
     /// The version of the Data Policy resource.
@@ -215,6 +181,8 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// V1
     /// V2
     /// </summary>
-    public TerraformExpression Version => this["version"];
+    [TerraformPropertyName("version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
 }

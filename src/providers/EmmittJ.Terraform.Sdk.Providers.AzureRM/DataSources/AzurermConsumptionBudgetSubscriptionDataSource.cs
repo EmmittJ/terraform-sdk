@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,82 +24,71 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
 {
     public AzurermConsumptionBudgetSubscriptionDataSource(string name) : base("azurerm_consumption_budget_subscription", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("amount");
-        SetOutput("filter");
-        SetOutput("notification");
-        SetOutput("time_grain");
-        SetOutput("time_period");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("subscription_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
-    public required TerraformProperty<string> SubscriptionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
-        set => SetProperty("subscription_id", value);
-    }
+    [TerraformPropertyName("subscription_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubscriptionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The amount attribute.
     /// </summary>
-    public TerraformExpression Amount => this["amount"];
+    [TerraformPropertyName("amount")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Amount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "amount");
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    public TerraformExpression Filter => this["filter"];
+    [TerraformPropertyName("filter")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Filter => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "filter");
 
     /// <summary>
     /// The notification attribute.
     /// </summary>
-    public TerraformExpression Notification => this["notification"];
+    [TerraformPropertyName("notification")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Notification => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "notification");
 
     /// <summary>
     /// The time_grain attribute.
     /// </summary>
-    public TerraformExpression TimeGrain => this["time_grain"];
+    [TerraformPropertyName("time_grain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TimeGrain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_grain");
 
     /// <summary>
     /// The time_period attribute.
     /// </summary>
-    public TerraformExpression TimePeriod => this["time_period"];
+    [TerraformPropertyName("time_period")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TimePeriod => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "time_period");
 
 }

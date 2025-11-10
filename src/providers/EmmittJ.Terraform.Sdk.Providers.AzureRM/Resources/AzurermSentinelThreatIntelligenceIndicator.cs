@@ -6,47 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for external_reference in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock : TerraformBlock
+public class AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The hashes attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Hashes
-    {
-        set => SetProperty("hashes", value);
-    }
+    [TerraformPropertyName("hashes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Hashes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The source_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceName
-    {
-        set => SetProperty("source_name", value);
-    }
+    [TerraformPropertyName("source_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceName { get; set; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformProperty<string>? Url
-    {
-        set => SetProperty("url", value);
-    }
+    [TerraformPropertyName("url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Url { get; set; }
 
 }
 
@@ -54,31 +49,28 @@ public class AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock : 
 /// Block type for granular_marking in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock : TerraformBlock
+public class AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock : ITerraformBlock
 {
     /// <summary>
     /// The language attribute.
     /// </summary>
-    public TerraformProperty<string>? Language
-    {
-        set => SetProperty("language", value);
-    }
+    [TerraformPropertyName("language")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Language { get; set; }
 
     /// <summary>
     /// The marking_ref attribute.
     /// </summary>
-    public TerraformProperty<string>? MarkingRef
-    {
-        set => SetProperty("marking_ref", value);
-    }
+    [TerraformPropertyName("marking_ref")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MarkingRef { get; set; }
 
     /// <summary>
     /// The selectors attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Selectors
-    {
-        set => SetProperty("selectors", value);
-    }
+    [TerraformPropertyName("selectors")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Selectors { get; set; }
 
 }
 
@@ -86,15 +78,14 @@ public class AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock : Te
 /// Block type for kill_chain_phase in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock : TerraformBlock
+public class AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
 }
 
@@ -102,39 +93,35 @@ public class AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock : TerraformBlock
+public class AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -145,281 +132,222 @@ public class AzurermSentinelThreatIntelligenceIndicator : TerraformResource
 {
     public AzurermSentinelThreatIntelligenceIndicator(string name) : base("azurerm_sentinel_threat_intelligence_indicator", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("created_on");
-        SetOutput("defanged");
-        SetOutput("external_id");
-        SetOutput("external_last_updated_time_utc");
-        SetOutput("guid");
-        SetOutput("indicator_type");
-        SetOutput("last_updated_time_utc");
-        SetOutput("parsed_pattern");
-        SetOutput("confidence");
-        SetOutput("created_by");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("extension");
-        SetOutput("id");
-        SetOutput("language");
-        SetOutput("object_marking_refs");
-        SetOutput("pattern");
-        SetOutput("pattern_type");
-        SetOutput("pattern_version");
-        SetOutput("revoked");
-        SetOutput("source");
-        SetOutput("tags");
-        SetOutput("threat_types");
-        SetOutput("validate_from_utc");
-        SetOutput("validate_until_utc");
-        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The confidence attribute.
     /// </summary>
-    public TerraformProperty<double> Confidence
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("confidence");
-        set => SetProperty("confidence", value);
-    }
+    [TerraformPropertyName("confidence")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Confidence { get; set; }
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
-    public TerraformProperty<string> CreatedBy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("created_by");
-        set => SetProperty("created_by", value);
-    }
+    [TerraformPropertyName("created_by")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CreatedBy { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The extension attribute.
     /// </summary>
-    public TerraformProperty<string> Extension
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("extension");
-        set => SetProperty("extension", value);
-    }
+    [TerraformPropertyName("extension")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Extension { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "extension");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The language attribute.
     /// </summary>
-    public TerraformProperty<string> Language
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("language");
-        set => SetProperty("language", value);
-    }
+    [TerraformPropertyName("language")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Language { get; set; }
 
     /// <summary>
     /// The object_marking_refs attribute.
     /// </summary>
-    public List<TerraformProperty<string>> ObjectMarkingRefs
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("object_marking_refs");
-        set => SetProperty("object_marking_refs", value);
-    }
+    [TerraformPropertyName("object_marking_refs")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ObjectMarkingRefs { get; set; }
 
     /// <summary>
     /// The pattern attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
-    public required TerraformProperty<string> Pattern
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pattern");
-        set => SetProperty("pattern", value);
-    }
+    [TerraformPropertyName("pattern")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Pattern { get; set; }
 
     /// <summary>
     /// The pattern_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternType is required")]
-    public required TerraformProperty<string> PatternType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pattern_type");
-        set => SetProperty("pattern_type", value);
-    }
+    [TerraformPropertyName("pattern_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PatternType { get; set; }
 
     /// <summary>
     /// The pattern_version attribute.
     /// </summary>
-    public TerraformProperty<string> PatternVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pattern_version");
-        set => SetProperty("pattern_version", value);
-    }
+    [TerraformPropertyName("pattern_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PatternVersion { get; set; }
 
     /// <summary>
     /// The revoked attribute.
     /// </summary>
-    public TerraformProperty<bool> Revoked
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("revoked");
-        set => SetProperty("revoked", value);
-    }
+    [TerraformPropertyName("revoked")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Revoked { get; set; }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
-    public required TerraformProperty<string> Source
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source");
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Source { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The threat_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>> ThreatTypes
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("threat_types");
-        set => SetProperty("threat_types", value);
-    }
+    [TerraformPropertyName("threat_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ThreatTypes { get; set; }
 
     /// <summary>
     /// The validate_from_utc attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidateFromUtc is required")]
-    public required TerraformProperty<string> ValidateFromUtc
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("validate_from_utc");
-        set => SetProperty("validate_from_utc", value);
-    }
+    [TerraformPropertyName("validate_from_utc")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ValidateFromUtc { get; set; }
 
     /// <summary>
     /// The validate_until_utc attribute.
     /// </summary>
-    public TerraformProperty<string> ValidateUntilUtc
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("validate_until_utc");
-        set => SetProperty("validate_until_utc", value);
-    }
+    [TerraformPropertyName("validate_until_utc")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ValidateUntilUtc { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    public required TerraformProperty<string> WorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
-        set => SetProperty("workspace_id", value);
-    }
+    [TerraformPropertyName("workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for external_reference.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock>? ExternalReference
-    {
-        set => SetProperty("external_reference", value);
-    }
+    [TerraformPropertyName("external_reference")]
+    public TerraformList<TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock>>? ExternalReference { get; set; } = new();
 
     /// <summary>
     /// Block for granular_marking.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock>? GranularMarking
-    {
-        set => SetProperty("granular_marking", value);
-    }
+    [TerraformPropertyName("granular_marking")]
+    public TerraformList<TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock>>? GranularMarking { get; set; } = new();
 
     /// <summary>
     /// Block for kill_chain_phase.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock>? KillChainPhase
-    {
-        set => SetProperty("kill_chain_phase", value);
-    }
+    [TerraformPropertyName("kill_chain_phase")]
+    public TerraformList<TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock>>? KillChainPhase { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The created_on attribute.
     /// </summary>
-    public TerraformExpression CreatedOn => this["created_on"];
+    [TerraformPropertyName("created_on")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedOn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_on");
 
     /// <summary>
     /// The defanged attribute.
     /// </summary>
-    public TerraformExpression Defanged => this["defanged"];
+    [TerraformPropertyName("defanged")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Defanged => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "defanged");
 
     /// <summary>
     /// The external_id attribute.
     /// </summary>
-    public TerraformExpression ExternalId => this["external_id"];
+    [TerraformPropertyName("external_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExternalId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "external_id");
 
     /// <summary>
     /// The external_last_updated_time_utc attribute.
     /// </summary>
-    public TerraformExpression ExternalLastUpdatedTimeUtc => this["external_last_updated_time_utc"];
+    [TerraformPropertyName("external_last_updated_time_utc")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExternalLastUpdatedTimeUtc => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "external_last_updated_time_utc");
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
-    public TerraformExpression Guid => this["guid"];
+    [TerraformPropertyName("guid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Guid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "guid");
 
     /// <summary>
     /// The indicator_type attribute.
     /// </summary>
-    public TerraformExpression IndicatorType => this["indicator_type"];
+    [TerraformPropertyName("indicator_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> IndicatorType => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "indicator_type");
 
     /// <summary>
     /// The last_updated_time_utc attribute.
     /// </summary>
-    public TerraformExpression LastUpdatedTimeUtc => this["last_updated_time_utc"];
+    [TerraformPropertyName("last_updated_time_utc")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastUpdatedTimeUtc => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_updated_time_utc");
 
     /// <summary>
     /// The parsed_pattern attribute.
     /// </summary>
-    public TerraformExpression ParsedPattern => this["parsed_pattern"];
+    [TerraformPropertyName("parsed_pattern")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ParsedPattern => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "parsed_pattern");
 
 }

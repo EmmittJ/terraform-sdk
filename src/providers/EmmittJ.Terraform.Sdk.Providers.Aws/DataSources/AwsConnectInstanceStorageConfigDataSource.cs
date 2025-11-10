@@ -9,70 +9,51 @@ public class AwsConnectInstanceStorageConfigDataSource : TerraformDataSource
 {
     public AwsConnectInstanceStorageConfigDataSource(string name) : base("aws_connect_instance_storage_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("storage_config");
-        SetOutput("association_id");
-        SetOutput("id");
-        SetOutput("instance_id");
-        SetOutput("region");
-        SetOutput("resource_type");
     }
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociationId is required")]
-    public required TerraformProperty<string> AssociationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("association_id");
-        set => SetProperty("association_id", value);
-    }
+    [TerraformPropertyName("association_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AssociationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
-    public required TerraformProperty<string> InstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
-        set => SetProperty("instance_id", value);
-    }
+    [TerraformPropertyName("instance_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
-    public required TerraformProperty<string> ResourceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
-        set => SetProperty("resource_type", value);
-    }
+    [TerraformPropertyName("resource_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceType { get; set; }
 
     /// <summary>
     /// The storage_config attribute.
     /// </summary>
-    public TerraformExpression StorageConfig => this["storage_config"];
+    [TerraformPropertyName("storage_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> StorageConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "storage_config");
 
 }

@@ -6,56 +6,50 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlock
+public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : ITerraformBlock
 {
     /// <summary>
     /// The days of the week when maintenance can be performed.
     /// </summary>
-    public HashSet<TerraformProperty<object>>? DaysOfWeek
-    {
-        set => SetProperty("days_of_week", value);
-    }
+    [TerraformPropertyName("days_of_week")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<object>>>? DaysOfWeek { get; set; }
 
     /// <summary>
     /// The hours of the day when maintenance can be performed.
     /// </summary>
-    public HashSet<TerraformProperty<double>>? HoursOfDay
-    {
-        set => SetProperty("hours_of_day", value);
-    }
+    [TerraformPropertyName("hours_of_day")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<double>>>? HoursOfDay { get; set; }
 
     /// <summary>
     /// The lead time in weeks before the maintenance window.
     /// </summary>
-    public TerraformProperty<double>? LeadTimeInWeeks
-    {
-        set => SetProperty("lead_time_in_weeks", value);
-    }
+    [TerraformPropertyName("lead_time_in_weeks")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? LeadTimeInWeeks { get; set; }
 
     /// <summary>
     /// The months when maintenance can be performed.
     /// </summary>
-    public HashSet<TerraformProperty<object>>? Months
-    {
-        set => SetProperty("months", value);
-    }
+    [TerraformPropertyName("months")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<object>>>? Months { get; set; }
 
     /// <summary>
     /// The preference for the maintenance window scheduling.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preference is required")]
-    public required TerraformProperty<string> Preference
-    {
-        set => SetProperty("preference", value);
-    }
+    [TerraformPropertyName("preference")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Preference { get; set; }
 
     /// <summary>
     /// Indicates whether to skip release updates during maintenance.
     /// </summary>
-    public HashSet<TerraformProperty<double>>? WeeksOfMonth
-    {
-        set => SetProperty("weeks_of_month", value);
-    }
+    [TerraformPropertyName("weeks_of_month")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<double>>>? WeeksOfMonth { get; set; }
 
 }
 
@@ -63,31 +57,28 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsOdbCloudAutonomousVmClusterTimeoutsBlock : TerraformBlock
+public class AwsOdbCloudAutonomousVmClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -98,409 +89,387 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
 {
     public AwsOdbCloudAutonomousVmCluster(string name) : base("aws_odb_cloud_autonomous_vm_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("autonomous_data_storage_percentage");
-        SetOutput("available_autonomous_data_storage_size_in_tbs");
-        SetOutput("available_container_databases");
-        SetOutput("available_cpus");
-        SetOutput("compute_model");
-        SetOutput("cpu_core_count");
-        SetOutput("cpu_percentage");
-        SetOutput("created_at");
-        SetOutput("data_storage_size_in_gbs");
-        SetOutput("data_storage_size_in_tbs");
-        SetOutput("domain");
-        SetOutput("exadata_storage_in_tbs_lowest_scaled_value");
-        SetOutput("hostname");
-        SetOutput("id");
-        SetOutput("max_acds_lowest_scaled_value");
-        SetOutput("memory_size_in_gbs");
-        SetOutput("node_count");
-        SetOutput("non_provisionable_autonomous_container_databases");
-        SetOutput("oci_resource_anchor_name");
-        SetOutput("oci_url");
-        SetOutput("ocid");
-        SetOutput("odb_node_storage_size_in_gbs");
-        SetOutput("percent_progress");
-        SetOutput("provisionable_autonomous_container_databases");
-        SetOutput("provisioned_autonomous_container_databases");
-        SetOutput("provisioned_cpus");
-        SetOutput("reclaimable_cpus");
-        SetOutput("reserved_cpus");
-        SetOutput("shape");
-        SetOutput("status");
-        SetOutput("status_reason");
-        SetOutput("tags_all");
-        SetOutput("time_database_ssl_certificate_expires");
-        SetOutput("time_ords_certificate_expires");
-        SetOutput("autonomous_data_storage_size_in_tbs");
-        SetOutput("cloud_exadata_infrastructure_id");
-        SetOutput("cpu_core_count_per_node");
-        SetOutput("db_servers");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("is_mtls_enabled_vm_cluster");
-        SetOutput("license_model");
-        SetOutput("memory_per_oracle_compute_unit_in_gbs");
-        SetOutput("odb_network_id");
-        SetOutput("region");
-        SetOutput("scan_listener_port_non_tls");
-        SetOutput("scan_listener_port_tls");
-        SetOutput("tags");
-        SetOutput("time_zone");
-        SetOutput("total_container_databases");
     }
 
     /// <summary>
     /// The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDataStorageSizeInTbs is required")]
-    public required TerraformProperty<double> AutonomousDataStorageSizeInTbs
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("autonomous_data_storage_size_in_tbs");
-        set => SetProperty("autonomous_data_storage_size_in_tbs", value);
-    }
+    [TerraformPropertyName("autonomous_data_storage_size_in_tbs")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> AutonomousDataStorageSizeInTbs { get; set; }
 
     /// <summary>
     /// Exadata infrastructure id. Changing this will force terraform to create new resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
-    public required TerraformProperty<string> CloudExadataInfrastructureId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
-        set => SetProperty("cloud_exadata_infrastructure_id", value);
-    }
+    [TerraformPropertyName("cloud_exadata_infrastructure_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CloudExadataInfrastructureId { get; set; }
 
     /// <summary>
     /// The number of CPU cores enabled per node in the Autonomous VM cluster.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCountPerNode is required")]
-    public required TerraformProperty<double> CpuCoreCountPerNode
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("cpu_core_count_per_node");
-        set => SetProperty("cpu_core_count_per_node", value);
-    }
+    [TerraformPropertyName("cpu_core_count_per_node")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> CpuCoreCountPerNode { get; set; }
 
     /// <summary>
     /// The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbServers is required")]
-    public HashSet<TerraformProperty<string>> DbServers
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("db_servers");
-        set => SetProperty("db_servers", value);
-    }
+    [TerraformPropertyName("db_servers")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DbServers { get; set; }
 
     /// <summary>
     /// The description of the Autonomous VM cluster.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource. 
     /// </summary>
-    public TerraformProperty<bool> IsMtlsEnabledVmCluster
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_mtls_enabled_vm_cluster");
-        set => SetProperty("is_mtls_enabled_vm_cluster", value);
-    }
+    [TerraformPropertyName("is_mtls_enabled_vm_cluster")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> IsMtlsEnabledVmCluster { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "is_mtls_enabled_vm_cluster");
 
     /// <summary>
     /// The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE . Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformProperty<string> LicenseModel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("license_model");
-        set => SetProperty("license_model", value);
-    }
+    [TerraformPropertyName("license_model")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LicenseModel { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "license_model");
 
     /// <summary>
     /// The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryPerOracleComputeUnitInGbs is required")]
-    public required TerraformProperty<double> MemoryPerOracleComputeUnitInGbs
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("memory_per_oracle_compute_unit_in_gbs");
-        set => SetProperty("memory_per_oracle_compute_unit_in_gbs", value);
-    }
+    [TerraformPropertyName("memory_per_oracle_compute_unit_in_gbs")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MemoryPerOracleComputeUnitInGbs { get; set; }
 
     /// <summary>
     /// The unique identifier of the ODB network associated with this Autonomous VM Cluster. Changing this will force terraform to create new resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
-    public required TerraformProperty<string> OdbNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("odb_network_id");
-        set => SetProperty("odb_network_id", value);
-    }
+    [TerraformPropertyName("odb_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OdbNetworkId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanListenerPortNonTls is required")]
-    public required TerraformProperty<double> ScanListenerPortNonTls
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("scan_listener_port_non_tls");
-        set => SetProperty("scan_listener_port_non_tls", value);
-    }
+    [TerraformPropertyName("scan_listener_port_non_tls")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ScanListenerPortNonTls { get; set; }
 
     /// <summary>
     /// The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanListenerPortTls is required")]
-    public required TerraformProperty<double> ScanListenerPortTls
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("scan_listener_port_tls");
-        set => SetProperty("scan_listener_port_tls", value);
-    }
+    [TerraformPropertyName("scan_listener_port_tls")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ScanListenerPortTls { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformProperty<string> TimeZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
-        set => SetProperty("time_zone", value);
-    }
+    [TerraformPropertyName("time_zone")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TimeZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_zone");
 
     /// <summary>
     /// The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalContainerDatabases is required")]
-    public required TerraformProperty<double> TotalContainerDatabases
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("total_container_databases");
-        set => SetProperty("total_container_databases", value);
-    }
+    [TerraformPropertyName("total_container_databases")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> TotalContainerDatabases { get; set; }
 
     /// <summary>
     /// Block for maintenance_window.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock>? MaintenanceWindow
-    {
-        set => SetProperty("maintenance_window", value);
-    }
+    [TerraformPropertyName("maintenance_window")]
+    public TerraformList<TerraformBlock<AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock>>? MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsOdbCloudAutonomousVmClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsOdbCloudAutonomousVmClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The progress of the current operation on the Autonomous VM cluster, as a percentage.
     /// </summary>
-    public TerraformExpression AutonomousDataStoragePercentage => this["autonomous_data_storage_percentage"];
+    [TerraformPropertyName("autonomous_data_storage_percentage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AutonomousDataStoragePercentage => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "autonomous_data_storage_percentage");
 
     /// <summary>
     /// The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
     /// </summary>
-    public TerraformExpression AvailableAutonomousDataStorageSizeInTbs => this["available_autonomous_data_storage_size_in_tbs"];
+    [TerraformPropertyName("available_autonomous_data_storage_size_in_tbs")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AvailableAutonomousDataStorageSizeInTbs => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "available_autonomous_data_storage_size_in_tbs");
 
     /// <summary>
     /// The number of Autonomous CDBs that you can create with the currently available storage.
     /// </summary>
-    public TerraformExpression AvailableContainerDatabases => this["available_container_databases"];
+    [TerraformPropertyName("available_container_databases")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AvailableContainerDatabases => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "available_container_databases");
 
     /// <summary>
     /// The number of CPU cores available for allocation to Autonomous Databases
     /// </summary>
-    public TerraformExpression AvailableCpus => this["available_cpus"];
+    [TerraformPropertyName("available_cpus")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AvailableCpus => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "available_cpus");
 
     /// <summary>
     /// The compute model of the Autonomous VM cluster: ECPU or OCPU.
     /// </summary>
-    public TerraformExpression ComputeModel => this["compute_model"];
+    [TerraformPropertyName("compute_model")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ComputeModel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "compute_model");
 
     /// <summary>
     /// The total number of CPU cores in the Autonomous VM cluster.
     /// </summary>
-    public TerraformExpression CpuCoreCount => this["cpu_core_count"];
+    [TerraformPropertyName("cpu_core_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> CpuCoreCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "cpu_core_count");
 
     /// <summary>
     /// The percentage of total CPU cores currently in use in the Autonomous VM cluster.
     /// </summary>
-    public TerraformExpression CpuPercentage => this["cpu_percentage"];
+    [TerraformPropertyName("cpu_percentage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> CpuPercentage => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "cpu_percentage");
 
     /// <summary>
     /// The date and time when the Autonomous VM cluster was created.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The total data storage allocated to the Autonomous VM cluster, in GB.
     /// </summary>
-    public TerraformExpression DataStorageSizeInGbs => this["data_storage_size_in_gbs"];
+    [TerraformPropertyName("data_storage_size_in_gbs")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DataStorageSizeInGbs => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "data_storage_size_in_gbs");
 
     /// <summary>
     /// The total data storage allocated to the Autonomous VM cluster, in TB.
     /// </summary>
-    public TerraformExpression DataStorageSizeInTbs => this["data_storage_size_in_tbs"];
+    [TerraformPropertyName("data_storage_size_in_tbs")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DataStorageSizeInTbs => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "data_storage_size_in_tbs");
 
     /// <summary>
     /// The domain name of the Autonomous VM cluster.
     /// </summary>
-    public TerraformExpression Domain => this["domain"];
+    [TerraformPropertyName("domain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Domain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain");
 
     /// <summary>
     /// The minimum value to which you can scale down the Exadata storage, in TB.
     /// </summary>
-    public TerraformExpression ExadataStorageInTbsLowestScaledValue => this["exadata_storage_in_tbs_lowest_scaled_value"];
+    [TerraformPropertyName("exadata_storage_in_tbs_lowest_scaled_value")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ExadataStorageInTbsLowestScaledValue => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "exadata_storage_in_tbs_lowest_scaled_value");
 
     /// <summary>
     /// The hostname of the Autonomous VM cluster.
     /// </summary>
-    public TerraformExpression Hostname => this["hostname"];
+    [TerraformPropertyName("hostname")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Hostname => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hostname");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The minimum value to which you can scale down the maximum number of Autonomous CDBs.
     /// </summary>
-    public TerraformExpression MaxAcdsLowestScaledValue => this["max_acds_lowest_scaled_value"];
+    [TerraformPropertyName("max_acds_lowest_scaled_value")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxAcdsLowestScaledValue => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_acds_lowest_scaled_value");
 
     /// <summary>
     /// The total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
     /// </summary>
-    public TerraformExpression MemorySizeInGbs => this["memory_size_in_gbs"];
+    [TerraformPropertyName("memory_size_in_gbs")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MemorySizeInGbs => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "memory_size_in_gbs");
 
     /// <summary>
     /// The number of database server nodes in the Autonomous VM cluster.
     /// </summary>
-    public TerraformExpression NodeCount => this["node_count"];
+    [TerraformPropertyName("node_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NodeCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "node_count");
 
     /// <summary>
     /// The number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
     /// </summary>
-    public TerraformExpression NonProvisionableAutonomousContainerDatabases => this["non_provisionable_autonomous_container_databases"];
+    [TerraformPropertyName("non_provisionable_autonomous_container_databases")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NonProvisionableAutonomousContainerDatabases => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "non_provisionable_autonomous_container_databases");
 
     /// <summary>
     /// The name of the OCI resource anchor associated with this Autonomous VM cluster.
     /// </summary>
-    public TerraformExpression OciResourceAnchorName => this["oci_resource_anchor_name"];
+    [TerraformPropertyName("oci_resource_anchor_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OciResourceAnchorName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "oci_resource_anchor_name");
 
     /// <summary>
     /// The URL for accessing the OCI console page for this Autonomous VM cluster.
     /// </summary>
-    public TerraformExpression OciUrl => this["oci_url"];
+    [TerraformPropertyName("oci_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OciUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "oci_url");
 
     /// <summary>
     /// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
     /// </summary>
-    public TerraformExpression Ocid => this["ocid"];
+    [TerraformPropertyName("ocid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Ocid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ocid");
 
     /// <summary>
     ///  The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
     /// </summary>
-    public TerraformExpression OdbNodeStorageSizeInGbs => this["odb_node_storage_size_in_gbs"];
+    [TerraformPropertyName("odb_node_storage_size_in_gbs")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> OdbNodeStorageSizeInGbs => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "odb_node_storage_size_in_gbs");
 
     /// <summary>
     /// The progress of the current operation on the Autonomous VM cluster, as a percentage.
     /// </summary>
-    public TerraformExpression PercentProgress => this["percent_progress"];
+    [TerraformPropertyName("percent_progress")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> PercentProgress => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "percent_progress");
 
     /// <summary>
     /// The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
     /// </summary>
-    public TerraformExpression ProvisionableAutonomousContainerDatabases => this["provisionable_autonomous_container_databases"];
+    [TerraformPropertyName("provisionable_autonomous_container_databases")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ProvisionableAutonomousContainerDatabases => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "provisionable_autonomous_container_databases");
 
     /// <summary>
     /// The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
     /// </summary>
-    public TerraformExpression ProvisionedAutonomousContainerDatabases => this["provisioned_autonomous_container_databases"];
+    [TerraformPropertyName("provisioned_autonomous_container_databases")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ProvisionedAutonomousContainerDatabases => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "provisioned_autonomous_container_databases");
 
     /// <summary>
     /// The number of CPUs provisioned in the Autonomous VM cluster.
     /// </summary>
-    public TerraformExpression ProvisionedCpus => this["provisioned_cpus"];
+    [TerraformPropertyName("provisioned_cpus")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ProvisionedCpus => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "provisioned_cpus");
 
     /// <summary>
     /// The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
     /// </summary>
-    public TerraformExpression ReclaimableCpus => this["reclaimable_cpus"];
+    [TerraformPropertyName("reclaimable_cpus")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ReclaimableCpus => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "reclaimable_cpus");
 
     /// <summary>
     /// The number of CPU cores reserved for system operations and redundancy.
     /// </summary>
-    public TerraformExpression ReservedCpus => this["reserved_cpus"];
+    [TerraformPropertyName("reserved_cpus")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ReservedCpus => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "reserved_cpus");
 
     /// <summary>
     /// The shape of the Exadata infrastructure for the Autonomous VM cluster.
     /// </summary>
-    public TerraformExpression Shape => this["shape"];
+    [TerraformPropertyName("shape")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Shape => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "shape");
 
     /// <summary>
     /// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED 
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// Additional information about the current status of the Autonomous VM cluster.
     /// </summary>
-    public TerraformExpression StatusReason => this["status_reason"];
+    [TerraformPropertyName("status_reason")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StatusReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status_reason");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The expiration date and time of the database SSL certificate.
     /// </summary>
-    public TerraformExpression TimeDatabaseSslCertificateExpires => this["time_database_ssl_certificate_expires"];
+    [TerraformPropertyName("time_database_ssl_certificate_expires")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TimeDatabaseSslCertificateExpires => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_database_ssl_certificate_expires");
 
     /// <summary>
     /// The time_ords_certificate_expires attribute.
     /// </summary>
-    public TerraformExpression TimeOrdsCertificateExpires => this["time_ords_certificate_expires"];
+    [TerraformPropertyName("time_ords_certificate_expires")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TimeOrdsCertificateExpires => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_ords_certificate_expires");
 
 }

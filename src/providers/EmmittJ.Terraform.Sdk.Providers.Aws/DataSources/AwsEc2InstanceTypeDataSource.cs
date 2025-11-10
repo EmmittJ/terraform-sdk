@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2InstanceTypeDataSourceTimeoutsBlock : TerraformBlock
+public class AwsEc2InstanceTypeDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,423 +24,469 @@ public class AwsEc2InstanceTypeDataSource : TerraformDataSource
 {
     public AwsEc2InstanceTypeDataSource(string name) : base("aws_ec2_instance_type", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("auto_recovery_supported");
-        SetOutput("bandwidth_weightings");
-        SetOutput("bare_metal");
-        SetOutput("boot_modes");
-        SetOutput("burstable_performance_supported");
-        SetOutput("current_generation");
-        SetOutput("dedicated_hosts_supported");
-        SetOutput("default_cores");
-        SetOutput("default_network_card_index");
-        SetOutput("default_threads_per_core");
-        SetOutput("default_vcpus");
-        SetOutput("ebs_encryption_support");
-        SetOutput("ebs_nvme_support");
-        SetOutput("ebs_optimized_support");
-        SetOutput("ebs_performance_baseline_bandwidth");
-        SetOutput("ebs_performance_baseline_iops");
-        SetOutput("ebs_performance_baseline_throughput");
-        SetOutput("ebs_performance_maximum_bandwidth");
-        SetOutput("ebs_performance_maximum_iops");
-        SetOutput("ebs_performance_maximum_throughput");
-        SetOutput("efa_maximum_interfaces");
-        SetOutput("efa_supported");
-        SetOutput("ena_srd_supported");
-        SetOutput("ena_support");
-        SetOutput("encryption_in_transit_supported");
-        SetOutput("fpgas");
-        SetOutput("free_tier_eligible");
-        SetOutput("gpus");
-        SetOutput("hibernation_supported");
-        SetOutput("hypervisor");
-        SetOutput("inference_accelerators");
-        SetOutput("instance_disks");
-        SetOutput("instance_storage_supported");
-        SetOutput("ipv6_supported");
-        SetOutput("maximum_ipv4_addresses_per_interface");
-        SetOutput("maximum_ipv6_addresses_per_interface");
-        SetOutput("maximum_network_cards");
-        SetOutput("maximum_network_interfaces");
-        SetOutput("media_accelerators");
-        SetOutput("memory_size");
-        SetOutput("network_cards");
-        SetOutput("network_performance");
-        SetOutput("neuron_devices");
-        SetOutput("nitro_enclaves_support");
-        SetOutput("nitro_tpm_support");
-        SetOutput("nitro_tpm_supported_versions");
-        SetOutput("phc_support");
-        SetOutput("supported_architectures");
-        SetOutput("supported_cpu_features");
-        SetOutput("supported_placement_strategies");
-        SetOutput("supported_root_device_types");
-        SetOutput("supported_usages_classes");
-        SetOutput("supported_virtualization_types");
-        SetOutput("sustained_clock_speed");
-        SetOutput("total_fpga_memory");
-        SetOutput("total_gpu_memory");
-        SetOutput("total_inference_memory");
-        SetOutput("total_instance_storage");
-        SetOutput("total_media_memory");
-        SetOutput("total_neuron_device_memory");
-        SetOutput("valid_cores");
-        SetOutput("valid_threads_per_core");
-        SetOutput("id");
-        SetOutput("instance_type");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    public required TerraformProperty<string> InstanceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEc2InstanceTypeDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEc2InstanceTypeDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The auto_recovery_supported attribute.
     /// </summary>
-    public TerraformExpression AutoRecoverySupported => this["auto_recovery_supported"];
+    [TerraformPropertyName("auto_recovery_supported")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AutoRecoverySupported => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "auto_recovery_supported");
 
     /// <summary>
     /// The bandwidth_weightings attribute.
     /// </summary>
-    public TerraformExpression BandwidthWeightings => this["bandwidth_weightings"];
+    [TerraformPropertyName("bandwidth_weightings")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> BandwidthWeightings => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "bandwidth_weightings");
 
     /// <summary>
     /// The bare_metal attribute.
     /// </summary>
-    public TerraformExpression BareMetal => this["bare_metal"];
+    [TerraformPropertyName("bare_metal")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> BareMetal => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "bare_metal");
 
     /// <summary>
     /// The boot_modes attribute.
     /// </summary>
-    public TerraformExpression BootModes => this["boot_modes"];
+    [TerraformPropertyName("boot_modes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> BootModes => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "boot_modes");
 
     /// <summary>
     /// The burstable_performance_supported attribute.
     /// </summary>
-    public TerraformExpression BurstablePerformanceSupported => this["burstable_performance_supported"];
+    [TerraformPropertyName("burstable_performance_supported")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> BurstablePerformanceSupported => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "burstable_performance_supported");
 
     /// <summary>
     /// The current_generation attribute.
     /// </summary>
-    public TerraformExpression CurrentGeneration => this["current_generation"];
+    [TerraformPropertyName("current_generation")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> CurrentGeneration => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "current_generation");
 
     /// <summary>
     /// The dedicated_hosts_supported attribute.
     /// </summary>
-    public TerraformExpression DedicatedHostsSupported => this["dedicated_hosts_supported"];
+    [TerraformPropertyName("dedicated_hosts_supported")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DedicatedHostsSupported => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "dedicated_hosts_supported");
 
     /// <summary>
     /// The default_cores attribute.
     /// </summary>
-    public TerraformExpression DefaultCores => this["default_cores"];
+    [TerraformPropertyName("default_cores")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DefaultCores => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "default_cores");
 
     /// <summary>
     /// The default_network_card_index attribute.
     /// </summary>
-    public TerraformExpression DefaultNetworkCardIndex => this["default_network_card_index"];
+    [TerraformPropertyName("default_network_card_index")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DefaultNetworkCardIndex => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "default_network_card_index");
 
     /// <summary>
     /// The default_threads_per_core attribute.
     /// </summary>
-    public TerraformExpression DefaultThreadsPerCore => this["default_threads_per_core"];
+    [TerraformPropertyName("default_threads_per_core")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DefaultThreadsPerCore => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "default_threads_per_core");
 
     /// <summary>
     /// The default_vcpus attribute.
     /// </summary>
-    public TerraformExpression DefaultVcpus => this["default_vcpus"];
+    [TerraformPropertyName("default_vcpus")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DefaultVcpus => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "default_vcpus");
 
     /// <summary>
     /// The ebs_encryption_support attribute.
     /// </summary>
-    public TerraformExpression EbsEncryptionSupport => this["ebs_encryption_support"];
+    [TerraformPropertyName("ebs_encryption_support")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EbsEncryptionSupport => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ebs_encryption_support");
 
     /// <summary>
     /// The ebs_nvme_support attribute.
     /// </summary>
-    public TerraformExpression EbsNvmeSupport => this["ebs_nvme_support"];
+    [TerraformPropertyName("ebs_nvme_support")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EbsNvmeSupport => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ebs_nvme_support");
 
     /// <summary>
     /// The ebs_optimized_support attribute.
     /// </summary>
-    public TerraformExpression EbsOptimizedSupport => this["ebs_optimized_support"];
+    [TerraformPropertyName("ebs_optimized_support")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EbsOptimizedSupport => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ebs_optimized_support");
 
     /// <summary>
     /// The ebs_performance_baseline_bandwidth attribute.
     /// </summary>
-    public TerraformExpression EbsPerformanceBaselineBandwidth => this["ebs_performance_baseline_bandwidth"];
+    [TerraformPropertyName("ebs_performance_baseline_bandwidth")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> EbsPerformanceBaselineBandwidth => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ebs_performance_baseline_bandwidth");
 
     /// <summary>
     /// The ebs_performance_baseline_iops attribute.
     /// </summary>
-    public TerraformExpression EbsPerformanceBaselineIops => this["ebs_performance_baseline_iops"];
+    [TerraformPropertyName("ebs_performance_baseline_iops")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> EbsPerformanceBaselineIops => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ebs_performance_baseline_iops");
 
     /// <summary>
     /// The ebs_performance_baseline_throughput attribute.
     /// </summary>
-    public TerraformExpression EbsPerformanceBaselineThroughput => this["ebs_performance_baseline_throughput"];
+    [TerraformPropertyName("ebs_performance_baseline_throughput")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> EbsPerformanceBaselineThroughput => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ebs_performance_baseline_throughput");
 
     /// <summary>
     /// The ebs_performance_maximum_bandwidth attribute.
     /// </summary>
-    public TerraformExpression EbsPerformanceMaximumBandwidth => this["ebs_performance_maximum_bandwidth"];
+    [TerraformPropertyName("ebs_performance_maximum_bandwidth")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> EbsPerformanceMaximumBandwidth => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ebs_performance_maximum_bandwidth");
 
     /// <summary>
     /// The ebs_performance_maximum_iops attribute.
     /// </summary>
-    public TerraformExpression EbsPerformanceMaximumIops => this["ebs_performance_maximum_iops"];
+    [TerraformPropertyName("ebs_performance_maximum_iops")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> EbsPerformanceMaximumIops => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ebs_performance_maximum_iops");
 
     /// <summary>
     /// The ebs_performance_maximum_throughput attribute.
     /// </summary>
-    public TerraformExpression EbsPerformanceMaximumThroughput => this["ebs_performance_maximum_throughput"];
+    [TerraformPropertyName("ebs_performance_maximum_throughput")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> EbsPerformanceMaximumThroughput => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ebs_performance_maximum_throughput");
 
     /// <summary>
     /// The efa_maximum_interfaces attribute.
     /// </summary>
-    public TerraformExpression EfaMaximumInterfaces => this["efa_maximum_interfaces"];
+    [TerraformPropertyName("efa_maximum_interfaces")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> EfaMaximumInterfaces => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "efa_maximum_interfaces");
 
     /// <summary>
     /// The efa_supported attribute.
     /// </summary>
-    public TerraformExpression EfaSupported => this["efa_supported"];
+    [TerraformPropertyName("efa_supported")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EfaSupported => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "efa_supported");
 
     /// <summary>
     /// The ena_srd_supported attribute.
     /// </summary>
-    public TerraformExpression EnaSrdSupported => this["ena_srd_supported"];
+    [TerraformPropertyName("ena_srd_supported")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnaSrdSupported => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "ena_srd_supported");
 
     /// <summary>
     /// The ena_support attribute.
     /// </summary>
-    public TerraformExpression EnaSupport => this["ena_support"];
+    [TerraformPropertyName("ena_support")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EnaSupport => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ena_support");
 
     /// <summary>
     /// The encryption_in_transit_supported attribute.
     /// </summary>
-    public TerraformExpression EncryptionInTransitSupported => this["encryption_in_transit_supported"];
+    [TerraformPropertyName("encryption_in_transit_supported")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EncryptionInTransitSupported => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "encryption_in_transit_supported");
 
     /// <summary>
     /// The fpgas attribute.
     /// </summary>
-    public TerraformExpression Fpgas => this["fpgas"];
+    [TerraformPropertyName("fpgas")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Fpgas => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "fpgas");
 
     /// <summary>
     /// The free_tier_eligible attribute.
     /// </summary>
-    public TerraformExpression FreeTierEligible => this["free_tier_eligible"];
+    [TerraformPropertyName("free_tier_eligible")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> FreeTierEligible => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "free_tier_eligible");
 
     /// <summary>
     /// The gpus attribute.
     /// </summary>
-    public TerraformExpression Gpus => this["gpus"];
+    [TerraformPropertyName("gpus")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Gpus => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "gpus");
 
     /// <summary>
     /// The hibernation_supported attribute.
     /// </summary>
-    public TerraformExpression HibernationSupported => this["hibernation_supported"];
+    [TerraformPropertyName("hibernation_supported")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> HibernationSupported => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "hibernation_supported");
 
     /// <summary>
     /// The hypervisor attribute.
     /// </summary>
-    public TerraformExpression Hypervisor => this["hypervisor"];
+    [TerraformPropertyName("hypervisor")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Hypervisor => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hypervisor");
 
     /// <summary>
     /// The inference_accelerators attribute.
     /// </summary>
-    public TerraformExpression InferenceAccelerators => this["inference_accelerators"];
+    [TerraformPropertyName("inference_accelerators")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> InferenceAccelerators => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "inference_accelerators");
 
     /// <summary>
     /// The instance_disks attribute.
     /// </summary>
-    public TerraformExpression InstanceDisks => this["instance_disks"];
+    [TerraformPropertyName("instance_disks")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> InstanceDisks => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "instance_disks");
 
     /// <summary>
     /// The instance_storage_supported attribute.
     /// </summary>
-    public TerraformExpression InstanceStorageSupported => this["instance_storage_supported"];
+    [TerraformPropertyName("instance_storage_supported")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> InstanceStorageSupported => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "instance_storage_supported");
 
     /// <summary>
     /// The ipv6_supported attribute.
     /// </summary>
-    public TerraformExpression Ipv6Supported => this["ipv6_supported"];
+    [TerraformPropertyName("ipv6_supported")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Ipv6Supported => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "ipv6_supported");
 
     /// <summary>
     /// The maximum_ipv4_addresses_per_interface attribute.
     /// </summary>
-    public TerraformExpression MaximumIpv4AddressesPerInterface => this["maximum_ipv4_addresses_per_interface"];
+    [TerraformPropertyName("maximum_ipv4_addresses_per_interface")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaximumIpv4AddressesPerInterface => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "maximum_ipv4_addresses_per_interface");
 
     /// <summary>
     /// The maximum_ipv6_addresses_per_interface attribute.
     /// </summary>
-    public TerraformExpression MaximumIpv6AddressesPerInterface => this["maximum_ipv6_addresses_per_interface"];
+    [TerraformPropertyName("maximum_ipv6_addresses_per_interface")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaximumIpv6AddressesPerInterface => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "maximum_ipv6_addresses_per_interface");
 
     /// <summary>
     /// The maximum_network_cards attribute.
     /// </summary>
-    public TerraformExpression MaximumNetworkCards => this["maximum_network_cards"];
+    [TerraformPropertyName("maximum_network_cards")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaximumNetworkCards => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "maximum_network_cards");
 
     /// <summary>
     /// The maximum_network_interfaces attribute.
     /// </summary>
-    public TerraformExpression MaximumNetworkInterfaces => this["maximum_network_interfaces"];
+    [TerraformPropertyName("maximum_network_interfaces")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaximumNetworkInterfaces => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "maximum_network_interfaces");
 
     /// <summary>
     /// The media_accelerators attribute.
     /// </summary>
-    public TerraformExpression MediaAccelerators => this["media_accelerators"];
+    [TerraformPropertyName("media_accelerators")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> MediaAccelerators => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "media_accelerators");
 
     /// <summary>
     /// The memory_size attribute.
     /// </summary>
-    public TerraformExpression MemorySize => this["memory_size"];
+    [TerraformPropertyName("memory_size")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MemorySize => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "memory_size");
 
     /// <summary>
     /// The network_cards attribute.
     /// </summary>
-    public TerraformExpression NetworkCards => this["network_cards"];
+    [TerraformPropertyName("network_cards")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> NetworkCards => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "network_cards");
 
     /// <summary>
     /// The network_performance attribute.
     /// </summary>
-    public TerraformExpression NetworkPerformance => this["network_performance"];
+    [TerraformPropertyName("network_performance")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NetworkPerformance => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_performance");
 
     /// <summary>
     /// The neuron_devices attribute.
     /// </summary>
-    public TerraformExpression NeuronDevices => this["neuron_devices"];
+    [TerraformPropertyName("neuron_devices")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> NeuronDevices => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "neuron_devices");
 
     /// <summary>
     /// The nitro_enclaves_support attribute.
     /// </summary>
-    public TerraformExpression NitroEnclavesSupport => this["nitro_enclaves_support"];
+    [TerraformPropertyName("nitro_enclaves_support")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NitroEnclavesSupport => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "nitro_enclaves_support");
 
     /// <summary>
     /// The nitro_tpm_support attribute.
     /// </summary>
-    public TerraformExpression NitroTpmSupport => this["nitro_tpm_support"];
+    [TerraformPropertyName("nitro_tpm_support")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NitroTpmSupport => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "nitro_tpm_support");
 
     /// <summary>
     /// The nitro_tpm_supported_versions attribute.
     /// </summary>
-    public TerraformExpression NitroTpmSupportedVersions => this["nitro_tpm_supported_versions"];
+    [TerraformPropertyName("nitro_tpm_supported_versions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> NitroTpmSupportedVersions => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "nitro_tpm_supported_versions");
 
     /// <summary>
     /// The phc_support attribute.
     /// </summary>
-    public TerraformExpression PhcSupport => this["phc_support"];
+    [TerraformPropertyName("phc_support")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PhcSupport => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "phc_support");
 
     /// <summary>
     /// The supported_architectures attribute.
     /// </summary>
-    public TerraformExpression SupportedArchitectures => this["supported_architectures"];
+    [TerraformPropertyName("supported_architectures")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SupportedArchitectures => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "supported_architectures");
 
     /// <summary>
     /// The supported_cpu_features attribute.
     /// </summary>
-    public TerraformExpression SupportedCpuFeatures => this["supported_cpu_features"];
+    [TerraformPropertyName("supported_cpu_features")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SupportedCpuFeatures => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "supported_cpu_features");
 
     /// <summary>
     /// The supported_placement_strategies attribute.
     /// </summary>
-    public TerraformExpression SupportedPlacementStrategies => this["supported_placement_strategies"];
+    [TerraformPropertyName("supported_placement_strategies")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SupportedPlacementStrategies => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "supported_placement_strategies");
 
     /// <summary>
     /// The supported_root_device_types attribute.
     /// </summary>
-    public TerraformExpression SupportedRootDeviceTypes => this["supported_root_device_types"];
+    [TerraformPropertyName("supported_root_device_types")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SupportedRootDeviceTypes => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "supported_root_device_types");
 
     /// <summary>
     /// The supported_usages_classes attribute.
     /// </summary>
-    public TerraformExpression SupportedUsagesClasses => this["supported_usages_classes"];
+    [TerraformPropertyName("supported_usages_classes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SupportedUsagesClasses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "supported_usages_classes");
 
     /// <summary>
     /// The supported_virtualization_types attribute.
     /// </summary>
-    public TerraformExpression SupportedVirtualizationTypes => this["supported_virtualization_types"];
+    [TerraformPropertyName("supported_virtualization_types")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SupportedVirtualizationTypes => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "supported_virtualization_types");
 
     /// <summary>
     /// The sustained_clock_speed attribute.
     /// </summary>
-    public TerraformExpression SustainedClockSpeed => this["sustained_clock_speed"];
+    [TerraformPropertyName("sustained_clock_speed")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SustainedClockSpeed => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "sustained_clock_speed");
 
     /// <summary>
     /// The total_fpga_memory attribute.
     /// </summary>
-    public TerraformExpression TotalFpgaMemory => this["total_fpga_memory"];
+    [TerraformPropertyName("total_fpga_memory")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalFpgaMemory => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_fpga_memory");
 
     /// <summary>
     /// The total_gpu_memory attribute.
     /// </summary>
-    public TerraformExpression TotalGpuMemory => this["total_gpu_memory"];
+    [TerraformPropertyName("total_gpu_memory")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalGpuMemory => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_gpu_memory");
 
     /// <summary>
     /// The total_inference_memory attribute.
     /// </summary>
-    public TerraformExpression TotalInferenceMemory => this["total_inference_memory"];
+    [TerraformPropertyName("total_inference_memory")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalInferenceMemory => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_inference_memory");
 
     /// <summary>
     /// The total_instance_storage attribute.
     /// </summary>
-    public TerraformExpression TotalInstanceStorage => this["total_instance_storage"];
+    [TerraformPropertyName("total_instance_storage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalInstanceStorage => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_instance_storage");
 
     /// <summary>
     /// The total_media_memory attribute.
     /// </summary>
-    public TerraformExpression TotalMediaMemory => this["total_media_memory"];
+    [TerraformPropertyName("total_media_memory")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalMediaMemory => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_media_memory");
 
     /// <summary>
     /// The total_neuron_device_memory attribute.
     /// </summary>
-    public TerraformExpression TotalNeuronDeviceMemory => this["total_neuron_device_memory"];
+    [TerraformPropertyName("total_neuron_device_memory")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalNeuronDeviceMemory => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_neuron_device_memory");
 
     /// <summary>
     /// The valid_cores attribute.
     /// </summary>
-    public TerraformExpression ValidCores => this["valid_cores"];
+    [TerraformPropertyName("valid_cores")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<double>>> ValidCores => new TerraformReferenceProperty<List<TerraformProperty<double>>>(ResourceAddress, "valid_cores");
 
     /// <summary>
     /// The valid_threads_per_core attribute.
     /// </summary>
-    public TerraformExpression ValidThreadsPerCore => this["valid_threads_per_core"];
+    [TerraformPropertyName("valid_threads_per_core")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<double>>> ValidThreadsPerCore => new TerraformReferenceProperty<List<TerraformProperty<double>>>(ResourceAddress, "valid_threads_per_core");
 
 }

@@ -9,114 +9,112 @@ public class AwsDbProxyDataSource : TerraformDataSource
 {
     public AwsDbProxyDataSource(string name) : base("aws_db_proxy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("auth");
-        SetOutput("debug_logging");
-        SetOutput("default_auth_scheme");
-        SetOutput("endpoint");
-        SetOutput("engine_family");
-        SetOutput("idle_client_timeout");
-        SetOutput("require_tls");
-        SetOutput("role_arn");
-        SetOutput("vpc_id");
-        SetOutput("vpc_security_group_ids");
-        SetOutput("vpc_subnet_ids");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The auth attribute.
     /// </summary>
-    public TerraformExpression Auth => this["auth"];
+    [TerraformPropertyName("auth")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Auth => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "auth");
 
     /// <summary>
     /// The debug_logging attribute.
     /// </summary>
-    public TerraformExpression DebugLogging => this["debug_logging"];
+    [TerraformPropertyName("debug_logging")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DebugLogging => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "debug_logging");
 
     /// <summary>
     /// The default_auth_scheme attribute.
     /// </summary>
-    public TerraformExpression DefaultAuthScheme => this["default_auth_scheme"];
+    [TerraformPropertyName("default_auth_scheme")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultAuthScheme => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_auth_scheme");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The engine_family attribute.
     /// </summary>
-    public TerraformExpression EngineFamily => this["engine_family"];
+    [TerraformPropertyName("engine_family")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EngineFamily => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_family");
 
     /// <summary>
     /// The idle_client_timeout attribute.
     /// </summary>
-    public TerraformExpression IdleClientTimeout => this["idle_client_timeout"];
+    [TerraformPropertyName("idle_client_timeout")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> IdleClientTimeout => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "idle_client_timeout");
 
     /// <summary>
     /// The require_tls attribute.
     /// </summary>
-    public TerraformExpression RequireTls => this["require_tls"];
+    [TerraformPropertyName("require_tls")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> RequireTls => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "require_tls");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformExpression RoleArn => this["role_arn"];
+    [TerraformPropertyName("role_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_arn");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformExpression VpcId => this["vpc_id"];
+    [TerraformPropertyName("vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformExpression VpcSecurityGroupIds => this["vpc_security_group_ids"];
+    [TerraformPropertyName("vpc_security_group_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> VpcSecurityGroupIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "vpc_security_group_ids");
 
     /// <summary>
     /// The vpc_subnet_ids attribute.
     /// </summary>
-    public TerraformExpression VpcSubnetIds => this["vpc_subnet_ids"];
+    [TerraformPropertyName("vpc_subnet_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> VpcSubnetIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "vpc_subnet_ids");
 
 }

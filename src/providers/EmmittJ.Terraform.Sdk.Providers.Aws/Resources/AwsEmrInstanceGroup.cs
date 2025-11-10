@@ -6,41 +6,37 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ebs_config in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlock
+public class AwsEmrInstanceGroupEbsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformProperty<double>? Iops
-    {
-        set => SetProperty("iops", value);
-    }
+    [TerraformPropertyName("iops")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Iops { get; set; }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
-    public required TerraformProperty<double> Size
-    {
-        set => SetProperty("size", value);
-    }
+    [TerraformPropertyName("size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Size { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// The volumes_per_instance attribute.
     /// </summary>
-    public TerraformProperty<double>? VolumesPerInstance
-    {
-        set => SetProperty("volumes_per_instance", value);
-    }
+    [TerraformPropertyName("volumes_per_instance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? VolumesPerInstance { get; set; }
 
 }
 
@@ -51,134 +47,99 @@ public class AwsEmrInstanceGroup : TerraformResource
 {
     public AwsEmrInstanceGroup(string name) : base("aws_emr_instance_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("running_instance_count");
-        SetOutput("status");
-        SetOutput("autoscaling_policy");
-        SetOutput("bid_price");
-        SetOutput("cluster_id");
-        SetOutput("configurations_json");
-        SetOutput("ebs_optimized");
-        SetOutput("id");
-        SetOutput("instance_count");
-        SetOutput("instance_type");
-        SetOutput("name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The autoscaling_policy attribute.
     /// </summary>
-    public TerraformProperty<string> AutoscalingPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("autoscaling_policy");
-        set => SetProperty("autoscaling_policy", value);
-    }
+    [TerraformPropertyName("autoscaling_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AutoscalingPolicy { get; set; }
 
     /// <summary>
     /// The bid_price attribute.
     /// </summary>
-    public TerraformProperty<string> BidPrice
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bid_price");
-        set => SetProperty("bid_price", value);
-    }
+    [TerraformPropertyName("bid_price")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BidPrice { get; set; }
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    public required TerraformProperty<string> ClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
-        set => SetProperty("cluster_id", value);
-    }
+    [TerraformPropertyName("cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
 
     /// <summary>
     /// The configurations_json attribute.
     /// </summary>
-    public TerraformProperty<string> ConfigurationsJson
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("configurations_json");
-        set => SetProperty("configurations_json", value);
-    }
+    [TerraformPropertyName("configurations_json")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConfigurationsJson { get; set; }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public TerraformProperty<bool> EbsOptimized
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ebs_optimized");
-        set => SetProperty("ebs_optimized", value);
-    }
+    [TerraformPropertyName("ebs_optimized")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EbsOptimized { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformProperty<double> InstanceCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
-        set => SetProperty("instance_count", value);
-    }
+    [TerraformPropertyName("instance_count")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> InstanceCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "instance_count");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    public required TerraformProperty<string> InstanceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceType { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for ebs_config.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsEmrInstanceGroupEbsConfigBlock>? EbsConfig
-    {
-        set => SetProperty("ebs_config", value);
-    }
+    [TerraformPropertyName("ebs_config")]
+    public TerraformSet<TerraformBlock<AwsEmrInstanceGroupEbsConfigBlock>>? EbsConfig { get; set; } = new();
 
     /// <summary>
     /// The running_instance_count attribute.
     /// </summary>
-    public TerraformExpression RunningInstanceCount => this["running_instance_count"];
+    [TerraformPropertyName("running_instance_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RunningInstanceCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "running_instance_count");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

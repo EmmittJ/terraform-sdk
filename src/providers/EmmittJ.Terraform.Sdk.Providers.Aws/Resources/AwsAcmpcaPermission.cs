@@ -9,80 +9,58 @@ public class AwsAcmpcaPermission : TerraformResource
 {
     public AwsAcmpcaPermission(string name) : base("aws_acmpca_permission", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("policy");
-        SetOutput("actions");
-        SetOutput("certificate_authority_arn");
-        SetOutput("id");
-        SetOutput("principal");
-        SetOutput("region");
-        SetOutput("source_account");
     }
 
     /// <summary>
     /// The actions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
-    public HashSet<TerraformProperty<string>> Actions
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("actions");
-        set => SetProperty("actions", value);
-    }
+    [TerraformPropertyName("actions")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Actions { get; set; }
 
     /// <summary>
     /// The certificate_authority_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
-    public required TerraformProperty<string> CertificateAuthorityArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate_authority_arn");
-        set => SetProperty("certificate_authority_arn", value);
-    }
+    [TerraformPropertyName("certificate_authority_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CertificateAuthorityArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
-    public required TerraformProperty<string> Principal
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal");
-        set => SetProperty("principal", value);
-    }
+    [TerraformPropertyName("principal")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The source_account attribute.
     /// </summary>
-    public TerraformProperty<string> SourceAccount
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_account");
-        set => SetProperty("source_account", value);
-    }
+    [TerraformPropertyName("source_account")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SourceAccount { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_account");
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformExpression Policy => this["policy"];
+    [TerraformPropertyName("policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Policy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy");
 
 }

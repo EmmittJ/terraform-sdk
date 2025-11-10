@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for additional_capabilities in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesBlock : ITerraformBlock
 {
     /// <summary>
     /// The ultra_ssd_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? UltraSsdEnabled
-    {
-        set => SetProperty("ultra_ssd_enabled", value);
-    }
+    [TerraformPropertyName("ultra_ssd_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UltraSsdEnabled { get; set; }
 
 }
 
@@ -22,32 +21,29 @@ public class AzurermOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesBloc
 /// Block type for automatic_instance_repair in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlock : ITerraformBlock
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformProperty<string>? Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Action { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "action");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The grace_period attribute.
     /// </summary>
-    public TerraformProperty<string>? GracePeriod
-    {
-        set => SetProperty("grace_period", value);
-    }
+    [TerraformPropertyName("grace_period")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> GracePeriod { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "grace_period");
 
 }
 
@@ -55,15 +51,14 @@ public class AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlo
 /// Block type for boot_diagnostics in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetBootDiagnosticsBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetBootDiagnosticsBlock : ITerraformBlock
 {
     /// <summary>
     /// The storage_account_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountUri
-    {
-        set => SetProperty("storage_account_uri", value);
-    }
+    [TerraformPropertyName("storage_account_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageAccountUri { get; set; }
 
 }
 
@@ -71,81 +66,72 @@ public class AzurermOrchestratedVirtualMachineScaleSetBootDiagnosticsBlock : Ter
 /// Block type for data_disk in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock : ITerraformBlock
 {
     /// <summary>
     /// The caching attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
-    public required TerraformProperty<string> Caching
-    {
-        set => SetProperty("caching", value);
-    }
+    [TerraformPropertyName("caching")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Caching { get; set; }
 
     /// <summary>
     /// The create_option attribute.
     /// </summary>
-    public TerraformProperty<string>? CreateOption
-    {
-        set => SetProperty("create_option", value);
-    }
+    [TerraformPropertyName("create_option")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CreateOption { get; set; }
 
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskEncryptionSetId
-    {
-        set => SetProperty("disk_encryption_set_id", value);
-    }
+    [TerraformPropertyName("disk_encryption_set_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformProperty<double>? DiskSizeGb
-    {
-        set => SetProperty("disk_size_gb", value);
-    }
+    [TerraformPropertyName("disk_size_gb")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DiskSizeGb { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "disk_size_gb");
 
     /// <summary>
     /// The lun attribute.
     /// </summary>
-    public TerraformProperty<double>? Lun
-    {
-        set => SetProperty("lun", value);
-    }
+    [TerraformPropertyName("lun")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Lun { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "lun");
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
-    public required TerraformProperty<string> StorageAccountType
-    {
-        set => SetProperty("storage_account_type", value);
-    }
+    [TerraformPropertyName("storage_account_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountType { get; set; }
 
     /// <summary>
     /// The ultra_ssd_disk_iops_read_write attribute.
     /// </summary>
-    public TerraformProperty<double>? UltraSsdDiskIopsReadWrite
-    {
-        set => SetProperty("ultra_ssd_disk_iops_read_write", value);
-    }
+    [TerraformPropertyName("ultra_ssd_disk_iops_read_write")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> UltraSsdDiskIopsReadWrite { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "ultra_ssd_disk_iops_read_write");
 
     /// <summary>
     /// The ultra_ssd_disk_mbps_read_write attribute.
     /// </summary>
-    public TerraformProperty<double>? UltraSsdDiskMbpsReadWrite
-    {
-        set => SetProperty("ultra_ssd_disk_mbps_read_write", value);
-    }
+    [TerraformPropertyName("ultra_ssd_disk_mbps_read_write")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> UltraSsdDiskMbpsReadWrite { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "ultra_ssd_disk_mbps_read_write");
 
     /// <summary>
     /// The write_accelerator_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? WriteAcceleratorEnabled
-    {
-        set => SetProperty("write_accelerator_enabled", value);
-    }
+    [TerraformPropertyName("write_accelerator_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WriteAcceleratorEnabled { get; set; }
 
 }
 
@@ -153,91 +139,81 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock : TerraformB
 /// Block type for extension in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock : ITerraformBlock
 {
     /// <summary>
     /// The auto_upgrade_minor_version_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoUpgradeMinorVersionEnabled
-    {
-        set => SetProperty("auto_upgrade_minor_version_enabled", value);
-    }
+    [TerraformPropertyName("auto_upgrade_minor_version_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoUpgradeMinorVersionEnabled { get; set; }
 
     /// <summary>
     /// The extensions_to_provision_after_vm_creation attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ExtensionsToProvisionAfterVmCreation
-    {
-        set => SetProperty("extensions_to_provision_after_vm_creation", value);
-    }
+    [TerraformPropertyName("extensions_to_provision_after_vm_creation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ExtensionsToProvisionAfterVmCreation { get; set; }
 
     /// <summary>
     /// The failure_suppression_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? FailureSuppressionEnabled
-    {
-        set => SetProperty("failure_suppression_enabled", value);
-    }
+    [TerraformPropertyName("failure_suppression_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? FailureSuppressionEnabled { get; set; }
 
     /// <summary>
     /// The force_extension_execution_on_change attribute.
     /// </summary>
-    public TerraformProperty<string>? ForceExtensionExecutionOnChange
-    {
-        set => SetProperty("force_extension_execution_on_change", value);
-    }
+    [TerraformPropertyName("force_extension_execution_on_change")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ForceExtensionExecutionOnChange { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The protected_settings attribute.
     /// </summary>
-    public TerraformProperty<string>? ProtectedSettings
-    {
-        set => SetProperty("protected_settings", value);
-    }
+    [TerraformPropertyName("protected_settings")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProtectedSettings { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    public required TerraformProperty<string> Publisher
-    {
-        set => SetProperty("publisher", value);
-    }
+    [TerraformPropertyName("publisher")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
 
     /// <summary>
     /// The settings attribute.
     /// </summary>
-    public TerraformProperty<string>? Settings
-    {
-        set => SetProperty("settings", value);
-    }
+    [TerraformPropertyName("settings")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Settings { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// The type_handler_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeHandlerVersion is required")]
-    public required TerraformProperty<string> TypeHandlerVersion
-    {
-        set => SetProperty("type_handler_version", value);
-    }
+    [TerraformPropertyName("type_handler_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TypeHandlerVersion { get; set; }
 
 }
 
@@ -245,25 +221,23 @@ public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock : Terraform
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetIdentityBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -271,72 +245,64 @@ public class AzurermOrchestratedVirtualMachineScaleSetIdentityBlock : TerraformB
 /// Block type for network_interface in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock : ITerraformBlock
 {
     /// <summary>
     /// The auxiliary_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? AuxiliaryMode
-    {
-        set => SetProperty("auxiliary_mode", value);
-    }
+    [TerraformPropertyName("auxiliary_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuxiliaryMode { get; set; }
 
     /// <summary>
     /// The auxiliary_sku attribute.
     /// </summary>
-    public TerraformProperty<string>? AuxiliarySku
-    {
-        set => SetProperty("auxiliary_sku", value);
-    }
+    [TerraformPropertyName("auxiliary_sku")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuxiliarySku { get; set; }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? DnsServers
-    {
-        set => SetProperty("dns_servers", value);
-    }
+    [TerraformPropertyName("dns_servers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? DnsServers { get; set; }
 
     /// <summary>
     /// The enable_accelerated_networking attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableAcceleratedNetworking
-    {
-        set => SetProperty("enable_accelerated_networking", value);
-    }
+    [TerraformPropertyName("enable_accelerated_networking")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableAcceleratedNetworking { get; set; }
 
     /// <summary>
     /// The enable_ip_forwarding attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableIpForwarding
-    {
-        set => SetProperty("enable_ip_forwarding", value);
-    }
+    [TerraformPropertyName("enable_ip_forwarding")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableIpForwarding { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The network_security_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkSecurityGroupId
-    {
-        set => SetProperty("network_security_group_id", value);
-    }
+    [TerraformPropertyName("network_security_group_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NetworkSecurityGroupId { get; set; }
 
     /// <summary>
     /// The primary attribute.
     /// </summary>
-    public TerraformProperty<bool>? Primary
-    {
-        set => SetProperty("primary", value);
-    }
+    [TerraformPropertyName("primary")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Primary { get; set; }
 
 }
 
@@ -344,49 +310,44 @@ public class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock : Te
 /// Block type for os_disk in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock : ITerraformBlock
 {
     /// <summary>
     /// The caching attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
-    public required TerraformProperty<string> Caching
-    {
-        set => SetProperty("caching", value);
-    }
+    [TerraformPropertyName("caching")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Caching { get; set; }
 
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskEncryptionSetId
-    {
-        set => SetProperty("disk_encryption_set_id", value);
-    }
+    [TerraformPropertyName("disk_encryption_set_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformProperty<double>? DiskSizeGb
-    {
-        set => SetProperty("disk_size_gb", value);
-    }
+    [TerraformPropertyName("disk_size_gb")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DiskSizeGb { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "disk_size_gb");
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
-    public required TerraformProperty<string> StorageAccountType
-    {
-        set => SetProperty("storage_account_type", value);
-    }
+    [TerraformPropertyName("storage_account_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountType { get; set; }
 
     /// <summary>
     /// The write_accelerator_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? WriteAcceleratorEnabled
-    {
-        set => SetProperty("write_accelerator_enabled", value);
-    }
+    [TerraformPropertyName("write_accelerator_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WriteAcceleratorEnabled { get; set; }
 
 }
 
@@ -394,15 +355,14 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock : TerraformBlo
 /// Block type for os_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The custom_data attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomData
-    {
-        set => SetProperty("custom_data", value);
-    }
+    [TerraformPropertyName("custom_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomData { get; set; }
 
 }
 
@@ -410,34 +370,31 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlock : Terraform
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetPlanBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetPlanBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The product attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
-    public required TerraformProperty<string> Product
-    {
-        set => SetProperty("product", value);
-    }
+    [TerraformPropertyName("product")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Product { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    public required TerraformProperty<string> Publisher
-    {
-        set => SetProperty("publisher", value);
-    }
+    [TerraformPropertyName("publisher")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
 
 }
 
@@ -445,23 +402,21 @@ public class AzurermOrchestratedVirtualMachineScaleSetPlanBlock : TerraformBlock
 /// Block type for priority_mix in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetPriorityMixBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetPriorityMixBlock : ITerraformBlock
 {
     /// <summary>
     /// The base_regular_count attribute.
     /// </summary>
-    public TerraformProperty<double>? BaseRegularCount
-    {
-        set => SetProperty("base_regular_count", value);
-    }
+    [TerraformPropertyName("base_regular_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BaseRegularCount { get; set; }
 
     /// <summary>
     /// The regular_percentage_above_base attribute.
     /// </summary>
-    public TerraformProperty<double>? RegularPercentageAboveBase
-    {
-        set => SetProperty("regular_percentage_above_base", value);
-    }
+    [TerraformPropertyName("regular_percentage_above_base")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RegularPercentageAboveBase { get; set; }
 
 }
 
@@ -469,67 +424,60 @@ public class AzurermOrchestratedVirtualMachineScaleSetPriorityMixBlock : Terrafo
 /// Block type for rolling_upgrade_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The cross_zone_upgrades_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CrossZoneUpgradesEnabled
-    {
-        set => SetProperty("cross_zone_upgrades_enabled", value);
-    }
+    [TerraformPropertyName("cross_zone_upgrades_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CrossZoneUpgradesEnabled { get; set; }
 
     /// <summary>
     /// The max_batch_instance_percent attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxBatchInstancePercent is required")]
-    public required TerraformProperty<double> MaxBatchInstancePercent
-    {
-        set => SetProperty("max_batch_instance_percent", value);
-    }
+    [TerraformPropertyName("max_batch_instance_percent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxBatchInstancePercent { get; set; }
 
     /// <summary>
     /// The max_unhealthy_instance_percent attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnhealthyInstancePercent is required")]
-    public required TerraformProperty<double> MaxUnhealthyInstancePercent
-    {
-        set => SetProperty("max_unhealthy_instance_percent", value);
-    }
+    [TerraformPropertyName("max_unhealthy_instance_percent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxUnhealthyInstancePercent { get; set; }
 
     /// <summary>
     /// The max_unhealthy_upgraded_instance_percent attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnhealthyUpgradedInstancePercent is required")]
-    public required TerraformProperty<double> MaxUnhealthyUpgradedInstancePercent
-    {
-        set => SetProperty("max_unhealthy_upgraded_instance_percent", value);
-    }
+    [TerraformPropertyName("max_unhealthy_upgraded_instance_percent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxUnhealthyUpgradedInstancePercent { get; set; }
 
     /// <summary>
     /// The maximum_surge_instances_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? MaximumSurgeInstancesEnabled
-    {
-        set => SetProperty("maximum_surge_instances_enabled", value);
-    }
+    [TerraformPropertyName("maximum_surge_instances_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MaximumSurgeInstancesEnabled { get; set; }
 
     /// <summary>
     /// The pause_time_between_batches attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PauseTimeBetweenBatches is required")]
-    public required TerraformProperty<string> PauseTimeBetweenBatches
-    {
-        set => SetProperty("pause_time_between_batches", value);
-    }
+    [TerraformPropertyName("pause_time_between_batches")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PauseTimeBetweenBatches { get; set; }
 
     /// <summary>
     /// The prioritize_unhealthy_instances_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PrioritizeUnhealthyInstancesEnabled
-    {
-        set => SetProperty("prioritize_unhealthy_instances_enabled", value);
-    }
+    [TerraformPropertyName("prioritize_unhealthy_instances_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PrioritizeUnhealthyInstancesEnabled { get; set; }
 
 }
 
@@ -537,25 +485,23 @@ public class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock 
 /// Block type for sku_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The allocation_strategy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationStrategy is required")]
-    public required TerraformProperty<string> AllocationStrategy
-    {
-        set => SetProperty("allocation_strategy", value);
-    }
+    [TerraformPropertyName("allocation_strategy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AllocationStrategy { get; set; }
 
     /// <summary>
     /// The vm_sizes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSizes is required")]
-    public HashSet<TerraformProperty<string>>? VmSizes
-    {
-        set => SetProperty("vm_sizes", value);
-    }
+    [TerraformPropertyName("vm_sizes")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? VmSizes { get; set; }
 
 }
 
@@ -563,43 +509,39 @@ public class AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock : Terrafor
 /// Block type for source_image_reference in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock : ITerraformBlock
 {
     /// <summary>
     /// The offer attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
-    public required TerraformProperty<string> Offer
-    {
-        set => SetProperty("offer", value);
-    }
+    [TerraformPropertyName("offer")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Offer { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    public required TerraformProperty<string> Publisher
-    {
-        set => SetProperty("publisher", value);
-    }
+    [TerraformPropertyName("publisher")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    public required TerraformProperty<string> Sku
-    {
-        set => SetProperty("sku", value);
-    }
+    [TerraformPropertyName("sku")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Sku { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
 }
 
@@ -607,24 +549,22 @@ public class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock 
 /// Block type for termination_notification in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformProperty<string>? Timeout
-    {
-        set => SetProperty("timeout", value);
-    }
+    [TerraformPropertyName("timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Timeout { get; set; }
 
 }
 
@@ -632,39 +572,35 @@ public class AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetTimeoutsBlock : TerraformBlock
+public class AzurermOrchestratedVirtualMachineScaleSetTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -676,417 +612,309 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
 {
     public AzurermOrchestratedVirtualMachineScaleSet(string name) : base("azurerm_orchestrated_virtual_machine_scale_set", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("unique_id");
-        SetOutput("capacity_reservation_group_id");
-        SetOutput("encryption_at_host_enabled");
-        SetOutput("eviction_policy");
-        SetOutput("extension_operations_enabled");
-        SetOutput("extensions_time_budget");
-        SetOutput("id");
-        SetOutput("instances");
-        SetOutput("license_type");
-        SetOutput("location");
-        SetOutput("max_bid_price");
-        SetOutput("name");
-        SetOutput("network_api_version");
-        SetOutput("platform_fault_domain_count");
-        SetOutput("priority");
-        SetOutput("proximity_placement_group_id");
-        SetOutput("resource_group_name");
-        SetOutput("single_placement_group");
-        SetOutput("sku_name");
-        SetOutput("source_image_id");
-        SetOutput("tags");
-        SetOutput("upgrade_mode");
-        SetOutput("user_data_base64");
-        SetOutput("zone_balance");
-        SetOutput("zones");
     }
 
     /// <summary>
     /// The capacity_reservation_group_id attribute.
     /// </summary>
-    public TerraformProperty<string> CapacityReservationGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("capacity_reservation_group_id");
-        set => SetProperty("capacity_reservation_group_id", value);
-    }
+    [TerraformPropertyName("capacity_reservation_group_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CapacityReservationGroupId { get; set; }
 
     /// <summary>
     /// The encryption_at_host_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> EncryptionAtHostEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("encryption_at_host_enabled");
-        set => SetProperty("encryption_at_host_enabled", value);
-    }
+    [TerraformPropertyName("encryption_at_host_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EncryptionAtHostEnabled { get; set; }
 
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
-    public TerraformProperty<string> EvictionPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eviction_policy");
-        set => SetProperty("eviction_policy", value);
-    }
+    [TerraformPropertyName("eviction_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EvictionPolicy { get; set; }
 
     /// <summary>
     /// The extension_operations_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ExtensionOperationsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("extension_operations_enabled");
-        set => SetProperty("extension_operations_enabled", value);
-    }
+    [TerraformPropertyName("extension_operations_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExtensionOperationsEnabled { get; set; }
 
     /// <summary>
     /// The extensions_time_budget attribute.
     /// </summary>
-    public TerraformProperty<string> ExtensionsTimeBudget
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("extensions_time_budget");
-        set => SetProperty("extensions_time_budget", value);
-    }
+    [TerraformPropertyName("extensions_time_budget")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExtensionsTimeBudget { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
-    public TerraformProperty<double> Instances
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("instances");
-        set => SetProperty("instances", value);
-    }
+    [TerraformPropertyName("instances")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Instances { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "instances");
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformProperty<string> LicenseType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("license_type");
-        set => SetProperty("license_type", value);
-    }
+    [TerraformPropertyName("license_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LicenseType { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The max_bid_price attribute.
     /// </summary>
-    public TerraformProperty<double> MaxBidPrice
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_bid_price");
-        set => SetProperty("max_bid_price", value);
-    }
+    [TerraformPropertyName("max_bid_price")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxBidPrice { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The network_api_version attribute.
     /// </summary>
-    public TerraformProperty<string> NetworkApiVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_api_version");
-        set => SetProperty("network_api_version", value);
-    }
+    [TerraformPropertyName("network_api_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NetworkApiVersion { get; set; }
 
     /// <summary>
     /// The platform_fault_domain_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformFaultDomainCount is required")]
-    public required TerraformProperty<double> PlatformFaultDomainCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("platform_fault_domain_count");
-        set => SetProperty("platform_fault_domain_count", value);
-    }
+    [TerraformPropertyName("platform_fault_domain_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> PlatformFaultDomainCount { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<string> Priority
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("priority");
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Priority { get; set; }
 
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
-    public TerraformProperty<string> ProximityPlacementGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("proximity_placement_group_id");
-        set => SetProperty("proximity_placement_group_id", value);
-    }
+    [TerraformPropertyName("proximity_placement_group_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProximityPlacementGroupId { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The single_placement_group attribute.
     /// </summary>
-    public TerraformProperty<bool> SinglePlacementGroup
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("single_placement_group");
-        set => SetProperty("single_placement_group", value);
-    }
+    [TerraformPropertyName("single_placement_group")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> SinglePlacementGroup { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "single_placement_group");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformProperty<string> SkuName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
-        set => SetProperty("sku_name", value);
-    }
+    [TerraformPropertyName("sku_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SkuName { get; set; }
 
     /// <summary>
     /// The source_image_id attribute.
     /// </summary>
-    public TerraformProperty<string> SourceImageId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_image_id");
-        set => SetProperty("source_image_id", value);
-    }
+    [TerraformPropertyName("source_image_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceImageId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The upgrade_mode attribute.
     /// </summary>
-    public TerraformProperty<string> UpgradeMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("upgrade_mode");
-        set => SetProperty("upgrade_mode", value);
-    }
+    [TerraformPropertyName("upgrade_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UpgradeMode { get; set; }
 
     /// <summary>
     /// The user_data_base64 attribute.
     /// </summary>
-    public TerraformProperty<string> UserDataBase64
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_data_base64");
-        set => SetProperty("user_data_base64", value);
-    }
+    [TerraformPropertyName("user_data_base64")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserDataBase64 { get; set; }
 
     /// <summary>
     /// The zone_balance attribute.
     /// </summary>
-    public TerraformProperty<bool> ZoneBalance
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("zone_balance");
-        set => SetProperty("zone_balance", value);
-    }
+    [TerraformPropertyName("zone_balance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ZoneBalance { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Zones
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
-        set => SetProperty("zones", value);
-    }
+    [TerraformPropertyName("zones")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Zones { get; set; }
 
     /// <summary>
     /// Block for additional_capabilities.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]
-    public List<AzurermOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesBlock>? AdditionalCapabilities
-    {
-        set => SetProperty("additional_capabilities", value);
-    }
+    [TerraformPropertyName("additional_capabilities")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesBlock>>? AdditionalCapabilities { get; set; } = new();
 
     /// <summary>
     /// Block for automatic_instance_repair.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticInstanceRepair block(s) allowed")]
-    public List<AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlock>? AutomaticInstanceRepair
-    {
-        set => SetProperty("automatic_instance_repair", value);
-    }
+    [TerraformPropertyName("automatic_instance_repair")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlock>>? AutomaticInstanceRepair { get; set; } = new();
 
     /// <summary>
     /// Block for boot_diagnostics.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
-    public List<AzurermOrchestratedVirtualMachineScaleSetBootDiagnosticsBlock>? BootDiagnostics
-    {
-        set => SetProperty("boot_diagnostics", value);
-    }
+    [TerraformPropertyName("boot_diagnostics")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetBootDiagnosticsBlock>>? BootDiagnostics { get; set; } = new();
 
     /// <summary>
     /// Block for data_disk.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock>? DataDisk
-    {
-        set => SetProperty("data_disk", value);
-    }
+    [TerraformPropertyName("data_disk")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock>>? DataDisk { get; set; } = new();
 
     /// <summary>
     /// Block for extension.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermOrchestratedVirtualMachineScaleSetExtensionBlock>? Extension
-    {
-        set => SetProperty("extension", value);
-    }
+    [TerraformPropertyName("extension")]
+    public TerraformSet<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetExtensionBlock>>? Extension { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermOrchestratedVirtualMachineScaleSetIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for network_interface.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock>? NetworkInterface
-    {
-        set => SetProperty("network_interface", value);
-    }
+    [TerraformPropertyName("network_interface")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock>>? NetworkInterface { get; set; } = new();
 
     /// <summary>
     /// Block for os_disk.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
-    public List<AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock>? OsDisk
-    {
-        set => SetProperty("os_disk", value);
-    }
+    [TerraformPropertyName("os_disk")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock>>? OsDisk { get; set; } = new();
 
     /// <summary>
     /// Block for os_profile.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfile block(s) allowed")]
-    public List<AzurermOrchestratedVirtualMachineScaleSetOsProfileBlock>? OsProfile
-    {
-        set => SetProperty("os_profile", value);
-    }
+    [TerraformPropertyName("os_profile")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetOsProfileBlock>>? OsProfile { get; set; } = new();
 
     /// <summary>
     /// Block for plan.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public List<AzurermOrchestratedVirtualMachineScaleSetPlanBlock>? Plan
-    {
-        set => SetProperty("plan", value);
-    }
+    [TerraformPropertyName("plan")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetPlanBlock>>? Plan { get; set; } = new();
 
     /// <summary>
     /// Block for priority_mix.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PriorityMix block(s) allowed")]
-    public List<AzurermOrchestratedVirtualMachineScaleSetPriorityMixBlock>? PriorityMix
-    {
-        set => SetProperty("priority_mix", value);
-    }
+    [TerraformPropertyName("priority_mix")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetPriorityMixBlock>>? PriorityMix { get; set; } = new();
 
     /// <summary>
     /// Block for rolling_upgrade_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RollingUpgradePolicy block(s) allowed")]
-    public List<AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock>? RollingUpgradePolicy
-    {
-        set => SetProperty("rolling_upgrade_policy", value);
-    }
+    [TerraformPropertyName("rolling_upgrade_policy")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock>>? RollingUpgradePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for sku_profile.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SkuProfile block(s) allowed")]
-    public List<AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock>? SkuProfile
-    {
-        set => SetProperty("sku_profile", value);
-    }
+    [TerraformPropertyName("sku_profile")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock>>? SkuProfile { get; set; } = new();
 
     /// <summary>
     /// Block for source_image_reference.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageReference block(s) allowed")]
-    public List<AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock>? SourceImageReference
-    {
-        set => SetProperty("source_image_reference", value);
-    }
+    [TerraformPropertyName("source_image_reference")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock>>? SourceImageReference { get; set; } = new();
 
     /// <summary>
     /// Block for termination_notification.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TerminationNotification block(s) allowed")]
-    public List<AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlock>? TerminationNotification
-    {
-        set => SetProperty("termination_notification", value);
-    }
+    [TerraformPropertyName("termination_notification")]
+    public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlock>>? TerminationNotification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermOrchestratedVirtualMachineScaleSetTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique_id attribute.
     /// </summary>
-    public TerraformExpression UniqueId => this["unique_id"];
+    [TerraformPropertyName("unique_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UniqueId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "unique_id");
 
 }

@@ -6,42 +6,38 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for forms_input in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlock
+public class AwsDatazoneAssetTypeFormsInputBlock : ITerraformBlock
 {
     /// <summary>
     /// The map_block_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
-    public required TerraformProperty<string> MapBlockKey
-    {
-        set => SetProperty("map_block_key", value);
-    }
+    [TerraformPropertyName("map_block_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MapBlockKey { get; set; }
 
     /// <summary>
     /// The required attribute.
     /// </summary>
-    public TerraformProperty<bool>? Required
-    {
-        set => SetProperty("required", value);
-    }
+    [TerraformPropertyName("required")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Required { get; set; }
 
     /// <summary>
     /// The type_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeIdentifier is required")]
-    public required TerraformProperty<string> TypeIdentifier
-    {
-        set => SetProperty("type_identifier", value);
-    }
+    [TerraformPropertyName("type_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TypeIdentifier { get; set; }
 
     /// <summary>
     /// The type_revision attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeRevision is required")]
-    public required TerraformProperty<string> TypeRevision
-    {
-        set => SetProperty("type_revision", value);
-    }
+    [TerraformPropertyName("type_revision")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TypeRevision { get; set; }
 
 }
 
@@ -49,15 +45,14 @@ public class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDatazoneAssetTypeTimeoutsBlock : TerraformBlock
+public class AwsDatazoneAssetTypeTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
 }
 
@@ -68,100 +63,79 @@ public class AwsDatazoneAssetType : TerraformResource
 {
     public AwsDatazoneAssetType(string name) : base("aws_datazone_asset_type", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("created_at");
-        SetOutput("created_by");
-        SetOutput("revision");
-        SetOutput("description");
-        SetOutput("domain_identifier");
-        SetOutput("name");
-        SetOutput("owning_project_identifier");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The domain_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
-    public required TerraformProperty<string> DomainIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_identifier");
-        set => SetProperty("domain_identifier", value);
-    }
+    [TerraformPropertyName("domain_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainIdentifier { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The owning_project_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwningProjectIdentifier is required")]
-    public required TerraformProperty<string> OwningProjectIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("owning_project_identifier");
-        set => SetProperty("owning_project_identifier", value);
-    }
+    [TerraformPropertyName("owning_project_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OwningProjectIdentifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for forms_input.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsDatazoneAssetTypeFormsInputBlock>? FormsInput
-    {
-        set => SetProperty("forms_input", value);
-    }
+    [TerraformPropertyName("forms_input")]
+    public TerraformSet<TerraformBlock<AwsDatazoneAssetTypeFormsInputBlock>>? FormsInput { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDatazoneAssetTypeTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDatazoneAssetTypeTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
-    public TerraformExpression CreatedBy => this["created_by"];
+    [TerraformPropertyName("created_by")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedBy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_by");
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
-    public TerraformExpression Revision => this["revision"];
+    [TerraformPropertyName("revision")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Revision => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "revision");
 
 }

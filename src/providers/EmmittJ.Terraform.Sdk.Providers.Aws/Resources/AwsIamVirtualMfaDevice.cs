@@ -9,92 +9,77 @@ public class AwsIamVirtualMfaDevice : TerraformResource
 {
     public AwsIamVirtualMfaDevice(string name) : base("aws_iam_virtual_mfa_device", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("base_32_string_seed");
-        SetOutput("enable_date");
-        SetOutput("qr_code_png");
-        SetOutput("user_name");
-        SetOutput("id");
-        SetOutput("path");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("virtual_mfa_device_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string> Path
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("path");
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The virtual_mfa_device_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMfaDeviceName is required")]
-    public required TerraformProperty<string> VirtualMfaDeviceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_mfa_device_name");
-        set => SetProperty("virtual_mfa_device_name", value);
-    }
+    [TerraformPropertyName("virtual_mfa_device_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualMfaDeviceName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The base_32_string_seed attribute.
     /// </summary>
-    public TerraformExpression Base32StringSeed => this["base_32_string_seed"];
+    [TerraformPropertyName("base_32_string_seed")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Base32StringSeed => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "base_32_string_seed");
 
     /// <summary>
     /// The enable_date attribute.
     /// </summary>
-    public TerraformExpression EnableDate => this["enable_date"];
+    [TerraformPropertyName("enable_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EnableDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "enable_date");
 
     /// <summary>
     /// The qr_code_png attribute.
     /// </summary>
-    public TerraformExpression QrCodePng => this["qr_code_png"];
+    [TerraformPropertyName("qr_code_png")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> QrCodePng => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "qr_code_png");
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformExpression UserName => this["user_name"];
+    [TerraformPropertyName("user_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_name");
 
 }

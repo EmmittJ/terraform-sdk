@@ -9,97 +9,73 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
 {
     public AwsAppconfigHostedConfigurationVersion(string name) : base("aws_appconfig_hosted_configuration_version", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("version_number");
-        SetOutput("application_id");
-        SetOutput("configuration_profile_id");
-        SetOutput("content");
-        SetOutput("content_type");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    public required TerraformProperty<string> ApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
-        set => SetProperty("application_id", value);
-    }
+    [TerraformPropertyName("application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
 
     /// <summary>
     /// The configuration_profile_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationProfileId is required")]
-    public required TerraformProperty<string> ConfigurationProfileId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("configuration_profile_id");
-        set => SetProperty("configuration_profile_id", value);
-    }
+    [TerraformPropertyName("configuration_profile_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConfigurationProfileId { get; set; }
 
     /// <summary>
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    public required TerraformProperty<string> Content
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content");
-        set => SetProperty("content", value);
-    }
+    [TerraformPropertyName("content")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Content { get; set; }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
-    public required TerraformProperty<string> ContentType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content_type");
-        set => SetProperty("content_type", value);
-    }
+    [TerraformPropertyName("content_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContentType { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The version_number attribute.
     /// </summary>
-    public TerraformExpression VersionNumber => this["version_number"];
+    [TerraformPropertyName("version_number")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> VersionNumber => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "version_number");
 
 }

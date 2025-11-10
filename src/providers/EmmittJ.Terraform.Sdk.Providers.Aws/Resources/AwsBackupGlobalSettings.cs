@@ -9,32 +9,21 @@ public class AwsBackupGlobalSettings : TerraformResource
 {
     public AwsBackupGlobalSettings(string name) : base("aws_backup_global_settings", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("global_settings");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The global_settings attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalSettings is required")]
-    public Dictionary<string, TerraformProperty<string>> GlobalSettings
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("global_settings");
-        set => SetProperty("global_settings", value);
-    }
+    [TerraformPropertyName("global_settings")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? GlobalSettings { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

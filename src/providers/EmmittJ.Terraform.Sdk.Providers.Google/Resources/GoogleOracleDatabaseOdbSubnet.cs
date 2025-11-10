@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleOracleDatabaseOdbSubnetTimeoutsBlock : TerraformBlock
+public class GoogleOracleDatabaseOdbSubnetTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,54 +38,29 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
 {
     public GoogleOracleDatabaseOdbSubnet(string name) : base("google_oracle_database_odb_subnet", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("name");
-        SetOutput("state");
-        SetOutput("terraform_labels");
-        SetOutput("cidr_range");
-        SetOutput("deletion_protection");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("odb_subnet_id");
-        SetOutput("odbnetwork");
-        SetOutput("project");
-        SetOutput("purpose");
     }
 
     /// <summary>
     /// The CIDR range of the subnet.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrRange is required")]
-    public required TerraformProperty<string> CidrRange
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cidr_range");
-        set => SetProperty("cidr_range", value);
-    }
+    [TerraformPropertyName("cidr_range")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CidrRange { get; set; }
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
-    public TerraformProperty<bool> DeletionProtection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
-        set => SetProperty("deletion_protection", value);
-    }
+    [TerraformPropertyName("deletion_protection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeletionProtection { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Labels or tags associated with the resource.
@@ -96,21 +68,17 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The ID of the OdbSubnet to create. This value is restricted
@@ -119,30 +87,24 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     /// a letter or a number.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbSubnetId is required")]
-    public required TerraformProperty<string> OdbSubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("odb_subnet_id");
-        set => SetProperty("odb_subnet_id", value);
-    }
+    [TerraformPropertyName("odb_subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OdbSubnetId { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Odbnetwork is required")]
-    public required TerraformProperty<string> Odbnetwork
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("odbnetwork");
-        set => SetProperty("odbnetwork", value);
-    }
+    [TerraformPropertyName("odbnetwork")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Odbnetwork { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Purpose of the subnet.
@@ -151,36 +113,38 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     /// BACKUP_SUBNET
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Purpose is required")]
-    public required TerraformProperty<string> Purpose
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("purpose");
-        set => SetProperty("purpose", value);
-    }
+    [TerraformPropertyName("purpose")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Purpose { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleOracleDatabaseOdbSubnetTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleOracleDatabaseOdbSubnetTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The date and time that the OdbNetwork was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Identifier. The name of the OdbSubnet resource in the following format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// State of the ODB Subnet.
@@ -190,12 +154,16 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     /// TERMINATING
     /// FAILED
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cache_attributes in .
 /// Nesting mode: list
 /// </summary>
-public class AwsStoragegatewayFileSystemAssociationCacheAttributesBlock : TerraformBlock
+public class AwsStoragegatewayFileSystemAssociationCacheAttributesBlock : ITerraformBlock
 {
     /// <summary>
     /// The cache_stale_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? CacheStaleTimeoutInSeconds
-    {
-        set => SetProperty("cache_stale_timeout_in_seconds", value);
-    }
+    [TerraformPropertyName("cache_stale_timeout_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CacheStaleTimeoutInSeconds { get; set; }
 
 }
 
@@ -22,31 +21,28 @@ public class AwsStoragegatewayFileSystemAssociationCacheAttributesBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsStoragegatewayFileSystemAssociationTimeoutsBlock : TerraformBlock
+public class AwsStoragegatewayFileSystemAssociationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -58,130 +54,95 @@ public class AwsStoragegatewayFileSystemAssociation : TerraformResource
 {
     public AwsStoragegatewayFileSystemAssociation(string name) : base("aws_storagegateway_file_system_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("audit_destination_arn");
-        SetOutput("gateway_arn");
-        SetOutput("id");
-        SetOutput("location_arn");
-        SetOutput("password");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("username");
     }
 
     /// <summary>
     /// The audit_destination_arn attribute.
     /// </summary>
-    public TerraformProperty<string> AuditDestinationArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("audit_destination_arn");
-        set => SetProperty("audit_destination_arn", value);
-    }
+    [TerraformPropertyName("audit_destination_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuditDestinationArn { get; set; }
 
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
-    public required TerraformProperty<string> GatewayArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gateway_arn");
-        set => SetProperty("gateway_arn", value);
-    }
+    [TerraformPropertyName("gateway_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GatewayArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationArn is required")]
-    public required TerraformProperty<string> LocationArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location_arn");
-        set => SetProperty("location_arn", value);
-    }
+    [TerraformPropertyName("location_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LocationArn { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    public required TerraformProperty<string> Password
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("password");
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    public required TerraformProperty<string> Username
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("username");
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
 
     /// <summary>
     /// Block for cache_attributes.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CacheAttributes block(s) allowed")]
-    public List<AwsStoragegatewayFileSystemAssociationCacheAttributesBlock>? CacheAttributes
-    {
-        set => SetProperty("cache_attributes", value);
-    }
+    [TerraformPropertyName("cache_attributes")]
+    public TerraformList<TerraformBlock<AwsStoragegatewayFileSystemAssociationCacheAttributesBlock>>? CacheAttributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsStoragegatewayFileSystemAssociationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsStoragegatewayFileSystemAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

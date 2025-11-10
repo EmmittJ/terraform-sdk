@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for log_delivery_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTimestreaminfluxdbDbClusterLogDeliveryConfigurationBlock : TerraformBlock
+public class AwsTimestreaminfluxdbDbClusterLogDeliveryConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -14,31 +14,28 @@ public class AwsTimestreaminfluxdbDbClusterLogDeliveryConfigurationBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsTimestreaminfluxdbDbClusterTimeoutsBlock : TerraformBlock
+public class AwsTimestreaminfluxdbDbClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,46 +46,15 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
 {
     public AwsTimestreaminfluxdbDbCluster(string name) : base("aws_timestreaminfluxdb_db_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("endpoint");
-        SetOutput("id");
-        SetOutput("influx_auth_parameters_secret_arn");
-        SetOutput("reader_endpoint");
-        SetOutput("tags_all");
-        SetOutput("allocated_storage");
-        SetOutput("bucket");
-        SetOutput("db_instance_type");
-        SetOutput("db_parameter_group_identifier");
-        SetOutput("db_storage_type");
-        SetOutput("deployment_type");
-        SetOutput("failover_mode");
-        SetOutput("name");
-        SetOutput("network_type");
-        SetOutput("organization");
-        SetOutput("password");
-        SetOutput("port");
-        SetOutput("publicly_accessible");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("username");
-        SetOutput("vpc_security_group_ids");
-        SetOutput("vpc_subnet_ids");
     }
 
     /// <summary>
     /// The amount of storage to allocate for your DB storage type in GiB (gibibytes).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocatedStorage is required")]
-    public required TerraformProperty<double> AllocatedStorage
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("allocated_storage");
-        set => SetProperty("allocated_storage", value);
-    }
+    [TerraformPropertyName("allocated_storage")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> AllocatedStorage { get; set; }
 
     /// <summary>
     /// The name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. 
@@ -96,32 +62,26 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// 					that each data point persists). A bucket belongs to an organization.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The Timestream for InfluxDB DB instance type to run InfluxDB on.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceType is required")]
-    public required TerraformProperty<string> DbInstanceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_instance_type");
-        set => SetProperty("db_instance_type", value);
-    }
+    [TerraformPropertyName("db_instance_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DbInstanceType { get; set; }
 
     /// <summary>
     /// The ID of the DB parameter group to assign to your DB cluster. 
     /// 					DB parameter groups specify how the database is configured. For example, DB parameter groups 
     /// 					can specify the limit for query concurrency.
     /// </summary>
-    public TerraformProperty<string> DbParameterGroupIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_parameter_group_identifier");
-        set => SetProperty("db_parameter_group_identifier", value);
-    }
+    [TerraformPropertyName("db_parameter_group_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DbParameterGroupIdentifier { get; set; }
 
     /// <summary>
     /// The Timestream for InfluxDB DB storage type to read and write InfluxDB data. 
@@ -129,30 +89,24 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// 					to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, 
     /// 					Influx IO Included 16000 IOPS.
     /// </summary>
-    public TerraformProperty<string> DbStorageType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_storage_type");
-        set => SetProperty("db_storage_type", value);
-    }
+    [TerraformPropertyName("db_storage_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DbStorageType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "db_storage_type");
 
     /// <summary>
     /// Specifies the type of cluster to create.
     /// </summary>
-    public TerraformProperty<string> DeploymentType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deployment_type");
-        set => SetProperty("deployment_type", value);
-    }
+    [TerraformPropertyName("deployment_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DeploymentType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deployment_type");
 
     /// <summary>
     /// Specifies the behavior of failure recovery when the primary node of the cluster
     /// 					fails.
     /// </summary>
-    public TerraformProperty<string> FailoverMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("failover_mode");
-        set => SetProperty("failover_mode", value);
-    }
+    [TerraformPropertyName("failover_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> FailoverMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "failover_mode");
 
     /// <summary>
     /// The name that uniquely identifies the DB cluster when interacting with the 
@@ -161,33 +115,27 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// 					and per region.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Specifies whether the networkType of the Timestream for InfluxDB cluster is 
     /// 					IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate 
     /// 					over both IPv4 and IPv6 protocols.
     /// </summary>
-    public TerraformProperty<string> NetworkType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_type");
-        set => SetProperty("network_type", value);
-    }
+    [TerraformPropertyName("network_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NetworkType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_type");
 
     /// <summary>
     /// The name of the initial organization for the initial admin user in InfluxDB. An 
     /// 					InfluxDB organization is a workspace for a group of users.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
-    public required TerraformProperty<string> Organization
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("organization");
-        set => SetProperty("organization", value);
-    }
+    [TerraformPropertyName("organization")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Organization { get; set; }
 
     /// <summary>
     /// The password of the initial admin user created in InfluxDB. This password will 
@@ -196,47 +144,37 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// 					stored in a Secret created in AWS SecretManager in your account.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    public required TerraformProperty<string> Password
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("password");
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
 
     /// <summary>
     /// The port number on which InfluxDB accepts connections.
     /// </summary>
-    public TerraformProperty<double> Port
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("port");
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Port { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "port");
 
     /// <summary>
     /// Configures the Timestream for InfluxDB cluster with a public IP to facilitate access.
     /// </summary>
-    public TerraformProperty<bool> PubliclyAccessible
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("publicly_accessible");
-        set => SetProperty("publicly_accessible", value);
-    }
+    [TerraformPropertyName("publicly_accessible")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> PubliclyAccessible { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "publicly_accessible");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The username of the initial admin user created in InfluxDB. 
@@ -248,65 +186,61 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// 					Manager in your account.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    public required TerraformProperty<string> Username
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("username");
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
 
     /// <summary>
     /// A list of VPC security group IDs to associate with the Timestream for InfluxDB cluster.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSecurityGroupIds is required")]
-    public HashSet<TerraformProperty<string>> VpcSecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
-        set => SetProperty("vpc_security_group_ids", value);
-    }
+    [TerraformPropertyName("vpc_security_group_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? VpcSecurityGroupIds { get; set; }
 
     /// <summary>
     /// A list of VPC subnet IDs to associate with the DB cluster. Provide at least 
     /// 					two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSubnetIds is required")]
-    public HashSet<TerraformProperty<string>> VpcSubnetIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_subnet_ids");
-        set => SetProperty("vpc_subnet_ids", value);
-    }
+    [TerraformPropertyName("vpc_subnet_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? VpcSubnetIds { get; set; }
 
     /// <summary>
     /// Block for log_delivery_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsTimestreaminfluxdbDbClusterLogDeliveryConfigurationBlock>? LogDeliveryConfiguration
-    {
-        set => SetProperty("log_delivery_configuration", value);
-    }
+    [TerraformPropertyName("log_delivery_configuration")]
+    public TerraformList<TerraformBlock<AwsTimestreaminfluxdbDbClusterLogDeliveryConfigurationBlock>>? LogDeliveryConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsTimestreaminfluxdbDbClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsTimestreaminfluxdbDbClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the 
@@ -314,17 +248,23 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// 					key-value pair holding InfluxDB authorization values: organization, bucket, 
     /// 					username, and password.
     /// </summary>
-    public TerraformExpression InfluxAuthParametersSecretArn => this["influx_auth_parameters_secret_arn"];
+    [TerraformPropertyName("influx_auth_parameters_secret_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InfluxAuthParametersSecretArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "influx_auth_parameters_secret_arn");
 
     /// <summary>
     /// The endpoint used to connect to the Timestream for InfluxDB cluster for 
     /// 					read-only operations.
     /// </summary>
-    public TerraformExpression ReaderEndpoint => this["reader_endpoint"];
+    [TerraformPropertyName("reader_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ReaderEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "reader_endpoint");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

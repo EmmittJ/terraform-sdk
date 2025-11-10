@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for create_table_default_permission in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCatalogDatabaseCreateTableDefaultPermissionBlock : TerraformBlock
+public class AwsGlueCatalogDatabaseCreateTableDefaultPermissionBlock : ITerraformBlock
 {
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Permissions
-    {
-        set => SetProperty("permissions", value);
-    }
+    [TerraformPropertyName("permissions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Permissions { get; set; }
 
 }
 
@@ -22,23 +21,21 @@ public class AwsGlueCatalogDatabaseCreateTableDefaultPermissionBlock : Terraform
 /// Block type for federated_database in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCatalogDatabaseFederatedDatabaseBlock : TerraformBlock
+public class AwsGlueCatalogDatabaseFederatedDatabaseBlock : ITerraformBlock
 {
     /// <summary>
     /// The connection_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionName
-    {
-        set => SetProperty("connection_name", value);
-    }
+    [TerraformPropertyName("connection_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConnectionName { get; set; }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? Identifier
-    {
-        set => SetProperty("identifier", value);
-    }
+    [TerraformPropertyName("identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Identifier { get; set; }
 
 }
 
@@ -46,33 +43,30 @@ public class AwsGlueCatalogDatabaseFederatedDatabaseBlock : TerraformBlock
 /// Block type for target_database in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueCatalogDatabaseTargetDatabaseBlock : TerraformBlock
+public class AwsGlueCatalogDatabaseTargetDatabaseBlock : ITerraformBlock
 {
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
-    public required TerraformProperty<string> CatalogId
-    {
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CatalogId { get; set; }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    public required TerraformProperty<string> DatabaseName
-    {
-        set => SetProperty("database_name", value);
-    }
+    [TerraformPropertyName("database_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformProperty<string>? Region
-    {
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
 }
 
@@ -84,137 +78,100 @@ public class AwsGlueCatalogDatabase : TerraformResource
 {
     public AwsGlueCatalogDatabase(string name) : base("aws_glue_catalog_database", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("catalog_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("location_uri");
-        SetOutput("name");
-        SetOutput("parameters");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string> CatalogId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "catalog_id");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location_uri attribute.
     /// </summary>
-    public TerraformProperty<string> LocationUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location_uri");
-        set => SetProperty("location_uri", value);
-    }
+    [TerraformPropertyName("location_uri")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LocationUri { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location_uri");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Parameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for create_table_default_permission.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsGlueCatalogDatabaseCreateTableDefaultPermissionBlock>? CreateTableDefaultPermission
-    {
-        set => SetProperty("create_table_default_permission", value);
-    }
+    [TerraformPropertyName("create_table_default_permission")]
+    public TerraformList<TerraformBlock<AwsGlueCatalogDatabaseCreateTableDefaultPermissionBlock>>? CreateTableDefaultPermission { get; set; } = new();
 
     /// <summary>
     /// Block for federated_database.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FederatedDatabase block(s) allowed")]
-    public List<AwsGlueCatalogDatabaseFederatedDatabaseBlock>? FederatedDatabase
-    {
-        set => SetProperty("federated_database", value);
-    }
+    [TerraformPropertyName("federated_database")]
+    public TerraformList<TerraformBlock<AwsGlueCatalogDatabaseFederatedDatabaseBlock>>? FederatedDatabase { get; set; } = new();
 
     /// <summary>
     /// Block for target_database.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetDatabase block(s) allowed")]
-    public List<AwsGlueCatalogDatabaseTargetDatabaseBlock>? TargetDatabase
-    {
-        set => SetProperty("target_database", value);
-    }
+    [TerraformPropertyName("target_database")]
+    public TerraformList<TerraformBlock<AwsGlueCatalogDatabaseTargetDatabaseBlock>>? TargetDatabase { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

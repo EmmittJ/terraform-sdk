@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDocumentAiProcessorDefaultVersionTimeoutsBlock : TerraformBlock
+public class GoogleDocumentAiProcessorDefaultVersionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,53 +31,37 @@ public class GoogleDocumentAiProcessorDefaultVersion : TerraformResource
 {
     public GoogleDocumentAiProcessorDefaultVersion(string name) : base("google_document_ai_processor_default_version", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("processor");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The processor to set the version on.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Processor is required")]
-    public required TerraformProperty<string> Processor
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("processor");
-        set => SetProperty("processor", value);
-    }
+    [TerraformPropertyName("processor")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Processor { get; set; }
 
     /// <summary>
     /// The version to set. Using &#39;stable&#39; or &#39;rc&#39; will cause the API to return the latest version in that release channel.
     /// Apply &#39;lifecycle.ignore_changes&#39; to the &#39;version&#39; field to suppress this diff.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDocumentAiProcessorDefaultVersionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDocumentAiProcessorDefaultVersionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

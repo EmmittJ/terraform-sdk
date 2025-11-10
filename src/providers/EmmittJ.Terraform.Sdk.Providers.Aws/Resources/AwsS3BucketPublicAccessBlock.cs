@@ -9,92 +9,63 @@ public class AwsS3BucketPublicAccessBlock : TerraformResource
 {
     public AwsS3BucketPublicAccessBlock(string name) : base("aws_s3_bucket_public_access_block", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("block_public_acls");
-        SetOutput("block_public_policy");
-        SetOutput("bucket");
-        SetOutput("id");
-        SetOutput("ignore_public_acls");
-        SetOutput("region");
-        SetOutput("restrict_public_buckets");
-        SetOutput("skip_destroy");
     }
 
     /// <summary>
     /// The block_public_acls attribute.
     /// </summary>
-    public TerraformProperty<bool> BlockPublicAcls
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("block_public_acls");
-        set => SetProperty("block_public_acls", value);
-    }
+    [TerraformPropertyName("block_public_acls")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BlockPublicAcls { get; set; }
 
     /// <summary>
     /// The block_public_policy attribute.
     /// </summary>
-    public TerraformProperty<bool> BlockPublicPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("block_public_policy");
-        set => SetProperty("block_public_policy", value);
-    }
+    [TerraformPropertyName("block_public_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BlockPublicPolicy { get; set; }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ignore_public_acls attribute.
     /// </summary>
-    public TerraformProperty<bool> IgnorePublicAcls
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_public_acls");
-        set => SetProperty("ignore_public_acls", value);
-    }
+    [TerraformPropertyName("ignore_public_acls")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IgnorePublicAcls { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The restrict_public_buckets attribute.
     /// </summary>
-    public TerraformProperty<bool> RestrictPublicBuckets
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("restrict_public_buckets");
-        set => SetProperty("restrict_public_buckets", value);
-    }
+    [TerraformPropertyName("restrict_public_buckets")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RestrictPublicBuckets { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
-        set => SetProperty("skip_destroy", value);
-    }
+    [TerraformPropertyName("skip_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipDestroy { get; set; }
 
 }

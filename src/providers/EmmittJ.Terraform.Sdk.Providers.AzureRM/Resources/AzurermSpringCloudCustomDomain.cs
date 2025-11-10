@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudCustomDomainTimeoutsBlock : TerraformBlock
+public class AzurermSpringCloudCustomDomainTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,72 +45,50 @@ public class AzurermSpringCloudCustomDomain : TerraformResource
 {
     public AzurermSpringCloudCustomDomain(string name) : base("azurerm_spring_cloud_custom_domain", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("certificate_name");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("spring_cloud_app_id");
-        SetOutput("thumbprint");
     }
 
     /// <summary>
     /// The certificate_name attribute.
     /// </summary>
-    public TerraformProperty<string> CertificateName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate_name");
-        set => SetProperty("certificate_name", value);
-    }
+    [TerraformPropertyName("certificate_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CertificateName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
-    public required TerraformProperty<string> SpringCloudAppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_app_id");
-        set => SetProperty("spring_cloud_app_id", value);
-    }
+    [TerraformPropertyName("spring_cloud_app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SpringCloudAppId { get; set; }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    public TerraformProperty<string> Thumbprint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("thumbprint");
-        set => SetProperty("thumbprint", value);
-    }
+    [TerraformPropertyName("thumbprint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Thumbprint { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSpringCloudCustomDomainTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSpringCloudCustomDomainTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

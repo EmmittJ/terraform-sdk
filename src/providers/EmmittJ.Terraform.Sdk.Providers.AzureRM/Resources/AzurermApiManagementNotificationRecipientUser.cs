@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementNotificationRecipientUserTimeoutsBlock : TerraformBlock
+public class AzurermApiManagementNotificationRecipientUserTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,63 +38,44 @@ public class AzurermApiManagementNotificationRecipientUser : TerraformResource
 {
     public AzurermApiManagementNotificationRecipientUser(string name) : base("azurerm_api_management_notification_recipient_user", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("api_management_id");
-        SetOutput("id");
-        SetOutput("notification_type");
-        SetOutput("user_id");
     }
 
     /// <summary>
     /// The api_management_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
-    public required TerraformProperty<string> ApiManagementId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_management_id");
-        set => SetProperty("api_management_id", value);
-    }
+    [TerraformPropertyName("api_management_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiManagementId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The notification_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
-    public required TerraformProperty<string> NotificationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("notification_type");
-        set => SetProperty("notification_type", value);
-    }
+    [TerraformPropertyName("notification_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NotificationType { get; set; }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
-    public required TerraformProperty<string> UserId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_id");
-        set => SetProperty("user_id", value);
-    }
+    [TerraformPropertyName("user_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermApiManagementNotificationRecipientUserTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermApiManagementNotificationRecipientUserTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

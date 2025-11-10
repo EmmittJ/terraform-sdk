@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeKeystoresAliasesPkcs12TimeoutsBlock : TerraformBlock
+public class GoogleApigeeKeystoresAliasesPkcs12TimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,118 +31,89 @@ public class GoogleApigeeKeystoresAliasesPkcs12 : TerraformResource
 {
     public GoogleApigeeKeystoresAliasesPkcs12(string name) : base("google_apigee_keystores_aliases_pkcs12", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("certs_info");
-        SetOutput("type");
-        SetOutput("alias");
-        SetOutput("environment");
-        SetOutput("file");
-        SetOutput("filehash");
-        SetOutput("id");
-        SetOutput("keystore");
-        SetOutput("org_id");
-        SetOutput("password");
     }
 
     /// <summary>
     /// Alias Name
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
-    public required TerraformProperty<string> Alias
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alias");
-        set => SetProperty("alias", value);
-    }
+    [TerraformPropertyName("alias")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Alias { get; set; }
 
     /// <summary>
     /// Environment associated with the alias
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
-    public required TerraformProperty<string> Environment
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("environment");
-        set => SetProperty("environment", value);
-    }
+    [TerraformPropertyName("environment")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Environment { get; set; }
 
     /// <summary>
     /// Cert content
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "File is required")]
-    public required TerraformProperty<string> File
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("file");
-        set => SetProperty("file", value);
-    }
+    [TerraformPropertyName("file")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> File { get; set; }
 
     /// <summary>
     /// Hash of the pkcs file
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filehash is required")]
-    public required TerraformProperty<string> Filehash
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filehash");
-        set => SetProperty("filehash", value);
-    }
+    [TerraformPropertyName("filehash")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Filehash { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Keystore Name
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keystore is required")]
-    public required TerraformProperty<string> Keystore
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("keystore");
-        set => SetProperty("keystore", value);
-    }
+    [TerraformPropertyName("keystore")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Keystore { get; set; }
 
     /// <summary>
     /// Organization ID associated with the alias
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    public required TerraformProperty<string> OrgId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
-        set => SetProperty("org_id", value);
-    }
+    [TerraformPropertyName("org_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
 
     /// <summary>
     /// Password for the Private Key if it&#39;s encrypted
     /// </summary>
-    public TerraformProperty<string> Password
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("password");
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Password { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "password");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeKeystoresAliasesPkcs12TimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeKeystoresAliasesPkcs12TimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Chain of certificates under this alias.
     /// </summary>
-    public TerraformExpression CertsInfo => this["certs_info"];
+    [TerraformPropertyName("certs_info")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> CertsInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "certs_info");
 
     /// <summary>
     /// Optional.Type of Alias
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
 }

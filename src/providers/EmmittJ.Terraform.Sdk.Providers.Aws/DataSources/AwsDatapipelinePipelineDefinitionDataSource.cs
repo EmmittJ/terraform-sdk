@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameter_value in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock : TerraformBlock
+public class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The string_value attribute.
     /// </summary>
-    public TerraformProperty<string>? StringValue
-    {
-        set => SetProperty("string_value", value);
-    }
+    [TerraformPropertyName("string_value")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StringValue => new TerraformReferenceProperty<TerraformProperty<string>>("", "string_value");
 
 }
 
@@ -33,63 +31,49 @@ public class AwsDatapipelinePipelineDefinitionDataSource : TerraformDataSource
 {
     public AwsDatapipelinePipelineDefinitionDataSource(string name) : base("aws_datapipeline_pipeline_definition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("parameter_object");
-        SetOutput("pipeline_object");
-        SetOutput("id");
-        SetOutput("pipeline_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The pipeline_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
-    public required TerraformProperty<string> PipelineId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_id");
-        set => SetProperty("pipeline_id", value);
-    }
+    [TerraformPropertyName("pipeline_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PipelineId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for parameter_value.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock>? ParameterValue
-    {
-        set => SetProperty("parameter_value", value);
-    }
+    [TerraformPropertyName("parameter_value")]
+    public TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock>>? ParameterValue { get; set; } = new();
 
     /// <summary>
     /// The parameter_object attribute.
     /// </summary>
-    public TerraformExpression ParameterObject => this["parameter_object"];
+    [TerraformPropertyName("parameter_object")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> ParameterObject => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "parameter_object");
 
     /// <summary>
     /// The pipeline_object attribute.
     /// </summary>
-    public TerraformExpression PipelineObject => this["pipeline_object"];
+    [TerraformPropertyName("pipeline_object")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> PipelineObject => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "pipeline_object");
 
 }

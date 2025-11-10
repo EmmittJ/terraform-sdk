@@ -9,101 +9,73 @@ public class AwsCloudwatchEventApiDestination : TerraformResource
 {
     public AwsCloudwatchEventApiDestination(string name) : base("aws_cloudwatch_event_api_destination", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("connection_arn");
-        SetOutput("description");
-        SetOutput("http_method");
-        SetOutput("id");
-        SetOutput("invocation_endpoint");
-        SetOutput("invocation_rate_limit_per_second");
-        SetOutput("name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The connection_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionArn is required")]
-    public required TerraformProperty<string> ConnectionArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connection_arn");
-        set => SetProperty("connection_arn", value);
-    }
+    [TerraformPropertyName("connection_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConnectionArn { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The http_method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
-    public required TerraformProperty<string> HttpMethod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("http_method");
-        set => SetProperty("http_method", value);
-    }
+    [TerraformPropertyName("http_method")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HttpMethod { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The invocation_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InvocationEndpoint is required")]
-    public required TerraformProperty<string> InvocationEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("invocation_endpoint");
-        set => SetProperty("invocation_endpoint", value);
-    }
+    [TerraformPropertyName("invocation_endpoint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InvocationEndpoint { get; set; }
 
     /// <summary>
     /// The invocation_rate_limit_per_second attribute.
     /// </summary>
-    public TerraformProperty<double> InvocationRateLimitPerSecond
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("invocation_rate_limit_per_second");
-        set => SetProperty("invocation_rate_limit_per_second", value);
-    }
+    [TerraformPropertyName("invocation_rate_limit_per_second")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InvocationRateLimitPerSecond { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

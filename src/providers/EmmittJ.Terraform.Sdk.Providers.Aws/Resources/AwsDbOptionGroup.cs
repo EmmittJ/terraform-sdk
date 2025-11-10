@@ -6,48 +6,43 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for option in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDbOptionGroupOptionBlock : TerraformBlock
+public class AwsDbOptionGroupOptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The db_security_group_memberships attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DbSecurityGroupMemberships
-    {
-        set => SetProperty("db_security_group_memberships", value);
-    }
+    [TerraformPropertyName("db_security_group_memberships")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DbSecurityGroupMemberships { get; set; }
 
     /// <summary>
     /// The option_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptionName is required")]
-    public required TerraformProperty<string> OptionName
-    {
-        set => SetProperty("option_name", value);
-    }
+    [TerraformPropertyName("option_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OptionName { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
     /// <summary>
     /// The vpc_security_group_memberships attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VpcSecurityGroupMemberships
-    {
-        set => SetProperty("vpc_security_group_memberships", value);
-    }
+    [TerraformPropertyName("vpc_security_group_memberships")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? VpcSecurityGroupMemberships { get; set; }
 
 }
 
@@ -55,15 +50,14 @@ public class AwsDbOptionGroupOptionBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDbOptionGroupTimeoutsBlock : TerraformBlock
+public class AwsDbOptionGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -74,137 +68,99 @@ public class AwsDbOptionGroup : TerraformResource
 {
     public AwsDbOptionGroup(string name) : base("aws_db_option_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("engine_name");
-        SetOutput("id");
-        SetOutput("major_engine_version");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("option_group_description");
-        SetOutput("region");
-        SetOutput("skip_destroy");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The engine_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineName is required")]
-    public required TerraformProperty<string> EngineName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine_name");
-        set => SetProperty("engine_name", value);
-    }
+    [TerraformPropertyName("engine_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EngineName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The major_engine_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MajorEngineVersion is required")]
-    public required TerraformProperty<string> MajorEngineVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("major_engine_version");
-        set => SetProperty("major_engine_version", value);
-    }
+    [TerraformPropertyName("major_engine_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MajorEngineVersion { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
 
     /// <summary>
     /// The option_group_description attribute.
     /// </summary>
-    public TerraformProperty<string> OptionGroupDescription
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("option_group_description");
-        set => SetProperty("option_group_description", value);
-    }
+    [TerraformPropertyName("option_group_description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OptionGroupDescription { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
-        set => SetProperty("skip_destroy", value);
-    }
+    [TerraformPropertyName("skip_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for option.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsDbOptionGroupOptionBlock>? Option
-    {
-        set => SetProperty("option", value);
-    }
+    [TerraformPropertyName("option")]
+    public TerraformSet<TerraformBlock<AwsDbOptionGroupOptionBlock>>? Option { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDbOptionGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDbOptionGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

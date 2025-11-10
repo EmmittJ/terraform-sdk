@@ -10,79 +10,57 @@ public class AwsCognitoIdentityOpenidTokenForDeveloperIdentityEphemeralResource 
 {
     public AwsCognitoIdentityOpenidTokenForDeveloperIdentityEphemeralResource(string name) : base("aws_cognito_identity_openid_token_for_developer_identity", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("token");
-        SetOutput("identity_id");
-        SetOutput("identity_pool_id");
-        SetOutput("logins");
-        SetOutput("principal_tags");
-        SetOutput("region");
-        SetOutput("token_duration");
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public TerraformProperty<string> IdentityId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_id");
-        set => SetProperty("identity_id", value);
-    }
+    [TerraformPropertyName("identity_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IdentityId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "identity_id");
 
     /// <summary>
     /// The identity_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
-    public required TerraformProperty<string> IdentityPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_pool_id");
-        set => SetProperty("identity_pool_id", value);
-    }
+    [TerraformPropertyName("identity_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IdentityPoolId { get; set; }
 
     /// <summary>
     /// The logins attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Logins is required")]
-    public Dictionary<string, TerraformProperty<string>> Logins
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("logins");
-        set => SetProperty("logins", value);
-    }
+    [TerraformPropertyName("logins")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Logins { get; set; }
 
     /// <summary>
     /// The principal_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> PrincipalTags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("principal_tags");
-        set => SetProperty("principal_tags", value);
-    }
+    [TerraformPropertyName("principal_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? PrincipalTags { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The token_duration attribute.
     /// </summary>
-    public TerraformProperty<double> TokenDuration
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("token_duration");
-        set => SetProperty("token_duration", value);
-    }
+    [TerraformPropertyName("token_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TokenDuration { get; set; }
 
     /// <summary>
     /// The token attribute.
     /// </summary>
-    public TerraformExpression Token => this["token"];
+    [TerraformPropertyName("token")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Token => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "token");
 
 }

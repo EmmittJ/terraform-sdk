@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermEventgridDomainDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermEventgridDomainDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,118 +24,113 @@ public class AzurermEventgridDomainDataSource : TerraformDataSource
 {
     public AzurermEventgridDomainDataSource(string name) : base("azurerm_eventgrid_domain", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("endpoint");
-        SetOutput("identity");
-        SetOutput("inbound_ip_rule");
-        SetOutput("input_mapping_default_values");
-        SetOutput("input_mapping_fields");
-        SetOutput("input_schema");
-        SetOutput("location");
-        SetOutput("primary_access_key");
-        SetOutput("public_network_access_enabled");
-        SetOutput("secondary_access_key");
-        SetOutput("tags");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermEventgridDomainDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermEventgridDomainDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformExpression Identity => this["identity"];
+    [TerraformPropertyName("identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
 
     /// <summary>
     /// The inbound_ip_rule attribute.
     /// </summary>
-    public TerraformExpression InboundIpRule => this["inbound_ip_rule"];
+    [TerraformPropertyName("inbound_ip_rule")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> InboundIpRule => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "inbound_ip_rule");
 
     /// <summary>
     /// The input_mapping_default_values attribute.
     /// </summary>
-    public TerraformExpression InputMappingDefaultValues => this["input_mapping_default_values"];
+    [TerraformPropertyName("input_mapping_default_values")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> InputMappingDefaultValues => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "input_mapping_default_values");
 
     /// <summary>
     /// The input_mapping_fields attribute.
     /// </summary>
-    public TerraformExpression InputMappingFields => this["input_mapping_fields"];
+    [TerraformPropertyName("input_mapping_fields")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> InputMappingFields => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "input_mapping_fields");
 
     /// <summary>
     /// The input_schema attribute.
     /// </summary>
-    public TerraformExpression InputSchema => this["input_schema"];
+    [TerraformPropertyName("input_schema")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InputSchema => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "input_schema");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
-    public TerraformExpression PrimaryAccessKey => this["primary_access_key"];
+    [TerraformPropertyName("primary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_access_key");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformExpression PublicNetworkAccessEnabled => this["public_network_access_enabled"];
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PublicNetworkAccessEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "public_network_access_enabled");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
-    public TerraformExpression SecondaryAccessKey => this["secondary_access_key"];
+    [TerraformPropertyName("secondary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_access_key");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
 }

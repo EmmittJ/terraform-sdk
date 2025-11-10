@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for single_sign_on in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDatazoneDomainSingleSignOnBlock : TerraformBlock
+public class AwsDatazoneDomainSingleSignOnBlock : ITerraformBlock
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Type { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "type");
 
     /// <summary>
     /// The user_assignment attribute.
     /// </summary>
-    public TerraformProperty<string>? UserAssignment
-    {
-        set => SetProperty("user_assignment", value);
-    }
+    [TerraformPropertyName("user_assignment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserAssignment { get; set; }
 
 }
 
@@ -30,23 +28,21 @@ public class AwsDatazoneDomainSingleSignOnBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDatazoneDomainTimeoutsBlock : TerraformBlock
+public class AwsDatazoneDomainTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -57,145 +53,113 @@ public class AwsDatazoneDomain : TerraformResource
 {
     public AwsDatazoneDomain(string name) : base("aws_datazone_domain", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("portal_url");
-        SetOutput("tags_all");
-        SetOutput("description");
-        SetOutput("domain_execution_role");
-        SetOutput("domain_version");
-        SetOutput("kms_key_identifier");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("service_role");
-        SetOutput("skip_deletion_check");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The domain_execution_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainExecutionRole is required")]
-    public required TerraformProperty<string> DomainExecutionRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_execution_role");
-        set => SetProperty("domain_execution_role", value);
-    }
+    [TerraformPropertyName("domain_execution_role")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainExecutionRole { get; set; }
 
     /// <summary>
     /// The domain_version attribute.
     /// </summary>
-    public TerraformProperty<string> DomainVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_version");
-        set => SetProperty("domain_version", value);
-    }
+    [TerraformPropertyName("domain_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DomainVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_version");
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_identifier");
-        set => SetProperty("kms_key_identifier", value);
-    }
+    [TerraformPropertyName("kms_key_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyIdentifier { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
-    public TerraformProperty<string> ServiceRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_role");
-        set => SetProperty("service_role", value);
-    }
+    [TerraformPropertyName("service_role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServiceRole { get; set; }
 
     /// <summary>
     /// The skip_deletion_check attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipDeletionCheck
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_deletion_check");
-        set => SetProperty("skip_deletion_check", value);
-    }
+    [TerraformPropertyName("skip_deletion_check")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipDeletionCheck { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for single_sign_on.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsDatazoneDomainSingleSignOnBlock>? SingleSignOn
-    {
-        set => SetProperty("single_sign_on", value);
-    }
+    [TerraformPropertyName("single_sign_on")]
+    public TerraformList<TerraformBlock<AwsDatazoneDomainSingleSignOnBlock>>? SingleSignOn { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDatazoneDomainTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDatazoneDomainTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The portal_url attribute.
     /// </summary>
-    public TerraformExpression PortalUrl => this["portal_url"];
+    [TerraformPropertyName("portal_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PortalUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "portal_url");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

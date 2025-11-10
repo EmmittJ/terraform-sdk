@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for config_file in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermNginxConfigurationConfigFileBlock : TerraformBlock
+public class AzurermNginxConfigurationConfigFileBlock : ITerraformBlock
 {
     /// <summary>
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    public required TerraformProperty<string> Content
-    {
-        set => SetProperty("content", value);
-    }
+    [TerraformPropertyName("content")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Content { get; set; }
 
     /// <summary>
     /// The virtual_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
-    public required TerraformProperty<string> VirtualPath
-    {
-        set => SetProperty("virtual_path", value);
-    }
+    [TerraformPropertyName("virtual_path")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualPath { get; set; }
 
 }
 
@@ -32,33 +30,30 @@ public class AzurermNginxConfigurationConfigFileBlock : TerraformBlock
 /// Block type for protected_file in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
+public class AzurermNginxConfigurationProtectedFileBlock : ITerraformBlock
 {
     /// <summary>
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    public required TerraformProperty<string> Content
-    {
-        set => SetProperty("content", value);
-    }
+    [TerraformPropertyName("content")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Content { get; set; }
 
     /// <summary>
     /// The content_hash attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentHash
-    {
-        set => SetProperty("content_hash", value);
-    }
+    [TerraformPropertyName("content_hash")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContentHash => new TerraformReferenceProperty<TerraformProperty<string>>("", "content_hash");
 
     /// <summary>
     /// The virtual_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
-    public required TerraformProperty<string> VirtualPath
-    {
-        set => SetProperty("virtual_path", value);
-    }
+    [TerraformPropertyName("virtual_path")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualPath { get; set; }
 
 }
 
@@ -66,39 +61,35 @@ public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
+public class AzurermNginxConfigurationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -109,80 +100,57 @@ public class AzurermNginxConfiguration : TerraformResource
 {
     public AzurermNginxConfiguration(string name) : base("azurerm_nginx_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("nginx_deployment_id");
-        SetOutput("package_data");
-        SetOutput("root_file");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The nginx_deployment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
-    public required TerraformProperty<string> NginxDeploymentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("nginx_deployment_id");
-        set => SetProperty("nginx_deployment_id", value);
-    }
+    [TerraformPropertyName("nginx_deployment_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NginxDeploymentId { get; set; }
 
     /// <summary>
     /// The package_data attribute.
     /// </summary>
-    public TerraformProperty<string> PackageData
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("package_data");
-        set => SetProperty("package_data", value);
-    }
+    [TerraformPropertyName("package_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PackageData { get; set; }
 
     /// <summary>
     /// The root_file attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFile is required")]
-    public required TerraformProperty<string> RootFile
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("root_file");
-        set => SetProperty("root_file", value);
-    }
+    [TerraformPropertyName("root_file")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RootFile { get; set; }
 
     /// <summary>
     /// Block for config_file.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermNginxConfigurationConfigFileBlock>? ConfigFile
-    {
-        set => SetProperty("config_file", value);
-    }
+    [TerraformPropertyName("config_file")]
+    public TerraformSet<TerraformBlock<AzurermNginxConfigurationConfigFileBlock>>? ConfigFile { get; set; } = new();
 
     /// <summary>
     /// Block for protected_file.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermNginxConfigurationProtectedFileBlock>? ProtectedFile
-    {
-        set => SetProperty("protected_file", value);
-    }
+    [TerraformPropertyName("protected_file")]
+    public TerraformSet<TerraformBlock<AzurermNginxConfigurationProtectedFileBlock>>? ProtectedFile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNginxConfigurationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNginxConfigurationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementAuthorizationServerTimeoutsBlock : TerraformBlock
+public class AzurermApiManagementAuthorizationServerTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -46,25 +42,23 @@ public class AzurermApiManagementAuthorizationServerTimeoutsBlock : TerraformBlo
 /// Block type for token_body_parameter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementAuthorizationServerTokenBodyParameterBlock : TerraformBlock
+public class AzurermApiManagementAuthorizationServerTokenBodyParameterBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<string> Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
 
 }
 
@@ -75,228 +69,162 @@ public class AzurermApiManagementAuthorizationServer : TerraformResource
 {
     public AzurermApiManagementAuthorizationServer(string name) : base("azurerm_api_management_authorization_server", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("api_management_name");
-        SetOutput("authorization_endpoint");
-        SetOutput("authorization_methods");
-        SetOutput("bearer_token_sending_methods");
-        SetOutput("client_authentication_method");
-        SetOutput("client_id");
-        SetOutput("client_registration_endpoint");
-        SetOutput("client_secret");
-        SetOutput("default_scope");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("grant_types");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("resource_owner_password");
-        SetOutput("resource_owner_username");
-        SetOutput("support_state");
-        SetOutput("token_endpoint");
     }
 
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
-    public required TerraformProperty<string> ApiManagementName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
-        set => SetProperty("api_management_name", value);
-    }
+    [TerraformPropertyName("api_management_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiManagementName { get; set; }
 
     /// <summary>
     /// The authorization_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
-    public required TerraformProperty<string> AuthorizationEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authorization_endpoint");
-        set => SetProperty("authorization_endpoint", value);
-    }
+    [TerraformPropertyName("authorization_endpoint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthorizationEndpoint { get; set; }
 
     /// <summary>
     /// The authorization_methods attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationMethods is required")]
-    public HashSet<TerraformProperty<string>> AuthorizationMethods
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("authorization_methods");
-        set => SetProperty("authorization_methods", value);
-    }
+    [TerraformPropertyName("authorization_methods")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AuthorizationMethods { get; set; }
 
     /// <summary>
     /// The bearer_token_sending_methods attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> BearerTokenSendingMethods
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("bearer_token_sending_methods");
-        set => SetProperty("bearer_token_sending_methods", value);
-    }
+    [TerraformPropertyName("bearer_token_sending_methods")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? BearerTokenSendingMethods { get; set; }
 
     /// <summary>
     /// The client_authentication_method attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ClientAuthenticationMethod
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("client_authentication_method");
-        set => SetProperty("client_authentication_method", value);
-    }
+    [TerraformPropertyName("client_authentication_method")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ClientAuthenticationMethod { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
-    public required TerraformProperty<string> ClientId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientId { get; set; }
 
     /// <summary>
     /// The client_registration_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientRegistrationEndpoint is required")]
-    public required TerraformProperty<string> ClientRegistrationEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_registration_endpoint");
-        set => SetProperty("client_registration_endpoint", value);
-    }
+    [TerraformPropertyName("client_registration_endpoint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientRegistrationEndpoint { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
-    public TerraformProperty<string> ClientSecret
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_secret");
-        set => SetProperty("client_secret", value);
-    }
+    [TerraformPropertyName("client_secret")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientSecret { get; set; }
 
     /// <summary>
     /// The default_scope attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultScope
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_scope");
-        set => SetProperty("default_scope", value);
-    }
+    [TerraformPropertyName("default_scope")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultScope { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The grant_types attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrantTypes is required")]
-    public HashSet<TerraformProperty<string>> GrantTypes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("grant_types");
-        set => SetProperty("grant_types", value);
-    }
+    [TerraformPropertyName("grant_types")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? GrantTypes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The resource_owner_password attribute.
     /// </summary>
-    public TerraformProperty<string> ResourceOwnerPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_owner_password");
-        set => SetProperty("resource_owner_password", value);
-    }
+    [TerraformPropertyName("resource_owner_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceOwnerPassword { get; set; }
 
     /// <summary>
     /// The resource_owner_username attribute.
     /// </summary>
-    public TerraformProperty<string> ResourceOwnerUsername
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_owner_username");
-        set => SetProperty("resource_owner_username", value);
-    }
+    [TerraformPropertyName("resource_owner_username")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceOwnerUsername { get; set; }
 
     /// <summary>
     /// The support_state attribute.
     /// </summary>
-    public TerraformProperty<bool> SupportState
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("support_state");
-        set => SetProperty("support_state", value);
-    }
+    [TerraformPropertyName("support_state")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SupportState { get; set; }
 
     /// <summary>
     /// The token_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string> TokenEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("token_endpoint");
-        set => SetProperty("token_endpoint", value);
-    }
+    [TerraformPropertyName("token_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TokenEndpoint { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermApiManagementAuthorizationServerTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermApiManagementAuthorizationServerTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for token_body_parameter.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermApiManagementAuthorizationServerTokenBodyParameterBlock>? TokenBodyParameter
-    {
-        set => SetProperty("token_body_parameter", value);
-    }
+    [TerraformPropertyName("token_body_parameter")]
+    public TerraformList<TerraformBlock<AzurermApiManagementAuthorizationServerTokenBodyParameterBlock>>? TokenBodyParameter { get; set; } = new();
 
 }

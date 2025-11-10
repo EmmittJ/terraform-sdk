@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dead_letter_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchEventBusDeadLetterConfigBlock : TerraformBlock
+public class AwsCloudwatchEventBusDeadLetterConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
-    {
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Arn { get; set; }
 
 }
 
@@ -22,23 +21,21 @@ public class AwsCloudwatchEventBusDeadLetterConfigBlock : TerraformBlock
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchEventBusLogConfigBlock : TerraformBlock
+public class AwsCloudwatchEventBusLogConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The include_detail attribute.
     /// </summary>
-    public TerraformProperty<string>? IncludeDetail
-    {
-        set => SetProperty("include_detail", value);
-    }
+    [TerraformPropertyName("include_detail")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IncludeDetail { get; set; }
 
     /// <summary>
     /// The level attribute.
     /// </summary>
-    public TerraformProperty<string>? Level
-    {
-        set => SetProperty("level", value);
-    }
+    [TerraformPropertyName("level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Level { get; set; }
 
 }
 
@@ -50,118 +47,86 @@ public class AwsCloudwatchEventBus : TerraformResource
 {
     public AwsCloudwatchEventBus(string name) : base("aws_cloudwatch_event_bus", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("description");
-        SetOutput("event_source_name");
-        SetOutput("id");
-        SetOutput("kms_key_identifier");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The event_source_name attribute.
     /// </summary>
-    public TerraformProperty<string> EventSourceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("event_source_name");
-        set => SetProperty("event_source_name", value);
-    }
+    [TerraformPropertyName("event_source_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EventSourceName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_identifier");
-        set => SetProperty("kms_key_identifier", value);
-    }
+    [TerraformPropertyName("kms_key_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyIdentifier { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for dead_letter_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterConfig block(s) allowed")]
-    public List<AwsCloudwatchEventBusDeadLetterConfigBlock>? DeadLetterConfig
-    {
-        set => SetProperty("dead_letter_config", value);
-    }
+    [TerraformPropertyName("dead_letter_config")]
+    public TerraformList<TerraformBlock<AwsCloudwatchEventBusDeadLetterConfigBlock>>? DeadLetterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for log_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
-    public List<AwsCloudwatchEventBusLogConfigBlock>? LogConfig
-    {
-        set => SetProperty("log_config", value);
-    }
+    [TerraformPropertyName("log_config")]
+    public TerraformList<TerraformBlock<AwsCloudwatchEventBusLogConfigBlock>>? LogConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

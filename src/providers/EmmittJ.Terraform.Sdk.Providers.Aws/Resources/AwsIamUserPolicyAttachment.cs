@@ -9,43 +9,29 @@ public class AwsIamUserPolicyAttachment : TerraformResource
 {
     public AwsIamUserPolicyAttachment(string name) : base("aws_iam_user_policy_attachment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("policy_arn");
-        SetOutput("user");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The policy_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
-    public required TerraformProperty<string> PolicyArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_arn");
-        set => SetProperty("policy_arn", value);
-    }
+    [TerraformPropertyName("policy_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyArn { get; set; }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
-    public required TerraformProperty<string> User
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user");
-        set => SetProperty("user", value);
-    }
+    [TerraformPropertyName("user")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> User { get; set; }
 
 }

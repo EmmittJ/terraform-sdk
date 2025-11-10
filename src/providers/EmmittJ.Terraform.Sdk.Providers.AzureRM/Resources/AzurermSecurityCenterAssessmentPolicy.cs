@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
+public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,118 +45,85 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
 {
     public AzurermSecurityCenterAssessmentPolicy(string name) : base("azurerm_security_center_assessment_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("categories");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("implementation_effort");
-        SetOutput("remediation_description");
-        SetOutput("severity");
-        SetOutput("threats");
-        SetOutput("user_impact");
     }
 
     /// <summary>
     /// The categories attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Categories
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("categories");
-        set => SetProperty("categories", value);
-    }
+    [TerraformPropertyName("categories")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Categories { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "categories");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
-    public required TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The implementation_effort attribute.
     /// </summary>
-    public TerraformProperty<string> ImplementationEffort
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("implementation_effort");
-        set => SetProperty("implementation_effort", value);
-    }
+    [TerraformPropertyName("implementation_effort")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ImplementationEffort { get; set; }
 
     /// <summary>
     /// The remediation_description attribute.
     /// </summary>
-    public TerraformProperty<string> RemediationDescription
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("remediation_description");
-        set => SetProperty("remediation_description", value);
-    }
+    [TerraformPropertyName("remediation_description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RemediationDescription { get; set; }
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
-    public TerraformProperty<string> Severity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("severity");
-        set => SetProperty("severity", value);
-    }
+    [TerraformPropertyName("severity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Severity { get; set; }
 
     /// <summary>
     /// The threats attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Threats
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("threats");
-        set => SetProperty("threats", value);
-    }
+    [TerraformPropertyName("threats")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Threats { get; set; }
 
     /// <summary>
     /// The user_impact attribute.
     /// </summary>
-    public TerraformProperty<string> UserImpact
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_impact");
-        set => SetProperty("user_impact", value);
-    }
+    [TerraformPropertyName("user_impact")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserImpact { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSecurityCenterAssessmentPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSecurityCenterAssessmentPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

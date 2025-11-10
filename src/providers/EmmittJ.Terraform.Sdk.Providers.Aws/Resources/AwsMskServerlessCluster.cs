@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for client_authentication in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskServerlessClusterClientAuthenticationBlock : TerraformBlock
+public class AwsMskServerlessClusterClientAuthenticationBlock : ITerraformBlock
 {
 }
 
@@ -14,23 +14,21 @@ public class AwsMskServerlessClusterClientAuthenticationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMskServerlessClusterTimeoutsBlock : TerraformBlock
+public class AwsMskServerlessClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -38,24 +36,22 @@ public class AwsMskServerlessClusterTimeoutsBlock : TerraformBlock
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskServerlessClusterVpcConfigBlock : TerraformBlock
+public class AwsMskServerlessClusterVpcConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
-    {
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SecurityGroupIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "security_group_ids");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public HashSet<TerraformProperty<string>>? SubnetIds
-    {
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
 }
 
@@ -67,66 +63,43 @@ public class AwsMskServerlessCluster : TerraformResource
 {
     public AwsMskServerlessCluster(string name) : base("aws_msk_serverless_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("bootstrap_brokers_sasl_iam");
-        SetOutput("cluster_uuid");
-        SetOutput("cluster_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    public required TerraformProperty<string> ClusterName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
-        set => SetProperty("cluster_name", value);
-    }
+    [TerraformPropertyName("cluster_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for client_authentication.
@@ -135,19 +108,15 @@ public class AwsMskServerlessCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientAuthentication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ClientAuthentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientAuthentication block(s) allowed")]
-    public List<AwsMskServerlessClusterClientAuthenticationBlock>? ClientAuthentication
-    {
-        set => SetProperty("client_authentication", value);
-    }
+    [TerraformPropertyName("client_authentication")]
+    public TerraformList<TerraformBlock<AwsMskServerlessClusterClientAuthenticationBlock>>? ClientAuthentication { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsMskServerlessClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsMskServerlessClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
@@ -155,24 +124,28 @@ public class AwsMskServerlessCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfig block(s) required")]
-    public List<AwsMskServerlessClusterVpcConfigBlock>? VpcConfig
-    {
-        set => SetProperty("vpc_config", value);
-    }
+    [TerraformPropertyName("vpc_config")]
+    public TerraformList<TerraformBlock<AwsMskServerlessClusterVpcConfigBlock>>? VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The bootstrap_brokers_sasl_iam attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersSaslIam => this["bootstrap_brokers_sasl_iam"];
+    [TerraformPropertyName("bootstrap_brokers_sasl_iam")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersSaslIam => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_sasl_iam");
 
     /// <summary>
     /// The cluster_uuid attribute.
     /// </summary>
-    public TerraformExpression ClusterUuid => this["cluster_uuid"];
+    [TerraformPropertyName("cluster_uuid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClusterUuid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_uuid");
 
 }

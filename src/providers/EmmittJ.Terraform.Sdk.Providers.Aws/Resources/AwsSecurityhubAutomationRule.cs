@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for actions in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSecurityhubAutomationRuleActionsBlock : TerraformBlock
+public class AwsSecurityhubAutomationRuleActionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -22,7 +21,7 @@ public class AwsSecurityhubAutomationRuleActionsBlock : TerraformBlock
 /// Block type for criteria in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSecurityhubAutomationRuleCriteriaBlock : TerraformBlock
+public class AwsSecurityhubAutomationRuleCriteriaBlock : ITerraformBlock
 {
 }
 
@@ -33,120 +32,93 @@ public class AwsSecurityhubAutomationRule : TerraformResource
 {
     public AwsSecurityhubAutomationRule(string name) : base("aws_securityhub_automation_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("tags_all");
-        SetOutput("description");
-        SetOutput("is_terminal");
-        SetOutput("region");
-        SetOutput("rule_name");
-        SetOutput("rule_order");
-        SetOutput("rule_status");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
-    public required TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Description { get; set; }
 
     /// <summary>
     /// The is_terminal attribute.
     /// </summary>
-    public TerraformProperty<bool> IsTerminal
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_terminal");
-        set => SetProperty("is_terminal", value);
-    }
+    [TerraformPropertyName("is_terminal")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> IsTerminal { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "is_terminal");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The rule_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
-    public required TerraformProperty<string> RuleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rule_name");
-        set => SetProperty("rule_name", value);
-    }
+    [TerraformPropertyName("rule_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RuleName { get; set; }
 
     /// <summary>
     /// The rule_order attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleOrder is required")]
-    public required TerraformProperty<double> RuleOrder
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("rule_order");
-        set => SetProperty("rule_order", value);
-    }
+    [TerraformPropertyName("rule_order")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> RuleOrder { get; set; }
 
     /// <summary>
     /// The rule_status attribute.
     /// </summary>
-    public TerraformProperty<string> RuleStatus
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rule_status");
-        set => SetProperty("rule_status", value);
-    }
+    [TerraformPropertyName("rule_status")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> RuleStatus { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "rule_status");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for actions.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsSecurityhubAutomationRuleActionsBlock>? Actions
-    {
-        set => SetProperty("actions", value);
-    }
+    [TerraformPropertyName("actions")]
+    public TerraformSet<TerraformBlock<AwsSecurityhubAutomationRuleActionsBlock>>? Actions { get; set; } = new();
 
     /// <summary>
     /// Block for criteria.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsSecurityhubAutomationRuleCriteriaBlock>? Criteria
-    {
-        set => SetProperty("criteria", value);
-    }
+    [TerraformPropertyName("criteria")]
+    public TerraformList<TerraformBlock<AwsSecurityhubAutomationRuleCriteriaBlock>>? Criteria { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

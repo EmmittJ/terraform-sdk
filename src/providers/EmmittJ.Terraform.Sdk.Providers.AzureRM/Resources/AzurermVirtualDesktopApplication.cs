@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
+public class AzurermVirtualDesktopApplicationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,134 +45,94 @@ public class AzurermVirtualDesktopApplication : TerraformResource
 {
     public AzurermVirtualDesktopApplication(string name) : base("azurerm_virtual_desktop_application", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("application_group_id");
-        SetOutput("command_line_argument_policy");
-        SetOutput("command_line_arguments");
-        SetOutput("description");
-        SetOutput("friendly_name");
-        SetOutput("icon_index");
-        SetOutput("icon_path");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("path");
-        SetOutput("show_in_portal");
     }
 
     /// <summary>
     /// The application_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationGroupId is required")]
-    public required TerraformProperty<string> ApplicationGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_group_id");
-        set => SetProperty("application_group_id", value);
-    }
+    [TerraformPropertyName("application_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationGroupId { get; set; }
 
     /// <summary>
     /// The command_line_argument_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommandLineArgumentPolicy is required")]
-    public required TerraformProperty<string> CommandLineArgumentPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("command_line_argument_policy");
-        set => SetProperty("command_line_argument_policy", value);
-    }
+    [TerraformPropertyName("command_line_argument_policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CommandLineArgumentPolicy { get; set; }
 
     /// <summary>
     /// The command_line_arguments attribute.
     /// </summary>
-    public TerraformProperty<string> CommandLineArguments
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("command_line_arguments");
-        set => SetProperty("command_line_arguments", value);
-    }
+    [TerraformPropertyName("command_line_arguments")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CommandLineArguments { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    public TerraformProperty<string> FriendlyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("friendly_name");
-        set => SetProperty("friendly_name", value);
-    }
+    [TerraformPropertyName("friendly_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> FriendlyName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "friendly_name");
 
     /// <summary>
     /// The icon_index attribute.
     /// </summary>
-    public TerraformProperty<double> IconIndex
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("icon_index");
-        set => SetProperty("icon_index", value);
-    }
+    [TerraformPropertyName("icon_index")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? IconIndex { get; set; }
 
     /// <summary>
     /// The icon_path attribute.
     /// </summary>
-    public TerraformProperty<string> IconPath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("icon_path");
-        set => SetProperty("icon_path", value);
-    }
+    [TerraformPropertyName("icon_path")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IconPath { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "icon_path");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    public required TerraformProperty<string> Path
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("path");
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Path { get; set; }
 
     /// <summary>
     /// The show_in_portal attribute.
     /// </summary>
-    public TerraformProperty<bool> ShowInPortal
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("show_in_portal");
-        set => SetProperty("show_in_portal", value);
-    }
+    [TerraformPropertyName("show_in_portal")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ShowInPortal { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVirtualDesktopApplicationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVirtualDesktopApplicationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

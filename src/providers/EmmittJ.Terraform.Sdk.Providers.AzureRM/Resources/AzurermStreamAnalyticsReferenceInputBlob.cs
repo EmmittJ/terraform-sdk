@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for serialization in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStreamAnalyticsReferenceInputBlobSerializationBlock : TerraformBlock
+public class AzurermStreamAnalyticsReferenceInputBlobSerializationBlock : ITerraformBlock
 {
     /// <summary>
     /// The encoding attribute.
     /// </summary>
-    public TerraformProperty<string>? Encoding
-    {
-        set => SetProperty("encoding", value);
-    }
+    [TerraformPropertyName("encoding")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Encoding { get; set; }
 
     /// <summary>
     /// The field_delimiter attribute.
     /// </summary>
-    public TerraformProperty<string>? FieldDelimiter
-    {
-        set => SetProperty("field_delimiter", value);
-    }
+    [TerraformPropertyName("field_delimiter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FieldDelimiter { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -39,39 +36,35 @@ public class AzurermStreamAnalyticsReferenceInputBlobSerializationBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStreamAnalyticsReferenceInputBlobTimeoutsBlock : TerraformBlock
+public class AzurermStreamAnalyticsReferenceInputBlobTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -83,130 +76,92 @@ public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
 {
     public AzurermStreamAnalyticsReferenceInputBlob(string name) : base("azurerm_stream_analytics_reference_input_blob", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("authentication_mode");
-        SetOutput("date_format");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("path_pattern");
-        SetOutput("resource_group_name");
-        SetOutput("storage_account_key");
-        SetOutput("storage_account_name");
-        SetOutput("storage_container_name");
-        SetOutput("stream_analytics_job_name");
-        SetOutput("time_format");
     }
 
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    public TerraformProperty<string> AuthenticationMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_mode");
-        set => SetProperty("authentication_mode", value);
-    }
+    [TerraformPropertyName("authentication_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthenticationMode { get; set; }
 
     /// <summary>
     /// The date_format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DateFormat is required")]
-    public required TerraformProperty<string> DateFormat
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("date_format");
-        set => SetProperty("date_format", value);
-    }
+    [TerraformPropertyName("date_format")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DateFormat { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The path_pattern attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathPattern is required")]
-    public required TerraformProperty<string> PathPattern
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("path_pattern");
-        set => SetProperty("path_pattern", value);
-    }
+    [TerraformPropertyName("path_pattern")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PathPattern { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The storage_account_key attribute.
     /// </summary>
-    public TerraformProperty<string> StorageAccountKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_key");
-        set => SetProperty("storage_account_key", value);
-    }
+    [TerraformPropertyName("storage_account_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageAccountKey { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
-    public required TerraformProperty<string> StorageAccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_name");
-        set => SetProperty("storage_account_name", value);
-    }
+    [TerraformPropertyName("storage_account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountName { get; set; }
 
     /// <summary>
     /// The storage_container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
-    public required TerraformProperty<string> StorageContainerName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_container_name");
-        set => SetProperty("storage_container_name", value);
-    }
+    [TerraformPropertyName("storage_container_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageContainerName { get; set; }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
-    public required TerraformProperty<string> StreamAnalyticsJobName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_name");
-        set => SetProperty("stream_analytics_job_name", value);
-    }
+    [TerraformPropertyName("stream_analytics_job_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StreamAnalyticsJobName { get; set; }
 
     /// <summary>
     /// The time_format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeFormat is required")]
-    public required TerraformProperty<string> TimeFormat
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_format");
-        set => SetProperty("time_format", value);
-    }
+    [TerraformPropertyName("time_format")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TimeFormat { get; set; }
 
     /// <summary>
     /// Block for serialization.
@@ -215,18 +170,14 @@ public class AzurermStreamAnalyticsReferenceInputBlob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serialization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Serialization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serialization block(s) allowed")]
-    public List<AzurermStreamAnalyticsReferenceInputBlobSerializationBlock>? Serialization
-    {
-        set => SetProperty("serialization", value);
-    }
+    [TerraformPropertyName("serialization")]
+    public TerraformList<TerraformBlock<AzurermStreamAnalyticsReferenceInputBlobSerializationBlock>>? Serialization { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStreamAnalyticsReferenceInputBlobTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStreamAnalyticsReferenceInputBlobTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

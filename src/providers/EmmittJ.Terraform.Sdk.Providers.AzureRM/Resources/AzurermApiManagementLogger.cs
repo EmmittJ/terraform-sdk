@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for application_insights in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementLoggerApplicationInsightsBlock : TerraformBlock
+public class AzurermApiManagementLoggerApplicationInsightsBlock : ITerraformBlock
 {
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionString
-    {
-        set => SetProperty("connection_string", value);
-    }
+    [TerraformPropertyName("connection_string")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConnectionString { get; set; }
 
     /// <summary>
     /// The instrumentation_key attribute.
     /// </summary>
-    public TerraformProperty<string>? InstrumentationKey
-    {
-        set => SetProperty("instrumentation_key", value);
-    }
+    [TerraformPropertyName("instrumentation_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InstrumentationKey { get; set; }
 
 }
 
@@ -30,40 +28,36 @@ public class AzurermApiManagementLoggerApplicationInsightsBlock : TerraformBlock
 /// Block type for eventhub in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
+public class AzurermApiManagementLoggerEventhubBlock : ITerraformBlock
 {
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionString
-    {
-        set => SetProperty("connection_string", value);
-    }
+    [TerraformPropertyName("connection_string")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConnectionString { get; set; }
 
     /// <summary>
     /// The endpoint_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointUri
-    {
-        set => SetProperty("endpoint_uri", value);
-    }
+    [TerraformPropertyName("endpoint_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndpointUri { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The user_assigned_identity_client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserAssignedIdentityClientId
-    {
-        set => SetProperty("user_assigned_identity_client_id", value);
-    }
+    [TerraformPropertyName("user_assigned_identity_client_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserAssignedIdentityClientId { get; set; }
 
 }
 
@@ -71,39 +65,35 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
+public class AzurermApiManagementLoggerTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -115,113 +105,81 @@ public class AzurermApiManagementLogger : TerraformResource
 {
     public AzurermApiManagementLogger(string name) : base("azurerm_api_management_logger", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("api_management_name");
-        SetOutput("buffered");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("resource_id");
     }
 
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
-    public required TerraformProperty<string> ApiManagementName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
-        set => SetProperty("api_management_name", value);
-    }
+    [TerraformPropertyName("api_management_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiManagementName { get; set; }
 
     /// <summary>
     /// The buffered attribute.
     /// </summary>
-    public TerraformProperty<bool> Buffered
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("buffered");
-        set => SetProperty("buffered", value);
-    }
+    [TerraformPropertyName("buffered")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Buffered { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformProperty<string> ResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
-        set => SetProperty("resource_id", value);
-    }
+    [TerraformPropertyName("resource_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceId { get; set; }
 
     /// <summary>
     /// Block for application_insights.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationInsights block(s) allowed")]
-    public List<AzurermApiManagementLoggerApplicationInsightsBlock>? ApplicationInsights
-    {
-        set => SetProperty("application_insights", value);
-    }
+    [TerraformPropertyName("application_insights")]
+    public TerraformList<TerraformBlock<AzurermApiManagementLoggerApplicationInsightsBlock>>? ApplicationInsights { get; set; } = new();
 
     /// <summary>
     /// Block for eventhub.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Eventhub block(s) allowed")]
-    public List<AzurermApiManagementLoggerEventhubBlock>? Eventhub
-    {
-        set => SetProperty("eventhub", value);
-    }
+    [TerraformPropertyName("eventhub")]
+    public TerraformList<TerraformBlock<AzurermApiManagementLoggerEventhubBlock>>? Eventhub { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermApiManagementLoggerTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermApiManagementLoggerTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

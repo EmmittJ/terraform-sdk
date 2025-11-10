@@ -9,139 +9,132 @@ public class AwsEfsFileSystemDataSource : TerraformDataSource
 {
     public AwsEfsFileSystemDataSource(string name) : base("aws_efs_file_system", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("availability_zone_id");
-        SetOutput("availability_zone_name");
-        SetOutput("dns_name");
-        SetOutput("encrypted");
-        SetOutput("kms_key_id");
-        SetOutput("lifecycle_policy");
-        SetOutput("name");
-        SetOutput("performance_mode");
-        SetOutput("protection");
-        SetOutput("provisioned_throughput_in_mibps");
-        SetOutput("size_in_bytes");
-        SetOutput("throughput_mode");
-        SetOutput("creation_token");
-        SetOutput("file_system_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The creation_token attribute.
     /// </summary>
-    public TerraformProperty<string> CreationToken
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("creation_token");
-        set => SetProperty("creation_token", value);
-    }
+    [TerraformPropertyName("creation_token")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CreationToken { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_token");
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformProperty<string> FileSystemId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("file_system_id");
-        set => SetProperty("file_system_id", value);
-    }
+    [TerraformPropertyName("file_system_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> FileSystemId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "file_system_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
-    public TerraformExpression AvailabilityZoneId => this["availability_zone_id"];
+    [TerraformPropertyName("availability_zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone_id");
 
     /// <summary>
     /// The availability_zone_name attribute.
     /// </summary>
-    public TerraformExpression AvailabilityZoneName => this["availability_zone_name"];
+    [TerraformPropertyName("availability_zone_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZoneName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone_name");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformExpression DnsName => this["dns_name"];
+    [TerraformPropertyName("dns_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformExpression Encrypted => this["encrypted"];
+    [TerraformPropertyName("encrypted")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Encrypted => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "encrypted");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformExpression KmsKeyId => this["kms_key_id"];
+    [TerraformPropertyName("kms_key_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsKeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_id");
 
     /// <summary>
     /// The lifecycle_policy attribute.
     /// </summary>
-    public TerraformExpression LifecyclePolicy => this["lifecycle_policy"];
+    [TerraformPropertyName("lifecycle_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> LifecyclePolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "lifecycle_policy");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The performance_mode attribute.
     /// </summary>
-    public TerraformExpression PerformanceMode => this["performance_mode"];
+    [TerraformPropertyName("performance_mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PerformanceMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "performance_mode");
 
     /// <summary>
     /// The protection attribute.
     /// </summary>
-    public TerraformExpression Protection => this["protection"];
+    [TerraformPropertyName("protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Protection => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "protection");
 
     /// <summary>
     /// The provisioned_throughput_in_mibps attribute.
     /// </summary>
-    public TerraformExpression ProvisionedThroughputInMibps => this["provisioned_throughput_in_mibps"];
+    [TerraformPropertyName("provisioned_throughput_in_mibps")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ProvisionedThroughputInMibps => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "provisioned_throughput_in_mibps");
 
     /// <summary>
     /// The size_in_bytes attribute.
     /// </summary>
-    public TerraformExpression SizeInBytes => this["size_in_bytes"];
+    [TerraformPropertyName("size_in_bytes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SizeInBytes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "size_in_bytes");
 
     /// <summary>
     /// The throughput_mode attribute.
     /// </summary>
-    public TerraformExpression ThroughputMode => this["throughput_mode"];
+    [TerraformPropertyName("throughput_mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ThroughputMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "throughput_mode");
 
 }

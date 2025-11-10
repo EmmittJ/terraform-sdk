@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for module in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlock
+public class AzurermRedisEnterpriseDatabaseModuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The args attribute.
     /// </summary>
-    public TerraformProperty<string>? Args
-    {
-        set => SetProperty("args", value);
-    }
+    [TerraformPropertyName("args")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Args { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>("", "version");
 
 }
 
@@ -39,39 +36,35 @@ public class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
+public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -84,133 +77,99 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
 {
     public AzurermRedisEnterpriseDatabase(string name) : base("azurerm_redis_enterprise_database", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("primary_access_key");
-        SetOutput("secondary_access_key");
-        SetOutput("client_protocol");
-        SetOutput("cluster_id");
-        SetOutput("clustering_policy");
-        SetOutput("eviction_policy");
-        SetOutput("id");
-        SetOutput("linked_database_group_nickname");
-        SetOutput("linked_database_id");
-        SetOutput("name");
-        SetOutput("port");
     }
 
     /// <summary>
     /// The client_protocol attribute.
     /// </summary>
-    public TerraformProperty<string> ClientProtocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_protocol");
-        set => SetProperty("client_protocol", value);
-    }
+    [TerraformPropertyName("client_protocol")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientProtocol { get; set; }
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    public required TerraformProperty<string> ClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
-        set => SetProperty("cluster_id", value);
-    }
+    [TerraformPropertyName("cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
 
     /// <summary>
     /// The clustering_policy attribute.
     /// </summary>
-    public TerraformProperty<string> ClusteringPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("clustering_policy");
-        set => SetProperty("clustering_policy", value);
-    }
+    [TerraformPropertyName("clustering_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClusteringPolicy { get; set; }
 
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
-    public TerraformProperty<string> EvictionPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eviction_policy");
-        set => SetProperty("eviction_policy", value);
-    }
+    [TerraformPropertyName("eviction_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EvictionPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The linked_database_group_nickname attribute.
     /// </summary>
-    public TerraformProperty<string> LinkedDatabaseGroupNickname
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("linked_database_group_nickname");
-        set => SetProperty("linked_database_group_nickname", value);
-    }
+    [TerraformPropertyName("linked_database_group_nickname")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LinkedDatabaseGroupNickname { get; set; }
 
     /// <summary>
     /// The linked_database_id attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> LinkedDatabaseId
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("linked_database_id");
-        set => SetProperty("linked_database_id", value);
-    }
+    [TerraformPropertyName("linked_database_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? LinkedDatabaseId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double> Port
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("port");
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// Block for module.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 Module block(s) allowed")]
-    public List<AzurermRedisEnterpriseDatabaseModuleBlock>? Module
-    {
-        set => SetProperty("module", value);
-    }
+    [TerraformPropertyName("module")]
+    public TerraformList<TerraformBlock<AzurermRedisEnterpriseDatabaseModuleBlock>>? Module { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermRedisEnterpriseDatabaseTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermRedisEnterpriseDatabaseTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
-    public TerraformExpression PrimaryAccessKey => this["primary_access_key"];
+    [TerraformPropertyName("primary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_access_key");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
-    public TerraformExpression SecondaryAccessKey => this["secondary_access_key"];
+    [TerraformPropertyName("secondary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_access_key");
 
 }

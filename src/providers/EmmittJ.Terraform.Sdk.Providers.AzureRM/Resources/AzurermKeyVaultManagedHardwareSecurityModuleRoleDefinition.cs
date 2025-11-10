@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for permission in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock : TerraformBlock
+public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock : ITerraformBlock
 {
     /// <summary>
     /// The actions attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Actions
-    {
-        set => SetProperty("actions", value);
-    }
+    [TerraformPropertyName("actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Actions { get; set; }
 
     /// <summary>
     /// The data_actions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DataActions
-    {
-        set => SetProperty("data_actions", value);
-    }
+    [TerraformPropertyName("data_actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DataActions { get; set; }
 
     /// <summary>
     /// The not_actions attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? NotActions
-    {
-        set => SetProperty("not_actions", value);
-    }
+    [TerraformPropertyName("not_actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? NotActions { get; set; }
 
     /// <summary>
     /// The not_data_actions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? NotDataActions
-    {
-        set => SetProperty("not_data_actions", value);
-    }
+    [TerraformPropertyName("not_data_actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? NotDataActions { get; set; }
 
 }
 
@@ -46,39 +42,35 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissio
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock : TerraformBlock
+public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -89,93 +81,71 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
 {
     public AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition(string name) : base("azurerm_key_vault_managed_hardware_security_module_role_definition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("resource_manager_id");
-        SetOutput("role_type");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("managed_hsm_id");
-        SetOutput("name");
-        SetOutput("role_name");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The managed_hsm_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
-    public required TerraformProperty<string> ManagedHsmId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_hsm_id");
-        set => SetProperty("managed_hsm_id", value);
-    }
+    [TerraformPropertyName("managed_hsm_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ManagedHsmId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public TerraformProperty<string> RoleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_name");
-        set => SetProperty("role_name", value);
-    }
+    [TerraformPropertyName("role_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleName { get; set; }
 
     /// <summary>
     /// Block for permission.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock>? Permission
-    {
-        set => SetProperty("permission", value);
-    }
+    [TerraformPropertyName("permission")]
+    public TerraformList<TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock>>? Permission { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
-    public TerraformExpression ResourceManagerId => this["resource_manager_id"];
+    [TerraformPropertyName("resource_manager_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceManagerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_manager_id");
 
     /// <summary>
     /// The role_type attribute.
     /// </summary>
-    public TerraformExpression RoleType => this["role_type"];
+    [TerraformPropertyName("role_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RoleType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_type");
 
 }

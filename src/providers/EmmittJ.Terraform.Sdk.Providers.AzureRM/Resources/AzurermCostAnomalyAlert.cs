@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCostAnomalyAlertTimeoutsBlock : TerraformBlock
+public class AzurermCostAnomalyAlertTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,104 +45,73 @@ public class AzurermCostAnomalyAlert : TerraformResource
 {
     public AzurermCostAnomalyAlert(string name) : base("azurerm_cost_anomaly_alert", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("display_name");
-        SetOutput("email_addresses");
-        SetOutput("email_subject");
-        SetOutput("id");
-        SetOutput("message");
-        SetOutput("name");
-        SetOutput("notification_email");
-        SetOutput("subscription_id");
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The email_addresses attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddresses is required")]
-    public HashSet<TerraformProperty<string>> EmailAddresses
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("email_addresses");
-        set => SetProperty("email_addresses", value);
-    }
+    [TerraformPropertyName("email_addresses")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? EmailAddresses { get; set; }
 
     /// <summary>
     /// The email_subject attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailSubject is required")]
-    public required TerraformProperty<string> EmailSubject
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("email_subject");
-        set => SetProperty("email_subject", value);
-    }
+    [TerraformPropertyName("email_subject")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EmailSubject { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The message attribute.
     /// </summary>
-    public TerraformProperty<string> Message
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("message");
-        set => SetProperty("message", value);
-    }
+    [TerraformPropertyName("message")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Message { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The notification_email attribute.
     /// </summary>
-    public TerraformProperty<string> NotificationEmail
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("notification_email");
-        set => SetProperty("notification_email", value);
-    }
+    [TerraformPropertyName("notification_email")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NotificationEmail { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "notification_email");
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformProperty<string> SubscriptionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
-        set => SetProperty("subscription_id", value);
-    }
+    [TerraformPropertyName("subscription_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SubscriptionId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subscription_id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCostAnomalyAlertTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCostAnomalyAlertTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -9,172 +9,175 @@ public class AwsWorkspacesDirectoryDataSource : TerraformDataSource
 {
     public AwsWorkspacesDirectoryDataSource(string name) : base("aws_workspaces_directory", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("active_directory_config");
-        SetOutput("alias");
-        SetOutput("certificate_based_auth_properties");
-        SetOutput("customer_user_name");
-        SetOutput("directory_name");
-        SetOutput("directory_type");
-        SetOutput("dns_ip_addresses");
-        SetOutput("iam_role_id");
-        SetOutput("ip_group_ids");
-        SetOutput("registration_code");
-        SetOutput("saml_properties");
-        SetOutput("self_service_permissions");
-        SetOutput("subnet_ids");
-        SetOutput("user_identity_type");
-        SetOutput("workspace_access_properties");
-        SetOutput("workspace_creation_properties");
-        SetOutput("workspace_directory_description");
-        SetOutput("workspace_directory_name");
-        SetOutput("workspace_security_group_id");
-        SetOutput("workspace_type");
-        SetOutput("directory_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
-    public required TerraformProperty<string> DirectoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
-        set => SetProperty("directory_id", value);
-    }
+    [TerraformPropertyName("directory_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DirectoryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The active_directory_config attribute.
     /// </summary>
-    public TerraformExpression ActiveDirectoryConfig => this["active_directory_config"];
+    [TerraformPropertyName("active_directory_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> ActiveDirectoryConfig => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "active_directory_config");
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformExpression Alias => this["alias"];
+    [TerraformPropertyName("alias")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Alias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "alias");
 
     /// <summary>
     /// The certificate_based_auth_properties attribute.
     /// </summary>
-    public TerraformExpression CertificateBasedAuthProperties => this["certificate_based_auth_properties"];
+    [TerraformPropertyName("certificate_based_auth_properties")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> CertificateBasedAuthProperties => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "certificate_based_auth_properties");
 
     /// <summary>
     /// The customer_user_name attribute.
     /// </summary>
-    public TerraformExpression CustomerUserName => this["customer_user_name"];
+    [TerraformPropertyName("customer_user_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CustomerUserName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "customer_user_name");
 
     /// <summary>
     /// The directory_name attribute.
     /// </summary>
-    public TerraformExpression DirectoryName => this["directory_name"];
+    [TerraformPropertyName("directory_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DirectoryName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "directory_name");
 
     /// <summary>
     /// The directory_type attribute.
     /// </summary>
-    public TerraformExpression DirectoryType => this["directory_type"];
+    [TerraformPropertyName("directory_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DirectoryType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "directory_type");
 
     /// <summary>
     /// The dns_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression DnsIpAddresses => this["dns_ip_addresses"];
+    [TerraformPropertyName("dns_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> DnsIpAddresses => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "dns_ip_addresses");
 
     /// <summary>
     /// The iam_role_id attribute.
     /// </summary>
-    public TerraformExpression IamRoleId => this["iam_role_id"];
+    [TerraformPropertyName("iam_role_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IamRoleId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "iam_role_id");
 
     /// <summary>
     /// The ip_group_ids attribute.
     /// </summary>
-    public TerraformExpression IpGroupIds => this["ip_group_ids"];
+    [TerraformPropertyName("ip_group_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> IpGroupIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "ip_group_ids");
 
     /// <summary>
     /// The registration_code attribute.
     /// </summary>
-    public TerraformExpression RegistrationCode => this["registration_code"];
+    [TerraformPropertyName("registration_code")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RegistrationCode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registration_code");
 
     /// <summary>
     /// The saml_properties attribute.
     /// </summary>
-    public TerraformExpression SamlProperties => this["saml_properties"];
+    [TerraformPropertyName("saml_properties")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SamlProperties => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "saml_properties");
 
     /// <summary>
     /// The self_service_permissions attribute.
     /// </summary>
-    public TerraformExpression SelfServicePermissions => this["self_service_permissions"];
+    [TerraformPropertyName("self_service_permissions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SelfServicePermissions => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "self_service_permissions");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformExpression SubnetIds => this["subnet_ids"];
+    [TerraformPropertyName("subnet_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SubnetIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "subnet_ids");
 
     /// <summary>
     /// The user_identity_type attribute.
     /// </summary>
-    public TerraformExpression UserIdentityType => this["user_identity_type"];
+    [TerraformPropertyName("user_identity_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserIdentityType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_identity_type");
 
     /// <summary>
     /// The workspace_access_properties attribute.
     /// </summary>
-    public TerraformExpression WorkspaceAccessProperties => this["workspace_access_properties"];
+    [TerraformPropertyName("workspace_access_properties")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> WorkspaceAccessProperties => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "workspace_access_properties");
 
     /// <summary>
     /// The workspace_creation_properties attribute.
     /// </summary>
-    public TerraformExpression WorkspaceCreationProperties => this["workspace_creation_properties"];
+    [TerraformPropertyName("workspace_creation_properties")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> WorkspaceCreationProperties => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "workspace_creation_properties");
 
     /// <summary>
     /// The workspace_directory_description attribute.
     /// </summary>
-    public TerraformExpression WorkspaceDirectoryDescription => this["workspace_directory_description"];
+    [TerraformPropertyName("workspace_directory_description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WorkspaceDirectoryDescription => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workspace_directory_description");
 
     /// <summary>
     /// The workspace_directory_name attribute.
     /// </summary>
-    public TerraformExpression WorkspaceDirectoryName => this["workspace_directory_name"];
+    [TerraformPropertyName("workspace_directory_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WorkspaceDirectoryName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workspace_directory_name");
 
     /// <summary>
     /// The workspace_security_group_id attribute.
     /// </summary>
-    public TerraformExpression WorkspaceSecurityGroupId => this["workspace_security_group_id"];
+    [TerraformPropertyName("workspace_security_group_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WorkspaceSecurityGroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workspace_security_group_id");
 
     /// <summary>
     /// The workspace_type attribute.
     /// </summary>
-    public TerraformExpression WorkspaceType => this["workspace_type"];
+    [TerraformPropertyName("workspace_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WorkspaceType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workspace_type");
 
 }

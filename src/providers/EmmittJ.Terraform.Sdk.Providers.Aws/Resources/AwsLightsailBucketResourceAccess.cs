@@ -9,53 +9,36 @@ public class AwsLightsailBucketResourceAccess : TerraformResource
 {
     public AwsLightsailBucketResourceAccess(string name) : base("aws_lightsail_bucket_resource_access", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bucket_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("resource_name");
     }
 
     /// <summary>
     /// The bucket_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
-    public required TerraformProperty<string> BucketName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket_name");
-        set => SetProperty("bucket_name", value);
-    }
+    [TerraformPropertyName("bucket_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BucketName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceName is required")]
-    public required TerraformProperty<string> ResourceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_name");
-        set => SetProperty("resource_name", value);
-    }
+    [TerraformPropertyName("resource_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceName { get; set; }
 
 }

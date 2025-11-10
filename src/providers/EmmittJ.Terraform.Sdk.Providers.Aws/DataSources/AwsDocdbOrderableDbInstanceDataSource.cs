@@ -9,97 +9,69 @@ public class AwsDocdbOrderableDbInstanceDataSource : TerraformDataSource
 {
     public AwsDocdbOrderableDbInstanceDataSource(string name) : base("aws_docdb_orderable_db_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("availability_zones");
-        SetOutput("engine");
-        SetOutput("engine_version");
-        SetOutput("id");
-        SetOutput("instance_class");
-        SetOutput("license_model");
-        SetOutput("preferred_instance_classes");
-        SetOutput("region");
-        SetOutput("vpc");
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string> Engine
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine");
-        set => SetProperty("engine", value);
-    }
+    [TerraformPropertyName("engine")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Engine { get; set; }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string> EngineVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
-        set => SetProperty("engine_version", value);
-    }
+    [TerraformPropertyName("engine_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EngineVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_class attribute.
     /// </summary>
-    public TerraformProperty<string> InstanceClass
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_class");
-        set => SetProperty("instance_class", value);
-    }
+    [TerraformPropertyName("instance_class")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> InstanceClass { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "instance_class");
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
-    public TerraformProperty<string> LicenseModel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("license_model");
-        set => SetProperty("license_model", value);
-    }
+    [TerraformPropertyName("license_model")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LicenseModel { get; set; }
 
     /// <summary>
     /// The preferred_instance_classes attribute.
     /// </summary>
-    public List<TerraformProperty<string>> PreferredInstanceClasses
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("preferred_instance_classes");
-        set => SetProperty("preferred_instance_classes", value);
-    }
+    [TerraformPropertyName("preferred_instance_classes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? PreferredInstanceClasses { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The vpc attribute.
     /// </summary>
-    public TerraformProperty<bool> Vpc
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("vpc");
-        set => SetProperty("vpc", value);
-    }
+    [TerraformPropertyName("vpc")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> Vpc { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "vpc");
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformExpression AvailabilityZones => this["availability_zones"];
+    [TerraformPropertyName("availability_zones")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AvailabilityZones => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "availability_zones");
 
 }

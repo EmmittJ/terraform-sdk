@@ -9,68 +9,63 @@ public class AwsOrganizationsPolicyDataSource : TerraformDataSource
 {
     public AwsOrganizationsPolicyDataSource(string name) : base("aws_organizations_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("aws_managed");
-        SetOutput("content");
-        SetOutput("description");
-        SetOutput("name");
-        SetOutput("type");
-        SetOutput("id");
-        SetOutput("policy_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
-    public required TerraformProperty<string> PolicyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_id");
-        set => SetProperty("policy_id", value);
-    }
+    [TerraformPropertyName("policy_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyId { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The aws_managed attribute.
     /// </summary>
-    public TerraformExpression AwsManaged => this["aws_managed"];
+    [TerraformPropertyName("aws_managed")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AwsManaged => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "aws_managed");
 
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformExpression Content => this["content"];
+    [TerraformPropertyName("content")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Content => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
 }

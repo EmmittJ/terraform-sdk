@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMongoClusterTimeoutsBlock : TerraformBlock
+public class AzurermMongoClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,199 +45,142 @@ public class AzurermMongoCluster : TerraformResource
 {
     public AzurermMongoCluster(string name) : base("azurerm_mongo_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("connection_strings");
-        SetOutput("administrator_password");
-        SetOutput("administrator_username");
-        SetOutput("compute_tier");
-        SetOutput("create_mode");
-        SetOutput("high_availability_mode");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("preview_features");
-        SetOutput("public_network_access");
-        SetOutput("resource_group_name");
-        SetOutput("shard_count");
-        SetOutput("source_location");
-        SetOutput("source_server_id");
-        SetOutput("storage_size_in_gb");
-        SetOutput("tags");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The administrator_password attribute.
     /// </summary>
-    public TerraformProperty<string> AdministratorPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("administrator_password");
-        set => SetProperty("administrator_password", value);
-    }
+    [TerraformPropertyName("administrator_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AdministratorPassword { get; set; }
 
     /// <summary>
     /// The administrator_username attribute.
     /// </summary>
-    public TerraformProperty<string> AdministratorUsername
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("administrator_username");
-        set => SetProperty("administrator_username", value);
-    }
+    [TerraformPropertyName("administrator_username")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AdministratorUsername { get; set; }
 
     /// <summary>
     /// The compute_tier attribute.
     /// </summary>
-    public TerraformProperty<string> ComputeTier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("compute_tier");
-        set => SetProperty("compute_tier", value);
-    }
+    [TerraformPropertyName("compute_tier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ComputeTier { get; set; }
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
-    public TerraformProperty<string> CreateMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("create_mode");
-        set => SetProperty("create_mode", value);
-    }
+    [TerraformPropertyName("create_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CreateMode { get; set; }
 
     /// <summary>
     /// The high_availability_mode attribute.
     /// </summary>
-    public TerraformProperty<string> HighAvailabilityMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("high_availability_mode");
-        set => SetProperty("high_availability_mode", value);
-    }
+    [TerraformPropertyName("high_availability_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HighAvailabilityMode { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The preview_features attribute.
     /// </summary>
-    public List<TerraformProperty<string>> PreviewFeatures
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("preview_features");
-        set => SetProperty("preview_features", value);
-    }
+    [TerraformPropertyName("preview_features")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? PreviewFeatures { get; set; }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public TerraformProperty<string> PublicNetworkAccess
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("public_network_access");
-        set => SetProperty("public_network_access", value);
-    }
+    [TerraformPropertyName("public_network_access")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PublicNetworkAccess { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The shard_count attribute.
     /// </summary>
-    public TerraformProperty<double> ShardCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("shard_count");
-        set => SetProperty("shard_count", value);
-    }
+    [TerraformPropertyName("shard_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ShardCount { get; set; }
 
     /// <summary>
     /// The source_location attribute.
     /// </summary>
-    public TerraformProperty<string> SourceLocation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_location");
-        set => SetProperty("source_location", value);
-    }
+    [TerraformPropertyName("source_location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceLocation { get; set; }
 
     /// <summary>
     /// The source_server_id attribute.
     /// </summary>
-    public TerraformProperty<string> SourceServerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_server_id");
-        set => SetProperty("source_server_id", value);
-    }
+    [TerraformPropertyName("source_server_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceServerId { get; set; }
 
     /// <summary>
     /// The storage_size_in_gb attribute.
     /// </summary>
-    public TerraformProperty<double> StorageSizeInGb
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("storage_size_in_gb");
-        set => SetProperty("storage_size_in_gb", value);
-    }
+    [TerraformPropertyName("storage_size_in_gb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? StorageSizeInGb { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMongoClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMongoClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The connection_strings attribute.
     /// </summary>
-    public TerraformExpression ConnectionStrings => this["connection_strings"];
+    [TerraformPropertyName("connection_strings")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ConnectionStrings => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "connection_strings");
 
 }

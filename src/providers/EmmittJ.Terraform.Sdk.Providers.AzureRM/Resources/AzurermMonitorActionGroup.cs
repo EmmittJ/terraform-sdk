@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for arm_role_receiver in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorActionGroupArmRoleReceiverBlock : TerraformBlock
+public class AzurermMonitorActionGroupArmRoleReceiverBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The role_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
-    public required TerraformProperty<string> RoleId
-    {
-        set => SetProperty("role_id", value);
-    }
+    [TerraformPropertyName("role_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleId { get; set; }
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseCommonAlertSchema
-    {
-        set => SetProperty("use_common_alert_schema", value);
-    }
+    [TerraformPropertyName("use_common_alert_schema")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseCommonAlertSchema { get; set; }
 
 }
 
@@ -40,69 +37,62 @@ public class AzurermMonitorActionGroupArmRoleReceiverBlock : TerraformBlock
 /// Block type for automation_runbook_receiver in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : TerraformBlock
+public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : ITerraformBlock
 {
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
-    public required TerraformProperty<string> AutomationAccountId
-    {
-        set => SetProperty("automation_account_id", value);
-    }
+    [TerraformPropertyName("automation_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AutomationAccountId { get; set; }
 
     /// <summary>
     /// The is_global_runbook attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsGlobalRunbook is required")]
-    public required TerraformProperty<bool> IsGlobalRunbook
-    {
-        set => SetProperty("is_global_runbook", value);
-    }
+    [TerraformPropertyName("is_global_runbook")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> IsGlobalRunbook { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The runbook_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RunbookName is required")]
-    public required TerraformProperty<string> RunbookName
-    {
-        set => SetProperty("runbook_name", value);
-    }
+    [TerraformPropertyName("runbook_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RunbookName { get; set; }
 
     /// <summary>
     /// The service_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
-    public required TerraformProperty<string> ServiceUri
-    {
-        set => SetProperty("service_uri", value);
-    }
+    [TerraformPropertyName("service_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceUri { get; set; }
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseCommonAlertSchema
-    {
-        set => SetProperty("use_common_alert_schema", value);
-    }
+    [TerraformPropertyName("use_common_alert_schema")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseCommonAlertSchema { get; set; }
 
     /// <summary>
     /// The webhook_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookResourceId is required")]
-    public required TerraformProperty<string> WebhookResourceId
-    {
-        set => SetProperty("webhook_resource_id", value);
-    }
+    [TerraformPropertyName("webhook_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WebhookResourceId { get; set; }
 
 }
 
@@ -110,25 +100,23 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
 /// Block type for azure_app_push_receiver in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorActionGroupAzureAppPushReceiverBlock : TerraformBlock
+public class AzurermMonitorActionGroupAzureAppPushReceiverBlock : ITerraformBlock
 {
     /// <summary>
     /// The email_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
-    public required TerraformProperty<string> EmailAddress
-    {
-        set => SetProperty("email_address", value);
-    }
+    [TerraformPropertyName("email_address")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EmailAddress { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -136,51 +124,46 @@ public class AzurermMonitorActionGroupAzureAppPushReceiverBlock : TerraformBlock
 /// Block type for azure_function_receiver in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBlock
+public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : ITerraformBlock
 {
     /// <summary>
     /// The function_app_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppResourceId is required")]
-    public required TerraformProperty<string> FunctionAppResourceId
-    {
-        set => SetProperty("function_app_resource_id", value);
-    }
+    [TerraformPropertyName("function_app_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FunctionAppResourceId { get; set; }
 
     /// <summary>
     /// The function_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
-    public required TerraformProperty<string> FunctionName
-    {
-        set => SetProperty("function_name", value);
-    }
+    [TerraformPropertyName("function_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FunctionName { get; set; }
 
     /// <summary>
     /// The http_trigger_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpTriggerUrl is required")]
-    public required TerraformProperty<string> HttpTriggerUrl
-    {
-        set => SetProperty("http_trigger_url", value);
-    }
+    [TerraformPropertyName("http_trigger_url")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HttpTriggerUrl { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseCommonAlertSchema
-    {
-        set => SetProperty("use_common_alert_schema", value);
-    }
+    [TerraformPropertyName("use_common_alert_schema")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseCommonAlertSchema { get; set; }
 
 }
 
@@ -188,33 +171,30 @@ public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBloc
 /// Block type for email_receiver in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorActionGroupEmailReceiverBlock : TerraformBlock
+public class AzurermMonitorActionGroupEmailReceiverBlock : ITerraformBlock
 {
     /// <summary>
     /// The email_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
-    public required TerraformProperty<string> EmailAddress
-    {
-        set => SetProperty("email_address", value);
-    }
+    [TerraformPropertyName("email_address")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EmailAddress { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseCommonAlertSchema
-    {
-        set => SetProperty("use_common_alert_schema", value);
-    }
+    [TerraformPropertyName("use_common_alert_schema")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseCommonAlertSchema { get; set; }
 
 }
 
@@ -222,58 +202,52 @@ public class AzurermMonitorActionGroupEmailReceiverBlock : TerraformBlock
 /// Block type for event_hub_receiver in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
+public class AzurermMonitorActionGroupEventHubReceiverBlock : ITerraformBlock
 {
     /// <summary>
     /// The event_hub_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventHubName is required")]
-    public required TerraformProperty<string> EventHubName
-    {
-        set => SetProperty("event_hub_name", value);
-    }
+    [TerraformPropertyName("event_hub_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventHubName { get; set; }
 
     /// <summary>
     /// The event_hub_namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventHubNamespace is required")]
-    public required TerraformProperty<string> EventHubNamespace
-    {
-        set => SetProperty("event_hub_namespace", value);
-    }
+    [TerraformPropertyName("event_hub_namespace")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventHubNamespace { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubscriptionId
-    {
-        set => SetProperty("subscription_id", value);
-    }
+    [TerraformPropertyName("subscription_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SubscriptionId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "subscription_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TenantId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseCommonAlertSchema
-    {
-        set => SetProperty("use_common_alert_schema", value);
-    }
+    [TerraformPropertyName("use_common_alert_schema")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseCommonAlertSchema { get; set; }
 
 }
 
@@ -281,52 +255,47 @@ public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
 /// Block type for itsm_receiver in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
+public class AzurermMonitorActionGroupItsmReceiverBlock : ITerraformBlock
 {
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
-    public required TerraformProperty<string> ConnectionId
-    {
-        set => SetProperty("connection_id", value);
-    }
+    [TerraformPropertyName("connection_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConnectionId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
-    public required TerraformProperty<string> Region
-    {
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Region { get; set; }
 
     /// <summary>
     /// The ticket_configuration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TicketConfiguration is required")]
-    public required TerraformProperty<string> TicketConfiguration
-    {
-        set => SetProperty("ticket_configuration", value);
-    }
+    [TerraformPropertyName("ticket_configuration")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TicketConfiguration { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    public required TerraformProperty<string> WorkspaceId
-    {
-        set => SetProperty("workspace_id", value);
-    }
+    [TerraformPropertyName("workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
 
 }
 
@@ -334,42 +303,38 @@ public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
 /// Block type for logic_app_receiver in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformBlock
+public class AzurermMonitorActionGroupLogicAppReceiverBlock : ITerraformBlock
 {
     /// <summary>
     /// The callback_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallbackUrl is required")]
-    public required TerraformProperty<string> CallbackUrl
-    {
-        set => SetProperty("callback_url", value);
-    }
+    [TerraformPropertyName("callback_url")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CallbackUrl { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
-    public required TerraformProperty<string> ResourceId
-    {
-        set => SetProperty("resource_id", value);
-    }
+    [TerraformPropertyName("resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceId { get; set; }
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseCommonAlertSchema
-    {
-        set => SetProperty("use_common_alert_schema", value);
-    }
+    [TerraformPropertyName("use_common_alert_schema")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseCommonAlertSchema { get; set; }
 
 }
 
@@ -377,34 +342,31 @@ public class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformBlock
 /// Block type for sms_receiver in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlock
+public class AzurermMonitorActionGroupSmsReceiverBlock : ITerraformBlock
 {
     /// <summary>
     /// The country_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
-    public required TerraformProperty<string> CountryCode
-    {
-        set => SetProperty("country_code", value);
-    }
+    [TerraformPropertyName("country_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CountryCode { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
-    public required TerraformProperty<string> PhoneNumber
-    {
-        set => SetProperty("phone_number", value);
-    }
+    [TerraformPropertyName("phone_number")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PhoneNumber { get; set; }
 
 }
 
@@ -412,39 +374,35 @@ public class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorActionGroupTimeoutsBlock : TerraformBlock
+public class AzurermMonitorActionGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -452,34 +410,31 @@ public class AzurermMonitorActionGroupTimeoutsBlock : TerraformBlock
 /// Block type for voice_receiver in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBlock
+public class AzurermMonitorActionGroupVoiceReceiverBlock : ITerraformBlock
 {
     /// <summary>
     /// The country_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
-    public required TerraformProperty<string> CountryCode
-    {
-        set => SetProperty("country_code", value);
-    }
+    [TerraformPropertyName("country_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CountryCode { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
-    public required TerraformProperty<string> PhoneNumber
-    {
-        set => SetProperty("phone_number", value);
-    }
+    [TerraformPropertyName("phone_number")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PhoneNumber { get; set; }
 
 }
 
@@ -487,33 +442,30 @@ public class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBlock
 /// Block type for webhook_receiver in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorActionGroupWebhookReceiverBlock : TerraformBlock
+public class AzurermMonitorActionGroupWebhookReceiverBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The service_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
-    public required TerraformProperty<string> ServiceUri
-    {
-        set => SetProperty("service_uri", value);
-    }
+    [TerraformPropertyName("service_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceUri { get; set; }
 
     /// <summary>
     /// The use_common_alert_schema attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseCommonAlertSchema
-    {
-        set => SetProperty("use_common_alert_schema", value);
-    }
+    [TerraformPropertyName("use_common_alert_schema")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseCommonAlertSchema { get; set; }
 
 }
 
@@ -524,192 +476,142 @@ public class AzurermMonitorActionGroup : TerraformResource
 {
     public AzurermMonitorActionGroup(string name) : base("azurerm_monitor_action_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("short_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The short_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
-    public required TerraformProperty<string> ShortName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("short_name");
-        set => SetProperty("short_name", value);
-    }
+    [TerraformPropertyName("short_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ShortName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for arm_role_receiver.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermMonitorActionGroupArmRoleReceiverBlock>? ArmRoleReceiver
-    {
-        set => SetProperty("arm_role_receiver", value);
-    }
+    [TerraformPropertyName("arm_role_receiver")]
+    public TerraformList<TerraformBlock<AzurermMonitorActionGroupArmRoleReceiverBlock>>? ArmRoleReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for automation_runbook_receiver.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermMonitorActionGroupAutomationRunbookReceiverBlock>? AutomationRunbookReceiver
-    {
-        set => SetProperty("automation_runbook_receiver", value);
-    }
+    [TerraformPropertyName("automation_runbook_receiver")]
+    public TerraformList<TerraformBlock<AzurermMonitorActionGroupAutomationRunbookReceiverBlock>>? AutomationRunbookReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for azure_app_push_receiver.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermMonitorActionGroupAzureAppPushReceiverBlock>? AzureAppPushReceiver
-    {
-        set => SetProperty("azure_app_push_receiver", value);
-    }
+    [TerraformPropertyName("azure_app_push_receiver")]
+    public TerraformList<TerraformBlock<AzurermMonitorActionGroupAzureAppPushReceiverBlock>>? AzureAppPushReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for azure_function_receiver.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermMonitorActionGroupAzureFunctionReceiverBlock>? AzureFunctionReceiver
-    {
-        set => SetProperty("azure_function_receiver", value);
-    }
+    [TerraformPropertyName("azure_function_receiver")]
+    public TerraformList<TerraformBlock<AzurermMonitorActionGroupAzureFunctionReceiverBlock>>? AzureFunctionReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for email_receiver.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermMonitorActionGroupEmailReceiverBlock>? EmailReceiver
-    {
-        set => SetProperty("email_receiver", value);
-    }
+    [TerraformPropertyName("email_receiver")]
+    public TerraformList<TerraformBlock<AzurermMonitorActionGroupEmailReceiverBlock>>? EmailReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for event_hub_receiver.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermMonitorActionGroupEventHubReceiverBlock>? EventHubReceiver
-    {
-        set => SetProperty("event_hub_receiver", value);
-    }
+    [TerraformPropertyName("event_hub_receiver")]
+    public TerraformList<TerraformBlock<AzurermMonitorActionGroupEventHubReceiverBlock>>? EventHubReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for itsm_receiver.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermMonitorActionGroupItsmReceiverBlock>? ItsmReceiver
-    {
-        set => SetProperty("itsm_receiver", value);
-    }
+    [TerraformPropertyName("itsm_receiver")]
+    public TerraformList<TerraformBlock<AzurermMonitorActionGroupItsmReceiverBlock>>? ItsmReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for logic_app_receiver.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermMonitorActionGroupLogicAppReceiverBlock>? LogicAppReceiver
-    {
-        set => SetProperty("logic_app_receiver", value);
-    }
+    [TerraformPropertyName("logic_app_receiver")]
+    public TerraformList<TerraformBlock<AzurermMonitorActionGroupLogicAppReceiverBlock>>? LogicAppReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for sms_receiver.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermMonitorActionGroupSmsReceiverBlock>? SmsReceiver
-    {
-        set => SetProperty("sms_receiver", value);
-    }
+    [TerraformPropertyName("sms_receiver")]
+    public TerraformList<TerraformBlock<AzurermMonitorActionGroupSmsReceiverBlock>>? SmsReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMonitorActionGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMonitorActionGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for voice_receiver.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermMonitorActionGroupVoiceReceiverBlock>? VoiceReceiver
-    {
-        set => SetProperty("voice_receiver", value);
-    }
+    [TerraformPropertyName("voice_receiver")]
+    public TerraformList<TerraformBlock<AzurermMonitorActionGroupVoiceReceiverBlock>>? VoiceReceiver { get; set; } = new();
 
     /// <summary>
     /// Block for webhook_receiver.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermMonitorActionGroupWebhookReceiverBlock>? WebhookReceiver
-    {
-        set => SetProperty("webhook_receiver", value);
-    }
+    [TerraformPropertyName("webhook_receiver")]
+    public TerraformList<TerraformBlock<AzurermMonitorActionGroupWebhookReceiverBlock>>? WebhookReceiver { get; set; } = new();
 
 }

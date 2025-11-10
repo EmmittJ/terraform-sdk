@@ -9,179 +9,127 @@ public class AwsDevicefarmNetworkProfile : TerraformResource
 {
     public AwsDevicefarmNetworkProfile(string name) : base("aws_devicefarm_network_profile", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("description");
-        SetOutput("downlink_bandwidth_bits");
-        SetOutput("downlink_delay_ms");
-        SetOutput("downlink_jitter_ms");
-        SetOutput("downlink_loss_percent");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project_arn");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("type");
-        SetOutput("uplink_bandwidth_bits");
-        SetOutput("uplink_delay_ms");
-        SetOutput("uplink_jitter_ms");
-        SetOutput("uplink_loss_percent");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The downlink_bandwidth_bits attribute.
     /// </summary>
-    public TerraformProperty<double> DownlinkBandwidthBits
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("downlink_bandwidth_bits");
-        set => SetProperty("downlink_bandwidth_bits", value);
-    }
+    [TerraformPropertyName("downlink_bandwidth_bits")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DownlinkBandwidthBits { get; set; }
 
     /// <summary>
     /// The downlink_delay_ms attribute.
     /// </summary>
-    public TerraformProperty<double> DownlinkDelayMs
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("downlink_delay_ms");
-        set => SetProperty("downlink_delay_ms", value);
-    }
+    [TerraformPropertyName("downlink_delay_ms")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DownlinkDelayMs { get; set; }
 
     /// <summary>
     /// The downlink_jitter_ms attribute.
     /// </summary>
-    public TerraformProperty<double> DownlinkJitterMs
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("downlink_jitter_ms");
-        set => SetProperty("downlink_jitter_ms", value);
-    }
+    [TerraformPropertyName("downlink_jitter_ms")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DownlinkJitterMs { get; set; }
 
     /// <summary>
     /// The downlink_loss_percent attribute.
     /// </summary>
-    public TerraformProperty<double> DownlinkLossPercent
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("downlink_loss_percent");
-        set => SetProperty("downlink_loss_percent", value);
-    }
+    [TerraformPropertyName("downlink_loss_percent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DownlinkLossPercent { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectArn is required")]
-    public required TerraformProperty<string> ProjectArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project_arn");
-        set => SetProperty("project_arn", value);
-    }
+    [TerraformPropertyName("project_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProjectArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
     /// <summary>
     /// The uplink_bandwidth_bits attribute.
     /// </summary>
-    public TerraformProperty<double> UplinkBandwidthBits
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("uplink_bandwidth_bits");
-        set => SetProperty("uplink_bandwidth_bits", value);
-    }
+    [TerraformPropertyName("uplink_bandwidth_bits")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? UplinkBandwidthBits { get; set; }
 
     /// <summary>
     /// The uplink_delay_ms attribute.
     /// </summary>
-    public TerraformProperty<double> UplinkDelayMs
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("uplink_delay_ms");
-        set => SetProperty("uplink_delay_ms", value);
-    }
+    [TerraformPropertyName("uplink_delay_ms")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? UplinkDelayMs { get; set; }
 
     /// <summary>
     /// The uplink_jitter_ms attribute.
     /// </summary>
-    public TerraformProperty<double> UplinkJitterMs
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("uplink_jitter_ms");
-        set => SetProperty("uplink_jitter_ms", value);
-    }
+    [TerraformPropertyName("uplink_jitter_ms")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? UplinkJitterMs { get; set; }
 
     /// <summary>
     /// The uplink_loss_percent attribute.
     /// </summary>
-    public TerraformProperty<double> UplinkLossPercent
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("uplink_loss_percent");
-        set => SetProperty("uplink_loss_percent", value);
-    }
+    [TerraformPropertyName("uplink_loss_percent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? UplinkLossPercent { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

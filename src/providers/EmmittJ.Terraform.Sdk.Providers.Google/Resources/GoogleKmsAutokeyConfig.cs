@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleKmsAutokeyConfigTimeoutsBlock : TerraformBlock
+public class GoogleKmsAutokeyConfigTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,59 +38,44 @@ public class GoogleKmsAutokeyConfig : TerraformResource
 {
     public GoogleKmsAutokeyConfig(string name) : base("google_kms_autokey_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("etag");
-        SetOutput("folder");
-        SetOutput("id");
-        SetOutput("key_project");
     }
 
     /// <summary>
     /// The folder for which to retrieve config.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
-    public required TerraformProperty<string> Folder
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("folder");
-        set => SetProperty("folder", value);
-    }
+    [TerraformPropertyName("folder")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The target key project for a given folder where KMS Autokey will provision a
     /// CryptoKey for any new KeyHandle the Developer creates. Should have the form
     /// &#39;projects/&amp;lt;project_id_or_number&amp;gt;&#39;.
     /// </summary>
-    public TerraformProperty<string> KeyProject
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_project");
-        set => SetProperty("key_project", value);
-    }
+    [TerraformPropertyName("key_project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyProject { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleKmsAutokeyConfigTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleKmsAutokeyConfigTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The etag of the AutokeyConfig for optimistic concurrency control.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
 }

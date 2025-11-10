@@ -6,48 +6,43 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlock
+public class AwsAccessanalyzerArchiveRuleFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The contains attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Contains
-    {
-        set => SetProperty("contains", value);
-    }
+    [TerraformPropertyName("contains")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> Contains { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "contains");
 
     /// <summary>
     /// The criteria attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
-    public required TerraformProperty<string> Criteria
-    {
-        set => SetProperty("criteria", value);
-    }
+    [TerraformPropertyName("criteria")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Criteria { get; set; }
 
     /// <summary>
     /// The eq attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Eq
-    {
-        set => SetProperty("eq", value);
-    }
+    [TerraformPropertyName("eq")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> Eq { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "eq");
 
     /// <summary>
     /// The exists attribute.
     /// </summary>
-    public TerraformProperty<string>? Exists
-    {
-        set => SetProperty("exists", value);
-    }
+    [TerraformPropertyName("exists")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Exists { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "exists");
 
     /// <summary>
     /// The neq attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Neq
-    {
-        set => SetProperty("neq", value);
-    }
+    [TerraformPropertyName("neq")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> Neq { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "neq");
 
 }
 
@@ -59,54 +54,37 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
 {
     public AwsAccessanalyzerArchiveRule(string name) : base("aws_accessanalyzer_archive_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("analyzer_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("rule_name");
     }
 
     /// <summary>
     /// The analyzer_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalyzerName is required")]
-    public required TerraformProperty<string> AnalyzerName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("analyzer_name");
-        set => SetProperty("analyzer_name", value);
-    }
+    [TerraformPropertyName("analyzer_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AnalyzerName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The rule_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
-    public required TerraformProperty<string> RuleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rule_name");
-        set => SetProperty("rule_name", value);
-    }
+    [TerraformPropertyName("rule_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RuleName { get; set; }
 
     /// <summary>
     /// Block for filter.
@@ -114,9 +92,7 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
-    public HashSet<AwsAccessanalyzerArchiveRuleFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformSet<TerraformBlock<AwsAccessanalyzerArchiveRuleFilterBlock>>? Filter { get; set; } = new();
 
 }

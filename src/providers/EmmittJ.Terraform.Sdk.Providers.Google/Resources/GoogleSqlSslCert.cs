@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSqlSslCertTimeoutsBlock : TerraformBlock
+public class GoogleSqlSslCertTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,104 +31,92 @@ public class GoogleSqlSslCert : TerraformResource
 {
     public GoogleSqlSslCert(string name) : base("google_sql_ssl_cert", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cert");
-        SetOutput("cert_serial_number");
-        SetOutput("create_time");
-        SetOutput("expiration_time");
-        SetOutput("private_key");
-        SetOutput("server_ca_cert");
-        SetOutput("sha1_fingerprint");
-        SetOutput("common_name");
-        SetOutput("id");
-        SetOutput("instance");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The common name to be used in the certificate to identify the client. Constrained to [a-zA-Z.-_ ]+. Changing this forces a new resource to be created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommonName is required")]
-    public required TerraformProperty<string> CommonName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("common_name");
-        set => SetProperty("common_name", value);
-    }
+    [TerraformPropertyName("common_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CommonName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the Cloud SQL instance. Changing this forces a new resource to be created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    public required TerraformProperty<string> Instance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance");
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleSqlSslCertTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleSqlSslCertTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The actual certificate data for this client certificate.
     /// </summary>
-    public TerraformExpression Cert => this["cert"];
+    [TerraformPropertyName("cert")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Cert => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cert");
 
     /// <summary>
     /// The serial number extracted from the certificate data.
     /// </summary>
-    public TerraformExpression CertSerialNumber => this["cert_serial_number"];
+    [TerraformPropertyName("cert_serial_number")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CertSerialNumber => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cert_serial_number");
 
     /// <summary>
     /// The time when the certificate was created in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The time when the certificate expires in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
     /// </summary>
-    public TerraformExpression ExpirationTime => this["expiration_time"];
+    [TerraformPropertyName("expiration_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpirationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_time");
 
     /// <summary>
     /// The private key associated with the client certificate.
     /// </summary>
-    public TerraformExpression PrivateKey => this["private_key"];
+    [TerraformPropertyName("private_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_key");
 
     /// <summary>
     /// The CA cert of the server this client cert was generated from.
     /// </summary>
-    public TerraformExpression ServerCaCert => this["server_ca_cert"];
+    [TerraformPropertyName("server_ca_cert")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServerCaCert => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "server_ca_cert");
 
     /// <summary>
     /// The SHA1 Fingerprint of the certificate.
     /// </summary>
-    public TerraformExpression Sha1Fingerprint => this["sha1_fingerprint"];
+    [TerraformPropertyName("sha1_fingerprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Sha1Fingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sha1_fingerprint");
 
 }

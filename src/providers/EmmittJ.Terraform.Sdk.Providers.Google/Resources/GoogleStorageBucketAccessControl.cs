@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleStorageBucketAccessControlTimeoutsBlock : TerraformBlock
+public class GoogleStorageBucketAccessControlTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,28 +38,15 @@ public class GoogleStorageBucketAccessControl : TerraformResource
 {
     public GoogleStorageBucketAccessControl(string name) : base("google_storage_bucket_access_control", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("domain");
-        SetOutput("email");
-        SetOutput("bucket");
-        SetOutput("entity");
-        SetOutput("id");
-        SetOutput("role");
     }
 
     /// <summary>
     /// The name of the bucket.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The entity holding the permission, in one of the following forms:
@@ -82,47 +66,43 @@ public class GoogleStorageBucketAccessControl : TerraformResource
     ///   example.com, the entity would be domain-example.com.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entity is required")]
-    public required TerraformProperty<string> Entity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("entity");
-        set => SetProperty("entity", value);
-    }
+    [TerraformPropertyName("entity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Entity { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The access permission for the entity. Possible values: [&amp;quot;OWNER&amp;quot;, &amp;quot;READER&amp;quot;, &amp;quot;WRITER&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> Role
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role");
-        set => SetProperty("role", value);
-    }
+    [TerraformPropertyName("role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Role { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleStorageBucketAccessControlTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleStorageBucketAccessControlTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The domain associated with the entity.
     /// </summary>
-    public TerraformExpression Domain => this["domain"];
+    [TerraformPropertyName("domain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Domain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain");
 
     /// <summary>
     /// The email address associated with the entity.
     /// </summary>
-    public TerraformExpression Email => this["email"];
+    [TerraformPropertyName("email")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Email => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "email");
 
 }

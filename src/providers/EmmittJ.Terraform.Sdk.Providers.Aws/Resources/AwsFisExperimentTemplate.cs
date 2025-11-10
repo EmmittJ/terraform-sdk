@@ -6,41 +6,37 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for action in .
 /// Nesting mode: set
 /// </summary>
-public class AwsFisExperimentTemplateActionBlock : TerraformBlock
+public class AwsFisExperimentTemplateActionBlock : ITerraformBlock
 {
     /// <summary>
     /// The action_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionId is required")]
-    public required TerraformProperty<string> ActionId
-    {
-        set => SetProperty("action_id", value);
-    }
+    [TerraformPropertyName("action_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ActionId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The start_after attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? StartAfter
-    {
-        set => SetProperty("start_after", value);
-    }
+    [TerraformPropertyName("start_after")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? StartAfter { get; set; }
 
 }
 
@@ -48,23 +44,21 @@ public class AwsFisExperimentTemplateActionBlock : TerraformBlock
 /// Block type for experiment_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFisExperimentTemplateExperimentOptionsBlock : TerraformBlock
+public class AwsFisExperimentTemplateExperimentOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The account_targeting attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountTargeting
-    {
-        set => SetProperty("account_targeting", value);
-    }
+    [TerraformPropertyName("account_targeting")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AccountTargeting { get; set; }
 
     /// <summary>
     /// The empty_target_resolution_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? EmptyTargetResolutionMode
-    {
-        set => SetProperty("empty_target_resolution_mode", value);
-    }
+    [TerraformPropertyName("empty_target_resolution_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EmptyTargetResolutionMode { get; set; }
 
 }
 
@@ -72,23 +66,21 @@ public class AwsFisExperimentTemplateExperimentOptionsBlock : TerraformBlock
 /// Block type for experiment_report_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFisExperimentTemplateExperimentReportConfigurationBlock : TerraformBlock
+public class AwsFisExperimentTemplateExperimentReportConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The post_experiment_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? PostExperimentDuration
-    {
-        set => SetProperty("post_experiment_duration", value);
-    }
+    [TerraformPropertyName("post_experiment_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PostExperimentDuration { get; set; }
 
     /// <summary>
     /// The pre_experiment_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? PreExperimentDuration
-    {
-        set => SetProperty("pre_experiment_duration", value);
-    }
+    [TerraformPropertyName("pre_experiment_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PreExperimentDuration { get; set; }
 
 }
 
@@ -96,16 +88,15 @@ public class AwsFisExperimentTemplateExperimentReportConfigurationBlock : Terraf
 /// Block type for log_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFisExperimentTemplateLogConfigurationBlock : TerraformBlock
+public class AwsFisExperimentTemplateLogConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The log_schema_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogSchemaVersion is required")]
-    public required TerraformProperty<double> LogSchemaVersion
-    {
-        set => SetProperty("log_schema_version", value);
-    }
+    [TerraformPropertyName("log_schema_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> LogSchemaVersion { get; set; }
 
 }
 
@@ -113,24 +104,22 @@ public class AwsFisExperimentTemplateLogConfigurationBlock : TerraformBlock
 /// Block type for stop_condition in .
 /// Nesting mode: set
 /// </summary>
-public class AwsFisExperimentTemplateStopConditionBlock : TerraformBlock
+public class AwsFisExperimentTemplateStopConditionBlock : ITerraformBlock
 {
     /// <summary>
     /// The source attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
-    public required TerraformProperty<string> Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Source { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -138,50 +127,45 @@ public class AwsFisExperimentTemplateStopConditionBlock : TerraformBlock
 /// Block type for target in .
 /// Nesting mode: set
 /// </summary>
-public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
+public class AwsFisExperimentTemplateTargetBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
-    {
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// The resource_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ResourceArns
-    {
-        set => SetProperty("resource_arns", value);
-    }
+    [TerraformPropertyName("resource_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ResourceArns { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
-    public required TerraformProperty<string> ResourceType
-    {
-        set => SetProperty("resource_type", value);
-    }
+    [TerraformPropertyName("resource_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceType { get; set; }
 
     /// <summary>
     /// The selection_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelectionMode is required")]
-    public required TerraformProperty<string> SelectionMode
-    {
-        set => SetProperty("selection_mode", value);
-    }
+    [TerraformPropertyName("selection_mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SelectionMode { get; set; }
 
 }
 
@@ -189,31 +173,28 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsFisExperimentTemplateTimeoutsBlock : TerraformBlock
+public class AwsFisExperimentTemplateTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -225,74 +206,51 @@ public class AwsFisExperimentTemplate : TerraformResource
 {
     public AwsFisExperimentTemplate(string name) : base("aws_fis_experiment_template", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("role_arn");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
-    public required TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for action.
@@ -300,40 +258,32 @@ public class AwsFisExperimentTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
-    public HashSet<AwsFisExperimentTemplateActionBlock>? Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    public TerraformSet<TerraformBlock<AwsFisExperimentTemplateActionBlock>>? Action { get; set; } = new();
 
     /// <summary>
     /// Block for experiment_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExperimentOptions block(s) allowed")]
-    public List<AwsFisExperimentTemplateExperimentOptionsBlock>? ExperimentOptions
-    {
-        set => SetProperty("experiment_options", value);
-    }
+    [TerraformPropertyName("experiment_options")]
+    public TerraformList<TerraformBlock<AwsFisExperimentTemplateExperimentOptionsBlock>>? ExperimentOptions { get; set; } = new();
 
     /// <summary>
     /// Block for experiment_report_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExperimentReportConfiguration block(s) allowed")]
-    public List<AwsFisExperimentTemplateExperimentReportConfigurationBlock>? ExperimentReportConfiguration
-    {
-        set => SetProperty("experiment_report_configuration", value);
-    }
+    [TerraformPropertyName("experiment_report_configuration")]
+    public TerraformList<TerraformBlock<AwsFisExperimentTemplateExperimentReportConfigurationBlock>>? ExperimentReportConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for log_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfiguration block(s) allowed")]
-    public List<AwsFisExperimentTemplateLogConfigurationBlock>? LogConfiguration
-    {
-        set => SetProperty("log_configuration", value);
-    }
+    [TerraformPropertyName("log_configuration")]
+    public TerraformList<TerraformBlock<AwsFisExperimentTemplateLogConfigurationBlock>>? LogConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for stop_condition.
@@ -341,27 +291,21 @@ public class AwsFisExperimentTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopCondition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StopCondition block(s) required")]
-    public HashSet<AwsFisExperimentTemplateStopConditionBlock>? StopCondition
-    {
-        set => SetProperty("stop_condition", value);
-    }
+    [TerraformPropertyName("stop_condition")]
+    public TerraformSet<TerraformBlock<AwsFisExperimentTemplateStopConditionBlock>>? StopCondition { get; set; } = new();
 
     /// <summary>
     /// Block for target.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsFisExperimentTemplateTargetBlock>? Target
-    {
-        set => SetProperty("target", value);
-    }
+    [TerraformPropertyName("target")]
+    public TerraformSet<TerraformBlock<AwsFisExperimentTemplateTargetBlock>>? Target { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsFisExperimentTemplateTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsFisExperimentTemplateTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

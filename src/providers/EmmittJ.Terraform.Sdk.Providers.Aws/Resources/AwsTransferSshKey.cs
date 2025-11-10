@@ -9,70 +9,51 @@ public class AwsTransferSshKey : TerraformResource
 {
     public AwsTransferSshKey(string name) : base("aws_transfer_ssh_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("ssh_key_id");
-        SetOutput("body");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("server_id");
-        SetOutput("user_name");
     }
 
     /// <summary>
     /// The body attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
-    public required TerraformProperty<string> Body
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("body");
-        set => SetProperty("body", value);
-    }
+    [TerraformPropertyName("body")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Body { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    public required TerraformProperty<string> ServerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("server_id");
-        set => SetProperty("server_id", value);
-    }
+    [TerraformPropertyName("server_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServerId { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
-    public required TerraformProperty<string> UserName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
-        set => SetProperty("user_name", value);
-    }
+    [TerraformPropertyName("user_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserName { get; set; }
 
     /// <summary>
     /// The ssh_key_id attribute.
     /// </summary>
-    public TerraformExpression SshKeyId => this["ssh_key_id"];
+    [TerraformPropertyName("ssh_key_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SshKeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ssh_key_id");
 
 }

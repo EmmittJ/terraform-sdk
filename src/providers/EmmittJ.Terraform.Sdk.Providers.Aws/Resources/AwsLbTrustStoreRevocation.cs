@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLbTrustStoreRevocationTimeoutsBlock : TerraformBlock
+public class AwsLbTrustStoreRevocationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
 }
 
@@ -25,89 +24,65 @@ public class AwsLbTrustStoreRevocation : TerraformResource
 {
     public AwsLbTrustStoreRevocation(string name) : base("aws_lb_trust_store_revocation", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("revocation_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("revocations_s3_bucket");
-        SetOutput("revocations_s3_key");
-        SetOutput("revocations_s3_object_version");
-        SetOutput("trust_store_arn");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The revocations_s3_bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevocationsS3Bucket is required")]
-    public required TerraformProperty<string> RevocationsS3Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("revocations_s3_bucket");
-        set => SetProperty("revocations_s3_bucket", value);
-    }
+    [TerraformPropertyName("revocations_s3_bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RevocationsS3Bucket { get; set; }
 
     /// <summary>
     /// The revocations_s3_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevocationsS3Key is required")]
-    public required TerraformProperty<string> RevocationsS3Key
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("revocations_s3_key");
-        set => SetProperty("revocations_s3_key", value);
-    }
+    [TerraformPropertyName("revocations_s3_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RevocationsS3Key { get; set; }
 
     /// <summary>
     /// The revocations_s3_object_version attribute.
     /// </summary>
-    public TerraformProperty<string> RevocationsS3ObjectVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("revocations_s3_object_version");
-        set => SetProperty("revocations_s3_object_version", value);
-    }
+    [TerraformPropertyName("revocations_s3_object_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RevocationsS3ObjectVersion { get; set; }
 
     /// <summary>
     /// The trust_store_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustStoreArn is required")]
-    public required TerraformProperty<string> TrustStoreArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("trust_store_arn");
-        set => SetProperty("trust_store_arn", value);
-    }
+    [TerraformPropertyName("trust_store_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TrustStoreArn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsLbTrustStoreRevocationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsLbTrustStoreRevocationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The revocation_id attribute.
     /// </summary>
-    public TerraformExpression RevocationId => this["revocation_id"];
+    [TerraformPropertyName("revocation_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RevocationId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "revocation_id");
 
 }

@@ -9,62 +9,42 @@ public class AwsTransferWebAppCustomization : TerraformResource
 {
     public AwsTransferWebAppCustomization(string name) : base("aws_transfer_web_app_customization", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("favicon_file");
-        SetOutput("logo_file");
-        SetOutput("region");
-        SetOutput("title");
-        SetOutput("web_app_id");
     }
 
     /// <summary>
     /// The favicon_file attribute.
     /// </summary>
-    public TerraformProperty<string> FaviconFile
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("favicon_file");
-        set => SetProperty("favicon_file", value);
-    }
+    [TerraformPropertyName("favicon_file")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> FaviconFile { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "favicon_file");
 
     /// <summary>
     /// The logo_file attribute.
     /// </summary>
-    public TerraformProperty<string> LogoFile
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("logo_file");
-        set => SetProperty("logo_file", value);
-    }
+    [TerraformPropertyName("logo_file")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LogoFile { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "logo_file");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The title attribute.
     /// </summary>
-    public TerraformProperty<string> Title
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("title");
-        set => SetProperty("title", value);
-    }
+    [TerraformPropertyName("title")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Title { get; set; }
 
     /// <summary>
     /// The web_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebAppId is required")]
-    public required TerraformProperty<string> WebAppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("web_app_id");
-        set => SetProperty("web_app_id", value);
-    }
+    [TerraformPropertyName("web_app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WebAppId { get; set; }
 
 }

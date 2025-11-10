@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEc2LocalGatewayRouteTableDataSourceFilterBlock : TerraformBlock
+public class AwsEc2LocalGatewayRouteTableDataSourceFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public HashSet<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -32,15 +30,14 @@ public class AwsEc2LocalGatewayRouteTableDataSourceFilterBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2LocalGatewayRouteTableDataSourceTimeoutsBlock : TerraformBlock
+public class AwsEc2LocalGatewayRouteTableDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -51,99 +48,69 @@ public class AwsEc2LocalGatewayRouteTableDataSource : TerraformDataSource
 {
     public AwsEc2LocalGatewayRouteTableDataSource(string name) : base("aws_ec2_local_gateway_route_table", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("local_gateway_id");
-        SetOutput("local_gateway_route_table_id");
-        SetOutput("outpost_arn");
-        SetOutput("region");
-        SetOutput("state");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The local_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string> LocalGatewayId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("local_gateway_id");
-        set => SetProperty("local_gateway_id", value);
-    }
+    [TerraformPropertyName("local_gateway_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LocalGatewayId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "local_gateway_id");
 
     /// <summary>
     /// The local_gateway_route_table_id attribute.
     /// </summary>
-    public TerraformProperty<string> LocalGatewayRouteTableId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("local_gateway_route_table_id");
-        set => SetProperty("local_gateway_route_table_id", value);
-    }
+    [TerraformPropertyName("local_gateway_route_table_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LocalGatewayRouteTableId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "local_gateway_route_table_id");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    public TerraformProperty<string> OutpostArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("outpost_arn");
-        set => SetProperty("outpost_arn", value);
-    }
+    [TerraformPropertyName("outpost_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> OutpostArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "outpost_arn");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string> State
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("state");
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> State { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsEc2LocalGatewayRouteTableDataSourceFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformSet<TerraformBlock<AwsEc2LocalGatewayRouteTableDataSourceFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEc2LocalGatewayRouteTableDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEc2LocalGatewayRouteTableDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

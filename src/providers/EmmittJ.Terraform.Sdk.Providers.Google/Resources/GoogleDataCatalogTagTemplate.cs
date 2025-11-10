@@ -6,58 +6,52 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for fields in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
+public class GoogleDataCatalogTagTemplateFieldsBlock : ITerraformBlock
 {
     /// <summary>
     /// A description for this field.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Description { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "description");
 
     /// <summary>
     /// The display name for this field.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
-    {
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "display_name");
 
     /// <summary>
     /// The field_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldId is required")]
-    public required TerraformProperty<string> FieldId
-    {
-        set => SetProperty("field_id", value);
-    }
+    [TerraformPropertyName("field_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FieldId { get; set; }
 
     /// <summary>
     /// Whether this is a required field. Defaults to false.
     /// </summary>
-    public TerraformProperty<bool>? IsRequired
-    {
-        set => SetProperty("is_required", value);
-    }
+    [TerraformPropertyName("is_required")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> IsRequired { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "is_required");
 
     /// <summary>
     /// The resource name of the tag template field in URL format. Example: projects/{project_id}/locations/{location}/tagTemplates/{tagTemplateId}/fields/{field}
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>("", "name");
 
     /// <summary>
     /// The order of this field with respect to other fields in this tag template.
     /// A higher value indicates a more important field. The value can be negative.
     /// Multiple fields can have the same order, and field orders within a tag do not have to be sequential.
     /// </summary>
-    public TerraformProperty<double>? Order
-    {
-        set => SetProperty("order", value);
-    }
+    [TerraformPropertyName("order")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Order { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "order");
 
 }
 
@@ -65,31 +59,28 @@ public class GoogleDataCatalogTagTemplateFieldsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataCatalogTagTemplateTimeoutsBlock : TerraformBlock
+public class GoogleDataCatalogTagTemplateTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -102,74 +93,50 @@ public class GoogleDataCatalogTagTemplate : TerraformResource
 {
     public GoogleDataCatalogTagTemplate(string name) : base("google_data_catalog_tag_template", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("display_name");
-        SetOutput("force_delete");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("region");
-        SetOutput("tag_template_id");
     }
 
     /// <summary>
     /// The display name for this template.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// This confirms the deletion of any possible tags using this template. Must be set to true in order to delete the tag template.
     /// </summary>
-    public TerraformProperty<bool> ForceDelete
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_delete");
-        set => SetProperty("force_delete", value);
-    }
+    [TerraformPropertyName("force_delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceDelete { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Template location region.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The id of the tag template to create.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagTemplateId is required")]
-    public required TerraformProperty<string> TagTemplateId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tag_template_id");
-        set => SetProperty("tag_template_id", value);
-    }
+    [TerraformPropertyName("tag_template_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TagTemplateId { get; set; }
 
     /// <summary>
     /// Block for fields.
@@ -177,23 +144,21 @@ public class GoogleDataCatalogTagTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fields block(s) required")]
-    public HashSet<GoogleDataCatalogTagTemplateFieldsBlock>? Fields
-    {
-        set => SetProperty("fields", value);
-    }
+    [TerraformPropertyName("fields")]
+    public TerraformSet<TerraformBlock<GoogleDataCatalogTagTemplateFieldsBlock>>? Fields { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDataCatalogTagTemplateTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDataCatalogTagTemplateTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the tag template in URL format. Example: projects/{project_id}/locations/{location}/tagTemplates/{tagTemplateId}
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

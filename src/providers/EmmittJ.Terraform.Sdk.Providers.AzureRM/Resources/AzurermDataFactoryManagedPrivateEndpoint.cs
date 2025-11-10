@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock : TerraformBlock
+public class AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,83 +38,58 @@ public class AzurermDataFactoryManagedPrivateEndpoint : TerraformResource
 {
     public AzurermDataFactoryManagedPrivateEndpoint(string name) : base("azurerm_data_factory_managed_private_endpoint", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("data_factory_id");
-        SetOutput("fqdns");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("subresource_name");
-        SetOutput("target_resource_id");
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    public required TerraformProperty<string> DataFactoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
-        set => SetProperty("data_factory_id", value);
-    }
+    [TerraformPropertyName("data_factory_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataFactoryId { get; set; }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Fqdns
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("fqdns");
-        set => SetProperty("fqdns", value);
-    }
+    [TerraformPropertyName("fqdns")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> Fqdns { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "fqdns");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The subresource_name attribute.
     /// </summary>
-    public TerraformProperty<string> SubresourceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subresource_name");
-        set => SetProperty("subresource_name", value);
-    }
+    [TerraformPropertyName("subresource_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SubresourceName { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
-    public required TerraformProperty<string> TargetResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
-        set => SetProperty("target_resource_id", value);
-    }
+    [TerraformPropertyName("target_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetResourceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

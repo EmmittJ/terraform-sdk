@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageTableEntityDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermStorageTableEntityDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,69 +24,51 @@ public class AzurermStorageTableEntityDataSource : TerraformDataSource
 {
     public AzurermStorageTableEntityDataSource(string name) : base("azurerm_storage_table_entity", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("entity");
-        SetOutput("id");
-        SetOutput("partition_key");
-        SetOutput("row_key");
-        SetOutput("storage_table_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
-    public required TerraformProperty<string> PartitionKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("partition_key");
-        set => SetProperty("partition_key", value);
-    }
+    [TerraformPropertyName("partition_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PartitionKey { get; set; }
 
     /// <summary>
     /// The row_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
-    public required TerraformProperty<string> RowKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("row_key");
-        set => SetProperty("row_key", value);
-    }
+    [TerraformPropertyName("row_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RowKey { get; set; }
 
     /// <summary>
     /// The storage_table_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
-    public required TerraformProperty<string> StorageTableId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_table_id");
-        set => SetProperty("storage_table_id", value);
-    }
+    [TerraformPropertyName("storage_table_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageTableId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStorageTableEntityDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStorageTableEntityDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The entity attribute.
     /// </summary>
-    public TerraformExpression Entity => this["entity"];
+    [TerraformPropertyName("entity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Entity => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "entity");
 
 }

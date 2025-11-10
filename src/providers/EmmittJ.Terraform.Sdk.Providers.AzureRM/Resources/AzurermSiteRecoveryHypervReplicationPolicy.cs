@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock : TerraformBlock
+public class AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,85 +45,60 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
 {
     public AzurermSiteRecoveryHypervReplicationPolicy(string name) : base("azurerm_site_recovery_hyperv_replication_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("application_consistent_snapshot_frequency_in_hours");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("recovery_point_retention_in_hours");
-        SetOutput("recovery_vault_id");
-        SetOutput("replication_interval_in_seconds");
     }
 
     /// <summary>
     /// The application_consistent_snapshot_frequency_in_hours attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationConsistentSnapshotFrequencyInHours is required")]
-    public required TerraformProperty<double> ApplicationConsistentSnapshotFrequencyInHours
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("application_consistent_snapshot_frequency_in_hours");
-        set => SetProperty("application_consistent_snapshot_frequency_in_hours", value);
-    }
+    [TerraformPropertyName("application_consistent_snapshot_frequency_in_hours")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ApplicationConsistentSnapshotFrequencyInHours { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The recovery_point_retention_in_hours attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryPointRetentionInHours is required")]
-    public required TerraformProperty<double> RecoveryPointRetentionInHours
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("recovery_point_retention_in_hours");
-        set => SetProperty("recovery_point_retention_in_hours", value);
-    }
+    [TerraformPropertyName("recovery_point_retention_in_hours")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> RecoveryPointRetentionInHours { get; set; }
 
     /// <summary>
     /// The recovery_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
-    public required TerraformProperty<string> RecoveryVaultId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_id");
-        set => SetProperty("recovery_vault_id", value);
-    }
+    [TerraformPropertyName("recovery_vault_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RecoveryVaultId { get; set; }
 
     /// <summary>
     /// The replication_interval_in_seconds attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationIntervalInSeconds is required")]
-    public required TerraformProperty<double> ReplicationIntervalInSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("replication_interval_in_seconds");
-        set => SetProperty("replication_interval_in_seconds", value);
-    }
+    [TerraformPropertyName("replication_interval_in_seconds")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ReplicationIntervalInSeconds { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSiteRecoveryHypervReplicationPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

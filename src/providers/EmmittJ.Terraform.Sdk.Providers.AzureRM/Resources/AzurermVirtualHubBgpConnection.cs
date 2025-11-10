@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualHubBgpConnectionTimeoutsBlock : TerraformBlock
+public class AzurermVirtualHubBgpConnectionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,84 +45,59 @@ public class AzurermVirtualHubBgpConnection : TerraformResource
 {
     public AzurermVirtualHubBgpConnection(string name) : base("azurerm_virtual_hub_bgp_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("peer_asn");
-        SetOutput("peer_ip");
-        SetOutput("virtual_hub_id");
-        SetOutput("virtual_network_connection_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The peer_asn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
-    public required TerraformProperty<double> PeerAsn
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("peer_asn");
-        set => SetProperty("peer_asn", value);
-    }
+    [TerraformPropertyName("peer_asn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> PeerAsn { get; set; }
 
     /// <summary>
     /// The peer_ip attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerIp is required")]
-    public required TerraformProperty<string> PeerIp
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("peer_ip");
-        set => SetProperty("peer_ip", value);
-    }
+    [TerraformPropertyName("peer_ip")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PeerIp { get; set; }
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
-    public required TerraformProperty<string> VirtualHubId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_hub_id");
-        set => SetProperty("virtual_hub_id", value);
-    }
+    [TerraformPropertyName("virtual_hub_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualHubId { get; set; }
 
     /// <summary>
     /// The virtual_network_connection_id attribute.
     /// </summary>
-    public TerraformProperty<string> VirtualNetworkConnectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_connection_id");
-        set => SetProperty("virtual_network_connection_id", value);
-    }
+    [TerraformPropertyName("virtual_network_connection_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VirtualNetworkConnectionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVirtualHubBgpConnectionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVirtualHubBgpConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

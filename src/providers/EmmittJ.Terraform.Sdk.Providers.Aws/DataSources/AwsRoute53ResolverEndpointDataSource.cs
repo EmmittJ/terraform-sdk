@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsRoute53ResolverEndpointDataSourceFilterBlock : TerraformBlock
+public class AwsRoute53ResolverEndpointDataSourceFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public List<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -35,98 +33,90 @@ public class AwsRoute53ResolverEndpointDataSource : TerraformDataSource
 {
     public AwsRoute53ResolverEndpointDataSource(string name) : base("aws_route53_resolver_endpoint", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("direction");
-        SetOutput("ip_addresses");
-        SetOutput("name");
-        SetOutput("protocols");
-        SetOutput("resolver_endpoint_type");
-        SetOutput("status");
-        SetOutput("vpc_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("resolver_endpoint_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resolver_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string> ResolverEndpointId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resolver_endpoint_id");
-        set => SetProperty("resolver_endpoint_id", value);
-    }
+    [TerraformPropertyName("resolver_endpoint_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResolverEndpointId { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsRoute53ResolverEndpointDataSourceFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformSet<TerraformBlock<AwsRoute53ResolverEndpointDataSourceFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The direction attribute.
     /// </summary>
-    public TerraformExpression Direction => this["direction"];
+    [TerraformPropertyName("direction")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Direction => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "direction");
 
     /// <summary>
     /// The ip_addresses attribute.
     /// </summary>
-    public TerraformExpression IpAddresses => this["ip_addresses"];
+    [TerraformPropertyName("ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> IpAddresses => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "ip_addresses");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public TerraformExpression Protocols => this["protocols"];
+    [TerraformPropertyName("protocols")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Protocols => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "protocols");
 
     /// <summary>
     /// The resolver_endpoint_type attribute.
     /// </summary>
-    public TerraformExpression ResolverEndpointType => this["resolver_endpoint_type"];
+    [TerraformPropertyName("resolver_endpoint_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResolverEndpointType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resolver_endpoint_type");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformExpression VpcId => this["vpc_id"];
+    [TerraformPropertyName("vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for application_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock : TerraformBlock
+public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -14,24 +14,22 @@ public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock : Ter
 /// Block type for cloudwatch_logging_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock : TerraformBlock
+public class AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The cloudwatch_logging_option_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CloudwatchLoggingOptionId
-    {
-        set => SetProperty("cloudwatch_logging_option_id", value);
-    }
+    [TerraformPropertyName("cloudwatch_logging_option_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CloudwatchLoggingOptionId => new TerraformReferenceProperty<TerraformProperty<string>>("", "cloudwatch_logging_option_id");
 
     /// <summary>
     /// The log_stream_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogStreamArn is required")]
-    public required TerraformProperty<string> LogStreamArn
-    {
-        set => SetProperty("log_stream_arn", value);
-    }
+    [TerraformPropertyName("log_stream_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogStreamArn { get; set; }
 
 }
 
@@ -39,31 +37,28 @@ public class AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsKinesisanalyticsv2ApplicationTimeoutsBlock : TerraformBlock
+public class AwsKinesisanalyticsv2ApplicationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -75,183 +70,144 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
 {
     public AwsKinesisanalyticsv2Application(string name) : base("aws_kinesisanalyticsv2_application", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("create_timestamp");
-        SetOutput("last_update_timestamp");
-        SetOutput("status");
-        SetOutput("version_id");
-        SetOutput("application_mode");
-        SetOutput("description");
-        SetOutput("force_stop");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("runtime_environment");
-        SetOutput("service_execution_role");
-        SetOutput("start_application");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The application_mode attribute.
     /// </summary>
-    public TerraformProperty<string> ApplicationMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_mode");
-        set => SetProperty("application_mode", value);
-    }
+    [TerraformPropertyName("application_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ApplicationMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "application_mode");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The force_stop attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceStop
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_stop");
-        set => SetProperty("force_stop", value);
-    }
+    [TerraformPropertyName("force_stop")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceStop { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The runtime_environment attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeEnvironment is required")]
-    public required TerraformProperty<string> RuntimeEnvironment
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("runtime_environment");
-        set => SetProperty("runtime_environment", value);
-    }
+    [TerraformPropertyName("runtime_environment")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RuntimeEnvironment { get; set; }
 
     /// <summary>
     /// The service_execution_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRole is required")]
-    public required TerraformProperty<string> ServiceExecutionRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_execution_role");
-        set => SetProperty("service_execution_role", value);
-    }
+    [TerraformPropertyName("service_execution_role")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceExecutionRole { get; set; }
 
     /// <summary>
     /// The start_application attribute.
     /// </summary>
-    public TerraformProperty<bool> StartApplication
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("start_application");
-        set => SetProperty("start_application", value);
-    }
+    [TerraformPropertyName("start_application")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StartApplication { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for application_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationConfiguration block(s) allowed")]
-    public List<AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock>? ApplicationConfiguration
-    {
-        set => SetProperty("application_configuration", value);
-    }
+    [TerraformPropertyName("application_configuration")]
+    public TerraformList<TerraformBlock<AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock>>? ApplicationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for cloudwatch_logging_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudwatchLoggingOptions block(s) allowed")]
-    public List<AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock>? CloudwatchLoggingOptions
-    {
-        set => SetProperty("cloudwatch_logging_options", value);
-    }
+    [TerraformPropertyName("cloudwatch_logging_options")]
+    public TerraformList<TerraformBlock<AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock>>? CloudwatchLoggingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsKinesisanalyticsv2ApplicationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsKinesisanalyticsv2ApplicationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The create_timestamp attribute.
     /// </summary>
-    public TerraformExpression CreateTimestamp => this["create_timestamp"];
+    [TerraformPropertyName("create_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_timestamp");
 
     /// <summary>
     /// The last_update_timestamp attribute.
     /// </summary>
-    public TerraformExpression LastUpdateTimestamp => this["last_update_timestamp"];
+    [TerraformPropertyName("last_update_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastUpdateTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_update_timestamp");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformExpression VersionId => this["version_id"];
+    [TerraformPropertyName("version_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> VersionId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "version_id");
 
 }

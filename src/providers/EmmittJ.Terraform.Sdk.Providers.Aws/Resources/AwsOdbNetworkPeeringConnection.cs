@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsOdbNetworkPeeringConnectionTimeoutsBlock : TerraformBlock
+public class AwsOdbNetworkPeeringConnectionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,133 +38,121 @@ public class AwsOdbNetworkPeeringConnection : TerraformResource
 {
     public AwsOdbNetworkPeeringConnection(string name) : base("aws_odb_network_peering_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("created_at");
-        SetOutput("id");
-        SetOutput("odb_network_arn");
-        SetOutput("odb_peering_connection_type");
-        SetOutput("peer_network_arn");
-        SetOutput("percent_progress");
-        SetOutput("status");
-        SetOutput("status_reason");
-        SetOutput("tags_all");
-        SetOutput("display_name");
-        SetOutput("odb_network_id");
-        SetOutput("peer_network_id");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// Display name of the odb network peering connection. Changing this will force terraform to create new resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// Required field. The unique identifier of the ODB network that initiates the peering connection. A sample ID is odbpcx-abcdefgh12345678. Changing this will force terraform to create new resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
-    public required TerraformProperty<string> OdbNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("odb_network_id");
-        set => SetProperty("odb_network_id", value);
-    }
+    [TerraformPropertyName("odb_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OdbNetworkId { get; set; }
 
     /// <summary>
     /// Required field. The unique identifier of the ODB peering connection. Changing this will force terraform to create new resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetworkId is required")]
-    public required TerraformProperty<string> PeerNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("peer_network_id");
-        set => SetProperty("peer_network_id", value);
-    }
+    [TerraformPropertyName("peer_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PeerNetworkId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsOdbNetworkPeeringConnectionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsOdbNetworkPeeringConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// Created time of the odb network peering connection.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// ARN of the odb network peering connection.
     /// </summary>
-    public TerraformExpression OdbNetworkArn => this["odb_network_arn"];
+    [TerraformPropertyName("odb_network_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OdbNetworkArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "odb_network_arn");
 
     /// <summary>
     /// Type of the odb peering connection.
     /// </summary>
-    public TerraformExpression OdbPeeringConnectionType => this["odb_peering_connection_type"];
+    [TerraformPropertyName("odb_peering_connection_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OdbPeeringConnectionType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "odb_peering_connection_type");
 
     /// <summary>
     /// ARN of the peer network peering connection.
     /// </summary>
-    public TerraformExpression PeerNetworkArn => this["peer_network_arn"];
+    [TerraformPropertyName("peer_network_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PeerNetworkArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_network_arn");
 
     /// <summary>
     /// Progress of the odb network peering connection.
     /// </summary>
-    public TerraformExpression PercentProgress => this["percent_progress"];
+    [TerraformPropertyName("percent_progress")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> PercentProgress => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "percent_progress");
 
     /// <summary>
     /// Status of the odb network peering connection.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The reason for the current status of the ODB peering connection..
     /// </summary>
-    public TerraformExpression StatusReason => this["status_reason"];
+    [TerraformPropertyName("status_reason")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StatusReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status_reason");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

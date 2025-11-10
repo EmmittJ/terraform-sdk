@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentcoreMemoryStrategyConfigurationBlock : TerraformBlock
+public class AwsBedrockagentcoreMemoryStrategyConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -23,31 +22,28 @@ public class AwsBedrockagentcoreMemoryStrategyConfigurationBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsBedrockagentcoreMemoryStrategyTimeoutsBlock : TerraformBlock
+public class AwsBedrockagentcoreMemoryStrategyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -58,109 +54,80 @@ public class AwsBedrockagentcoreMemoryStrategy : TerraformResource
 {
     public AwsBedrockagentcoreMemoryStrategy(string name) : base("aws_bedrockagentcore_memory_strategy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("memory_strategy_id");
-        SetOutput("description");
-        SetOutput("memory_execution_role_arn");
-        SetOutput("memory_id");
-        SetOutput("name");
-        SetOutput("namespaces");
-        SetOutput("region");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The memory_execution_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> MemoryExecutionRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("memory_execution_role_arn");
-        set => SetProperty("memory_execution_role_arn", value);
-    }
+    [TerraformPropertyName("memory_execution_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MemoryExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The memory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryId is required")]
-    public required TerraformProperty<string> MemoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("memory_id");
-        set => SetProperty("memory_id", value);
-    }
+    [TerraformPropertyName("memory_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MemoryId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The namespaces attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespaces is required")]
-    public HashSet<TerraformProperty<string>> Namespaces
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("namespaces");
-        set => SetProperty("namespaces", value);
-    }
+    [TerraformPropertyName("namespaces")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Namespaces { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// Block for configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBedrockagentcoreMemoryStrategyConfigurationBlock>? Configuration
-    {
-        set => SetProperty("configuration", value);
-    }
+    [TerraformPropertyName("configuration")]
+    public TerraformList<TerraformBlock<AwsBedrockagentcoreMemoryStrategyConfigurationBlock>>? Configuration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsBedrockagentcoreMemoryStrategyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsBedrockagentcoreMemoryStrategyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The memory_strategy_id attribute.
     /// </summary>
-    public TerraformExpression MemoryStrategyId => this["memory_strategy_id"];
+    [TerraformPropertyName("memory_strategy_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MemoryStrategyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "memory_strategy_id");
 
 }

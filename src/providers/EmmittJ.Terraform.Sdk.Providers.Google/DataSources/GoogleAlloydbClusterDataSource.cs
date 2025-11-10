@@ -9,85 +9,36 @@ public class GoogleAlloydbClusterDataSource : TerraformDataSource
 {
     public GoogleAlloydbClusterDataSource(string name) : base("google_alloydb_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("annotations");
-        SetOutput("automated_backup_policy");
-        SetOutput("backup_source");
-        SetOutput("cluster_type");
-        SetOutput("continuous_backup_config");
-        SetOutput("continuous_backup_info");
-        SetOutput("database_version");
-        SetOutput("deletion_policy");
-        SetOutput("deletion_protection");
-        SetOutput("display_name");
-        SetOutput("effective_annotations");
-        SetOutput("effective_labels");
-        SetOutput("encryption_config");
-        SetOutput("encryption_info");
-        SetOutput("etag");
-        SetOutput("initial_user");
-        SetOutput("labels");
-        SetOutput("maintenance_update_policy");
-        SetOutput("migration_source");
-        SetOutput("name");
-        SetOutput("network_config");
-        SetOutput("psc_config");
-        SetOutput("reconciling");
-        SetOutput("restore_backup_source");
-        SetOutput("restore_continuous_backup_source");
-        SetOutput("secondary_config");
-        SetOutput("skip_await_major_version_upgrade");
-        SetOutput("state");
-        SetOutput("subscription_type");
-        SetOutput("terraform_labels");
-        SetOutput("trial_metadata");
-        SetOutput("uid");
-        SetOutput("cluster_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The ID of the alloydb cluster.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    public required TerraformProperty<string> ClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
-        set => SetProperty("cluster_id", value);
-    }
+    [TerraformPropertyName("cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location where the alloydb cluster should reside.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels. https://google.aip.dev/128
@@ -97,40 +48,54 @@ public class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformExpression Annotations => this["annotations"];
+    [TerraformPropertyName("annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Annotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "annotations");
 
     /// <summary>
     /// The automated backup policy for this cluster. AutomatedBackupPolicy is disabled by default.
     /// </summary>
-    public TerraformExpression AutomatedBackupPolicy => this["automated_backup_policy"];
+    [TerraformPropertyName("automated_backup_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AutomatedBackupPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "automated_backup_policy");
 
     /// <summary>
     /// Cluster created from backup.
     /// </summary>
-    public TerraformExpression BackupSource => this["backup_source"];
+    [TerraformPropertyName("backup_source")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> BackupSource => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "backup_source");
 
     /// <summary>
     /// The type of cluster. If not set, defaults to PRIMARY. Default value: &amp;quot;PRIMARY&amp;quot; Possible values: [&amp;quot;PRIMARY&amp;quot;, &amp;quot;SECONDARY&amp;quot;]
     /// </summary>
-    public TerraformExpression ClusterType => this["cluster_type"];
+    [TerraformPropertyName("cluster_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClusterType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_type");
 
     /// <summary>
     /// The continuous backup config for this cluster.
     /// 
     /// If no policy is provided then the default policy will be used. The default policy takes one backup a day and retains backups for 14 days.
     /// </summary>
-    public TerraformExpression ContinuousBackupConfig => this["continuous_backup_config"];
+    [TerraformPropertyName("continuous_backup_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ContinuousBackupConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "continuous_backup_config");
 
     /// <summary>
     /// ContinuousBackupInfo describes the continuous backup properties of a cluster.
     /// </summary>
-    public TerraformExpression ContinuousBackupInfo => this["continuous_backup_info"];
+    [TerraformPropertyName("continuous_backup_info")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ContinuousBackupInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "continuous_backup_info");
 
     /// <summary>
     /// The database engine major version. This is an optional field and it&#39;s populated at the Cluster creation time.
     /// Note: Changing this field to a higer version results in upgrading the AlloyDB cluster which is an irreversible change.
     /// </summary>
-    public TerraformExpression DatabaseVersion => this["database_version"];
+    [TerraformPropertyName("database_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DatabaseVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "database_version");
 
     /// <summary>
     /// Policy to determine if the cluster should be deleted forcefully.
@@ -138,7 +103,9 @@ public class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// Deleting a Secondary cluster with a secondary instance REQUIRES setting deletion_policy = &amp;quot;FORCE&amp;quot; otherwise an error is returned. This is needed as there is no support to delete just the secondary instance, and the only way to delete secondary instance is to delete the associated secondary cluster forcefully which also deletes the secondary instance.
     /// Possible values: DEFAULT, FORCE
     /// </summary>
-    public TerraformExpression DeletionPolicy => this["deletion_policy"];
+    [TerraformPropertyName("deletion_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeletionPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deletion_policy");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the cluster.
@@ -146,42 +113,58 @@ public class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// or &#39;terraform destroy&#39; that would delete the cluster will fail.
     /// When the field is set to false, deleting the cluster is allowed.
     /// </summary>
-    public TerraformExpression DeletionProtection => this["deletion_protection"];
+    [TerraformPropertyName("deletion_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection");
 
     /// <summary>
     /// User-settable and human-readable display name for the Cluster.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+    [TerraformPropertyName("effective_annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// EncryptionConfig describes the encryption config of a cluster or a backup that is encrypted with a CMEK (customer-managed encryption key).
     /// </summary>
-    public TerraformExpression EncryptionConfig => this["encryption_config"];
+    [TerraformPropertyName("encryption_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> EncryptionConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "encryption_config");
 
     /// <summary>
     /// EncryptionInfo describes the encryption information of a cluster or a backup.
     /// </summary>
-    public TerraformExpression EncryptionInfo => this["encryption_info"];
+    [TerraformPropertyName("encryption_info")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> EncryptionInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "encryption_info");
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// Initial user to setup during cluster creation. This must be set for all new Clusters.
     /// </summary>
-    public TerraformExpression InitialUser => this["initial_user"];
+    [TerraformPropertyName("initial_user")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> InitialUser => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "initial_user");
 
     /// <summary>
     /// User-defined labels for the alloydb cluster.
@@ -189,86 +172,118 @@ public class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformExpression Labels => this["labels"];
+    [TerraformPropertyName("labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
 
     /// <summary>
     /// MaintenanceUpdatePolicy defines the policy for system updates.
     /// </summary>
-    public TerraformExpression MaintenanceUpdatePolicy => this["maintenance_update_policy"];
+    [TerraformPropertyName("maintenance_update_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MaintenanceUpdatePolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maintenance_update_policy");
 
     /// <summary>
     /// Cluster created via DMS migration.
     /// </summary>
-    public TerraformExpression MigrationSource => this["migration_source"];
+    [TerraformPropertyName("migration_source")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MigrationSource => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "migration_source");
 
     /// <summary>
     /// The name of the cluster resource.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Metadata related to network configuration.
     /// </summary>
-    public TerraformExpression NetworkConfig => this["network_config"];
+    [TerraformPropertyName("network_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> NetworkConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "network_config");
 
     /// <summary>
     /// Configuration for Private Service Connect (PSC) for the cluster.
     /// </summary>
-    public TerraformExpression PscConfig => this["psc_config"];
+    [TerraformPropertyName("psc_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PscConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "psc_config");
 
     /// <summary>
     /// Output only. Reconciling (https://google.aip.dev/128#reconciliation).
     /// Set to true if the current state of Cluster does not match the user&#39;s intended state, and the service is actively updating the resource to reconcile them.
     /// This can happen due to user-triggered updates or system actions like failover or maintenance.
     /// </summary>
-    public TerraformExpression Reconciling => this["reconciling"];
+    [TerraformPropertyName("reconciling")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
 
     /// <summary>
     /// The source when restoring from a backup. Conflicts with &#39;restore_continuous_backup_source&#39;, both can&#39;t be set together.
     /// </summary>
-    public TerraformExpression RestoreBackupSource => this["restore_backup_source"];
+    [TerraformPropertyName("restore_backup_source")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RestoreBackupSource => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "restore_backup_source");
 
     /// <summary>
     /// The source when restoring via point in time recovery (PITR). Conflicts with &#39;restore_backup_source&#39;, both can&#39;t be set together.
     /// </summary>
-    public TerraformExpression RestoreContinuousBackupSource => this["restore_continuous_backup_source"];
+    [TerraformPropertyName("restore_continuous_backup_source")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RestoreContinuousBackupSource => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "restore_continuous_backup_source");
 
     /// <summary>
     /// Configuration of the secondary cluster for Cross Region Replication. This should be set if and only if the cluster is of type SECONDARY.
     /// </summary>
-    public TerraformExpression SecondaryConfig => this["secondary_config"];
+    [TerraformPropertyName("secondary_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SecondaryConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "secondary_config");
 
     /// <summary>
     /// Set to true to skip awaiting on the major version upgrade of the cluster.
     /// Possible values: true, false
     /// Default value: &amp;quot;true&amp;quot;
     /// </summary>
-    public TerraformExpression SkipAwaitMajorVersionUpgrade => this["skip_await_major_version_upgrade"];
+    [TerraformPropertyName("skip_await_major_version_upgrade")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> SkipAwaitMajorVersionUpgrade => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "skip_await_major_version_upgrade");
 
     /// <summary>
     /// Output only. The current serving state of the cluster.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The subscrition type of cluster. Possible values: [&amp;quot;TRIAL&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformExpression SubscriptionType => this["subscription_type"];
+    [TerraformPropertyName("subscription_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SubscriptionType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subscription_type");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Contains information and all metadata related to TRIAL clusters.
     /// </summary>
-    public TerraformExpression TrialMetadata => this["trial_metadata"];
+    [TerraformPropertyName("trial_metadata")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TrialMetadata => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "trial_metadata");
 
     /// <summary>
     /// The system-generated UID of the resource.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
 }

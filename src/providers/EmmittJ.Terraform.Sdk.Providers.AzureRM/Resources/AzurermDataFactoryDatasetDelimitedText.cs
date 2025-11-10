@@ -6,55 +6,49 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_blob_fs_location in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock : TerraformBlock
+public class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock : ITerraformBlock
 {
     /// <summary>
     /// The dynamic_file_system_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DynamicFileSystemEnabled
-    {
-        set => SetProperty("dynamic_file_system_enabled", value);
-    }
+    [TerraformPropertyName("dynamic_file_system_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DynamicFileSystemEnabled { get; set; }
 
     /// <summary>
     /// The dynamic_filename_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DynamicFilenameEnabled
-    {
-        set => SetProperty("dynamic_filename_enabled", value);
-    }
+    [TerraformPropertyName("dynamic_filename_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DynamicFilenameEnabled { get; set; }
 
     /// <summary>
     /// The dynamic_path_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DynamicPathEnabled
-    {
-        set => SetProperty("dynamic_path_enabled", value);
-    }
+    [TerraformPropertyName("dynamic_path_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DynamicPathEnabled { get; set; }
 
     /// <summary>
     /// The file_system attribute.
     /// </summary>
-    public TerraformProperty<string>? FileSystem
-    {
-        set => SetProperty("file_system", value);
-    }
+    [TerraformPropertyName("file_system")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FileSystem { get; set; }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
-    public TerraformProperty<string>? Filename
-    {
-        set => SetProperty("filename", value);
-    }
+    [TerraformPropertyName("filename")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Filename { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
-    {
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
 
 }
 
@@ -62,56 +56,50 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock : Te
 /// Block type for azure_blob_storage_location in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock : TerraformBlock
+public class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock : ITerraformBlock
 {
     /// <summary>
     /// The container attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
-    public required TerraformProperty<string> Container
-    {
-        set => SetProperty("container", value);
-    }
+    [TerraformPropertyName("container")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Container { get; set; }
 
     /// <summary>
     /// The dynamic_container_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DynamicContainerEnabled
-    {
-        set => SetProperty("dynamic_container_enabled", value);
-    }
+    [TerraformPropertyName("dynamic_container_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DynamicContainerEnabled { get; set; }
 
     /// <summary>
     /// The dynamic_filename_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DynamicFilenameEnabled
-    {
-        set => SetProperty("dynamic_filename_enabled", value);
-    }
+    [TerraformPropertyName("dynamic_filename_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DynamicFilenameEnabled { get; set; }
 
     /// <summary>
     /// The dynamic_path_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DynamicPathEnabled
-    {
-        set => SetProperty("dynamic_path_enabled", value);
-    }
+    [TerraformPropertyName("dynamic_path_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DynamicPathEnabled { get; set; }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
-    public TerraformProperty<string>? Filename
-    {
-        set => SetProperty("filename", value);
-    }
+    [TerraformPropertyName("filename")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Filename { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
-    {
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
 
 }
 
@@ -119,50 +107,45 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock
 /// Block type for http_server_location in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock : TerraformBlock
+public class AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock : ITerraformBlock
 {
     /// <summary>
     /// The dynamic_filename_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DynamicFilenameEnabled
-    {
-        set => SetProperty("dynamic_filename_enabled", value);
-    }
+    [TerraformPropertyName("dynamic_filename_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DynamicFilenameEnabled { get; set; }
 
     /// <summary>
     /// The dynamic_path_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DynamicPathEnabled
-    {
-        set => SetProperty("dynamic_path_enabled", value);
-    }
+    [TerraformPropertyName("dynamic_path_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DynamicPathEnabled { get; set; }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
-    public required TerraformProperty<string> Filename
-    {
-        set => SetProperty("filename", value);
-    }
+    [TerraformPropertyName("filename")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Filename { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    public required TerraformProperty<string> Path
-    {
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Path { get; set; }
 
     /// <summary>
     /// The relative_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeUrl is required")]
-    public required TerraformProperty<string> RelativeUrl
-    {
-        set => SetProperty("relative_url", value);
-    }
+    [TerraformPropertyName("relative_url")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RelativeUrl { get; set; }
 
 }
 
@@ -170,32 +153,29 @@ public class AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock : Ter
 /// Block type for schema_column in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock : TerraformBlock
+public class AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -203,39 +183,35 @@ public class AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock : TerraformBlock
+public class AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -247,242 +223,173 @@ public class AzurermDataFactoryDatasetDelimitedText : TerraformResource
 {
     public AzurermDataFactoryDatasetDelimitedText(string name) : base("azurerm_data_factory_dataset_delimited_text", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("additional_properties");
-        SetOutput("annotations");
-        SetOutput("column_delimiter");
-        SetOutput("compression_codec");
-        SetOutput("compression_level");
-        SetOutput("data_factory_id");
-        SetOutput("description");
-        SetOutput("encoding");
-        SetOutput("escape_character");
-        SetOutput("first_row_as_header");
-        SetOutput("folder");
-        SetOutput("id");
-        SetOutput("linked_service_name");
-        SetOutput("name");
-        SetOutput("null_value");
-        SetOutput("parameters");
-        SetOutput("quote_character");
-        SetOutput("row_delimiter");
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> AdditionalProperties
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_properties");
-        set => SetProperty("additional_properties", value);
-    }
+    [TerraformPropertyName("additional_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// The column_delimiter attribute.
     /// </summary>
-    public TerraformProperty<string> ColumnDelimiter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("column_delimiter");
-        set => SetProperty("column_delimiter", value);
-    }
+    [TerraformPropertyName("column_delimiter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ColumnDelimiter { get; set; }
 
     /// <summary>
     /// The compression_codec attribute.
     /// </summary>
-    public TerraformProperty<string> CompressionCodec
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("compression_codec");
-        set => SetProperty("compression_codec", value);
-    }
+    [TerraformPropertyName("compression_codec")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CompressionCodec { get; set; }
 
     /// <summary>
     /// The compression_level attribute.
     /// </summary>
-    public TerraformProperty<string> CompressionLevel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("compression_level");
-        set => SetProperty("compression_level", value);
-    }
+    [TerraformPropertyName("compression_level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CompressionLevel { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    public required TerraformProperty<string> DataFactoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
-        set => SetProperty("data_factory_id", value);
-    }
+    [TerraformPropertyName("data_factory_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The encoding attribute.
     /// </summary>
-    public TerraformProperty<string> Encoding
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("encoding");
-        set => SetProperty("encoding", value);
-    }
+    [TerraformPropertyName("encoding")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Encoding { get; set; }
 
     /// <summary>
     /// The escape_character attribute.
     /// </summary>
-    public TerraformProperty<string> EscapeCharacter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("escape_character");
-        set => SetProperty("escape_character", value);
-    }
+    [TerraformPropertyName("escape_character")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EscapeCharacter { get; set; }
 
     /// <summary>
     /// The first_row_as_header attribute.
     /// </summary>
-    public TerraformProperty<bool> FirstRowAsHeader
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("first_row_as_header");
-        set => SetProperty("first_row_as_header", value);
-    }
+    [TerraformPropertyName("first_row_as_header")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? FirstRowAsHeader { get; set; }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public TerraformProperty<string> Folder
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("folder");
-        set => SetProperty("folder", value);
-    }
+    [TerraformPropertyName("folder")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The linked_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
-    public required TerraformProperty<string> LinkedServiceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("linked_service_name");
-        set => SetProperty("linked_service_name", value);
-    }
+    [TerraformPropertyName("linked_service_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The null_value attribute.
     /// </summary>
-    public TerraformProperty<string> NullValue
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("null_value");
-        set => SetProperty("null_value", value);
-    }
+    [TerraformPropertyName("null_value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NullValue { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Parameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// The quote_character attribute.
     /// </summary>
-    public TerraformProperty<string> QuoteCharacter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("quote_character");
-        set => SetProperty("quote_character", value);
-    }
+    [TerraformPropertyName("quote_character")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? QuoteCharacter { get; set; }
 
     /// <summary>
     /// The row_delimiter attribute.
     /// </summary>
-    public TerraformProperty<string> RowDelimiter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("row_delimiter");
-        set => SetProperty("row_delimiter", value);
-    }
+    [TerraformPropertyName("row_delimiter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RowDelimiter { get; set; }
 
     /// <summary>
     /// Block for azure_blob_fs_location.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobFsLocation block(s) allowed")]
-    public List<AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock>? AzureBlobFsLocation
-    {
-        set => SetProperty("azure_blob_fs_location", value);
-    }
+    [TerraformPropertyName("azure_blob_fs_location")]
+    public TerraformList<TerraformBlock<AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock>>? AzureBlobFsLocation { get; set; } = new();
 
     /// <summary>
     /// Block for azure_blob_storage_location.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobStorageLocation block(s) allowed")]
-    public List<AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock>? AzureBlobStorageLocation
-    {
-        set => SetProperty("azure_blob_storage_location", value);
-    }
+    [TerraformPropertyName("azure_blob_storage_location")]
+    public TerraformList<TerraformBlock<AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock>>? AzureBlobStorageLocation { get; set; } = new();
 
     /// <summary>
     /// Block for http_server_location.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpServerLocation block(s) allowed")]
-    public List<AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock>? HttpServerLocation
-    {
-        set => SetProperty("http_server_location", value);
-    }
+    [TerraformPropertyName("http_server_location")]
+    public TerraformList<TerraformBlock<AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock>>? HttpServerLocation { get; set; } = new();
 
     /// <summary>
     /// Block for schema_column.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock>? SchemaColumn
-    {
-        set => SetProperty("schema_column", value);
-    }
+    [TerraformPropertyName("schema_column")]
+    public TerraformList<TerraformBlock<AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock>>? SchemaColumn { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

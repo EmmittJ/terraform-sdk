@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for image_scanning_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderImagePipelineImageScanningConfigurationBlock : TerraformBlock
+public class AwsImagebuilderImagePipelineImageScanningConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The image_scanning_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ImageScanningEnabled
-    {
-        set => SetProperty("image_scanning_enabled", value);
-    }
+    [TerraformPropertyName("image_scanning_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ImageScanningEnabled { get; set; }
 
 }
 
@@ -22,23 +21,21 @@ public class AwsImagebuilderImagePipelineImageScanningConfigurationBlock : Terra
 /// Block type for image_tests_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderImagePipelineImageTestsConfigurationBlock : TerraformBlock
+public class AwsImagebuilderImagePipelineImageTestsConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The image_tests_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ImageTestsEnabled
-    {
-        set => SetProperty("image_tests_enabled", value);
-    }
+    [TerraformPropertyName("image_tests_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ImageTestsEnabled { get; set; }
 
     /// <summary>
     /// The timeout_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? TimeoutMinutes
-    {
-        set => SetProperty("timeout_minutes", value);
-    }
+    [TerraformPropertyName("timeout_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TimeoutMinutes { get; set; }
 
 }
 
@@ -46,32 +43,29 @@ public class AwsImagebuilderImagePipelineImageTestsConfigurationBlock : Terrafor
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderImagePipelineScheduleBlock : TerraformBlock
+public class AwsImagebuilderImagePipelineScheduleBlock : ITerraformBlock
 {
     /// <summary>
     /// The pipeline_execution_start_condition attribute.
     /// </summary>
-    public TerraformProperty<string>? PipelineExecutionStartCondition
-    {
-        set => SetProperty("pipeline_execution_start_condition", value);
-    }
+    [TerraformPropertyName("pipeline_execution_start_condition")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PipelineExecutionStartCondition { get; set; }
 
     /// <summary>
     /// The schedule_expression attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
-    public required TerraformProperty<string> ScheduleExpression
-    {
-        set => SetProperty("schedule_expression", value);
-    }
+    [TerraformPropertyName("schedule_expression")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScheduleExpression { get; set; }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    public TerraformProperty<string>? Timezone
-    {
-        set => SetProperty("timezone", value);
-    }
+    [TerraformPropertyName("timezone")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Timezone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "timezone");
 
 }
 
@@ -79,32 +73,29 @@ public class AwsImagebuilderImagePipelineScheduleBlock : TerraformBlock
 /// Block type for workflow in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderImagePipelineWorkflowBlock : TerraformBlock
+public class AwsImagebuilderImagePipelineWorkflowBlock : ITerraformBlock
 {
     /// <summary>
     /// The on_failure attribute.
     /// </summary>
-    public TerraformProperty<string>? OnFailure
-    {
-        set => SetProperty("on_failure", value);
-    }
+    [TerraformPropertyName("on_failure")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OnFailure { get; set; }
 
     /// <summary>
     /// The parallel_group attribute.
     /// </summary>
-    public TerraformProperty<string>? ParallelGroup
-    {
-        set => SetProperty("parallel_group", value);
-    }
+    [TerraformPropertyName("parallel_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ParallelGroup { get; set; }
 
     /// <summary>
     /// The workflow_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkflowArn is required")]
-    public required TerraformProperty<string> WorkflowArn
-    {
-        set => SetProperty("workflow_arn", value);
-    }
+    [TerraformPropertyName("workflow_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkflowArn { get; set; }
 
 }
 
@@ -116,218 +107,172 @@ public class AwsImagebuilderImagePipeline : TerraformResource
 {
     public AwsImagebuilderImagePipeline(string name) : base("aws_imagebuilder_image_pipeline", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("date_created");
-        SetOutput("date_last_run");
-        SetOutput("date_next_run");
-        SetOutput("date_updated");
-        SetOutput("platform");
-        SetOutput("container_recipe_arn");
-        SetOutput("description");
-        SetOutput("distribution_configuration_arn");
-        SetOutput("enhanced_image_metadata_enabled");
-        SetOutput("execution_role");
-        SetOutput("id");
-        SetOutput("image_recipe_arn");
-        SetOutput("infrastructure_configuration_arn");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("status");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The container_recipe_arn attribute.
     /// </summary>
-    public TerraformProperty<string> ContainerRecipeArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_recipe_arn");
-        set => SetProperty("container_recipe_arn", value);
-    }
+    [TerraformPropertyName("container_recipe_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContainerRecipeArn { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The distribution_configuration_arn attribute.
     /// </summary>
-    public TerraformProperty<string> DistributionConfigurationArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("distribution_configuration_arn");
-        set => SetProperty("distribution_configuration_arn", value);
-    }
+    [TerraformPropertyName("distribution_configuration_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DistributionConfigurationArn { get; set; }
 
     /// <summary>
     /// The enhanced_image_metadata_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> EnhancedImageMetadataEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enhanced_image_metadata_enabled");
-        set => SetProperty("enhanced_image_metadata_enabled", value);
-    }
+    [TerraformPropertyName("enhanced_image_metadata_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnhancedImageMetadataEnabled { get; set; }
 
     /// <summary>
     /// The execution_role attribute.
     /// </summary>
-    public TerraformProperty<string> ExecutionRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("execution_role");
-        set => SetProperty("execution_role", value);
-    }
+    [TerraformPropertyName("execution_role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExecutionRole { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The image_recipe_arn attribute.
     /// </summary>
-    public TerraformProperty<string> ImageRecipeArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("image_recipe_arn");
-        set => SetProperty("image_recipe_arn", value);
-    }
+    [TerraformPropertyName("image_recipe_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ImageRecipeArn { get; set; }
 
     /// <summary>
     /// The infrastructure_configuration_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureConfigurationArn is required")]
-    public required TerraformProperty<string> InfrastructureConfigurationArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("infrastructure_configuration_arn");
-        set => SetProperty("infrastructure_configuration_arn", value);
-    }
+    [TerraformPropertyName("infrastructure_configuration_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InfrastructureConfigurationArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for image_scanning_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageScanningConfiguration block(s) allowed")]
-    public List<AwsImagebuilderImagePipelineImageScanningConfigurationBlock>? ImageScanningConfiguration
-    {
-        set => SetProperty("image_scanning_configuration", value);
-    }
+    [TerraformPropertyName("image_scanning_configuration")]
+    public TerraformList<TerraformBlock<AwsImagebuilderImagePipelineImageScanningConfigurationBlock>>? ImageScanningConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for image_tests_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageTestsConfiguration block(s) allowed")]
-    public List<AwsImagebuilderImagePipelineImageTestsConfigurationBlock>? ImageTestsConfiguration
-    {
-        set => SetProperty("image_tests_configuration", value);
-    }
+    [TerraformPropertyName("image_tests_configuration")]
+    public TerraformList<TerraformBlock<AwsImagebuilderImagePipelineImageTestsConfigurationBlock>>? ImageTestsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    public List<AwsImagebuilderImagePipelineScheduleBlock>? Schedule
-    {
-        set => SetProperty("schedule", value);
-    }
+    [TerraformPropertyName("schedule")]
+    public TerraformList<TerraformBlock<AwsImagebuilderImagePipelineScheduleBlock>>? Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for workflow.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsImagebuilderImagePipelineWorkflowBlock>? Workflow
-    {
-        set => SetProperty("workflow", value);
-    }
+    [TerraformPropertyName("workflow")]
+    public TerraformList<TerraformBlock<AwsImagebuilderImagePipelineWorkflowBlock>>? Workflow { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
-    public TerraformExpression DateCreated => this["date_created"];
+    [TerraformPropertyName("date_created")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DateCreated => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "date_created");
 
     /// <summary>
     /// The date_last_run attribute.
     /// </summary>
-    public TerraformExpression DateLastRun => this["date_last_run"];
+    [TerraformPropertyName("date_last_run")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DateLastRun => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "date_last_run");
 
     /// <summary>
     /// The date_next_run attribute.
     /// </summary>
-    public TerraformExpression DateNextRun => this["date_next_run"];
+    [TerraformPropertyName("date_next_run")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DateNextRun => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "date_next_run");
 
     /// <summary>
     /// The date_updated attribute.
     /// </summary>
-    public TerraformExpression DateUpdated => this["date_updated"];
+    [TerraformPropertyName("date_updated")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DateUpdated => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "date_updated");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
-    public TerraformExpression Platform => this["platform"];
+    [TerraformPropertyName("platform")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Platform => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "platform");
 
 }

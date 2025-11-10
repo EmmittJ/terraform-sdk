@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for response_parameters in .
 /// Nesting mode: set
 /// </summary>
-public class AwsApigatewayv2IntegrationResponseParametersBlock : TerraformBlock
+public class AwsApigatewayv2IntegrationResponseParametersBlock : ITerraformBlock
 {
     /// <summary>
     /// The mappings attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mappings is required")]
-    public Dictionary<string, TerraformProperty<string>>? Mappings
-    {
-        set => SetProperty("mappings", value);
-    }
+    [TerraformPropertyName("mappings")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Mappings { get; set; }
 
     /// <summary>
     /// The status_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
-    public required TerraformProperty<string> StatusCode
-    {
-        set => SetProperty("status_code", value);
-    }
+    [TerraformPropertyName("status_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StatusCode { get; set; }
 
 }
 
@@ -32,15 +30,14 @@ public class AwsApigatewayv2IntegrationResponseParametersBlock : TerraformBlock
 /// Block type for tls_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApigatewayv2IntegrationTlsConfigBlock : TerraformBlock
+public class AwsApigatewayv2IntegrationTlsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The server_name_to_verify attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerNameToVerify
-    {
-        set => SetProperty("server_name_to_verify", value);
-    }
+    [TerraformPropertyName("server_name_to_verify")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServerNameToVerify { get; set; }
 
 }
 
@@ -52,218 +49,156 @@ public class AwsApigatewayv2Integration : TerraformResource
 {
     public AwsApigatewayv2Integration(string name) : base("aws_apigatewayv2_integration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("integration_response_selection_expression");
-        SetOutput("api_id");
-        SetOutput("connection_id");
-        SetOutput("connection_type");
-        SetOutput("content_handling_strategy");
-        SetOutput("credentials_arn");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("integration_method");
-        SetOutput("integration_subtype");
-        SetOutput("integration_type");
-        SetOutput("integration_uri");
-        SetOutput("passthrough_behavior");
-        SetOutput("payload_format_version");
-        SetOutput("region");
-        SetOutput("request_parameters");
-        SetOutput("request_templates");
-        SetOutput("template_selection_expression");
-        SetOutput("timeout_milliseconds");
     }
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
-    public required TerraformProperty<string> ApiId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
-        set => SetProperty("api_id", value);
-    }
+    [TerraformPropertyName("api_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiId { get; set; }
 
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
-    public TerraformProperty<string> ConnectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connection_id");
-        set => SetProperty("connection_id", value);
-    }
+    [TerraformPropertyName("connection_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConnectionId { get; set; }
 
     /// <summary>
     /// The connection_type attribute.
     /// </summary>
-    public TerraformProperty<string> ConnectionType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connection_type");
-        set => SetProperty("connection_type", value);
-    }
+    [TerraformPropertyName("connection_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConnectionType { get; set; }
 
     /// <summary>
     /// The content_handling_strategy attribute.
     /// </summary>
-    public TerraformProperty<string> ContentHandlingStrategy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content_handling_strategy");
-        set => SetProperty("content_handling_strategy", value);
-    }
+    [TerraformPropertyName("content_handling_strategy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContentHandlingStrategy { get; set; }
 
     /// <summary>
     /// The credentials_arn attribute.
     /// </summary>
-    public TerraformProperty<string> CredentialsArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("credentials_arn");
-        set => SetProperty("credentials_arn", value);
-    }
+    [TerraformPropertyName("credentials_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CredentialsArn { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The integration_method attribute.
     /// </summary>
-    public TerraformProperty<string> IntegrationMethod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("integration_method");
-        set => SetProperty("integration_method", value);
-    }
+    [TerraformPropertyName("integration_method")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IntegrationMethod { get; set; }
 
     /// <summary>
     /// The integration_subtype attribute.
     /// </summary>
-    public TerraformProperty<string> IntegrationSubtype
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("integration_subtype");
-        set => SetProperty("integration_subtype", value);
-    }
+    [TerraformPropertyName("integration_subtype")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IntegrationSubtype { get; set; }
 
     /// <summary>
     /// The integration_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationType is required")]
-    public required TerraformProperty<string> IntegrationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("integration_type");
-        set => SetProperty("integration_type", value);
-    }
+    [TerraformPropertyName("integration_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IntegrationType { get; set; }
 
     /// <summary>
     /// The integration_uri attribute.
     /// </summary>
-    public TerraformProperty<string> IntegrationUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("integration_uri");
-        set => SetProperty("integration_uri", value);
-    }
+    [TerraformPropertyName("integration_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IntegrationUri { get; set; }
 
     /// <summary>
     /// The passthrough_behavior attribute.
     /// </summary>
-    public TerraformProperty<string> PassthroughBehavior
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("passthrough_behavior");
-        set => SetProperty("passthrough_behavior", value);
-    }
+    [TerraformPropertyName("passthrough_behavior")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PassthroughBehavior { get; set; }
 
     /// <summary>
     /// The payload_format_version attribute.
     /// </summary>
-    public TerraformProperty<string> PayloadFormatVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("payload_format_version");
-        set => SetProperty("payload_format_version", value);
-    }
+    [TerraformPropertyName("payload_format_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PayloadFormatVersion { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The request_parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> RequestParameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("request_parameters");
-        set => SetProperty("request_parameters", value);
-    }
+    [TerraformPropertyName("request_parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? RequestParameters { get; set; }
 
     /// <summary>
     /// The request_templates attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> RequestTemplates
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("request_templates");
-        set => SetProperty("request_templates", value);
-    }
+    [TerraformPropertyName("request_templates")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? RequestTemplates { get; set; }
 
     /// <summary>
     /// The template_selection_expression attribute.
     /// </summary>
-    public TerraformProperty<string> TemplateSelectionExpression
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("template_selection_expression");
-        set => SetProperty("template_selection_expression", value);
-    }
+    [TerraformPropertyName("template_selection_expression")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TemplateSelectionExpression { get; set; }
 
     /// <summary>
     /// The timeout_milliseconds attribute.
     /// </summary>
-    public TerraformProperty<double> TimeoutMilliseconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("timeout_milliseconds");
-        set => SetProperty("timeout_milliseconds", value);
-    }
+    [TerraformPropertyName("timeout_milliseconds")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> TimeoutMilliseconds { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "timeout_milliseconds");
 
     /// <summary>
     /// Block for response_parameters.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsApigatewayv2IntegrationResponseParametersBlock>? ResponseParameters
-    {
-        set => SetProperty("response_parameters", value);
-    }
+    [TerraformPropertyName("response_parameters")]
+    public TerraformSet<TerraformBlock<AwsApigatewayv2IntegrationResponseParametersBlock>>? ResponseParameters { get; set; } = new();
 
     /// <summary>
     /// Block for tls_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsConfig block(s) allowed")]
-    public List<AwsApigatewayv2IntegrationTlsConfigBlock>? TlsConfig
-    {
-        set => SetProperty("tls_config", value);
-    }
+    [TerraformPropertyName("tls_config")]
+    public TerraformList<TerraformBlock<AwsApigatewayv2IntegrationTlsConfigBlock>>? TlsConfig { get; set; } = new();
 
     /// <summary>
     /// The integration_response_selection_expression attribute.
     /// </summary>
-    public TerraformExpression IntegrationResponseSelectionExpression => this["integration_response_selection_expression"];
+    [TerraformPropertyName("integration_response_selection_expression")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IntegrationResponseSelectionExpression => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "integration_response_selection_expression");
 
 }

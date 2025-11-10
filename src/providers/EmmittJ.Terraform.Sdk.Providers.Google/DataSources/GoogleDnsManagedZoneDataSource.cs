@@ -9,68 +9,63 @@ public class GoogleDnsManagedZoneDataSource : TerraformDataSource
 {
     public GoogleDnsManagedZoneDataSource(string name) : base("google_dns_managed_zone", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("dns_name");
-        SetOutput("id");
-        SetOutput("managed_zone_id");
-        SetOutput("name_servers");
-        SetOutput("visibility");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformExpression DnsName => this["dns_name"];
+    [TerraformPropertyName("dns_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The managed_zone_id attribute.
     /// </summary>
-    public TerraformExpression ManagedZoneId => this["managed_zone_id"];
+    [TerraformPropertyName("managed_zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ManagedZoneId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "managed_zone_id");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
-    public TerraformExpression NameServers => this["name_servers"];
+    [TerraformPropertyName("name_servers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> NameServers => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "name_servers");
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
-    public TerraformExpression Visibility => this["visibility"];
+    [TerraformPropertyName("visibility")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Visibility => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "visibility");
 
 }

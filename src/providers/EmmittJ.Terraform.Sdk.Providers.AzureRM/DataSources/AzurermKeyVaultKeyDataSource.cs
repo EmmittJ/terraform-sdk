@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKeyVaultKeyDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermKeyVaultKeyDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,142 +24,141 @@ public class AzurermKeyVaultKeyDataSource : TerraformDataSource
 {
     public AzurermKeyVaultKeyDataSource(string name) : base("azurerm_key_vault_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("curve");
-        SetOutput("e");
-        SetOutput("key_opts");
-        SetOutput("key_size");
-        SetOutput("key_type");
-        SetOutput("n");
-        SetOutput("public_key_openssh");
-        SetOutput("public_key_pem");
-        SetOutput("resource_id");
-        SetOutput("resource_versionless_id");
-        SetOutput("tags");
-        SetOutput("version");
-        SetOutput("versionless_id");
-        SetOutput("x");
-        SetOutput("y");
-        SetOutput("id");
-        SetOutput("key_vault_id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    public required TerraformProperty<string> KeyVaultId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
-        set => SetProperty("key_vault_id", value);
-    }
+    [TerraformPropertyName("key_vault_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyVaultId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermKeyVaultKeyDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermKeyVaultKeyDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The curve attribute.
     /// </summary>
-    public TerraformExpression Curve => this["curve"];
+    [TerraformPropertyName("curve")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Curve => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "curve");
 
     /// <summary>
     /// The e attribute.
     /// </summary>
-    public TerraformExpression E => this["e"];
+    [TerraformPropertyName("e")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> E => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "e");
 
     /// <summary>
     /// The key_opts attribute.
     /// </summary>
-    public TerraformExpression KeyOpts => this["key_opts"];
+    [TerraformPropertyName("key_opts")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> KeyOpts => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "key_opts");
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
-    public TerraformExpression KeySize => this["key_size"];
+    [TerraformPropertyName("key_size")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> KeySize => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "key_size");
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
-    public TerraformExpression KeyType => this["key_type"];
+    [TerraformPropertyName("key_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_type");
 
     /// <summary>
     /// The n attribute.
     /// </summary>
-    public TerraformExpression N => this["n"];
+    [TerraformPropertyName("n")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> N => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "n");
 
     /// <summary>
     /// The public_key_openssh attribute.
     /// </summary>
-    public TerraformExpression PublicKeyOpenssh => this["public_key_openssh"];
+    [TerraformPropertyName("public_key_openssh")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublicKeyOpenssh => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_key_openssh");
 
     /// <summary>
     /// The public_key_pem attribute.
     /// </summary>
-    public TerraformExpression PublicKeyPem => this["public_key_pem"];
+    [TerraformPropertyName("public_key_pem")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublicKeyPem => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_key_pem");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformExpression ResourceId => this["resource_id"];
+    [TerraformPropertyName("resource_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_id");
 
     /// <summary>
     /// The resource_versionless_id attribute.
     /// </summary>
-    public TerraformExpression ResourceVersionlessId => this["resource_versionless_id"];
+    [TerraformPropertyName("resource_versionless_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceVersionlessId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_versionless_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformExpression Version => this["version"];
+    [TerraformPropertyName("version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
     /// <summary>
     /// The versionless_id attribute.
     /// </summary>
-    public TerraformExpression VersionlessId => this["versionless_id"];
+    [TerraformPropertyName("versionless_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VersionlessId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "versionless_id");
 
     /// <summary>
     /// The x attribute.
     /// </summary>
-    public TerraformExpression X => this["x"];
+    [TerraformPropertyName("x")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> X => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "x");
 
     /// <summary>
     /// The y attribute.
     /// </summary>
-    public TerraformExpression Y => this["y"];
+    [TerraformPropertyName("y")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Y => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "y");
 
 }

@@ -9,87 +9,66 @@ public class AwsCloudfrontOriginAccessControl : TerraformResource
 {
     public AwsCloudfrontOriginAccessControl(string name) : base("aws_cloudfront_origin_access_control", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("etag");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("origin_access_control_origin_type");
-        SetOutput("signing_behavior");
-        SetOutput("signing_protocol");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The origin_access_control_origin_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginAccessControlOriginType is required")]
-    public required TerraformProperty<string> OriginAccessControlOriginType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("origin_access_control_origin_type");
-        set => SetProperty("origin_access_control_origin_type", value);
-    }
+    [TerraformPropertyName("origin_access_control_origin_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OriginAccessControlOriginType { get; set; }
 
     /// <summary>
     /// The signing_behavior attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningBehavior is required")]
-    public required TerraformProperty<string> SigningBehavior
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("signing_behavior");
-        set => SetProperty("signing_behavior", value);
-    }
+    [TerraformPropertyName("signing_behavior")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SigningBehavior { get; set; }
 
     /// <summary>
     /// The signing_protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningProtocol is required")]
-    public required TerraformProperty<string> SigningProtocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("signing_protocol");
-        set => SetProperty("signing_protocol", value);
-    }
+    [TerraformPropertyName("signing_protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SigningProtocol { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
 }

@@ -9,58 +9,42 @@ public class GoogleCloudAssetSearchAllResourcesDataSource : TerraformDataSource
 {
     public GoogleCloudAssetSearchAllResourcesDataSource(string name) : base("google_cloud_asset_search_all_resources", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("results");
-        SetOutput("asset_types");
-        SetOutput("id");
-        SetOutput("query");
-        SetOutput("scope");
     }
 
     /// <summary>
     /// The asset_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>> AssetTypes
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("asset_types");
-        set => SetProperty("asset_types", value);
-    }
+    [TerraformPropertyName("asset_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AssetTypes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The query attribute.
     /// </summary>
-    public TerraformProperty<string> Query
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("query");
-        set => SetProperty("query", value);
-    }
+    [TerraformPropertyName("query")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Query { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
-    public required TerraformProperty<string> Scope
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("scope");
-        set => SetProperty("scope", value);
-    }
+    [TerraformPropertyName("scope")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Scope { get; set; }
 
     /// <summary>
     /// The results attribute.
     /// </summary>
-    public TerraformExpression Results => this["results"];
+    [TerraformPropertyName("results")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Results => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "results");
 
 }

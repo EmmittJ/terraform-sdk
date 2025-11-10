@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock : TerraformBlock
+public class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The inverted attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Inverted is required")]
-    public required TerraformProperty<bool> Inverted
-    {
-        set => SetProperty("inverted", value);
-    }
+    [TerraformPropertyName("inverted")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Inverted { get; set; }
 
     /// <summary>
     /// The threshold attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
-    public required TerraformProperty<double> Threshold
-    {
-        set => SetProperty("threshold", value);
-    }
+    [TerraformPropertyName("threshold")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Threshold { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -45,107 +42,73 @@ public class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResource
 {
     public AwsRoute53recoverycontrolconfigSafetyRule(string name) : base("aws_route53recoverycontrolconfig_safety_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("status");
-        SetOutput("asserted_controls");
-        SetOutput("control_panel_arn");
-        SetOutput("gating_controls");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("target_controls");
-        SetOutput("wait_period_ms");
     }
 
     /// <summary>
     /// The asserted_controls attribute.
     /// </summary>
-    public List<TerraformProperty<string>> AssertedControls
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("asserted_controls");
-        set => SetProperty("asserted_controls", value);
-    }
+    [TerraformPropertyName("asserted_controls")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AssertedControls { get; set; }
 
     /// <summary>
     /// The control_panel_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPanelArn is required")]
-    public required TerraformProperty<string> ControlPanelArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("control_panel_arn");
-        set => SetProperty("control_panel_arn", value);
-    }
+    [TerraformPropertyName("control_panel_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ControlPanelArn { get; set; }
 
     /// <summary>
     /// The gating_controls attribute.
     /// </summary>
-    public List<TerraformProperty<string>> GatingControls
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("gating_controls");
-        set => SetProperty("gating_controls", value);
-    }
+    [TerraformPropertyName("gating_controls")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? GatingControls { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The target_controls attribute.
     /// </summary>
-    public List<TerraformProperty<string>> TargetControls
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("target_controls");
-        set => SetProperty("target_controls", value);
-    }
+    [TerraformPropertyName("target_controls")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? TargetControls { get; set; }
 
     /// <summary>
     /// The wait_period_ms attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WaitPeriodMs is required")]
-    public required TerraformProperty<double> WaitPeriodMs
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("wait_period_ms");
-        set => SetProperty("wait_period_ms", value);
-    }
+    [TerraformPropertyName("wait_period_ms")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> WaitPeriodMs { get; set; }
 
     /// <summary>
     /// Block for rule_config.
@@ -154,19 +117,21 @@ public class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RuleConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuleConfig block(s) allowed")]
-    public List<AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock>? RuleConfig
-    {
-        set => SetProperty("rule_config", value);
-    }
+    [TerraformPropertyName("rule_config")]
+    public TerraformList<TerraformBlock<AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock>>? RuleConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

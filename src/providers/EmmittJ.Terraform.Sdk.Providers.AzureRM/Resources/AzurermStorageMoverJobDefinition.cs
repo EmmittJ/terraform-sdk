@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageMoverJobDefinitionTimeoutsBlock : TerraformBlock
+public class AzurermStorageMoverJobDefinitionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,125 +45,88 @@ public class AzurermStorageMoverJobDefinition : TerraformResource
 {
     public AzurermStorageMoverJobDefinition(string name) : base("azurerm_storage_mover_job_definition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("agent_name");
-        SetOutput("copy_mode");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("source_name");
-        SetOutput("source_sub_path");
-        SetOutput("storage_mover_project_id");
-        SetOutput("target_name");
-        SetOutput("target_sub_path");
     }
 
     /// <summary>
     /// The agent_name attribute.
     /// </summary>
-    public TerraformProperty<string> AgentName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("agent_name");
-        set => SetProperty("agent_name", value);
-    }
+    [TerraformPropertyName("agent_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AgentName { get; set; }
 
     /// <summary>
     /// The copy_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyMode is required")]
-    public required TerraformProperty<string> CopyMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("copy_mode");
-        set => SetProperty("copy_mode", value);
-    }
+    [TerraformPropertyName("copy_mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CopyMode { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The source_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
-    public required TerraformProperty<string> SourceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_name");
-        set => SetProperty("source_name", value);
-    }
+    [TerraformPropertyName("source_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceName { get; set; }
 
     /// <summary>
     /// The source_sub_path attribute.
     /// </summary>
-    public TerraformProperty<string> SourceSubPath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_sub_path");
-        set => SetProperty("source_sub_path", value);
-    }
+    [TerraformPropertyName("source_sub_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceSubPath { get; set; }
 
     /// <summary>
     /// The storage_mover_project_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverProjectId is required")]
-    public required TerraformProperty<string> StorageMoverProjectId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_mover_project_id");
-        set => SetProperty("storage_mover_project_id", value);
-    }
+    [TerraformPropertyName("storage_mover_project_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageMoverProjectId { get; set; }
 
     /// <summary>
     /// The target_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
-    public required TerraformProperty<string> TargetName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_name");
-        set => SetProperty("target_name", value);
-    }
+    [TerraformPropertyName("target_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetName { get; set; }
 
     /// <summary>
     /// The target_sub_path attribute.
     /// </summary>
-    public TerraformProperty<string> TargetSubPath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_sub_path");
-        set => SetProperty("target_sub_path", value);
-    }
+    [TerraformPropertyName("target_sub_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetSubPath { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStorageMoverJobDefinitionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStorageMoverJobDefinitionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

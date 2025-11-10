@@ -9,26 +9,6 @@ public class GooglePrivilegedAccessManagerEntitlementDataSource : TerraformDataS
 {
     public GooglePrivilegedAccessManagerEntitlementDataSource(string name) : base("google_privileged_access_manager_entitlement", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("additional_notification_targets");
-        SetOutput("approval_workflow");
-        SetOutput("create_time");
-        SetOutput("eligible_users");
-        SetOutput("etag");
-        SetOutput("max_request_duration");
-        SetOutput("name");
-        SetOutput("privileged_access");
-        SetOutput("requester_justification_config");
-        SetOutput("state");
-        SetOutput("update_time");
-        SetOutput("entitlement_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("parent");
     }
 
     /// <summary>
@@ -36,98 +16,112 @@ public class GooglePrivilegedAccessManagerEntitlementDataSource : TerraformDataS
     /// This value should be 4-63 characters, and valid characters are &amp;quot;[a-z]&amp;quot;, &amp;quot;[0-9]&amp;quot;, and &amp;quot;-&amp;quot;. The first character should be from [a-z].
     /// This value should be unique among all other Entitlements under the specified &#39;parent&#39;.
     /// </summary>
-    public TerraformProperty<string> EntitlementId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("entitlement_id");
-        set => SetProperty("entitlement_id", value);
-    }
+    [TerraformPropertyName("entitlement_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EntitlementId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The region of the Entitlement resource.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// Format: projects/{project-id|project-number} or organizations/{organization-number} or folders/{folder-number}
     /// </summary>
-    public TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Parent { get; set; }
 
     /// <summary>
     /// AdditionalNotificationTargets includes email addresses to be notified.
     /// </summary>
-    public TerraformExpression AdditionalNotificationTargets => this["additional_notification_targets"];
+    [TerraformPropertyName("additional_notification_targets")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AdditionalNotificationTargets => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "additional_notification_targets");
 
     /// <summary>
     /// The approvals needed before access will be granted to a requester.
     /// No approvals will be needed if this field is null. Different types of approval workflows that can be used to gate privileged access granting.
     /// </summary>
-    public TerraformExpression ApprovalWorkflow => this["approval_workflow"];
+    [TerraformPropertyName("approval_workflow")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ApprovalWorkflow => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "approval_workflow");
 
     /// <summary>
     /// Output only. Create time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Who can create Grants using Entitlement. This list should contain at most one entry
     /// </summary>
-    public TerraformExpression EligibleUsers => this["eligible_users"];
+    [TerraformPropertyName("eligible_users")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> EligibleUsers => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "eligible_users");
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The maximum amount of time for which access would be granted for a request.
     /// A requester can choose to ask for access for less than this duration but never more.
     /// Format: calculate the time in seconds and concatenate it with &#39;s&#39; i.e. 2 hours = &amp;quot;7200s&amp;quot;, 45 minutes = &amp;quot;2700s&amp;quot;
     /// </summary>
-    public TerraformExpression MaxRequestDuration => this["max_request_duration"];
+    [TerraformPropertyName("max_request_duration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MaxRequestDuration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "max_request_duration");
 
     /// <summary>
     /// Output Only. The entitlement&#39;s name follows a hierarchical structure, comprising the organization, folder, or project, alongside the region and a unique entitlement ID.
     /// Formats: organizations/{organization-number}/locations/{region}/entitlements/{entitlement-id}, folders/{folder-number}/locations/{region}/entitlements/{entitlement-id}, and projects/{project-id|project-number}/locations/{region}/entitlements/{entitlement-id}.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Privileged access that this service can be used to gate.
     /// </summary>
-    public TerraformExpression PrivilegedAccess => this["privileged_access"];
+    [TerraformPropertyName("privileged_access")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PrivilegedAccess => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "privileged_access");
 
     /// <summary>
     /// Defines the ways in which a requester should provide the justification while requesting for access.
     /// </summary>
-    public TerraformExpression RequesterJustificationConfig => this["requester_justification_config"];
+    [TerraformPropertyName("requester_justification_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RequesterJustificationConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "requester_justification_config");
 
     /// <summary>
     /// Output only. The current state of the Entitlement.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// Output only. Update time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

@@ -6,55 +6,49 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for statement in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
+public class AwsIamPolicyDocumentDataSourceStatementBlock : ITerraformBlock
 {
     /// <summary>
     /// The actions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Actions
-    {
-        set => SetProperty("actions", value);
-    }
+    [TerraformPropertyName("actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Actions { get; set; }
 
     /// <summary>
     /// The effect attribute.
     /// </summary>
-    public TerraformProperty<string>? Effect
-    {
-        set => SetProperty("effect", value);
-    }
+    [TerraformPropertyName("effect")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Effect { get; set; }
 
     /// <summary>
     /// The not_actions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? NotActions
-    {
-        set => SetProperty("not_actions", value);
-    }
+    [TerraformPropertyName("not_actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? NotActions { get; set; }
 
     /// <summary>
     /// The not_resources attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? NotResources
-    {
-        set => SetProperty("not_resources", value);
-    }
+    [TerraformPropertyName("not_resources")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? NotResources { get; set; }
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Resources
-    {
-        set => SetProperty("resources", value);
-    }
+    [TerraformPropertyName("resources")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Resources { get; set; }
 
     /// <summary>
     /// The sid attribute.
     /// </summary>
-    public TerraformProperty<string>? Sid
-    {
-        set => SetProperty("sid", value);
-    }
+    [TerraformPropertyName("sid")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Sid { get; set; }
 
 }
 
@@ -65,104 +59,78 @@ public class AwsIamPolicyDocumentDataSource : TerraformDataSource
 {
     public AwsIamPolicyDocumentDataSource(string name) : base("aws_iam_policy_document", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("json");
-        SetOutput("minified_json");
-        SetOutput("id");
-        SetOutput("override_json");
-        SetOutput("override_policy_documents");
-        SetOutput("policy_id");
-        SetOutput("source_json");
-        SetOutput("source_policy_documents");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The override_json attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> OverrideJson
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("override_json");
-        set => SetProperty("override_json", value);
-    }
+    [TerraformPropertyName("override_json")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OverrideJson { get; set; }
 
     /// <summary>
     /// The override_policy_documents attribute.
     /// </summary>
-    public List<TerraformProperty<string>> OverridePolicyDocuments
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("override_policy_documents");
-        set => SetProperty("override_policy_documents", value);
-    }
+    [TerraformPropertyName("override_policy_documents")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? OverridePolicyDocuments { get; set; }
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
-    public TerraformProperty<string> PolicyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_id");
-        set => SetProperty("policy_id", value);
-    }
+    [TerraformPropertyName("policy_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PolicyId { get; set; }
 
     /// <summary>
     /// The source_json attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> SourceJson
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_json");
-        set => SetProperty("source_json", value);
-    }
+    [TerraformPropertyName("source_json")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceJson { get; set; }
 
     /// <summary>
     /// The source_policy_documents attribute.
     /// </summary>
-    public List<TerraformProperty<string>> SourcePolicyDocuments
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("source_policy_documents");
-        set => SetProperty("source_policy_documents", value);
-    }
+    [TerraformPropertyName("source_policy_documents")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SourcePolicyDocuments { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
     /// <summary>
     /// Block for statement.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsIamPolicyDocumentDataSourceStatementBlock>? Statement
-    {
-        set => SetProperty("statement", value);
-    }
+    [TerraformPropertyName("statement")]
+    public TerraformList<TerraformBlock<AwsIamPolicyDocumentDataSourceStatementBlock>>? Statement { get; set; } = new();
 
     /// <summary>
     /// The json attribute.
     /// </summary>
-    public TerraformExpression Json => this["json"];
+    [TerraformPropertyName("json")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Json => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "json");
 
     /// <summary>
     /// The minified_json attribute.
     /// </summary>
-    public TerraformExpression MinifiedJson => this["minified_json"];
+    [TerraformPropertyName("minified_json")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MinifiedJson => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "minified_json");
 
 }

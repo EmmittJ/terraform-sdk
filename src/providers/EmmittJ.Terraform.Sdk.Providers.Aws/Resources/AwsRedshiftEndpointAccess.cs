@@ -9,102 +9,79 @@ public class AwsRedshiftEndpointAccess : TerraformResource
 {
     public AwsRedshiftEndpointAccess(string name) : base("aws_redshift_endpoint_access", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("address");
-        SetOutput("port");
-        SetOutput("vpc_endpoint");
-        SetOutput("cluster_identifier");
-        SetOutput("endpoint_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("resource_owner");
-        SetOutput("subnet_group_name");
-        SetOutput("vpc_security_group_ids");
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
-    public required TerraformProperty<string> ClusterIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
-        set => SetProperty("cluster_identifier", value);
-    }
+    [TerraformPropertyName("cluster_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterIdentifier { get; set; }
 
     /// <summary>
     /// The endpoint_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointName is required")]
-    public required TerraformProperty<string> EndpointName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_name");
-        set => SetProperty("endpoint_name", value);
-    }
+    [TerraformPropertyName("endpoint_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EndpointName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource_owner attribute.
     /// </summary>
-    public TerraformProperty<string> ResourceOwner
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_owner");
-        set => SetProperty("resource_owner", value);
-    }
+    [TerraformPropertyName("resource_owner")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ResourceOwner { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_owner");
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetGroupName is required")]
-    public required TerraformProperty<string> SubnetGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_group_name");
-        set => SetProperty("subnet_group_name", value);
-    }
+    [TerraformPropertyName("subnet_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetGroupName { get; set; }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> VpcSecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
-        set => SetProperty("vpc_security_group_ids", value);
-    }
+    [TerraformPropertyName("vpc_security_group_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> VpcSecurityGroupIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "vpc_security_group_ids");
 
     /// <summary>
     /// The address attribute.
     /// </summary>
-    public TerraformExpression Address => this["address"];
+    [TerraformPropertyName("address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Address => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "address");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformExpression Port => this["port"];
+    [TerraformPropertyName("port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Port => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "port");
 
     /// <summary>
     /// The vpc_endpoint attribute.
     /// </summary>
-    public TerraformExpression VpcEndpoint => this["vpc_endpoint"];
+    [TerraformPropertyName("vpc_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> VpcEndpoint => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "vpc_endpoint");
 
 }

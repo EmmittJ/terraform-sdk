@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock : TerraformBlock
+public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    public required TerraformProperty<double> Priority
-    {
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
 
 }
 
@@ -34,26 +32,20 @@ public class AwsEcrLifecyclePolicyDocumentDataSource : TerraformDataSource
 {
     public AwsEcrLifecyclePolicyDocumentDataSource(string name) : base("aws_ecr_lifecycle_policy_document", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("json");
     }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock>? Rule
-    {
-        set => SetProperty("rule", value);
-    }
+    [TerraformPropertyName("rule")]
+    public TerraformList<TerraformBlock<AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock>>? Rule { get; set; } = new();
 
     /// <summary>
     /// The json attribute.
     /// </summary>
-    public TerraformExpression Json => this["json"];
+    [TerraformPropertyName("json")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Json => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "json");
 
 }

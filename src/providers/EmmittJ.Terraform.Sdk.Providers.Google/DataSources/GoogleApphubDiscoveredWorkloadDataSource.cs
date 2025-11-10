@@ -9,71 +9,57 @@ public class GoogleApphubDiscoveredWorkloadDataSource : TerraformDataSource
 {
     public GoogleApphubDiscoveredWorkloadDataSource(string name) : base("google_apphub_discovered_workload", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("workload_properties");
-        SetOutput("workload_reference");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("workload_uri");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The workload_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadUri is required")]
-    public required TerraformProperty<string> WorkloadUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workload_uri");
-        set => SetProperty("workload_uri", value);
-    }
+    [TerraformPropertyName("workload_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkloadUri { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The workload_properties attribute.
     /// </summary>
-    public TerraformExpression WorkloadProperties => this["workload_properties"];
+    [TerraformPropertyName("workload_properties")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> WorkloadProperties => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "workload_properties");
 
     /// <summary>
     /// The workload_reference attribute.
     /// </summary>
-    public TerraformExpression WorkloadReference => this["workload_reference"];
+    [TerraformPropertyName("workload_reference")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> WorkloadReference => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "workload_reference");
 
 }

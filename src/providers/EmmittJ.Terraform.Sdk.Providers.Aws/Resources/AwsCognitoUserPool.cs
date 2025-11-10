@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for account_recovery_setting in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolAccountRecoverySettingBlock : TerraformBlock
+public class AwsCognitoUserPoolAccountRecoverySettingBlock : ITerraformBlock
 {
 }
 
@@ -14,15 +14,14 @@ public class AwsCognitoUserPoolAccountRecoverySettingBlock : TerraformBlock
 /// Block type for admin_create_user_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolAdminCreateUserConfigBlock : TerraformBlock
+public class AwsCognitoUserPoolAdminCreateUserConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The allow_admin_create_user_only attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowAdminCreateUserOnly
-    {
-        set => SetProperty("allow_admin_create_user_only", value);
-    }
+    [TerraformPropertyName("allow_admin_create_user_only")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowAdminCreateUserOnly { get; set; }
 
 }
 
@@ -30,23 +29,21 @@ public class AwsCognitoUserPoolAdminCreateUserConfigBlock : TerraformBlock
 /// Block type for device_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolDeviceConfigurationBlock : TerraformBlock
+public class AwsCognitoUserPoolDeviceConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The challenge_required_on_new_device attribute.
     /// </summary>
-    public TerraformProperty<bool>? ChallengeRequiredOnNewDevice
-    {
-        set => SetProperty("challenge_required_on_new_device", value);
-    }
+    [TerraformPropertyName("challenge_required_on_new_device")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ChallengeRequiredOnNewDevice { get; set; }
 
     /// <summary>
     /// The device_only_remembered_on_user_prompt attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeviceOnlyRememberedOnUserPrompt
-    {
-        set => SetProperty("device_only_remembered_on_user_prompt", value);
-    }
+    [TerraformPropertyName("device_only_remembered_on_user_prompt")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeviceOnlyRememberedOnUserPrompt { get; set; }
 
 }
 
@@ -54,47 +51,42 @@ public class AwsCognitoUserPoolDeviceConfigurationBlock : TerraformBlock
 /// Block type for email_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolEmailConfigurationBlock : TerraformBlock
+public class AwsCognitoUserPoolEmailConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The configuration_set attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationSet
-    {
-        set => SetProperty("configuration_set", value);
-    }
+    [TerraformPropertyName("configuration_set")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConfigurationSet { get; set; }
 
     /// <summary>
     /// The email_sending_account attribute.
     /// </summary>
-    public TerraformProperty<string>? EmailSendingAccount
-    {
-        set => SetProperty("email_sending_account", value);
-    }
+    [TerraformPropertyName("email_sending_account")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EmailSendingAccount { get; set; }
 
     /// <summary>
     /// The from_email_address attribute.
     /// </summary>
-    public TerraformProperty<string>? FromEmailAddress
-    {
-        set => SetProperty("from_email_address", value);
-    }
+    [TerraformPropertyName("from_email_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FromEmailAddress { get; set; }
 
     /// <summary>
     /// The reply_to_email_address attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplyToEmailAddress
-    {
-        set => SetProperty("reply_to_email_address", value);
-    }
+    [TerraformPropertyName("reply_to_email_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ReplyToEmailAddress { get; set; }
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceArn
-    {
-        set => SetProperty("source_arn", value);
-    }
+    [TerraformPropertyName("source_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceArn { get; set; }
 
 }
 
@@ -102,23 +94,21 @@ public class AwsCognitoUserPoolEmailConfigurationBlock : TerraformBlock
 /// Block type for email_mfa_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolEmailMfaConfigurationBlock : TerraformBlock
+public class AwsCognitoUserPoolEmailMfaConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The message attribute.
     /// </summary>
-    public TerraformProperty<string>? Message
-    {
-        set => SetProperty("message", value);
-    }
+    [TerraformPropertyName("message")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Message { get; set; }
 
     /// <summary>
     /// The subject attribute.
     /// </summary>
-    public TerraformProperty<string>? Subject
-    {
-        set => SetProperty("subject", value);
-    }
+    [TerraformPropertyName("subject")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Subject { get; set; }
 
 }
 
@@ -126,95 +116,84 @@ public class AwsCognitoUserPoolEmailMfaConfigurationBlock : TerraformBlock
 /// Block type for lambda_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolLambdaConfigBlock : TerraformBlock
+public class AwsCognitoUserPoolLambdaConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The create_auth_challenge attribute.
     /// </summary>
-    public TerraformProperty<string>? CreateAuthChallenge
-    {
-        set => SetProperty("create_auth_challenge", value);
-    }
+    [TerraformPropertyName("create_auth_challenge")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CreateAuthChallenge { get; set; }
 
     /// <summary>
     /// The custom_message attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomMessage
-    {
-        set => SetProperty("custom_message", value);
-    }
+    [TerraformPropertyName("custom_message")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomMessage { get; set; }
 
     /// <summary>
     /// The define_auth_challenge attribute.
     /// </summary>
-    public TerraformProperty<string>? DefineAuthChallenge
-    {
-        set => SetProperty("define_auth_challenge", value);
-    }
+    [TerraformPropertyName("define_auth_challenge")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefineAuthChallenge { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
-    {
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The post_authentication attribute.
     /// </summary>
-    public TerraformProperty<string>? PostAuthentication
-    {
-        set => SetProperty("post_authentication", value);
-    }
+    [TerraformPropertyName("post_authentication")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PostAuthentication { get; set; }
 
     /// <summary>
     /// The post_confirmation attribute.
     /// </summary>
-    public TerraformProperty<string>? PostConfirmation
-    {
-        set => SetProperty("post_confirmation", value);
-    }
+    [TerraformPropertyName("post_confirmation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PostConfirmation { get; set; }
 
     /// <summary>
     /// The pre_authentication attribute.
     /// </summary>
-    public TerraformProperty<string>? PreAuthentication
-    {
-        set => SetProperty("pre_authentication", value);
-    }
+    [TerraformPropertyName("pre_authentication")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PreAuthentication { get; set; }
 
     /// <summary>
     /// The pre_sign_up attribute.
     /// </summary>
-    public TerraformProperty<string>? PreSignUp
-    {
-        set => SetProperty("pre_sign_up", value);
-    }
+    [TerraformPropertyName("pre_sign_up")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PreSignUp { get; set; }
 
     /// <summary>
     /// The pre_token_generation attribute.
     /// </summary>
-    public TerraformProperty<string>? PreTokenGeneration
-    {
-        set => SetProperty("pre_token_generation", value);
-    }
+    [TerraformPropertyName("pre_token_generation")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PreTokenGeneration { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "pre_token_generation");
 
     /// <summary>
     /// The user_migration attribute.
     /// </summary>
-    public TerraformProperty<string>? UserMigration
-    {
-        set => SetProperty("user_migration", value);
-    }
+    [TerraformPropertyName("user_migration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserMigration { get; set; }
 
     /// <summary>
     /// The verify_auth_challenge_response attribute.
     /// </summary>
-    public TerraformProperty<string>? VerifyAuthChallengeResponse
-    {
-        set => SetProperty("verify_auth_challenge_response", value);
-    }
+    [TerraformPropertyName("verify_auth_challenge_response")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VerifyAuthChallengeResponse { get; set; }
 
 }
 
@@ -222,63 +201,56 @@ public class AwsCognitoUserPoolLambdaConfigBlock : TerraformBlock
 /// Block type for password_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolPasswordPolicyBlock : TerraformBlock
+public class AwsCognitoUserPoolPasswordPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The minimum_length attribute.
     /// </summary>
-    public TerraformProperty<double>? MinimumLength
-    {
-        set => SetProperty("minimum_length", value);
-    }
+    [TerraformPropertyName("minimum_length")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinimumLength { get; set; }
 
     /// <summary>
     /// The password_history_size attribute.
     /// </summary>
-    public TerraformProperty<double>? PasswordHistorySize
-    {
-        set => SetProperty("password_history_size", value);
-    }
+    [TerraformPropertyName("password_history_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? PasswordHistorySize { get; set; }
 
     /// <summary>
     /// The require_lowercase attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequireLowercase
-    {
-        set => SetProperty("require_lowercase", value);
-    }
+    [TerraformPropertyName("require_lowercase")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequireLowercase { get; set; }
 
     /// <summary>
     /// The require_numbers attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequireNumbers
-    {
-        set => SetProperty("require_numbers", value);
-    }
+    [TerraformPropertyName("require_numbers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequireNumbers { get; set; }
 
     /// <summary>
     /// The require_symbols attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequireSymbols
-    {
-        set => SetProperty("require_symbols", value);
-    }
+    [TerraformPropertyName("require_symbols")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequireSymbols { get; set; }
 
     /// <summary>
     /// The require_uppercase attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequireUppercase
-    {
-        set => SetProperty("require_uppercase", value);
-    }
+    [TerraformPropertyName("require_uppercase")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequireUppercase { get; set; }
 
     /// <summary>
     /// The temporary_password_validity_days attribute.
     /// </summary>
-    public TerraformProperty<double>? TemporaryPasswordValidityDays
-    {
-        set => SetProperty("temporary_password_validity_days", value);
-    }
+    [TerraformPropertyName("temporary_password_validity_days")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> TemporaryPasswordValidityDays { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "temporary_password_validity_days");
 
 }
 
@@ -286,49 +258,44 @@ public class AwsCognitoUserPoolPasswordPolicyBlock : TerraformBlock
 /// Block type for schema in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCognitoUserPoolSchemaBlock : TerraformBlock
+public class AwsCognitoUserPoolSchemaBlock : ITerraformBlock
 {
     /// <summary>
     /// The attribute_data_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributeDataType is required")]
-    public required TerraformProperty<string> AttributeDataType
-    {
-        set => SetProperty("attribute_data_type", value);
-    }
+    [TerraformPropertyName("attribute_data_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AttributeDataType { get; set; }
 
     /// <summary>
     /// The developer_only_attribute attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeveloperOnlyAttribute
-    {
-        set => SetProperty("developer_only_attribute", value);
-    }
+    [TerraformPropertyName("developer_only_attribute")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeveloperOnlyAttribute { get; set; }
 
     /// <summary>
     /// The mutable attribute.
     /// </summary>
-    public TerraformProperty<bool>? Mutable
-    {
-        set => SetProperty("mutable", value);
-    }
+    [TerraformPropertyName("mutable")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Mutable { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The required attribute.
     /// </summary>
-    public TerraformProperty<bool>? Required
-    {
-        set => SetProperty("required", value);
-    }
+    [TerraformPropertyName("required")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Required { get; set; }
 
 }
 
@@ -336,15 +303,14 @@ public class AwsCognitoUserPoolSchemaBlock : TerraformBlock
 /// Block type for sign_in_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolSignInPolicyBlock : TerraformBlock
+public class AwsCognitoUserPoolSignInPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The allowed_first_auth_factors attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowedFirstAuthFactors
-    {
-        set => SetProperty("allowed_first_auth_factors", value);
-    }
+    [TerraformPropertyName("allowed_first_auth_factors")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedFirstAuthFactors { get; set; }
 
 }
 
@@ -352,33 +318,30 @@ public class AwsCognitoUserPoolSignInPolicyBlock : TerraformBlock
 /// Block type for sms_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolSmsConfigurationBlock : TerraformBlock
+public class AwsCognitoUserPoolSmsConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The external_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
-    public required TerraformProperty<string> ExternalId
-    {
-        set => SetProperty("external_id", value);
-    }
+    [TerraformPropertyName("external_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExternalId { get; set; }
 
     /// <summary>
     /// The sns_caller_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsCallerArn is required")]
-    public required TerraformProperty<string> SnsCallerArn
-    {
-        set => SetProperty("sns_caller_arn", value);
-    }
+    [TerraformPropertyName("sns_caller_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SnsCallerArn { get; set; }
 
     /// <summary>
     /// The sns_region attribute.
     /// </summary>
-    public TerraformProperty<string>? SnsRegion
-    {
-        set => SetProperty("sns_region", value);
-    }
+    [TerraformPropertyName("sns_region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SnsRegion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "sns_region");
 
 }
 
@@ -386,16 +349,15 @@ public class AwsCognitoUserPoolSmsConfigurationBlock : TerraformBlock
 /// Block type for software_token_mfa_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolSoftwareTokenMfaConfigurationBlock : TerraformBlock
+public class AwsCognitoUserPoolSoftwareTokenMfaConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
 }
 
@@ -403,16 +365,15 @@ public class AwsCognitoUserPoolSoftwareTokenMfaConfigurationBlock : TerraformBlo
 /// Block type for user_attribute_update_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolUserAttributeUpdateSettingsBlock : TerraformBlock
+public class AwsCognitoUserPoolUserAttributeUpdateSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The attributes_require_verification_before_update attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesRequireVerificationBeforeUpdate is required")]
-    public HashSet<TerraformProperty<string>>? AttributesRequireVerificationBeforeUpdate
-    {
-        set => SetProperty("attributes_require_verification_before_update", value);
-    }
+    [TerraformPropertyName("attributes_require_verification_before_update")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AttributesRequireVerificationBeforeUpdate { get; set; }
 
 }
 
@@ -420,16 +381,15 @@ public class AwsCognitoUserPoolUserAttributeUpdateSettingsBlock : TerraformBlock
 /// Block type for user_pool_add_ons in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolUserPoolAddOnsBlock : TerraformBlock
+public class AwsCognitoUserPoolUserPoolAddOnsBlock : ITerraformBlock
 {
     /// <summary>
     /// The advanced_security_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdvancedSecurityMode is required")]
-    public required TerraformProperty<string> AdvancedSecurityMode
-    {
-        set => SetProperty("advanced_security_mode", value);
-    }
+    [TerraformPropertyName("advanced_security_mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AdvancedSecurityMode { get; set; }
 
 }
 
@@ -437,15 +397,14 @@ public class AwsCognitoUserPoolUserPoolAddOnsBlock : TerraformBlock
 /// Block type for username_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolUsernameConfigurationBlock : TerraformBlock
+public class AwsCognitoUserPoolUsernameConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The case_sensitive attribute.
     /// </summary>
-    public TerraformProperty<bool>? CaseSensitive
-    {
-        set => SetProperty("case_sensitive", value);
-    }
+    [TerraformPropertyName("case_sensitive")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> CaseSensitive { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "case_sensitive");
 
 }
 
@@ -453,55 +412,49 @@ public class AwsCognitoUserPoolUsernameConfigurationBlock : TerraformBlock
 /// Block type for verification_message_template in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolVerificationMessageTemplateBlock : TerraformBlock
+public class AwsCognitoUserPoolVerificationMessageTemplateBlock : ITerraformBlock
 {
     /// <summary>
     /// The default_email_option attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultEmailOption
-    {
-        set => SetProperty("default_email_option", value);
-    }
+    [TerraformPropertyName("default_email_option")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultEmailOption { get; set; }
 
     /// <summary>
     /// The email_message attribute.
     /// </summary>
-    public TerraformProperty<string>? EmailMessage
-    {
-        set => SetProperty("email_message", value);
-    }
+    [TerraformPropertyName("email_message")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EmailMessage { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "email_message");
 
     /// <summary>
     /// The email_message_by_link attribute.
     /// </summary>
-    public TerraformProperty<string>? EmailMessageByLink
-    {
-        set => SetProperty("email_message_by_link", value);
-    }
+    [TerraformPropertyName("email_message_by_link")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EmailMessageByLink { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "email_message_by_link");
 
     /// <summary>
     /// The email_subject attribute.
     /// </summary>
-    public TerraformProperty<string>? EmailSubject
-    {
-        set => SetProperty("email_subject", value);
-    }
+    [TerraformPropertyName("email_subject")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EmailSubject { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "email_subject");
 
     /// <summary>
     /// The email_subject_by_link attribute.
     /// </summary>
-    public TerraformProperty<string>? EmailSubjectByLink
-    {
-        set => SetProperty("email_subject_by_link", value);
-    }
+    [TerraformPropertyName("email_subject_by_link")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EmailSubjectByLink { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "email_subject_by_link");
 
     /// <summary>
     /// The sms_message attribute.
     /// </summary>
-    public TerraformProperty<string>? SmsMessage
-    {
-        set => SetProperty("sms_message", value);
-    }
+    [TerraformPropertyName("sms_message")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SmsMessage { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "sms_message");
 
 }
 
@@ -509,23 +462,21 @@ public class AwsCognitoUserPoolVerificationMessageTemplateBlock : TerraformBlock
 /// Block type for web_authn_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoUserPoolWebAuthnConfigurationBlock : TerraformBlock
+public class AwsCognitoUserPoolWebAuthnConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The relying_party_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RelyingPartyId
-    {
-        set => SetProperty("relying_party_id", value);
-    }
+    [TerraformPropertyName("relying_party_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RelyingPartyId { get; set; }
 
     /// <summary>
     /// The user_verification attribute.
     /// </summary>
-    public TerraformProperty<string>? UserVerification
-    {
-        set => SetProperty("user_verification", value);
-    }
+    [TerraformPropertyName("user_verification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserVerification { get; set; }
 
 }
 
@@ -537,364 +488,289 @@ public class AwsCognitoUserPool : TerraformResource
 {
     public AwsCognitoUserPool(string name) : base("aws_cognito_user_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("creation_date");
-        SetOutput("custom_domain");
-        SetOutput("domain");
-        SetOutput("endpoint");
-        SetOutput("estimated_number_of_users");
-        SetOutput("last_modified_date");
-        SetOutput("alias_attributes");
-        SetOutput("auto_verified_attributes");
-        SetOutput("deletion_protection");
-        SetOutput("email_verification_message");
-        SetOutput("email_verification_subject");
-        SetOutput("id");
-        SetOutput("mfa_configuration");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("sms_authentication_message");
-        SetOutput("sms_verification_message");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("user_pool_tier");
-        SetOutput("username_attributes");
     }
 
     /// <summary>
     /// The alias_attributes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AliasAttributes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("alias_attributes");
-        set => SetProperty("alias_attributes", value);
-    }
+    [TerraformPropertyName("alias_attributes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AliasAttributes { get; set; }
 
     /// <summary>
     /// The auto_verified_attributes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AutoVerifiedAttributes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("auto_verified_attributes");
-        set => SetProperty("auto_verified_attributes", value);
-    }
+    [TerraformPropertyName("auto_verified_attributes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AutoVerifiedAttributes { get; set; }
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    public TerraformProperty<string> DeletionProtection
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deletion_protection");
-        set => SetProperty("deletion_protection", value);
-    }
+    [TerraformPropertyName("deletion_protection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeletionProtection { get; set; }
 
     /// <summary>
     /// The email_verification_message attribute.
     /// </summary>
-    public TerraformProperty<string> EmailVerificationMessage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("email_verification_message");
-        set => SetProperty("email_verification_message", value);
-    }
+    [TerraformPropertyName("email_verification_message")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EmailVerificationMessage { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "email_verification_message");
 
     /// <summary>
     /// The email_verification_subject attribute.
     /// </summary>
-    public TerraformProperty<string> EmailVerificationSubject
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("email_verification_subject");
-        set => SetProperty("email_verification_subject", value);
-    }
+    [TerraformPropertyName("email_verification_subject")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EmailVerificationSubject { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "email_verification_subject");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The mfa_configuration attribute.
     /// </summary>
-    public TerraformProperty<string> MfaConfiguration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mfa_configuration");
-        set => SetProperty("mfa_configuration", value);
-    }
+    [TerraformPropertyName("mfa_configuration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MfaConfiguration { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The sms_authentication_message attribute.
     /// </summary>
-    public TerraformProperty<string> SmsAuthenticationMessage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sms_authentication_message");
-        set => SetProperty("sms_authentication_message", value);
-    }
+    [TerraformPropertyName("sms_authentication_message")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SmsAuthenticationMessage { get; set; }
 
     /// <summary>
     /// The sms_verification_message attribute.
     /// </summary>
-    public TerraformProperty<string> SmsVerificationMessage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sms_verification_message");
-        set => SetProperty("sms_verification_message", value);
-    }
+    [TerraformPropertyName("sms_verification_message")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SmsVerificationMessage { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sms_verification_message");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The user_pool_tier attribute.
     /// </summary>
-    public TerraformProperty<string> UserPoolTier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_tier");
-        set => SetProperty("user_pool_tier", value);
-    }
+    [TerraformPropertyName("user_pool_tier")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> UserPoolTier { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_pool_tier");
 
     /// <summary>
     /// The username_attributes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> UsernameAttributes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("username_attributes");
-        set => SetProperty("username_attributes", value);
-    }
+    [TerraformPropertyName("username_attributes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? UsernameAttributes { get; set; }
 
     /// <summary>
     /// Block for account_recovery_setting.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccountRecoverySetting block(s) allowed")]
-    public List<AwsCognitoUserPoolAccountRecoverySettingBlock>? AccountRecoverySetting
-    {
-        set => SetProperty("account_recovery_setting", value);
-    }
+    [TerraformPropertyName("account_recovery_setting")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolAccountRecoverySettingBlock>>? AccountRecoverySetting { get; set; } = new();
 
     /// <summary>
     /// Block for admin_create_user_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdminCreateUserConfig block(s) allowed")]
-    public List<AwsCognitoUserPoolAdminCreateUserConfigBlock>? AdminCreateUserConfig
-    {
-        set => SetProperty("admin_create_user_config", value);
-    }
+    [TerraformPropertyName("admin_create_user_config")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolAdminCreateUserConfigBlock>>? AdminCreateUserConfig { get; set; } = new();
 
     /// <summary>
     /// Block for device_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeviceConfiguration block(s) allowed")]
-    public List<AwsCognitoUserPoolDeviceConfigurationBlock>? DeviceConfiguration
-    {
-        set => SetProperty("device_configuration", value);
-    }
+    [TerraformPropertyName("device_configuration")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolDeviceConfigurationBlock>>? DeviceConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for email_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EmailConfiguration block(s) allowed")]
-    public List<AwsCognitoUserPoolEmailConfigurationBlock>? EmailConfiguration
-    {
-        set => SetProperty("email_configuration", value);
-    }
+    [TerraformPropertyName("email_configuration")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolEmailConfigurationBlock>>? EmailConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for email_mfa_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EmailMfaConfiguration block(s) allowed")]
-    public List<AwsCognitoUserPoolEmailMfaConfigurationBlock>? EmailMfaConfiguration
-    {
-        set => SetProperty("email_mfa_configuration", value);
-    }
+    [TerraformPropertyName("email_mfa_configuration")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolEmailMfaConfigurationBlock>>? EmailMfaConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for lambda_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LambdaConfig block(s) allowed")]
-    public List<AwsCognitoUserPoolLambdaConfigBlock>? LambdaConfig
-    {
-        set => SetProperty("lambda_config", value);
-    }
+    [TerraformPropertyName("lambda_config")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolLambdaConfigBlock>>? LambdaConfig { get; set; } = new();
 
     /// <summary>
     /// Block for password_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PasswordPolicy block(s) allowed")]
-    public List<AwsCognitoUserPoolPasswordPolicyBlock>? PasswordPolicy
-    {
-        set => SetProperty("password_policy", value);
-    }
+    [TerraformPropertyName("password_policy")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolPasswordPolicyBlock>>? PasswordPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for schema.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Schema block(s) allowed")]
-    public HashSet<AwsCognitoUserPoolSchemaBlock>? Schema
-    {
-        set => SetProperty("schema", value);
-    }
+    [TerraformPropertyName("schema")]
+    public TerraformSet<TerraformBlock<AwsCognitoUserPoolSchemaBlock>>? Schema { get; set; } = new();
 
     /// <summary>
     /// Block for sign_in_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignInPolicy block(s) allowed")]
-    public List<AwsCognitoUserPoolSignInPolicyBlock>? SignInPolicy
-    {
-        set => SetProperty("sign_in_policy", value);
-    }
+    [TerraformPropertyName("sign_in_policy")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolSignInPolicyBlock>>? SignInPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for sms_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SmsConfiguration block(s) allowed")]
-    public List<AwsCognitoUserPoolSmsConfigurationBlock>? SmsConfiguration
-    {
-        set => SetProperty("sms_configuration", value);
-    }
+    [TerraformPropertyName("sms_configuration")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolSmsConfigurationBlock>>? SmsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for software_token_mfa_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoftwareTokenMfaConfiguration block(s) allowed")]
-    public List<AwsCognitoUserPoolSoftwareTokenMfaConfigurationBlock>? SoftwareTokenMfaConfiguration
-    {
-        set => SetProperty("software_token_mfa_configuration", value);
-    }
+    [TerraformPropertyName("software_token_mfa_configuration")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolSoftwareTokenMfaConfigurationBlock>>? SoftwareTokenMfaConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for user_attribute_update_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserAttributeUpdateSettings block(s) allowed")]
-    public List<AwsCognitoUserPoolUserAttributeUpdateSettingsBlock>? UserAttributeUpdateSettings
-    {
-        set => SetProperty("user_attribute_update_settings", value);
-    }
+    [TerraformPropertyName("user_attribute_update_settings")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolUserAttributeUpdateSettingsBlock>>? UserAttributeUpdateSettings { get; set; } = new();
 
     /// <summary>
     /// Block for user_pool_add_ons.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserPoolAddOns block(s) allowed")]
-    public List<AwsCognitoUserPoolUserPoolAddOnsBlock>? UserPoolAddOns
-    {
-        set => SetProperty("user_pool_add_ons", value);
-    }
+    [TerraformPropertyName("user_pool_add_ons")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolUserPoolAddOnsBlock>>? UserPoolAddOns { get; set; } = new();
 
     /// <summary>
     /// Block for username_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UsernameConfiguration block(s) allowed")]
-    public List<AwsCognitoUserPoolUsernameConfigurationBlock>? UsernameConfiguration
-    {
-        set => SetProperty("username_configuration", value);
-    }
+    [TerraformPropertyName("username_configuration")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolUsernameConfigurationBlock>>? UsernameConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for verification_message_template.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VerificationMessageTemplate block(s) allowed")]
-    public List<AwsCognitoUserPoolVerificationMessageTemplateBlock>? VerificationMessageTemplate
-    {
-        set => SetProperty("verification_message_template", value);
-    }
+    [TerraformPropertyName("verification_message_template")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolVerificationMessageTemplateBlock>>? VerificationMessageTemplate { get; set; } = new();
 
     /// <summary>
     /// Block for web_authn_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebAuthnConfiguration block(s) allowed")]
-    public List<AwsCognitoUserPoolWebAuthnConfigurationBlock>? WebAuthnConfiguration
-    {
-        set => SetProperty("web_authn_configuration", value);
-    }
+    [TerraformPropertyName("web_authn_configuration")]
+    public TerraformList<TerraformBlock<AwsCognitoUserPoolWebAuthnConfigurationBlock>>? WebAuthnConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
-    public TerraformExpression CreationDate => this["creation_date"];
+    [TerraformPropertyName("creation_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_date");
 
     /// <summary>
     /// The custom_domain attribute.
     /// </summary>
-    public TerraformExpression CustomDomain => this["custom_domain"];
+    [TerraformPropertyName("custom_domain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CustomDomain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "custom_domain");
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformExpression Domain => this["domain"];
+    [TerraformPropertyName("domain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Domain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The estimated_number_of_users attribute.
     /// </summary>
-    public TerraformExpression EstimatedNumberOfUsers => this["estimated_number_of_users"];
+    [TerraformPropertyName("estimated_number_of_users")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> EstimatedNumberOfUsers => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "estimated_number_of_users");
 
     /// <summary>
     /// The last_modified_date attribute.
     /// </summary>
-    public TerraformExpression LastModifiedDate => this["last_modified_date"];
+    [TerraformPropertyName("last_modified_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_date");
 
 }

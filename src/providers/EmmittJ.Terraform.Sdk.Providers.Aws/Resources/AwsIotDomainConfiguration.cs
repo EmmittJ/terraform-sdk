@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for authorizer_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIotDomainConfigurationAuthorizerConfigBlock : TerraformBlock
+public class AwsIotDomainConfigurationAuthorizerConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The allow_authorizer_override attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowAuthorizerOverride
-    {
-        set => SetProperty("allow_authorizer_override", value);
-    }
+    [TerraformPropertyName("allow_authorizer_override")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowAuthorizerOverride { get; set; }
 
     /// <summary>
     /// The default_authorizer_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultAuthorizerName
-    {
-        set => SetProperty("default_authorizer_name", value);
-    }
+    [TerraformPropertyName("default_authorizer_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultAuthorizerName { get; set; }
 
 }
 
@@ -30,15 +28,14 @@ public class AwsIotDomainConfigurationAuthorizerConfigBlock : TerraformBlock
 /// Block type for tls_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIotDomainConfigurationTlsConfigBlock : TerraformBlock
+public class AwsIotDomainConfigurationTlsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The security_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityPolicy
-    {
-        set => SetProperty("security_policy", value);
-    }
+    [TerraformPropertyName("security_policy")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SecurityPolicy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "security_policy");
 
 }
 
@@ -50,164 +47,121 @@ public class AwsIotDomainConfiguration : TerraformResource
 {
     public AwsIotDomainConfiguration(string name) : base("aws_iot_domain_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("domain_type");
-        SetOutput("application_protocol");
-        SetOutput("authentication_type");
-        SetOutput("domain_name");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("server_certificate_arns");
-        SetOutput("service_type");
-        SetOutput("status");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("validation_certificate_arn");
     }
 
     /// <summary>
     /// The application_protocol attribute.
     /// </summary>
-    public TerraformProperty<string> ApplicationProtocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_protocol");
-        set => SetProperty("application_protocol", value);
-    }
+    [TerraformPropertyName("application_protocol")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ApplicationProtocol { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "application_protocol");
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformProperty<string> AuthenticationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_type");
-        set => SetProperty("authentication_type", value);
-    }
+    [TerraformPropertyName("authentication_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AuthenticationType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "authentication_type");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string> DomainName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DomainName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The server_certificate_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ServerCertificateArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("server_certificate_arns");
-        set => SetProperty("server_certificate_arns", value);
-    }
+    [TerraformPropertyName("server_certificate_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ServerCertificateArns { get; set; }
 
     /// <summary>
     /// The service_type attribute.
     /// </summary>
-    public TerraformProperty<string> ServiceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_type");
-        set => SetProperty("service_type", value);
-    }
+    [TerraformPropertyName("service_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServiceType { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The validation_certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string> ValidationCertificateArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("validation_certificate_arn");
-        set => SetProperty("validation_certificate_arn", value);
-    }
+    [TerraformPropertyName("validation_certificate_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ValidationCertificateArn { get; set; }
 
     /// <summary>
     /// Block for authorizer_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthorizerConfig block(s) allowed")]
-    public List<AwsIotDomainConfigurationAuthorizerConfigBlock>? AuthorizerConfig
-    {
-        set => SetProperty("authorizer_config", value);
-    }
+    [TerraformPropertyName("authorizer_config")]
+    public TerraformList<TerraformBlock<AwsIotDomainConfigurationAuthorizerConfigBlock>>? AuthorizerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for tls_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsConfig block(s) allowed")]
-    public List<AwsIotDomainConfigurationTlsConfigBlock>? TlsConfig
-    {
-        set => SetProperty("tls_config", value);
-    }
+    [TerraformPropertyName("tls_config")]
+    public TerraformList<TerraformBlock<AwsIotDomainConfigurationTlsConfigBlock>>? TlsConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The domain_type attribute.
     /// </summary>
-    public TerraformExpression DomainType => this["domain_type"];
+    [TerraformPropertyName("domain_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DomainType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_type");
 
 }

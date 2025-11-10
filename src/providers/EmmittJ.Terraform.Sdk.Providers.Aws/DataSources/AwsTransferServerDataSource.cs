@@ -9,124 +9,119 @@ public class AwsTransferServerDataSource : TerraformDataSource
 {
     public AwsTransferServerDataSource(string name) : base("aws_transfer_server", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("certificate");
-        SetOutput("domain");
-        SetOutput("endpoint");
-        SetOutput("endpoint_type");
-        SetOutput("identity_provider_type");
-        SetOutput("invocation_role");
-        SetOutput("logging_role");
-        SetOutput("protocols");
-        SetOutput("security_policy_name");
-        SetOutput("structured_log_destinations");
-        SetOutput("url");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("server_id");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    public required TerraformProperty<string> ServerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("server_id");
-        set => SetProperty("server_id", value);
-    }
+    [TerraformPropertyName("server_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServerId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    public TerraformExpression Certificate => this["certificate"];
+    [TerraformPropertyName("certificate")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Certificate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate");
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformExpression Domain => this["domain"];
+    [TerraformPropertyName("domain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Domain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
-    public TerraformExpression EndpointType => this["endpoint_type"];
+    [TerraformPropertyName("endpoint_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EndpointType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_type");
 
     /// <summary>
     /// The identity_provider_type attribute.
     /// </summary>
-    public TerraformExpression IdentityProviderType => this["identity_provider_type"];
+    [TerraformPropertyName("identity_provider_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IdentityProviderType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "identity_provider_type");
 
     /// <summary>
     /// The invocation_role attribute.
     /// </summary>
-    public TerraformExpression InvocationRole => this["invocation_role"];
+    [TerraformPropertyName("invocation_role")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InvocationRole => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "invocation_role");
 
     /// <summary>
     /// The logging_role attribute.
     /// </summary>
-    public TerraformExpression LoggingRole => this["logging_role"];
+    [TerraformPropertyName("logging_role")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LoggingRole => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "logging_role");
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public TerraformExpression Protocols => this["protocols"];
+    [TerraformPropertyName("protocols")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Protocols => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "protocols");
 
     /// <summary>
     /// The security_policy_name attribute.
     /// </summary>
-    public TerraformExpression SecurityPolicyName => this["security_policy_name"];
+    [TerraformPropertyName("security_policy_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecurityPolicyName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "security_policy_name");
 
     /// <summary>
     /// The structured_log_destinations attribute.
     /// </summary>
-    public TerraformExpression StructuredLogDestinations => this["structured_log_destinations"];
+    [TerraformPropertyName("structured_log_destinations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> StructuredLogDestinations => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "structured_log_destinations");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformExpression Url => this["url"];
+    [TerraformPropertyName("url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "url");
 
 }

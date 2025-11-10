@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for scope in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3controlDirectoryBucketAccessPointScopeScopeBlock : TerraformBlock
+public class AwsS3controlDirectoryBucketAccessPointScopeScopeBlock : ITerraformBlock
 {
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Permissions
-    {
-        set => SetProperty("permissions", value);
-    }
+    [TerraformPropertyName("permissions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Permissions { get; set; }
 
     /// <summary>
     /// The prefixes attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Prefixes
-    {
-        set => SetProperty("prefixes", value);
-    }
+    [TerraformPropertyName("prefixes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Prefixes { get; set; }
 
 }
 
@@ -33,52 +31,36 @@ public class AwsS3controlDirectoryBucketAccessPointScope : TerraformResource
 {
     public AwsS3controlDirectoryBucketAccessPointScope(string name) : base("aws_s3control_directory_bucket_access_point_scope", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account_id");
-        SetOutput("name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
-    public required TerraformProperty<string> AccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for scope.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsS3controlDirectoryBucketAccessPointScopeScopeBlock>? Scope
-    {
-        set => SetProperty("scope", value);
-    }
+    [TerraformPropertyName("scope")]
+    public TerraformList<TerraformBlock<AwsS3controlDirectoryBucketAccessPointScopeScopeBlock>>? Scope { get; set; } = new();
 
 }

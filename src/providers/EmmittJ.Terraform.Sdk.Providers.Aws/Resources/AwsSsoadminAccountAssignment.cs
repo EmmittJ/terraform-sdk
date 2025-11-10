@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSsoadminAccountAssignmentTimeoutsBlock : TerraformBlock
+public class AwsSsoadminAccountAssignmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,105 +31,74 @@ public class AwsSsoadminAccountAssignment : TerraformResource
 {
     public AwsSsoadminAccountAssignment(string name) : base("aws_ssoadmin_account_assignment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("instance_arn");
-        SetOutput("permission_set_arn");
-        SetOutput("principal_id");
-        SetOutput("principal_type");
-        SetOutput("region");
-        SetOutput("target_id");
-        SetOutput("target_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
-    public required TerraformProperty<string> InstanceArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_arn");
-        set => SetProperty("instance_arn", value);
-    }
+    [TerraformPropertyName("instance_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceArn { get; set; }
 
     /// <summary>
     /// The permission_set_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionSetArn is required")]
-    public required TerraformProperty<string> PermissionSetArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("permission_set_arn");
-        set => SetProperty("permission_set_arn", value);
-    }
+    [TerraformPropertyName("permission_set_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PermissionSetArn { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    public required TerraformProperty<string> PrincipalId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrincipalId { get; set; }
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
-    public required TerraformProperty<string> PrincipalType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal_type");
-        set => SetProperty("principal_type", value);
-    }
+    [TerraformPropertyName("principal_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrincipalType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
-    public required TerraformProperty<string> TargetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_id");
-        set => SetProperty("target_id", value);
-    }
+    [TerraformPropertyName("target_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetId { get; set; }
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    public TerraformProperty<string> TargetType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_type");
-        set => SetProperty("target_type", value);
-    }
+    [TerraformPropertyName("target_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsSsoadminAccountAssignmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsSsoadminAccountAssignmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

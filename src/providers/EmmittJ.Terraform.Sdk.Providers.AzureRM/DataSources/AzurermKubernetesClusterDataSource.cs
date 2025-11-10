@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKubernetesClusterDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermKubernetesClusterDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,286 +24,309 @@ public class AzurermKubernetesClusterDataSource : TerraformDataSource
 {
     public AzurermKubernetesClusterDataSource(string name) : base("azurerm_kubernetes_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("aci_connector_linux");
-        SetOutput("agent_pool_profile");
-        SetOutput("api_server_authorized_ip_ranges");
-        SetOutput("azure_active_directory_role_based_access_control");
-        SetOutput("azure_policy_enabled");
-        SetOutput("current_kubernetes_version");
-        SetOutput("disk_encryption_set_id");
-        SetOutput("dns_prefix");
-        SetOutput("fqdn");
-        SetOutput("http_application_routing_enabled");
-        SetOutput("http_application_routing_zone_name");
-        SetOutput("identity");
-        SetOutput("ingress_application_gateway");
-        SetOutput("key_management_service");
-        SetOutput("key_vault_secrets_provider");
-        SetOutput("kube_admin_config");
-        SetOutput("kube_admin_config_raw");
-        SetOutput("kube_config");
-        SetOutput("kube_config_raw");
-        SetOutput("kubelet_identity");
-        SetOutput("kubernetes_version");
-        SetOutput("linux_profile");
-        SetOutput("location");
-        SetOutput("microsoft_defender");
-        SetOutput("network_profile");
-        SetOutput("node_resource_group");
-        SetOutput("node_resource_group_id");
-        SetOutput("oidc_issuer_enabled");
-        SetOutput("oidc_issuer_url");
-        SetOutput("oms_agent");
-        SetOutput("open_service_mesh_enabled");
-        SetOutput("private_cluster_enabled");
-        SetOutput("private_fqdn");
-        SetOutput("role_based_access_control_enabled");
-        SetOutput("service_mesh_profile");
-        SetOutput("service_principal");
-        SetOutput("storage_profile");
-        SetOutput("tags");
-        SetOutput("windows_profile");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermKubernetesClusterDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermKubernetesClusterDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The aci_connector_linux attribute.
     /// </summary>
-    public TerraformExpression AciConnectorLinux => this["aci_connector_linux"];
+    [TerraformPropertyName("aci_connector_linux")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AciConnectorLinux => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "aci_connector_linux");
 
     /// <summary>
     /// The agent_pool_profile attribute.
     /// </summary>
-    public TerraformExpression AgentPoolProfile => this["agent_pool_profile"];
+    [TerraformPropertyName("agent_pool_profile")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AgentPoolProfile => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "agent_pool_profile");
 
     /// <summary>
     /// The api_server_authorized_ip_ranges attribute.
     /// </summary>
-    public TerraformExpression ApiServerAuthorizedIpRanges => this["api_server_authorized_ip_ranges"];
+    [TerraformPropertyName("api_server_authorized_ip_ranges")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> ApiServerAuthorizedIpRanges => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "api_server_authorized_ip_ranges");
 
     /// <summary>
     /// The azure_active_directory_role_based_access_control attribute.
     /// </summary>
-    public TerraformExpression AzureActiveDirectoryRoleBasedAccessControl => this["azure_active_directory_role_based_access_control"];
+    [TerraformPropertyName("azure_active_directory_role_based_access_control")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AzureActiveDirectoryRoleBasedAccessControl => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "azure_active_directory_role_based_access_control");
 
     /// <summary>
     /// The azure_policy_enabled attribute.
     /// </summary>
-    public TerraformExpression AzurePolicyEnabled => this["azure_policy_enabled"];
+    [TerraformPropertyName("azure_policy_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AzurePolicyEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "azure_policy_enabled");
 
     /// <summary>
     /// The current_kubernetes_version attribute.
     /// </summary>
-    public TerraformExpression CurrentKubernetesVersion => this["current_kubernetes_version"];
+    [TerraformPropertyName("current_kubernetes_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CurrentKubernetesVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "current_kubernetes_version");
 
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    public TerraformExpression DiskEncryptionSetId => this["disk_encryption_set_id"];
+    [TerraformPropertyName("disk_encryption_set_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DiskEncryptionSetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "disk_encryption_set_id");
 
     /// <summary>
     /// The dns_prefix attribute.
     /// </summary>
-    public TerraformExpression DnsPrefix => this["dns_prefix"];
+    [TerraformPropertyName("dns_prefix")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsPrefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_prefix");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    public TerraformExpression Fqdn => this["fqdn"];
+    [TerraformPropertyName("fqdn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fqdn");
 
     /// <summary>
     /// The http_application_routing_enabled attribute.
     /// </summary>
-    public TerraformExpression HttpApplicationRoutingEnabled => this["http_application_routing_enabled"];
+    [TerraformPropertyName("http_application_routing_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> HttpApplicationRoutingEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "http_application_routing_enabled");
 
     /// <summary>
     /// The http_application_routing_zone_name attribute.
     /// </summary>
-    public TerraformExpression HttpApplicationRoutingZoneName => this["http_application_routing_zone_name"];
+    [TerraformPropertyName("http_application_routing_zone_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HttpApplicationRoutingZoneName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "http_application_routing_zone_name");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformExpression Identity => this["identity"];
+    [TerraformPropertyName("identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
 
     /// <summary>
     /// The ingress_application_gateway attribute.
     /// </summary>
-    public TerraformExpression IngressApplicationGateway => this["ingress_application_gateway"];
+    [TerraformPropertyName("ingress_application_gateway")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> IngressApplicationGateway => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ingress_application_gateway");
 
     /// <summary>
     /// The key_management_service attribute.
     /// </summary>
-    public TerraformExpression KeyManagementService => this["key_management_service"];
+    [TerraformPropertyName("key_management_service")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> KeyManagementService => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "key_management_service");
 
     /// <summary>
     /// The key_vault_secrets_provider attribute.
     /// </summary>
-    public TerraformExpression KeyVaultSecretsProvider => this["key_vault_secrets_provider"];
+    [TerraformPropertyName("key_vault_secrets_provider")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> KeyVaultSecretsProvider => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "key_vault_secrets_provider");
 
     /// <summary>
     /// The kube_admin_config attribute.
     /// </summary>
-    public TerraformExpression KubeAdminConfig => this["kube_admin_config"];
+    [TerraformPropertyName("kube_admin_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> KubeAdminConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "kube_admin_config");
 
     /// <summary>
     /// The kube_admin_config_raw attribute.
     /// </summary>
-    public TerraformExpression KubeAdminConfigRaw => this["kube_admin_config_raw"];
+    [TerraformPropertyName("kube_admin_config_raw")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KubeAdminConfigRaw => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kube_admin_config_raw");
 
     /// <summary>
     /// The kube_config attribute.
     /// </summary>
-    public TerraformExpression KubeConfig => this["kube_config"];
+    [TerraformPropertyName("kube_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> KubeConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "kube_config");
 
     /// <summary>
     /// The kube_config_raw attribute.
     /// </summary>
-    public TerraformExpression KubeConfigRaw => this["kube_config_raw"];
+    [TerraformPropertyName("kube_config_raw")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KubeConfigRaw => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kube_config_raw");
 
     /// <summary>
     /// The kubelet_identity attribute.
     /// </summary>
-    public TerraformExpression KubeletIdentity => this["kubelet_identity"];
+    [TerraformPropertyName("kubelet_identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> KubeletIdentity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "kubelet_identity");
 
     /// <summary>
     /// The kubernetes_version attribute.
     /// </summary>
-    public TerraformExpression KubernetesVersion => this["kubernetes_version"];
+    [TerraformPropertyName("kubernetes_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KubernetesVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kubernetes_version");
 
     /// <summary>
     /// The linux_profile attribute.
     /// </summary>
-    public TerraformExpression LinuxProfile => this["linux_profile"];
+    [TerraformPropertyName("linux_profile")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> LinuxProfile => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "linux_profile");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The microsoft_defender attribute.
     /// </summary>
-    public TerraformExpression MicrosoftDefender => this["microsoft_defender"];
+    [TerraformPropertyName("microsoft_defender")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MicrosoftDefender => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "microsoft_defender");
 
     /// <summary>
     /// The network_profile attribute.
     /// </summary>
-    public TerraformExpression NetworkProfile => this["network_profile"];
+    [TerraformPropertyName("network_profile")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> NetworkProfile => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "network_profile");
 
     /// <summary>
     /// The node_resource_group attribute.
     /// </summary>
-    public TerraformExpression NodeResourceGroup => this["node_resource_group"];
+    [TerraformPropertyName("node_resource_group")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NodeResourceGroup => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_resource_group");
 
     /// <summary>
     /// The node_resource_group_id attribute.
     /// </summary>
-    public TerraformExpression NodeResourceGroupId => this["node_resource_group_id"];
+    [TerraformPropertyName("node_resource_group_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NodeResourceGroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_resource_group_id");
 
     /// <summary>
     /// The oidc_issuer_enabled attribute.
     /// </summary>
-    public TerraformExpression OidcIssuerEnabled => this["oidc_issuer_enabled"];
+    [TerraformPropertyName("oidc_issuer_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> OidcIssuerEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "oidc_issuer_enabled");
 
     /// <summary>
     /// The oidc_issuer_url attribute.
     /// </summary>
-    public TerraformExpression OidcIssuerUrl => this["oidc_issuer_url"];
+    [TerraformPropertyName("oidc_issuer_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OidcIssuerUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "oidc_issuer_url");
 
     /// <summary>
     /// The oms_agent attribute.
     /// </summary>
-    public TerraformExpression OmsAgent => this["oms_agent"];
+    [TerraformPropertyName("oms_agent")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> OmsAgent => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "oms_agent");
 
     /// <summary>
     /// The open_service_mesh_enabled attribute.
     /// </summary>
-    public TerraformExpression OpenServiceMeshEnabled => this["open_service_mesh_enabled"];
+    [TerraformPropertyName("open_service_mesh_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> OpenServiceMeshEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "open_service_mesh_enabled");
 
     /// <summary>
     /// The private_cluster_enabled attribute.
     /// </summary>
-    public TerraformExpression PrivateClusterEnabled => this["private_cluster_enabled"];
+    [TerraformPropertyName("private_cluster_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PrivateClusterEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "private_cluster_enabled");
 
     /// <summary>
     /// The private_fqdn attribute.
     /// </summary>
-    public TerraformExpression PrivateFqdn => this["private_fqdn"];
+    [TerraformPropertyName("private_fqdn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateFqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_fqdn");
 
     /// <summary>
     /// The role_based_access_control_enabled attribute.
     /// </summary>
-    public TerraformExpression RoleBasedAccessControlEnabled => this["role_based_access_control_enabled"];
+    [TerraformPropertyName("role_based_access_control_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> RoleBasedAccessControlEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "role_based_access_control_enabled");
 
     /// <summary>
     /// The service_mesh_profile attribute.
     /// </summary>
-    public TerraformExpression ServiceMeshProfile => this["service_mesh_profile"];
+    [TerraformPropertyName("service_mesh_profile")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ServiceMeshProfile => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "service_mesh_profile");
 
     /// <summary>
     /// The service_principal attribute.
     /// </summary>
-    public TerraformExpression ServicePrincipal => this["service_principal"];
+    [TerraformPropertyName("service_principal")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ServicePrincipal => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "service_principal");
 
     /// <summary>
     /// The storage_profile attribute.
     /// </summary>
-    public TerraformExpression StorageProfile => this["storage_profile"];
+    [TerraformPropertyName("storage_profile")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> StorageProfile => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "storage_profile");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The windows_profile attribute.
     /// </summary>
-    public TerraformExpression WindowsProfile => this["windows_profile"];
+    [TerraformPropertyName("windows_profile")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> WindowsProfile => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "windows_profile");
 
 }

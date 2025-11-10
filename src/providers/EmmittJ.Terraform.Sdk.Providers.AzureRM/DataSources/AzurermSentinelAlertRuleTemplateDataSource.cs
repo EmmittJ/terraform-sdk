@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSentinelAlertRuleTemplateDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermSentinelAlertRuleTemplateDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,79 +24,63 @@ public class AzurermSentinelAlertRuleTemplateDataSource : TerraformDataSource
 {
     public AzurermSentinelAlertRuleTemplateDataSource(string name) : base("azurerm_sentinel_alert_rule_template", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("nrt_template");
-        SetOutput("scheduled_template");
-        SetOutput("security_incident_template");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("log_analytics_workspace_id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    public required TerraformProperty<string> LogAnalyticsWorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => SetProperty("log_analytics_workspace_id", value);
-    }
+    [TerraformPropertyName("log_analytics_workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSentinelAlertRuleTemplateDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSentinelAlertRuleTemplateDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The nrt_template attribute.
     /// </summary>
-    public TerraformExpression NrtTemplate => this["nrt_template"];
+    [TerraformPropertyName("nrt_template")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> NrtTemplate => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "nrt_template");
 
     /// <summary>
     /// The scheduled_template attribute.
     /// </summary>
-    public TerraformExpression ScheduledTemplate => this["scheduled_template"];
+    [TerraformPropertyName("scheduled_template")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ScheduledTemplate => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "scheduled_template");
 
     /// <summary>
     /// The security_incident_template attribute.
     /// </summary>
-    public TerraformExpression SecurityIncidentTemplate => this["security_incident_template"];
+    [TerraformPropertyName("security_incident_template")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SecurityIncidentTemplate => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "security_incident_template");
 
 }

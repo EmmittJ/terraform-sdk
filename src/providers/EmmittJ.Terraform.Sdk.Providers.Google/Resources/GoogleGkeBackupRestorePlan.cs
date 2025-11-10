@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for restore_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
+public class GoogleGkeBackupRestorePlanRestoreConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// If True, restore all namespaced resources in the Backup.
     /// Setting this field to False will result in an error.
     /// </summary>
-    public TerraformProperty<bool>? AllNamespaces
-    {
-        set => SetProperty("all_namespaces", value);
-    }
+    [TerraformPropertyName("all_namespaces")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllNamespaces { get; set; }
 
     /// <summary>
     /// Defines the behavior for handling the situation where cluster-scoped resources
@@ -25,10 +24,9 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
     /// See https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/reference/rest/v1/RestoreConfig#clusterresourceconflictpolicy
     /// for more information on each policy option. Possible values: [&amp;quot;USE_EXISTING_VERSION&amp;quot;, &amp;quot;USE_BACKUP_VERSION&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ClusterResourceConflictPolicy
-    {
-        set => SetProperty("cluster_resource_conflict_policy", value);
-    }
+    [TerraformPropertyName("cluster_resource_conflict_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClusterResourceConflictPolicy { get; set; }
 
     /// <summary>
     /// Defines the behavior for handling the situation where sets of namespaced resources
@@ -38,19 +36,17 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
     /// See https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/reference/rest/v1/RestoreConfig#namespacedresourcerestoremode
     /// for more information on each mode. Possible values: [&amp;quot;DELETE_AND_RESTORE&amp;quot;, &amp;quot;FAIL_ON_CONFLICT&amp;quot;, &amp;quot;MERGE_SKIP_ON_CONFLICT&amp;quot;, &amp;quot;MERGE_REPLACE_VOLUME_ON_CONFLICT&amp;quot;, &amp;quot;MERGE_REPLACE_ON_CONFLICT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? NamespacedResourceRestoreMode
-    {
-        set => SetProperty("namespaced_resource_restore_mode", value);
-    }
+    [TerraformPropertyName("namespaced_resource_restore_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NamespacedResourceRestoreMode { get; set; }
 
     /// <summary>
     /// Do not restore any namespaced resources if set to &amp;quot;True&amp;quot;.
     /// Specifying this field to &amp;quot;False&amp;quot; is not allowed.
     /// </summary>
-    public TerraformProperty<bool>? NoNamespaces
-    {
-        set => SetProperty("no_namespaces", value);
-    }
+    [TerraformPropertyName("no_namespaces")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? NoNamespaces { get; set; }
 
     /// <summary>
     /// Specifies the mechanism to be used to restore volume data.
@@ -60,10 +56,9 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
     /// See https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/reference/rest/v1/RestoreConfig#VolumeDataRestorePolicy
     /// for more information on each policy option. Possible values: [&amp;quot;RESTORE_VOLUME_DATA_FROM_BACKUP&amp;quot;, &amp;quot;REUSE_VOLUME_HANDLE_FROM_BACKUP&amp;quot;, &amp;quot;NO_VOLUME_DATA_RESTORATION&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? VolumeDataRestorePolicy
-    {
-        set => SetProperty("volume_data_restore_policy", value);
-    }
+    [TerraformPropertyName("volume_data_restore_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VolumeDataRestorePolicy { get; set; }
 
 }
 
@@ -71,31 +66,28 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleGkeBackupRestorePlanTimeoutsBlock : TerraformBlock
+public class GoogleGkeBackupRestorePlanTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -107,24 +99,6 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
 {
     public GoogleGkeBackupRestorePlan(string name) : base("google_gke_backup_restore_plan", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("effective_labels");
-        SetOutput("state");
-        SetOutput("state_reason");
-        SetOutput("terraform_labels");
-        SetOutput("uid");
-        SetOutput("backup_plan");
-        SetOutput("cluster");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -132,39 +106,31 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     /// as the source for Restores created via this RestorePlan.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlan is required")]
-    public required TerraformProperty<string> BackupPlan
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backup_plan");
-        set => SetProperty("backup_plan", value);
-    }
+    [TerraformPropertyName("backup_plan")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BackupPlan { get; set; }
 
     /// <summary>
     /// The source cluster from which Restores will be created via this RestorePlan.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
-    public required TerraformProperty<string> Cluster
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
-        set => SetProperty("cluster", value);
-    }
+    [TerraformPropertyName("cluster")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Cluster { get; set; }
 
     /// <summary>
     /// User specified descriptive string for this RestorePlan.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Description: A set of custom labels supplied by the user.
@@ -175,40 +141,32 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The region of the Restore Plan.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The full name of the BackupPlan Resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for restore_config.
@@ -217,44 +175,50 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestoreConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RestoreConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreConfig block(s) allowed")]
-    public List<GoogleGkeBackupRestorePlanRestoreConfigBlock>? RestoreConfig
-    {
-        set => SetProperty("restore_config", value);
-    }
+    [TerraformPropertyName("restore_config")]
+    public TerraformList<TerraformBlock<GoogleGkeBackupRestorePlanRestoreConfigBlock>>? RestoreConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleGkeBackupRestorePlanTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleGkeBackupRestorePlanTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The State of the RestorePlan.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// Detailed description of why RestorePlan is in its current state.
     /// </summary>
-    public TerraformExpression StateReason => this["state_reason"];
+    [TerraformPropertyName("state_reason")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StateReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state_reason");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Server generated, unique identifier of UUID format.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
 }

@@ -9,124 +9,118 @@ public class GoogleVpcAccessConnectorDataSource : TerraformDataSource
 {
     public GoogleVpcAccessConnectorDataSource(string name) : base("google_vpc_access_connector", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("connected_projects");
-        SetOutput("ip_cidr_range");
-        SetOutput("machine_type");
-        SetOutput("max_instances");
-        SetOutput("max_throughput");
-        SetOutput("min_instances");
-        SetOutput("min_throughput");
-        SetOutput("network");
-        SetOutput("self_link");
-        SetOutput("state");
-        SetOutput("subnet");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the resource (Max 25 characters).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// Region where the VPC Access connector resides. If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
     /// <summary>
     /// List of projects using the connector.
     /// </summary>
-    public TerraformExpression ConnectedProjects => this["connected_projects"];
+    [TerraformPropertyName("connected_projects")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ConnectedProjects => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "connected_projects");
 
     /// <summary>
     /// The range of internal addresses that follows RFC 4632 notation. Example: &#39;10.132.0.0/28&#39;.
     /// </summary>
-    public TerraformExpression IpCidrRange => this["ip_cidr_range"];
+    [TerraformPropertyName("ip_cidr_range")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpCidrRange => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_cidr_range");
 
     /// <summary>
     /// Machine type of VM Instance underlying connector. Default is e2-micro
     /// </summary>
-    public TerraformExpression MachineType => this["machine_type"];
+    [TerraformPropertyName("machine_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MachineType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "machine_type");
 
     /// <summary>
     /// Maximum value of instances in autoscaling group underlying the connector. Value must be between 3 and 10, inclusive. Must be
     /// higher than the value specified by min_instances. Required alongside &#39;min_instances&#39; if not using &#39;min_throughput&#39;/&#39;max_throughput&#39;.
     /// </summary>
-    public TerraformExpression MaxInstances => this["max_instances"];
+    [TerraformPropertyName("max_instances")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxInstances => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_instances");
 
     /// <summary>
     /// Maximum throughput of the connector in Mbps, must be greater than &#39;min_throughput&#39;. Default is 300. Refers to the expected throughput
     /// when using an e2-micro machine type. Value must be a multiple of 100 from 300 through 1000. Must be higher than the value specified by
     /// min_throughput. Only one of &#39;max_throughput&#39; and &#39;max_instances&#39; can be specified. The use of max_throughput is discouraged in favor of max_instances.
     /// </summary>
-    public TerraformExpression MaxThroughput => this["max_throughput"];
+    [TerraformPropertyName("max_throughput")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxThroughput => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_throughput");
 
     /// <summary>
     /// Minimum value of instances in autoscaling group underlying the connector. Value must be between 2 and 9, inclusive. Must be
     /// lower than the value specified by max_instances. Required alongside &#39;max_instances&#39; if not using &#39;min_throughput&#39;/&#39;max_throughput&#39;.
     /// </summary>
-    public TerraformExpression MinInstances => this["min_instances"];
+    [TerraformPropertyName("min_instances")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MinInstances => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_instances");
 
     /// <summary>
     /// Minimum throughput of the connector in Mbps. Default and min is 200. Refers to the expected throughput when using an e2-micro machine type.
     /// Value must be a multiple of 100 from 200 through 900. Must be lower than the value specified by max_throughput.
     /// Only one of &#39;min_throughput&#39; and &#39;min_instances&#39; can be specified. The use of min_throughput is discouraged in favor of min_instances.
     /// </summary>
-    public TerraformExpression MinThroughput => this["min_throughput"];
+    [TerraformPropertyName("min_throughput")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MinThroughput => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_throughput");
 
     /// <summary>
     /// Name or self_link of the VPC network. Required if &#39;ip_cidr_range&#39; is set.
     /// </summary>
-    public TerraformExpression Network => this["network"];
+    [TerraformPropertyName("network")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Network => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network");
 
     /// <summary>
     /// The fully qualified name of this VPC connector
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
     /// <summary>
     /// State of the VPC access connector.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The subnet in which to house the connector
     /// </summary>
-    public TerraformExpression Subnet => this["subnet"];
+    [TerraformPropertyName("subnet")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Subnet => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "subnet");
 
 }

@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStackHciVirtualHardDiskTimeoutsBlock : TerraformBlock
+public class AzurermStackHciVirtualHardDiskTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,165 +45,116 @@ public class AzurermStackHciVirtualHardDisk : TerraformResource
 {
     public AzurermStackHciVirtualHardDisk(string name) : base("azurerm_stack_hci_virtual_hard_disk", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("block_size_in_bytes");
-        SetOutput("custom_location_id");
-        SetOutput("disk_file_format");
-        SetOutput("disk_size_in_gb");
-        SetOutput("dynamic_enabled");
-        SetOutput("hyperv_generation");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("logical_sector_in_bytes");
-        SetOutput("name");
-        SetOutput("physical_sector_in_bytes");
-        SetOutput("resource_group_name");
-        SetOutput("storage_path_id");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The block_size_in_bytes attribute.
     /// </summary>
-    public TerraformProperty<double> BlockSizeInBytes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("block_size_in_bytes");
-        set => SetProperty("block_size_in_bytes", value);
-    }
+    [TerraformPropertyName("block_size_in_bytes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BlockSizeInBytes { get; set; }
 
     /// <summary>
     /// The custom_location_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
-    public required TerraformProperty<string> CustomLocationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("custom_location_id");
-        set => SetProperty("custom_location_id", value);
-    }
+    [TerraformPropertyName("custom_location_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CustomLocationId { get; set; }
 
     /// <summary>
     /// The disk_file_format attribute.
     /// </summary>
-    public TerraformProperty<string> DiskFileFormat
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("disk_file_format");
-        set => SetProperty("disk_file_format", value);
-    }
+    [TerraformPropertyName("disk_file_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DiskFileFormat { get; set; }
 
     /// <summary>
     /// The disk_size_in_gb attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeInGb is required")]
-    public required TerraformProperty<double> DiskSizeInGb
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("disk_size_in_gb");
-        set => SetProperty("disk_size_in_gb", value);
-    }
+    [TerraformPropertyName("disk_size_in_gb")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> DiskSizeInGb { get; set; }
 
     /// <summary>
     /// The dynamic_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> DynamicEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("dynamic_enabled");
-        set => SetProperty("dynamic_enabled", value);
-    }
+    [TerraformPropertyName("dynamic_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DynamicEnabled { get; set; }
 
     /// <summary>
     /// The hyperv_generation attribute.
     /// </summary>
-    public TerraformProperty<string> HypervGeneration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("hyperv_generation");
-        set => SetProperty("hyperv_generation", value);
-    }
+    [TerraformPropertyName("hyperv_generation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HypervGeneration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The logical_sector_in_bytes attribute.
     /// </summary>
-    public TerraformProperty<double> LogicalSectorInBytes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("logical_sector_in_bytes");
-        set => SetProperty("logical_sector_in_bytes", value);
-    }
+    [TerraformPropertyName("logical_sector_in_bytes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? LogicalSectorInBytes { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The physical_sector_in_bytes attribute.
     /// </summary>
-    public TerraformProperty<double> PhysicalSectorInBytes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("physical_sector_in_bytes");
-        set => SetProperty("physical_sector_in_bytes", value);
-    }
+    [TerraformPropertyName("physical_sector_in_bytes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? PhysicalSectorInBytes { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The storage_path_id attribute.
     /// </summary>
-    public TerraformProperty<string> StoragePathId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_path_id");
-        set => SetProperty("storage_path_id", value);
-    }
+    [TerraformPropertyName("storage_path_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StoragePathId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStackHciVirtualHardDiskTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStackHciVirtualHardDiskTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

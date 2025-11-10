@@ -9,73 +9,55 @@ public class AwsBedrockFoundationModelsDataSource : TerraformDataSource
 {
     public AwsBedrockFoundationModelsDataSource(string name) : base("aws_bedrock_foundation_models", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("model_summaries");
-        SetOutput("by_customization_type");
-        SetOutput("by_inference_type");
-        SetOutput("by_output_modality");
-        SetOutput("by_provider");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The by_customization_type attribute.
     /// </summary>
-    public TerraformProperty<string> ByCustomizationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("by_customization_type");
-        set => SetProperty("by_customization_type", value);
-    }
+    [TerraformPropertyName("by_customization_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ByCustomizationType { get; set; }
 
     /// <summary>
     /// The by_inference_type attribute.
     /// </summary>
-    public TerraformProperty<string> ByInferenceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("by_inference_type");
-        set => SetProperty("by_inference_type", value);
-    }
+    [TerraformPropertyName("by_inference_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ByInferenceType { get; set; }
 
     /// <summary>
     /// The by_output_modality attribute.
     /// </summary>
-    public TerraformProperty<string> ByOutputModality
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("by_output_modality");
-        set => SetProperty("by_output_modality", value);
-    }
+    [TerraformPropertyName("by_output_modality")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ByOutputModality { get; set; }
 
     /// <summary>
     /// The by_provider attribute.
     /// </summary>
-    public TerraformProperty<string> ByProvider
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("by_provider");
-        set => SetProperty("by_provider", value);
-    }
+    [TerraformPropertyName("by_provider")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ByProvider { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The model_summaries attribute.
     /// </summary>
-    public TerraformExpression ModelSummaries => this["model_summaries"];
+    [TerraformPropertyName("model_summaries")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ModelSummaries => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "model_summaries");
 
 }

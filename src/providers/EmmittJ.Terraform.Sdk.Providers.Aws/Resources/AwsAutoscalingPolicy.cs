@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for predictive_scaling_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAutoscalingPolicyPredictiveScalingConfigurationBlock : TerraformBlock
+public class AwsAutoscalingPolicyPredictiveScalingConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The max_capacity_breach_behavior attribute.
     /// </summary>
-    public TerraformProperty<string>? MaxCapacityBreachBehavior
-    {
-        set => SetProperty("max_capacity_breach_behavior", value);
-    }
+    [TerraformPropertyName("max_capacity_breach_behavior")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaxCapacityBreachBehavior { get; set; }
 
     /// <summary>
     /// The max_capacity_buffer attribute.
     /// </summary>
-    public TerraformProperty<string>? MaxCapacityBuffer
-    {
-        set => SetProperty("max_capacity_buffer", value);
-    }
+    [TerraformPropertyName("max_capacity_buffer")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaxCapacityBuffer { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string>? Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
 
     /// <summary>
     /// The scheduling_buffer_time attribute.
     /// </summary>
-    public TerraformProperty<string>? SchedulingBufferTime
-    {
-        set => SetProperty("scheduling_buffer_time", value);
-    }
+    [TerraformPropertyName("scheduling_buffer_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SchedulingBufferTime { get; set; }
 
 }
 
@@ -46,32 +42,29 @@ public class AwsAutoscalingPolicyPredictiveScalingConfigurationBlock : Terraform
 /// Block type for step_adjustment in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAutoscalingPolicyStepAdjustmentBlock : TerraformBlock
+public class AwsAutoscalingPolicyStepAdjustmentBlock : ITerraformBlock
 {
     /// <summary>
     /// The metric_interval_lower_bound attribute.
     /// </summary>
-    public TerraformProperty<string>? MetricIntervalLowerBound
-    {
-        set => SetProperty("metric_interval_lower_bound", value);
-    }
+    [TerraformPropertyName("metric_interval_lower_bound")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MetricIntervalLowerBound { get; set; }
 
     /// <summary>
     /// The metric_interval_upper_bound attribute.
     /// </summary>
-    public TerraformProperty<string>? MetricIntervalUpperBound
-    {
-        set => SetProperty("metric_interval_upper_bound", value);
-    }
+    [TerraformPropertyName("metric_interval_upper_bound")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MetricIntervalUpperBound { get; set; }
 
     /// <summary>
     /// The scaling_adjustment attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingAdjustment is required")]
-    public required TerraformProperty<double> ScalingAdjustment
-    {
-        set => SetProperty("scaling_adjustment", value);
-    }
+    [TerraformPropertyName("scaling_adjustment")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ScalingAdjustment { get; set; }
 
 }
 
@@ -79,24 +72,22 @@ public class AwsAutoscalingPolicyStepAdjustmentBlock : TerraformBlock
 /// Block type for target_tracking_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAutoscalingPolicyTargetTrackingConfigurationBlock : TerraformBlock
+public class AwsAutoscalingPolicyTargetTrackingConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The disable_scale_in attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableScaleIn
-    {
-        set => SetProperty("disable_scale_in", value);
-    }
+    [TerraformPropertyName("disable_scale_in")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DisableScaleIn { get; set; }
 
     /// <summary>
     /// The target_value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetValue is required")]
-    public required TerraformProperty<double> TargetValue
-    {
-        set => SetProperty("target_value", value);
-    }
+    [TerraformPropertyName("target_value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> TargetValue { get; set; }
 
 }
 
@@ -108,168 +99,122 @@ public class AwsAutoscalingPolicy : TerraformResource
 {
     public AwsAutoscalingPolicy(string name) : base("aws_autoscaling_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("adjustment_type");
-        SetOutput("autoscaling_group_name");
-        SetOutput("cooldown");
-        SetOutput("enabled");
-        SetOutput("estimated_instance_warmup");
-        SetOutput("id");
-        SetOutput("metric_aggregation_type");
-        SetOutput("min_adjustment_magnitude");
-        SetOutput("name");
-        SetOutput("policy_type");
-        SetOutput("region");
-        SetOutput("scaling_adjustment");
     }
 
     /// <summary>
     /// The adjustment_type attribute.
     /// </summary>
-    public TerraformProperty<string> AdjustmentType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("adjustment_type");
-        set => SetProperty("adjustment_type", value);
-    }
+    [TerraformPropertyName("adjustment_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AdjustmentType { get; set; }
 
     /// <summary>
     /// The autoscaling_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
-    public required TerraformProperty<string> AutoscalingGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("autoscaling_group_name");
-        set => SetProperty("autoscaling_group_name", value);
-    }
+    [TerraformPropertyName("autoscaling_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AutoscalingGroupName { get; set; }
 
     /// <summary>
     /// The cooldown attribute.
     /// </summary>
-    public TerraformProperty<double> Cooldown
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("cooldown");
-        set => SetProperty("cooldown", value);
-    }
+    [TerraformPropertyName("cooldown")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Cooldown { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The estimated_instance_warmup attribute.
     /// </summary>
-    public TerraformProperty<double> EstimatedInstanceWarmup
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("estimated_instance_warmup");
-        set => SetProperty("estimated_instance_warmup", value);
-    }
+    [TerraformPropertyName("estimated_instance_warmup")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? EstimatedInstanceWarmup { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The metric_aggregation_type attribute.
     /// </summary>
-    public TerraformProperty<string> MetricAggregationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("metric_aggregation_type");
-        set => SetProperty("metric_aggregation_type", value);
-    }
+    [TerraformPropertyName("metric_aggregation_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MetricAggregationType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "metric_aggregation_type");
 
     /// <summary>
     /// The min_adjustment_magnitude attribute.
     /// </summary>
-    public TerraformProperty<double> MinAdjustmentMagnitude
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("min_adjustment_magnitude");
-        set => SetProperty("min_adjustment_magnitude", value);
-    }
+    [TerraformPropertyName("min_adjustment_magnitude")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinAdjustmentMagnitude { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
-    public TerraformProperty<string> PolicyType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_type");
-        set => SetProperty("policy_type", value);
-    }
+    [TerraformPropertyName("policy_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PolicyType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The scaling_adjustment attribute.
     /// </summary>
-    public TerraformProperty<double> ScalingAdjustment
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("scaling_adjustment");
-        set => SetProperty("scaling_adjustment", value);
-    }
+    [TerraformPropertyName("scaling_adjustment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ScalingAdjustment { get; set; }
 
     /// <summary>
     /// Block for predictive_scaling_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PredictiveScalingConfiguration block(s) allowed")]
-    public List<AwsAutoscalingPolicyPredictiveScalingConfigurationBlock>? PredictiveScalingConfiguration
-    {
-        set => SetProperty("predictive_scaling_configuration", value);
-    }
+    [TerraformPropertyName("predictive_scaling_configuration")]
+    public TerraformList<TerraformBlock<AwsAutoscalingPolicyPredictiveScalingConfigurationBlock>>? PredictiveScalingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for step_adjustment.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsAutoscalingPolicyStepAdjustmentBlock>? StepAdjustment
-    {
-        set => SetProperty("step_adjustment", value);
-    }
+    [TerraformPropertyName("step_adjustment")]
+    public TerraformSet<TerraformBlock<AwsAutoscalingPolicyStepAdjustmentBlock>>? StepAdjustment { get; set; } = new();
 
     /// <summary>
     /// Block for target_tracking_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetTrackingConfiguration block(s) allowed")]
-    public List<AwsAutoscalingPolicyTargetTrackingConfigurationBlock>? TargetTrackingConfiguration
-    {
-        set => SetProperty("target_tracking_configuration", value);
-    }
+    [TerraformPropertyName("target_tracking_configuration")]
+    public TerraformList<TerraformBlock<AwsAutoscalingPolicyTargetTrackingConfigurationBlock>>? TargetTrackingConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

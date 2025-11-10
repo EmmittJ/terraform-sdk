@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for pipeline in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryTriggerSchedulePipelineBlock : TerraformBlock
+public class AzurermDataFactoryTriggerSchedulePipelineBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
-    {
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
 }
 
@@ -31,39 +29,35 @@ public class AzurermDataFactoryTriggerSchedulePipelineBlock : TerraformBlock
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformBlock
+public class AzurermDataFactoryTriggerScheduleScheduleBlock : ITerraformBlock
 {
     /// <summary>
     /// The days_of_month attribute.
     /// </summary>
-    public List<TerraformProperty<double>>? DaysOfMonth
-    {
-        set => SetProperty("days_of_month", value);
-    }
+    [TerraformPropertyName("days_of_month")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<double>>>? DaysOfMonth { get; set; }
 
     /// <summary>
     /// The days_of_week attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? DaysOfWeek
-    {
-        set => SetProperty("days_of_week", value);
-    }
+    [TerraformPropertyName("days_of_week")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? DaysOfWeek { get; set; }
 
     /// <summary>
     /// The hours attribute.
     /// </summary>
-    public List<TerraformProperty<double>>? Hours
-    {
-        set => SetProperty("hours", value);
-    }
+    [TerraformPropertyName("hours")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<double>>>? Hours { get; set; }
 
     /// <summary>
     /// The minutes attribute.
     /// </summary>
-    public List<TerraformProperty<double>>? Minutes
-    {
-        set => SetProperty("minutes", value);
-    }
+    [TerraformPropertyName("minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<double>>>? Minutes { get; set; }
 
 }
 
@@ -71,39 +65,35 @@ public class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformBlock
+public class AzurermDataFactoryTriggerScheduleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -115,171 +105,121 @@ public class AzurermDataFactoryTriggerSchedule : TerraformResource
 {
     public AzurermDataFactoryTriggerSchedule(string name) : base("azurerm_data_factory_trigger_schedule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("activated");
-        SetOutput("annotations");
-        SetOutput("data_factory_id");
-        SetOutput("description");
-        SetOutput("end_time");
-        SetOutput("frequency");
-        SetOutput("id");
-        SetOutput("interval");
-        SetOutput("name");
-        SetOutput("pipeline_name");
-        SetOutput("pipeline_parameters");
-        SetOutput("start_time");
-        SetOutput("time_zone");
     }
 
     /// <summary>
     /// The activated attribute.
     /// </summary>
-    public TerraformProperty<bool> Activated
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("activated");
-        set => SetProperty("activated", value);
-    }
+    [TerraformPropertyName("activated")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Activated { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    public required TerraformProperty<string> DataFactoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
-        set => SetProperty("data_factory_id", value);
-    }
+    [TerraformPropertyName("data_factory_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformProperty<string> EndTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("end_time");
-        set => SetProperty("end_time", value);
-    }
+    [TerraformPropertyName("end_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndTime { get; set; }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    public TerraformProperty<string> Frequency
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("frequency");
-        set => SetProperty("frequency", value);
-    }
+    [TerraformPropertyName("frequency")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Frequency { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    public TerraformProperty<double> Interval
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("interval");
-        set => SetProperty("interval", value);
-    }
+    [TerraformPropertyName("interval")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Interval { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The pipeline_name attribute.
     /// </summary>
-    public TerraformProperty<string> PipelineName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_name");
-        set => SetProperty("pipeline_name", value);
-    }
+    [TerraformPropertyName("pipeline_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PipelineName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "pipeline_name");
 
     /// <summary>
     /// The pipeline_parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> PipelineParameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("pipeline_parameters");
-        set => SetProperty("pipeline_parameters", value);
-    }
+    [TerraformPropertyName("pipeline_parameters")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> PipelineParameters { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "pipeline_parameters");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string> StartTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
-        set => SetProperty("start_time", value);
-    }
+    [TerraformPropertyName("start_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StartTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_time");
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string> TimeZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
-        set => SetProperty("time_zone", value);
-    }
+    [TerraformPropertyName("time_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TimeZone { get; set; }
 
     /// <summary>
     /// Block for pipeline.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermDataFactoryTriggerSchedulePipelineBlock>? Pipeline
-    {
-        set => SetProperty("pipeline", value);
-    }
+    [TerraformPropertyName("pipeline")]
+    public TerraformList<TerraformBlock<AzurermDataFactoryTriggerSchedulePipelineBlock>>? Pipeline { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    public List<AzurermDataFactoryTriggerScheduleScheduleBlock>? Schedule
-    {
-        set => SetProperty("schedule", value);
-    }
+    [TerraformPropertyName("schedule")]
+    public TerraformList<TerraformBlock<AzurermDataFactoryTriggerScheduleScheduleBlock>>? Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDataFactoryTriggerScheduleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDataFactoryTriggerScheduleTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

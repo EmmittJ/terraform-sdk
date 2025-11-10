@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirebaseAppCheckPlayIntegrityConfigTimeoutsBlock : TerraformBlock
+public class GoogleFirebaseAppCheckPlayIntegrityConfigTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,16 +38,6 @@ public class GoogleFirebaseAppCheckPlayIntegrityConfig : TerraformResource
 {
     public GoogleFirebaseAppCheckPlayIntegrityConfig(string name) : base("google_firebase_app_check_play_integrity_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("app_id");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("token_ttl");
     }
 
     /// <summary>
@@ -58,29 +45,23 @@ public class GoogleFirebaseAppCheckPlayIntegrityConfig : TerraformResource
     /// [Android App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.androidApps#AndroidApp.FIELDS.app_id).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
-    public required TerraformProperty<string> AppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
-        set => SetProperty("app_id", value);
-    }
+    [TerraformPropertyName("app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Specifies the duration for which App Check tokens exchanged from Play Integrity artifacts will be valid.
@@ -88,24 +69,22 @@ public class GoogleFirebaseAppCheckPlayIntegrityConfig : TerraformResource
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string> TokenTtl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("token_ttl");
-        set => SetProperty("token_ttl", value);
-    }
+    [TerraformPropertyName("token_ttl")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TokenTtl { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "token_ttl");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleFirebaseAppCheckPlayIntegrityConfigTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleFirebaseAppCheckPlayIntegrityConfigTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The relative resource name of the Play Integrity configuration object
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

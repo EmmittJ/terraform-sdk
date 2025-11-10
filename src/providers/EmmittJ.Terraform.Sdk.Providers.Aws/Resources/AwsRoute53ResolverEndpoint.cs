@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ip_address in .
 /// Nesting mode: set
 /// </summary>
-public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
+public class AwsRoute53ResolverEndpointIpAddressBlock : ITerraformBlock
 {
     /// <summary>
     /// The ip attribute.
     /// </summary>
-    public TerraformProperty<string>? Ip
-    {
-        set => SetProperty("ip", value);
-    }
+    [TerraformPropertyName("ip")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Ip { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "ip");
 
     /// <summary>
     /// The ip_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IpId
-    {
-        set => SetProperty("ip_id", value);
-    }
+    [TerraformPropertyName("ip_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpId => new TerraformReferenceProperty<TerraformProperty<string>>("", "ip_id");
 
     /// <summary>
     /// The ipv6 attribute.
     /// </summary>
-    public TerraformProperty<string>? Ipv6
-    {
-        set => SetProperty("ipv6", value);
-    }
+    [TerraformPropertyName("ipv6")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Ipv6 { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "ipv6");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
 }
 
@@ -47,31 +43,28 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRoute53ResolverEndpointTimeoutsBlock : TerraformBlock
+public class AwsRoute53ResolverEndpointTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -83,106 +76,72 @@ public class AwsRoute53ResolverEndpoint : TerraformResource
 {
     public AwsRoute53ResolverEndpoint(string name) : base("aws_route53_resolver_endpoint", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("host_vpc_id");
-        SetOutput("direction");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("protocols");
-        SetOutput("region");
-        SetOutput("resolver_endpoint_type");
-        SetOutput("security_group_ids");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The direction attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
-    public required TerraformProperty<string> Direction
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("direction");
-        set => SetProperty("direction", value);
-    }
+    [TerraformPropertyName("direction")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Direction { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Protocols
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("protocols");
-        set => SetProperty("protocols", value);
-    }
+    [TerraformPropertyName("protocols")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Protocols { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "protocols");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resolver_endpoint_type attribute.
     /// </summary>
-    public TerraformProperty<string> ResolverEndpointType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resolver_endpoint_type");
-        set => SetProperty("resolver_endpoint_type", value);
-    }
+    [TerraformPropertyName("resolver_endpoint_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ResolverEndpointType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resolver_endpoint_type");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
-    public HashSet<TerraformProperty<string>> SecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for ip_address.
@@ -190,28 +149,28 @@ public class AwsRoute53ResolverEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 IpAddress block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 IpAddress block(s) allowed")]
-    public HashSet<AwsRoute53ResolverEndpointIpAddressBlock>? IpAddress
-    {
-        set => SetProperty("ip_address", value);
-    }
+    [TerraformPropertyName("ip_address")]
+    public TerraformSet<TerraformBlock<AwsRoute53ResolverEndpointIpAddressBlock>>? IpAddress { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsRoute53ResolverEndpointTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsRoute53ResolverEndpointTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The host_vpc_id attribute.
     /// </summary>
-    public TerraformExpression HostVpcId => this["host_vpc_id"];
+    [TerraformPropertyName("host_vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostVpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "host_vpc_id");
 
 }

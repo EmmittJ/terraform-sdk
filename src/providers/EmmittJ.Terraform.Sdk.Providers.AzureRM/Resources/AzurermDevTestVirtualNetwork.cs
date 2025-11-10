@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for subnet in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlock
+public class AzurermDevTestVirtualNetworkSubnetBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>("", "name");
 
     /// <summary>
     /// The use_in_virtual_machine_creation attribute.
     /// </summary>
-    public TerraformProperty<string>? UseInVirtualMachineCreation
-    {
-        set => SetProperty("use_in_virtual_machine_creation", value);
-    }
+    [TerraformPropertyName("use_in_virtual_machine_creation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UseInVirtualMachineCreation { get; set; }
 
     /// <summary>
     /// The use_public_ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? UsePublicIpAddress
-    {
-        set => SetProperty("use_public_ip_address", value);
-    }
+    [TerraformPropertyName("use_public_ip_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UsePublicIpAddress { get; set; }
 
 }
 
@@ -38,39 +35,35 @@ public class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
+public class AzurermDevTestVirtualNetworkTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -82,99 +75,73 @@ public class AzurermDevTestVirtualNetwork : TerraformResource
 {
     public AzurermDevTestVirtualNetwork(string name) : base("azurerm_dev_test_virtual_network", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("unique_identifier");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("lab_name");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The lab_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
-    public required TerraformProperty<string> LabName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("lab_name");
-        set => SetProperty("lab_name", value);
-    }
+    [TerraformPropertyName("lab_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LabName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for subnet.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]
-    public List<AzurermDevTestVirtualNetworkSubnetBlock>? Subnet
-    {
-        set => SetProperty("subnet", value);
-    }
+    [TerraformPropertyName("subnet")]
+    public TerraformList<TerraformBlock<AzurermDevTestVirtualNetworkSubnetBlock>>? Subnet { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDevTestVirtualNetworkTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDevTestVirtualNetworkTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique_identifier attribute.
     /// </summary>
-    public TerraformExpression UniqueIdentifier => this["unique_identifier"];
+    [TerraformPropertyName("unique_identifier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UniqueIdentifier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "unique_identifier");
 
 }

@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSearchServiceIdentityBlock : TerraformBlock
+public class AzurermSearchServiceIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -47,39 +43,35 @@ public class AzurermSearchServiceIdentityBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSearchServiceTimeoutsBlock : TerraformBlock
+public class AzurermSearchServiceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -91,218 +83,165 @@ public class AzurermSearchService : TerraformResource
 {
     public AzurermSearchService(string name) : base("azurerm_search_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("customer_managed_key_encryption_compliance_status");
-        SetOutput("primary_key");
-        SetOutput("query_keys");
-        SetOutput("secondary_key");
-        SetOutput("allowed_ips");
-        SetOutput("authentication_failure_mode");
-        SetOutput("customer_managed_key_enforcement_enabled");
-        SetOutput("hosting_mode");
-        SetOutput("id");
-        SetOutput("local_authentication_enabled");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("network_rule_bypass_option");
-        SetOutput("partition_count");
-        SetOutput("public_network_access_enabled");
-        SetOutput("replica_count");
-        SetOutput("resource_group_name");
-        SetOutput("semantic_search_sku");
-        SetOutput("sku");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The allowed_ips attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AllowedIps
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("allowed_ips");
-        set => SetProperty("allowed_ips", value);
-    }
+    [TerraformPropertyName("allowed_ips")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedIps { get; set; }
 
     /// <summary>
     /// The authentication_failure_mode attribute.
     /// </summary>
-    public TerraformProperty<string> AuthenticationFailureMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_failure_mode");
-        set => SetProperty("authentication_failure_mode", value);
-    }
+    [TerraformPropertyName("authentication_failure_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthenticationFailureMode { get; set; }
 
     /// <summary>
     /// The customer_managed_key_enforcement_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> CustomerManagedKeyEnforcementEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("customer_managed_key_enforcement_enabled");
-        set => SetProperty("customer_managed_key_enforcement_enabled", value);
-    }
+    [TerraformPropertyName("customer_managed_key_enforcement_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CustomerManagedKeyEnforcementEnabled { get; set; }
 
     /// <summary>
     /// The hosting_mode attribute.
     /// </summary>
-    public TerraformProperty<string> HostingMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("hosting_mode");
-        set => SetProperty("hosting_mode", value);
-    }
+    [TerraformPropertyName("hosting_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HostingMode { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LocalAuthenticationEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("local_authentication_enabled");
-        set => SetProperty("local_authentication_enabled", value);
-    }
+    [TerraformPropertyName("local_authentication_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LocalAuthenticationEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The network_rule_bypass_option attribute.
     /// </summary>
-    public TerraformProperty<string> NetworkRuleBypassOption
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_rule_bypass_option");
-        set => SetProperty("network_rule_bypass_option", value);
-    }
+    [TerraformPropertyName("network_rule_bypass_option")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NetworkRuleBypassOption { get; set; }
 
     /// <summary>
     /// The partition_count attribute.
     /// </summary>
-    public TerraformProperty<double> PartitionCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("partition_count");
-        set => SetProperty("partition_count", value);
-    }
+    [TerraformPropertyName("partition_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? PartitionCount { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PublicNetworkAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
-        set => SetProperty("public_network_access_enabled", value);
-    }
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The replica_count attribute.
     /// </summary>
-    public TerraformProperty<double> ReplicaCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("replica_count");
-        set => SetProperty("replica_count", value);
-    }
+    [TerraformPropertyName("replica_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ReplicaCount { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The semantic_search_sku attribute.
     /// </summary>
-    public TerraformProperty<string> SemanticSearchSku
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("semantic_search_sku");
-        set => SetProperty("semantic_search_sku", value);
-    }
+    [TerraformPropertyName("semantic_search_sku")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SemanticSearchSku { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    public required TerraformProperty<string> Sku
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku");
-        set => SetProperty("sku", value);
-    }
+    [TerraformPropertyName("sku")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermSearchServiceIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermSearchServiceIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSearchServiceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSearchServiceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The customer_managed_key_encryption_compliance_status attribute.
     /// </summary>
-    public TerraformExpression CustomerManagedKeyEncryptionComplianceStatus => this["customer_managed_key_encryption_compliance_status"];
+    [TerraformPropertyName("customer_managed_key_encryption_compliance_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CustomerManagedKeyEncryptionComplianceStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "customer_managed_key_encryption_compliance_status");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    public TerraformExpression PrimaryKey => this["primary_key"];
+    [TerraformPropertyName("primary_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_key");
 
     /// <summary>
     /// The query_keys attribute.
     /// </summary>
-    public TerraformExpression QueryKeys => this["query_keys"];
+    [TerraformPropertyName("query_keys")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> QueryKeys => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "query_keys");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    public TerraformExpression SecondaryKey => this["secondary_key"];
+    [TerraformPropertyName("secondary_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_key");
 
 }

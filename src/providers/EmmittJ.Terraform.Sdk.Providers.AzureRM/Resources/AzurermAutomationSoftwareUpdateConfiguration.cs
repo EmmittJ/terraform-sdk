@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for linux in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformBlock
+public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : ITerraformBlock
 {
     /// <summary>
     /// The classifications_included attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassificationsIncluded is required")]
-    public List<TerraformProperty<string>>? ClassificationsIncluded
-    {
-        set => SetProperty("classifications_included", value);
-    }
+    [TerraformPropertyName("classifications_included")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? ClassificationsIncluded { get; set; }
 
     /// <summary>
     /// The excluded_packages attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ExcludedPackages
-    {
-        set => SetProperty("excluded_packages", value);
-    }
+    [TerraformPropertyName("excluded_packages")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ExcludedPackages { get; set; }
 
     /// <summary>
     /// The included_packages attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? IncludedPackages
-    {
-        set => SetProperty("included_packages", value);
-    }
+    [TerraformPropertyName("included_packages")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? IncludedPackages { get; set; }
 
     /// <summary>
     /// The reboot attribute.
     /// </summary>
-    public TerraformProperty<string>? Reboot
-    {
-        set => SetProperty("reboot", value);
-    }
+    [TerraformPropertyName("reboot")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Reboot { get; set; }
 
 }
 
@@ -47,23 +43,21 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
 /// Block type for post_task in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock : TerraformBlock
+public class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock : ITerraformBlock
 {
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
-    {
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformProperty<string>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Source { get; set; }
 
 }
 
@@ -71,23 +65,21 @@ public class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock : Terrafo
 /// Block type for pre_task in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : TerraformBlock
+public class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : ITerraformBlock
 {
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
-    {
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformProperty<string>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Source { get; set; }
 
 }
 
@@ -95,128 +87,113 @@ public class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : Terrafor
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : TerraformBlock
+public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : ITerraformBlock
 {
     /// <summary>
     /// The advanced_month_days attribute.
     /// </summary>
-    public List<TerraformProperty<double>>? AdvancedMonthDays
-    {
-        set => SetProperty("advanced_month_days", value);
-    }
+    [TerraformPropertyName("advanced_month_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<double>>>? AdvancedMonthDays { get; set; }
 
     /// <summary>
     /// The advanced_week_days attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AdvancedWeekDays
-    {
-        set => SetProperty("advanced_week_days", value);
-    }
+    [TerraformPropertyName("advanced_week_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AdvancedWeekDays { get; set; }
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    public TerraformProperty<string>? CreationTime
-    {
-        set => SetProperty("creation_time", value);
-    }
+    [TerraformPropertyName("creation_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "creation_time");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The expiry_time attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpiryTime
-    {
-        set => SetProperty("expiry_time", value);
-    }
+    [TerraformPropertyName("expiry_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ExpiryTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "expiry_time");
 
     /// <summary>
     /// The expiry_time_offset_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? ExpiryTimeOffsetMinutes
-    {
-        set => SetProperty("expiry_time_offset_minutes", value);
-    }
+    [TerraformPropertyName("expiry_time_offset_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ExpiryTimeOffsetMinutes { get; set; }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
-    public required TerraformProperty<string> Frequency
-    {
-        set => SetProperty("frequency", value);
-    }
+    [TerraformPropertyName("frequency")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Frequency { get; set; }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    public TerraformProperty<double>? Interval
-    {
-        set => SetProperty("interval", value);
-    }
+    [TerraformPropertyName("interval")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Interval { get; set; }
 
     /// <summary>
     /// The is_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsEnabled
-    {
-        set => SetProperty("is_enabled", value);
-    }
+    [TerraformPropertyName("is_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsEnabled { get; set; }
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
-    public TerraformProperty<string>? LastModifiedTime
-    {
-        set => SetProperty("last_modified_time", value);
-    }
+    [TerraformPropertyName("last_modified_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "last_modified_time");
 
     /// <summary>
     /// The next_run attribute.
     /// </summary>
-    public TerraformProperty<string>? NextRun
-    {
-        set => SetProperty("next_run", value);
-    }
+    [TerraformPropertyName("next_run")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NextRun { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "next_run");
 
     /// <summary>
     /// The next_run_offset_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? NextRunOffsetMinutes
-    {
-        set => SetProperty("next_run_offset_minutes", value);
-    }
+    [TerraformPropertyName("next_run_offset_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? NextRunOffsetMinutes { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string>? StartTime
-    {
-        set => SetProperty("start_time", value);
-    }
+    [TerraformPropertyName("start_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StartTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "start_time");
 
     /// <summary>
     /// The start_time_offset_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? StartTimeOffsetMinutes
-    {
-        set => SetProperty("start_time_offset_minutes", value);
-    }
+    [TerraformPropertyName("start_time_offset_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? StartTimeOffsetMinutes { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? TimeZone
-    {
-        set => SetProperty("time_zone", value);
-    }
+    [TerraformPropertyName("time_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TimeZone { get; set; }
 
 }
 
@@ -224,7 +201,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationTargetBlock : TerraformBlock
+public class AzurermAutomationSoftwareUpdateConfigurationTargetBlock : ITerraformBlock
 {
 }
 
@@ -232,39 +209,35 @@ public class AzurermAutomationSoftwareUpdateConfigurationTargetBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : TerraformBlock
+public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -272,40 +245,36 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
 /// Block type for windows in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : TerraformBlock
+public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : ITerraformBlock
 {
     /// <summary>
     /// The classifications_included attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassificationsIncluded is required")]
-    public List<TerraformProperty<string>>? ClassificationsIncluded
-    {
-        set => SetProperty("classifications_included", value);
-    }
+    [TerraformPropertyName("classifications_included")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? ClassificationsIncluded { get; set; }
 
     /// <summary>
     /// The excluded_knowledge_base_numbers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ExcludedKnowledgeBaseNumbers
-    {
-        set => SetProperty("excluded_knowledge_base_numbers", value);
-    }
+    [TerraformPropertyName("excluded_knowledge_base_numbers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ExcludedKnowledgeBaseNumbers { get; set; }
 
     /// <summary>
     /// The included_knowledge_base_numbers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? IncludedKnowledgeBaseNumbers
-    {
-        set => SetProperty("included_knowledge_base_numbers", value);
-    }
+    [TerraformPropertyName("included_knowledge_base_numbers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? IncludedKnowledgeBaseNumbers { get; set; }
 
     /// <summary>
     /// The reboot attribute.
     /// </summary>
-    public TerraformProperty<string>? Reboot
-    {
-        set => SetProperty("reboot", value);
-    }
+    [TerraformPropertyName("reboot")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Reboot { get; set; }
 
 }
 
@@ -318,106 +287,75 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
 {
     public AzurermAutomationSoftwareUpdateConfiguration(string name) : base("azurerm_automation_software_update_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("error_code");
-        SetOutput("error_message");
-        SetOutput("automation_account_id");
-        SetOutput("duration");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("non_azure_computer_names");
-        SetOutput("virtual_machine_ids");
     }
 
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
-    public required TerraformProperty<string> AutomationAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("automation_account_id");
-        set => SetProperty("automation_account_id", value);
-    }
+    [TerraformPropertyName("automation_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AutomationAccountId { get; set; }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public TerraformProperty<string> Duration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("duration");
-        set => SetProperty("duration", value);
-    }
+    [TerraformPropertyName("duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Duration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The non_azure_computer_names attribute.
     /// </summary>
-    public List<TerraformProperty<string>> NonAzureComputerNames
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("non_azure_computer_names");
-        set => SetProperty("non_azure_computer_names", value);
-    }
+    [TerraformPropertyName("non_azure_computer_names")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? NonAzureComputerNames { get; set; }
 
     /// <summary>
     /// The virtual_machine_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>> VirtualMachineIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("virtual_machine_ids");
-        set => SetProperty("virtual_machine_ids", value);
-    }
+    [TerraformPropertyName("virtual_machine_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? VirtualMachineIds { get; set; }
 
     /// <summary>
     /// Block for linux.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Linux block(s) allowed")]
-    public List<AzurermAutomationSoftwareUpdateConfigurationLinuxBlock>? Linux
-    {
-        set => SetProperty("linux", value);
-    }
+    [TerraformPropertyName("linux")]
+    public TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationLinuxBlock>>? Linux { get; set; } = new();
 
     /// <summary>
     /// Block for post_task.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PostTask block(s) allowed")]
-    public List<AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock>? PostTask
-    {
-        set => SetProperty("post_task", value);
-    }
+    [TerraformPropertyName("post_task")]
+    public TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock>>? PostTask { get; set; } = new();
 
     /// <summary>
     /// Block for pre_task.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreTask block(s) allowed")]
-    public List<AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock>? PreTask
-    {
-        set => SetProperty("pre_task", value);
-    }
+    [TerraformPropertyName("pre_task")]
+    public TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock>>? PreTask { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
@@ -426,48 +364,44 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    public List<AzurermAutomationSoftwareUpdateConfigurationScheduleBlock>? Schedule
-    {
-        set => SetProperty("schedule", value);
-    }
+    [TerraformPropertyName("schedule")]
+    public TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationScheduleBlock>>? Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for target.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
-    public List<AzurermAutomationSoftwareUpdateConfigurationTargetBlock>? Target
-    {
-        set => SetProperty("target", value);
-    }
+    [TerraformPropertyName("target")]
+    public TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationTargetBlock>>? Target { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for windows.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Windows block(s) allowed")]
-    public List<AzurermAutomationSoftwareUpdateConfigurationWindowsBlock>? Windows
-    {
-        set => SetProperty("windows", value);
-    }
+    [TerraformPropertyName("windows")]
+    public TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationWindowsBlock>>? Windows { get; set; } = new();
 
     /// <summary>
     /// The error_code attribute.
     /// </summary>
-    public TerraformExpression ErrorCode => this["error_code"];
+    [TerraformPropertyName("error_code")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ErrorCode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "error_code");
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
-    public TerraformExpression ErrorMessage => this["error_message"];
+    [TerraformPropertyName("error_message")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ErrorMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "error_message");
 
 }

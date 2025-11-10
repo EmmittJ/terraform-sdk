@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for fleet_instance_set in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2FleetFleetInstanceSetBlock : TerraformBlock
+public class AwsEc2FleetFleetInstanceSetBlock : ITerraformBlock
 {
     /// <summary>
     /// The instance_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? InstanceIds
-    {
-        set => SetProperty("instance_ids", value);
-    }
+    [TerraformPropertyName("instance_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> InstanceIds { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "instance_ids");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
-    {
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> InstanceType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "instance_type");
 
     /// <summary>
     /// The lifecycle attribute.
     /// </summary>
-    public TerraformProperty<string>? Lifecycle
-    {
-        set => SetProperty("lifecycle", value);
-    }
+    [TerraformPropertyName("lifecycle")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Lifecycle { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "lifecycle");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
-    public TerraformProperty<string>? Platform
-    {
-        set => SetProperty("platform", value);
-    }
+    [TerraformPropertyName("platform")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Platform { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "platform");
 
 }
 
@@ -46,7 +42,7 @@ public class AwsEc2FleetFleetInstanceSetBlock : TerraformBlock
 /// Block type for launch_template_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2FleetLaunchTemplateConfigBlock : TerraformBlock
+public class AwsEc2FleetLaunchTemplateConfigBlock : ITerraformBlock
 {
 }
 
@@ -54,47 +50,42 @@ public class AwsEc2FleetLaunchTemplateConfigBlock : TerraformBlock
 /// Block type for on_demand_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2FleetOnDemandOptionsBlock : TerraformBlock
+public class AwsEc2FleetOnDemandOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The allocation_strategy attribute.
     /// </summary>
-    public TerraformProperty<string>? AllocationStrategy
-    {
-        set => SetProperty("allocation_strategy", value);
-    }
+    [TerraformPropertyName("allocation_strategy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AllocationStrategy { get; set; }
 
     /// <summary>
     /// The max_total_price attribute.
     /// </summary>
-    public TerraformProperty<string>? MaxTotalPrice
-    {
-        set => SetProperty("max_total_price", value);
-    }
+    [TerraformPropertyName("max_total_price")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaxTotalPrice { get; set; }
 
     /// <summary>
     /// The min_target_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? MinTargetCapacity
-    {
-        set => SetProperty("min_target_capacity", value);
-    }
+    [TerraformPropertyName("min_target_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinTargetCapacity { get; set; }
 
     /// <summary>
     /// The single_availability_zone attribute.
     /// </summary>
-    public TerraformProperty<bool>? SingleAvailabilityZone
-    {
-        set => SetProperty("single_availability_zone", value);
-    }
+    [TerraformPropertyName("single_availability_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SingleAvailabilityZone { get; set; }
 
     /// <summary>
     /// The single_instance_type attribute.
     /// </summary>
-    public TerraformProperty<bool>? SingleInstanceType
-    {
-        set => SetProperty("single_instance_type", value);
-    }
+    [TerraformPropertyName("single_instance_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SingleInstanceType { get; set; }
 
 }
 
@@ -102,63 +93,56 @@ public class AwsEc2FleetOnDemandOptionsBlock : TerraformBlock
 /// Block type for spot_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
+public class AwsEc2FleetSpotOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The allocation_strategy attribute.
     /// </summary>
-    public TerraformProperty<string>? AllocationStrategy
-    {
-        set => SetProperty("allocation_strategy", value);
-    }
+    [TerraformPropertyName("allocation_strategy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AllocationStrategy { get; set; }
 
     /// <summary>
     /// The instance_interruption_behavior attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceInterruptionBehavior
-    {
-        set => SetProperty("instance_interruption_behavior", value);
-    }
+    [TerraformPropertyName("instance_interruption_behavior")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InstanceInterruptionBehavior { get; set; }
 
     /// <summary>
     /// The instance_pools_to_use_count attribute.
     /// </summary>
-    public TerraformProperty<double>? InstancePoolsToUseCount
-    {
-        set => SetProperty("instance_pools_to_use_count", value);
-    }
+    [TerraformPropertyName("instance_pools_to_use_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InstancePoolsToUseCount { get; set; }
 
     /// <summary>
     /// The max_total_price attribute.
     /// </summary>
-    public TerraformProperty<string>? MaxTotalPrice
-    {
-        set => SetProperty("max_total_price", value);
-    }
+    [TerraformPropertyName("max_total_price")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaxTotalPrice { get; set; }
 
     /// <summary>
     /// The min_target_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? MinTargetCapacity
-    {
-        set => SetProperty("min_target_capacity", value);
-    }
+    [TerraformPropertyName("min_target_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinTargetCapacity { get; set; }
 
     /// <summary>
     /// The single_availability_zone attribute.
     /// </summary>
-    public TerraformProperty<bool>? SingleAvailabilityZone
-    {
-        set => SetProperty("single_availability_zone", value);
-    }
+    [TerraformPropertyName("single_availability_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SingleAvailabilityZone { get; set; }
 
     /// <summary>
     /// The single_instance_type attribute.
     /// </summary>
-    public TerraformProperty<bool>? SingleInstanceType
-    {
-        set => SetProperty("single_instance_type", value);
-    }
+    [TerraformPropertyName("single_instance_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SingleInstanceType { get; set; }
 
 }
 
@@ -166,49 +150,44 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
 /// Block type for target_capacity_specification in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
+public class AwsEc2FleetTargetCapacitySpecificationBlock : ITerraformBlock
 {
     /// <summary>
     /// The default_target_capacity_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultTargetCapacityType is required")]
-    public required TerraformProperty<string> DefaultTargetCapacityType
-    {
-        set => SetProperty("default_target_capacity_type", value);
-    }
+    [TerraformPropertyName("default_target_capacity_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DefaultTargetCapacityType { get; set; }
 
     /// <summary>
     /// The on_demand_target_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? OnDemandTargetCapacity
-    {
-        set => SetProperty("on_demand_target_capacity", value);
-    }
+    [TerraformPropertyName("on_demand_target_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? OnDemandTargetCapacity { get; set; }
 
     /// <summary>
     /// The spot_target_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? SpotTargetCapacity
-    {
-        set => SetProperty("spot_target_capacity", value);
-    }
+    [TerraformPropertyName("spot_target_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SpotTargetCapacity { get; set; }
 
     /// <summary>
     /// The target_capacity_unit_type attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetCapacityUnitType
-    {
-        set => SetProperty("target_capacity_unit_type", value);
-    }
+    [TerraformPropertyName("target_capacity_unit_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetCapacityUnitType { get; set; }
 
     /// <summary>
     /// The total_target_capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalTargetCapacity is required")]
-    public required TerraformProperty<double> TotalTargetCapacity
-    {
-        set => SetProperty("total_target_capacity", value);
-    }
+    [TerraformPropertyName("total_target_capacity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> TotalTargetCapacity { get; set; }
 
 }
 
@@ -216,31 +195,28 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2FleetTimeoutsBlock : TerraformBlock
+public class AwsEc2FleetTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -252,172 +228,119 @@ public class AwsEc2Fleet : TerraformResource
 {
     public AwsEc2Fleet(string name) : base("aws_ec2_fleet", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("context");
-        SetOutput("excess_capacity_termination_policy");
-        SetOutput("fleet_state");
-        SetOutput("fulfilled_capacity");
-        SetOutput("fulfilled_on_demand_capacity");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("replace_unhealthy_instances");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("terminate_instances");
-        SetOutput("terminate_instances_with_expiration");
-        SetOutput("type");
-        SetOutput("valid_from");
-        SetOutput("valid_until");
     }
 
     /// <summary>
     /// The context attribute.
     /// </summary>
-    public TerraformProperty<string> Context
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("context");
-        set => SetProperty("context", value);
-    }
+    [TerraformPropertyName("context")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Context { get; set; }
 
     /// <summary>
     /// The excess_capacity_termination_policy attribute.
     /// </summary>
-    public TerraformProperty<string> ExcessCapacityTerminationPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("excess_capacity_termination_policy");
-        set => SetProperty("excess_capacity_termination_policy", value);
-    }
+    [TerraformPropertyName("excess_capacity_termination_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExcessCapacityTerminationPolicy { get; set; }
 
     /// <summary>
     /// The fleet_state attribute.
     /// </summary>
-    public TerraformProperty<string> FleetState
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("fleet_state");
-        set => SetProperty("fleet_state", value);
-    }
+    [TerraformPropertyName("fleet_state")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> FleetState { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fleet_state");
 
     /// <summary>
     /// The fulfilled_capacity attribute.
     /// </summary>
-    public TerraformProperty<double> FulfilledCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("fulfilled_capacity");
-        set => SetProperty("fulfilled_capacity", value);
-    }
+    [TerraformPropertyName("fulfilled_capacity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> FulfilledCapacity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "fulfilled_capacity");
 
     /// <summary>
     /// The fulfilled_on_demand_capacity attribute.
     /// </summary>
-    public TerraformProperty<double> FulfilledOnDemandCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("fulfilled_on_demand_capacity");
-        set => SetProperty("fulfilled_on_demand_capacity", value);
-    }
+    [TerraformPropertyName("fulfilled_on_demand_capacity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> FulfilledOnDemandCapacity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "fulfilled_on_demand_capacity");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The replace_unhealthy_instances attribute.
     /// </summary>
-    public TerraformProperty<bool> ReplaceUnhealthyInstances
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("replace_unhealthy_instances");
-        set => SetProperty("replace_unhealthy_instances", value);
-    }
+    [TerraformPropertyName("replace_unhealthy_instances")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ReplaceUnhealthyInstances { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The terminate_instances attribute.
     /// </summary>
-    public TerraformProperty<bool> TerminateInstances
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("terminate_instances");
-        set => SetProperty("terminate_instances", value);
-    }
+    [TerraformPropertyName("terminate_instances")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TerminateInstances { get; set; }
 
     /// <summary>
     /// The terminate_instances_with_expiration attribute.
     /// </summary>
-    public TerraformProperty<bool> TerminateInstancesWithExpiration
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("terminate_instances_with_expiration");
-        set => SetProperty("terminate_instances_with_expiration", value);
-    }
+    [TerraformPropertyName("terminate_instances_with_expiration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TerminateInstancesWithExpiration { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
     /// <summary>
     /// The valid_from attribute.
     /// </summary>
-    public TerraformProperty<string> ValidFrom
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("valid_from");
-        set => SetProperty("valid_from", value);
-    }
+    [TerraformPropertyName("valid_from")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ValidFrom { get; set; }
 
     /// <summary>
     /// The valid_until attribute.
     /// </summary>
-    public TerraformProperty<string> ValidUntil
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("valid_until");
-        set => SetProperty("valid_until", value);
-    }
+    [TerraformPropertyName("valid_until")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ValidUntil { get; set; }
 
     /// <summary>
     /// Block for fleet_instance_set.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsEc2FleetFleetInstanceSetBlock>? FleetInstanceSet
-    {
-        set => SetProperty("fleet_instance_set", value);
-    }
+    [TerraformPropertyName("fleet_instance_set")]
+    public TerraformList<TerraformBlock<AwsEc2FleetFleetInstanceSetBlock>>? FleetInstanceSet { get; set; } = new();
 
     /// <summary>
     /// Block for launch_template_config.
@@ -426,30 +349,24 @@ public class AwsEc2Fleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LaunchTemplateConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LaunchTemplateConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 LaunchTemplateConfig block(s) allowed")]
-    public List<AwsEc2FleetLaunchTemplateConfigBlock>? LaunchTemplateConfig
-    {
-        set => SetProperty("launch_template_config", value);
-    }
+    [TerraformPropertyName("launch_template_config")]
+    public TerraformList<TerraformBlock<AwsEc2FleetLaunchTemplateConfigBlock>>? LaunchTemplateConfig { get; set; } = new();
 
     /// <summary>
     /// Block for on_demand_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnDemandOptions block(s) allowed")]
-    public List<AwsEc2FleetOnDemandOptionsBlock>? OnDemandOptions
-    {
-        set => SetProperty("on_demand_options", value);
-    }
+    [TerraformPropertyName("on_demand_options")]
+    public TerraformList<TerraformBlock<AwsEc2FleetOnDemandOptionsBlock>>? OnDemandOptions { get; set; } = new();
 
     /// <summary>
     /// Block for spot_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpotOptions block(s) allowed")]
-    public List<AwsEc2FleetSpotOptionsBlock>? SpotOptions
-    {
-        set => SetProperty("spot_options", value);
-    }
+    [TerraformPropertyName("spot_options")]
+    public TerraformList<TerraformBlock<AwsEc2FleetSpotOptionsBlock>>? SpotOptions { get; set; } = new();
 
     /// <summary>
     /// Block for target_capacity_specification.
@@ -458,23 +375,21 @@ public class AwsEc2Fleet : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetCapacitySpecification is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetCapacitySpecification block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetCapacitySpecification block(s) allowed")]
-    public List<AwsEc2FleetTargetCapacitySpecificationBlock>? TargetCapacitySpecification
-    {
-        set => SetProperty("target_capacity_specification", value);
-    }
+    [TerraformPropertyName("target_capacity_specification")]
+    public TerraformList<TerraformBlock<AwsEc2FleetTargetCapacitySpecificationBlock>>? TargetCapacitySpecification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEc2FleetTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEc2FleetTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

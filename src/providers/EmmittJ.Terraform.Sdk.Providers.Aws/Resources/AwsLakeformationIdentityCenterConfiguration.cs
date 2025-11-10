@@ -9,54 +9,42 @@ public class AwsLakeformationIdentityCenterConfiguration : TerraformResource
 {
     public AwsLakeformationIdentityCenterConfiguration(string name) : base("aws_lakeformation_identity_center_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("application_arn");
-        SetOutput("resource_share");
-        SetOutput("catalog_id");
-        SetOutput("instance_arn");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The ID of the Data Catalog.
     /// </summary>
-    public TerraformProperty<string> CatalogId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "catalog_id");
 
     /// <summary>
     /// The ARN of the Identity Center instance.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
-    public required TerraformProperty<string> InstanceArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_arn");
-        set => SetProperty("instance_arn", value);
-    }
+    [TerraformPropertyName("instance_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The application_arn attribute.
     /// </summary>
-    public TerraformExpression ApplicationArn => this["application_arn"];
+    [TerraformPropertyName("application_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ApplicationArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "application_arn");
 
     /// <summary>
     /// The resource_share attribute.
     /// </summary>
-    public TerraformExpression ResourceShare => this["resource_share"];
+    [TerraformPropertyName("resource_share")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceShare => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_share");
 
 }

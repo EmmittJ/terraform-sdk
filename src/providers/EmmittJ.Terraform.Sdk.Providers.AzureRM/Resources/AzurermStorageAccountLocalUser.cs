@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for permission_scope in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlock
+public class AzurermStorageAccountLocalUserPermissionScopeBlock : ITerraformBlock
 {
     /// <summary>
     /// The resource_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceName is required")]
-    public required TerraformProperty<string> ResourceName
-    {
-        set => SetProperty("resource_name", value);
-    }
+    [TerraformPropertyName("resource_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceName { get; set; }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
-    public required TerraformProperty<string> Service
-    {
-        set => SetProperty("service", value);
-    }
+    [TerraformPropertyName("service")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Service { get; set; }
 
 }
 
@@ -32,24 +30,22 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlock
 /// Block type for ssh_authorized_key in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBlock
+public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
 }
 
@@ -57,39 +53,35 @@ public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
+public class AzurermStorageAccountLocalUserTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -100,112 +92,85 @@ public class AzurermStorageAccountLocalUser : TerraformResource
 {
     public AzurermStorageAccountLocalUser(string name) : base("azurerm_storage_account_local_user", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("password");
-        SetOutput("sid");
-        SetOutput("home_directory");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("ssh_key_enabled");
-        SetOutput("ssh_password_enabled");
-        SetOutput("storage_account_id");
     }
 
     /// <summary>
     /// The home_directory attribute.
     /// </summary>
-    public TerraformProperty<string> HomeDirectory
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("home_directory");
-        set => SetProperty("home_directory", value);
-    }
+    [TerraformPropertyName("home_directory")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HomeDirectory { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The ssh_key_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> SshKeyEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ssh_key_enabled");
-        set => SetProperty("ssh_key_enabled", value);
-    }
+    [TerraformPropertyName("ssh_key_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SshKeyEnabled { get; set; }
 
     /// <summary>
     /// The ssh_password_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> SshPasswordEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ssh_password_enabled");
-        set => SetProperty("ssh_password_enabled", value);
-    }
+    [TerraformPropertyName("ssh_password_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SshPasswordEnabled { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    public required TerraformProperty<string> StorageAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
-        set => SetProperty("storage_account_id", value);
-    }
+    [TerraformPropertyName("storage_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for permission_scope.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermStorageAccountLocalUserPermissionScopeBlock>? PermissionScope
-    {
-        set => SetProperty("permission_scope", value);
-    }
+    [TerraformPropertyName("permission_scope")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountLocalUserPermissionScopeBlock>>? PermissionScope { get; set; } = new();
 
     /// <summary>
     /// Block for ssh_authorized_key.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>? SshAuthorizedKey
-    {
-        set => SetProperty("ssh_authorized_key", value);
-    }
+    [TerraformPropertyName("ssh_authorized_key")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>>? SshAuthorizedKey { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStorageAccountLocalUserTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStorageAccountLocalUserTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformExpression Password => this["password"];
+    [TerraformPropertyName("password")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Password => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "password");
 
     /// <summary>
     /// The sid attribute.
     /// </summary>
-    public TerraformExpression Sid => this["sid"];
+    [TerraformPropertyName("sid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Sid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sid");
 
 }

@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadAccessPackageResourcePackageAssociationTimeoutsBlock : TerraformBlock
+public class AzureadAccessPackageResourcePackageAssociationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,62 +38,43 @@ public class AzureadAccessPackageResourcePackageAssociation : TerraformResource
 {
     public AzureadAccessPackageResourcePackageAssociation(string name) : base("azuread_access_package_resource_package_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_package_id");
-        SetOutput("access_type");
-        SetOutput("catalog_resource_association_id");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The ID of access package this resource association is configured to
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPackageId is required")]
-    public required TerraformProperty<string> AccessPackageId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_package_id");
-        set => SetProperty("access_package_id", value);
-    }
+    [TerraformPropertyName("access_package_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccessPackageId { get; set; }
 
     /// <summary>
     /// The role of access type to the specified resource, valid values are `Member` and `Owner`
     /// </summary>
-    public TerraformProperty<string> AccessType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_type");
-        set => SetProperty("access_type", value);
-    }
+    [TerraformPropertyName("access_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AccessType { get; set; }
 
     /// <summary>
     /// The ID of the access package catalog association
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogResourceAssociationId is required")]
-    public required TerraformProperty<string> CatalogResourceAssociationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("catalog_resource_association_id");
-        set => SetProperty("catalog_resource_association_id", value);
-    }
+    [TerraformPropertyName("catalog_resource_association_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CatalogResourceAssociationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadAccessPackageResourcePackageAssociationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadAccessPackageResourcePackageAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

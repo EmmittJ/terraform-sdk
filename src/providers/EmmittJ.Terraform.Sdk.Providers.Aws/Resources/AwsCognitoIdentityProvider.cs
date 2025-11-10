@@ -9,95 +9,66 @@ public class AwsCognitoIdentityProvider : TerraformResource
 {
     public AwsCognitoIdentityProvider(string name) : base("aws_cognito_identity_provider", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("attribute_mapping");
-        SetOutput("id");
-        SetOutput("idp_identifiers");
-        SetOutput("provider_details");
-        SetOutput("provider_name");
-        SetOutput("provider_type");
-        SetOutput("region");
-        SetOutput("user_pool_id");
     }
 
     /// <summary>
     /// The attribute_mapping attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> AttributeMapping
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("attribute_mapping");
-        set => SetProperty("attribute_mapping", value);
-    }
+    [TerraformPropertyName("attribute_mapping")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> AttributeMapping { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "attribute_mapping");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The idp_identifiers attribute.
     /// </summary>
-    public List<TerraformProperty<string>> IdpIdentifiers
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("idp_identifiers");
-        set => SetProperty("idp_identifiers", value);
-    }
+    [TerraformPropertyName("idp_identifiers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? IdpIdentifiers { get; set; }
 
     /// <summary>
     /// The provider_details attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderDetails is required")]
-    public Dictionary<string, TerraformProperty<string>> ProviderDetails
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("provider_details");
-        set => SetProperty("provider_details", value);
-    }
+    [TerraformPropertyName("provider_details")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ProviderDetails { get; set; }
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderName is required")]
-    public required TerraformProperty<string> ProviderName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("provider_name");
-        set => SetProperty("provider_name", value);
-    }
+    [TerraformPropertyName("provider_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProviderName { get; set; }
 
     /// <summary>
     /// The provider_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
-    public required TerraformProperty<string> ProviderType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("provider_type");
-        set => SetProperty("provider_type", value);
-    }
+    [TerraformPropertyName("provider_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProviderType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
-    public required TerraformProperty<string> UserPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
-        set => SetProperty("user_pool_id", value);
-    }
+    [TerraformPropertyName("user_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserPoolId { get; set; }
 
 }

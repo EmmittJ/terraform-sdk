@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for common_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineSearchEngineCommonConfigBlock : TerraformBlock
+public class GoogleDiscoveryEngineSearchEngineCommonConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The name of the company, business or entity that is associated with the engine. Setting this may help improve LLM related features.cd
     /// </summary>
-    public TerraformProperty<string>? CompanyName
-    {
-        set => SetProperty("company_name", value);
-    }
+    [TerraformPropertyName("company_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CompanyName { get; set; }
 
 }
 
@@ -22,23 +21,21 @@ public class GoogleDiscoveryEngineSearchEngineCommonConfigBlock : TerraformBlock
 /// Block type for search_engine_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineSearchEngineSearchEngineConfigBlock : TerraformBlock
+public class GoogleDiscoveryEngineSearchEngineSearchEngineConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The add-on that this search engine enables. Possible values: [&amp;quot;SEARCH_ADD_ON_LLM&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>>? SearchAddOns
-    {
-        set => SetProperty("search_add_ons", value);
-    }
+    [TerraformPropertyName("search_add_ons")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SearchAddOns { get; set; }
 
     /// <summary>
     /// The search feature tier of this engine. Defaults to SearchTier.SEARCH_TIER_STANDARD if not specified. Default value: &amp;quot;SEARCH_TIER_STANDARD&amp;quot; Possible values: [&amp;quot;SEARCH_TIER_STANDARD&amp;quot;, &amp;quot;SEARCH_TIER_ENTERPRISE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? SearchTier
-    {
-        set => SetProperty("search_tier", value);
-    }
+    [TerraformPropertyName("search_tier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SearchTier { get; set; }
 
 }
 
@@ -46,31 +43,28 @@ public class GoogleDiscoveryEngineSearchEngineSearchEngineConfigBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDiscoveryEngineSearchEngineTimeoutsBlock : TerraformBlock
+public class GoogleDiscoveryEngineSearchEngineTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -82,103 +76,68 @@ public class GoogleDiscoveryEngineSearchEngine : TerraformResource
 {
     public GoogleDiscoveryEngineSearchEngine(string name) : base("google_discovery_engine_search_engine", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("name");
-        SetOutput("update_time");
-        SetOutput("app_type");
-        SetOutput("collection_id");
-        SetOutput("data_store_ids");
-        SetOutput("display_name");
-        SetOutput("engine_id");
-        SetOutput("features");
-        SetOutput("id");
-        SetOutput("industry_vertical");
-        SetOutput("kms_key_name");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
     /// This is the application type this engine resource represents.
     /// The supported values: &#39;APP_TYPE_UNSPECIFIED&#39;, &#39;APP_TYPE_INTRANET&#39;.
     /// </summary>
-    public TerraformProperty<string> AppType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_type");
-        set => SetProperty("app_type", value);
-    }
+    [TerraformPropertyName("app_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AppType { get; set; }
 
     /// <summary>
     /// The collection ID.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
-    public required TerraformProperty<string> CollectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("collection_id");
-        set => SetProperty("collection_id", value);
-    }
+    [TerraformPropertyName("collection_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CollectionId { get; set; }
 
     /// <summary>
     /// The data stores associated with this engine. For SOLUTION_TYPE_SEARCH type of engines, they can only associate with at most one data store.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreIds is required")]
-    public List<TerraformProperty<string>> DataStoreIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("data_store_ids");
-        set => SetProperty("data_store_ids", value);
-    }
+    [TerraformPropertyName("data_store_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? DataStoreIds { get; set; }
 
     /// <summary>
     /// Required. The display name of the engine. Should be human readable. UTF-8 encoded string with limit of 1024 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// Unique ID to use for Search Engine App.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
-    public required TerraformProperty<string> EngineId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine_id");
-        set => SetProperty("engine_id", value);
-    }
+    [TerraformPropertyName("engine_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EngineId { get; set; }
 
     /// <summary>
     /// A map of the feature config for the engine to opt in or opt out of features.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Features
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("features");
-        set => SetProperty("features", value);
-    }
+    [TerraformPropertyName("features")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Features { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The industry vertical that the engine registers. The restriction of the Engine industry vertical is based on DataStore: If unspecified, default to GENERIC. Vertical on Engine has to match vertical of the DataStore liniked to the engine. Default value: &amp;quot;GENERIC&amp;quot; Possible values: [&amp;quot;GENERIC&amp;quot;, &amp;quot;MEDIA&amp;quot;, &amp;quot;HEALTHCARE_FHIR&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> IndustryVertical
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("industry_vertical");
-        set => SetProperty("industry_vertical", value);
-    }
+    [TerraformPropertyName("industry_vertical")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IndustryVertical { get; set; }
 
     /// <summary>
     /// The KMS key to be used to protect this Engine at creation time.
@@ -189,40 +148,32 @@ public class GoogleDiscoveryEngineSearchEngine : TerraformResource
     /// If this field is set and processed successfully, the Engine will be
     /// protected by the KMS key, as indicated in the cmek_config field.
     /// </summary>
-    public TerraformProperty<string> KmsKeyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
-        set => SetProperty("kms_key_name", value);
-    }
+    [TerraformPropertyName("kms_key_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyName { get; set; }
 
     /// <summary>
     /// Location.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for common_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CommonConfig block(s) allowed")]
-    public List<GoogleDiscoveryEngineSearchEngineCommonConfigBlock>? CommonConfig
-    {
-        set => SetProperty("common_config", value);
-    }
+    [TerraformPropertyName("common_config")]
+    public TerraformList<TerraformBlock<GoogleDiscoveryEngineSearchEngineCommonConfigBlock>>? CommonConfig { get; set; } = new();
 
     /// <summary>
     /// Block for search_engine_config.
@@ -231,24 +182,22 @@ public class GoogleDiscoveryEngineSearchEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SearchEngineConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SearchEngineConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SearchEngineConfig block(s) allowed")]
-    public List<GoogleDiscoveryEngineSearchEngineSearchEngineConfigBlock>? SearchEngineConfig
-    {
-        set => SetProperty("search_engine_config", value);
-    }
+    [TerraformPropertyName("search_engine_config")]
+    public TerraformList<TerraformBlock<GoogleDiscoveryEngineSearchEngineSearchEngineConfigBlock>>? SearchEngineConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDiscoveryEngineSearchEngineTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDiscoveryEngineSearchEngineTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Timestamp the Engine was created at.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The unique full resource name of the search engine. Values are of the format
@@ -256,11 +205,15 @@ public class GoogleDiscoveryEngineSearchEngine : TerraformResource
     /// This field must be a UTF-8 encoded string with a length limit of 1024
     /// characters.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Timestamp the Engine was last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

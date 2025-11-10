@@ -9,44 +9,29 @@ public class GoogleLoggingFolderSettingsDataSource : TerraformDataSource
 {
     public GoogleLoggingFolderSettingsDataSource(string name) : base("google_logging_folder_settings", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("disable_default_sink");
-        SetOutput("kms_key_name");
-        SetOutput("kms_service_account_id");
-        SetOutput("logging_service_account_id");
-        SetOutput("name");
-        SetOutput("storage_location");
-        SetOutput("folder");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The folder for which to retrieve settings.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
-    public required TerraformProperty<string> Folder
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("folder");
-        set => SetProperty("folder", value);
-    }
+    [TerraformPropertyName("folder")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// If set to true, the _Default sink in newly created projects and folders will created in a disabled state. This can be used to automatically disable log storage if there is already an aggregated sink configured in the hierarchy. The _Default sink can be re-enabled manually if needed.
     /// </summary>
-    public TerraformExpression DisableDefaultSink => this["disable_default_sink"];
+    [TerraformPropertyName("disable_default_sink")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DisableDefaultSink => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "disable_default_sink");
 
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
@@ -56,28 +41,38 @@ public class GoogleLoggingFolderSettingsDataSource : TerraformDataSource
     /// 				The Cloud KMS key used by the bucket can be updated by changing the kmsKeyName to a new valid key name. Encryption operations that are in progress will be completed with the key that was in use when they started. Decryption operations will be completed using the key that was used at the time of encryption unless access to that key has been revoked.
     /// 				See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
     /// </summary>
-    public TerraformExpression KmsKeyName => this["kms_key_name"];
+    [TerraformPropertyName("kms_key_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsKeyName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_name");
 
     /// <summary>
     /// The service account associated with a project for which CMEK will apply.
     /// 				Before enabling CMEK for a logging bucket, you must first assign the cloudkms.cryptoKeyEncrypterDecrypter role to the service account associated with the project for which CMEK will apply. Use [v2.getCmekSettings](https://cloud.google.com/logging/docs/reference/v2/rest/v2/TopLevel/getCmekSettings#google.logging.v2.ConfigServiceV2.GetCmekSettings) to obtain the service account ID.
     /// 				See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
     /// </summary>
-    public TerraformExpression KmsServiceAccountId => this["kms_service_account_id"];
+    [TerraformPropertyName("kms_service_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsServiceAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_service_account_id");
 
     /// <summary>
     /// The service account for the given container. Sinks use this service account as their writerIdentity if no custom service account is provided.
     /// </summary>
-    public TerraformExpression LoggingServiceAccountId => this["logging_service_account_id"];
+    [TerraformPropertyName("logging_service_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LoggingServiceAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "logging_service_account_id");
 
     /// <summary>
     /// The resource name of the CMEK settings.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The storage location that Cloud Logging will use to create new resources when a location is needed but not explicitly provided.
     /// </summary>
-    public TerraformExpression StorageLocation => this["storage_location"];
+    [TerraformPropertyName("storage_location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StorageLocation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_location");
 
 }

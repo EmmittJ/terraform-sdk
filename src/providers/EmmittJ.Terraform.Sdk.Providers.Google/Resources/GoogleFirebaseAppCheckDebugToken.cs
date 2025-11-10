@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirebaseAppCheckDebugTokenTimeoutsBlock : TerraformBlock
+public class GoogleFirebaseAppCheckDebugTokenTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,17 +38,6 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
 {
     public GoogleFirebaseAppCheckDebugToken(string name) : base("google_firebase_app_check_debug_token", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("debug_token_id");
-        SetOutput("app_id");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("token");
     }
 
     /// <summary>
@@ -61,39 +47,31 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
     /// or [Android App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.androidApps#AndroidApp.FIELDS.app_id)
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
-    public required TerraformProperty<string> AppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
-        set => SetProperty("app_id", value);
-    }
+    [TerraformPropertyName("app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppId { get; set; }
 
     /// <summary>
     /// A human readable display name used to identify this debug token.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The secret token itself. Must be provided during creation, and must be a UUID4,
@@ -106,24 +84,22 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
     /// For security reasons, this field will never be populated in any response.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
-    public required TerraformProperty<string> Token
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("token");
-        set => SetProperty("token", value);
-    }
+    [TerraformPropertyName("token")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Token { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleFirebaseAppCheckDebugTokenTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleFirebaseAppCheckDebugTokenTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The last segment of the resource name of the debug token.
     /// </summary>
-    public TerraformExpression DebugTokenId => this["debug_token_id"];
+    [TerraformPropertyName("debug_token_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DebugTokenId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "debug_token_id");
 
 }

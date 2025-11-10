@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for logs in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlock
+public class AzurermElasticCloudElasticsearchLogsBlock : ITerraformBlock
 {
     /// <summary>
     /// The send_activity_logs attribute.
     /// </summary>
-    public TerraformProperty<bool>? SendActivityLogs
-    {
-        set => SetProperty("send_activity_logs", value);
-    }
+    [TerraformPropertyName("send_activity_logs")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SendActivityLogs { get; set; }
 
     /// <summary>
     /// The send_azuread_logs attribute.
     /// </summary>
-    public TerraformProperty<bool>? SendAzureadLogs
-    {
-        set => SetProperty("send_azuread_logs", value);
-    }
+    [TerraformPropertyName("send_azuread_logs")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SendAzureadLogs { get; set; }
 
     /// <summary>
     /// The send_subscription_logs attribute.
     /// </summary>
-    public TerraformProperty<bool>? SendSubscriptionLogs
-    {
-        set => SetProperty("send_subscription_logs", value);
-    }
+    [TerraformPropertyName("send_subscription_logs")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SendSubscriptionLogs { get; set; }
 
 }
 
@@ -38,39 +35,35 @@ public class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlock
+public class AzurermElasticCloudElasticsearchTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -82,151 +75,124 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
 {
     public AzurermElasticCloudElasticsearch(string name) : base("azurerm_elastic_cloud_elasticsearch", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("elastic_cloud_deployment_id");
-        SetOutput("elastic_cloud_sso_default_url");
-        SetOutput("elastic_cloud_user_id");
-        SetOutput("elasticsearch_service_url");
-        SetOutput("kibana_service_url");
-        SetOutput("kibana_sso_uri");
-        SetOutput("elastic_cloud_email_address");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("monitoring_enabled");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("sku_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The elastic_cloud_email_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticCloudEmailAddress is required")]
-    public required TerraformProperty<string> ElasticCloudEmailAddress
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("elastic_cloud_email_address");
-        set => SetProperty("elastic_cloud_email_address", value);
-    }
+    [TerraformPropertyName("elastic_cloud_email_address")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ElasticCloudEmailAddress { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> MonitoringEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("monitoring_enabled");
-        set => SetProperty("monitoring_enabled", value);
-    }
+    [TerraformPropertyName("monitoring_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MonitoringEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    public required TerraformProperty<string> SkuName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
-        set => SetProperty("sku_name", value);
-    }
+    [TerraformPropertyName("sku_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for logs.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
-    public List<AzurermElasticCloudElasticsearchLogsBlock>? Logs
-    {
-        set => SetProperty("logs", value);
-    }
+    [TerraformPropertyName("logs")]
+    public TerraformList<TerraformBlock<AzurermElasticCloudElasticsearchLogsBlock>>? Logs { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermElasticCloudElasticsearchTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermElasticCloudElasticsearchTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The elastic_cloud_deployment_id attribute.
     /// </summary>
-    public TerraformExpression ElasticCloudDeploymentId => this["elastic_cloud_deployment_id"];
+    [TerraformPropertyName("elastic_cloud_deployment_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ElasticCloudDeploymentId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "elastic_cloud_deployment_id");
 
     /// <summary>
     /// The elastic_cloud_sso_default_url attribute.
     /// </summary>
-    public TerraformExpression ElasticCloudSsoDefaultUrl => this["elastic_cloud_sso_default_url"];
+    [TerraformPropertyName("elastic_cloud_sso_default_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ElasticCloudSsoDefaultUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "elastic_cloud_sso_default_url");
 
     /// <summary>
     /// The elastic_cloud_user_id attribute.
     /// </summary>
-    public TerraformExpression ElasticCloudUserId => this["elastic_cloud_user_id"];
+    [TerraformPropertyName("elastic_cloud_user_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ElasticCloudUserId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "elastic_cloud_user_id");
 
     /// <summary>
     /// The elasticsearch_service_url attribute.
     /// </summary>
-    public TerraformExpression ElasticsearchServiceUrl => this["elasticsearch_service_url"];
+    [TerraformPropertyName("elasticsearch_service_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ElasticsearchServiceUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "elasticsearch_service_url");
 
     /// <summary>
     /// The kibana_service_url attribute.
     /// </summary>
-    public TerraformExpression KibanaServiceUrl => this["kibana_service_url"];
+    [TerraformPropertyName("kibana_service_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KibanaServiceUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kibana_service_url");
 
     /// <summary>
     /// The kibana_sso_uri attribute.
     /// </summary>
-    public TerraformExpression KibanaSsoUri => this["kibana_sso_uri"];
+    [TerraformPropertyName("kibana_sso_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KibanaSsoUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kibana_sso_uri");
 
 }

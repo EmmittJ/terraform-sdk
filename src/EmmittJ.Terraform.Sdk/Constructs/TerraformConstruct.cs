@@ -96,7 +96,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
         {
             var expression = resolvable.Resolve(context);
             var hcl = expression.Resolve(context);
-            
+
             // Block syntax: name { ... }
             sb.AppendLine($"{context.Indent}{name} {{");
             using (context.PushIndent())

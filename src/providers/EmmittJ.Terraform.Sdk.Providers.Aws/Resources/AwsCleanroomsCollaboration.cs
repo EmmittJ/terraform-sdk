@@ -6,43 +6,39 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for data_encryption_metadata in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBlock
+public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : ITerraformBlock
 {
     /// <summary>
     /// The allow_clear_text attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowClearText is required")]
-    public required TerraformProperty<bool> AllowClearText
-    {
-        set => SetProperty("allow_clear_text", value);
-    }
+    [TerraformPropertyName("allow_clear_text")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> AllowClearText { get; set; }
 
     /// <summary>
     /// The allow_duplicates attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowDuplicates is required")]
-    public required TerraformProperty<bool> AllowDuplicates
-    {
-        set => SetProperty("allow_duplicates", value);
-    }
+    [TerraformPropertyName("allow_duplicates")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> AllowDuplicates { get; set; }
 
     /// <summary>
     /// The allow_joins_on_columns_with_different_names attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowJoinsOnColumnsWithDifferentNames is required")]
-    public required TerraformProperty<bool> AllowJoinsOnColumnsWithDifferentNames
-    {
-        set => SetProperty("allow_joins_on_columns_with_different_names", value);
-    }
+    [TerraformPropertyName("allow_joins_on_columns_with_different_names")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> AllowJoinsOnColumnsWithDifferentNames { get; set; }
 
     /// <summary>
     /// The preserve_nulls attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreserveNulls is required")]
-    public required TerraformProperty<bool> PreserveNulls
-    {
-        set => SetProperty("preserve_nulls", value);
-    }
+    [TerraformPropertyName("preserve_nulls")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> PreserveNulls { get; set; }
 
 }
 
@@ -50,42 +46,38 @@ public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBl
 /// Block type for member in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCleanroomsCollaborationMemberBlock : TerraformBlock
+public class AwsCleanroomsCollaborationMemberBlock : ITerraformBlock
 {
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
-    public required TerraformProperty<string> AccountId
-    {
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountId { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The member_abilities attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberAbilities is required")]
-    public List<TerraformProperty<string>>? MemberAbilities
-    {
-        set => SetProperty("member_abilities", value);
-    }
+    [TerraformPropertyName("member_abilities")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? MemberAbilities { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>("", "status");
 
 }
 
@@ -93,31 +85,28 @@ public class AwsCleanroomsCollaborationMemberBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsCleanroomsCollaborationTimeoutsBlock : TerraformBlock
+public class AwsCleanroomsCollaborationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -129,158 +118,124 @@ public class AwsCleanroomsCollaboration : TerraformResource
 {
     public AwsCleanroomsCollaboration(string name) : base("aws_cleanrooms_collaboration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("create_time");
-        SetOutput("id");
-        SetOutput("update_time");
-        SetOutput("analytics_engine");
-        SetOutput("creator_display_name");
-        SetOutput("creator_member_abilities");
-        SetOutput("description");
-        SetOutput("name");
-        SetOutput("query_log_status");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The analytics_engine attribute.
     /// </summary>
-    public TerraformProperty<string> AnalyticsEngine
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("analytics_engine");
-        set => SetProperty("analytics_engine", value);
-    }
+    [TerraformPropertyName("analytics_engine")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AnalyticsEngine { get; set; }
 
     /// <summary>
     /// The creator_display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreatorDisplayName is required")]
-    public required TerraformProperty<string> CreatorDisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("creator_display_name");
-        set => SetProperty("creator_display_name", value);
-    }
+    [TerraformPropertyName("creator_display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CreatorDisplayName { get; set; }
 
     /// <summary>
     /// The creator_member_abilities attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreatorMemberAbilities is required")]
-    public List<TerraformProperty<string>> CreatorMemberAbilities
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("creator_member_abilities");
-        set => SetProperty("creator_member_abilities", value);
-    }
+    [TerraformPropertyName("creator_member_abilities")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? CreatorMemberAbilities { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
-    public required TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Description { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The query_log_status attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryLogStatus is required")]
-    public required TerraformProperty<string> QueryLogStatus
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("query_log_status");
-        set => SetProperty("query_log_status", value);
-    }
+    [TerraformPropertyName("query_log_status")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> QueryLogStatus { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for data_encryption_metadata.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataEncryptionMetadata block(s) allowed")]
-    public List<AwsCleanroomsCollaborationDataEncryptionMetadataBlock>? DataEncryptionMetadata
-    {
-        set => SetProperty("data_encryption_metadata", value);
-    }
+    [TerraformPropertyName("data_encryption_metadata")]
+    public TerraformList<TerraformBlock<AwsCleanroomsCollaborationDataEncryptionMetadataBlock>>? DataEncryptionMetadata { get; set; } = new();
 
     /// <summary>
     /// Block for member.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsCleanroomsCollaborationMemberBlock>? Member
-    {
-        set => SetProperty("member", value);
-    }
+    [TerraformPropertyName("member")]
+    public TerraformSet<TerraformBlock<AwsCleanroomsCollaborationMemberBlock>>? Member { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsCleanroomsCollaborationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsCleanroomsCollaborationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

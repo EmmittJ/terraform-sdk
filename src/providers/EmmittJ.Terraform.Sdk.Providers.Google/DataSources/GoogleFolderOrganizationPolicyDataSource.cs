@@ -9,79 +9,71 @@ public class GoogleFolderOrganizationPolicyDataSource : TerraformDataSource
 {
     public GoogleFolderOrganizationPolicyDataSource(string name) : base("google_folder_organization_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("boolean_policy");
-        SetOutput("etag");
-        SetOutput("list_policy");
-        SetOutput("restore_policy");
-        SetOutput("update_time");
-        SetOutput("version");
-        SetOutput("constraint");
-        SetOutput("folder");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The name of the Constraint the Policy is configuring, for example, serviceuser.services.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
-    public required TerraformProperty<string> Constraint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("constraint");
-        set => SetProperty("constraint", value);
-    }
+    [TerraformPropertyName("constraint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Constraint { get; set; }
 
     /// <summary>
     /// The resource name of the folder to set the policy for. Its format is folders/{folder_id}.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
-    public required TerraformProperty<string> Folder
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("folder");
-        set => SetProperty("folder", value);
-    }
+    [TerraformPropertyName("folder")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// A boolean policy is a constraint that is either enforced or not.
     /// </summary>
-    public TerraformExpression BooleanPolicy => this["boolean_policy"];
+    [TerraformPropertyName("boolean_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> BooleanPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "boolean_policy");
 
     /// <summary>
     /// The etag of the organization policy. etag is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// A policy that can define specific values that are allowed or denied for the given constraint. It can also be used to allow or deny all values. 
     /// </summary>
-    public TerraformExpression ListPolicy => this["list_policy"];
+    [TerraformPropertyName("list_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ListPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "list_policy");
 
     /// <summary>
     /// A restore policy is a constraint to restore the default policy.
     /// </summary>
-    public TerraformExpression RestorePolicy => this["restore_policy"];
+    [TerraformPropertyName("restore_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RestorePolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "restore_policy");
 
     /// <summary>
     /// The timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds, representing when the variable was last updated. Example: &amp;quot;2016-10-09T12:33:37.578138407Z&amp;quot;.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
     /// <summary>
     /// Version of the Policy. Default version is 0.
     /// </summary>
-    public TerraformExpression Version => this["version"];
+    [TerraformPropertyName("version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Version => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "version");
 
 }

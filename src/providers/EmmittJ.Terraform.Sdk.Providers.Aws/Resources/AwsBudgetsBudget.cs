@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_adjust_data in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBudgetsBudgetAutoAdjustDataBlock : TerraformBlock
+public class AwsBudgetsBudgetAutoAdjustDataBlock : ITerraformBlock
 {
     /// <summary>
     /// The auto_adjust_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoAdjustType is required")]
-    public required TerraformProperty<string> AutoAdjustType
-    {
-        set => SetProperty("auto_adjust_type", value);
-    }
+    [TerraformPropertyName("auto_adjust_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AutoAdjustType { get; set; }
 
     /// <summary>
     /// The last_auto_adjust_time attribute.
     /// </summary>
-    public TerraformProperty<string>? LastAutoAdjustTime
-    {
-        set => SetProperty("last_auto_adjust_time", value);
-    }
+    [TerraformPropertyName("last_auto_adjust_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastAutoAdjustTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "last_auto_adjust_time");
 
 }
 
@@ -31,25 +29,23 @@ public class AwsBudgetsBudgetAutoAdjustDataBlock : TerraformBlock
 /// Block type for cost_filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsBudgetsBudgetCostFilterBlock : TerraformBlock
+public class AwsBudgetsBudgetCostFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public List<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -57,95 +53,84 @@ public class AwsBudgetsBudgetCostFilterBlock : TerraformBlock
 /// Block type for cost_types in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
+public class AwsBudgetsBudgetCostTypesBlock : ITerraformBlock
 {
     /// <summary>
     /// The include_credit attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeCredit
-    {
-        set => SetProperty("include_credit", value);
-    }
+    [TerraformPropertyName("include_credit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeCredit { get; set; }
 
     /// <summary>
     /// The include_discount attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeDiscount
-    {
-        set => SetProperty("include_discount", value);
-    }
+    [TerraformPropertyName("include_discount")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeDiscount { get; set; }
 
     /// <summary>
     /// The include_other_subscription attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeOtherSubscription
-    {
-        set => SetProperty("include_other_subscription", value);
-    }
+    [TerraformPropertyName("include_other_subscription")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeOtherSubscription { get; set; }
 
     /// <summary>
     /// The include_recurring attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeRecurring
-    {
-        set => SetProperty("include_recurring", value);
-    }
+    [TerraformPropertyName("include_recurring")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeRecurring { get; set; }
 
     /// <summary>
     /// The include_refund attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeRefund
-    {
-        set => SetProperty("include_refund", value);
-    }
+    [TerraformPropertyName("include_refund")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeRefund { get; set; }
 
     /// <summary>
     /// The include_subscription attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeSubscription
-    {
-        set => SetProperty("include_subscription", value);
-    }
+    [TerraformPropertyName("include_subscription")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeSubscription { get; set; }
 
     /// <summary>
     /// The include_support attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeSupport
-    {
-        set => SetProperty("include_support", value);
-    }
+    [TerraformPropertyName("include_support")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeSupport { get; set; }
 
     /// <summary>
     /// The include_tax attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeTax
-    {
-        set => SetProperty("include_tax", value);
-    }
+    [TerraformPropertyName("include_tax")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeTax { get; set; }
 
     /// <summary>
     /// The include_upfront attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeUpfront
-    {
-        set => SetProperty("include_upfront", value);
-    }
+    [TerraformPropertyName("include_upfront")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeUpfront { get; set; }
 
     /// <summary>
     /// The use_amortized attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseAmortized
-    {
-        set => SetProperty("use_amortized", value);
-    }
+    [TerraformPropertyName("use_amortized")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseAmortized { get; set; }
 
     /// <summary>
     /// The use_blended attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseBlended
-    {
-        set => SetProperty("use_blended", value);
-    }
+    [TerraformPropertyName("use_blended")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseBlended { get; set; }
 
 }
 
@@ -153,59 +138,53 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
 /// Block type for notification in .
 /// Nesting mode: set
 /// </summary>
-public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
+public class AwsBudgetsBudgetNotificationBlock : ITerraformBlock
 {
     /// <summary>
     /// The comparison_operator attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
-    public required TerraformProperty<string> ComparisonOperator
-    {
-        set => SetProperty("comparison_operator", value);
-    }
+    [TerraformPropertyName("comparison_operator")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ComparisonOperator { get; set; }
 
     /// <summary>
     /// The notification_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
-    public required TerraformProperty<string> NotificationType
-    {
-        set => SetProperty("notification_type", value);
-    }
+    [TerraformPropertyName("notification_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NotificationType { get; set; }
 
     /// <summary>
     /// The subscriber_email_addresses attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubscriberEmailAddresses
-    {
-        set => SetProperty("subscriber_email_addresses", value);
-    }
+    [TerraformPropertyName("subscriber_email_addresses")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubscriberEmailAddresses { get; set; }
 
     /// <summary>
     /// The subscriber_sns_topic_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubscriberSnsTopicArns
-    {
-        set => SetProperty("subscriber_sns_topic_arns", value);
-    }
+    [TerraformPropertyName("subscriber_sns_topic_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubscriberSnsTopicArns { get; set; }
 
     /// <summary>
     /// The threshold attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
-    public required TerraformProperty<double> Threshold
-    {
-        set => SetProperty("threshold", value);
-    }
+    [TerraformPropertyName("threshold")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Threshold { get; set; }
 
     /// <summary>
     /// The threshold_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThresholdType is required")]
-    public required TerraformProperty<string> ThresholdType
-    {
-        set => SetProperty("threshold_type", value);
-    }
+    [TerraformPropertyName("threshold_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ThresholdType { get; set; }
 
 }
 
@@ -213,34 +192,31 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
 /// Block type for planned_limit in .
 /// Nesting mode: set
 /// </summary>
-public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
+public class AwsBudgetsBudgetPlannedLimitBlock : ITerraformBlock
 {
     /// <summary>
     /// The amount attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
-    public required TerraformProperty<string> Amount
-    {
-        set => SetProperty("amount", value);
-    }
+    [TerraformPropertyName("amount")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Amount { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
-    public required TerraformProperty<string> StartTime
-    {
-        set => SetProperty("start_time", value);
-    }
+    [TerraformPropertyName("start_time")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StartTime { get; set; }
 
     /// <summary>
     /// The unit attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
-    public required TerraformProperty<string> Unit
-    {
-        set => SetProperty("unit", value);
-    }
+    [TerraformPropertyName("unit")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Unit { get; set; }
 
 }
 
@@ -252,196 +228,143 @@ public class AwsBudgetsBudget : TerraformResource
 {
     public AwsBudgetsBudget(string name) : base("aws_budgets_budget", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("account_id");
-        SetOutput("billing_view_arn");
-        SetOutput("budget_type");
-        SetOutput("id");
-        SetOutput("limit_amount");
-        SetOutput("limit_unit");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("time_period_end");
-        SetOutput("time_period_start");
-        SetOutput("time_unit");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string> AccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_id");
 
     /// <summary>
     /// The billing_view_arn attribute.
     /// </summary>
-    public TerraformProperty<string> BillingViewArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("billing_view_arn");
-        set => SetProperty("billing_view_arn", value);
-    }
+    [TerraformPropertyName("billing_view_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BillingViewArn { get; set; }
 
     /// <summary>
     /// The budget_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetType is required")]
-    public required TerraformProperty<string> BudgetType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("budget_type");
-        set => SetProperty("budget_type", value);
-    }
+    [TerraformPropertyName("budget_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BudgetType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The limit_amount attribute.
     /// </summary>
-    public TerraformProperty<string> LimitAmount
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("limit_amount");
-        set => SetProperty("limit_amount", value);
-    }
+    [TerraformPropertyName("limit_amount")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LimitAmount { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "limit_amount");
 
     /// <summary>
     /// The limit_unit attribute.
     /// </summary>
-    public TerraformProperty<string> LimitUnit
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("limit_unit");
-        set => SetProperty("limit_unit", value);
-    }
+    [TerraformPropertyName("limit_unit")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LimitUnit { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "limit_unit");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The time_period_end attribute.
     /// </summary>
-    public TerraformProperty<string> TimePeriodEnd
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_period_end");
-        set => SetProperty("time_period_end", value);
-    }
+    [TerraformPropertyName("time_period_end")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TimePeriodEnd { get; set; }
 
     /// <summary>
     /// The time_period_start attribute.
     /// </summary>
-    public TerraformProperty<string> TimePeriodStart
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_period_start");
-        set => SetProperty("time_period_start", value);
-    }
+    [TerraformPropertyName("time_period_start")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TimePeriodStart { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_period_start");
 
     /// <summary>
     /// The time_unit attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeUnit is required")]
-    public required TerraformProperty<string> TimeUnit
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_unit");
-        set => SetProperty("time_unit", value);
-    }
+    [TerraformPropertyName("time_unit")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TimeUnit { get; set; }
 
     /// <summary>
     /// Block for auto_adjust_data.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoAdjustData block(s) allowed")]
-    public List<AwsBudgetsBudgetAutoAdjustDataBlock>? AutoAdjustData
-    {
-        set => SetProperty("auto_adjust_data", value);
-    }
+    [TerraformPropertyName("auto_adjust_data")]
+    public TerraformList<TerraformBlock<AwsBudgetsBudgetAutoAdjustDataBlock>>? AutoAdjustData { get; set; } = new();
 
     /// <summary>
     /// Block for cost_filter.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsBudgetsBudgetCostFilterBlock>? CostFilter
-    {
-        set => SetProperty("cost_filter", value);
-    }
+    [TerraformPropertyName("cost_filter")]
+    public TerraformSet<TerraformBlock<AwsBudgetsBudgetCostFilterBlock>>? CostFilter { get; set; } = new();
 
     /// <summary>
     /// Block for cost_types.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CostTypes block(s) allowed")]
-    public List<AwsBudgetsBudgetCostTypesBlock>? CostTypes
-    {
-        set => SetProperty("cost_types", value);
-    }
+    [TerraformPropertyName("cost_types")]
+    public TerraformList<TerraformBlock<AwsBudgetsBudgetCostTypesBlock>>? CostTypes { get; set; } = new();
 
     /// <summary>
     /// Block for notification.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsBudgetsBudgetNotificationBlock>? Notification
-    {
-        set => SetProperty("notification", value);
-    }
+    [TerraformPropertyName("notification")]
+    public TerraformSet<TerraformBlock<AwsBudgetsBudgetNotificationBlock>>? Notification { get; set; } = new();
 
     /// <summary>
     /// Block for planned_limit.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsBudgetsBudgetPlannedLimitBlock>? PlannedLimit
-    {
-        set => SetProperty("planned_limit", value);
-    }
+    [TerraformPropertyName("planned_limit")]
+    public TerraformSet<TerraformBlock<AwsBudgetsBudgetPlannedLimitBlock>>? PlannedLimit { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

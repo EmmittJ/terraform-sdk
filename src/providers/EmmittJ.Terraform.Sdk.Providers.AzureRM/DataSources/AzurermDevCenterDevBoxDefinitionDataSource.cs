@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDevCenterDevBoxDefinitionDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermDevCenterDevBoxDefinitionDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,82 +24,71 @@ public class AzurermDevCenterDevBoxDefinitionDataSource : TerraformDataSource
 {
     public AzurermDevCenterDevBoxDefinitionDataSource(string name) : base("azurerm_dev_center_dev_box_definition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("hibernate_support_enabled");
-        SetOutput("image_reference_id");
-        SetOutput("location");
-        SetOutput("sku_name");
-        SetOutput("tags");
-        SetOutput("dev_center_id");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The dev_center_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
-    public required TerraformProperty<string> DevCenterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dev_center_id");
-        set => SetProperty("dev_center_id", value);
-    }
+    [TerraformPropertyName("dev_center_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DevCenterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDevCenterDevBoxDefinitionDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDevCenterDevBoxDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The hibernate_support_enabled attribute.
     /// </summary>
-    public TerraformExpression HibernateSupportEnabled => this["hibernate_support_enabled"];
+    [TerraformPropertyName("hibernate_support_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> HibernateSupportEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "hibernate_support_enabled");
 
     /// <summary>
     /// The image_reference_id attribute.
     /// </summary>
-    public TerraformExpression ImageReferenceId => this["image_reference_id"];
+    [TerraformPropertyName("image_reference_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ImageReferenceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_reference_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformExpression SkuName => this["sku_name"];
+    [TerraformPropertyName("sku_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SkuName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
 }

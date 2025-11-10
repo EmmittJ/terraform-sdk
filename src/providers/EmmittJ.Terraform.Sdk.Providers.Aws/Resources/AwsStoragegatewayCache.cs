@@ -9,53 +9,36 @@ public class AwsStoragegatewayCache : TerraformResource
 {
     public AwsStoragegatewayCache(string name) : base("aws_storagegateway_cache", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("disk_id");
-        SetOutput("gateway_arn");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The disk_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskId is required")]
-    public required TerraformProperty<string> DiskId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("disk_id");
-        set => SetProperty("disk_id", value);
-    }
+    [TerraformPropertyName("disk_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DiskId { get; set; }
 
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
-    public required TerraformProperty<string> GatewayArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gateway_arn");
-        set => SetProperty("gateway_arn", value);
-    }
+    [TerraformPropertyName("gateway_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GatewayArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
 }

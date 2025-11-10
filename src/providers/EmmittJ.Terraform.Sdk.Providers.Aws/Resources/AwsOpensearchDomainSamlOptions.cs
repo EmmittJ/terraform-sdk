@@ -6,55 +6,49 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for saml_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
+public class AwsOpensearchDomainSamlOptionsSamlOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The master_backend_role attribute.
     /// </summary>
-    public TerraformProperty<string>? MasterBackendRole
-    {
-        set => SetProperty("master_backend_role", value);
-    }
+    [TerraformPropertyName("master_backend_role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MasterBackendRole { get; set; }
 
     /// <summary>
     /// The master_user_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MasterUserName
-    {
-        set => SetProperty("master_user_name", value);
-    }
+    [TerraformPropertyName("master_user_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MasterUserName { get; set; }
 
     /// <summary>
     /// The roles_key attribute.
     /// </summary>
-    public TerraformProperty<string>? RolesKey
-    {
-        set => SetProperty("roles_key", value);
-    }
+    [TerraformPropertyName("roles_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RolesKey { get; set; }
 
     /// <summary>
     /// The session_timeout_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? SessionTimeoutMinutes
-    {
-        set => SetProperty("session_timeout_minutes", value);
-    }
+    [TerraformPropertyName("session_timeout_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SessionTimeoutMinutes { get; set; }
 
     /// <summary>
     /// The subject_key attribute.
     /// </summary>
-    public TerraformProperty<string>? SubjectKey
-    {
-        set => SetProperty("subject_key", value);
-    }
+    [TerraformPropertyName("subject_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SubjectKey { get; set; }
 
 }
 
@@ -62,23 +56,21 @@ public class AwsOpensearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsOpensearchDomainSamlOptionsTimeoutsBlock : TerraformBlock
+public class AwsOpensearchDomainSamlOptionsTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -90,61 +82,43 @@ public class AwsOpensearchDomainSamlOptions : TerraformResource
 {
     public AwsOpensearchDomainSamlOptions(string name) : base("aws_opensearch_domain_saml_options", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("domain_name");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    public required TerraformProperty<string> DomainName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for saml_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SamlOptions block(s) allowed")]
-    public List<AwsOpensearchDomainSamlOptionsSamlOptionsBlock>? SamlOptions
-    {
-        set => SetProperty("saml_options", value);
-    }
+    [TerraformPropertyName("saml_options")]
+    public TerraformList<TerraformBlock<AwsOpensearchDomainSamlOptionsSamlOptionsBlock>>? SamlOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsOpensearchDomainSamlOptionsTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsOpensearchDomainSamlOptionsTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

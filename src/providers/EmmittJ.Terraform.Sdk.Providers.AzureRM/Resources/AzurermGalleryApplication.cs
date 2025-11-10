@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermGalleryApplicationTimeoutsBlock : TerraformBlock
+public class AzurermGalleryApplicationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,134 +45,94 @@ public class AzurermGalleryApplication : TerraformResource
 {
     public AzurermGalleryApplication(string name) : base("azurerm_gallery_application", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("end_of_life_date");
-        SetOutput("eula");
-        SetOutput("gallery_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("privacy_statement_uri");
-        SetOutput("release_note_uri");
-        SetOutput("supported_os_type");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The end_of_life_date attribute.
     /// </summary>
-    public TerraformProperty<string> EndOfLifeDate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("end_of_life_date");
-        set => SetProperty("end_of_life_date", value);
-    }
+    [TerraformPropertyName("end_of_life_date")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndOfLifeDate { get; set; }
 
     /// <summary>
     /// The eula attribute.
     /// </summary>
-    public TerraformProperty<string> Eula
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eula");
-        set => SetProperty("eula", value);
-    }
+    [TerraformPropertyName("eula")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Eula { get; set; }
 
     /// <summary>
     /// The gallery_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryId is required")]
-    public required TerraformProperty<string> GalleryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gallery_id");
-        set => SetProperty("gallery_id", value);
-    }
+    [TerraformPropertyName("gallery_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GalleryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The privacy_statement_uri attribute.
     /// </summary>
-    public TerraformProperty<string> PrivacyStatementUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("privacy_statement_uri");
-        set => SetProperty("privacy_statement_uri", value);
-    }
+    [TerraformPropertyName("privacy_statement_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrivacyStatementUri { get; set; }
 
     /// <summary>
     /// The release_note_uri attribute.
     /// </summary>
-    public TerraformProperty<string> ReleaseNoteUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("release_note_uri");
-        set => SetProperty("release_note_uri", value);
-    }
+    [TerraformPropertyName("release_note_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ReleaseNoteUri { get; set; }
 
     /// <summary>
     /// The supported_os_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportedOsType is required")]
-    public required TerraformProperty<string> SupportedOsType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("supported_os_type");
-        set => SetProperty("supported_os_type", value);
-    }
+    [TerraformPropertyName("supported_os_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SupportedOsType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermGalleryApplicationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermGalleryApplicationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

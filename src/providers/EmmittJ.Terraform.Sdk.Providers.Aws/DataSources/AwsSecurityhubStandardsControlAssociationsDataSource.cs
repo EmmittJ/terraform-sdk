@@ -9,44 +9,35 @@ public class AwsSecurityhubStandardsControlAssociationsDataSource : TerraformDat
 {
     public AwsSecurityhubStandardsControlAssociationsDataSource(string name) : base("aws_securityhub_standards_control_associations", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("standards_control_associations");
-        SetOutput("region");
-        SetOutput("security_control_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The security_control_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityControlId is required")]
-    public required TerraformProperty<string> SecurityControlId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_control_id");
-        set => SetProperty("security_control_id", value);
-    }
+    [TerraformPropertyName("security_control_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SecurityControlId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The standards_control_associations attribute.
     /// </summary>
-    public TerraformExpression StandardsControlAssociations => this["standards_control_associations"];
+    [TerraformPropertyName("standards_control_associations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> StandardsControlAssociations => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "standards_control_associations");
 
 }

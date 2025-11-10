@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermChaosStudioCapabilityTimeoutsBlock : TerraformBlock
+public class AzurermChaosStudioCapabilityTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,58 +38,43 @@ public class AzurermChaosStudioCapability : TerraformResource
 {
     public AzurermChaosStudioCapability(string name) : base("azurerm_chaos_studio_capability", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("urn");
-        SetOutput("capability_type");
-        SetOutput("chaos_studio_target_id");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The capability_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapabilityType is required")]
-    public required TerraformProperty<string> CapabilityType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("capability_type");
-        set => SetProperty("capability_type", value);
-    }
+    [TerraformPropertyName("capability_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CapabilityType { get; set; }
 
     /// <summary>
     /// The chaos_studio_target_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChaosStudioTargetId is required")]
-    public required TerraformProperty<string> ChaosStudioTargetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("chaos_studio_target_id");
-        set => SetProperty("chaos_studio_target_id", value);
-    }
+    [TerraformPropertyName("chaos_studio_target_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ChaosStudioTargetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermChaosStudioCapabilityTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermChaosStudioCapabilityTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The urn attribute.
     /// </summary>
-    public TerraformExpression Urn => this["urn"];
+    [TerraformPropertyName("urn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Urn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "urn");
 
 }

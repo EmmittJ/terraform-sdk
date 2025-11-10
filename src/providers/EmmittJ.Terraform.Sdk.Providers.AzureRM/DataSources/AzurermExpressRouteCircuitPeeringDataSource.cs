@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermExpressRouteCircuitPeeringDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermExpressRouteCircuitPeeringDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,129 +24,121 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
 {
     public AzurermExpressRouteCircuitPeeringDataSource(string name) : base("azurerm_express_route_circuit_peering", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("azure_asn");
-        SetOutput("gateway_manager_etag");
-        SetOutput("ipv4_enabled");
-        SetOutput("peer_asn");
-        SetOutput("primary_azure_port");
-        SetOutput("primary_peer_address_prefix");
-        SetOutput("route_filter_id");
-        SetOutput("secondary_azure_port");
-        SetOutput("secondary_peer_address_prefix");
-        SetOutput("shared_key");
-        SetOutput("vlan_id");
-        SetOutput("express_route_circuit_name");
-        SetOutput("id");
-        SetOutput("peering_type");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The express_route_circuit_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitName is required")]
-    public required TerraformProperty<string> ExpressRouteCircuitName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("express_route_circuit_name");
-        set => SetProperty("express_route_circuit_name", value);
-    }
+    [TerraformPropertyName("express_route_circuit_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExpressRouteCircuitName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The peering_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringType is required")]
-    public required TerraformProperty<string> PeeringType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("peering_type");
-        set => SetProperty("peering_type", value);
-    }
+    [TerraformPropertyName("peering_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PeeringType { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermExpressRouteCircuitPeeringDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermExpressRouteCircuitPeeringDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The azure_asn attribute.
     /// </summary>
-    public TerraformExpression AzureAsn => this["azure_asn"];
+    [TerraformPropertyName("azure_asn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AzureAsn => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "azure_asn");
 
     /// <summary>
     /// The gateway_manager_etag attribute.
     /// </summary>
-    public TerraformExpression GatewayManagerEtag => this["gateway_manager_etag"];
+    [TerraformPropertyName("gateway_manager_etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GatewayManagerEtag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gateway_manager_etag");
 
     /// <summary>
     /// The ipv4_enabled attribute.
     /// </summary>
-    public TerraformExpression Ipv4Enabled => this["ipv4_enabled"];
+    [TerraformPropertyName("ipv4_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Ipv4Enabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "ipv4_enabled");
 
     /// <summary>
     /// The peer_asn attribute.
     /// </summary>
-    public TerraformExpression PeerAsn => this["peer_asn"];
+    [TerraformPropertyName("peer_asn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> PeerAsn => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "peer_asn");
 
     /// <summary>
     /// The primary_azure_port attribute.
     /// </summary>
-    public TerraformExpression PrimaryAzurePort => this["primary_azure_port"];
+    [TerraformPropertyName("primary_azure_port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryAzurePort => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_azure_port");
 
     /// <summary>
     /// The primary_peer_address_prefix attribute.
     /// </summary>
-    public TerraformExpression PrimaryPeerAddressPrefix => this["primary_peer_address_prefix"];
+    [TerraformPropertyName("primary_peer_address_prefix")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryPeerAddressPrefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_peer_address_prefix");
 
     /// <summary>
     /// The route_filter_id attribute.
     /// </summary>
-    public TerraformExpression RouteFilterId => this["route_filter_id"];
+    [TerraformPropertyName("route_filter_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RouteFilterId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "route_filter_id");
 
     /// <summary>
     /// The secondary_azure_port attribute.
     /// </summary>
-    public TerraformExpression SecondaryAzurePort => this["secondary_azure_port"];
+    [TerraformPropertyName("secondary_azure_port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryAzurePort => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_azure_port");
 
     /// <summary>
     /// The secondary_peer_address_prefix attribute.
     /// </summary>
-    public TerraformExpression SecondaryPeerAddressPrefix => this["secondary_peer_address_prefix"];
+    [TerraformPropertyName("secondary_peer_address_prefix")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryPeerAddressPrefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_peer_address_prefix");
 
     /// <summary>
     /// The shared_key attribute.
     /// </summary>
-    public TerraformExpression SharedKey => this["shared_key"];
+    [TerraformPropertyName("shared_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SharedKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "shared_key");
 
     /// <summary>
     /// The vlan_id attribute.
     /// </summary>
-    public TerraformExpression VlanId => this["vlan_id"];
+    [TerraformPropertyName("vlan_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> VlanId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "vlan_id");
 
 }

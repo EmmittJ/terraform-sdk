@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for task_restart_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : TerraformBlock
+public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The maximum amount of time to wait before retrying a failed task. This sets an upper bound for the backoff delay.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? MaximumBackoff
-    {
-        set => SetProperty("maximum_backoff", value);
-    }
+    [TerraformPropertyName("maximum_backoff")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaximumBackoff { get; set; }
 
     /// <summary>
     /// The minimum amount of time to wait before retrying a failed task. This sets a lower bound for the backoff delay.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? MinimumBackoff
-    {
-        set => SetProperty("minimum_backoff", value);
-    }
+    [TerraformPropertyName("minimum_backoff")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MinimumBackoff { get; set; }
 
 }
 
@@ -32,31 +30,28 @@ public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleManagedKafkaConnectorTimeoutsBlock : TerraformBlock
+public class GoogleManagedKafkaConnectorTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -68,105 +63,80 @@ public class GoogleManagedKafkaConnector : TerraformResource
 {
     public GoogleManagedKafkaConnector(string name) : base("google_managed_kafka_connector", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("state");
-        SetOutput("configs");
-        SetOutput("connect_cluster");
-        SetOutput("connector_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
     /// Connector config as keys/values. The keys of the map are connector property names, for example: &#39;connector.class&#39;, &#39;tasks.max&#39;, &#39;key.converter&#39;.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Configs
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("configs");
-        set => SetProperty("configs", value);
-    }
+    [TerraformPropertyName("configs")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Configs { get; set; }
 
     /// <summary>
     /// The connect cluster name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectCluster is required")]
-    public required TerraformProperty<string> ConnectCluster
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connect_cluster");
-        set => SetProperty("connect_cluster", value);
-    }
+    [TerraformPropertyName("connect_cluster")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConnectCluster { get; set; }
 
     /// <summary>
     /// The ID to use for the connector, which will become the final component of the connector&#39;s name. This value is structured like: &#39;my-connector-id&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorId is required")]
-    public required TerraformProperty<string> ConnectorId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connector_id");
-        set => SetProperty("connector_id", value);
-    }
+    [TerraformPropertyName("connector_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConnectorId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// ID of the location of the Kafka Connect resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for task_restart_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TaskRestartPolicy block(s) allowed")]
-    public List<GoogleManagedKafkaConnectorTaskRestartPolicyBlock>? TaskRestartPolicy
-    {
-        set => SetProperty("task_restart_policy", value);
-    }
+    [TerraformPropertyName("task_restart_policy")]
+    public TerraformList<TerraformBlock<GoogleManagedKafkaConnectorTaskRestartPolicyBlock>>? TaskRestartPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleManagedKafkaConnectorTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleManagedKafkaConnectorTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name of the connector. The &#39;connector&#39; segment is used when connecting directly to the connect cluster. Structured like: &#39;projects/PROJECT_ID/locations/LOCATION/connectClusters/CONNECT_CLUSTER/connectors/CONNECTOR_ID&#39;.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The current state of the connect. Possible values: &#39;STATE_UNSPECIFIED&#39;, &#39;UNASSIGNED&#39;, &#39;RUNNING&#39;, &#39;PAUSED&#39;, &#39;FAILED&#39;, &#39;RESTARTING&#39;, and &#39;STOPPED&#39;.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
 }

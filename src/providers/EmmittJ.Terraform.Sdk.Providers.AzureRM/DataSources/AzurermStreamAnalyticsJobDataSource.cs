@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStreamAnalyticsJobDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermStreamAnalyticsJobDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,142 +24,141 @@ public class AzurermStreamAnalyticsJobDataSource : TerraformDataSource
 {
     public AzurermStreamAnalyticsJobDataSource(string name) : base("azurerm_stream_analytics_job", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("compatibility_level");
-        SetOutput("data_locale");
-        SetOutput("events_late_arrival_max_delay_in_seconds");
-        SetOutput("events_out_of_order_max_delay_in_seconds");
-        SetOutput("events_out_of_order_policy");
-        SetOutput("identity");
-        SetOutput("job_id");
-        SetOutput("last_output_time");
-        SetOutput("location");
-        SetOutput("output_error_policy");
-        SetOutput("sku_name");
-        SetOutput("start_mode");
-        SetOutput("start_time");
-        SetOutput("streaming_units");
-        SetOutput("transformation_query");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStreamAnalyticsJobDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStreamAnalyticsJobDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The compatibility_level attribute.
     /// </summary>
-    public TerraformExpression CompatibilityLevel => this["compatibility_level"];
+    [TerraformPropertyName("compatibility_level")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CompatibilityLevel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "compatibility_level");
 
     /// <summary>
     /// The data_locale attribute.
     /// </summary>
-    public TerraformExpression DataLocale => this["data_locale"];
+    [TerraformPropertyName("data_locale")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DataLocale => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "data_locale");
 
     /// <summary>
     /// The events_late_arrival_max_delay_in_seconds attribute.
     /// </summary>
-    public TerraformExpression EventsLateArrivalMaxDelayInSeconds => this["events_late_arrival_max_delay_in_seconds"];
+    [TerraformPropertyName("events_late_arrival_max_delay_in_seconds")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> EventsLateArrivalMaxDelayInSeconds => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "events_late_arrival_max_delay_in_seconds");
 
     /// <summary>
     /// The events_out_of_order_max_delay_in_seconds attribute.
     /// </summary>
-    public TerraformExpression EventsOutOfOrderMaxDelayInSeconds => this["events_out_of_order_max_delay_in_seconds"];
+    [TerraformPropertyName("events_out_of_order_max_delay_in_seconds")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> EventsOutOfOrderMaxDelayInSeconds => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "events_out_of_order_max_delay_in_seconds");
 
     /// <summary>
     /// The events_out_of_order_policy attribute.
     /// </summary>
-    public TerraformExpression EventsOutOfOrderPolicy => this["events_out_of_order_policy"];
+    [TerraformPropertyName("events_out_of_order_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EventsOutOfOrderPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "events_out_of_order_policy");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformExpression Identity => this["identity"];
+    [TerraformPropertyName("identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
 
     /// <summary>
     /// The job_id attribute.
     /// </summary>
-    public TerraformExpression JobId => this["job_id"];
+    [TerraformPropertyName("job_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> JobId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "job_id");
 
     /// <summary>
     /// The last_output_time attribute.
     /// </summary>
-    public TerraformExpression LastOutputTime => this["last_output_time"];
+    [TerraformPropertyName("last_output_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastOutputTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_output_time");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The output_error_policy attribute.
     /// </summary>
-    public TerraformExpression OutputErrorPolicy => this["output_error_policy"];
+    [TerraformPropertyName("output_error_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OutputErrorPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "output_error_policy");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformExpression SkuName => this["sku_name"];
+    [TerraformPropertyName("sku_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SkuName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku_name");
 
     /// <summary>
     /// The start_mode attribute.
     /// </summary>
-    public TerraformExpression StartMode => this["start_mode"];
+    [TerraformPropertyName("start_mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StartMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_mode");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformExpression StartTime => this["start_time"];
+    [TerraformPropertyName("start_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StartTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_time");
 
     /// <summary>
     /// The streaming_units attribute.
     /// </summary>
-    public TerraformExpression StreamingUnits => this["streaming_units"];
+    [TerraformPropertyName("streaming_units")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> StreamingUnits => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "streaming_units");
 
     /// <summary>
     /// The transformation_query attribute.
     /// </summary>
-    public TerraformExpression TransformationQuery => this["transformation_query"];
+    [TerraformPropertyName("transformation_query")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TransformationQuery => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "transformation_query");
 
 }

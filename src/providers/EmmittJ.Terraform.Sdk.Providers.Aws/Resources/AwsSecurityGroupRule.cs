@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSecurityGroupRuleTimeoutsBlock : TerraformBlock
+public class AwsSecurityGroupRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
 }
 
@@ -25,161 +24,116 @@ public class AwsSecurityGroupRule : TerraformResource
 {
     public AwsSecurityGroupRule(string name) : base("aws_security_group_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("security_group_rule_id");
-        SetOutput("cidr_blocks");
-        SetOutput("description");
-        SetOutput("from_port");
-        SetOutput("id");
-        SetOutput("ipv6_cidr_blocks");
-        SetOutput("prefix_list_ids");
-        SetOutput("protocol");
-        SetOutput("region");
-        SetOutput("security_group_id");
-        SetOutput("self");
-        SetOutput("source_security_group_id");
-        SetOutput("to_port");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The cidr_blocks attribute.
     /// </summary>
-    public List<TerraformProperty<string>> CidrBlocks
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("cidr_blocks");
-        set => SetProperty("cidr_blocks", value);
-    }
+    [TerraformPropertyName("cidr_blocks")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? CidrBlocks { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The from_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
-    public required TerraformProperty<double> FromPort
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("from_port");
-        set => SetProperty("from_port", value);
-    }
+    [TerraformPropertyName("from_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> FromPort { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ipv6_cidr_blocks attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Ipv6CidrBlocks
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("ipv6_cidr_blocks");
-        set => SetProperty("ipv6_cidr_blocks", value);
-    }
+    [TerraformPropertyName("ipv6_cidr_blocks")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Ipv6CidrBlocks { get; set; }
 
     /// <summary>
     /// The prefix_list_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>> PrefixListIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("prefix_list_ids");
-        set => SetProperty("prefix_list_ids", value);
-    }
+    [TerraformPropertyName("prefix_list_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? PrefixListIds { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    public required TerraformProperty<string> Protocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
-    public required TerraformProperty<string> SecurityGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_group_id");
-        set => SetProperty("security_group_id", value);
-    }
+    [TerraformPropertyName("security_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SecurityGroupId { get; set; }
 
     /// <summary>
     /// The self attribute.
     /// </summary>
-    public TerraformProperty<bool> Self
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("self");
-        set => SetProperty("self", value);
-    }
+    [TerraformPropertyName("self")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Self { get; set; }
 
     /// <summary>
     /// The source_security_group_id attribute.
     /// </summary>
-    public TerraformProperty<string> SourceSecurityGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_security_group_id");
-        set => SetProperty("source_security_group_id", value);
-    }
+    [TerraformPropertyName("source_security_group_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SourceSecurityGroupId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_security_group_id");
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
-    public required TerraformProperty<double> ToPort
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("to_port");
-        set => SetProperty("to_port", value);
-    }
+    [TerraformPropertyName("to_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ToPort { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsSecurityGroupRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsSecurityGroupRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The security_group_rule_id attribute.
     /// </summary>
-    public TerraformExpression SecurityGroupRuleId => this["security_group_rule_id"];
+    [TerraformPropertyName("security_group_rule_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecurityGroupRuleId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "security_group_rule_id");
 
 }

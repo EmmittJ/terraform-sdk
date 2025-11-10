@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for client_certificate in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIntegrationsAuthConfigClientCertificateBlock : TerraformBlock
+public class GoogleIntegrationsAuthConfigClientCertificateBlock : ITerraformBlock
 {
     /// <summary>
     /// The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptedPrivateKey is required")]
-    public required TerraformProperty<string> EncryptedPrivateKey
-    {
-        set => SetProperty("encrypted_private_key", value);
-    }
+    [TerraformPropertyName("encrypted_private_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EncryptedPrivateKey { get; set; }
 
     /// <summary>
     /// &#39;passphrase&#39; should be left unset if private key is not encrypted.
     /// Note that &#39;passphrase&#39; is not the password for web server, but an extra layer of security to protected private key.
     /// </summary>
-    public TerraformProperty<string>? Passphrase
-    {
-        set => SetProperty("passphrase", value);
-    }
+    [TerraformPropertyName("passphrase")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Passphrase { get; set; }
 
     /// <summary>
     /// The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslCertificate is required")]
-    public required TerraformProperty<string> SslCertificate
-    {
-        set => SetProperty("ssl_certificate", value);
-    }
+    [TerraformPropertyName("ssl_certificate")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SslCertificate { get; set; }
 
 }
 
@@ -41,16 +38,15 @@ public class GoogleIntegrationsAuthConfigClientCertificateBlock : TerraformBlock
 /// Block type for decrypted_credential in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIntegrationsAuthConfigDecryptedCredentialBlock : TerraformBlock
+public class GoogleIntegrationsAuthConfigDecryptedCredentialBlock : ITerraformBlock
 {
     /// <summary>
     /// Credential type associated with auth configs.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialType is required")]
-    public required TerraformProperty<string> CredentialType
-    {
-        set => SetProperty("credential_type", value);
-    }
+    [TerraformPropertyName("credential_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CredentialType { get; set; }
 
 }
 
@@ -58,31 +54,28 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIntegrationsAuthConfigTimeoutsBlock : TerraformBlock
+public class GoogleIntegrationsAuthConfigTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -94,200 +87,176 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
 {
     public GoogleIntegrationsAuthConfig(string name) : base("google_integrations_auth_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("certificate_id");
-        SetOutput("create_time");
-        SetOutput("creator_email");
-        SetOutput("credential_type");
-        SetOutput("encrypted_credential");
-        SetOutput("last_modifier_email");
-        SetOutput("name");
-        SetOutput("reason");
-        SetOutput("state");
-        SetOutput("update_time");
-        SetOutput("valid_time");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("expiry_notification_duration");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("override_valid_time");
-        SetOutput("project");
-        SetOutput("visibility");
     }
 
     /// <summary>
     /// A description of the auth config.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The name of the auth config.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// User can define the time to receive notification after which the auth config becomes invalid. Support up to 30 days. Support granularity in hours.
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public List<TerraformProperty<string>> ExpiryNotificationDuration
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("expiry_notification_duration");
-        set => SetProperty("expiry_notification_duration", value);
-    }
+    [TerraformPropertyName("expiry_notification_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ExpiryNotificationDuration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Location in which client needs to be provisioned.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// User provided expiry time to override. For the example of Salesforce, username/password credentials can be valid for 6 months depending on the instance settings.
     /// 
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformProperty<string> OverrideValidTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("override_valid_time");
-        set => SetProperty("override_valid_time", value);
-    }
+    [TerraformPropertyName("override_valid_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OverrideValidTime { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The visibility of the auth config. Possible values: [&amp;quot;PRIVATE&amp;quot;, &amp;quot;CLIENT_VISIBLE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> Visibility
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("visibility");
-        set => SetProperty("visibility", value);
-    }
+    [TerraformPropertyName("visibility")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Visibility { get; set; }
 
     /// <summary>
     /// Block for client_certificate.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientCertificate block(s) allowed")]
-    public List<GoogleIntegrationsAuthConfigClientCertificateBlock>? ClientCertificate
-    {
-        set => SetProperty("client_certificate", value);
-    }
+    [TerraformPropertyName("client_certificate")]
+    public TerraformList<TerraformBlock<GoogleIntegrationsAuthConfigClientCertificateBlock>>? ClientCertificate { get; set; } = new();
 
     /// <summary>
     /// Block for decrypted_credential.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DecryptedCredential block(s) allowed")]
-    public List<GoogleIntegrationsAuthConfigDecryptedCredentialBlock>? DecryptedCredential
-    {
-        set => SetProperty("decrypted_credential", value);
-    }
+    [TerraformPropertyName("decrypted_credential")]
+    public TerraformList<TerraformBlock<GoogleIntegrationsAuthConfigDecryptedCredentialBlock>>? DecryptedCredential { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleIntegrationsAuthConfigTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleIntegrationsAuthConfigTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Certificate id for client certificate.
     /// </summary>
-    public TerraformExpression CertificateId => this["certificate_id"];
+    [TerraformPropertyName("certificate_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CertificateId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_id");
 
     /// <summary>
     /// The timestamp when the auth config is created.
     /// 
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The creator&#39;s email address. Generated based on the End User Credentials/LOAS role of the user making the call.
     /// </summary>
-    public TerraformExpression CreatorEmail => this["creator_email"];
+    [TerraformPropertyName("creator_email")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatorEmail => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creator_email");
 
     /// <summary>
     /// Credential type of the encrypted credential.
     /// </summary>
-    public TerraformExpression CredentialType => this["credential_type"];
+    [TerraformPropertyName("credential_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CredentialType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "credential_type");
 
     /// <summary>
     /// Auth credential encrypted by Cloud KMS. Can be decrypted as Credential with proper KMS key.
     /// 
     /// A base64-encoded string.
     /// </summary>
-    public TerraformExpression EncryptedCredential => this["encrypted_credential"];
+    [TerraformPropertyName("encrypted_credential")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EncryptedCredential => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "encrypted_credential");
 
     /// <summary>
     /// The last modifier&#39;s email address. Generated based on the End User Credentials/LOAS role of the user making the call.
     /// </summary>
-    public TerraformExpression LastModifierEmail => this["last_modifier_email"];
+    [TerraformPropertyName("last_modifier_email")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifierEmail => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modifier_email");
 
     /// <summary>
     /// Resource name of the auth config.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The reason / details of the current status.
     /// </summary>
-    public TerraformExpression Reason => this["reason"];
+    [TerraformPropertyName("reason")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Reason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "reason");
 
     /// <summary>
     /// The status of the auth config.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The timestamp when the auth config is modified.
     /// 
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
     /// <summary>
     /// The time until the auth config is valid. Empty or max value is considered the auth config won&#39;t expire.
     /// 
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression ValidTime => this["valid_time"];
+    [TerraformPropertyName("valid_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ValidTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "valid_time");
 
 }

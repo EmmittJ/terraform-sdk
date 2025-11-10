@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock : TerraformBlock
+public class AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,72 +45,50 @@ public class AzurermNetworkManagerIpamPoolStaticCidr : TerraformResource
 {
     public AzurermNetworkManagerIpamPoolStaticCidr(string name) : base("azurerm_network_manager_ipam_pool_static_cidr", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("address_prefixes");
-        SetOutput("id");
-        SetOutput("ipam_pool_id");
-        SetOutput("name");
-        SetOutput("number_of_ip_addresses_to_allocate");
     }
 
     /// <summary>
     /// The address_prefixes attribute.
     /// </summary>
-    public List<TerraformProperty<string>> AddressPrefixes
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("address_prefixes");
-        set => SetProperty("address_prefixes", value);
-    }
+    [TerraformPropertyName("address_prefixes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AddressPrefixes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
-    public required TerraformProperty<string> IpamPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ipam_pool_id");
-        set => SetProperty("ipam_pool_id", value);
-    }
+    [TerraformPropertyName("ipam_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IpamPoolId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The number_of_ip_addresses_to_allocate attribute.
     /// </summary>
-    public TerraformProperty<string> NumberOfIpAddressesToAllocate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("number_of_ip_addresses_to_allocate");
-        set => SetProperty("number_of_ip_addresses_to_allocate", value);
-    }
+    [TerraformPropertyName("number_of_ip_addresses_to_allocate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NumberOfIpAddressesToAllocate { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

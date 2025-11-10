@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNginxConfigurationDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermNginxConfigurationDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,65 +24,56 @@ public class AzurermNginxConfigurationDataSource : TerraformDataSource
 {
     public AzurermNginxConfigurationDataSource(string name) : base("azurerm_nginx_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("config_file");
-        SetOutput("package_data");
-        SetOutput("protected_file");
-        SetOutput("root_file");
-        SetOutput("id");
-        SetOutput("nginx_deployment_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The nginx_deployment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
-    public required TerraformProperty<string> NginxDeploymentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("nginx_deployment_id");
-        set => SetProperty("nginx_deployment_id", value);
-    }
+    [TerraformPropertyName("nginx_deployment_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NginxDeploymentId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNginxConfigurationDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNginxConfigurationDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The config_file attribute.
     /// </summary>
-    public TerraformExpression ConfigFile => this["config_file"];
+    [TerraformPropertyName("config_file")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> ConfigFile => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "config_file");
 
     /// <summary>
     /// The package_data attribute.
     /// </summary>
-    public TerraformExpression PackageData => this["package_data"];
+    [TerraformPropertyName("package_data")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PackageData => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "package_data");
 
     /// <summary>
     /// The protected_file attribute.
     /// </summary>
-    public TerraformExpression ProtectedFile => this["protected_file"];
+    [TerraformPropertyName("protected_file")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> ProtectedFile => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "protected_file");
 
     /// <summary>
     /// The root_file attribute.
     /// </summary>
-    public TerraformExpression RootFile => this["root_file"];
+    [TerraformPropertyName("root_file")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RootFile => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "root_file");
 
 }

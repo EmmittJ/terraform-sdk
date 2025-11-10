@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for backend_request in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementApiDiagnosticBackendRequestBlock : TerraformBlock
+public class AzurermApiManagementApiDiagnosticBackendRequestBlock : ITerraformBlock
 {
     /// <summary>
     /// The body_bytes attribute.
     /// </summary>
-    public TerraformProperty<double>? BodyBytes
-    {
-        set => SetProperty("body_bytes", value);
-    }
+    [TerraformPropertyName("body_bytes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BodyBytes { get; set; }
 
     /// <summary>
     /// The headers_to_log attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? HeadersToLog
-    {
-        set => SetProperty("headers_to_log", value);
-    }
+    [TerraformPropertyName("headers_to_log")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? HeadersToLog { get; set; }
 
 }
 
@@ -30,23 +28,21 @@ public class AzurermApiManagementApiDiagnosticBackendRequestBlock : TerraformBlo
 /// Block type for backend_response in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementApiDiagnosticBackendResponseBlock : TerraformBlock
+public class AzurermApiManagementApiDiagnosticBackendResponseBlock : ITerraformBlock
 {
     /// <summary>
     /// The body_bytes attribute.
     /// </summary>
-    public TerraformProperty<double>? BodyBytes
-    {
-        set => SetProperty("body_bytes", value);
-    }
+    [TerraformPropertyName("body_bytes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BodyBytes { get; set; }
 
     /// <summary>
     /// The headers_to_log attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? HeadersToLog
-    {
-        set => SetProperty("headers_to_log", value);
-    }
+    [TerraformPropertyName("headers_to_log")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? HeadersToLog { get; set; }
 
 }
 
@@ -54,23 +50,21 @@ public class AzurermApiManagementApiDiagnosticBackendResponseBlock : TerraformBl
 /// Block type for frontend_request in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementApiDiagnosticFrontendRequestBlock : TerraformBlock
+public class AzurermApiManagementApiDiagnosticFrontendRequestBlock : ITerraformBlock
 {
     /// <summary>
     /// The body_bytes attribute.
     /// </summary>
-    public TerraformProperty<double>? BodyBytes
-    {
-        set => SetProperty("body_bytes", value);
-    }
+    [TerraformPropertyName("body_bytes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BodyBytes { get; set; }
 
     /// <summary>
     /// The headers_to_log attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? HeadersToLog
-    {
-        set => SetProperty("headers_to_log", value);
-    }
+    [TerraformPropertyName("headers_to_log")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? HeadersToLog { get; set; }
 
 }
 
@@ -78,23 +72,21 @@ public class AzurermApiManagementApiDiagnosticFrontendRequestBlock : TerraformBl
 /// Block type for frontend_response in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementApiDiagnosticFrontendResponseBlock : TerraformBlock
+public class AzurermApiManagementApiDiagnosticFrontendResponseBlock : ITerraformBlock
 {
     /// <summary>
     /// The body_bytes attribute.
     /// </summary>
-    public TerraformProperty<double>? BodyBytes
-    {
-        set => SetProperty("body_bytes", value);
-    }
+    [TerraformPropertyName("body_bytes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BodyBytes { get; set; }
 
     /// <summary>
     /// The headers_to_log attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? HeadersToLog
-    {
-        set => SetProperty("headers_to_log", value);
-    }
+    [TerraformPropertyName("headers_to_log")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? HeadersToLog { get; set; }
 
 }
 
@@ -102,39 +94,35 @@ public class AzurermApiManagementApiDiagnosticFrontendResponseBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementApiDiagnosticTimeoutsBlock : TerraformBlock
+public class AzurermApiManagementApiDiagnosticTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -146,185 +134,134 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
 {
     public AzurermApiManagementApiDiagnostic(string name) : base("azurerm_api_management_api_diagnostic", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("always_log_errors");
-        SetOutput("api_management_logger_id");
-        SetOutput("api_management_name");
-        SetOutput("api_name");
-        SetOutput("http_correlation_protocol");
-        SetOutput("id");
-        SetOutput("identifier");
-        SetOutput("log_client_ip");
-        SetOutput("operation_name_format");
-        SetOutput("resource_group_name");
-        SetOutput("sampling_percentage");
-        SetOutput("verbosity");
     }
 
     /// <summary>
     /// The always_log_errors attribute.
     /// </summary>
-    public TerraformProperty<bool> AlwaysLogErrors
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("always_log_errors");
-        set => SetProperty("always_log_errors", value);
-    }
+    [TerraformPropertyName("always_log_errors")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> AlwaysLogErrors { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "always_log_errors");
 
     /// <summary>
     /// The api_management_logger_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementLoggerId is required")]
-    public required TerraformProperty<string> ApiManagementLoggerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_management_logger_id");
-        set => SetProperty("api_management_logger_id", value);
-    }
+    [TerraformPropertyName("api_management_logger_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiManagementLoggerId { get; set; }
 
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
-    public required TerraformProperty<string> ApiManagementName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
-        set => SetProperty("api_management_name", value);
-    }
+    [TerraformPropertyName("api_management_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiManagementName { get; set; }
 
     /// <summary>
     /// The api_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiName is required")]
-    public required TerraformProperty<string> ApiName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_name");
-        set => SetProperty("api_name", value);
-    }
+    [TerraformPropertyName("api_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiName { get; set; }
 
     /// <summary>
     /// The http_correlation_protocol attribute.
     /// </summary>
-    public TerraformProperty<string> HttpCorrelationProtocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("http_correlation_protocol");
-        set => SetProperty("http_correlation_protocol", value);
-    }
+    [TerraformPropertyName("http_correlation_protocol")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> HttpCorrelationProtocol { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "http_correlation_protocol");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
-    public required TerraformProperty<string> Identifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identifier");
-        set => SetProperty("identifier", value);
-    }
+    [TerraformPropertyName("identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Identifier { get; set; }
 
     /// <summary>
     /// The log_client_ip attribute.
     /// </summary>
-    public TerraformProperty<bool> LogClientIp
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("log_client_ip");
-        set => SetProperty("log_client_ip", value);
-    }
+    [TerraformPropertyName("log_client_ip")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> LogClientIp { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "log_client_ip");
 
     /// <summary>
     /// The operation_name_format attribute.
     /// </summary>
-    public TerraformProperty<string> OperationNameFormat
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("operation_name_format");
-        set => SetProperty("operation_name_format", value);
-    }
+    [TerraformPropertyName("operation_name_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OperationNameFormat { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    public TerraformProperty<double> SamplingPercentage
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("sampling_percentage");
-        set => SetProperty("sampling_percentage", value);
-    }
+    [TerraformPropertyName("sampling_percentage")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> SamplingPercentage { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "sampling_percentage");
 
     /// <summary>
     /// The verbosity attribute.
     /// </summary>
-    public TerraformProperty<string> Verbosity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("verbosity");
-        set => SetProperty("verbosity", value);
-    }
+    [TerraformPropertyName("verbosity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Verbosity { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "verbosity");
 
     /// <summary>
     /// Block for backend_request.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackendRequest block(s) allowed")]
-    public List<AzurermApiManagementApiDiagnosticBackendRequestBlock>? BackendRequest
-    {
-        set => SetProperty("backend_request", value);
-    }
+    [TerraformPropertyName("backend_request")]
+    public TerraformList<TerraformBlock<AzurermApiManagementApiDiagnosticBackendRequestBlock>>? BackendRequest { get; set; } = new();
 
     /// <summary>
     /// Block for backend_response.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackendResponse block(s) allowed")]
-    public List<AzurermApiManagementApiDiagnosticBackendResponseBlock>? BackendResponse
-    {
-        set => SetProperty("backend_response", value);
-    }
+    [TerraformPropertyName("backend_response")]
+    public TerraformList<TerraformBlock<AzurermApiManagementApiDiagnosticBackendResponseBlock>>? BackendResponse { get; set; } = new();
 
     /// <summary>
     /// Block for frontend_request.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendRequest block(s) allowed")]
-    public List<AzurermApiManagementApiDiagnosticFrontendRequestBlock>? FrontendRequest
-    {
-        set => SetProperty("frontend_request", value);
-    }
+    [TerraformPropertyName("frontend_request")]
+    public TerraformList<TerraformBlock<AzurermApiManagementApiDiagnosticFrontendRequestBlock>>? FrontendRequest { get; set; } = new();
 
     /// <summary>
     /// Block for frontend_response.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendResponse block(s) allowed")]
-    public List<AzurermApiManagementApiDiagnosticFrontendResponseBlock>? FrontendResponse
-    {
-        set => SetProperty("frontend_response", value);
-    }
+    [TerraformPropertyName("frontend_response")]
+    public TerraformList<TerraformBlock<AzurermApiManagementApiDiagnosticFrontendResponseBlock>>? FrontendResponse { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermApiManagementApiDiagnosticTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermApiManagementApiDiagnosticTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

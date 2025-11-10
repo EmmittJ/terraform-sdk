@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for alias in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53RecordAliasBlock : TerraformBlock
+public class AwsRoute53RecordAliasBlock : ITerraformBlock
 {
     /// <summary>
     /// The evaluate_target_health attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluateTargetHealth is required")]
-    public required TerraformProperty<bool> EvaluateTargetHealth
-    {
-        set => SetProperty("evaluate_target_health", value);
-    }
+    [TerraformPropertyName("evaluate_target_health")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> EvaluateTargetHealth { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
-    public required TerraformProperty<string> ZoneId
-    {
-        set => SetProperty("zone_id", value);
-    }
+    [TerraformPropertyName("zone_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ZoneId { get; set; }
 
 }
 
@@ -41,25 +38,23 @@ public class AwsRoute53RecordAliasBlock : TerraformBlock
 /// Block type for cidr_routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53RecordCidrRoutingPolicyBlock : TerraformBlock
+public class AwsRoute53RecordCidrRoutingPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The collection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
-    public required TerraformProperty<string> CollectionId
-    {
-        set => SetProperty("collection_id", value);
-    }
+    [TerraformPropertyName("collection_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CollectionId { get; set; }
 
     /// <summary>
     /// The location_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationName is required")]
-    public required TerraformProperty<string> LocationName
-    {
-        set => SetProperty("location_name", value);
-    }
+    [TerraformPropertyName("location_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LocationName { get; set; }
 
 }
 
@@ -67,16 +62,15 @@ public class AwsRoute53RecordCidrRoutingPolicyBlock : TerraformBlock
 /// Block type for failover_routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53RecordFailoverRoutingPolicyBlock : TerraformBlock
+public class AwsRoute53RecordFailoverRoutingPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -84,31 +78,28 @@ public class AwsRoute53RecordFailoverRoutingPolicyBlock : TerraformBlock
 /// Block type for geolocation_routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53RecordGeolocationRoutingPolicyBlock : TerraformBlock
+public class AwsRoute53RecordGeolocationRoutingPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The continent attribute.
     /// </summary>
-    public TerraformProperty<string>? Continent
-    {
-        set => SetProperty("continent", value);
-    }
+    [TerraformPropertyName("continent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Continent { get; set; }
 
     /// <summary>
     /// The country attribute.
     /// </summary>
-    public TerraformProperty<string>? Country
-    {
-        set => SetProperty("country", value);
-    }
+    [TerraformPropertyName("country")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Country { get; set; }
 
     /// <summary>
     /// The subdivision attribute.
     /// </summary>
-    public TerraformProperty<string>? Subdivision
-    {
-        set => SetProperty("subdivision", value);
-    }
+    [TerraformPropertyName("subdivision")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Subdivision { get; set; }
 
 }
 
@@ -116,31 +107,28 @@ public class AwsRoute53RecordGeolocationRoutingPolicyBlock : TerraformBlock
 /// Block type for geoproximity_routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53RecordGeoproximityRoutingPolicyBlock : TerraformBlock
+public class AwsRoute53RecordGeoproximityRoutingPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsRegion
-    {
-        set => SetProperty("aws_region", value);
-    }
+    [TerraformPropertyName("aws_region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AwsRegion { get; set; }
 
     /// <summary>
     /// The bias attribute.
     /// </summary>
-    public TerraformProperty<double>? Bias
-    {
-        set => SetProperty("bias", value);
-    }
+    [TerraformPropertyName("bias")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Bias { get; set; }
 
     /// <summary>
     /// The local_zone_group attribute.
     /// </summary>
-    public TerraformProperty<string>? LocalZoneGroup
-    {
-        set => SetProperty("local_zone_group", value);
-    }
+    [TerraformPropertyName("local_zone_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LocalZoneGroup { get; set; }
 
 }
 
@@ -148,16 +136,15 @@ public class AwsRoute53RecordGeoproximityRoutingPolicyBlock : TerraformBlock
 /// Block type for latency_routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53RecordLatencyRoutingPolicyBlock : TerraformBlock
+public class AwsRoute53RecordLatencyRoutingPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The region attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
-    public required TerraformProperty<string> Region
-    {
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Region { get; set; }
 
 }
 
@@ -165,31 +152,28 @@ public class AwsRoute53RecordLatencyRoutingPolicyBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRoute53RecordTimeoutsBlock : TerraformBlock
+public class AwsRoute53RecordTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -197,16 +181,15 @@ public class AwsRoute53RecordTimeoutsBlock : TerraformBlock
 /// Block type for weighted_routing_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53RecordWeightedRoutingPolicyBlock : TerraformBlock
+public class AwsRoute53RecordWeightedRoutingPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The weight attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
-    public required TerraformProperty<double> Weight
-    {
-        set => SetProperty("weight", value);
-    }
+    [TerraformPropertyName("weight")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Weight { get; set; }
 
 }
 
@@ -218,199 +201,149 @@ public class AwsRoute53Record : TerraformResource
 {
     public AwsRoute53Record(string name) : base("aws_route53_record", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("fqdn");
-        SetOutput("allow_overwrite");
-        SetOutput("health_check_id");
-        SetOutput("id");
-        SetOutput("multivalue_answer_routing_policy");
-        SetOutput("name");
-        SetOutput("records");
-        SetOutput("set_identifier");
-        SetOutput("ttl");
-        SetOutput("type");
-        SetOutput("zone_id");
     }
 
     /// <summary>
     /// The allow_overwrite attribute.
     /// </summary>
-    public TerraformProperty<bool> AllowOverwrite
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_overwrite");
-        set => SetProperty("allow_overwrite", value);
-    }
+    [TerraformPropertyName("allow_overwrite")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> AllowOverwrite { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "allow_overwrite");
 
     /// <summary>
     /// The health_check_id attribute.
     /// </summary>
-    public TerraformProperty<string> HealthCheckId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("health_check_id");
-        set => SetProperty("health_check_id", value);
-    }
+    [TerraformPropertyName("health_check_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HealthCheckId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The multivalue_answer_routing_policy attribute.
     /// </summary>
-    public TerraformProperty<bool> MultivalueAnswerRoutingPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("multivalue_answer_routing_policy");
-        set => SetProperty("multivalue_answer_routing_policy", value);
-    }
+    [TerraformPropertyName("multivalue_answer_routing_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MultivalueAnswerRoutingPolicy { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The records attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Records
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("records");
-        set => SetProperty("records", value);
-    }
+    [TerraformPropertyName("records")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Records { get; set; }
 
     /// <summary>
     /// The set_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> SetIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("set_identifier");
-        set => SetProperty("set_identifier", value);
-    }
+    [TerraformPropertyName("set_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SetIdentifier { get; set; }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformProperty<double> Ttl
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("ttl");
-        set => SetProperty("ttl", value);
-    }
+    [TerraformPropertyName("ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Ttl { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
-    public required TerraformProperty<string> ZoneId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("zone_id");
-        set => SetProperty("zone_id", value);
-    }
+    [TerraformPropertyName("zone_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ZoneId { get; set; }
 
     /// <summary>
     /// Block for alias.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Alias block(s) allowed")]
-    public List<AwsRoute53RecordAliasBlock>? Alias
-    {
-        set => SetProperty("alias", value);
-    }
+    [TerraformPropertyName("alias")]
+    public TerraformList<TerraformBlock<AwsRoute53RecordAliasBlock>>? Alias { get; set; } = new();
 
     /// <summary>
     /// Block for cidr_routing_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CidrRoutingPolicy block(s) allowed")]
-    public List<AwsRoute53RecordCidrRoutingPolicyBlock>? CidrRoutingPolicy
-    {
-        set => SetProperty("cidr_routing_policy", value);
-    }
+    [TerraformPropertyName("cidr_routing_policy")]
+    public TerraformList<TerraformBlock<AwsRoute53RecordCidrRoutingPolicyBlock>>? CidrRoutingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for failover_routing_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FailoverRoutingPolicy block(s) allowed")]
-    public List<AwsRoute53RecordFailoverRoutingPolicyBlock>? FailoverRoutingPolicy
-    {
-        set => SetProperty("failover_routing_policy", value);
-    }
+    [TerraformPropertyName("failover_routing_policy")]
+    public TerraformList<TerraformBlock<AwsRoute53RecordFailoverRoutingPolicyBlock>>? FailoverRoutingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for geolocation_routing_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GeolocationRoutingPolicy block(s) allowed")]
-    public List<AwsRoute53RecordGeolocationRoutingPolicyBlock>? GeolocationRoutingPolicy
-    {
-        set => SetProperty("geolocation_routing_policy", value);
-    }
+    [TerraformPropertyName("geolocation_routing_policy")]
+    public TerraformList<TerraformBlock<AwsRoute53RecordGeolocationRoutingPolicyBlock>>? GeolocationRoutingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for geoproximity_routing_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GeoproximityRoutingPolicy block(s) allowed")]
-    public List<AwsRoute53RecordGeoproximityRoutingPolicyBlock>? GeoproximityRoutingPolicy
-    {
-        set => SetProperty("geoproximity_routing_policy", value);
-    }
+    [TerraformPropertyName("geoproximity_routing_policy")]
+    public TerraformList<TerraformBlock<AwsRoute53RecordGeoproximityRoutingPolicyBlock>>? GeoproximityRoutingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for latency_routing_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LatencyRoutingPolicy block(s) allowed")]
-    public List<AwsRoute53RecordLatencyRoutingPolicyBlock>? LatencyRoutingPolicy
-    {
-        set => SetProperty("latency_routing_policy", value);
-    }
+    [TerraformPropertyName("latency_routing_policy")]
+    public TerraformList<TerraformBlock<AwsRoute53RecordLatencyRoutingPolicyBlock>>? LatencyRoutingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsRoute53RecordTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsRoute53RecordTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for weighted_routing_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeightedRoutingPolicy block(s) allowed")]
-    public List<AwsRoute53RecordWeightedRoutingPolicyBlock>? WeightedRoutingPolicy
-    {
-        set => SetProperty("weighted_routing_policy", value);
-    }
+    [TerraformPropertyName("weighted_routing_policy")]
+    public TerraformList<TerraformBlock<AwsRoute53RecordWeightedRoutingPolicyBlock>>? WeightedRoutingPolicy { get; set; } = new();
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    public TerraformExpression Fqdn => this["fqdn"];
+    [TerraformPropertyName("fqdn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fqdn");
 
 }

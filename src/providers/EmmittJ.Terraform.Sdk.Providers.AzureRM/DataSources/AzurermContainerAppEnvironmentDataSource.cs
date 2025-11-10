@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerAppEnvironmentDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermContainerAppEnvironmentDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,124 +24,120 @@ public class AzurermContainerAppEnvironmentDataSource : TerraformDataSource
 {
     public AzurermContainerAppEnvironmentDataSource(string name) : base("azurerm_container_app_environment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("custom_domain_verification_id");
-        SetOutput("default_domain");
-        SetOutput("docker_bridge_cidr");
-        SetOutput("infrastructure_subnet_id");
-        SetOutput("internal_load_balancer_enabled");
-        SetOutput("location");
-        SetOutput("log_analytics_workspace_name");
-        SetOutput("platform_reserved_cidr");
-        SetOutput("platform_reserved_dns_ip_address");
-        SetOutput("public_network_access");
-        SetOutput("static_ip_address");
-        SetOutput("tags");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the Container Apps Managed Environment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermContainerAppEnvironmentDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermContainerAppEnvironmentDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The ID of the Custom Domain Verification for this Container App Environment.
     /// </summary>
-    public TerraformExpression CustomDomainVerificationId => this["custom_domain_verification_id"];
+    [TerraformPropertyName("custom_domain_verification_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CustomDomainVerificationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "custom_domain_verification_id");
 
     /// <summary>
     /// The default publicly resolvable name of this Container App Environment
     /// </summary>
-    public TerraformExpression DefaultDomain => this["default_domain"];
+    [TerraformPropertyName("default_domain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultDomain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_domain");
 
     /// <summary>
     /// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
     /// </summary>
-    public TerraformExpression DockerBridgeCidr => this["docker_bridge_cidr"];
+    [TerraformPropertyName("docker_bridge_cidr")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DockerBridgeCidr => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "docker_bridge_cidr");
 
     /// <summary>
     /// The existing Subnet in use by the Container Apps Control Plane.
     /// </summary>
-    public TerraformExpression InfrastructureSubnetId => this["infrastructure_subnet_id"];
+    [TerraformPropertyName("infrastructure_subnet_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InfrastructureSubnetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "infrastructure_subnet_id");
 
     /// <summary>
     /// Does the Container Environment operate in Internal Load Balancing Mode?
     /// </summary>
-    public TerraformExpression InternalLoadBalancerEnabled => this["internal_load_balancer_enabled"];
+    [TerraformPropertyName("internal_load_balancer_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> InternalLoadBalancerEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "internal_load_balancer_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The name of the Log Analytics Workspace this Container Apps Managed Environment is linked to.
     /// </summary>
-    public TerraformExpression LogAnalyticsWorkspaceName => this["log_analytics_workspace_name"];
+    [TerraformPropertyName("log_analytics_workspace_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LogAnalyticsWorkspaceName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "log_analytics_workspace_name");
 
     /// <summary>
     /// The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
     /// </summary>
-    public TerraformExpression PlatformReservedCidr => this["platform_reserved_cidr"];
+    [TerraformPropertyName("platform_reserved_cidr")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PlatformReservedCidr => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "platform_reserved_cidr");
 
     /// <summary>
     /// The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
     /// </summary>
-    public TerraformExpression PlatformReservedDnsIpAddress => this["platform_reserved_dns_ip_address"];
+    [TerraformPropertyName("platform_reserved_dns_ip_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PlatformReservedDnsIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "platform_reserved_dns_ip_address");
 
     /// <summary>
     /// The public network access setting for this Container App Environment.
     /// </summary>
-    public TerraformExpression PublicNetworkAccess => this["public_network_access"];
+    [TerraformPropertyName("public_network_access")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublicNetworkAccess => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_network_access");
 
     /// <summary>
     /// The Static IP Address of the Environment.
     /// </summary>
-    public TerraformExpression StaticIpAddress => this["static_ip_address"];
+    [TerraformPropertyName("static_ip_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StaticIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "static_ip_address");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
 }

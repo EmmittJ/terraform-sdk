@@ -9,47 +9,48 @@ public class GoogleClientConfigDataSource : TerraformDataSource
 {
     public GoogleClientConfigDataSource(string name) : base("google_client_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_token");
-        SetOutput("default_labels");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("region");
-        SetOutput("zone");
     }
 
     /// <summary>
     /// The OAuth2 access token used by the client to authenticate against the Google Cloud API.
     /// </summary>
-    public TerraformExpression AccessToken => this["access_token"];
+    [TerraformPropertyName("access_token")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AccessToken => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_token");
 
     /// <summary>
     /// The default labels configured on the provider.
     /// </summary>
-    public TerraformExpression DefaultLabels => this["default_labels"];
+    [TerraformPropertyName("default_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> DefaultLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "default_labels");
 
     /// <summary>
     /// The ID of this data source in Terraform state. It is created in a projects/{{project}}/regions/{{region}}/zones/{{zone}} format and is NOT used by the data source in requests to Google APIs.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID of the project to apply any resources to.
     /// </summary>
-    public TerraformExpression Project => this["project"];
+    [TerraformPropertyName("project")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Project => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The region to operate under.
     /// </summary>
-    public TerraformExpression Region => this["region"];
+    [TerraformPropertyName("region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Region => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The zone to operate under.
     /// </summary>
-    public TerraformExpression Zone => this["zone"];
+    [TerraformPropertyName("zone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Zone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
 
 }

@@ -9,53 +9,41 @@ public class GoogleStorageProjectServiceAccountDataSource : TerraformDataSource
 {
     public GoogleStorageProjectServiceAccountDataSource(string name) : base("google_storage_project_service_account", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("email_address");
-        SetOutput("member");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("user_project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The user_project attribute.
     /// </summary>
-    public TerraformProperty<string> UserProject
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_project");
-        set => SetProperty("user_project", value);
-    }
+    [TerraformPropertyName("user_project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserProject { get; set; }
 
     /// <summary>
     /// The email_address attribute.
     /// </summary>
-    public TerraformExpression EmailAddress => this["email_address"];
+    [TerraformPropertyName("email_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EmailAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "email_address");
 
     /// <summary>
     /// The member attribute.
     /// </summary>
-    public TerraformExpression Member => this["member"];
+    [TerraformPropertyName("member")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Member => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "member");
 
 }

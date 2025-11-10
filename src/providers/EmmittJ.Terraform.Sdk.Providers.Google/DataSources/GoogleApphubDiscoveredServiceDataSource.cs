@@ -9,71 +9,57 @@ public class GoogleApphubDiscoveredServiceDataSource : TerraformDataSource
 {
     public GoogleApphubDiscoveredServiceDataSource(string name) : base("google_apphub_discovered_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("service_properties");
-        SetOutput("service_reference");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("service_uri");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The service_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
-    public required TerraformProperty<string> ServiceUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_uri");
-        set => SetProperty("service_uri", value);
-    }
+    [TerraformPropertyName("service_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceUri { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The service_properties attribute.
     /// </summary>
-    public TerraformExpression ServiceProperties => this["service_properties"];
+    [TerraformPropertyName("service_properties")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ServiceProperties => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "service_properties");
 
     /// <summary>
     /// The service_reference attribute.
     /// </summary>
-    public TerraformExpression ServiceReference => this["service_reference"];
+    [TerraformPropertyName("service_reference")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ServiceReference => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "service_reference");
 
 }

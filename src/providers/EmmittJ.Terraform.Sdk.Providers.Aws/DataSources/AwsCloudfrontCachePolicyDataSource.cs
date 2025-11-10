@@ -9,73 +9,69 @@ public class AwsCloudfrontCachePolicyDataSource : TerraformDataSource
 {
     public AwsCloudfrontCachePolicyDataSource(string name) : base("aws_cloudfront_cache_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("comment");
-        SetOutput("default_ttl");
-        SetOutput("etag");
-        SetOutput("max_ttl");
-        SetOutput("min_ttl");
-        SetOutput("parameters_in_cache_key_and_forwarded_to_origin");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformExpression Comment => this["comment"];
+    [TerraformPropertyName("comment")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Comment => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "comment");
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformExpression DefaultTtl => this["default_ttl"];
+    [TerraformPropertyName("default_ttl")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DefaultTtl => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "default_ttl");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
-    public TerraformExpression MaxTtl => this["max_ttl"];
+    [TerraformPropertyName("max_ttl")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxTtl => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_ttl");
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
-    public TerraformExpression MinTtl => this["min_ttl"];
+    [TerraformPropertyName("min_ttl")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MinTtl => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_ttl");
 
     /// <summary>
     /// The parameters_in_cache_key_and_forwarded_to_origin attribute.
     /// </summary>
-    public TerraformExpression ParametersInCacheKeyAndForwardedToOrigin => this["parameters_in_cache_key_and_forwarded_to_origin"];
+    [TerraformPropertyName("parameters_in_cache_key_and_forwarded_to_origin")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ParametersInCacheKeyAndForwardedToOrigin => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "parameters_in_cache_key_and_forwarded_to_origin");
 
 }

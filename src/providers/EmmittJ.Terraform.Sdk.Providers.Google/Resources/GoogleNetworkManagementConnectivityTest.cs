@@ -6,75 +6,67 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkManagementConnectivityTestDestinationBlock : TerraformBlock
+public class GoogleNetworkManagementConnectivityTestDestinationBlock : ITerraformBlock
 {
     /// <summary>
     /// A Cloud SQL instance URI.
     /// </summary>
-    public TerraformProperty<string>? CloudSqlInstance
-    {
-        set => SetProperty("cloud_sql_instance", value);
-    }
+    [TerraformPropertyName("cloud_sql_instance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CloudSqlInstance { get; set; }
 
     /// <summary>
     /// Forwarding rule URI. Forwarding rules are frontends for load balancers,
     /// PSC endpoints, and Protocol Forwarding.
     /// </summary>
-    public TerraformProperty<string>? ForwardingRule
-    {
-        set => SetProperty("forwarding_rule", value);
-    }
+    [TerraformPropertyName("forwarding_rule")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ForwardingRule { get; set; }
 
     /// <summary>
     /// A DNS endpoint of Google Kubernetes Engine cluster control plane.
     /// Requires gke_master_cluster to be set, can&#39;t be used simultaneoulsly with
     /// ip_address or network. Applicable only to destination endpoint.
     /// </summary>
-    public TerraformProperty<string>? Fqdn
-    {
-        set => SetProperty("fqdn", value);
-    }
+    [TerraformPropertyName("fqdn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Fqdn { get; set; }
 
     /// <summary>
     /// A cluster URI for Google Kubernetes Engine cluster control plane.
     /// </summary>
-    public TerraformProperty<string>? GkeMasterCluster
-    {
-        set => SetProperty("gke_master_cluster", value);
-    }
+    [TerraformPropertyName("gke_master_cluster")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GkeMasterCluster { get; set; }
 
     /// <summary>
     /// A Compute Engine instance URI.
     /// </summary>
-    public TerraformProperty<string>? Instance
-    {
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Instance { get; set; }
 
     /// <summary>
     /// The IP address of the endpoint, which can be an external or internal IP.
     /// </summary>
-    public TerraformProperty<string>? IpAddress
-    {
-        set => SetProperty("ip_address", value);
-    }
+    [TerraformPropertyName("ip_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IpAddress { get; set; }
 
     /// <summary>
     /// A VPC network URI.
     /// </summary>
-    public TerraformProperty<string>? Network
-    {
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Network { get; set; }
 
     /// <summary>
     /// The IP protocol port of the endpoint. Only applicable when protocol is
     /// TCP or UDP.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// Project ID where the endpoint is located.
@@ -87,26 +79,23 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// from the service project. In this case, the network that the IP address
     /// resides in is defined in the host project.
     /// </summary>
-    public TerraformProperty<string>? ProjectId
-    {
-        set => SetProperty("project_id", value);
-    }
+    [TerraformPropertyName("project_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProjectId { get; set; }
 
     /// <summary>
     /// A Redis Cluster URI.
     /// </summary>
-    public TerraformProperty<string>? RedisCluster
-    {
-        set => SetProperty("redis_cluster", value);
-    }
+    [TerraformPropertyName("redis_cluster")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RedisCluster { get; set; }
 
     /// <summary>
     /// A Redis Instance URI.
     /// </summary>
-    public TerraformProperty<string>? RedisInstance
-    {
-        set => SetProperty("redis_instance", value);
-    }
+    [TerraformPropertyName("redis_instance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RedisInstance { get; set; }
 
 }
 
@@ -114,64 +103,57 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
+public class GoogleNetworkManagementConnectivityTestSourceBlock : ITerraformBlock
 {
     /// <summary>
     /// A Cloud SQL instance URI.
     /// </summary>
-    public TerraformProperty<string>? CloudSqlInstance
-    {
-        set => SetProperty("cloud_sql_instance", value);
-    }
+    [TerraformPropertyName("cloud_sql_instance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CloudSqlInstance { get; set; }
 
     /// <summary>
     /// A cluster URI for Google Kubernetes Engine cluster control plane.
     /// </summary>
-    public TerraformProperty<string>? GkeMasterCluster
-    {
-        set => SetProperty("gke_master_cluster", value);
-    }
+    [TerraformPropertyName("gke_master_cluster")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GkeMasterCluster { get; set; }
 
     /// <summary>
     /// A Compute Engine instance URI.
     /// </summary>
-    public TerraformProperty<string>? Instance
-    {
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Instance { get; set; }
 
     /// <summary>
     /// The IP address of the endpoint, which can be an external or internal IP.
     /// </summary>
-    public TerraformProperty<string>? IpAddress
-    {
-        set => SetProperty("ip_address", value);
-    }
+    [TerraformPropertyName("ip_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IpAddress { get; set; }
 
     /// <summary>
     /// A VPC network URI.
     /// </summary>
-    public TerraformProperty<string>? Network
-    {
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Network { get; set; }
 
     /// <summary>
     /// Type of the network where the endpoint is located. Possible values: [&amp;quot;GCP_NETWORK&amp;quot;, &amp;quot;NON_GCP_NETWORK&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? NetworkType
-    {
-        set => SetProperty("network_type", value);
-    }
+    [TerraformPropertyName("network_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NetworkType { get; set; }
 
     /// <summary>
     /// The IP protocol port of the endpoint. Only applicable when protocol is
     /// TCP or UDP.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// Project ID where the endpoint is located.
@@ -184,10 +166,9 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// from the service project. In this case, the network that the IP address
     /// resides in is defined in the host project.
     /// </summary>
-    public TerraformProperty<string>? ProjectId
-    {
-        set => SetProperty("project_id", value);
-    }
+    [TerraformPropertyName("project_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProjectId { get; set; }
 
 }
 
@@ -195,31 +176,28 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkManagementConnectivityTestTimeoutsBlock : TerraformBlock
+public class GoogleNetworkManagementConnectivityTestTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -231,51 +209,29 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
 {
     public GoogleNetworkManagementConnectivityTest(string name) : base("google_network_management_connectivity_test", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("effective_labels");
-        SetOutput("terraform_labels");
-        SetOutput("bypass_firewall_checks");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("protocol");
-        SetOutput("related_projects");
-        SetOutput("round_trip");
     }
 
     /// <summary>
     /// Whether the analysis should skip firewall checking. Default value is false.
     /// </summary>
-    public TerraformProperty<bool> BypassFirewallChecks
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("bypass_firewall_checks");
-        set => SetProperty("bypass_firewall_checks", value);
-    }
+    [TerraformPropertyName("bypass_firewall_checks")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BypassFirewallChecks { get; set; }
 
     /// <summary>
     /// The user-supplied description of the Connectivity Test.
     /// Maximum of 512 characters.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -284,60 +240,48 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Unique name for the connectivity test.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// IP Protocol of the test. When not provided, &amp;quot;TCP&amp;quot; is assumed.
     /// </summary>
-    public TerraformProperty<string> Protocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Protocol { get; set; }
 
     /// <summary>
     /// Other projects that may be relevant for reachability analysis.
     /// This is applicable to scenarios where a test can cross project
     /// boundaries.
     /// </summary>
-    public List<TerraformProperty<string>> RelatedProjects
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("related_projects");
-        set => SetProperty("related_projects", value);
-    }
+    [TerraformPropertyName("related_projects")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? RelatedProjects { get; set; }
 
     /// <summary>
     /// Whether run analysis for the return path from destination to source.
     /// Default value is false.
     /// </summary>
-    public TerraformProperty<bool> RoundTrip
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("round_trip");
-        set => SetProperty("round_trip", value);
-    }
+    [TerraformPropertyName("round_trip")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RoundTrip { get; set; }
 
     /// <summary>
     /// Block for destination.
@@ -346,10 +290,8 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
-    public List<GoogleNetworkManagementConnectivityTestDestinationBlock>? Destination
-    {
-        set => SetProperty("destination", value);
-    }
+    [TerraformPropertyName("destination")]
+    public TerraformList<TerraformBlock<GoogleNetworkManagementConnectivityTestDestinationBlock>>? Destination { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -358,29 +300,29 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    public List<GoogleNetworkManagementConnectivityTestSourceBlock>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    public TerraformList<TerraformBlock<GoogleNetworkManagementConnectivityTestSourceBlock>>? Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleNetworkManagementConnectivityTestTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleNetworkManagementConnectivityTestTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

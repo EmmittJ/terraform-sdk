@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for restore_to_point_in_time in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDocdbClusterRestoreToPointInTimeBlock : TerraformBlock
+public class AwsDocdbClusterRestoreToPointInTimeBlock : ITerraformBlock
 {
     /// <summary>
     /// The restore_to_time attribute.
     /// </summary>
-    public TerraformProperty<string>? RestoreToTime
-    {
-        set => SetProperty("restore_to_time", value);
-    }
+    [TerraformPropertyName("restore_to_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RestoreToTime { get; set; }
 
     /// <summary>
     /// The restore_type attribute.
     /// </summary>
-    public TerraformProperty<string>? RestoreType
-    {
-        set => SetProperty("restore_type", value);
-    }
+    [TerraformPropertyName("restore_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RestoreType { get; set; }
 
     /// <summary>
     /// The source_cluster_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceClusterIdentifier is required")]
-    public required TerraformProperty<string> SourceClusterIdentifier
-    {
-        set => SetProperty("source_cluster_identifier", value);
-    }
+    [TerraformPropertyName("source_cluster_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceClusterIdentifier { get; set; }
 
     /// <summary>
     /// The use_latest_restorable_time attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseLatestRestorableTime
-    {
-        set => SetProperty("use_latest_restorable_time", value);
-    }
+    [TerraformPropertyName("use_latest_restorable_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseLatestRestorableTime { get; set; }
 
 }
 
@@ -47,25 +43,23 @@ public class AwsDocdbClusterRestoreToPointInTimeBlock : TerraformBlock
 /// Block type for serverless_v2_scaling_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDocdbClusterServerlessV2ScalingConfigurationBlock : TerraformBlock
+public class AwsDocdbClusterServerlessV2ScalingConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
-    public required TerraformProperty<double> MaxCapacity
-    {
-        set => SetProperty("max_capacity", value);
-    }
+    [TerraformPropertyName("max_capacity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxCapacity { get; set; }
 
     /// <summary>
     /// The min_capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
-    public required TerraformProperty<double> MinCapacity
-    {
-        set => SetProperty("min_capacity", value);
-    }
+    [TerraformPropertyName("min_capacity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MinCapacity { get; set; }
 
 }
 
@@ -73,31 +67,28 @@ public class AwsDocdbClusterServerlessV2ScalingConfigurationBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDocdbClusterTimeoutsBlock : TerraformBlock
+public class AwsDocdbClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -109,406 +100,302 @@ public class AwsDocdbCluster : TerraformResource
 {
     public AwsDocdbCluster(string name) : base("aws_docdb_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("cluster_resource_id");
-        SetOutput("endpoint");
-        SetOutput("hosted_zone_id");
-        SetOutput("master_user_secret");
-        SetOutput("reader_endpoint");
-        SetOutput("allow_major_version_upgrade");
-        SetOutput("apply_immediately");
-        SetOutput("availability_zones");
-        SetOutput("backup_retention_period");
-        SetOutput("cluster_identifier");
-        SetOutput("cluster_identifier_prefix");
-        SetOutput("cluster_members");
-        SetOutput("db_cluster_parameter_group_name");
-        SetOutput("db_subnet_group_name");
-        SetOutput("deletion_protection");
-        SetOutput("enabled_cloudwatch_logs_exports");
-        SetOutput("engine");
-        SetOutput("engine_version");
-        SetOutput("final_snapshot_identifier");
-        SetOutput("global_cluster_identifier");
-        SetOutput("id");
-        SetOutput("kms_key_id");
-        SetOutput("manage_master_user_password");
-        SetOutput("master_password");
-        SetOutput("master_password_wo");
-        SetOutput("master_password_wo_version");
-        SetOutput("master_username");
-        SetOutput("port");
-        SetOutput("preferred_backup_window");
-        SetOutput("preferred_maintenance_window");
-        SetOutput("region");
-        SetOutput("skip_final_snapshot");
-        SetOutput("snapshot_identifier");
-        SetOutput("storage_encrypted");
-        SetOutput("storage_type");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("vpc_security_group_ids");
     }
 
     /// <summary>
     /// The allow_major_version_upgrade attribute.
     /// </summary>
-    public TerraformProperty<bool> AllowMajorVersionUpgrade
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_major_version_upgrade");
-        set => SetProperty("allow_major_version_upgrade", value);
-    }
+    [TerraformPropertyName("allow_major_version_upgrade")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowMajorVersionUpgrade { get; set; }
 
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public TerraformProperty<bool> ApplyImmediately
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("apply_immediately");
-        set => SetProperty("apply_immediately", value);
-    }
+    [TerraformPropertyName("apply_immediately")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ApplyImmediately { get; set; }
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AvailabilityZones
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("availability_zones");
-        set => SetProperty("availability_zones", value);
-    }
+    [TerraformPropertyName("availability_zones")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AvailabilityZones { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "availability_zones");
 
     /// <summary>
     /// The backup_retention_period attribute.
     /// </summary>
-    public TerraformProperty<double> BackupRetentionPeriod
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("backup_retention_period");
-        set => SetProperty("backup_retention_period", value);
-    }
+    [TerraformPropertyName("backup_retention_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BackupRetentionPeriod { get; set; }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> ClusterIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
-        set => SetProperty("cluster_identifier", value);
-    }
+    [TerraformPropertyName("cluster_identifier")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ClusterIdentifier { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_identifier");
 
     /// <summary>
     /// The cluster_identifier_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> ClusterIdentifierPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier_prefix");
-        set => SetProperty("cluster_identifier_prefix", value);
-    }
+    [TerraformPropertyName("cluster_identifier_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ClusterIdentifierPrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_identifier_prefix");
 
     /// <summary>
     /// The cluster_members attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ClusterMembers
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("cluster_members");
-        set => SetProperty("cluster_members", value);
-    }
+    [TerraformPropertyName("cluster_members")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> ClusterMembers { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "cluster_members");
 
     /// <summary>
     /// The db_cluster_parameter_group_name attribute.
     /// </summary>
-    public TerraformProperty<string> DbClusterParameterGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_cluster_parameter_group_name");
-        set => SetProperty("db_cluster_parameter_group_name", value);
-    }
+    [TerraformPropertyName("db_cluster_parameter_group_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DbClusterParameterGroupName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "db_cluster_parameter_group_name");
 
     /// <summary>
     /// The db_subnet_group_name attribute.
     /// </summary>
-    public TerraformProperty<string> DbSubnetGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_subnet_group_name");
-        set => SetProperty("db_subnet_group_name", value);
-    }
+    [TerraformPropertyName("db_subnet_group_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DbSubnetGroupName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "db_subnet_group_name");
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    public TerraformProperty<bool> DeletionProtection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
-        set => SetProperty("deletion_protection", value);
-    }
+    [TerraformPropertyName("deletion_protection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeletionProtection { get; set; }
 
     /// <summary>
     /// The enabled_cloudwatch_logs_exports attribute.
     /// </summary>
-    public List<TerraformProperty<string>> EnabledCloudwatchLogsExports
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("enabled_cloudwatch_logs_exports");
-        set => SetProperty("enabled_cloudwatch_logs_exports", value);
-    }
+    [TerraformPropertyName("enabled_cloudwatch_logs_exports")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? EnabledCloudwatchLogsExports { get; set; }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string> Engine
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine");
-        set => SetProperty("engine", value);
-    }
+    [TerraformPropertyName("engine")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Engine { get; set; }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string> EngineVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
-        set => SetProperty("engine_version", value);
-    }
+    [TerraformPropertyName("engine_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EngineVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
 
     /// <summary>
     /// The final_snapshot_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> FinalSnapshotIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("final_snapshot_identifier");
-        set => SetProperty("final_snapshot_identifier", value);
-    }
+    [TerraformPropertyName("final_snapshot_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FinalSnapshotIdentifier { get; set; }
 
     /// <summary>
     /// The global_cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> GlobalClusterIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("global_cluster_identifier");
-        set => SetProperty("global_cluster_identifier", value);
-    }
+    [TerraformPropertyName("global_cluster_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GlobalClusterIdentifier { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_id");
 
     /// <summary>
     /// The manage_master_user_password attribute.
     /// </summary>
-    public TerraformProperty<bool> ManageMasterUserPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("manage_master_user_password");
-        set => SetProperty("manage_master_user_password", value);
-    }
+    [TerraformPropertyName("manage_master_user_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ManageMasterUserPassword { get; set; }
 
     /// <summary>
     /// The master_password attribute.
     /// </summary>
-    public TerraformProperty<string> MasterPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("master_password");
-        set => SetProperty("master_password", value);
-    }
+    [TerraformPropertyName("master_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MasterPassword { get; set; }
 
     /// <summary>
     /// The master_password_wo attribute.
     /// </summary>
-    public TerraformProperty<string> MasterPasswordWo
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("master_password_wo");
-        set => SetProperty("master_password_wo", value);
-    }
+    [TerraformPropertyName("master_password_wo")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MasterPasswordWo { get; set; }
 
     /// <summary>
     /// The master_password_wo_version attribute.
     /// </summary>
-    public TerraformProperty<double> MasterPasswordWoVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("master_password_wo_version");
-        set => SetProperty("master_password_wo_version", value);
-    }
+    [TerraformPropertyName("master_password_wo_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MasterPasswordWoVersion { get; set; }
 
     /// <summary>
     /// The master_username attribute.
     /// </summary>
-    public TerraformProperty<string> MasterUsername
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("master_username");
-        set => SetProperty("master_username", value);
-    }
+    [TerraformPropertyName("master_username")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MasterUsername { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "master_username");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double> Port
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("port");
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
-    public TerraformProperty<string> PreferredBackupWindow
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("preferred_backup_window");
-        set => SetProperty("preferred_backup_window", value);
-    }
+    [TerraformPropertyName("preferred_backup_window")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PreferredBackupWindow { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_backup_window");
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string> PreferredMaintenanceWindow
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("preferred_maintenance_window");
-        set => SetProperty("preferred_maintenance_window", value);
-    }
+    [TerraformPropertyName("preferred_maintenance_window")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PreferredMaintenanceWindow { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_maintenance_window");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The skip_final_snapshot attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipFinalSnapshot
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_final_snapshot");
-        set => SetProperty("skip_final_snapshot", value);
-    }
+    [TerraformPropertyName("skip_final_snapshot")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipFinalSnapshot { get; set; }
 
     /// <summary>
     /// The snapshot_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> SnapshotIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_identifier");
-        set => SetProperty("snapshot_identifier", value);
-    }
+    [TerraformPropertyName("snapshot_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SnapshotIdentifier { get; set; }
 
     /// <summary>
     /// The storage_encrypted attribute.
     /// </summary>
-    public TerraformProperty<bool> StorageEncrypted
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("storage_encrypted");
-        set => SetProperty("storage_encrypted", value);
-    }
+    [TerraformPropertyName("storage_encrypted")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StorageEncrypted { get; set; }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformProperty<string> StorageType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_type");
-        set => SetProperty("storage_type", value);
-    }
+    [TerraformPropertyName("storage_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> VpcSecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
-        set => SetProperty("vpc_security_group_ids", value);
-    }
+    [TerraformPropertyName("vpc_security_group_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> VpcSecurityGroupIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "vpc_security_group_ids");
 
     /// <summary>
     /// Block for restore_to_point_in_time.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreToPointInTime block(s) allowed")]
-    public List<AwsDocdbClusterRestoreToPointInTimeBlock>? RestoreToPointInTime
-    {
-        set => SetProperty("restore_to_point_in_time", value);
-    }
+    [TerraformPropertyName("restore_to_point_in_time")]
+    public TerraformList<TerraformBlock<AwsDocdbClusterRestoreToPointInTimeBlock>>? RestoreToPointInTime { get; set; } = new();
 
     /// <summary>
     /// Block for serverless_v2_scaling_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerlessV2ScalingConfiguration block(s) allowed")]
-    public List<AwsDocdbClusterServerlessV2ScalingConfigurationBlock>? ServerlessV2ScalingConfiguration
-    {
-        set => SetProperty("serverless_v2_scaling_configuration", value);
-    }
+    [TerraformPropertyName("serverless_v2_scaling_configuration")]
+    public TerraformList<TerraformBlock<AwsDocdbClusterServerlessV2ScalingConfigurationBlock>>? ServerlessV2ScalingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDocdbClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDocdbClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The cluster_resource_id attribute.
     /// </summary>
-    public TerraformExpression ClusterResourceId => this["cluster_resource_id"];
+    [TerraformPropertyName("cluster_resource_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClusterResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_resource_id");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    public TerraformExpression HostedZoneId => this["hosted_zone_id"];
+    [TerraformPropertyName("hosted_zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostedZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hosted_zone_id");
 
     /// <summary>
     /// The master_user_secret attribute.
     /// </summary>
-    public TerraformExpression MasterUserSecret => this["master_user_secret"];
+    [TerraformPropertyName("master_user_secret")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MasterUserSecret => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "master_user_secret");
 
     /// <summary>
     /// The reader_endpoint attribute.
     /// </summary>
-    public TerraformExpression ReaderEndpoint => this["reader_endpoint"];
+    [TerraformPropertyName("reader_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ReaderEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "reader_endpoint");
 
 }

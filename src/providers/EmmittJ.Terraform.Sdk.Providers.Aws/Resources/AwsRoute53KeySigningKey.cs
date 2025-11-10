@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRoute53KeySigningKeyTimeoutsBlock : TerraformBlock
+public class AwsRoute53KeySigningKeyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,133 +38,121 @@ public class AwsRoute53KeySigningKey : TerraformResource
 {
     public AwsRoute53KeySigningKey(string name) : base("aws_route53_key_signing_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("digest_algorithm_mnemonic");
-        SetOutput("digest_algorithm_type");
-        SetOutput("digest_value");
-        SetOutput("dnskey_record");
-        SetOutput("ds_record");
-        SetOutput("flag");
-        SetOutput("key_tag");
-        SetOutput("public_key");
-        SetOutput("signing_algorithm_mnemonic");
-        SetOutput("signing_algorithm_type");
-        SetOutput("hosted_zone_id");
-        SetOutput("id");
-        SetOutput("key_management_service_arn");
-        SetOutput("name");
-        SetOutput("status");
     }
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
-    public required TerraformProperty<string> HostedZoneId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("hosted_zone_id");
-        set => SetProperty("hosted_zone_id", value);
-    }
+    [TerraformPropertyName("hosted_zone_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HostedZoneId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key_management_service_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyManagementServiceArn is required")]
-    public required TerraformProperty<string> KeyManagementServiceArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_management_service_arn");
-        set => SetProperty("key_management_service_arn", value);
-    }
+    [TerraformPropertyName("key_management_service_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyManagementServiceArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsRoute53KeySigningKeyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsRoute53KeySigningKeyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The digest_algorithm_mnemonic attribute.
     /// </summary>
-    public TerraformExpression DigestAlgorithmMnemonic => this["digest_algorithm_mnemonic"];
+    [TerraformPropertyName("digest_algorithm_mnemonic")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DigestAlgorithmMnemonic => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "digest_algorithm_mnemonic");
 
     /// <summary>
     /// The digest_algorithm_type attribute.
     /// </summary>
-    public TerraformExpression DigestAlgorithmType => this["digest_algorithm_type"];
+    [TerraformPropertyName("digest_algorithm_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DigestAlgorithmType => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "digest_algorithm_type");
 
     /// <summary>
     /// The digest_value attribute.
     /// </summary>
-    public TerraformExpression DigestValue => this["digest_value"];
+    [TerraformPropertyName("digest_value")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DigestValue => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "digest_value");
 
     /// <summary>
     /// The dnskey_record attribute.
     /// </summary>
-    public TerraformExpression DnskeyRecord => this["dnskey_record"];
+    [TerraformPropertyName("dnskey_record")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnskeyRecord => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dnskey_record");
 
     /// <summary>
     /// The ds_record attribute.
     /// </summary>
-    public TerraformExpression DsRecord => this["ds_record"];
+    [TerraformPropertyName("ds_record")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DsRecord => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ds_record");
 
     /// <summary>
     /// The flag attribute.
     /// </summary>
-    public TerraformExpression Flag => this["flag"];
+    [TerraformPropertyName("flag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Flag => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "flag");
 
     /// <summary>
     /// The key_tag attribute.
     /// </summary>
-    public TerraformExpression KeyTag => this["key_tag"];
+    [TerraformPropertyName("key_tag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> KeyTag => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "key_tag");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
-    public TerraformExpression PublicKey => this["public_key"];
+    [TerraformPropertyName("public_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublicKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_key");
 
     /// <summary>
     /// The signing_algorithm_mnemonic attribute.
     /// </summary>
-    public TerraformExpression SigningAlgorithmMnemonic => this["signing_algorithm_mnemonic"];
+    [TerraformPropertyName("signing_algorithm_mnemonic")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SigningAlgorithmMnemonic => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signing_algorithm_mnemonic");
 
     /// <summary>
     /// The signing_algorithm_type attribute.
     /// </summary>
-    public TerraformExpression SigningAlgorithmType => this["signing_algorithm_type"];
+    [TerraformPropertyName("signing_algorithm_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SigningAlgorithmType => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "signing_algorithm_type");
 
 }

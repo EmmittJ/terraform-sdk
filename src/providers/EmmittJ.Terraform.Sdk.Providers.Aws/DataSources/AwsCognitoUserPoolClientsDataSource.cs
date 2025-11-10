@@ -9,54 +9,42 @@ public class AwsCognitoUserPoolClientsDataSource : TerraformDataSource
 {
     public AwsCognitoUserPoolClientsDataSource(string name) : base("aws_cognito_user_pool_clients", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("client_ids");
-        SetOutput("client_names");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("user_pool_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
-    public required TerraformProperty<string> UserPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
-        set => SetProperty("user_pool_id", value);
-    }
+    [TerraformPropertyName("user_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserPoolId { get; set; }
 
     /// <summary>
     /// The client_ids attribute.
     /// </summary>
-    public TerraformExpression ClientIds => this["client_ids"];
+    [TerraformPropertyName("client_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ClientIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "client_ids");
 
     /// <summary>
     /// The client_names attribute.
     /// </summary>
-    public TerraformExpression ClientNames => this["client_names"];
+    [TerraformPropertyName("client_names")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ClientNames => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "client_names");
 
 }

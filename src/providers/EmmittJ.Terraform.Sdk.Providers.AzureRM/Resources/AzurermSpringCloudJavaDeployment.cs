@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for quota in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudJavaDeploymentQuotaBlock : TerraformBlock
+public class AzurermSpringCloudJavaDeploymentQuotaBlock : ITerraformBlock
 {
     /// <summary>
     /// The cpu attribute.
     /// </summary>
-    public TerraformProperty<string>? Cpu
-    {
-        set => SetProperty("cpu", value);
-    }
+    [TerraformPropertyName("cpu")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Cpu { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "cpu");
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    public TerraformProperty<string>? Memory
-    {
-        set => SetProperty("memory", value);
-    }
+    [TerraformPropertyName("memory")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Memory { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "memory");
 
 }
 
@@ -30,39 +28,35 @@ public class AzurermSpringCloudJavaDeploymentQuotaBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudJavaDeploymentTimeoutsBlock : TerraformBlock
+public class AzurermSpringCloudJavaDeploymentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -74,102 +68,72 @@ public class AzurermSpringCloudJavaDeployment : TerraformResource
 {
     public AzurermSpringCloudJavaDeployment(string name) : base("azurerm_spring_cloud_java_deployment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("environment_variables");
-        SetOutput("id");
-        SetOutput("instance_count");
-        SetOutput("jvm_options");
-        SetOutput("name");
-        SetOutput("runtime_version");
-        SetOutput("spring_cloud_app_id");
     }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> EnvironmentVariables
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("environment_variables");
-        set => SetProperty("environment_variables", value);
-    }
+    [TerraformPropertyName("environment_variables")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? EnvironmentVariables { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformProperty<double> InstanceCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
-        set => SetProperty("instance_count", value);
-    }
+    [TerraformPropertyName("instance_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InstanceCount { get; set; }
 
     /// <summary>
     /// The jvm_options attribute.
     /// </summary>
-    public TerraformProperty<string> JvmOptions
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("jvm_options");
-        set => SetProperty("jvm_options", value);
-    }
+    [TerraformPropertyName("jvm_options")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? JvmOptions { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The runtime_version attribute.
     /// </summary>
-    public TerraformProperty<string> RuntimeVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("runtime_version");
-        set => SetProperty("runtime_version", value);
-    }
+    [TerraformPropertyName("runtime_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RuntimeVersion { get; set; }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
-    public required TerraformProperty<string> SpringCloudAppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_app_id");
-        set => SetProperty("spring_cloud_app_id", value);
-    }
+    [TerraformPropertyName("spring_cloud_app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SpringCloudAppId { get; set; }
 
     /// <summary>
     /// Block for quota.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
-    public List<AzurermSpringCloudJavaDeploymentQuotaBlock>? Quota
-    {
-        set => SetProperty("quota", value);
-    }
+    [TerraformPropertyName("quota")]
+    public TerraformList<TerraformBlock<AzurermSpringCloudJavaDeploymentQuotaBlock>>? Quota { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSpringCloudJavaDeploymentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSpringCloudJavaDeploymentTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

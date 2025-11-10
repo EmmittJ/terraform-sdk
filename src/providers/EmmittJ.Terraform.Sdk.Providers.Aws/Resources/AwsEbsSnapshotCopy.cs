@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEbsSnapshotCopyTimeoutsBlock : TerraformBlock
+public class AwsEbsSnapshotCopyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,194 +31,155 @@ public class AwsEbsSnapshotCopy : TerraformResource
 {
     public AwsEbsSnapshotCopy(string name) : base("aws_ebs_snapshot_copy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("data_encryption_key_id");
-        SetOutput("outpost_arn");
-        SetOutput("owner_alias");
-        SetOutput("owner_id");
-        SetOutput("volume_id");
-        SetOutput("volume_size");
-        SetOutput("completion_duration_minutes");
-        SetOutput("description");
-        SetOutput("encrypted");
-        SetOutput("id");
-        SetOutput("kms_key_id");
-        SetOutput("permanent_restore");
-        SetOutput("region");
-        SetOutput("source_region");
-        SetOutput("source_snapshot_id");
-        SetOutput("storage_tier");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("temporary_restore_days");
     }
 
     /// <summary>
     /// The completion_duration_minutes attribute.
     /// </summary>
-    public TerraformProperty<double> CompletionDurationMinutes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("completion_duration_minutes");
-        set => SetProperty("completion_duration_minutes", value);
-    }
+    [TerraformPropertyName("completion_duration_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CompletionDurationMinutes { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformProperty<bool> Encrypted
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("encrypted");
-        set => SetProperty("encrypted", value);
-    }
+    [TerraformPropertyName("encrypted")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Encrypted { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The permanent_restore attribute.
     /// </summary>
-    public TerraformProperty<bool> PermanentRestore
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("permanent_restore");
-        set => SetProperty("permanent_restore", value);
-    }
+    [TerraformPropertyName("permanent_restore")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PermanentRestore { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The source_region attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRegion is required")]
-    public required TerraformProperty<string> SourceRegion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_region");
-        set => SetProperty("source_region", value);
-    }
+    [TerraformPropertyName("source_region")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceRegion { get; set; }
 
     /// <summary>
     /// The source_snapshot_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSnapshotId is required")]
-    public required TerraformProperty<string> SourceSnapshotId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_snapshot_id");
-        set => SetProperty("source_snapshot_id", value);
-    }
+    [TerraformPropertyName("source_snapshot_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceSnapshotId { get; set; }
 
     /// <summary>
     /// The storage_tier attribute.
     /// </summary>
-    public TerraformProperty<string> StorageTier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_tier");
-        set => SetProperty("storage_tier", value);
-    }
+    [TerraformPropertyName("storage_tier")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StorageTier { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_tier");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The temporary_restore_days attribute.
     /// </summary>
-    public TerraformProperty<double> TemporaryRestoreDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("temporary_restore_days");
-        set => SetProperty("temporary_restore_days", value);
-    }
+    [TerraformPropertyName("temporary_restore_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TemporaryRestoreDays { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEbsSnapshotCopyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEbsSnapshotCopyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The data_encryption_key_id attribute.
     /// </summary>
-    public TerraformExpression DataEncryptionKeyId => this["data_encryption_key_id"];
+    [TerraformPropertyName("data_encryption_key_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DataEncryptionKeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "data_encryption_key_id");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    public TerraformExpression OutpostArn => this["outpost_arn"];
+    [TerraformPropertyName("outpost_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OutpostArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "outpost_arn");
 
     /// <summary>
     /// The owner_alias attribute.
     /// </summary>
-    public TerraformExpression OwnerAlias => this["owner_alias"];
+    [TerraformPropertyName("owner_alias")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OwnerAlias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_alias");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformExpression OwnerId => this["owner_id"];
+    [TerraformPropertyName("owner_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
-    public TerraformExpression VolumeId => this["volume_id"];
+    [TerraformPropertyName("volume_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VolumeId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "volume_id");
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    public TerraformExpression VolumeSize => this["volume_size"];
+    [TerraformPropertyName("volume_size")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> VolumeSize => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "volume_size");
 
 }

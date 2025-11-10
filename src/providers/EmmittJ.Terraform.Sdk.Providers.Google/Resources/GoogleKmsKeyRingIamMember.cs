@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleKmsKeyRingIamMemberConditionBlock : TerraformBlock
+public class GoogleKmsKeyRingIamMemberConditionBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The expression attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
-    public required TerraformProperty<string> Expression
-    {
-        set => SetProperty("expression", value);
-    }
+    [TerraformPropertyName("expression")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Expression { get; set; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
-    public required TerraformProperty<string> Title
-    {
-        set => SetProperty("title", value);
-    }
+    [TerraformPropertyName("title")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Title { get; set; }
 
 }
 
@@ -44,70 +41,52 @@ public class GoogleKmsKeyRingIamMember : TerraformResource
 {
     public GoogleKmsKeyRingIamMember(string name) : base("google_kms_key_ring_iam_member", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("etag");
-        SetOutput("id");
-        SetOutput("key_ring_id");
-        SetOutput("member");
-        SetOutput("role");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key_ring_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRingId is required")]
-    public required TerraformProperty<string> KeyRingId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_ring_id");
-        set => SetProperty("key_ring_id", value);
-    }
+    [TerraformPropertyName("key_ring_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyRingId { get; set; }
 
     /// <summary>
     /// The member attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
-    public required TerraformProperty<string> Member
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("member");
-        set => SetProperty("member", value);
-    }
+    [TerraformPropertyName("member")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Member { get; set; }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
-    public required TerraformProperty<string> Role
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role");
-        set => SetProperty("role", value);
-    }
+    [TerraformPropertyName("role")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Role { get; set; }
 
     /// <summary>
     /// Block for condition.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
-    public List<GoogleKmsKeyRingIamMemberConditionBlock>? Condition
-    {
-        set => SetProperty("condition", value);
-    }
+    [TerraformPropertyName("condition")]
+    public TerraformList<TerraformBlock<GoogleKmsKeyRingIamMemberConditionBlock>>? Condition { get; set; } = new();
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadServicePrincipalsDataSourceTimeoutsBlock : TerraformBlock
+public class AzureadServicePrincipalsDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,86 +24,62 @@ public class AzureadServicePrincipalsDataSource : TerraformDataSource
 {
     public AzureadServicePrincipalsDataSource(string name) : base("azuread_service_principals", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("service_principals");
-        SetOutput("client_ids");
-        SetOutput("display_names");
-        SetOutput("id");
-        SetOutput("ignore_missing");
-        SetOutput("object_ids");
-        SetOutput("return_all");
     }
 
     /// <summary>
     /// The client IDs of the applications associated with the service principals
     /// </summary>
-    public List<TerraformProperty<string>> ClientIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("client_ids");
-        set => SetProperty("client_ids", value);
-    }
+    [TerraformPropertyName("client_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> ClientIds { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "client_ids");
 
     /// <summary>
     /// The display names of the applications associated with the service principals
     /// </summary>
-    public List<TerraformProperty<string>> DisplayNames
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("display_names");
-        set => SetProperty("display_names", value);
-    }
+    [TerraformPropertyName("display_names")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> DisplayNames { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "display_names");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Ignore missing service principals and return the service principals that were found. The data source will still fail if no service principals are found
     /// </summary>
-    public TerraformProperty<bool> IgnoreMissing
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_missing");
-        set => SetProperty("ignore_missing", value);
-    }
+    [TerraformPropertyName("ignore_missing")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IgnoreMissing { get; set; }
 
     /// <summary>
     /// The object IDs of the service principals
     /// </summary>
-    public List<TerraformProperty<string>> ObjectIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("object_ids");
-        set => SetProperty("object_ids", value);
-    }
+    [TerraformPropertyName("object_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> ObjectIds { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "object_ids");
 
     /// <summary>
     /// Fetch all service principals with no filter and return all that were found. The data source will still fail if no service principals are found.
     /// </summary>
-    public TerraformProperty<bool> ReturnAll
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("return_all");
-        set => SetProperty("return_all", value);
-    }
+    [TerraformPropertyName("return_all")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ReturnAll { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadServicePrincipalsDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadServicePrincipalsDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// A list of service_principals
     /// </summary>
-    public TerraformExpression ServicePrincipals => this["service_principals"];
+    [TerraformPropertyName("service_principals")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ServicePrincipals => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "service_principals");
 
 }

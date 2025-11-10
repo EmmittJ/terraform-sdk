@@ -9,33 +9,27 @@ public class GoogleDnsManagedZonesDataSource : TerraformDataSource
 {
     public GoogleDnsManagedZonesDataSource(string name) : base("google_dns_managed_zones", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("managed_zones");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The managed_zones attribute.
     /// </summary>
-    public TerraformExpression ManagedZones => this["managed_zones"];
+    [TerraformPropertyName("managed_zones")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ManagedZones => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "managed_zones");
 
 }

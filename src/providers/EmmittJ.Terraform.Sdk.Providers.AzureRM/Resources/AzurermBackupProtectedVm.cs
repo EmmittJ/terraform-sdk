@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
+public class AzurermBackupProtectedVmTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,102 +45,71 @@ public class AzurermBackupProtectedVm : TerraformResource
 {
     public AzurermBackupProtectedVm(string name) : base("azurerm_backup_protected_vm", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("backup_policy_id");
-        SetOutput("exclude_disk_luns");
-        SetOutput("id");
-        SetOutput("include_disk_luns");
-        SetOutput("protection_state");
-        SetOutput("recovery_vault_name");
-        SetOutput("resource_group_name");
-        SetOutput("source_vm_id");
     }
 
     /// <summary>
     /// The backup_policy_id attribute.
     /// </summary>
-    public TerraformProperty<string> BackupPolicyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backup_policy_id");
-        set => SetProperty("backup_policy_id", value);
-    }
+    [TerraformPropertyName("backup_policy_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BackupPolicyId { get; set; }
 
     /// <summary>
     /// The exclude_disk_luns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<double>> ExcludeDiskLuns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<double>>>("exclude_disk_luns");
-        set => SetProperty("exclude_disk_luns", value);
-    }
+    [TerraformPropertyName("exclude_disk_luns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<double>>>? ExcludeDiskLuns { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The include_disk_luns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<double>> IncludeDiskLuns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<double>>>("include_disk_luns");
-        set => SetProperty("include_disk_luns", value);
-    }
+    [TerraformPropertyName("include_disk_luns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<double>>>? IncludeDiskLuns { get; set; }
 
     /// <summary>
     /// The protection_state attribute.
     /// </summary>
-    public TerraformProperty<string> ProtectionState
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protection_state");
-        set => SetProperty("protection_state", value);
-    }
+    [TerraformPropertyName("protection_state")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ProtectionState { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protection_state");
 
     /// <summary>
     /// The recovery_vault_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
-    public required TerraformProperty<string> RecoveryVaultName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_name");
-        set => SetProperty("recovery_vault_name", value);
-    }
+    [TerraformPropertyName("recovery_vault_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RecoveryVaultName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The source_vm_id attribute.
     /// </summary>
-    public TerraformProperty<string> SourceVmId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_vm_id");
-        set => SetProperty("source_vm_id", value);
-    }
+    [TerraformPropertyName("source_vm_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SourceVmId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_vm_id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermBackupProtectedVmTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermBackupProtectedVmTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

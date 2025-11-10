@@ -9,196 +9,203 @@ public class AwsMemorydbClusterDataSource : TerraformDataSource
 {
     public AwsMemorydbClusterDataSource(string name) : base("aws_memorydb_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("acl_name");
-        SetOutput("arn");
-        SetOutput("auto_minor_version_upgrade");
-        SetOutput("cluster_endpoint");
-        SetOutput("data_tiering");
-        SetOutput("description");
-        SetOutput("engine");
-        SetOutput("engine_patch_version");
-        SetOutput("engine_version");
-        SetOutput("final_snapshot_name");
-        SetOutput("kms_key_arn");
-        SetOutput("maintenance_window");
-        SetOutput("node_type");
-        SetOutput("num_replicas_per_shard");
-        SetOutput("num_shards");
-        SetOutput("parameter_group_name");
-        SetOutput("port");
-        SetOutput("security_group_ids");
-        SetOutput("shards");
-        SetOutput("snapshot_retention_limit");
-        SetOutput("snapshot_window");
-        SetOutput("sns_topic_arn");
-        SetOutput("subnet_group_name");
-        SetOutput("tls_enabled");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The acl_name attribute.
     /// </summary>
-    public TerraformExpression AclName => this["acl_name"];
+    [TerraformPropertyName("acl_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AclName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "acl_name");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
-    public TerraformExpression AutoMinorVersionUpgrade => this["auto_minor_version_upgrade"];
+    [TerraformPropertyName("auto_minor_version_upgrade")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AutoMinorVersionUpgrade => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "auto_minor_version_upgrade");
 
     /// <summary>
     /// The cluster_endpoint attribute.
     /// </summary>
-    public TerraformExpression ClusterEndpoint => this["cluster_endpoint"];
+    [TerraformPropertyName("cluster_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ClusterEndpoint => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cluster_endpoint");
 
     /// <summary>
     /// The data_tiering attribute.
     /// </summary>
-    public TerraformExpression DataTiering => this["data_tiering"];
+    [TerraformPropertyName("data_tiering")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DataTiering => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "data_tiering");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformExpression Engine => this["engine"];
+    [TerraformPropertyName("engine")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Engine => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine");
 
     /// <summary>
     /// The engine_patch_version attribute.
     /// </summary>
-    public TerraformExpression EnginePatchVersion => this["engine_patch_version"];
+    [TerraformPropertyName("engine_patch_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EnginePatchVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_patch_version");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformExpression EngineVersion => this["engine_version"];
+    [TerraformPropertyName("engine_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EngineVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
 
     /// <summary>
     /// The final_snapshot_name attribute.
     /// </summary>
-    public TerraformExpression FinalSnapshotName => this["final_snapshot_name"];
+    [TerraformPropertyName("final_snapshot_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FinalSnapshotName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "final_snapshot_name");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformExpression KmsKeyArn => this["kms_key_arn"];
+    [TerraformPropertyName("kms_key_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsKeyArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_arn");
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformExpression MaintenanceWindow => this["maintenance_window"];
+    [TerraformPropertyName("maintenance_window")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MaintenanceWindow => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "maintenance_window");
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public TerraformExpression NodeType => this["node_type"];
+    [TerraformPropertyName("node_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NodeType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_type");
 
     /// <summary>
     /// The num_replicas_per_shard attribute.
     /// </summary>
-    public TerraformExpression NumReplicasPerShard => this["num_replicas_per_shard"];
+    [TerraformPropertyName("num_replicas_per_shard")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NumReplicasPerShard => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "num_replicas_per_shard");
 
     /// <summary>
     /// The num_shards attribute.
     /// </summary>
-    public TerraformExpression NumShards => this["num_shards"];
+    [TerraformPropertyName("num_shards")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NumShards => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "num_shards");
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformExpression ParameterGroupName => this["parameter_group_name"];
+    [TerraformPropertyName("parameter_group_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ParameterGroupName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parameter_group_name");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformExpression Port => this["port"];
+    [TerraformPropertyName("port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Port => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "port");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformExpression SecurityGroupIds => this["security_group_ids"];
+    [TerraformPropertyName("security_group_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SecurityGroupIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "security_group_ids");
 
     /// <summary>
     /// The shards attribute.
     /// </summary>
-    public TerraformExpression Shards => this["shards"];
+    [TerraformPropertyName("shards")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Shards => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "shards");
 
     /// <summary>
     /// The snapshot_retention_limit attribute.
     /// </summary>
-    public TerraformExpression SnapshotRetentionLimit => this["snapshot_retention_limit"];
+    [TerraformPropertyName("snapshot_retention_limit")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SnapshotRetentionLimit => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "snapshot_retention_limit");
 
     /// <summary>
     /// The snapshot_window attribute.
     /// </summary>
-    public TerraformExpression SnapshotWindow => this["snapshot_window"];
+    [TerraformPropertyName("snapshot_window")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SnapshotWindow => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "snapshot_window");
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
-    public TerraformExpression SnsTopicArn => this["sns_topic_arn"];
+    [TerraformPropertyName("sns_topic_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SnsTopicArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sns_topic_arn");
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
-    public TerraformExpression SubnetGroupName => this["subnet_group_name"];
+    [TerraformPropertyName("subnet_group_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SubnetGroupName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subnet_group_name");
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
-    public TerraformExpression TlsEnabled => this["tls_enabled"];
+    [TerraformPropertyName("tls_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> TlsEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "tls_enabled");
 
 }

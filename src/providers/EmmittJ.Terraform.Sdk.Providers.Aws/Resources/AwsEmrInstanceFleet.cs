@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for instance_type_configs in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBlock
+public class AwsEmrInstanceFleetInstanceTypeConfigsBlock : ITerraformBlock
 {
     /// <summary>
     /// The bid_price attribute.
     /// </summary>
-    public TerraformProperty<string>? BidPrice
-    {
-        set => SetProperty("bid_price", value);
-    }
+    [TerraformPropertyName("bid_price")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BidPrice { get; set; }
 
     /// <summary>
     /// The bid_price_as_percentage_of_on_demand_price attribute.
     /// </summary>
-    public TerraformProperty<double>? BidPriceAsPercentageOfOnDemandPrice
-    {
-        set => SetProperty("bid_price_as_percentage_of_on_demand_price", value);
-    }
+    [TerraformPropertyName("bid_price_as_percentage_of_on_demand_price")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BidPriceAsPercentageOfOnDemandPrice { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    public required TerraformProperty<string> InstanceType
-    {
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceType { get; set; }
 
     /// <summary>
     /// The weighted_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? WeightedCapacity
-    {
-        set => SetProperty("weighted_capacity", value);
-    }
+    [TerraformPropertyName("weighted_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? WeightedCapacity { get; set; }
 
 }
 
@@ -47,7 +43,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBlock
 /// Block type for launch_specifications in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEmrInstanceFleetLaunchSpecificationsBlock : TerraformBlock
+public class AwsEmrInstanceFleetLaunchSpecificationsBlock : ITerraformBlock
 {
 }
 
@@ -59,103 +55,78 @@ public class AwsEmrInstanceFleet : TerraformResource
 {
     public AwsEmrInstanceFleet(string name) : base("aws_emr_instance_fleet", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("provisioned_on_demand_capacity");
-        SetOutput("provisioned_spot_capacity");
-        SetOutput("cluster_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("target_on_demand_capacity");
-        SetOutput("target_spot_capacity");
     }
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    public required TerraformProperty<string> ClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
-        set => SetProperty("cluster_id", value);
-    }
+    [TerraformPropertyName("cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The target_on_demand_capacity attribute.
     /// </summary>
-    public TerraformProperty<double> TargetOnDemandCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("target_on_demand_capacity");
-        set => SetProperty("target_on_demand_capacity", value);
-    }
+    [TerraformPropertyName("target_on_demand_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TargetOnDemandCapacity { get; set; }
 
     /// <summary>
     /// The target_spot_capacity attribute.
     /// </summary>
-    public TerraformProperty<double> TargetSpotCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("target_spot_capacity");
-        set => SetProperty("target_spot_capacity", value);
-    }
+    [TerraformPropertyName("target_spot_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TargetSpotCapacity { get; set; }
 
     /// <summary>
     /// Block for instance_type_configs.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsEmrInstanceFleetInstanceTypeConfigsBlock>? InstanceTypeConfigs
-    {
-        set => SetProperty("instance_type_configs", value);
-    }
+    [TerraformPropertyName("instance_type_configs")]
+    public TerraformSet<TerraformBlock<AwsEmrInstanceFleetInstanceTypeConfigsBlock>>? InstanceTypeConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for launch_specifications.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchSpecifications block(s) allowed")]
-    public List<AwsEmrInstanceFleetLaunchSpecificationsBlock>? LaunchSpecifications
-    {
-        set => SetProperty("launch_specifications", value);
-    }
+    [TerraformPropertyName("launch_specifications")]
+    public TerraformList<TerraformBlock<AwsEmrInstanceFleetLaunchSpecificationsBlock>>? LaunchSpecifications { get; set; } = new();
 
     /// <summary>
     /// The provisioned_on_demand_capacity attribute.
     /// </summary>
-    public TerraformExpression ProvisionedOnDemandCapacity => this["provisioned_on_demand_capacity"];
+    [TerraformPropertyName("provisioned_on_demand_capacity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ProvisionedOnDemandCapacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "provisioned_on_demand_capacity");
 
     /// <summary>
     /// The provisioned_spot_capacity attribute.
     /// </summary>
-    public TerraformExpression ProvisionedSpotCapacity => this["provisioned_spot_capacity"];
+    [TerraformPropertyName("provisioned_spot_capacity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ProvisionedSpotCapacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "provisioned_spot_capacity");
 
 }

@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for retention_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock : TerraformBlock
+public class AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The duration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
-    public required TerraformProperty<string> Duration
-    {
-        set => SetProperty("duration", value);
-    }
+    [TerraformPropertyName("duration")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Duration { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    public required TerraformProperty<double> Priority
-    {
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
 
 }
 
@@ -41,31 +38,28 @@ public class AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataProtectionBackupPolicyPostgresqlTimeoutsBlock : TerraformBlock
+public class AzurermDataProtectionBackupPolicyPostgresqlTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -76,104 +70,74 @@ public class AzurermDataProtectionBackupPolicyPostgresql : TerraformResource
 {
     public AzurermDataProtectionBackupPolicyPostgresql(string name) : base("azurerm_data_protection_backup_policy_postgresql", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("backup_repeating_time_intervals");
-        SetOutput("default_retention_duration");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("time_zone");
-        SetOutput("vault_name");
     }
 
     /// <summary>
     /// The backup_repeating_time_intervals attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRepeatingTimeIntervals is required")]
-    public List<TerraformProperty<string>> BackupRepeatingTimeIntervals
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("backup_repeating_time_intervals");
-        set => SetProperty("backup_repeating_time_intervals", value);
-    }
+    [TerraformPropertyName("backup_repeating_time_intervals")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? BackupRepeatingTimeIntervals { get; set; }
 
     /// <summary>
     /// The default_retention_duration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRetentionDuration is required")]
-    public required TerraformProperty<string> DefaultRetentionDuration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_retention_duration");
-        set => SetProperty("default_retention_duration", value);
-    }
+    [TerraformPropertyName("default_retention_duration")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DefaultRetentionDuration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string> TimeZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
-        set => SetProperty("time_zone", value);
-    }
+    [TerraformPropertyName("time_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TimeZone { get; set; }
 
     /// <summary>
     /// The vault_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultName is required")]
-    public required TerraformProperty<string> VaultName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vault_name");
-        set => SetProperty("vault_name", value);
-    }
+    [TerraformPropertyName("vault_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VaultName { get; set; }
 
     /// <summary>
     /// Block for retention_rule.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock>? RetentionRule
-    {
-        set => SetProperty("retention_rule", value);
-    }
+    [TerraformPropertyName("retention_rule")]
+    public TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock>>? RetentionRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDataProtectionBackupPolicyPostgresqlTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDataProtectionBackupPolicyPostgresqlTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for advanced_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxFlowAdvancedSettingsBlock : TerraformBlock
+public class GoogleDialogflowCxFlowAdvancedSettingsBlock : ITerraformBlock
 {
 }
 
@@ -14,41 +14,37 @@ public class GoogleDialogflowCxFlowAdvancedSettingsBlock : TerraformBlock
 /// Block type for event_handlers in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxFlowEventHandlersBlock : TerraformBlock
+public class GoogleDialogflowCxFlowEventHandlersBlock : ITerraformBlock
 {
     /// <summary>
     /// The name of the event to handle.
     /// </summary>
-    public TerraformProperty<string>? Event
-    {
-        set => SetProperty("event", value);
-    }
+    [TerraformPropertyName("event")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Event { get; set; }
 
     /// <summary>
     /// The unique identifier of this event handler.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>("", "name");
 
     /// <summary>
     /// The target flow to transition to.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? TargetFlow
-    {
-        set => SetProperty("target_flow", value);
-    }
+    [TerraformPropertyName("target_flow")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetFlow { get; set; }
 
     /// <summary>
     /// The target page to transition to.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;/pages/&amp;lt;Page ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? TargetPage
-    {
-        set => SetProperty("target_page", value);
-    }
+    [TerraformPropertyName("target_page")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetPage { get; set; }
 
 }
 
@@ -56,34 +52,31 @@ public class GoogleDialogflowCxFlowEventHandlersBlock : TerraformBlock
 /// Block type for knowledge_connector_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxFlowKnowledgeConnectorSettingsBlock : TerraformBlock
+public class GoogleDialogflowCxFlowKnowledgeConnectorSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether Knowledge Connector is enabled or not.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The target flow to transition to. Format: projects/&amp;lt;ProjectID&amp;gt;/locations/&amp;lt;LocationID&amp;gt;/agents/&amp;lt;AgentID&amp;gt;/flows/&amp;lt;FlowID&amp;gt;.
     /// This field is part of a union field &#39;target&#39;: Only one of &#39;targetPage&#39; or &#39;targetFlow&#39; may be set.
     /// </summary>
-    public TerraformProperty<string>? TargetFlow
-    {
-        set => SetProperty("target_flow", value);
-    }
+    [TerraformPropertyName("target_flow")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetFlow { get; set; }
 
     /// <summary>
     /// The target page to transition to. Format: projects/&amp;lt;ProjectID&amp;gt;/locations/&amp;lt;LocationID&amp;gt;/agents/&amp;lt;AgentID&amp;gt;/flows/&amp;lt;FlowID&amp;gt;/pages/&amp;lt;PageID&amp;gt;.
     /// The page must be in the same host flow (the flow that owns this &#39;KnowledgeConnectorSettings&#39;).
     /// This field is part of a union field &#39;target&#39;: Only one of &#39;targetPage&#39; or &#39;targetFlow&#39; may be set.
     /// </summary>
-    public TerraformProperty<string>? TargetPage
-    {
-        set => SetProperty("target_page", value);
-    }
+    [TerraformPropertyName("target_page")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetPage { get; set; }
 
 }
 
@@ -91,36 +84,33 @@ public class GoogleDialogflowCxFlowKnowledgeConnectorSettingsBlock : TerraformBl
 /// Block type for nlu_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxFlowNluSettingsBlock : TerraformBlock
+public class GoogleDialogflowCxFlowNluSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// To filter out false positive results and still get variety in matched natural language inputs for your agent, you can tune the machine learning classification threshold.
     /// If the returned score value is less than the threshold value, then a no-match event will be triggered. The score values range from 0.0 (completely uncertain) to 1.0 (completely certain). If set to 0.0, the default of 0.3 is used.
     /// </summary>
-    public TerraformProperty<double>? ClassificationThreshold
-    {
-        set => SetProperty("classification_threshold", value);
-    }
+    [TerraformPropertyName("classification_threshold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ClassificationThreshold { get; set; }
 
     /// <summary>
     /// Indicates NLU model training mode.
     /// * MODEL_TRAINING_MODE_AUTOMATIC: NLU model training is automatically triggered when a flow gets modified. User can also manually trigger model training in this mode.
     /// * MODEL_TRAINING_MODE_MANUAL: User needs to manually trigger NLU model training. Best for large flows whose models take long time to train. Possible values: [&amp;quot;MODEL_TRAINING_MODE_AUTOMATIC&amp;quot;, &amp;quot;MODEL_TRAINING_MODE_MANUAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ModelTrainingMode
-    {
-        set => SetProperty("model_training_mode", value);
-    }
+    [TerraformPropertyName("model_training_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ModelTrainingMode { get; set; }
 
     /// <summary>
     /// Indicates the type of NLU model.
     /// * MODEL_TYPE_STANDARD: Use standard NLU model.
     /// * MODEL_TYPE_ADVANCED: Use advanced NLU model. Possible values: [&amp;quot;MODEL_TYPE_STANDARD&amp;quot;, &amp;quot;MODEL_TYPE_ADVANCED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ModelType
-    {
-        set => SetProperty("model_type", value);
-    }
+    [TerraformPropertyName("model_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ModelType { get; set; }
 
 }
 
@@ -128,31 +118,28 @@ public class GoogleDialogflowCxFlowNluSettingsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowCxFlowTimeoutsBlock : TerraformBlock
+public class GoogleDialogflowCxFlowTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -160,51 +147,46 @@ public class GoogleDialogflowCxFlowTimeoutsBlock : TerraformBlock
 /// Block type for transition_routes in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxFlowTransitionRoutesBlock : TerraformBlock
+public class GoogleDialogflowCxFlowTransitionRoutesBlock : ITerraformBlock
 {
     /// <summary>
     /// The condition to evaluate against form parameters or session parameters.
     /// At least one of intent or condition must be specified. When both intent and condition are specified, the transition can only happen when both are fulfilled.
     /// </summary>
-    public TerraformProperty<string>? Condition
-    {
-        set => SetProperty("condition", value);
-    }
+    [TerraformPropertyName("condition")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Condition { get; set; }
 
     /// <summary>
     /// The unique identifier of an Intent.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/intents/&amp;lt;Intent ID&amp;gt;. Indicates that the transition can only happen when the given intent is matched. At least one of intent or condition must be specified. When both intent and condition are specified, the transition can only happen when both are fulfilled.
     /// </summary>
-    public TerraformProperty<string>? Intent
-    {
-        set => SetProperty("intent", value);
-    }
+    [TerraformPropertyName("intent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Intent { get; set; }
 
     /// <summary>
     /// The unique identifier of this transition route.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>("", "name");
 
     /// <summary>
     /// The target flow to transition to.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? TargetFlow
-    {
-        set => SetProperty("target_flow", value);
-    }
+    [TerraformPropertyName("target_flow")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetFlow { get; set; }
 
     /// <summary>
     /// The target page to transition to.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;/pages/&amp;lt;Page ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? TargetPage
-    {
-        set => SetProperty("target_page", value);
-    }
+    [TerraformPropertyName("target_page")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetPage { get; set; }
 
 }
 
@@ -216,48 +198,29 @@ public class GoogleDialogflowCxFlow : TerraformResource
 {
     public GoogleDialogflowCxFlow(string name) : base("google_dialogflow_cx_flow", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("is_default_start_flow");
-        SetOutput("language_code");
-        SetOutput("parent");
-        SetOutput("transition_route_groups");
     }
 
     /// <summary>
     /// The description of the flow. The maximum length is 500 characters. If exceeded, the request is rejected.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The human-readable name of the flow.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Marks this as the [Default Start Flow](https://cloud.google.com/dialogflow/cx/docs/concept/flow#start) for an agent. When you create an agent, the Default Start Flow is created automatically.
@@ -265,11 +228,9 @@ public class GoogleDialogflowCxFlow : TerraformResource
     /// 
     /// ~&amp;gt; Avoid having multiple &#39;google_dialogflow_cx_flow&#39; resources linked to the same agent with &#39;is_default_start_flow = true&#39; because they will compete to control a single Default Start Flow resource in GCP.
     /// </summary>
-    public TerraformProperty<bool> IsDefaultStartFlow
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_default_start_flow");
-        set => SetProperty("is_default_start_flow", value);
-    }
+    [TerraformPropertyName("is_default_start_flow")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsDefaultStartFlow { get; set; }
 
     /// <summary>
     /// The language of the following fields in flow:
@@ -279,21 +240,17 @@ public class GoogleDialogflowCxFlow : TerraformResource
     /// Flow.transition_routes.trigger_fulfillment.conditional_cases
     /// If not specified, the agent&#39;s default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
     /// </summary>
-    public TerraformProperty<string> LanguageCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
-        set => SetProperty("language_code", value);
-    }
+    [TerraformPropertyName("language_code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LanguageCode { get; set; }
 
     /// <summary>
     /// The agent to create a flow for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Parent { get; set; }
 
     /// <summary>
     /// A flow&#39;s transition route group serve two purposes:
@@ -301,73 +258,61 @@ public class GoogleDialogflowCxFlow : TerraformResource
     /// They are inherited by every page&#39;s [transition route groups][Page.transition_route_groups]. Transition route groups defined in the page have higher priority than those defined in the flow.
     /// Format:projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;/transitionRouteGroups/&amp;lt;TransitionRouteGroup ID&amp;gt;.
     /// </summary>
-    public List<TerraformProperty<string>> TransitionRouteGroups
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("transition_route_groups");
-        set => SetProperty("transition_route_groups", value);
-    }
+    [TerraformPropertyName("transition_route_groups")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? TransitionRouteGroups { get; set; }
 
     /// <summary>
     /// Block for advanced_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSettings block(s) allowed")]
-    public List<GoogleDialogflowCxFlowAdvancedSettingsBlock>? AdvancedSettings
-    {
-        set => SetProperty("advanced_settings", value);
-    }
+    [TerraformPropertyName("advanced_settings")]
+    public TerraformList<TerraformBlock<GoogleDialogflowCxFlowAdvancedSettingsBlock>>? AdvancedSettings { get; set; } = new();
 
     /// <summary>
     /// Block for event_handlers.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleDialogflowCxFlowEventHandlersBlock>? EventHandlers
-    {
-        set => SetProperty("event_handlers", value);
-    }
+    [TerraformPropertyName("event_handlers")]
+    public TerraformList<TerraformBlock<GoogleDialogflowCxFlowEventHandlersBlock>>? EventHandlers { get; set; } = new();
 
     /// <summary>
     /// Block for knowledge_connector_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KnowledgeConnectorSettings block(s) allowed")]
-    public List<GoogleDialogflowCxFlowKnowledgeConnectorSettingsBlock>? KnowledgeConnectorSettings
-    {
-        set => SetProperty("knowledge_connector_settings", value);
-    }
+    [TerraformPropertyName("knowledge_connector_settings")]
+    public TerraformList<TerraformBlock<GoogleDialogflowCxFlowKnowledgeConnectorSettingsBlock>>? KnowledgeConnectorSettings { get; set; } = new();
 
     /// <summary>
     /// Block for nlu_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NluSettings block(s) allowed")]
-    public List<GoogleDialogflowCxFlowNluSettingsBlock>? NluSettings
-    {
-        set => SetProperty("nlu_settings", value);
-    }
+    [TerraformPropertyName("nlu_settings")]
+    public TerraformList<TerraformBlock<GoogleDialogflowCxFlowNluSettingsBlock>>? NluSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDialogflowCxFlowTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDialogflowCxFlowTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for transition_routes.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleDialogflowCxFlowTransitionRoutesBlock>? TransitionRoutes
-    {
-        set => SetProperty("transition_routes", value);
-    }
+    [TerraformPropertyName("transition_routes")]
+    public TerraformList<TerraformBlock<GoogleDialogflowCxFlowTransitionRoutesBlock>>? TransitionRoutes { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the flow.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

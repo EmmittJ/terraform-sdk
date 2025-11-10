@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock : TerraformBlock
+public class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,81 +38,65 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
 {
     public AzurermActiveDirectoryDomainServiceReplicaSet(string name) : base("azurerm_active_directory_domain_service_replica_set", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("domain_controller_ip_addresses");
-        SetOutput("external_access_ip_address");
-        SetOutput("service_status");
-        SetOutput("domain_service_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("subnet_id");
     }
 
     /// <summary>
     /// The domain_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainServiceId is required")]
-    public required TerraformProperty<string> DomainServiceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_service_id");
-        set => SetProperty("domain_service_id", value);
-    }
+    [TerraformPropertyName("domain_service_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainServiceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The domain_controller_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression DomainControllerIpAddresses => this["domain_controller_ip_addresses"];
+    [TerraformPropertyName("domain_controller_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> DomainControllerIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "domain_controller_ip_addresses");
 
     /// <summary>
     /// The external_access_ip_address attribute.
     /// </summary>
-    public TerraformExpression ExternalAccessIpAddress => this["external_access_ip_address"];
+    [TerraformPropertyName("external_access_ip_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExternalAccessIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "external_access_ip_address");
 
     /// <summary>
     /// The service_status attribute.
     /// </summary>
-    public TerraformExpression ServiceStatus => this["service_status"];
+    [TerraformPropertyName("service_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_status");
 
 }

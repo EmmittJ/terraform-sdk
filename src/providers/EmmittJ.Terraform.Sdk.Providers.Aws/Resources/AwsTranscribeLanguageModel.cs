@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for input_data_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTranscribeLanguageModelInputDataConfigBlock : TerraformBlock
+public class AwsTranscribeLanguageModelInputDataConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The data_access_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessRoleArn is required")]
-    public required TerraformProperty<string> DataAccessRoleArn
-    {
-        set => SetProperty("data_access_role_arn", value);
-    }
+    [TerraformPropertyName("data_access_role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataAccessRoleArn { get; set; }
 
     /// <summary>
     /// The s3_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
-    public required TerraformProperty<string> S3Uri
-    {
-        set => SetProperty("s3_uri", value);
-    }
+    [TerraformPropertyName("s3_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> S3Uri { get; set; }
 
     /// <summary>
     /// The tuning_data_s3_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? TuningDataS3Uri
-    {
-        set => SetProperty("tuning_data_s3_uri", value);
-    }
+    [TerraformPropertyName("tuning_data_s3_uri")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TuningDataS3Uri { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "tuning_data_s3_uri");
 
 }
 
@@ -40,15 +37,14 @@ public class AwsTranscribeLanguageModelInputDataConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsTranscribeLanguageModelTimeoutsBlock : TerraformBlock
+public class AwsTranscribeLanguageModelTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
 }
 
@@ -60,86 +56,59 @@ public class AwsTranscribeLanguageModel : TerraformResource
 {
     public AwsTranscribeLanguageModel(string name) : base("aws_transcribe_language_model", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("base_model_name");
-        SetOutput("id");
-        SetOutput("language_code");
-        SetOutput("model_name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The base_model_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseModelName is required")]
-    public required TerraformProperty<string> BaseModelName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("base_model_name");
-        set => SetProperty("base_model_name", value);
-    }
+    [TerraformPropertyName("base_model_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BaseModelName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
-    public required TerraformProperty<string> LanguageCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
-        set => SetProperty("language_code", value);
-    }
+    [TerraformPropertyName("language_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LanguageCode { get; set; }
 
     /// <summary>
     /// The model_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
-    public required TerraformProperty<string> ModelName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("model_name");
-        set => SetProperty("model_name", value);
-    }
+    [TerraformPropertyName("model_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ModelName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for input_data_config.
@@ -148,23 +117,21 @@ public class AwsTranscribeLanguageModel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputDataConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InputDataConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputDataConfig block(s) allowed")]
-    public List<AwsTranscribeLanguageModelInputDataConfigBlock>? InputDataConfig
-    {
-        set => SetProperty("input_data_config", value);
-    }
+    [TerraformPropertyName("input_data_config")]
+    public TerraformList<TerraformBlock<AwsTranscribeLanguageModelInputDataConfigBlock>>? InputDataConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsTranscribeLanguageModelTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsTranscribeLanguageModelTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

@@ -6,48 +6,43 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for lambda_function in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketNotificationLambdaFunctionBlock : TerraformBlock
+public class AwsS3BucketNotificationLambdaFunctionBlock : ITerraformBlock
 {
     /// <summary>
     /// The events attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
-    public HashSet<TerraformProperty<string>>? Events
-    {
-        set => SetProperty("events", value);
-    }
+    [TerraformPropertyName("events")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Events { get; set; }
 
     /// <summary>
     /// The filter_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? FilterPrefix
-    {
-        set => SetProperty("filter_prefix", value);
-    }
+    [TerraformPropertyName("filter_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FilterPrefix { get; set; }
 
     /// <summary>
     /// The filter_suffix attribute.
     /// </summary>
-    public TerraformProperty<string>? FilterSuffix
-    {
-        set => SetProperty("filter_suffix", value);
-    }
+    [TerraformPropertyName("filter_suffix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FilterSuffix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The lambda_function_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? LambdaFunctionArn
-    {
-        set => SetProperty("lambda_function_arn", value);
-    }
+    [TerraformPropertyName("lambda_function_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LambdaFunctionArn { get; set; }
 
 }
 
@@ -55,49 +50,44 @@ public class AwsS3BucketNotificationLambdaFunctionBlock : TerraformBlock
 /// Block type for queue in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketNotificationQueueBlock : TerraformBlock
+public class AwsS3BucketNotificationQueueBlock : ITerraformBlock
 {
     /// <summary>
     /// The events attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
-    public HashSet<TerraformProperty<string>>? Events
-    {
-        set => SetProperty("events", value);
-    }
+    [TerraformPropertyName("events")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Events { get; set; }
 
     /// <summary>
     /// The filter_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? FilterPrefix
-    {
-        set => SetProperty("filter_prefix", value);
-    }
+    [TerraformPropertyName("filter_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FilterPrefix { get; set; }
 
     /// <summary>
     /// The filter_suffix attribute.
     /// </summary>
-    public TerraformProperty<string>? FilterSuffix
-    {
-        set => SetProperty("filter_suffix", value);
-    }
+    [TerraformPropertyName("filter_suffix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FilterSuffix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The queue_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueArn is required")]
-    public required TerraformProperty<string> QueueArn
-    {
-        set => SetProperty("queue_arn", value);
-    }
+    [TerraformPropertyName("queue_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> QueueArn { get; set; }
 
 }
 
@@ -105,49 +95,44 @@ public class AwsS3BucketNotificationQueueBlock : TerraformBlock
 /// Block type for topic in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketNotificationTopicBlock : TerraformBlock
+public class AwsS3BucketNotificationTopicBlock : ITerraformBlock
 {
     /// <summary>
     /// The events attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
-    public HashSet<TerraformProperty<string>>? Events
-    {
-        set => SetProperty("events", value);
-    }
+    [TerraformPropertyName("events")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Events { get; set; }
 
     /// <summary>
     /// The filter_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? FilterPrefix
-    {
-        set => SetProperty("filter_prefix", value);
-    }
+    [TerraformPropertyName("filter_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FilterPrefix { get; set; }
 
     /// <summary>
     /// The filter_suffix attribute.
     /// </summary>
-    public TerraformProperty<string>? FilterSuffix
-    {
-        set => SetProperty("filter_suffix", value);
-    }
+    [TerraformPropertyName("filter_suffix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FilterSuffix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The topic_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
-    public required TerraformProperty<string> TopicArn
-    {
-        set => SetProperty("topic_arn", value);
-    }
+    [TerraformPropertyName("topic_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TopicArn { get; set; }
 
 }
 
@@ -158,79 +143,56 @@ public class AwsS3BucketNotification : TerraformResource
 {
     public AwsS3BucketNotification(string name) : base("aws_s3_bucket_notification", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bucket");
-        SetOutput("eventbridge");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The eventbridge attribute.
     /// </summary>
-    public TerraformProperty<bool> Eventbridge
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("eventbridge");
-        set => SetProperty("eventbridge", value);
-    }
+    [TerraformPropertyName("eventbridge")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Eventbridge { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for lambda_function.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsS3BucketNotificationLambdaFunctionBlock>? LambdaFunction
-    {
-        set => SetProperty("lambda_function", value);
-    }
+    [TerraformPropertyName("lambda_function")]
+    public TerraformList<TerraformBlock<AwsS3BucketNotificationLambdaFunctionBlock>>? LambdaFunction { get; set; } = new();
 
     /// <summary>
     /// Block for queue.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsS3BucketNotificationQueueBlock>? Queue
-    {
-        set => SetProperty("queue", value);
-    }
+    [TerraformPropertyName("queue")]
+    public TerraformList<TerraformBlock<AwsS3BucketNotificationQueueBlock>>? Queue { get; set; } = new();
 
     /// <summary>
     /// Block for topic.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsS3BucketNotificationTopicBlock>? Topic
-    {
-        set => SetProperty("topic", value);
-    }
+    [TerraformPropertyName("topic")]
+    public TerraformList<TerraformBlock<AwsS3BucketNotificationTopicBlock>>? Topic { get; set; } = new();
 
 }

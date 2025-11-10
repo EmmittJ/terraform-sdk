@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermElasticSanDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermElasticSanDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,118 +24,113 @@ public class AzurermElasticSanDataSource : TerraformDataSource
 {
     public AzurermElasticSanDataSource(string name) : base("azurerm_elastic_san", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("base_size_in_tib");
-        SetOutput("extended_size_in_tib");
-        SetOutput("location");
-        SetOutput("sku");
-        SetOutput("tags");
-        SetOutput("total_iops");
-        SetOutput("total_mbps");
-        SetOutput("total_size_in_tib");
-        SetOutput("total_volume_size_in_gib");
-        SetOutput("volume_group_count");
-        SetOutput("zones");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermElasticSanDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermElasticSanDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The base_size_in_tib attribute.
     /// </summary>
-    public TerraformExpression BaseSizeInTib => this["base_size_in_tib"];
+    [TerraformPropertyName("base_size_in_tib")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> BaseSizeInTib => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "base_size_in_tib");
 
     /// <summary>
     /// The extended_size_in_tib attribute.
     /// </summary>
-    public TerraformExpression ExtendedSizeInTib => this["extended_size_in_tib"];
+    [TerraformPropertyName("extended_size_in_tib")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ExtendedSizeInTib => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "extended_size_in_tib");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformExpression Sku => this["sku"];
+    [TerraformPropertyName("sku")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Sku => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The total_iops attribute.
     /// </summary>
-    public TerraformExpression TotalIops => this["total_iops"];
+    [TerraformPropertyName("total_iops")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalIops => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_iops");
 
     /// <summary>
     /// The total_mbps attribute.
     /// </summary>
-    public TerraformExpression TotalMbps => this["total_mbps"];
+    [TerraformPropertyName("total_mbps")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalMbps => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_mbps");
 
     /// <summary>
     /// The total_size_in_tib attribute.
     /// </summary>
-    public TerraformExpression TotalSizeInTib => this["total_size_in_tib"];
+    [TerraformPropertyName("total_size_in_tib")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalSizeInTib => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_size_in_tib");
 
     /// <summary>
     /// The total_volume_size_in_gib attribute.
     /// </summary>
-    public TerraformExpression TotalVolumeSizeInGib => this["total_volume_size_in_gib"];
+    [TerraformPropertyName("total_volume_size_in_gib")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalVolumeSizeInGib => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_volume_size_in_gib");
 
     /// <summary>
     /// The volume_group_count attribute.
     /// </summary>
-    public TerraformExpression VolumeGroupCount => this["volume_group_count"];
+    [TerraformPropertyName("volume_group_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> VolumeGroupCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "volume_group_count");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public TerraformExpression Zones => this["zones"];
+    [TerraformPropertyName("zones")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Zones => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "zones");
 
 }

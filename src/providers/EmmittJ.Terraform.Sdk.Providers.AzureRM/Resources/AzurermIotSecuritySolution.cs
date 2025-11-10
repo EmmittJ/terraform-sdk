@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for additional_workspace in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : TerraformBlock
+public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : ITerraformBlock
 {
     /// <summary>
     /// The data_types attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataTypes is required")]
-    public HashSet<TerraformProperty<string>>? DataTypes
-    {
-        set => SetProperty("data_types", value);
-    }
+    [TerraformPropertyName("data_types")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DataTypes { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    public required TerraformProperty<string> WorkspaceId
-    {
-        set => SetProperty("workspace_id", value);
-    }
+    [TerraformPropertyName("workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
 
 }
 
@@ -32,135 +30,119 @@ public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : TerraformBlock
 /// Block type for recommendations_enabled in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBlock
+public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : ITerraformBlock
 {
     /// <summary>
     /// The acr_authentication attribute.
     /// </summary>
-    public TerraformProperty<bool>? AcrAuthentication
-    {
-        set => SetProperty("acr_authentication", value);
-    }
+    [TerraformPropertyName("acr_authentication")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AcrAuthentication { get; set; }
 
     /// <summary>
     /// The agent_send_unutilized_msg attribute.
     /// </summary>
-    public TerraformProperty<bool>? AgentSendUnutilizedMsg
-    {
-        set => SetProperty("agent_send_unutilized_msg", value);
-    }
+    [TerraformPropertyName("agent_send_unutilized_msg")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AgentSendUnutilizedMsg { get; set; }
 
     /// <summary>
     /// The baseline attribute.
     /// </summary>
-    public TerraformProperty<bool>? Baseline
-    {
-        set => SetProperty("baseline", value);
-    }
+    [TerraformPropertyName("baseline")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Baseline { get; set; }
 
     /// <summary>
     /// The edge_hub_mem_optimize attribute.
     /// </summary>
-    public TerraformProperty<bool>? EdgeHubMemOptimize
-    {
-        set => SetProperty("edge_hub_mem_optimize", value);
-    }
+    [TerraformPropertyName("edge_hub_mem_optimize")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EdgeHubMemOptimize { get; set; }
 
     /// <summary>
     /// The edge_logging_option attribute.
     /// </summary>
-    public TerraformProperty<bool>? EdgeLoggingOption
-    {
-        set => SetProperty("edge_logging_option", value);
-    }
+    [TerraformPropertyName("edge_logging_option")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EdgeLoggingOption { get; set; }
 
     /// <summary>
     /// The inconsistent_module_settings attribute.
     /// </summary>
-    public TerraformProperty<bool>? InconsistentModuleSettings
-    {
-        set => SetProperty("inconsistent_module_settings", value);
-    }
+    [TerraformPropertyName("inconsistent_module_settings")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InconsistentModuleSettings { get; set; }
 
     /// <summary>
     /// The install_agent attribute.
     /// </summary>
-    public TerraformProperty<bool>? InstallAgent
-    {
-        set => SetProperty("install_agent", value);
-    }
+    [TerraformPropertyName("install_agent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InstallAgent { get; set; }
 
     /// <summary>
     /// The ip_filter_deny_all attribute.
     /// </summary>
-    public TerraformProperty<bool>? IpFilterDenyAll
-    {
-        set => SetProperty("ip_filter_deny_all", value);
-    }
+    [TerraformPropertyName("ip_filter_deny_all")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IpFilterDenyAll { get; set; }
 
     /// <summary>
     /// The ip_filter_permissive_rule attribute.
     /// </summary>
-    public TerraformProperty<bool>? IpFilterPermissiveRule
-    {
-        set => SetProperty("ip_filter_permissive_rule", value);
-    }
+    [TerraformPropertyName("ip_filter_permissive_rule")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IpFilterPermissiveRule { get; set; }
 
     /// <summary>
     /// The open_ports attribute.
     /// </summary>
-    public TerraformProperty<bool>? OpenPorts
-    {
-        set => SetProperty("open_ports", value);
-    }
+    [TerraformPropertyName("open_ports")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? OpenPorts { get; set; }
 
     /// <summary>
     /// The permissive_firewall_policy attribute.
     /// </summary>
-    public TerraformProperty<bool>? PermissiveFirewallPolicy
-    {
-        set => SetProperty("permissive_firewall_policy", value);
-    }
+    [TerraformPropertyName("permissive_firewall_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PermissiveFirewallPolicy { get; set; }
 
     /// <summary>
     /// The permissive_input_firewall_rules attribute.
     /// </summary>
-    public TerraformProperty<bool>? PermissiveInputFirewallRules
-    {
-        set => SetProperty("permissive_input_firewall_rules", value);
-    }
+    [TerraformPropertyName("permissive_input_firewall_rules")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PermissiveInputFirewallRules { get; set; }
 
     /// <summary>
     /// The permissive_output_firewall_rules attribute.
     /// </summary>
-    public TerraformProperty<bool>? PermissiveOutputFirewallRules
-    {
-        set => SetProperty("permissive_output_firewall_rules", value);
-    }
+    [TerraformPropertyName("permissive_output_firewall_rules")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PermissiveOutputFirewallRules { get; set; }
 
     /// <summary>
     /// The privileged_docker_options attribute.
     /// </summary>
-    public TerraformProperty<bool>? PrivilegedDockerOptions
-    {
-        set => SetProperty("privileged_docker_options", value);
-    }
+    [TerraformPropertyName("privileged_docker_options")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PrivilegedDockerOptions { get; set; }
 
     /// <summary>
     /// The shared_credentials attribute.
     /// </summary>
-    public TerraformProperty<bool>? SharedCredentials
-    {
-        set => SetProperty("shared_credentials", value);
-    }
+    [TerraformPropertyName("shared_credentials")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SharedCredentials { get; set; }
 
     /// <summary>
     /// The vulnerable_tls_cipher_suite attribute.
     /// </summary>
-    public TerraformProperty<bool>? VulnerableTlsCipherSuite
-    {
-        set => SetProperty("vulnerable_tls_cipher_suite", value);
-    }
+    [TerraformPropertyName("vulnerable_tls_cipher_suite")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? VulnerableTlsCipherSuite { get; set; }
 
 }
 
@@ -168,39 +150,35 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlock
+public class AzurermIotSecuritySolutionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -212,184 +190,131 @@ public class AzurermIotSecuritySolution : TerraformResource
 {
     public AzurermIotSecuritySolution(string name) : base("azurerm_iot_security_solution", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("disabled_data_sources");
-        SetOutput("display_name");
-        SetOutput("enabled");
-        SetOutput("events_to_export");
-        SetOutput("id");
-        SetOutput("iothub_ids");
-        SetOutput("location");
-        SetOutput("log_analytics_workspace_id");
-        SetOutput("log_unmasked_ips_enabled");
-        SetOutput("name");
-        SetOutput("query_for_resources");
-        SetOutput("query_subscription_ids");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The disabled_data_sources attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> DisabledDataSources
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("disabled_data_sources");
-        set => SetProperty("disabled_data_sources", value);
-    }
+    [TerraformPropertyName("disabled_data_sources")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DisabledDataSources { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The events_to_export attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> EventsToExport
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("events_to_export");
-        set => SetProperty("events_to_export", value);
-    }
+    [TerraformPropertyName("events_to_export")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? EventsToExport { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The iothub_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubIds is required")]
-    public HashSet<TerraformProperty<string>> IothubIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("iothub_ids");
-        set => SetProperty("iothub_ids", value);
-    }
+    [TerraformPropertyName("iothub_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IothubIds { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string> LogAnalyticsWorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => SetProperty("log_analytics_workspace_id", value);
-    }
+    [TerraformPropertyName("log_analytics_workspace_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The log_unmasked_ips_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LogUnmaskedIpsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("log_unmasked_ips_enabled");
-        set => SetProperty("log_unmasked_ips_enabled", value);
-    }
+    [TerraformPropertyName("log_unmasked_ips_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LogUnmaskedIpsEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The query_for_resources attribute.
     /// </summary>
-    public TerraformProperty<string> QueryForResources
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("query_for_resources");
-        set => SetProperty("query_for_resources", value);
-    }
+    [TerraformPropertyName("query_for_resources")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> QueryForResources { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "query_for_resources");
 
     /// <summary>
     /// The query_subscription_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> QuerySubscriptionIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("query_subscription_ids");
-        set => SetProperty("query_subscription_ids", value);
-    }
+    [TerraformPropertyName("query_subscription_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> QuerySubscriptionIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "query_subscription_ids");
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for additional_workspace.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermIotSecuritySolutionAdditionalWorkspaceBlock>? AdditionalWorkspace
-    {
-        set => SetProperty("additional_workspace", value);
-    }
+    [TerraformPropertyName("additional_workspace")]
+    public TerraformSet<TerraformBlock<AzurermIotSecuritySolutionAdditionalWorkspaceBlock>>? AdditionalWorkspace { get; set; } = new();
 
     /// <summary>
     /// Block for recommendations_enabled.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecommendationsEnabled block(s) allowed")]
-    public List<AzurermIotSecuritySolutionRecommendationsEnabledBlock>? RecommendationsEnabled
-    {
-        set => SetProperty("recommendations_enabled", value);
-    }
+    [TerraformPropertyName("recommendations_enabled")]
+    public TerraformList<TerraformBlock<AzurermIotSecuritySolutionRecommendationsEnabledBlock>>? RecommendationsEnabled { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermIotSecuritySolutionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermIotSecuritySolutionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

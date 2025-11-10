@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for manage_action in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermGalleryApplicationVersionManageActionBlock : TerraformBlock
+public class AzurermGalleryApplicationVersionManageActionBlock : ITerraformBlock
 {
     /// <summary>
     /// The install attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Install is required")]
-    public required TerraformProperty<string> Install
-    {
-        set => SetProperty("install", value);
-    }
+    [TerraformPropertyName("install")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Install { get; set; }
 
     /// <summary>
     /// The remove attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Remove is required")]
-    public required TerraformProperty<string> Remove
-    {
-        set => SetProperty("remove", value);
-    }
+    [TerraformPropertyName("remove")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Remove { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -40,24 +37,22 @@ public class AzurermGalleryApplicationVersionManageActionBlock : TerraformBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermGalleryApplicationVersionSourceBlock : TerraformBlock
+public class AzurermGalleryApplicationVersionSourceBlock : ITerraformBlock
 {
     /// <summary>
     /// The default_configuration_link attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultConfigurationLink
-    {
-        set => SetProperty("default_configuration_link", value);
-    }
+    [TerraformPropertyName("default_configuration_link")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultConfigurationLink { get; set; }
 
     /// <summary>
     /// The media_link attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MediaLink is required")]
-    public required TerraformProperty<string> MediaLink
-    {
-        set => SetProperty("media_link", value);
-    }
+    [TerraformPropertyName("media_link")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MediaLink { get; set; }
 
 }
 
@@ -65,41 +60,37 @@ public class AzurermGalleryApplicationVersionSourceBlock : TerraformBlock
 /// Block type for target_region in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermGalleryApplicationVersionTargetRegionBlock : TerraformBlock
+public class AzurermGalleryApplicationVersionTargetRegionBlock : ITerraformBlock
 {
     /// <summary>
     /// The exclude_from_latest attribute.
     /// </summary>
-    public TerraformProperty<bool>? ExcludeFromLatest
-    {
-        set => SetProperty("exclude_from_latest", value);
-    }
+    [TerraformPropertyName("exclude_from_latest")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExcludeFromLatest { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The regional_replica_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionalReplicaCount is required")]
-    public required TerraformProperty<double> RegionalReplicaCount
-    {
-        set => SetProperty("regional_replica_count", value);
-    }
+    [TerraformPropertyName("regional_replica_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> RegionalReplicaCount { get; set; }
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountType
-    {
-        set => SetProperty("storage_account_type", value);
-    }
+    [TerraformPropertyName("storage_account_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageAccountType { get; set; }
 
 }
 
@@ -107,39 +98,35 @@ public class AzurermGalleryApplicationVersionTargetRegionBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermGalleryApplicationVersionTimeoutsBlock : TerraformBlock
+public class AzurermGalleryApplicationVersionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -151,115 +138,80 @@ public class AzurermGalleryApplicationVersion : TerraformResource
 {
     public AzurermGalleryApplicationVersion(string name) : base("azurerm_gallery_application_version", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("config_file");
-        SetOutput("enable_health_check");
-        SetOutput("end_of_life_date");
-        SetOutput("exclude_from_latest");
-        SetOutput("gallery_application_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("package_file");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The config_file attribute.
     /// </summary>
-    public TerraformProperty<string> ConfigFile
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("config_file");
-        set => SetProperty("config_file", value);
-    }
+    [TerraformPropertyName("config_file")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConfigFile { get; set; }
 
     /// <summary>
     /// The enable_health_check attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableHealthCheck
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_health_check");
-        set => SetProperty("enable_health_check", value);
-    }
+    [TerraformPropertyName("enable_health_check")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableHealthCheck { get; set; }
 
     /// <summary>
     /// The end_of_life_date attribute.
     /// </summary>
-    public TerraformProperty<string> EndOfLifeDate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("end_of_life_date");
-        set => SetProperty("end_of_life_date", value);
-    }
+    [TerraformPropertyName("end_of_life_date")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndOfLifeDate { get; set; }
 
     /// <summary>
     /// The exclude_from_latest attribute.
     /// </summary>
-    public TerraformProperty<bool> ExcludeFromLatest
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("exclude_from_latest");
-        set => SetProperty("exclude_from_latest", value);
-    }
+    [TerraformPropertyName("exclude_from_latest")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExcludeFromLatest { get; set; }
 
     /// <summary>
     /// The gallery_application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryApplicationId is required")]
-    public required TerraformProperty<string> GalleryApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gallery_application_id");
-        set => SetProperty("gallery_application_id", value);
-    }
+    [TerraformPropertyName("gallery_application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GalleryApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The package_file attribute.
     /// </summary>
-    public TerraformProperty<string> PackageFile
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("package_file");
-        set => SetProperty("package_file", value);
-    }
+    [TerraformPropertyName("package_file")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PackageFile { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for manage_action.
@@ -268,10 +220,8 @@ public class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManageAction is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManageAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManageAction block(s) allowed")]
-    public List<AzurermGalleryApplicationVersionManageActionBlock>? ManageAction
-    {
-        set => SetProperty("manage_action", value);
-    }
+    [TerraformPropertyName("manage_action")]
+    public TerraformList<TerraformBlock<AzurermGalleryApplicationVersionManageActionBlock>>? ManageAction { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -280,10 +230,8 @@ public class AzurermGalleryApplicationVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    public List<AzurermGalleryApplicationVersionSourceBlock>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    public TerraformList<TerraformBlock<AzurermGalleryApplicationVersionSourceBlock>>? Source { get; set; } = new();
 
     /// <summary>
     /// Block for target_region.
@@ -291,18 +239,14 @@ public class AzurermGalleryApplicationVersion : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRegion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetRegion block(s) required")]
-    public List<AzurermGalleryApplicationVersionTargetRegionBlock>? TargetRegion
-    {
-        set => SetProperty("target_region", value);
-    }
+    [TerraformPropertyName("target_region")]
+    public TerraformList<TerraformBlock<AzurermGalleryApplicationVersionTargetRegionBlock>>? TargetRegion { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermGalleryApplicationVersionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermGalleryApplicationVersionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

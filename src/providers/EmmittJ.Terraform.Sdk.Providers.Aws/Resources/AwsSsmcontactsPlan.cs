@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for stage in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsmcontactsPlanStageBlock : TerraformBlock
+public class AwsSsmcontactsPlanStageBlock : ITerraformBlock
 {
     /// <summary>
     /// The duration_in_minutes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DurationInMinutes is required")]
-    public required TerraformProperty<double> DurationInMinutes
-    {
-        set => SetProperty("duration_in_minutes", value);
-    }
+    [TerraformPropertyName("duration_in_minutes")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> DurationInMinutes { get; set; }
 
 }
 
@@ -27,43 +26,29 @@ public class AwsSsmcontactsPlan : TerraformResource
 {
     public AwsSsmcontactsPlan(string name) : base("aws_ssmcontacts_plan", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("contact_id");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The contact_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactId is required")]
-    public required TerraformProperty<string> ContactId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("contact_id");
-        set => SetProperty("contact_id", value);
-    }
+    [TerraformPropertyName("contact_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContactId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for stage.
@@ -71,9 +56,7 @@ public class AwsSsmcontactsPlan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Stage block(s) required")]
-    public List<AwsSsmcontactsPlanStageBlock>? Stage
-    {
-        set => SetProperty("stage", value);
-    }
+    [TerraformPropertyName("stage")]
+    public TerraformList<TerraformBlock<AwsSsmcontactsPlanStageBlock>>? Stage { get; set; } = new();
 
 }

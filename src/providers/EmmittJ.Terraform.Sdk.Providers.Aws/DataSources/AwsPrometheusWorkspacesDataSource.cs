@@ -9,59 +9,48 @@ public class AwsPrometheusWorkspacesDataSource : TerraformDataSource
 {
     public AwsPrometheusWorkspacesDataSource(string name) : base("aws_prometheus_workspaces", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("aliases");
-        SetOutput("arns");
-        SetOutput("workspace_ids");
-        SetOutput("alias_prefix");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The alias_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> AliasPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alias_prefix");
-        set => SetProperty("alias_prefix", value);
-    }
+    [TerraformPropertyName("alias_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AliasPrefix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The aliases attribute.
     /// </summary>
-    public TerraformExpression Aliases => this["aliases"];
+    [TerraformPropertyName("aliases")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Aliases => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "aliases");
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
-    public TerraformExpression Arns => this["arns"];
+    [TerraformPropertyName("arns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Arns => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "arns");
 
     /// <summary>
     /// The workspace_ids attribute.
     /// </summary>
-    public TerraformExpression WorkspaceIds => this["workspace_ids"];
+    [TerraformPropertyName("workspace_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> WorkspaceIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "workspace_ids");
 
 }

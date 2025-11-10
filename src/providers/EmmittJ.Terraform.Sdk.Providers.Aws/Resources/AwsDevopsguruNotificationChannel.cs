@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filters in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDevopsguruNotificationChannelFiltersBlock : TerraformBlock
+public class AwsDevopsguruNotificationChannelFiltersBlock : ITerraformBlock
 {
     /// <summary>
     /// The message_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? MessageTypes
-    {
-        set => SetProperty("message_types", value);
-    }
+    [TerraformPropertyName("message_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? MessageTypes { get; set; }
 
     /// <summary>
     /// The severities attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Severities
-    {
-        set => SetProperty("severities", value);
-    }
+    [TerraformPropertyName("severities")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Severities { get; set; }
 
 }
 
@@ -30,16 +28,15 @@ public class AwsDevopsguruNotificationChannelFiltersBlock : TerraformBlock
 /// Block type for sns in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDevopsguruNotificationChannelSnsBlock : TerraformBlock
+public class AwsDevopsguruNotificationChannelSnsBlock : ITerraformBlock
 {
     /// <summary>
     /// The topic_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
-    public required TerraformProperty<string> TopicArn
-    {
-        set => SetProperty("topic_arn", value);
-    }
+    [TerraformPropertyName("topic_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TopicArn { get; set; }
 
 }
 
@@ -50,45 +47,34 @@ public class AwsDevopsguruNotificationChannel : TerraformResource
 {
     public AwsDevopsguruNotificationChannel(string name) : base("aws_devopsguru_notification_channel", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for filters.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsDevopsguruNotificationChannelFiltersBlock>? Filters
-    {
-        set => SetProperty("filters", value);
-    }
+    [TerraformPropertyName("filters")]
+    public TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelFiltersBlock>>? Filters { get; set; } = new();
 
     /// <summary>
     /// Block for sns.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsDevopsguruNotificationChannelSnsBlock>? Sns
-    {
-        set => SetProperty("sns", value);
-    }
+    [TerraformPropertyName("sns")]
+    public TerraformList<TerraformBlock<AwsDevopsguruNotificationChannelSnsBlock>>? Sns { get; set; } = new();
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

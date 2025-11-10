@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for notification in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorAutoscaleSettingNotificationBlock : TerraformBlock
+public class AzurermMonitorAutoscaleSettingNotificationBlock : ITerraformBlock
 {
 }
 
@@ -14,24 +14,22 @@ public class AzurermMonitorAutoscaleSettingNotificationBlock : TerraformBlock
 /// Block type for predictive in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorAutoscaleSettingPredictiveBlock : TerraformBlock
+public class AzurermMonitorAutoscaleSettingPredictiveBlock : ITerraformBlock
 {
     /// <summary>
     /// The look_ahead_time attribute.
     /// </summary>
-    public TerraformProperty<string>? LookAheadTime
-    {
-        set => SetProperty("look_ahead_time", value);
-    }
+    [TerraformPropertyName("look_ahead_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LookAheadTime { get; set; }
 
     /// <summary>
     /// The scale_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleMode is required")]
-    public required TerraformProperty<string> ScaleMode
-    {
-        set => SetProperty("scale_mode", value);
-    }
+    [TerraformPropertyName("scale_mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScaleMode { get; set; }
 
 }
 
@@ -39,16 +37,15 @@ public class AzurermMonitorAutoscaleSettingPredictiveBlock : TerraformBlock
 /// Block type for profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorAutoscaleSettingProfileBlock : TerraformBlock
+public class AzurermMonitorAutoscaleSettingProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -56,39 +53,35 @@ public class AzurermMonitorAutoscaleSettingProfileBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorAutoscaleSettingTimeoutsBlock : TerraformBlock
+public class AzurermMonitorAutoscaleSettingTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -100,106 +93,76 @@ public class AzurermMonitorAutoscaleSetting : TerraformResource
 {
     public AzurermMonitorAutoscaleSetting(string name) : base("azurerm_monitor_autoscale_setting", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
-        SetOutput("target_resource_id");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
-    public required TerraformProperty<string> TargetResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
-        set => SetProperty("target_resource_id", value);
-    }
+    [TerraformPropertyName("target_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetResourceId { get; set; }
 
     /// <summary>
     /// Block for notification.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notification block(s) allowed")]
-    public List<AzurermMonitorAutoscaleSettingNotificationBlock>? Notification
-    {
-        set => SetProperty("notification", value);
-    }
+    [TerraformPropertyName("notification")]
+    public TerraformList<TerraformBlock<AzurermMonitorAutoscaleSettingNotificationBlock>>? Notification { get; set; } = new();
 
     /// <summary>
     /// Block for predictive.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Predictive block(s) allowed")]
-    public List<AzurermMonitorAutoscaleSettingPredictiveBlock>? Predictive
-    {
-        set => SetProperty("predictive", value);
-    }
+    [TerraformPropertyName("predictive")]
+    public TerraformList<TerraformBlock<AzurermMonitorAutoscaleSettingPredictiveBlock>>? Predictive { get; set; } = new();
 
     /// <summary>
     /// Block for profile.
@@ -208,18 +171,14 @@ public class AzurermMonitorAutoscaleSetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Profile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Profile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 Profile block(s) allowed")]
-    public List<AzurermMonitorAutoscaleSettingProfileBlock>? Profile
-    {
-        set => SetProperty("profile", value);
-    }
+    [TerraformPropertyName("profile")]
+    public TerraformList<TerraformBlock<AzurermMonitorAutoscaleSettingProfileBlock>>? Profile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMonitorAutoscaleSettingTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMonitorAutoscaleSettingTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

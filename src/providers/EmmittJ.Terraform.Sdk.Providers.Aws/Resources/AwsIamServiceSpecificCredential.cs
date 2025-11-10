@@ -9,105 +9,92 @@ public class AwsIamServiceSpecificCredential : TerraformResource
 {
     public AwsIamServiceSpecificCredential(string name) : base("aws_iam_service_specific_credential", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_date");
-        SetOutput("expiration_date");
-        SetOutput("service_credential_alias");
-        SetOutput("service_credential_secret");
-        SetOutput("service_password");
-        SetOutput("service_specific_credential_id");
-        SetOutput("service_user_name");
-        SetOutput("credential_age_days");
-        SetOutput("id");
-        SetOutput("service_name");
-        SetOutput("status");
-        SetOutput("user_name");
     }
 
     /// <summary>
     /// The credential_age_days attribute.
     /// </summary>
-    public TerraformProperty<double> CredentialAgeDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("credential_age_days");
-        set => SetProperty("credential_age_days", value);
-    }
+    [TerraformPropertyName("credential_age_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CredentialAgeDays { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
-    public required TerraformProperty<string> ServiceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
-        set => SetProperty("service_name", value);
-    }
+    [TerraformPropertyName("service_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceName { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
-    public required TerraformProperty<string> UserName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
-        set => SetProperty("user_name", value);
-    }
+    [TerraformPropertyName("user_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserName { get; set; }
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
-    public TerraformExpression CreateDate => this["create_date"];
+    [TerraformPropertyName("create_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_date");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    public TerraformExpression ExpirationDate => this["expiration_date"];
+    [TerraformPropertyName("expiration_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpirationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_date");
 
     /// <summary>
     /// The service_credential_alias attribute.
     /// </summary>
-    public TerraformExpression ServiceCredentialAlias => this["service_credential_alias"];
+    [TerraformPropertyName("service_credential_alias")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceCredentialAlias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_credential_alias");
 
     /// <summary>
     /// The service_credential_secret attribute.
     /// </summary>
-    public TerraformExpression ServiceCredentialSecret => this["service_credential_secret"];
+    [TerraformPropertyName("service_credential_secret")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceCredentialSecret => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_credential_secret");
 
     /// <summary>
     /// The service_password attribute.
     /// </summary>
-    public TerraformExpression ServicePassword => this["service_password"];
+    [TerraformPropertyName("service_password")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServicePassword => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_password");
 
     /// <summary>
     /// The service_specific_credential_id attribute.
     /// </summary>
-    public TerraformExpression ServiceSpecificCredentialId => this["service_specific_credential_id"];
+    [TerraformPropertyName("service_specific_credential_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceSpecificCredentialId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_specific_credential_id");
 
     /// <summary>
     /// The service_user_name attribute.
     /// </summary>
-    public TerraformExpression ServiceUserName => this["service_user_name"];
+    [TerraformPropertyName("service_user_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceUserName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_user_name");
 
 }

@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSqlDatabaseTimeoutsBlock : TerraformBlock
+public class GoogleSqlDatabaseTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,19 +38,6 @@ public class GoogleSqlDatabase : TerraformResource
 {
     public GoogleSqlDatabase(string name) : base("google_sql_database", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("self_link");
-        SetOutput("charset");
-        SetOutput("collation");
-        SetOutput("deletion_policy");
-        SetOutput("id");
-        SetOutput("instance");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -63,11 +47,9 @@ public class GoogleSqlDatabase : TerraformResource
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;UTF8&#39; at creation time.
     /// </summary>
-    public TerraformProperty<string> Charset
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("charset");
-        set => SetProperty("charset", value);
-    }
+    [TerraformPropertyName("charset")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Charset { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "charset");
 
     /// <summary>
     /// The collation value. See MySQL&#39;s
@@ -76,11 +58,9 @@ public class GoogleSqlDatabase : TerraformResource
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;en_US.UTF8&#39; at creation time.
     /// </summary>
-    public TerraformProperty<string> Collation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("collation");
-        set => SetProperty("collation", value);
-    }
+    [TerraformPropertyName("collation")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Collation { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "collation");
 
     /// <summary>
     /// The deletion policy for the database. Setting ABANDON allows the resource
@@ -88,64 +68,54 @@ public class GoogleSqlDatabase : TerraformResource
     /// deleted from the API if there are users other than cloudsqlsuperuser with access. Possible
     /// values are: &amp;quot;ABANDON&amp;quot;, &amp;quot;DELETE&amp;quot;. Defaults to &amp;quot;DELETE&amp;quot;.
     /// </summary>
-    public TerraformProperty<string> DeletionPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
-        set => SetProperty("deletion_policy", value);
-    }
+    [TerraformPropertyName("deletion_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the Cloud SQL instance. This does not include the project
     /// ID.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    public required TerraformProperty<string> Instance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance");
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
 
     /// <summary>
     /// The name of the database in the Cloud SQL instance.
     /// This does not include the project ID or instance name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleSqlDatabaseTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleSqlDatabaseTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
 }

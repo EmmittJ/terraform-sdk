@@ -9,84 +9,63 @@ public class GoogleSecretManagerRegionalSecretVersionAccessDataSource : Terrafor
 {
     public GoogleSecretManagerRegionalSecretVersionAccessDataSource(string name) : base("google_secret_manager_regional_secret_version_access", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("secret_data");
-        SetOutput("id");
-        SetOutput("is_secret_data_base64");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("secret");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The is_secret_data_base64 attribute.
     /// </summary>
-    public TerraformProperty<bool> IsSecretDataBase64
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_secret_data_base64");
-        set => SetProperty("is_secret_data_base64", value);
-    }
+    [TerraformPropertyName("is_secret_data_base64")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsSecretDataBase64 { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Location { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
-    public required TerraformProperty<string> Secret
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("secret");
-        set => SetProperty("secret", value);
-    }
+    [TerraformPropertyName("secret")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Secret { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Version { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The secret_data attribute.
     /// </summary>
-    public TerraformExpression SecretData => this["secret_data"];
+    [TerraformPropertyName("secret_data")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecretData => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secret_data");
 
 }

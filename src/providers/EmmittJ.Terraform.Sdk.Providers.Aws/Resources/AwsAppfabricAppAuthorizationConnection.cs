@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auth_request in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppfabricAppAuthorizationConnectionAuthRequestBlock : TerraformBlock
+public class AwsAppfabricAppAuthorizationConnectionAuthRequestBlock : ITerraformBlock
 {
     /// <summary>
     /// The code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
-    public required TerraformProperty<string> Code
-    {
-        set => SetProperty("code", value);
-    }
+    [TerraformPropertyName("code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Code { get; set; }
 
     /// <summary>
     /// The redirect_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUri is required")]
-    public required TerraformProperty<string> RedirectUri
-    {
-        set => SetProperty("redirect_uri", value);
-    }
+    [TerraformPropertyName("redirect_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RedirectUri { get; set; }
 
 }
 
@@ -32,15 +30,14 @@ public class AwsAppfabricAppAuthorizationConnectionAuthRequestBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsAppfabricAppAuthorizationConnectionTimeoutsBlock : TerraformBlock
+public class AwsAppfabricAppAuthorizationConnectionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
 }
 
@@ -51,79 +48,64 @@ public class AwsAppfabricAppAuthorizationConnection : TerraformResource
 {
     public AwsAppfabricAppAuthorizationConnection(string name) : base("aws_appfabric_app_authorization_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("app");
-        SetOutput("id");
-        SetOutput("tenant");
-        SetOutput("app_authorization_arn");
-        SetOutput("app_bundle_arn");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The app_authorization_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppAuthorizationArn is required")]
-    public required TerraformProperty<string> AppAuthorizationArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_authorization_arn");
-        set => SetProperty("app_authorization_arn", value);
-    }
+    [TerraformPropertyName("app_authorization_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppAuthorizationArn { get; set; }
 
     /// <summary>
     /// The app_bundle_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
-    public required TerraformProperty<string> AppBundleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_bundle_arn");
-        set => SetProperty("app_bundle_arn", value);
-    }
+    [TerraformPropertyName("app_bundle_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppBundleArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for auth_request.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsAppfabricAppAuthorizationConnectionAuthRequestBlock>? AuthRequest
-    {
-        set => SetProperty("auth_request", value);
-    }
+    [TerraformPropertyName("auth_request")]
+    public TerraformList<TerraformBlock<AwsAppfabricAppAuthorizationConnectionAuthRequestBlock>>? AuthRequest { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsAppfabricAppAuthorizationConnectionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsAppfabricAppAuthorizationConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The app attribute.
     /// </summary>
-    public TerraformExpression App => this["app"];
+    [TerraformPropertyName("app")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> App => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "app");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The tenant attribute.
     /// </summary>
-    public TerraformExpression Tenant => this["tenant"];
+    [TerraformPropertyName("tenant")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Tenant => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "tenant");
 
 }

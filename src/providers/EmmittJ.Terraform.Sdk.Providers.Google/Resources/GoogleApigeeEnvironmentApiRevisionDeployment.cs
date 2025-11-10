@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock : TerraformBlock
+public class GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,122 +31,94 @@ public class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformResource
 {
     public GoogleApigeeEnvironmentApiRevisionDeployment(string name) : base("google_apigee_environment_api_revision_deployment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("basepaths");
-        SetOutput("deploy_start_time");
-        SetOutput("state");
-        SetOutput("api");
-        SetOutput("environment");
-        SetOutput("id");
-        SetOutput("org_id");
-        SetOutput("override");
-        SetOutput("revision");
-        SetOutput("sequenced_rollout");
-        SetOutput("service_account");
     }
 
     /// <summary>
     /// Apigee API proxy name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Api is required")]
-    public required TerraformProperty<string> Api
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api");
-        set => SetProperty("api", value);
-    }
+    [TerraformPropertyName("api")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Api { get; set; }
 
     /// <summary>
     /// Apigee environment name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
-    public required TerraformProperty<string> Environment
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("environment");
-        set => SetProperty("environment", value);
-    }
+    [TerraformPropertyName("environment")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Environment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Apigee organization ID.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    public required TerraformProperty<string> OrgId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
-        set => SetProperty("org_id", value);
-    }
+    [TerraformPropertyName("org_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
 
     /// <summary>
     /// If true, replaces other deployed revisions of this proxy in the environment.
     /// </summary>
-    public TerraformProperty<bool> Override
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("override");
-        set => SetProperty("override", value);
-    }
+    [TerraformPropertyName("override")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Override { get; set; }
 
     /// <summary>
     /// API proxy revision number to deploy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
-    public required TerraformProperty<double> Revision
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("revision");
-        set => SetProperty("revision", value);
-    }
+    [TerraformPropertyName("revision")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Revision { get; set; }
 
     /// <summary>
     /// If true, enables sequenced rollout for safe traffic switching.
     /// </summary>
-    public TerraformProperty<bool> SequencedRollout
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("sequenced_rollout");
-        set => SetProperty("sequenced_rollout", value);
-    }
+    [TerraformPropertyName("sequenced_rollout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SequencedRollout { get; set; }
 
     /// <summary>
     /// Optional service account the deployed proxy runs as.
     /// </summary>
-    public TerraformProperty<string> ServiceAccount
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_account");
-        set => SetProperty("service_account", value);
-    }
+    [TerraformPropertyName("service_account")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServiceAccount { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Basepaths associated with the deployed proxy.
     /// </summary>
-    public TerraformExpression Basepaths => this["basepaths"];
+    [TerraformPropertyName("basepaths")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Basepaths => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "basepaths");
 
     /// <summary>
     /// RFC3339 timestamp when deployment started.
     /// </summary>
-    public TerraformExpression DeployStartTime => this["deploy_start_time"];
+    [TerraformPropertyName("deploy_start_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeployStartTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deploy_start_time");
 
     /// <summary>
     /// Deployment state reported by Apigee.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
 }

@@ -6,56 +6,50 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for link in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVpnSiteLinkBlock : TerraformBlock
+public class AzurermVpnSiteLinkBlock : ITerraformBlock
 {
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    public TerraformProperty<string>? Fqdn
-    {
-        set => SetProperty("fqdn", value);
-    }
+    [TerraformPropertyName("fqdn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Fqdn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddress
-    {
-        set => SetProperty("ip_address", value);
-    }
+    [TerraformPropertyName("ip_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IpAddress { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ProviderName
-    {
-        set => SetProperty("provider_name", value);
-    }
+    [TerraformPropertyName("provider_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProviderName { get; set; }
 
     /// <summary>
     /// The speed_in_mbps attribute.
     /// </summary>
-    public TerraformProperty<double>? SpeedInMbps
-    {
-        set => SetProperty("speed_in_mbps", value);
-    }
+    [TerraformPropertyName("speed_in_mbps")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SpeedInMbps { get; set; }
 
 }
 
@@ -63,7 +57,7 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
 /// Block type for o365_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVpnSiteO365PolicyBlock : TerraformBlock
+public class AzurermVpnSiteO365PolicyBlock : ITerraformBlock
 {
 }
 
@@ -71,39 +65,35 @@ public class AzurermVpnSiteO365PolicyBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVpnSiteTimeoutsBlock : TerraformBlock
+public class AzurermVpnSiteTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -115,133 +105,95 @@ public class AzurermVpnSite : TerraformResource
 {
     public AzurermVpnSite(string name) : base("azurerm_vpn_site", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("address_cidrs");
-        SetOutput("device_model");
-        SetOutput("device_vendor");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
-        SetOutput("virtual_wan_id");
     }
 
     /// <summary>
     /// The address_cidrs attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AddressCidrs
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("address_cidrs");
-        set => SetProperty("address_cidrs", value);
-    }
+    [TerraformPropertyName("address_cidrs")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AddressCidrs { get; set; }
 
     /// <summary>
     /// The device_model attribute.
     /// </summary>
-    public TerraformProperty<string> DeviceModel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("device_model");
-        set => SetProperty("device_model", value);
-    }
+    [TerraformPropertyName("device_model")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeviceModel { get; set; }
 
     /// <summary>
     /// The device_vendor attribute.
     /// </summary>
-    public TerraformProperty<string> DeviceVendor
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("device_vendor");
-        set => SetProperty("device_vendor", value);
-    }
+    [TerraformPropertyName("device_vendor")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeviceVendor { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The virtual_wan_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualWanId is required")]
-    public required TerraformProperty<string> VirtualWanId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_wan_id");
-        set => SetProperty("virtual_wan_id", value);
-    }
+    [TerraformPropertyName("virtual_wan_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualWanId { get; set; }
 
     /// <summary>
     /// Block for link.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermVpnSiteLinkBlock>? Link
-    {
-        set => SetProperty("link", value);
-    }
+    [TerraformPropertyName("link")]
+    public TerraformList<TerraformBlock<AzurermVpnSiteLinkBlock>>? Link { get; set; } = new();
 
     /// <summary>
     /// Block for o365_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 O365Policy block(s) allowed")]
-    public List<AzurermVpnSiteO365PolicyBlock>? O365Policy
-    {
-        set => SetProperty("o365_policy", value);
-    }
+    [TerraformPropertyName("o365_policy")]
+    public TerraformList<TerraformBlock<AzurermVpnSiteO365PolicyBlock>>? O365Policy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVpnSiteTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVpnSiteTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

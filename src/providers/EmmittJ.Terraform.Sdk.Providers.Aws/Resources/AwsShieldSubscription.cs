@@ -9,37 +9,27 @@ public class AwsShieldSubscription : TerraformResource
 {
     public AwsShieldSubscription(string name) : base("aws_shield_subscription", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("auto_renew");
-        SetOutput("skip_destroy");
     }
 
     /// <summary>
     /// Whether to automatically renew the subscription when it expires.
     /// </summary>
-    public TerraformProperty<string> AutoRenew
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("auto_renew");
-        set => SetProperty("auto_renew", value);
-    }
+    [TerraformPropertyName("auto_renew")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AutoRenew { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "auto_renew");
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
-        set => SetProperty("skip_destroy", value);
-    }
+    [TerraformPropertyName("skip_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

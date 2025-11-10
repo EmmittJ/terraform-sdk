@@ -9,128 +9,91 @@ public class AwsApplicationinsightsApplication : TerraformResource
 {
     public AwsApplicationinsightsApplication(string name) : base("aws_applicationinsights_application", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("auto_config_enabled");
-        SetOutput("auto_create");
-        SetOutput("cwe_monitor_enabled");
-        SetOutput("grouping_type");
-        SetOutput("id");
-        SetOutput("ops_center_enabled");
-        SetOutput("ops_item_sns_topic_arn");
-        SetOutput("region");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The auto_config_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoConfigEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_config_enabled");
-        set => SetProperty("auto_config_enabled", value);
-    }
+    [TerraformPropertyName("auto_config_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoConfigEnabled { get; set; }
 
     /// <summary>
     /// The auto_create attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoCreate
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_create");
-        set => SetProperty("auto_create", value);
-    }
+    [TerraformPropertyName("auto_create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoCreate { get; set; }
 
     /// <summary>
     /// The cwe_monitor_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> CweMonitorEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("cwe_monitor_enabled");
-        set => SetProperty("cwe_monitor_enabled", value);
-    }
+    [TerraformPropertyName("cwe_monitor_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CweMonitorEnabled { get; set; }
 
     /// <summary>
     /// The grouping_type attribute.
     /// </summary>
-    public TerraformProperty<string> GroupingType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("grouping_type");
-        set => SetProperty("grouping_type", value);
-    }
+    [TerraformPropertyName("grouping_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GroupingType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ops_center_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> OpsCenterEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ops_center_enabled");
-        set => SetProperty("ops_center_enabled", value);
-    }
+    [TerraformPropertyName("ops_center_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? OpsCenterEnabled { get; set; }
 
     /// <summary>
     /// The ops_item_sns_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string> OpsItemSnsTopicArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ops_item_sns_topic_arn");
-        set => SetProperty("ops_item_sns_topic_arn", value);
-    }
+    [TerraformPropertyName("ops_item_sns_topic_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OpsItemSnsTopicArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

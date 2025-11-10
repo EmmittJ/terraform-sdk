@@ -6,50 +6,45 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for compute_limits in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
+public class AwsEmrManagedScalingPolicyComputeLimitsBlock : ITerraformBlock
 {
     /// <summary>
     /// The maximum_capacity_units attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumCapacityUnits is required")]
-    public required TerraformProperty<double> MaximumCapacityUnits
-    {
-        set => SetProperty("maximum_capacity_units", value);
-    }
+    [TerraformPropertyName("maximum_capacity_units")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaximumCapacityUnits { get; set; }
 
     /// <summary>
     /// The maximum_core_capacity_units attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumCoreCapacityUnits
-    {
-        set => SetProperty("maximum_core_capacity_units", value);
-    }
+    [TerraformPropertyName("maximum_core_capacity_units")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaximumCoreCapacityUnits { get; set; }
 
     /// <summary>
     /// The maximum_ondemand_capacity_units attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumOndemandCapacityUnits
-    {
-        set => SetProperty("maximum_ondemand_capacity_units", value);
-    }
+    [TerraformPropertyName("maximum_ondemand_capacity_units")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaximumOndemandCapacityUnits { get; set; }
 
     /// <summary>
     /// The minimum_capacity_units attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumCapacityUnits is required")]
-    public required TerraformProperty<double> MinimumCapacityUnits
-    {
-        set => SetProperty("minimum_capacity_units", value);
-    }
+    [TerraformPropertyName("minimum_capacity_units")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MinimumCapacityUnits { get; set; }
 
     /// <summary>
     /// The unit_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnitType is required")]
-    public required TerraformProperty<string> UnitType
-    {
-        set => SetProperty("unit_type", value);
-    }
+    [TerraformPropertyName("unit_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UnitType { get; set; }
 
 }
 
@@ -61,43 +56,29 @@ public class AwsEmrManagedScalingPolicy : TerraformResource
 {
     public AwsEmrManagedScalingPolicy(string name) : base("aws_emr_managed_scaling_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cluster_id");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    public required TerraformProperty<string> ClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
-        set => SetProperty("cluster_id", value);
-    }
+    [TerraformPropertyName("cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for compute_limits.
@@ -105,9 +86,7 @@ public class AwsEmrManagedScalingPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeLimits is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComputeLimits block(s) required")]
-    public HashSet<AwsEmrManagedScalingPolicyComputeLimitsBlock>? ComputeLimits
-    {
-        set => SetProperty("compute_limits", value);
-    }
+    [TerraformPropertyName("compute_limits")]
+    public TerraformSet<TerraformBlock<AwsEmrManagedScalingPolicyComputeLimitsBlock>>? ComputeLimits { get; set; } = new();
 
 }

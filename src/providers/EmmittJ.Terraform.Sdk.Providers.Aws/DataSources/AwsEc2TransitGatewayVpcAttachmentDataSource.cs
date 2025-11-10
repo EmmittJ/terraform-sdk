@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEc2TransitGatewayVpcAttachmentDataSourceFilterBlock : TerraformBlock
+public class AwsEc2TransitGatewayVpcAttachmentDataSourceFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public HashSet<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -32,15 +30,14 @@ public class AwsEc2TransitGatewayVpcAttachmentDataSourceFilterBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2TransitGatewayVpcAttachmentDataSourceTimeoutsBlock : TerraformBlock
+public class AwsEc2TransitGatewayVpcAttachmentDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -51,113 +48,104 @@ public class AwsEc2TransitGatewayVpcAttachmentDataSource : TerraformDataSource
 {
     public AwsEc2TransitGatewayVpcAttachmentDataSource(string name) : base("aws_ec2_transit_gateway_vpc_attachment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("appliance_mode_support");
-        SetOutput("arn");
-        SetOutput("dns_support");
-        SetOutput("ipv6_support");
-        SetOutput("security_group_referencing_support");
-        SetOutput("subnet_ids");
-        SetOutput("transit_gateway_id");
-        SetOutput("vpc_id");
-        SetOutput("vpc_owner_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsEc2TransitGatewayVpcAttachmentDataSourceFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformSet<TerraformBlock<AwsEc2TransitGatewayVpcAttachmentDataSourceFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEc2TransitGatewayVpcAttachmentDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEc2TransitGatewayVpcAttachmentDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The appliance_mode_support attribute.
     /// </summary>
-    public TerraformExpression ApplianceModeSupport => this["appliance_mode_support"];
+    [TerraformPropertyName("appliance_mode_support")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ApplianceModeSupport => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "appliance_mode_support");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The dns_support attribute.
     /// </summary>
-    public TerraformExpression DnsSupport => this["dns_support"];
+    [TerraformPropertyName("dns_support")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsSupport => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_support");
 
     /// <summary>
     /// The ipv6_support attribute.
     /// </summary>
-    public TerraformExpression Ipv6Support => this["ipv6_support"];
+    [TerraformPropertyName("ipv6_support")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Ipv6Support => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ipv6_support");
 
     /// <summary>
     /// The security_group_referencing_support attribute.
     /// </summary>
-    public TerraformExpression SecurityGroupReferencingSupport => this["security_group_referencing_support"];
+    [TerraformPropertyName("security_group_referencing_support")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecurityGroupReferencingSupport => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "security_group_referencing_support");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformExpression SubnetIds => this["subnet_ids"];
+    [TerraformPropertyName("subnet_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SubnetIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "subnet_ids");
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformExpression TransitGatewayId => this["transit_gateway_id"];
+    [TerraformPropertyName("transit_gateway_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TransitGatewayId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "transit_gateway_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformExpression VpcId => this["vpc_id"];
+    [TerraformPropertyName("vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
     /// <summary>
     /// The vpc_owner_id attribute.
     /// </summary>
-    public TerraformExpression VpcOwnerId => this["vpc_owner_id"];
+    [TerraformPropertyName("vpc_owner_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcOwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_owner_id");
 
 }

@@ -9,33 +9,27 @@ public class AwsCostoptimizationhubEnrollmentStatus : TerraformResource
 {
     public AwsCostoptimizationhubEnrollmentStatus(string name) : base("aws_costoptimizationhub_enrollment_status", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("status");
-        SetOutput("include_member_accounts");
     }
 
     /// <summary>
     /// The include_member_accounts attribute.
     /// </summary>
-    public TerraformProperty<bool> IncludeMemberAccounts
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("include_member_accounts");
-        set => SetProperty("include_member_accounts", value);
-    }
+    [TerraformPropertyName("include_member_accounts")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> IncludeMemberAccounts { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "include_member_accounts");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

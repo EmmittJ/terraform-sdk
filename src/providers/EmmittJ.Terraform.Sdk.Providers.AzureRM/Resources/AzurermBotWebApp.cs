@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBotWebAppTimeoutsBlock : TerraformBlock
+public class AzurermBotWebAppTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,165 +45,116 @@ public class AzurermBotWebApp : TerraformResource
 {
     public AzurermBotWebApp(string name) : base("azurerm_bot_web_app", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("developer_app_insights_api_key");
-        SetOutput("developer_app_insights_application_id");
-        SetOutput("developer_app_insights_key");
-        SetOutput("display_name");
-        SetOutput("endpoint");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("luis_app_ids");
-        SetOutput("luis_key");
-        SetOutput("microsoft_app_id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("sku");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The developer_app_insights_api_key attribute.
     /// </summary>
-    public TerraformProperty<string> DeveloperAppInsightsApiKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("developer_app_insights_api_key");
-        set => SetProperty("developer_app_insights_api_key", value);
-    }
+    [TerraformPropertyName("developer_app_insights_api_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeveloperAppInsightsApiKey { get; set; }
 
     /// <summary>
     /// The developer_app_insights_application_id attribute.
     /// </summary>
-    public TerraformProperty<string> DeveloperAppInsightsApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("developer_app_insights_application_id");
-        set => SetProperty("developer_app_insights_application_id", value);
-    }
+    [TerraformPropertyName("developer_app_insights_application_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeveloperAppInsightsApplicationId { get; set; }
 
     /// <summary>
     /// The developer_app_insights_key attribute.
     /// </summary>
-    public TerraformProperty<string> DeveloperAppInsightsKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("developer_app_insights_key");
-        set => SetProperty("developer_app_insights_key", value);
-    }
+    [TerraformPropertyName("developer_app_insights_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeveloperAppInsightsKey { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformProperty<string> Endpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("endpoint");
-        set => SetProperty("endpoint", value);
-    }
+    [TerraformPropertyName("endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Endpoint { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The luis_app_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>> LuisAppIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("luis_app_ids");
-        set => SetProperty("luis_app_ids", value);
-    }
+    [TerraformPropertyName("luis_app_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? LuisAppIds { get; set; }
 
     /// <summary>
     /// The luis_key attribute.
     /// </summary>
-    public TerraformProperty<string> LuisKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("luis_key");
-        set => SetProperty("luis_key", value);
-    }
+    [TerraformPropertyName("luis_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LuisKey { get; set; }
 
     /// <summary>
     /// The microsoft_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MicrosoftAppId is required")]
-    public required TerraformProperty<string> MicrosoftAppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("microsoft_app_id");
-        set => SetProperty("microsoft_app_id", value);
-    }
+    [TerraformPropertyName("microsoft_app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MicrosoftAppId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    public required TerraformProperty<string> Sku
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku");
-        set => SetProperty("sku", value);
-    }
+    [TerraformPropertyName("sku")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermBotWebAppTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermBotWebAppTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -9,99 +9,90 @@ public class AwsOrganizationsOrganization : TerraformResource
 {
     public AwsOrganizationsOrganization(string name) : base("aws_organizations_organization", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("accounts");
-        SetOutput("arn");
-        SetOutput("master_account_arn");
-        SetOutput("master_account_email");
-        SetOutput("master_account_id");
-        SetOutput("master_account_name");
-        SetOutput("non_master_accounts");
-        SetOutput("roots");
-        SetOutput("aws_service_access_principals");
-        SetOutput("enabled_policy_types");
-        SetOutput("feature_set");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The aws_service_access_principals attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AwsServiceAccessPrincipals
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("aws_service_access_principals");
-        set => SetProperty("aws_service_access_principals", value);
-    }
+    [TerraformPropertyName("aws_service_access_principals")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AwsServiceAccessPrincipals { get; set; }
 
     /// <summary>
     /// The enabled_policy_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> EnabledPolicyTypes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("enabled_policy_types");
-        set => SetProperty("enabled_policy_types", value);
-    }
+    [TerraformPropertyName("enabled_policy_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? EnabledPolicyTypes { get; set; }
 
     /// <summary>
     /// The feature_set attribute.
     /// </summary>
-    public TerraformProperty<string> FeatureSet
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("feature_set");
-        set => SetProperty("feature_set", value);
-    }
+    [TerraformPropertyName("feature_set")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FeatureSet { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The accounts attribute.
     /// </summary>
-    public TerraformExpression Accounts => this["accounts"];
+    [TerraformPropertyName("accounts")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Accounts => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "accounts");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The master_account_arn attribute.
     /// </summary>
-    public TerraformExpression MasterAccountArn => this["master_account_arn"];
+    [TerraformPropertyName("master_account_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MasterAccountArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "master_account_arn");
 
     /// <summary>
     /// The master_account_email attribute.
     /// </summary>
-    public TerraformExpression MasterAccountEmail => this["master_account_email"];
+    [TerraformPropertyName("master_account_email")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MasterAccountEmail => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "master_account_email");
 
     /// <summary>
     /// The master_account_id attribute.
     /// </summary>
-    public TerraformExpression MasterAccountId => this["master_account_id"];
+    [TerraformPropertyName("master_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MasterAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "master_account_id");
 
     /// <summary>
     /// The master_account_name attribute.
     /// </summary>
-    public TerraformExpression MasterAccountName => this["master_account_name"];
+    [TerraformPropertyName("master_account_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MasterAccountName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "master_account_name");
 
     /// <summary>
     /// The non_master_accounts attribute.
     /// </summary>
-    public TerraformExpression NonMasterAccounts => this["non_master_accounts"];
+    [TerraformPropertyName("non_master_accounts")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> NonMasterAccounts => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "non_master_accounts");
 
     /// <summary>
     /// The roots attribute.
     /// </summary>
-    public TerraformExpression Roots => this["roots"];
+    [TerraformPropertyName("roots")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Roots => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "roots");
 
 }

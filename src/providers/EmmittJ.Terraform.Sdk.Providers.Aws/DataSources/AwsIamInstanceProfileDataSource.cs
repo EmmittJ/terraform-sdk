@@ -9,68 +9,63 @@ public class AwsIamInstanceProfileDataSource : TerraformDataSource
 {
     public AwsIamInstanceProfileDataSource(string name) : base("aws_iam_instance_profile", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("create_date");
-        SetOutput("path");
-        SetOutput("role_arn");
-        SetOutput("role_id");
-        SetOutput("role_name");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
-    public TerraformExpression CreateDate => this["create_date"];
+    [TerraformPropertyName("create_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_date");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformExpression Path => this["path"];
+    [TerraformPropertyName("path")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Path => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "path");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformExpression RoleArn => this["role_arn"];
+    [TerraformPropertyName("role_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_arn");
 
     /// <summary>
     /// The role_id attribute.
     /// </summary>
-    public TerraformExpression RoleId => this["role_id"];
+    [TerraformPropertyName("role_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RoleId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_id");
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public TerraformExpression RoleName => this["role_name"];
+    [TerraformPropertyName("role_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RoleName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_name");
 
 }

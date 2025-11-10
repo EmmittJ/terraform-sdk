@@ -6,17 +6,16 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for telemetry in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMonitoringCustomServiceTelemetryBlock : TerraformBlock
+public class GoogleMonitoringCustomServiceTelemetryBlock : ITerraformBlock
 {
     /// <summary>
     /// The full name of the resource that defines this service.
     /// Formatted as described in
     /// https://cloud.google.com/apis/design/resource_names.
     /// </summary>
-    public TerraformProperty<string>? ResourceName
-    {
-        set => SetProperty("resource_name", value);
-    }
+    [TerraformPropertyName("resource_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceName { get; set; }
 
 }
 
@@ -24,31 +23,28 @@ public class GoogleMonitoringCustomServiceTelemetryBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleMonitoringCustomServiceTimeoutsBlock : TerraformBlock
+public class GoogleMonitoringCustomServiceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -60,55 +56,36 @@ public class GoogleMonitoringCustomService : TerraformResource
 {
     public GoogleMonitoringCustomService(string name) : base("google_monitoring_custom_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("service_id");
-        SetOutput("user_labels");
     }
 
     /// <summary>
     /// Name used for UI elements listing this Service.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// An optional service ID to use. If not given, the server will generate a
     /// service ID.
     /// </summary>
-    public TerraformProperty<string> ServiceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_id");
-        set => SetProperty("service_id", value);
-    }
+    [TerraformPropertyName("service_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ServiceId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_id");
 
     /// <summary>
     /// Labels which have been used to annotate the service. Label keys must start
@@ -118,35 +95,31 @@ public class GoogleMonitoringCustomService : TerraformResource
     /// label entries may be stored. For labels which do not have a semantic value,
     /// the empty string may be supplied for the label value.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> UserLabels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("user_labels");
-        set => SetProperty("user_labels", value);
-    }
+    [TerraformPropertyName("user_labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? UserLabels { get; set; }
 
     /// <summary>
     /// Block for telemetry.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Telemetry block(s) allowed")]
-    public List<GoogleMonitoringCustomServiceTelemetryBlock>? Telemetry
-    {
-        set => SetProperty("telemetry", value);
-    }
+    [TerraformPropertyName("telemetry")]
+    public TerraformList<TerraformBlock<GoogleMonitoringCustomServiceTelemetryBlock>>? Telemetry { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleMonitoringCustomServiceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleMonitoringCustomServiceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The full resource name for this service. The syntax is:
     /// projects/[PROJECT_ID]/services/[SERVICE_ID].
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

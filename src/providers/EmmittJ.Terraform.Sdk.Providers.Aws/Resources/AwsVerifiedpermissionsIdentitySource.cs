@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedpermissionsIdentitySourceConfigurationBlock : TerraformBlock
+public class AwsVerifiedpermissionsIdentitySourceConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -17,57 +17,42 @@ public class AwsVerifiedpermissionsIdentitySource : TerraformResource
 {
     public AwsVerifiedpermissionsIdentitySource(string name) : base("aws_verifiedpermissions_identity_source", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("policy_store_id");
-        SetOutput("principal_entity_type");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The policy_store_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
-    public required TerraformProperty<string> PolicyStoreId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_store_id");
-        set => SetProperty("policy_store_id", value);
-    }
+    [TerraformPropertyName("policy_store_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyStoreId { get; set; }
 
     /// <summary>
     /// The principal_entity_type attribute.
     /// </summary>
-    public TerraformProperty<string> PrincipalEntityType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal_entity_type");
-        set => SetProperty("principal_entity_type", value);
-    }
+    [TerraformPropertyName("principal_entity_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PrincipalEntityType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "principal_entity_type");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsVerifiedpermissionsIdentitySourceConfigurationBlock>? Configuration
-    {
-        set => SetProperty("configuration", value);
-    }
+    [TerraformPropertyName("configuration")]
+    public TerraformList<TerraformBlock<AwsVerifiedpermissionsIdentitySourceConfigurationBlock>>? Configuration { get; set; } = new();
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

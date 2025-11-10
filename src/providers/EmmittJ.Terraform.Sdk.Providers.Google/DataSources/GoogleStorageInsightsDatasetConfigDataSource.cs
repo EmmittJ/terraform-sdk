@@ -9,123 +9,107 @@ public class GoogleStorageInsightsDatasetConfigDataSource : TerraformDataSource
 {
     public GoogleStorageInsightsDatasetConfigDataSource(string name) : base("google_storage_insights_dataset_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("dataset_config_state");
-        SetOutput("description");
-        SetOutput("exclude_cloud_storage_buckets");
-        SetOutput("exclude_cloud_storage_locations");
-        SetOutput("identity");
-        SetOutput("include_cloud_storage_buckets");
-        SetOutput("include_cloud_storage_locations");
-        SetOutput("include_newly_created_buckets");
-        SetOutput("link");
-        SetOutput("link_dataset");
-        SetOutput("name");
-        SetOutput("organization_number");
-        SetOutput("organization_scope");
-        SetOutput("retention_period_days");
-        SetOutput("source_folders");
-        SetOutput("source_projects");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("dataset_config_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The user-defined ID of the DatasetConfig
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetConfigId is required")]
-    public required TerraformProperty<string> DatasetConfigId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dataset_config_id");
-        set => SetProperty("dataset_config_id", value);
-    }
+    [TerraformPropertyName("dataset_config_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatasetConfigId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location of the DatasetConfig.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The UTC time at which the DatasetConfig was created. This is auto-populated.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// State of the DatasetConfig.
     /// </summary>
-    public TerraformExpression DatasetConfigState => this["dataset_config_state"];
+    [TerraformPropertyName("dataset_config_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DatasetConfigState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dataset_config_state");
 
     /// <summary>
     /// An optional user-provided description for the dataset configuration with a maximum length of 256 characters.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// Defined the options for excluding cloud storage buckets for the DatasetConfig.
     /// </summary>
-    public TerraformExpression ExcludeCloudStorageBuckets => this["exclude_cloud_storage_buckets"];
+    [TerraformPropertyName("exclude_cloud_storage_buckets")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ExcludeCloudStorageBuckets => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "exclude_cloud_storage_buckets");
 
     /// <summary>
     /// Defines the options for excluding cloud storage locations for the DatasetConfig.
     /// </summary>
-    public TerraformExpression ExcludeCloudStorageLocations => this["exclude_cloud_storage_locations"];
+    [TerraformPropertyName("exclude_cloud_storage_locations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ExcludeCloudStorageLocations => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "exclude_cloud_storage_locations");
 
     /// <summary>
     /// Identity used by DatasetConfig.
     /// </summary>
-    public TerraformExpression Identity => this["identity"];
+    [TerraformPropertyName("identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
 
     /// <summary>
     /// Defines the options for including cloud storage buckets for the DatasetConfig.
     /// </summary>
-    public TerraformExpression IncludeCloudStorageBuckets => this["include_cloud_storage_buckets"];
+    [TerraformPropertyName("include_cloud_storage_buckets")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> IncludeCloudStorageBuckets => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "include_cloud_storage_buckets");
 
     /// <summary>
     /// Defines the options for including cloud storage locations for the DatasetConfig.
     /// </summary>
-    public TerraformExpression IncludeCloudStorageLocations => this["include_cloud_storage_locations"];
+    [TerraformPropertyName("include_cloud_storage_locations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> IncludeCloudStorageLocations => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "include_cloud_storage_locations");
 
     /// <summary>
     /// If set to true, the request includes all the newly created buckets in the dataset that meet the inclusion and exclusion rules.
     /// </summary>
-    public TerraformExpression IncludeNewlyCreatedBuckets => this["include_newly_created_buckets"];
+    [TerraformPropertyName("include_newly_created_buckets")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> IncludeNewlyCreatedBuckets => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "include_newly_created_buckets");
 
     /// <summary>
     /// Details of the linked DatasetConfig.
     /// </summary>
-    public TerraformExpression Link => this["link"];
+    [TerraformPropertyName("link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Link => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "link");
 
     /// <summary>
     /// A boolean terraform only flag to link/unlink dataset.
@@ -134,47 +118,65 @@ public class GoogleStorageInsightsDatasetConfigDataSource : TerraformDataSource
     /// -&amp;gt; **Note** A dataset config resource can only be destroyed once it is unlinked,
     /// so users must set this field to false to unlink the dataset and destroy the dataset config resource.
     /// </summary>
-    public TerraformExpression LinkDataset => this["link_dataset"];
+    [TerraformPropertyName("link_dataset")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> LinkDataset => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "link_dataset");
 
     /// <summary>
     /// The full canonical resource name of the DatasetConfig (e.g., projects/P/locations/L/datasetConfigs/ID).
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Organization resource ID that the source projects should belong to.
     /// Projects that do not belong to the provided organization are not considered when creating the dataset.
     /// </summary>
-    public TerraformExpression OrganizationNumber => this["organization_number"];
+    [TerraformPropertyName("organization_number")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OrganizationNumber => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "organization_number");
 
     /// <summary>
     /// Defines the options for providing a source organization for the DatasetConfig.
     /// </summary>
-    public TerraformExpression OrganizationScope => this["organization_scope"];
+    [TerraformPropertyName("organization_scope")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> OrganizationScope => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "organization_scope");
 
     /// <summary>
     /// Number of days of history that must be retained.
     /// </summary>
-    public TerraformExpression RetentionPeriodDays => this["retention_period_days"];
+    [TerraformPropertyName("retention_period_days")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RetentionPeriodDays => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "retention_period_days");
 
     /// <summary>
     /// Defines the options for providing source folders for the DatasetConfig.
     /// </summary>
-    public TerraformExpression SourceFolders => this["source_folders"];
+    [TerraformPropertyName("source_folders")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SourceFolders => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "source_folders");
 
     /// <summary>
     /// Defines the options for providing source projects for the DatasetConfig.
     /// </summary>
-    public TerraformExpression SourceProjects => this["source_projects"];
+    [TerraformPropertyName("source_projects")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SourceProjects => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "source_projects");
 
     /// <summary>
     /// System generated unique identifier for the resource.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// The UTC time at which the DatasetConfig was updated. This is auto-populated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

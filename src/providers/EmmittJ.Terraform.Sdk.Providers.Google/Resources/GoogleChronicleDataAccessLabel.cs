@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleChronicleDataAccessLabelTimeoutsBlock : TerraformBlock
+public class GoogleChronicleDataAccessLabelTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,24 +38,6 @@ public class GoogleChronicleDataAccessLabel : TerraformResource
 {
     public GoogleChronicleDataAccessLabel(string name) : base("google_chronicle_data_access_label", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("author");
-        SetOutput("create_time");
-        SetOutput("display_name");
-        SetOutput("last_editor");
-        SetOutput("name");
-        SetOutput("update_time");
-        SetOutput("data_access_label_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("instance");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("udm_query");
     }
 
     /// <summary>
@@ -68,108 +47,104 @@ public class GoogleChronicleDataAccessLabel : TerraformResource
     /// https://google.aip.dev/122#resource-id-segments
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessLabelId is required")]
-    public required TerraformProperty<string> DataAccessLabelId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_access_label_id");
-        set => SetProperty("data_access_label_id", value);
-    }
+    [TerraformPropertyName("data_access_label_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataAccessLabelId { get; set; }
 
     /// <summary>
     /// Optional. A description of the data access label for a human reader.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    public required TerraformProperty<string> Instance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance");
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// A UDM query over event data.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UdmQuery is required")]
-    public required TerraformProperty<string> UdmQuery
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("udm_query");
-        set => SetProperty("udm_query", value);
-    }
+    [TerraformPropertyName("udm_query")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UdmQuery { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleChronicleDataAccessLabelTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleChronicleDataAccessLabelTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The user who created the data access label.
     /// </summary>
-    public TerraformExpression Author => this["author"];
+    [TerraformPropertyName("author")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Author => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "author");
 
     /// <summary>
     /// Output only. The time at which the data access label was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Output only. The short name displayed for the label as it appears on event data. This is same as data access label id.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// Output only. The user who last updated the data access label.
     /// </summary>
-    public TerraformExpression LastEditor => this["last_editor"];
+    [TerraformPropertyName("last_editor")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastEditor => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_editor");
 
     /// <summary>
     /// The unique resource name of the data access label. This unique identifier is generated using values provided for the URL parameters.
     /// Format:
     /// projects/{project}/locations/{location}/instances/{instance}/dataAccessLabels/{data_access_label_id}
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Output only. The time at which the data access label was last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

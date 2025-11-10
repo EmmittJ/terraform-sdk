@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock : TerraformBlock
+public class AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,94 +45,66 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
 {
     public AzurermVirtualMachineDataDiskAttachment(string name) : base("azurerm_virtual_machine_data_disk_attachment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("caching");
-        SetOutput("create_option");
-        SetOutput("id");
-        SetOutput("lun");
-        SetOutput("managed_disk_id");
-        SetOutput("virtual_machine_id");
-        SetOutput("write_accelerator_enabled");
     }
 
     /// <summary>
     /// The caching attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
-    public required TerraformProperty<string> Caching
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("caching");
-        set => SetProperty("caching", value);
-    }
+    [TerraformPropertyName("caching")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Caching { get; set; }
 
     /// <summary>
     /// The create_option attribute.
     /// </summary>
-    public TerraformProperty<string> CreateOption
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("create_option");
-        set => SetProperty("create_option", value);
-    }
+    [TerraformPropertyName("create_option")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CreateOption { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The lun attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
-    public required TerraformProperty<double> Lun
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("lun");
-        set => SetProperty("lun", value);
-    }
+    [TerraformPropertyName("lun")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Lun { get; set; }
 
     /// <summary>
     /// The managed_disk_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedDiskId is required")]
-    public required TerraformProperty<string> ManagedDiskId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_disk_id");
-        set => SetProperty("managed_disk_id", value);
-    }
+    [TerraformPropertyName("managed_disk_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ManagedDiskId { get; set; }
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
-    public required TerraformProperty<string> VirtualMachineId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_id");
-        set => SetProperty("virtual_machine_id", value);
-    }
+    [TerraformPropertyName("virtual_machine_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualMachineId { get; set; }
 
     /// <summary>
     /// The write_accelerator_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> WriteAcceleratorEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("write_accelerator_enabled");
-        set => SetProperty("write_accelerator_enabled", value);
-    }
+    [TerraformPropertyName("write_accelerator_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WriteAcceleratorEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

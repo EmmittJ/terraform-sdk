@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for permissions in .
 /// Nesting mode: set
 /// </summary>
-public class AzureadCustomDirectoryRolePermissionsBlock : TerraformBlock
+public class AzureadCustomDirectoryRolePermissionsBlock : ITerraformBlock
 {
     /// <summary>
     /// Set of tasks that can be performed on a resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedResourceActions is required")]
-    public HashSet<TerraformProperty<string>>? AllowedResourceActions
-    {
-        set => SetProperty("allowed_resource_actions", value);
-    }
+    [TerraformPropertyName("allowed_resource_actions")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedResourceActions { get; set; }
 
 }
 
@@ -23,39 +22,35 @@ public class AzureadCustomDirectoryRolePermissionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadCustomDirectoryRoleTimeoutsBlock : TerraformBlock
+public class AzureadCustomDirectoryRoleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -67,76 +62,52 @@ public class AzureadCustomDirectoryRole : TerraformResource
 {
     public AzureadCustomDirectoryRole(string name) : base("azuread_custom_directory_role", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("object_id");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("template_id");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The description of the custom directory role
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display name of the custom directory role
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// Indicates whether the role is enabled for assignment
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Custom template identifier that is typically used if one needs an identifier to be the same across different directories.
     /// </summary>
-    public TerraformProperty<string> TemplateId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("template_id");
-        set => SetProperty("template_id", value);
-    }
+    [TerraformPropertyName("template_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TemplateId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "template_id");
 
     /// <summary>
     /// The version of the role definition.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
     /// <summary>
     /// Block for permissions.
@@ -144,23 +115,21 @@ public class AzureadCustomDirectoryRole : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
-    public HashSet<AzureadCustomDirectoryRolePermissionsBlock>? Permissions
-    {
-        set => SetProperty("permissions", value);
-    }
+    [TerraformPropertyName("permissions")]
+    public TerraformSet<TerraformBlock<AzureadCustomDirectoryRolePermissionsBlock>>? Permissions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadCustomDirectoryRoleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadCustomDirectoryRoleTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The object ID of the directory role
     /// </summary>
-    public TerraformExpression ObjectId => this["object_id"];
+    [TerraformPropertyName("object_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ObjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_id");
 
 }

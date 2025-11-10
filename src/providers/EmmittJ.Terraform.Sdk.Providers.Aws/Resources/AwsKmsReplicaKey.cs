@@ -9,142 +9,112 @@ public class AwsKmsReplicaKey : TerraformResource
 {
     public AwsKmsReplicaKey(string name) : base("aws_kms_replica_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("key_id");
-        SetOutput("key_rotation_enabled");
-        SetOutput("key_spec");
-        SetOutput("key_usage");
-        SetOutput("bypass_policy_lockout_safety_check");
-        SetOutput("deletion_window_in_days");
-        SetOutput("description");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("policy");
-        SetOutput("primary_key_arn");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The bypass_policy_lockout_safety_check attribute.
     /// </summary>
-    public TerraformProperty<bool> BypassPolicyLockoutSafetyCheck
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("bypass_policy_lockout_safety_check");
-        set => SetProperty("bypass_policy_lockout_safety_check", value);
-    }
+    [TerraformPropertyName("bypass_policy_lockout_safety_check")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BypassPolicyLockoutSafetyCheck { get; set; }
 
     /// <summary>
     /// The deletion_window_in_days attribute.
     /// </summary>
-    public TerraformProperty<double> DeletionWindowInDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("deletion_window_in_days");
-        set => SetProperty("deletion_window_in_days", value);
-    }
+    [TerraformPropertyName("deletion_window_in_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DeletionWindowInDays { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string> Policy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy");
-        set => SetProperty("policy", value);
-    }
+    [TerraformPropertyName("policy")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Policy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy");
 
     /// <summary>
     /// The primary_key_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKeyArn is required")]
-    public required TerraformProperty<string> PrimaryKeyArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("primary_key_arn");
-        set => SetProperty("primary_key_arn", value);
-    }
+    [TerraformPropertyName("primary_key_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrimaryKeyArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    public TerraformExpression KeyId => this["key_id"];
+    [TerraformPropertyName("key_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_id");
 
     /// <summary>
     /// The key_rotation_enabled attribute.
     /// </summary>
-    public TerraformExpression KeyRotationEnabled => this["key_rotation_enabled"];
+    [TerraformPropertyName("key_rotation_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> KeyRotationEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "key_rotation_enabled");
 
     /// <summary>
     /// The key_spec attribute.
     /// </summary>
-    public TerraformExpression KeySpec => this["key_spec"];
+    [TerraformPropertyName("key_spec")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeySpec => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_spec");
 
     /// <summary>
     /// The key_usage attribute.
     /// </summary>
-    public TerraformExpression KeyUsage => this["key_usage"];
+    [TerraformPropertyName("key_usage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyUsage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_usage");
 
 }

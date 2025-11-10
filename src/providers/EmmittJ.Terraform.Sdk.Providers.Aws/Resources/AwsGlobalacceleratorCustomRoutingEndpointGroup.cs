@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination_configuration in .
 /// Nesting mode: set
 /// </summary>
-public class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurationBlock : TerraformBlock
+public class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The from_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
-    public required TerraformProperty<double> FromPort
-    {
-        set => SetProperty("from_port", value);
-    }
+    [TerraformPropertyName("from_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> FromPort { get; set; }
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
-    public HashSet<TerraformProperty<string>>? Protocols
-    {
-        set => SetProperty("protocols", value);
-    }
+    [TerraformPropertyName("protocols")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Protocols { get; set; }
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
-    public required TerraformProperty<double> ToPort
-    {
-        set => SetProperty("to_port", value);
-    }
+    [TerraformPropertyName("to_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ToPort { get; set; }
 
 }
 
@@ -41,15 +38,14 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurat
 /// Block type for endpoint_configuration in .
 /// Nesting mode: set
 /// </summary>
-public class AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfigurationBlock : TerraformBlock
+public class AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointId
-    {
-        set => SetProperty("endpoint_id", value);
-    }
+    [TerraformPropertyName("endpoint_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndpointId { get; set; }
 
 }
 
@@ -57,23 +53,21 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfiguration
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock : TerraformBlock
+public class AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -85,44 +79,29 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroup : TerraformResource
 {
     public AwsGlobalacceleratorCustomRoutingEndpointGroup(string name) : base("aws_globalaccelerator_custom_routing_endpoint_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("endpoint_group_region");
-        SetOutput("id");
-        SetOutput("listener_arn");
     }
 
     /// <summary>
     /// The endpoint_group_region attribute.
     /// </summary>
-    public TerraformProperty<string> EndpointGroupRegion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_group_region");
-        set => SetProperty("endpoint_group_region", value);
-    }
+    [TerraformPropertyName("endpoint_group_region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EndpointGroupRegion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_group_region");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The listener_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
-    public required TerraformProperty<string> ListenerArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("listener_arn");
-        set => SetProperty("listener_arn", value);
-    }
+    [TerraformPropertyName("listener_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ListenerArn { get; set; }
 
     /// <summary>
     /// Block for destination_configuration.
@@ -130,32 +109,28 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationConfiguration block(s) required")]
-    public HashSet<AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurationBlock>? DestinationConfiguration
-    {
-        set => SetProperty("destination_configuration", value);
-    }
+    [TerraformPropertyName("destination_configuration")]
+    public TerraformSet<TerraformBlock<AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurationBlock>>? DestinationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for endpoint_configuration.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfigurationBlock>? EndpointConfiguration
-    {
-        set => SetProperty("endpoint_configuration", value);
-    }
+    [TerraformPropertyName("endpoint_configuration")]
+    public TerraformSet<TerraformBlock<AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfigurationBlock>>? EndpointConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

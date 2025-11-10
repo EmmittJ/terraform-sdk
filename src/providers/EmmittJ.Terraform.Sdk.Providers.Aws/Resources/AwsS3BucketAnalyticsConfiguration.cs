@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketAnalyticsConfigurationFilterBlock : TerraformBlock
+public class AwsS3BucketAnalyticsConfigurationFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? Prefix
-    {
-        set => SetProperty("prefix", value);
-    }
+    [TerraformPropertyName("prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Prefix { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
-    {
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
 }
 
@@ -30,7 +28,7 @@ public class AwsS3BucketAnalyticsConfigurationFilterBlock : TerraformBlock
 /// Block type for storage_class_analysis in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlock : TerraformBlock
+public class AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlock : ITerraformBlock
 {
 }
 
@@ -42,73 +40,52 @@ public class AwsS3BucketAnalyticsConfiguration : TerraformResource
 {
     public AwsS3BucketAnalyticsConfiguration(string name) : base("aws_s3_bucket_analytics_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bucket");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
-    public List<AwsS3BucketAnalyticsConfigurationFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformList<TerraformBlock<AwsS3BucketAnalyticsConfigurationFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// Block for storage_class_analysis.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageClassAnalysis block(s) allowed")]
-    public List<AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlock>? StorageClassAnalysis
-    {
-        set => SetProperty("storage_class_analysis", value);
-    }
+    [TerraformPropertyName("storage_class_analysis")]
+    public TerraformList<TerraformBlock<AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlock>>? StorageClassAnalysis { get; set; } = new();
 
 }

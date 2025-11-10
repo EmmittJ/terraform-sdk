@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for server_side_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDaxClusterServerSideEncryptionBlock : TerraformBlock
+public class AwsDaxClusterServerSideEncryptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
 }
 
@@ -22,31 +21,28 @@ public class AwsDaxClusterServerSideEncryptionBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDaxClusterTimeoutsBlock : TerraformBlock
+public class AwsDaxClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -58,224 +54,172 @@ public class AwsDaxCluster : TerraformResource
 {
     public AwsDaxCluster(string name) : base("aws_dax_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("cluster_address");
-        SetOutput("configuration_endpoint");
-        SetOutput("nodes");
-        SetOutput("port");
-        SetOutput("availability_zones");
-        SetOutput("cluster_endpoint_encryption_type");
-        SetOutput("cluster_name");
-        SetOutput("description");
-        SetOutput("iam_role_arn");
-        SetOutput("id");
-        SetOutput("maintenance_window");
-        SetOutput("node_type");
-        SetOutput("notification_topic_arn");
-        SetOutput("parameter_group_name");
-        SetOutput("region");
-        SetOutput("replication_factor");
-        SetOutput("security_group_ids");
-        SetOutput("subnet_group_name");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AvailabilityZones
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("availability_zones");
-        set => SetProperty("availability_zones", value);
-    }
+    [TerraformPropertyName("availability_zones")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AvailabilityZones { get; set; }
 
     /// <summary>
     /// The cluster_endpoint_encryption_type attribute.
     /// </summary>
-    public TerraformProperty<string> ClusterEndpointEncryptionType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_endpoint_encryption_type");
-        set => SetProperty("cluster_endpoint_encryption_type", value);
-    }
+    [TerraformPropertyName("cluster_endpoint_encryption_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClusterEndpointEncryptionType { get; set; }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    public required TerraformProperty<string> ClusterName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
-        set => SetProperty("cluster_name", value);
-    }
+    [TerraformPropertyName("cluster_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterName { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
-    public required TerraformProperty<string> IamRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
-        set => SetProperty("iam_role_arn", value);
-    }
+    [TerraformPropertyName("iam_role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IamRoleArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string> MaintenanceWindow
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_window");
-        set => SetProperty("maintenance_window", value);
-    }
+    [TerraformPropertyName("maintenance_window")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MaintenanceWindow { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "maintenance_window");
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
-    public required TerraformProperty<string> NodeType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("node_type");
-        set => SetProperty("node_type", value);
-    }
+    [TerraformPropertyName("node_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NodeType { get; set; }
 
     /// <summary>
     /// The notification_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string> NotificationTopicArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("notification_topic_arn");
-        set => SetProperty("notification_topic_arn", value);
-    }
+    [TerraformPropertyName("notification_topic_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NotificationTopicArn { get; set; }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformProperty<string> ParameterGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parameter_group_name");
-        set => SetProperty("parameter_group_name", value);
-    }
+    [TerraformPropertyName("parameter_group_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ParameterGroupName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parameter_group_name");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The replication_factor attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFactor is required")]
-    public required TerraformProperty<double> ReplicationFactor
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("replication_factor");
-        set => SetProperty("replication_factor", value);
-    }
+    [TerraformPropertyName("replication_factor")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ReplicationFactor { get; set; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SecurityGroupIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "security_group_ids");
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
-    public TerraformProperty<string> SubnetGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_group_name");
-        set => SetProperty("subnet_group_name", value);
-    }
+    [TerraformPropertyName("subnet_group_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SubnetGroupName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subnet_group_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for server_side_encryption.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
-    public List<AwsDaxClusterServerSideEncryptionBlock>? ServerSideEncryption
-    {
-        set => SetProperty("server_side_encryption", value);
-    }
+    [TerraformPropertyName("server_side_encryption")]
+    public TerraformList<TerraformBlock<AwsDaxClusterServerSideEncryptionBlock>>? ServerSideEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDaxClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDaxClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The cluster_address attribute.
     /// </summary>
-    public TerraformExpression ClusterAddress => this["cluster_address"];
+    [TerraformPropertyName("cluster_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClusterAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_address");
 
     /// <summary>
     /// The configuration_endpoint attribute.
     /// </summary>
-    public TerraformExpression ConfigurationEndpoint => this["configuration_endpoint"];
+    [TerraformPropertyName("configuration_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConfigurationEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "configuration_endpoint");
 
     /// <summary>
     /// The nodes attribute.
     /// </summary>
-    public TerraformExpression Nodes => this["nodes"];
+    [TerraformPropertyName("nodes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Nodes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "nodes");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformExpression Port => this["port"];
+    [TerraformPropertyName("port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Port => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "port");
 
 }

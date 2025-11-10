@@ -6,52 +6,47 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for links in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
+public class AzurermOrbitalSpacecraftLinksBlock : ITerraformBlock
 {
     /// <summary>
     /// The bandwidth_mhz attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthMhz is required")]
-    public required TerraformProperty<double> BandwidthMhz
-    {
-        set => SetProperty("bandwidth_mhz", value);
-    }
+    [TerraformPropertyName("bandwidth_mhz")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> BandwidthMhz { get; set; }
 
     /// <summary>
     /// The center_frequency_mhz attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CenterFrequencyMhz is required")]
-    public required TerraformProperty<double> CenterFrequencyMhz
-    {
-        set => SetProperty("center_frequency_mhz", value);
-    }
+    [TerraformPropertyName("center_frequency_mhz")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> CenterFrequencyMhz { get; set; }
 
     /// <summary>
     /// The direction attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
-    public required TerraformProperty<string> Direction
-    {
-        set => SetProperty("direction", value);
-    }
+    [TerraformPropertyName("direction")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Direction { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The polarization attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Polarization is required")]
-    public required TerraformProperty<string> Polarization
-    {
-        set => SetProperty("polarization", value);
-    }
+    [TerraformPropertyName("polarization")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Polarization { get; set; }
 
 }
 
@@ -59,39 +54,35 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermOrbitalSpacecraftTimeoutsBlock : TerraformBlock
+public class AzurermOrbitalSpacecraftTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -104,98 +95,69 @@ public class AzurermOrbitalSpacecraft : TerraformResource
 {
     public AzurermOrbitalSpacecraft(string name) : base("azurerm_orbital_spacecraft", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("norad_id");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
-        SetOutput("title_line");
-        SetOutput("two_line_elements");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The norad_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoradId is required")]
-    public required TerraformProperty<string> NoradId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("norad_id");
-        set => SetProperty("norad_id", value);
-    }
+    [TerraformPropertyName("norad_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NoradId { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The title_line attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TitleLine is required")]
-    public required TerraformProperty<string> TitleLine
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("title_line");
-        set => SetProperty("title_line", value);
-    }
+    [TerraformPropertyName("title_line")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TitleLine { get; set; }
 
     /// <summary>
     /// The two_line_elements attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TwoLineElements is required")]
-    public List<TerraformProperty<string>> TwoLineElements
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("two_line_elements");
-        set => SetProperty("two_line_elements", value);
-    }
+    [TerraformPropertyName("two_line_elements")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? TwoLineElements { get; set; }
 
     /// <summary>
     /// Block for links.
@@ -203,18 +165,14 @@ public class AzurermOrbitalSpacecraft : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Links is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Links block(s) required")]
-    public List<AzurermOrbitalSpacecraftLinksBlock>? Links
-    {
-        set => SetProperty("links", value);
-    }
+    [TerraformPropertyName("links")]
+    public TerraformList<TerraformBlock<AzurermOrbitalSpacecraftLinksBlock>>? Links { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermOrbitalSpacecraftTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermOrbitalSpacecraftTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

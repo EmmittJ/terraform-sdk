@@ -6,56 +6,50 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for certificate in .
 /// Nesting mode: set
 /// </summary>
-public class AwsWorkspaceswebTrustStoreCertificateBlock : TerraformBlock
+public class AwsWorkspaceswebTrustStoreCertificateBlock : ITerraformBlock
 {
     /// <summary>
     /// The body attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
-    public required TerraformProperty<string> Body
-    {
-        set => SetProperty("body", value);
-    }
+    [TerraformPropertyName("body")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Body { get; set; }
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
-    public TerraformProperty<string>? Issuer
-    {
-        set => SetProperty("issuer", value);
-    }
+    [TerraformPropertyName("issuer")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Issuer => new TerraformReferenceProperty<TerraformProperty<string>>("", "issuer");
 
     /// <summary>
     /// The not_valid_after attribute.
     /// </summary>
-    public TerraformProperty<string>? NotValidAfter
-    {
-        set => SetProperty("not_valid_after", value);
-    }
+    [TerraformPropertyName("not_valid_after")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NotValidAfter => new TerraformReferenceProperty<TerraformProperty<string>>("", "not_valid_after");
 
     /// <summary>
     /// The not_valid_before attribute.
     /// </summary>
-    public TerraformProperty<string>? NotValidBefore
-    {
-        set => SetProperty("not_valid_before", value);
-    }
+    [TerraformPropertyName("not_valid_before")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NotValidBefore => new TerraformReferenceProperty<TerraformProperty<string>>("", "not_valid_before");
 
     /// <summary>
     /// The subject attribute.
     /// </summary>
-    public TerraformProperty<string>? Subject
-    {
-        set => SetProperty("subject", value);
-    }
+    [TerraformPropertyName("subject")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Subject => new TerraformReferenceProperty<TerraformProperty<string>>("", "subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    public TerraformProperty<string>? Thumbprint
-    {
-        set => SetProperty("thumbprint", value);
-    }
+    [TerraformPropertyName("thumbprint")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Thumbprint => new TerraformReferenceProperty<TerraformProperty<string>>("", "thumbprint");
 
 }
 
@@ -66,58 +60,48 @@ public class AwsWorkspaceswebTrustStore : TerraformResource
 {
     public AwsWorkspaceswebTrustStore(string name) : base("aws_workspacesweb_trust_store", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("associated_portal_arns");
-        SetOutput("tags_all");
-        SetOutput("trust_store_arn");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for certificate.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsWorkspaceswebTrustStoreCertificateBlock>? Certificate
-    {
-        set => SetProperty("certificate", value);
-    }
+    [TerraformPropertyName("certificate")]
+    public TerraformSet<TerraformBlock<AwsWorkspaceswebTrustStoreCertificateBlock>>? Certificate { get; set; } = new();
 
     /// <summary>
     /// The associated_portal_arns attribute.
     /// </summary>
-    public TerraformExpression AssociatedPortalArns => this["associated_portal_arns"];
+    [TerraformPropertyName("associated_portal_arns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AssociatedPortalArns => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "associated_portal_arns");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The trust_store_arn attribute.
     /// </summary>
-    public TerraformExpression TrustStoreArn => this["trust_store_arn"];
+    [TerraformPropertyName("trust_store_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TrustStoreArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "trust_store_arn");
 
 }

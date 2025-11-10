@@ -9,43 +9,29 @@ public class AwsWorkspaceswebUserAccessLoggingSettingsAssociation : TerraformRes
 {
     public AwsWorkspaceswebUserAccessLoggingSettingsAssociation(string name) : base("aws_workspacesweb_user_access_logging_settings_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("portal_arn");
-        SetOutput("region");
-        SetOutput("user_access_logging_settings_arn");
     }
 
     /// <summary>
     /// The portal_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
-    public required TerraformProperty<string> PortalArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("portal_arn");
-        set => SetProperty("portal_arn", value);
-    }
+    [TerraformPropertyName("portal_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PortalArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The user_access_logging_settings_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserAccessLoggingSettingsArn is required")]
-    public required TerraformProperty<string> UserAccessLoggingSettingsArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_access_logging_settings_arn");
-        set => SetProperty("user_access_logging_settings_arn", value);
-    }
+    [TerraformPropertyName("user_access_logging_settings_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserAccessLoggingSettingsArn { get; set; }
 
 }

@@ -9,157 +9,110 @@ public class AwsAccountPrimaryContact : TerraformResource
 {
     public AwsAccountPrimaryContact(string name) : base("aws_account_primary_contact", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account_id");
-        SetOutput("address_line_1");
-        SetOutput("address_line_2");
-        SetOutput("address_line_3");
-        SetOutput("city");
-        SetOutput("company_name");
-        SetOutput("country_code");
-        SetOutput("district_or_county");
-        SetOutput("full_name");
-        SetOutput("id");
-        SetOutput("phone_number");
-        SetOutput("postal_code");
-        SetOutput("state_or_region");
-        SetOutput("website_url");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string> AccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AccountId { get; set; }
 
     /// <summary>
     /// The address_line_1 attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressLine1 is required")]
-    public required TerraformProperty<string> AddressLine1
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("address_line_1");
-        set => SetProperty("address_line_1", value);
-    }
+    [TerraformPropertyName("address_line_1")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AddressLine1 { get; set; }
 
     /// <summary>
     /// The address_line_2 attribute.
     /// </summary>
-    public TerraformProperty<string> AddressLine2
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("address_line_2");
-        set => SetProperty("address_line_2", value);
-    }
+    [TerraformPropertyName("address_line_2")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AddressLine2 { get; set; }
 
     /// <summary>
     /// The address_line_3 attribute.
     /// </summary>
-    public TerraformProperty<string> AddressLine3
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("address_line_3");
-        set => SetProperty("address_line_3", value);
-    }
+    [TerraformPropertyName("address_line_3")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AddressLine3 { get; set; }
 
     /// <summary>
     /// The city attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "City is required")]
-    public required TerraformProperty<string> City
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("city");
-        set => SetProperty("city", value);
-    }
+    [TerraformPropertyName("city")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> City { get; set; }
 
     /// <summary>
     /// The company_name attribute.
     /// </summary>
-    public TerraformProperty<string> CompanyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("company_name");
-        set => SetProperty("company_name", value);
-    }
+    [TerraformPropertyName("company_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CompanyName { get; set; }
 
     /// <summary>
     /// The country_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
-    public required TerraformProperty<string> CountryCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("country_code");
-        set => SetProperty("country_code", value);
-    }
+    [TerraformPropertyName("country_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CountryCode { get; set; }
 
     /// <summary>
     /// The district_or_county attribute.
     /// </summary>
-    public TerraformProperty<string> DistrictOrCounty
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("district_or_county");
-        set => SetProperty("district_or_county", value);
-    }
+    [TerraformPropertyName("district_or_county")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DistrictOrCounty { get; set; }
 
     /// <summary>
     /// The full_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullName is required")]
-    public required TerraformProperty<string> FullName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("full_name");
-        set => SetProperty("full_name", value);
-    }
+    [TerraformPropertyName("full_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FullName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
-    public required TerraformProperty<string> PhoneNumber
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("phone_number");
-        set => SetProperty("phone_number", value);
-    }
+    [TerraformPropertyName("phone_number")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PhoneNumber { get; set; }
 
     /// <summary>
     /// The postal_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostalCode is required")]
-    public required TerraformProperty<string> PostalCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("postal_code");
-        set => SetProperty("postal_code", value);
-    }
+    [TerraformPropertyName("postal_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PostalCode { get; set; }
 
     /// <summary>
     /// The state_or_region attribute.
     /// </summary>
-    public TerraformProperty<string> StateOrRegion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("state_or_region");
-        set => SetProperty("state_or_region", value);
-    }
+    [TerraformPropertyName("state_or_region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StateOrRegion { get; set; }
 
     /// <summary>
     /// The website_url attribute.
     /// </summary>
-    public TerraformProperty<string> WebsiteUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("website_url");
-        set => SetProperty("website_url", value);
-    }
+    [TerraformPropertyName("website_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WebsiteUrl { get; set; }
 
 }

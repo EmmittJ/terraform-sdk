@@ -9,201 +9,147 @@ public class AwsEmrStudio : TerraformResource
 {
     public AwsEmrStudio(string name) : base("aws_emr_studio", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("url");
-        SetOutput("auth_mode");
-        SetOutput("default_s3_location");
-        SetOutput("description");
-        SetOutput("encryption_key_arn");
-        SetOutput("engine_security_group_id");
-        SetOutput("id");
-        SetOutput("idp_auth_url");
-        SetOutput("idp_relay_state_parameter_name");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("service_role");
-        SetOutput("subnet_ids");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("user_role");
-        SetOutput("vpc_id");
-        SetOutput("workspace_security_group_id");
     }
 
     /// <summary>
     /// The auth_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthMode is required")]
-    public required TerraformProperty<string> AuthMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("auth_mode");
-        set => SetProperty("auth_mode", value);
-    }
+    [TerraformPropertyName("auth_mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthMode { get; set; }
 
     /// <summary>
     /// The default_s3_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultS3Location is required")]
-    public required TerraformProperty<string> DefaultS3Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_s3_location");
-        set => SetProperty("default_s3_location", value);
-    }
+    [TerraformPropertyName("default_s3_location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DefaultS3Location { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The encryption_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string> EncryptionKeyArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("encryption_key_arn");
-        set => SetProperty("encryption_key_arn", value);
-    }
+    [TerraformPropertyName("encryption_key_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EncryptionKeyArn { get; set; }
 
     /// <summary>
     /// The engine_security_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineSecurityGroupId is required")]
-    public required TerraformProperty<string> EngineSecurityGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine_security_group_id");
-        set => SetProperty("engine_security_group_id", value);
-    }
+    [TerraformPropertyName("engine_security_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EngineSecurityGroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The idp_auth_url attribute.
     /// </summary>
-    public TerraformProperty<string> IdpAuthUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("idp_auth_url");
-        set => SetProperty("idp_auth_url", value);
-    }
+    [TerraformPropertyName("idp_auth_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IdpAuthUrl { get; set; }
 
     /// <summary>
     /// The idp_relay_state_parameter_name attribute.
     /// </summary>
-    public TerraformProperty<string> IdpRelayStateParameterName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("idp_relay_state_parameter_name");
-        set => SetProperty("idp_relay_state_parameter_name", value);
-    }
+    [TerraformPropertyName("idp_relay_state_parameter_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IdpRelayStateParameterName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
-    public required TerraformProperty<string> ServiceRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_role");
-        set => SetProperty("service_role", value);
-    }
+    [TerraformPropertyName("service_role")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceRole { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public HashSet<TerraformProperty<string>> SubnetIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The user_role attribute.
     /// </summary>
-    public TerraformProperty<string> UserRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_role");
-        set => SetProperty("user_role", value);
-    }
+    [TerraformPropertyName("user_role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserRole { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    public required TerraformProperty<string> VpcId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VpcId { get; set; }
 
     /// <summary>
     /// The workspace_security_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceSecurityGroupId is required")]
-    public required TerraformProperty<string> WorkspaceSecurityGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workspace_security_group_id");
-        set => SetProperty("workspace_security_group_id", value);
-    }
+    [TerraformPropertyName("workspace_security_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceSecurityGroupId { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformExpression Url => this["url"];
+    [TerraformPropertyName("url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "url");
 
 }

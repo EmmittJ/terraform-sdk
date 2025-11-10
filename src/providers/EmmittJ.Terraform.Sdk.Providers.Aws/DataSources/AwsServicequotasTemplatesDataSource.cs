@@ -9,44 +9,35 @@ public class AwsServicequotasTemplatesDataSource : TerraformDataSource
 {
     public AwsServicequotasTemplatesDataSource(string name) : base("aws_servicequotas_templates", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("templates");
-        SetOutput("aws_region");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
-    public TerraformProperty<string> AwsRegion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("aws_region");
-        set => SetProperty("aws_region", value);
-    }
+    [TerraformPropertyName("aws_region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AwsRegion { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The templates attribute.
     /// </summary>
-    public TerraformExpression Templates => this["templates"];
+    [TerraformPropertyName("templates")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Templates => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "templates");
 
 }

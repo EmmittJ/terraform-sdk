@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualNetworkDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermVirtualNetworkDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,100 +24,92 @@ public class AzurermVirtualNetworkDataSource : TerraformDataSource
 {
     public AzurermVirtualNetworkDataSource(string name) : base("azurerm_virtual_network", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("address_space");
-        SetOutput("dns_servers");
-        SetOutput("guid");
-        SetOutput("location");
-        SetOutput("subnets");
-        SetOutput("tags");
-        SetOutput("vnet_peerings");
-        SetOutput("vnet_peerings_addresses");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVirtualNetworkDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVirtualNetworkDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The address_space attribute.
     /// </summary>
-    public TerraformExpression AddressSpace => this["address_space"];
+    [TerraformPropertyName("address_space")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AddressSpace => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "address_space");
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public TerraformExpression DnsServers => this["dns_servers"];
+    [TerraformPropertyName("dns_servers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> DnsServers => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "dns_servers");
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
-    public TerraformExpression Guid => this["guid"];
+    [TerraformPropertyName("guid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Guid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "guid");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    public TerraformExpression Subnets => this["subnets"];
+    [TerraformPropertyName("subnets")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Subnets => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "subnets");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The vnet_peerings attribute.
     /// </summary>
-    public TerraformExpression VnetPeerings => this["vnet_peerings"];
+    [TerraformPropertyName("vnet_peerings")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> VnetPeerings => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "vnet_peerings");
 
     /// <summary>
     /// The vnet_peerings_addresses attribute.
     /// </summary>
-    public TerraformExpression VnetPeeringsAddresses => this["vnet_peerings_addresses"];
+    [TerraformPropertyName("vnet_peerings_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> VnetPeeringsAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "vnet_peerings_addresses");
 
 }

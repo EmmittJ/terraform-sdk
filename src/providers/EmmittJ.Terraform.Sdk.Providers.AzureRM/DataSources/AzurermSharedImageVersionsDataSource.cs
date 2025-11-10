@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSharedImageVersionsDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermSharedImageVersionsDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,79 +24,58 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
 {
     public AzurermSharedImageVersionsDataSource(string name) : base("azurerm_shared_image_versions", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("images");
-        SetOutput("gallery_name");
-        SetOutput("id");
-        SetOutput("image_name");
-        SetOutput("resource_group_name");
-        SetOutput("tags_filter");
     }
 
     /// <summary>
     /// The gallery_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
-    public required TerraformProperty<string> GalleryName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gallery_name");
-        set => SetProperty("gallery_name", value);
-    }
+    [TerraformPropertyName("gallery_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GalleryName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The image_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
-    public required TerraformProperty<string> ImageName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("image_name");
-        set => SetProperty("image_name", value);
-    }
+    [TerraformPropertyName("image_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ImageName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags_filter attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsFilter
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_filter");
-        set => SetProperty("tags_filter", value);
-    }
+    [TerraformPropertyName("tags_filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? TagsFilter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSharedImageVersionsDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSharedImageVersionsDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The images attribute.
     /// </summary>
-    public TerraformExpression Images => this["images"];
+    [TerraformPropertyName("images")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Images => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "images");
 
 }

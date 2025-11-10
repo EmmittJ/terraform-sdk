@@ -9,151 +9,146 @@ public class AwsNetworkfirewallFirewallDataSource : TerraformDataSource
 {
     public AwsNetworkfirewallFirewallDataSource(string name) : base("aws_networkfirewall_firewall", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("availability_zone_change_protection");
-        SetOutput("availability_zone_mapping");
-        SetOutput("delete_protection");
-        SetOutput("description");
-        SetOutput("enabled_analysis_types");
-        SetOutput("encryption_configuration");
-        SetOutput("firewall_policy_arn");
-        SetOutput("firewall_policy_change_protection");
-        SetOutput("firewall_status");
-        SetOutput("subnet_change_protection");
-        SetOutput("subnet_mapping");
-        SetOutput("transit_gateway_id");
-        SetOutput("transit_gateway_owner_account_id");
-        SetOutput("update_token");
-        SetOutput("vpc_id");
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string> Arn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arn");
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Arn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The availability_zone_change_protection attribute.
     /// </summary>
-    public TerraformExpression AvailabilityZoneChangeProtection => this["availability_zone_change_protection"];
+    [TerraformPropertyName("availability_zone_change_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AvailabilityZoneChangeProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "availability_zone_change_protection");
 
     /// <summary>
     /// The availability_zone_mapping attribute.
     /// </summary>
-    public TerraformExpression AvailabilityZoneMapping => this["availability_zone_mapping"];
+    [TerraformPropertyName("availability_zone_mapping")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> AvailabilityZoneMapping => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "availability_zone_mapping");
 
     /// <summary>
     /// The delete_protection attribute.
     /// </summary>
-    public TerraformExpression DeleteProtection => this["delete_protection"];
+    [TerraformPropertyName("delete_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeleteProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "delete_protection");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The enabled_analysis_types attribute.
     /// </summary>
-    public TerraformExpression EnabledAnalysisTypes => this["enabled_analysis_types"];
+    [TerraformPropertyName("enabled_analysis_types")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> EnabledAnalysisTypes => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "enabled_analysis_types");
 
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    public TerraformExpression EncryptionConfiguration => this["encryption_configuration"];
+    [TerraformPropertyName("encryption_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> EncryptionConfiguration => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "encryption_configuration");
 
     /// <summary>
     /// The firewall_policy_arn attribute.
     /// </summary>
-    public TerraformExpression FirewallPolicyArn => this["firewall_policy_arn"];
+    [TerraformPropertyName("firewall_policy_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FirewallPolicyArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "firewall_policy_arn");
 
     /// <summary>
     /// The firewall_policy_change_protection attribute.
     /// </summary>
-    public TerraformExpression FirewallPolicyChangeProtection => this["firewall_policy_change_protection"];
+    [TerraformPropertyName("firewall_policy_change_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> FirewallPolicyChangeProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "firewall_policy_change_protection");
 
     /// <summary>
     /// The firewall_status attribute.
     /// </summary>
-    public TerraformExpression FirewallStatus => this["firewall_status"];
+    [TerraformPropertyName("firewall_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> FirewallStatus => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "firewall_status");
 
     /// <summary>
     /// The subnet_change_protection attribute.
     /// </summary>
-    public TerraformExpression SubnetChangeProtection => this["subnet_change_protection"];
+    [TerraformPropertyName("subnet_change_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> SubnetChangeProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "subnet_change_protection");
 
     /// <summary>
     /// The subnet_mapping attribute.
     /// </summary>
-    public TerraformExpression SubnetMapping => this["subnet_mapping"];
+    [TerraformPropertyName("subnet_mapping")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> SubnetMapping => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "subnet_mapping");
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformExpression TransitGatewayId => this["transit_gateway_id"];
+    [TerraformPropertyName("transit_gateway_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TransitGatewayId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "transit_gateway_id");
 
     /// <summary>
     /// The transit_gateway_owner_account_id attribute.
     /// </summary>
-    public TerraformExpression TransitGatewayOwnerAccountId => this["transit_gateway_owner_account_id"];
+    [TerraformPropertyName("transit_gateway_owner_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TransitGatewayOwnerAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "transit_gateway_owner_account_id");
 
     /// <summary>
     /// The update_token attribute.
     /// </summary>
-    public TerraformExpression UpdateToken => this["update_token"];
+    [TerraformPropertyName("update_token")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateToken => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_token");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformExpression VpcId => this["vpc_id"];
+    [TerraformPropertyName("vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
 }

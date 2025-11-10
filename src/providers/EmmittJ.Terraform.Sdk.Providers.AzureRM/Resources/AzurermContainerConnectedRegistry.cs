@@ -6,41 +6,37 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for notification in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlock
+public class AzurermContainerConnectedRegistryNotificationBlock : ITerraformBlock
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// The digest attribute.
     /// </summary>
-    public TerraformProperty<string>? Digest
-    {
-        set => SetProperty("digest", value);
-    }
+    [TerraformPropertyName("digest")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Digest { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The tag attribute.
     /// </summary>
-    public TerraformProperty<string>? Tag
-    {
-        set => SetProperty("tag", value);
-    }
+    [TerraformPropertyName("tag")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Tag { get; set; }
 
 }
 
@@ -48,39 +44,35 @@ public class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerConnectedRegistryTimeoutsBlock : TerraformBlock
+public class AzurermContainerConnectedRegistryTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -91,152 +83,107 @@ public class AzurermContainerConnectedRegistry : TerraformResource
 {
     public AzurermContainerConnectedRegistry(string name) : base("azurerm_container_connected_registry", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("audit_log_enabled");
-        SetOutput("client_token_ids");
-        SetOutput("container_registry_id");
-        SetOutput("id");
-        SetOutput("log_level");
-        SetOutput("mode");
-        SetOutput("name");
-        SetOutput("parent_registry_id");
-        SetOutput("sync_message_ttl");
-        SetOutput("sync_schedule");
-        SetOutput("sync_token_id");
-        SetOutput("sync_window");
     }
 
     /// <summary>
     /// The audit_log_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AuditLogEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("audit_log_enabled");
-        set => SetProperty("audit_log_enabled", value);
-    }
+    [TerraformPropertyName("audit_log_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AuditLogEnabled { get; set; }
 
     /// <summary>
     /// The client_token_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>> ClientTokenIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("client_token_ids");
-        set => SetProperty("client_token_ids", value);
-    }
+    [TerraformPropertyName("client_token_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ClientTokenIds { get; set; }
 
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
-    public required TerraformProperty<string> ContainerRegistryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_registry_id");
-        set => SetProperty("container_registry_id", value);
-    }
+    [TerraformPropertyName("container_registry_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContainerRegistryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The log_level attribute.
     /// </summary>
-    public TerraformProperty<string> LogLevel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("log_level");
-        set => SetProperty("log_level", value);
-    }
+    [TerraformPropertyName("log_level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LogLevel { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string> Mode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mode");
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parent_registry_id attribute.
     /// </summary>
-    public TerraformProperty<string> ParentRegistryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent_registry_id");
-        set => SetProperty("parent_registry_id", value);
-    }
+    [TerraformPropertyName("parent_registry_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ParentRegistryId { get; set; }
 
     /// <summary>
     /// The sync_message_ttl attribute.
     /// </summary>
-    public TerraformProperty<string> SyncMessageTtl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sync_message_ttl");
-        set => SetProperty("sync_message_ttl", value);
-    }
+    [TerraformPropertyName("sync_message_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SyncMessageTtl { get; set; }
 
     /// <summary>
     /// The sync_schedule attribute.
     /// </summary>
-    public TerraformProperty<string> SyncSchedule
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sync_schedule");
-        set => SetProperty("sync_schedule", value);
-    }
+    [TerraformPropertyName("sync_schedule")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SyncSchedule { get; set; }
 
     /// <summary>
     /// The sync_token_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SyncTokenId is required")]
-    public required TerraformProperty<string> SyncTokenId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sync_token_id");
-        set => SetProperty("sync_token_id", value);
-    }
+    [TerraformPropertyName("sync_token_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SyncTokenId { get; set; }
 
     /// <summary>
     /// The sync_window attribute.
     /// </summary>
-    public TerraformProperty<string> SyncWindow
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sync_window");
-        set => SetProperty("sync_window", value);
-    }
+    [TerraformPropertyName("sync_window")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SyncWindow { get; set; }
 
     /// <summary>
     /// Block for notification.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermContainerConnectedRegistryNotificationBlock>? Notification
-    {
-        set => SetProperty("notification", value);
-    }
+    [TerraformPropertyName("notification")]
+    public TerraformList<TerraformBlock<AzurermContainerConnectedRegistryNotificationBlock>>? Notification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermContainerConnectedRegistryTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermContainerConnectedRegistryTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for allowed_publishers in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaCodeSigningConfigAllowedPublishersBlock : TerraformBlock
+public class AwsLambdaCodeSigningConfigAllowedPublishersBlock : ITerraformBlock
 {
     /// <summary>
     /// The signing_profile_version_arns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningProfileVersionArns is required")]
-    public HashSet<TerraformProperty<string>>? SigningProfileVersionArns
-    {
-        set => SetProperty("signing_profile_version_arns", value);
-    }
+    [TerraformPropertyName("signing_profile_version_arns")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SigningProfileVersionArns { get; set; }
 
 }
 
@@ -23,16 +22,15 @@ public class AwsLambdaCodeSigningConfigAllowedPublishersBlock : TerraformBlock
 /// Block type for policies in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaCodeSigningConfigPoliciesBlock : TerraformBlock
+public class AwsLambdaCodeSigningConfigPoliciesBlock : ITerraformBlock
 {
     /// <summary>
     /// The untrusted_artifact_on_deployment attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UntrustedArtifactOnDeployment is required")]
-    public required TerraformProperty<string> UntrustedArtifactOnDeployment
-    {
-        set => SetProperty("untrusted_artifact_on_deployment", value);
-    }
+    [TerraformPropertyName("untrusted_artifact_on_deployment")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UntrustedArtifactOnDeployment { get; set; }
 
 }
 
@@ -44,65 +42,42 @@ public class AwsLambdaCodeSigningConfig : TerraformResource
 {
     public AwsLambdaCodeSigningConfig(string name) : base("aws_lambda_code_signing_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("config_id");
-        SetOutput("last_modified");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for allowed_publishers.
@@ -111,34 +86,36 @@ public class AwsLambdaCodeSigningConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedPublishers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AllowedPublishers block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllowedPublishers block(s) allowed")]
-    public List<AwsLambdaCodeSigningConfigAllowedPublishersBlock>? AllowedPublishers
-    {
-        set => SetProperty("allowed_publishers", value);
-    }
+    [TerraformPropertyName("allowed_publishers")]
+    public TerraformList<TerraformBlock<AwsLambdaCodeSigningConfigAllowedPublishersBlock>>? AllowedPublishers { get; set; } = new();
 
     /// <summary>
     /// Block for policies.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Policies block(s) allowed")]
-    public List<AwsLambdaCodeSigningConfigPoliciesBlock>? Policies
-    {
-        set => SetProperty("policies", value);
-    }
+    [TerraformPropertyName("policies")]
+    public TerraformList<TerraformBlock<AwsLambdaCodeSigningConfigPoliciesBlock>>? Policies { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The config_id attribute.
     /// </summary>
-    public TerraformExpression ConfigId => this["config_id"];
+    [TerraformPropertyName("config_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConfigId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "config_id");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
-    public TerraformExpression LastModified => this["last_modified"];
+    [TerraformPropertyName("last_modified")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModified => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified");
 
 }

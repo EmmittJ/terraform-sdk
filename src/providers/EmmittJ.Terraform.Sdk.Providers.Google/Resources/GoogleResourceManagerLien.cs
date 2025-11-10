@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleResourceManagerLienTimeoutsBlock : TerraformBlock
+public class GoogleResourceManagerLienTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,28 +31,14 @@ public class GoogleResourceManagerLien : TerraformResource
 {
     public GoogleResourceManagerLien(string name) : base("google_resource_manager_lien", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("name");
-        SetOutput("id");
-        SetOutput("origin");
-        SetOutput("parent");
-        SetOutput("reason");
-        SetOutput("restrictions");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// A stable, user-visible/meaningful string identifying the origin
@@ -62,11 +46,9 @@ public class GoogleResourceManagerLien : TerraformResource
     /// 200 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
-    public required TerraformProperty<string> Origin
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("origin");
-        set => SetProperty("origin", value);
-    }
+    [TerraformPropertyName("origin")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Origin { get; set; }
 
     /// <summary>
     /// A reference to the resource this Lien is attached to.
@@ -75,22 +57,18 @@ public class GoogleResourceManagerLien : TerraformResource
     /// prefix (e.g. &amp;quot;projects/my-project-name&amp;quot;).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    public required TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
 
     /// <summary>
     /// Concise user-visible strings indicating why an action cannot be performed
     /// on a resource. Maximum length of 200 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reason is required")]
-    public required TerraformProperty<string> Reason
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("reason");
-        set => SetProperty("reason", value);
-    }
+    [TerraformPropertyName("reason")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Reason { get; set; }
 
     /// <summary>
     /// The types of operations which should be blocked as a result of this Lien.
@@ -100,29 +78,29 @@ public class GoogleResourceManagerLien : TerraformResource
     /// e.g. [&#39;resourcemanager.projects.delete&#39;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Restrictions is required")]
-    public List<TerraformProperty<string>> Restrictions
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("restrictions");
-        set => SetProperty("restrictions", value);
-    }
+    [TerraformPropertyName("restrictions")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Restrictions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleResourceManagerLienTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleResourceManagerLienTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Time of creation
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// A system-generated unique identifier for this Lien.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

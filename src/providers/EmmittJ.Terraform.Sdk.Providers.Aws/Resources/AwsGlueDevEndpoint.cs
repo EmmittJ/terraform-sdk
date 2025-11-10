@@ -9,247 +9,197 @@ public class AwsGlueDevEndpoint : TerraformResource
 {
     public AwsGlueDevEndpoint(string name) : base("aws_glue_dev_endpoint", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("availability_zone");
-        SetOutput("failure_reason");
-        SetOutput("private_address");
-        SetOutput("public_address");
-        SetOutput("status");
-        SetOutput("vpc_id");
-        SetOutput("yarn_endpoint_address");
-        SetOutput("zeppelin_remote_spark_interpreter_port");
-        SetOutput("arguments");
-        SetOutput("extra_jars_s3_path");
-        SetOutput("extra_python_libs_s3_path");
-        SetOutput("glue_version");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("number_of_nodes");
-        SetOutput("number_of_workers");
-        SetOutput("public_key");
-        SetOutput("public_keys");
-        SetOutput("region");
-        SetOutput("role_arn");
-        SetOutput("security_configuration");
-        SetOutput("security_group_ids");
-        SetOutput("subnet_id");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("worker_type");
     }
 
     /// <summary>
     /// The arguments attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Arguments
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("arguments");
-        set => SetProperty("arguments", value);
-    }
+    [TerraformPropertyName("arguments")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Arguments { get; set; }
 
     /// <summary>
     /// The extra_jars_s3_path attribute.
     /// </summary>
-    public TerraformProperty<string> ExtraJarsS3Path
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("extra_jars_s3_path");
-        set => SetProperty("extra_jars_s3_path", value);
-    }
+    [TerraformPropertyName("extra_jars_s3_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExtraJarsS3Path { get; set; }
 
     /// <summary>
     /// The extra_python_libs_s3_path attribute.
     /// </summary>
-    public TerraformProperty<string> ExtraPythonLibsS3Path
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("extra_python_libs_s3_path");
-        set => SetProperty("extra_python_libs_s3_path", value);
-    }
+    [TerraformPropertyName("extra_python_libs_s3_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExtraPythonLibsS3Path { get; set; }
 
     /// <summary>
     /// The glue_version attribute.
     /// </summary>
-    public TerraformProperty<string> GlueVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("glue_version");
-        set => SetProperty("glue_version", value);
-    }
+    [TerraformPropertyName("glue_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GlueVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The number_of_nodes attribute.
     /// </summary>
-    public TerraformProperty<double> NumberOfNodes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("number_of_nodes");
-        set => SetProperty("number_of_nodes", value);
-    }
+    [TerraformPropertyName("number_of_nodes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? NumberOfNodes { get; set; }
 
     /// <summary>
     /// The number_of_workers attribute.
     /// </summary>
-    public TerraformProperty<double> NumberOfWorkers
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("number_of_workers");
-        set => SetProperty("number_of_workers", value);
-    }
+    [TerraformPropertyName("number_of_workers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? NumberOfWorkers { get; set; }
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
-    public TerraformProperty<string> PublicKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("public_key");
-        set => SetProperty("public_key", value);
-    }
+    [TerraformPropertyName("public_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PublicKey { get; set; }
 
     /// <summary>
     /// The public_keys attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> PublicKeys
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("public_keys");
-        set => SetProperty("public_keys", value);
-    }
+    [TerraformPropertyName("public_keys")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? PublicKeys { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
     /// <summary>
     /// The security_configuration attribute.
     /// </summary>
-    public TerraformProperty<string> SecurityConfiguration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_configuration");
-        set => SetProperty("security_configuration", value);
-    }
+    [TerraformPropertyName("security_configuration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecurityConfiguration { get; set; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string> SubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The worker_type attribute.
     /// </summary>
-    public TerraformProperty<string> WorkerType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("worker_type");
-        set => SetProperty("worker_type", value);
-    }
+    [TerraformPropertyName("worker_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WorkerType { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformExpression AvailabilityZone => this["availability_zone"];
+    [TerraformPropertyName("availability_zone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone");
 
     /// <summary>
     /// The failure_reason attribute.
     /// </summary>
-    public TerraformExpression FailureReason => this["failure_reason"];
+    [TerraformPropertyName("failure_reason")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FailureReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "failure_reason");
 
     /// <summary>
     /// The private_address attribute.
     /// </summary>
-    public TerraformExpression PrivateAddress => this["private_address"];
+    [TerraformPropertyName("private_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_address");
 
     /// <summary>
     /// The public_address attribute.
     /// </summary>
-    public TerraformExpression PublicAddress => this["public_address"];
+    [TerraformPropertyName("public_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublicAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_address");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformExpression VpcId => this["vpc_id"];
+    [TerraformPropertyName("vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
     /// <summary>
     /// The yarn_endpoint_address attribute.
     /// </summary>
-    public TerraformExpression YarnEndpointAddress => this["yarn_endpoint_address"];
+    [TerraformPropertyName("yarn_endpoint_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> YarnEndpointAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "yarn_endpoint_address");
 
     /// <summary>
     /// The zeppelin_remote_spark_interpreter_port attribute.
     /// </summary>
-    public TerraformExpression ZeppelinRemoteSparkInterpreterPort => this["zeppelin_remote_spark_interpreter_port"];
+    [TerraformPropertyName("zeppelin_remote_spark_interpreter_port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ZeppelinRemoteSparkInterpreterPort => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "zeppelin_remote_spark_interpreter_port");
 
 }

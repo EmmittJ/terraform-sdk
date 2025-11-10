@@ -9,48 +9,35 @@ public class AwsSecurityhubInviteAccepter : TerraformResource
 {
     public AwsSecurityhubInviteAccepter(string name) : base("aws_securityhub_invite_accepter", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("invitation_id");
-        SetOutput("id");
-        SetOutput("master_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The master_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterId is required")]
-    public required TerraformProperty<string> MasterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("master_id");
-        set => SetProperty("master_id", value);
-    }
+    [TerraformPropertyName("master_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MasterId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The invitation_id attribute.
     /// </summary>
-    public TerraformExpression InvitationId => this["invitation_id"];
+    [TerraformPropertyName("invitation_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InvitationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "invitation_id");
 
 }

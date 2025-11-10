@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSubscriptionDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermSubscriptionDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,82 +24,76 @@ public class AzurermSubscriptionDataSource : TerraformDataSource
 {
     public AzurermSubscriptionDataSource(string name) : base("azurerm_subscription", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("display_name");
-        SetOutput("location_placement_id");
-        SetOutput("quota_id");
-        SetOutput("spending_limit");
-        SetOutput("state");
-        SetOutput("tags");
-        SetOutput("tenant_id");
-        SetOutput("id");
-        SetOutput("subscription_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformProperty<string> SubscriptionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
-        set => SetProperty("subscription_id", value);
-    }
+    [TerraformPropertyName("subscription_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SubscriptionId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subscription_id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSubscriptionDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSubscriptionDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The location_placement_id attribute.
     /// </summary>
-    public TerraformExpression LocationPlacementId => this["location_placement_id"];
+    [TerraformPropertyName("location_placement_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LocationPlacementId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location_placement_id");
 
     /// <summary>
     /// The quota_id attribute.
     /// </summary>
-    public TerraformExpression QuotaId => this["quota_id"];
+    [TerraformPropertyName("quota_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> QuotaId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "quota_id");
 
     /// <summary>
     /// The spending_limit attribute.
     /// </summary>
-    public TerraformExpression SpendingLimit => this["spending_limit"];
+    [TerraformPropertyName("spending_limit")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SpendingLimit => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "spending_limit");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformExpression TenantId => this["tenant_id"];
+    [TerraformPropertyName("tenant_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tenant_id");
 
 }

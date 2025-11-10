@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for kafka_cluster in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskReplicatorKafkaClusterBlock : TerraformBlock
+public class AwsMskReplicatorKafkaClusterBlock : ITerraformBlock
 {
 }
 
@@ -14,50 +14,45 @@ public class AwsMskReplicatorKafkaClusterBlock : TerraformBlock
 /// Block type for replication_info_list in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskReplicatorReplicationInfoListBlock : TerraformBlock
+public class AwsMskReplicatorReplicationInfoListBlock : ITerraformBlock
 {
     /// <summary>
     /// The source_kafka_cluster_alias attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceKafkaClusterAlias
-    {
-        set => SetProperty("source_kafka_cluster_alias", value);
-    }
+    [TerraformPropertyName("source_kafka_cluster_alias")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceKafkaClusterAlias => new TerraformReferenceProperty<TerraformProperty<string>>("", "source_kafka_cluster_alias");
 
     /// <summary>
     /// The source_kafka_cluster_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceKafkaClusterArn is required")]
-    public required TerraformProperty<string> SourceKafkaClusterArn
-    {
-        set => SetProperty("source_kafka_cluster_arn", value);
-    }
+    [TerraformPropertyName("source_kafka_cluster_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceKafkaClusterArn { get; set; }
 
     /// <summary>
     /// The target_compression_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetCompressionType is required")]
-    public required TerraformProperty<string> TargetCompressionType
-    {
-        set => SetProperty("target_compression_type", value);
-    }
+    [TerraformPropertyName("target_compression_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetCompressionType { get; set; }
 
     /// <summary>
     /// The target_kafka_cluster_alias attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetKafkaClusterAlias
-    {
-        set => SetProperty("target_kafka_cluster_alias", value);
-    }
+    [TerraformPropertyName("target_kafka_cluster_alias")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TargetKafkaClusterAlias => new TerraformReferenceProperty<TerraformProperty<string>>("", "target_kafka_cluster_alias");
 
     /// <summary>
     /// The target_kafka_cluster_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetKafkaClusterArn is required")]
-    public required TerraformProperty<string> TargetKafkaClusterArn
-    {
-        set => SetProperty("target_kafka_cluster_arn", value);
-    }
+    [TerraformPropertyName("target_kafka_cluster_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetKafkaClusterArn { get; set; }
 
 }
 
@@ -65,31 +60,28 @@ public class AwsMskReplicatorReplicationInfoListBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMskReplicatorTimeoutsBlock : TerraformBlock
+public class AwsMskReplicatorTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -101,86 +93,58 @@ public class AwsMskReplicator : TerraformResource
 {
     public AwsMskReplicator(string name) : base("aws_msk_replicator", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("current_version");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("replicator_name");
-        SetOutput("service_execution_role_arn");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The replicator_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicatorName is required")]
-    public required TerraformProperty<string> ReplicatorName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("replicator_name");
-        set => SetProperty("replicator_name", value);
-    }
+    [TerraformPropertyName("replicator_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ReplicatorName { get; set; }
 
     /// <summary>
     /// The service_execution_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRoleArn is required")]
-    public required TerraformProperty<string> ServiceExecutionRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_execution_role_arn");
-        set => SetProperty("service_execution_role_arn", value);
-    }
+    [TerraformPropertyName("service_execution_role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for kafka_cluster.
@@ -188,10 +152,8 @@ public class AwsMskReplicator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 KafkaCluster block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 KafkaCluster block(s) allowed")]
-    public List<AwsMskReplicatorKafkaClusterBlock>? KafkaCluster
-    {
-        set => SetProperty("kafka_cluster", value);
-    }
+    [TerraformPropertyName("kafka_cluster")]
+    public TerraformList<TerraformBlock<AwsMskReplicatorKafkaClusterBlock>>? KafkaCluster { get; set; } = new();
 
     /// <summary>
     /// Block for replication_info_list.
@@ -200,28 +162,28 @@ public class AwsMskReplicator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInfoList is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReplicationInfoList block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationInfoList block(s) allowed")]
-    public List<AwsMskReplicatorReplicationInfoListBlock>? ReplicationInfoList
-    {
-        set => SetProperty("replication_info_list", value);
-    }
+    [TerraformPropertyName("replication_info_list")]
+    public TerraformList<TerraformBlock<AwsMskReplicatorReplicationInfoListBlock>>? ReplicationInfoList { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsMskReplicatorTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsMskReplicatorTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The current_version attribute.
     /// </summary>
-    public TerraformExpression CurrentVersion => this["current_version"];
+    [TerraformPropertyName("current_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CurrentVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "current_version");
 
 }

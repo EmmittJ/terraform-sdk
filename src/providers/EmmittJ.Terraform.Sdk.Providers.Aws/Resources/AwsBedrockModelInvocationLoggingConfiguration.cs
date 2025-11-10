@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : TerraformBlock
+public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The embedding_data_delivery_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EmbeddingDataDeliveryEnabled
-    {
-        set => SetProperty("embedding_data_delivery_enabled", value);
-    }
+    [TerraformPropertyName("embedding_data_delivery_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EmbeddingDataDeliveryEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "embedding_data_delivery_enabled");
 
     /// <summary>
     /// The image_data_delivery_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ImageDataDeliveryEnabled
-    {
-        set => SetProperty("image_data_delivery_enabled", value);
-    }
+    [TerraformPropertyName("image_data_delivery_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> ImageDataDeliveryEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "image_data_delivery_enabled");
 
     /// <summary>
     /// The text_data_delivery_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TextDataDeliveryEnabled
-    {
-        set => SetProperty("text_data_delivery_enabled", value);
-    }
+    [TerraformPropertyName("text_data_delivery_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> TextDataDeliveryEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "text_data_delivery_enabled");
 
     /// <summary>
     /// The video_data_delivery_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? VideoDataDeliveryEnabled
-    {
-        set => SetProperty("video_data_delivery_enabled", value);
-    }
+    [TerraformPropertyName("video_data_delivery_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> VideoDataDeliveryEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "video_data_delivery_enabled");
 
 }
 
@@ -49,36 +45,27 @@ public class AwsBedrockModelInvocationLoggingConfiguration : TerraformResource
 {
     public AwsBedrockModelInvocationLoggingConfiguration(string name) : base("aws_bedrock_model_invocation_logging_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for logging_config.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock>? LoggingConfig
-    {
-        set => SetProperty("logging_config", value);
-    }
+    [TerraformPropertyName("logging_config")]
+    public TerraformList<TerraformBlock<AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock>>? LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAccessContextManagerEgressPolicyTimeoutsBlock : TerraformBlock
+public class GoogleAccessContextManagerEgressPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,58 +31,43 @@ public class GoogleAccessContextManagerEgressPolicy : TerraformResource
 {
     public GoogleAccessContextManagerEgressPolicy(string name) : base("google_access_context_manager_egress_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_policy_id");
-        SetOutput("egress_policy_name");
-        SetOutput("id");
-        SetOutput("resource");
     }
 
     /// <summary>
     /// The name of the Service Perimeter to add this resource to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EgressPolicyName is required")]
-    public required TerraformProperty<string> EgressPolicyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("egress_policy_name");
-        set => SetProperty("egress_policy_name", value);
-    }
+    [TerraformPropertyName("egress_policy_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EgressPolicyName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// A GCP resource that is inside of the service perimeter.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
-    public required TerraformProperty<string> Resource
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource");
-        set => SetProperty("resource", value);
-    }
+    [TerraformPropertyName("resource")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Resource { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleAccessContextManagerEgressPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleAccessContextManagerEgressPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
-    public TerraformExpression AccessPolicyId => this["access_policy_id"];
+    [TerraformPropertyName("access_policy_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AccessPolicyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_policy_id");
 
 }

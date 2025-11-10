@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadAppRoleAssignmentTimeoutsBlock : TerraformBlock
+public class AzureadAppRoleAssignmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,81 +38,65 @@ public class AzureadAppRoleAssignment : TerraformResource
 {
     public AzureadAppRoleAssignment(string name) : base("azuread_app_role_assignment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("principal_display_name");
-        SetOutput("principal_type");
-        SetOutput("resource_display_name");
-        SetOutput("app_role_id");
-        SetOutput("id");
-        SetOutput("principal_object_id");
-        SetOutput("resource_object_id");
     }
 
     /// <summary>
     /// The ID of the app role to be assigned
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppRoleId is required")]
-    public required TerraformProperty<string> AppRoleId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_role_id");
-        set => SetProperty("app_role_id", value);
-    }
+    [TerraformPropertyName("app_role_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppRoleId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The object ID of the user, group or service principal to be assigned this app role
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalObjectId is required")]
-    public required TerraformProperty<string> PrincipalObjectId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal_object_id");
-        set => SetProperty("principal_object_id", value);
-    }
+    [TerraformPropertyName("principal_object_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrincipalObjectId { get; set; }
 
     /// <summary>
     /// The object ID of the service principal representing the resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceObjectId is required")]
-    public required TerraformProperty<string> ResourceObjectId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_object_id");
-        set => SetProperty("resource_object_id", value);
-    }
+    [TerraformPropertyName("resource_object_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceObjectId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadAppRoleAssignmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadAppRoleAssignmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The display name of the principal to which the app role is assigned
     /// </summary>
-    public TerraformExpression PrincipalDisplayName => this["principal_display_name"];
+    [TerraformPropertyName("principal_display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalDisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "principal_display_name");
 
     /// <summary>
     /// The object type of the principal to which the app role is assigned
     /// </summary>
-    public TerraformExpression PrincipalType => this["principal_type"];
+    [TerraformPropertyName("principal_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "principal_type");
 
     /// <summary>
     /// The display name of the application representing the resource
     /// </summary>
-    public TerraformExpression ResourceDisplayName => this["resource_display_name"];
+    [TerraformPropertyName("resource_display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceDisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_display_name");
 
 }

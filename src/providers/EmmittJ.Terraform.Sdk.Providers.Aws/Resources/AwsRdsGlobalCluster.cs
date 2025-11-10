@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRdsGlobalClusterTimeoutsBlock : TerraformBlock
+public class AwsRdsGlobalClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,181 +38,140 @@ public class AwsRdsGlobalCluster : TerraformResource
 {
     public AwsRdsGlobalCluster(string name) : base("aws_rds_global_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("endpoint");
-        SetOutput("engine_version_actual");
-        SetOutput("global_cluster_members");
-        SetOutput("global_cluster_resource_id");
-        SetOutput("database_name");
-        SetOutput("deletion_protection");
-        SetOutput("engine");
-        SetOutput("engine_lifecycle_support");
-        SetOutput("engine_version");
-        SetOutput("force_destroy");
-        SetOutput("global_cluster_identifier");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("source_db_cluster_identifier");
-        SetOutput("storage_encrypted");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformProperty<string> DatabaseName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
-        set => SetProperty("database_name", value);
-    }
+    [TerraformPropertyName("database_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "database_name");
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    public TerraformProperty<bool> DeletionProtection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
-        set => SetProperty("deletion_protection", value);
-    }
+    [TerraformPropertyName("deletion_protection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeletionProtection { get; set; }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string> Engine
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine");
-        set => SetProperty("engine", value);
-    }
+    [TerraformPropertyName("engine")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Engine { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine");
 
     /// <summary>
     /// The engine_lifecycle_support attribute.
     /// </summary>
-    public TerraformProperty<string> EngineLifecycleSupport
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine_lifecycle_support");
-        set => SetProperty("engine_lifecycle_support", value);
-    }
+    [TerraformPropertyName("engine_lifecycle_support")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EngineLifecycleSupport { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_lifecycle_support");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string> EngineVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
-        set => SetProperty("engine_version", value);
-    }
+    [TerraformPropertyName("engine_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EngineVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
-        set => SetProperty("force_destroy", value);
-    }
+    [TerraformPropertyName("force_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The global_cluster_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalClusterIdentifier is required")]
-    public required TerraformProperty<string> GlobalClusterIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("global_cluster_identifier");
-        set => SetProperty("global_cluster_identifier", value);
-    }
+    [TerraformPropertyName("global_cluster_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GlobalClusterIdentifier { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The source_db_cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> SourceDbClusterIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_db_cluster_identifier");
-        set => SetProperty("source_db_cluster_identifier", value);
-    }
+    [TerraformPropertyName("source_db_cluster_identifier")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SourceDbClusterIdentifier { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_db_cluster_identifier");
 
     /// <summary>
     /// The storage_encrypted attribute.
     /// </summary>
-    public TerraformProperty<bool> StorageEncrypted
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("storage_encrypted");
-        set => SetProperty("storage_encrypted", value);
-    }
+    [TerraformPropertyName("storage_encrypted")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> StorageEncrypted { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "storage_encrypted");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsRdsGlobalClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsRdsGlobalClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The engine_version_actual attribute.
     /// </summary>
-    public TerraformExpression EngineVersionActual => this["engine_version_actual"];
+    [TerraformPropertyName("engine_version_actual")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EngineVersionActual => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version_actual");
 
     /// <summary>
     /// The global_cluster_members attribute.
     /// </summary>
-    public TerraformExpression GlobalClusterMembers => this["global_cluster_members"];
+    [TerraformPropertyName("global_cluster_members")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> GlobalClusterMembers => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "global_cluster_members");
 
     /// <summary>
     /// The global_cluster_resource_id attribute.
     /// </summary>
-    public TerraformExpression GlobalClusterResourceId => this["global_cluster_resource_id"];
+    [TerraformPropertyName("global_cluster_resource_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GlobalClusterResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "global_cluster_resource_id");
 
 }

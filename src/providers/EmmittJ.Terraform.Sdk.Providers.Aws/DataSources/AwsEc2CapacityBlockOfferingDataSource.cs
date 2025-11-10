@@ -9,104 +9,86 @@ public class AwsEc2CapacityBlockOfferingDataSource : TerraformDataSource
 {
     public AwsEc2CapacityBlockOfferingDataSource(string name) : base("aws_ec2_capacity_block_offering", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("availability_zone");
-        SetOutput("capacity_block_offering_id");
-        SetOutput("currency_code");
-        SetOutput("tenancy");
-        SetOutput("upfront_fee");
-        SetOutput("capacity_duration_hours");
-        SetOutput("end_date_range");
-        SetOutput("instance_count");
-        SetOutput("instance_type");
-        SetOutput("region");
-        SetOutput("start_date_range");
     }
 
     /// <summary>
     /// The capacity_duration_hours attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityDurationHours is required")]
-    public required TerraformProperty<double> CapacityDurationHours
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("capacity_duration_hours");
-        set => SetProperty("capacity_duration_hours", value);
-    }
+    [TerraformPropertyName("capacity_duration_hours")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> CapacityDurationHours { get; set; }
 
     /// <summary>
     /// The end_date_range attribute.
     /// </summary>
-    public TerraformProperty<string> EndDateRange
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("end_date_range");
-        set => SetProperty("end_date_range", value);
-    }
+    [TerraformPropertyName("end_date_range")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EndDateRange { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "end_date_range");
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
-    public required TerraformProperty<double> InstanceCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
-        set => SetProperty("instance_count", value);
-    }
+    [TerraformPropertyName("instance_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> InstanceCount { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    public required TerraformProperty<string> InstanceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The start_date_range attribute.
     /// </summary>
-    public TerraformProperty<string> StartDateRange
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("start_date_range");
-        set => SetProperty("start_date_range", value);
-    }
+    [TerraformPropertyName("start_date_range")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StartDateRange { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_date_range");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformExpression AvailabilityZone => this["availability_zone"];
+    [TerraformPropertyName("availability_zone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone");
 
     /// <summary>
     /// The capacity_block_offering_id attribute.
     /// </summary>
-    public TerraformExpression CapacityBlockOfferingId => this["capacity_block_offering_id"];
+    [TerraformPropertyName("capacity_block_offering_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CapacityBlockOfferingId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "capacity_block_offering_id");
 
     /// <summary>
     /// The currency_code attribute.
     /// </summary>
-    public TerraformExpression CurrencyCode => this["currency_code"];
+    [TerraformPropertyName("currency_code")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CurrencyCode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "currency_code");
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
-    public TerraformExpression Tenancy => this["tenancy"];
+    [TerraformPropertyName("tenancy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Tenancy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tenancy");
 
     /// <summary>
     /// The upfront_fee attribute.
     /// </summary>
-    public TerraformExpression UpfrontFee => this["upfront_fee"];
+    [TerraformPropertyName("upfront_fee")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpfrontFee => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "upfront_fee");
 
 }

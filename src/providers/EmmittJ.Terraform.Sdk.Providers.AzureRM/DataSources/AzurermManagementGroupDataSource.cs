@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermManagementGroupDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermManagementGroupDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,86 +24,76 @@ public class AzurermManagementGroupDataSource : TerraformDataSource
 {
     public AzurermManagementGroupDataSource(string name) : base("azurerm_management_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("all_management_group_ids");
-        SetOutput("all_subscription_ids");
-        SetOutput("management_group_ids");
-        SetOutput("parent_management_group_id");
-        SetOutput("subscription_ids");
-        SetOutput("tenant_scoped_id");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermManagementGroupDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermManagementGroupDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The all_management_group_ids attribute.
     /// </summary>
-    public TerraformExpression AllManagementGroupIds => this["all_management_group_ids"];
+    [TerraformPropertyName("all_management_group_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AllManagementGroupIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "all_management_group_ids");
 
     /// <summary>
     /// The all_subscription_ids attribute.
     /// </summary>
-    public TerraformExpression AllSubscriptionIds => this["all_subscription_ids"];
+    [TerraformPropertyName("all_subscription_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AllSubscriptionIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "all_subscription_ids");
 
     /// <summary>
     /// The management_group_ids attribute.
     /// </summary>
-    public TerraformExpression ManagementGroupIds => this["management_group_ids"];
+    [TerraformPropertyName("management_group_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ManagementGroupIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "management_group_ids");
 
     /// <summary>
     /// The parent_management_group_id attribute.
     /// </summary>
-    public TerraformExpression ParentManagementGroupId => this["parent_management_group_id"];
+    [TerraformPropertyName("parent_management_group_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ParentManagementGroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parent_management_group_id");
 
     /// <summary>
     /// The subscription_ids attribute.
     /// </summary>
-    public TerraformExpression SubscriptionIds => this["subscription_ids"];
+    [TerraformPropertyName("subscription_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SubscriptionIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "subscription_ids");
 
     /// <summary>
     /// The tenant_scoped_id attribute.
     /// </summary>
-    public TerraformExpression TenantScopedId => this["tenant_scoped_id"];
+    [TerraformPropertyName("tenant_scoped_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantScopedId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tenant_scoped_id");
 
 }

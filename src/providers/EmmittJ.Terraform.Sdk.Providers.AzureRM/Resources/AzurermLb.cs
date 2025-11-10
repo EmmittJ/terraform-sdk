@@ -6,112 +6,99 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for frontend_ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
+public class AzurermLbFrontendIpConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The gateway_load_balancer_frontend_ip_configuration_id attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayLoadBalancerFrontendIpConfigurationId
-    {
-        set => SetProperty("gateway_load_balancer_frontend_ip_configuration_id", value);
-    }
+    [TerraformPropertyName("gateway_load_balancer_frontend_ip_configuration_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> GatewayLoadBalancerFrontendIpConfigurationId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "gateway_load_balancer_frontend_ip_configuration_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The inbound_nat_rules attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? InboundNatRules
-    {
-        set => SetProperty("inbound_nat_rules", value);
-    }
+    [TerraformPropertyName("inbound_nat_rules")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> InboundNatRules => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "inbound_nat_rules");
 
     /// <summary>
     /// The load_balancer_rules attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? LoadBalancerRules
-    {
-        set => SetProperty("load_balancer_rules", value);
-    }
+    [TerraformPropertyName("load_balancer_rules")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> LoadBalancerRules => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "load_balancer_rules");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The outbound_rules attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? OutboundRules
-    {
-        set => SetProperty("outbound_rules", value);
-    }
+    [TerraformPropertyName("outbound_rules")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> OutboundRules => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "outbound_rules");
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateIpAddress
-    {
-        set => SetProperty("private_ip_address", value);
-    }
+    [TerraformPropertyName("private_ip_address")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PrivateIpAddress { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "private_ip_address");
 
     /// <summary>
     /// The private_ip_address_allocation attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateIpAddressAllocation
-    {
-        set => SetProperty("private_ip_address_allocation", value);
-    }
+    [TerraformPropertyName("private_ip_address_allocation")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PrivateIpAddressAllocation { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "private_ip_address_allocation");
 
     /// <summary>
     /// The private_ip_address_version attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateIpAddressVersion
-    {
-        set => SetProperty("private_ip_address_version", value);
-    }
+    [TerraformPropertyName("private_ip_address_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PrivateIpAddressVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "private_ip_address_version");
 
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicIpAddressId
-    {
-        set => SetProperty("public_ip_address_id", value);
-    }
+    [TerraformPropertyName("public_ip_address_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PublicIpAddressId { get; set; }
 
     /// <summary>
     /// The public_ip_prefix_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicIpPrefixId
-    {
-        set => SetProperty("public_ip_prefix_id", value);
-    }
+    [TerraformPropertyName("public_ip_prefix_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PublicIpPrefixId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "public_ip_prefix_id");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SubnetId { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Zones
-    {
-        set => SetProperty("zones", value);
-    }
+    [TerraformPropertyName("zones")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Zones { get; set; }
 
 }
 
@@ -119,39 +106,35 @@ public class AzurermLbFrontendIpConfigurationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLbTimeoutsBlock : TerraformBlock
+public class AzurermLbTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -162,144 +145,107 @@ public class AzurermLb : TerraformResource
 {
     public AzurermLb(string name) : base("azurerm_lb", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("private_ip_address");
-        SetOutput("private_ip_addresses");
-        SetOutput("edge_zone");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("public_ip_address_id");
-        SetOutput("resource_group_name");
-        SetOutput("sku");
-        SetOutput("sku_tier");
-        SetOutput("subnet_id");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    public TerraformProperty<string> EdgeZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("edge_zone");
-        set => SetProperty("edge_zone", value);
-    }
+    [TerraformPropertyName("edge_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EdgeZone { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
-    public TerraformProperty<string> PublicIpAddressId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("public_ip_address_id");
-        set => SetProperty("public_ip_address_id", value);
-    }
+    [TerraformPropertyName("public_ip_address_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PublicIpAddressId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_ip_address_id");
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string> Sku
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku");
-        set => SetProperty("sku", value);
-    }
+    [TerraformPropertyName("sku")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Sku { get; set; }
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
-    public TerraformProperty<string> SkuTier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_tier");
-        set => SetProperty("sku_tier", value);
-    }
+    [TerraformPropertyName("sku_tier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SkuTier { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string> SubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SubnetId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subnet_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for frontend_ip_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermLbFrontendIpConfigurationBlock>? FrontendIpConfiguration
-    {
-        set => SetProperty("frontend_ip_configuration", value);
-    }
+    [TerraformPropertyName("frontend_ip_configuration")]
+    public TerraformList<TerraformBlock<AzurermLbFrontendIpConfigurationBlock>>? FrontendIpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLbTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLbTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
-    public TerraformExpression PrivateIpAddress => this["private_ip_address"];
+    [TerraformPropertyName("private_ip_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_ip_address");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression PrivateIpAddresses => this["private_ip_addresses"];
+    [TerraformPropertyName("private_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> PrivateIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "private_ip_addresses");
 
 }

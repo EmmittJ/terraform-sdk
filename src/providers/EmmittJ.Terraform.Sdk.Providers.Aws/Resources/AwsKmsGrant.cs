@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for constraints in .
 /// Nesting mode: set
 /// </summary>
-public class AwsKmsGrantConstraintsBlock : TerraformBlock
+public class AwsKmsGrantConstraintsBlock : ITerraformBlock
 {
     /// <summary>
     /// The encryption_context_equals attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? EncryptionContextEquals
-    {
-        set => SetProperty("encryption_context_equals", value);
-    }
+    [TerraformPropertyName("encryption_context_equals")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? EncryptionContextEquals { get; set; }
 
     /// <summary>
     /// The encryption_context_subset attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? EncryptionContextSubset
-    {
-        set => SetProperty("encryption_context_subset", value);
-    }
+    [TerraformPropertyName("encryption_context_subset")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? EncryptionContextSubset { get; set; }
 
 }
 
@@ -33,125 +31,93 @@ public class AwsKmsGrant : TerraformResource
 {
     public AwsKmsGrant(string name) : base("aws_kms_grant", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("grant_id");
-        SetOutput("grant_token");
-        SetOutput("grant_creation_tokens");
-        SetOutput("grantee_principal");
-        SetOutput("id");
-        SetOutput("key_id");
-        SetOutput("name");
-        SetOutput("operations");
-        SetOutput("region");
-        SetOutput("retire_on_delete");
-        SetOutput("retiring_principal");
     }
 
     /// <summary>
     /// The grant_creation_tokens attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> GrantCreationTokens
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("grant_creation_tokens");
-        set => SetProperty("grant_creation_tokens", value);
-    }
+    [TerraformPropertyName("grant_creation_tokens")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? GrantCreationTokens { get; set; }
 
     /// <summary>
     /// The grantee_principal attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteePrincipal is required")]
-    public required TerraformProperty<string> GranteePrincipal
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("grantee_principal");
-        set => SetProperty("grantee_principal", value);
-    }
+    [TerraformPropertyName("grantee_principal")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GranteePrincipal { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
-    public required TerraformProperty<string> KeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_id");
-        set => SetProperty("key_id", value);
-    }
+    [TerraformPropertyName("key_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The operations attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operations is required")]
-    public HashSet<TerraformProperty<string>> Operations
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("operations");
-        set => SetProperty("operations", value);
-    }
+    [TerraformPropertyName("operations")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Operations { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The retire_on_delete attribute.
     /// </summary>
-    public TerraformProperty<bool> RetireOnDelete
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("retire_on_delete");
-        set => SetProperty("retire_on_delete", value);
-    }
+    [TerraformPropertyName("retire_on_delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RetireOnDelete { get; set; }
 
     /// <summary>
     /// The retiring_principal attribute.
     /// </summary>
-    public TerraformProperty<string> RetiringPrincipal
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("retiring_principal");
-        set => SetProperty("retiring_principal", value);
-    }
+    [TerraformPropertyName("retiring_principal")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RetiringPrincipal { get; set; }
 
     /// <summary>
     /// Block for constraints.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsKmsGrantConstraintsBlock>? Constraints
-    {
-        set => SetProperty("constraints", value);
-    }
+    [TerraformPropertyName("constraints")]
+    public TerraformSet<TerraformBlock<AwsKmsGrantConstraintsBlock>>? Constraints { get; set; } = new();
 
     /// <summary>
     /// The grant_id attribute.
     /// </summary>
-    public TerraformExpression GrantId => this["grant_id"];
+    [TerraformPropertyName("grant_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GrantId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "grant_id");
 
     /// <summary>
     /// The grant_token attribute.
     /// </summary>
-    public TerraformExpression GrantToken => this["grant_token"];
+    [TerraformPropertyName("grant_token")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GrantToken => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "grant_token");
 
 }

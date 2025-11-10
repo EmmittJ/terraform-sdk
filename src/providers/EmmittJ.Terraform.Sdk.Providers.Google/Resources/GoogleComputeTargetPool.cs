@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeTargetPoolTimeoutsBlock : TerraformBlock
+public class GoogleComputeTargetPoolTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,127 +38,91 @@ public class GoogleComputeTargetPool : TerraformResource
 {
     public GoogleComputeTargetPool(string name) : base("google_compute_target_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("self_link");
-        SetOutput("backup_pool");
-        SetOutput("description");
-        SetOutput("failover_ratio");
-        SetOutput("health_checks");
-        SetOutput("id");
-        SetOutput("instances");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("region");
-        SetOutput("session_affinity");
     }
 
     /// <summary>
     /// URL to the backup target pool. Must also set failover_ratio.
     /// </summary>
-    public TerraformProperty<string> BackupPool
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backup_pool");
-        set => SetProperty("backup_pool", value);
-    }
+    [TerraformPropertyName("backup_pool")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BackupPool { get; set; }
 
     /// <summary>
     /// Textual description field.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// Ratio (0 to 1) of failed nodes before using the backup pool (which must also be set).
     /// </summary>
-    public TerraformProperty<double> FailoverRatio
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("failover_ratio");
-        set => SetProperty("failover_ratio", value);
-    }
+    [TerraformPropertyName("failover_ratio")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? FailoverRatio { get; set; }
 
     /// <summary>
     /// List of zero or one health check name or self_link. Only legacy google_compute_http_health_check is supported.
     /// </summary>
-    public List<TerraformProperty<string>> HealthChecks
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("health_checks");
-        set => SetProperty("health_checks", value);
-    }
+    [TerraformPropertyName("health_checks")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? HealthChecks { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// List of instances in the pool. They can be given as URLs, or in the form of &amp;quot;zone/name&amp;quot;. Note that the instances need not exist at the time of target pool creation, so there is no need to use the Terraform interpolators to create a dependency on the instances from the target pool.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Instances
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("instances");
-        set => SetProperty("instances", value);
-    }
+    [TerraformPropertyName("instances")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Instances { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "instances");
 
     /// <summary>
     /// A unique name for the resource, required by GCE. Changing this forces a new resource to be created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Where the target pool resides. Defaults to project region.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// How to distribute load. Options are &amp;quot;NONE&amp;quot; (no affinity). &amp;quot;CLIENT_IP&amp;quot; (hash of the source/dest addresses / ports), and &amp;quot;CLIENT_IP_PROTO&amp;quot; also includes the protocol (default &amp;quot;NONE&amp;quot;).
     /// </summary>
-    public TerraformProperty<string> SessionAffinity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("session_affinity");
-        set => SetProperty("session_affinity", value);
-    }
+    [TerraformPropertyName("session_affinity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SessionAffinity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeTargetPoolTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeTargetPoolTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
 }

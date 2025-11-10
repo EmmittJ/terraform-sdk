@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for device_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedaccessTrustProviderDeviceOptionsBlock : TerraformBlock
+public class AwsVerifiedaccessTrustProviderDeviceOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TenantId { get; set; }
 
 }
 
@@ -22,72 +21,64 @@ public class AwsVerifiedaccessTrustProviderDeviceOptionsBlock : TerraformBlock
 /// Block type for native_application_oidc_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : TerraformBlock
+public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The authorization_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorizationEndpoint
-    {
-        set => SetProperty("authorization_endpoint", value);
-    }
+    [TerraformPropertyName("authorization_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthorizationEndpoint { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientId
-    {
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
-    public required TerraformProperty<string> ClientSecret
-    {
-        set => SetProperty("client_secret", value);
-    }
+    [TerraformPropertyName("client_secret")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientSecret { get; set; }
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
-    public TerraformProperty<string>? Issuer
-    {
-        set => SetProperty("issuer", value);
-    }
+    [TerraformPropertyName("issuer")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Issuer { get; set; }
 
     /// <summary>
     /// The public_signing_key_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicSigningKeyEndpoint
-    {
-        set => SetProperty("public_signing_key_endpoint", value);
-    }
+    [TerraformPropertyName("public_signing_key_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PublicSigningKeyEndpoint { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
-    {
-        set => SetProperty("scope", value);
-    }
+    [TerraformPropertyName("scope")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Scope { get; set; }
 
     /// <summary>
     /// The token_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? TokenEndpoint
-    {
-        set => SetProperty("token_endpoint", value);
-    }
+    [TerraformPropertyName("token_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TokenEndpoint { get; set; }
 
     /// <summary>
     /// The user_info_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? UserInfoEndpoint
-    {
-        set => SetProperty("user_info_endpoint", value);
-    }
+    [TerraformPropertyName("user_info_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserInfoEndpoint { get; set; }
 
 }
 
@@ -95,64 +86,57 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
 /// Block type for oidc_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
+public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The authorization_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorizationEndpoint
-    {
-        set => SetProperty("authorization_endpoint", value);
-    }
+    [TerraformPropertyName("authorization_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthorizationEndpoint { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientId
-    {
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
-    public required TerraformProperty<string> ClientSecret
-    {
-        set => SetProperty("client_secret", value);
-    }
+    [TerraformPropertyName("client_secret")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientSecret { get; set; }
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
-    public TerraformProperty<string>? Issuer
-    {
-        set => SetProperty("issuer", value);
-    }
+    [TerraformPropertyName("issuer")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Issuer { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
-    {
-        set => SetProperty("scope", value);
-    }
+    [TerraformPropertyName("scope")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Scope { get; set; }
 
     /// <summary>
     /// The token_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? TokenEndpoint
-    {
-        set => SetProperty("token_endpoint", value);
-    }
+    [TerraformPropertyName("token_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TokenEndpoint { get; set; }
 
     /// <summary>
     /// The user_info_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? UserInfoEndpoint
-    {
-        set => SetProperty("user_info_endpoint", value);
-    }
+    [TerraformPropertyName("user_info_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserInfoEndpoint { get; set; }
 
 }
 
@@ -160,23 +144,21 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
 /// Block type for sse_specification in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedaccessTrustProviderSseSpecificationBlock : TerraformBlock
+public class AwsVerifiedaccessTrustProviderSseSpecificationBlock : ITerraformBlock
 {
     /// <summary>
     /// The customer_managed_key_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CustomerManagedKeyEnabled
-    {
-        set => SetProperty("customer_managed_key_enabled", value);
-    }
+    [TerraformPropertyName("customer_managed_key_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CustomerManagedKeyEnabled { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
-    {
-        set => SetProperty("kms_key_arn", value);
-    }
+    [TerraformPropertyName("kms_key_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyArn { get; set; }
 
 }
 
@@ -184,31 +166,28 @@ public class AwsVerifiedaccessTrustProviderSseSpecificationBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsVerifiedaccessTrustProviderTimeoutsBlock : TerraformBlock
+public class AwsVerifiedaccessTrustProviderTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -220,152 +199,110 @@ public class AwsVerifiedaccessTrustProvider : TerraformResource
 {
     public AwsVerifiedaccessTrustProvider(string name) : base("aws_verifiedaccess_trust_provider", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("device_trust_provider_type");
-        SetOutput("id");
-        SetOutput("policy_reference_name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("trust_provider_type");
-        SetOutput("user_trust_provider_type");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The device_trust_provider_type attribute.
     /// </summary>
-    public TerraformProperty<string> DeviceTrustProviderType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("device_trust_provider_type");
-        set => SetProperty("device_trust_provider_type", value);
-    }
+    [TerraformPropertyName("device_trust_provider_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeviceTrustProviderType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The policy_reference_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyReferenceName is required")]
-    public required TerraformProperty<string> PolicyReferenceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_reference_name");
-        set => SetProperty("policy_reference_name", value);
-    }
+    [TerraformPropertyName("policy_reference_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyReferenceName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The trust_provider_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustProviderType is required")]
-    public required TerraformProperty<string> TrustProviderType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("trust_provider_type");
-        set => SetProperty("trust_provider_type", value);
-    }
+    [TerraformPropertyName("trust_provider_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TrustProviderType { get; set; }
 
     /// <summary>
     /// The user_trust_provider_type attribute.
     /// </summary>
-    public TerraformProperty<string> UserTrustProviderType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_trust_provider_type");
-        set => SetProperty("user_trust_provider_type", value);
-    }
+    [TerraformPropertyName("user_trust_provider_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserTrustProviderType { get; set; }
 
     /// <summary>
     /// Block for device_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeviceOptions block(s) allowed")]
-    public List<AwsVerifiedaccessTrustProviderDeviceOptionsBlock>? DeviceOptions
-    {
-        set => SetProperty("device_options", value);
-    }
+    [TerraformPropertyName("device_options")]
+    public TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderDeviceOptionsBlock>>? DeviceOptions { get; set; } = new();
 
     /// <summary>
     /// Block for native_application_oidc_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NativeApplicationOidcOptions block(s) allowed")]
-    public List<AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock>? NativeApplicationOidcOptions
-    {
-        set => SetProperty("native_application_oidc_options", value);
-    }
+    [TerraformPropertyName("native_application_oidc_options")]
+    public TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock>>? NativeApplicationOidcOptions { get; set; } = new();
 
     /// <summary>
     /// Block for oidc_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OidcOptions block(s) allowed")]
-    public List<AwsVerifiedaccessTrustProviderOidcOptionsBlock>? OidcOptions
-    {
-        set => SetProperty("oidc_options", value);
-    }
+    [TerraformPropertyName("oidc_options")]
+    public TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderOidcOptionsBlock>>? OidcOptions { get; set; } = new();
 
     /// <summary>
     /// Block for sse_specification.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SseSpecification block(s) allowed")]
-    public List<AwsVerifiedaccessTrustProviderSseSpecificationBlock>? SseSpecification
-    {
-        set => SetProperty("sse_specification", value);
-    }
+    [TerraformPropertyName("sse_specification")]
+    public TerraformList<TerraformBlock<AwsVerifiedaccessTrustProviderSseSpecificationBlock>>? SseSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsVerifiedaccessTrustProviderTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsVerifiedaccessTrustProviderTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

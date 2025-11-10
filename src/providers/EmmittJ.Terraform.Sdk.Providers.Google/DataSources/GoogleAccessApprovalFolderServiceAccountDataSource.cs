@@ -9,44 +9,35 @@ public class GoogleAccessApprovalFolderServiceAccountDataSource : TerraformDataS
 {
     public GoogleAccessApprovalFolderServiceAccountDataSource(string name) : base("google_access_approval_folder_service_account", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account_email");
-        SetOutput("name");
-        SetOutput("folder_id");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The folder_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
-    public required TerraformProperty<string> FolderId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("folder_id");
-        set => SetProperty("folder_id", value);
-    }
+    [TerraformPropertyName("folder_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FolderId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The account_email attribute.
     /// </summary>
-    public TerraformExpression AccountEmail => this["account_email"];
+    [TerraformPropertyName("account_email")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AccountEmail => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_email");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

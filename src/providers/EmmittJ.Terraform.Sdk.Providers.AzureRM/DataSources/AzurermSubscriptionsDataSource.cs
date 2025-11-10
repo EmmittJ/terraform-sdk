@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSubscriptionsDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermSubscriptionsDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,56 +24,41 @@ public class AzurermSubscriptionsDataSource : TerraformDataSource
 {
     public AzurermSubscriptionsDataSource(string name) : base("azurerm_subscriptions", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("subscriptions");
-        SetOutput("display_name_contains");
-        SetOutput("display_name_prefix");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The display_name_contains attribute.
     /// </summary>
-    public TerraformProperty<string> DisplayNameContains
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name_contains");
-        set => SetProperty("display_name_contains", value);
-    }
+    [TerraformPropertyName("display_name_contains")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayNameContains { get; set; }
 
     /// <summary>
     /// The display_name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> DisplayNamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name_prefix");
-        set => SetProperty("display_name_prefix", value);
-    }
+    [TerraformPropertyName("display_name_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayNamePrefix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSubscriptionsDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSubscriptionsDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The subscriptions attribute.
     /// </summary>
-    public TerraformExpression Subscriptions => this["subscriptions"];
+    [TerraformPropertyName("subscriptions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Subscriptions => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "subscriptions");
 
 }

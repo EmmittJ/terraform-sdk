@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ddos_protection_plan in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlock
+public class AzurermVirtualNetworkDdosProtectionPlanBlock : ITerraformBlock
 {
     /// <summary>
     /// The enable attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
-    public required TerraformProperty<bool> Enable
-    {
-        set => SetProperty("enable", value);
-    }
+    [TerraformPropertyName("enable")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enable { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
 }
 
@@ -32,16 +30,15 @@ public class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlock
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVirtualNetworkEncryptionBlock : TerraformBlock
+public class AzurermVirtualNetworkEncryptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The enforcement attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforcement is required")]
-    public required TerraformProperty<string> Enforcement
-    {
-        set => SetProperty("enforcement", value);
-    }
+    [TerraformPropertyName("enforcement")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Enforcement { get; set; }
 
 }
 
@@ -49,33 +46,30 @@ public class AzurermVirtualNetworkEncryptionBlock : TerraformBlock
 /// Block type for ip_address_pool in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlock
+public class AzurermVirtualNetworkIpAddressPoolBlock : ITerraformBlock
 {
     /// <summary>
     /// The allocated_ip_address_prefixes attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AllocatedIpAddressPrefixes
-    {
-        set => SetProperty("allocated_ip_address_prefixes", value);
-    }
+    [TerraformPropertyName("allocated_ip_address_prefixes")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AllocatedIpAddressPrefixes => new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "allocated_ip_address_prefixes");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
     /// <summary>
     /// The number_of_ip_addresses attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfIpAddresses is required")]
-    public required TerraformProperty<string> NumberOfIpAddresses
-    {
-        set => SetProperty("number_of_ip_addresses", value);
-    }
+    [TerraformPropertyName("number_of_ip_addresses")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NumberOfIpAddresses { get; set; }
 
 }
 
@@ -83,39 +77,35 @@ public class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualNetworkTimeoutsBlock : TerraformBlock
+public class AzurermVirtualNetworkTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -127,179 +117,131 @@ public class AzurermVirtualNetwork : TerraformResource
 {
     public AzurermVirtualNetwork(string name) : base("azurerm_virtual_network", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("guid");
-        SetOutput("address_space");
-        SetOutput("bgp_community");
-        SetOutput("dns_servers");
-        SetOutput("edge_zone");
-        SetOutput("flow_timeout_in_minutes");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("private_endpoint_vnet_policies");
-        SetOutput("resource_group_name");
-        SetOutput("subnet");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The address_space attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AddressSpace
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("address_space");
-        set => SetProperty("address_space", value);
-    }
+    [TerraformPropertyName("address_space")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AddressSpace { get; set; }
 
     /// <summary>
     /// The bgp_community attribute.
     /// </summary>
-    public TerraformProperty<string> BgpCommunity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bgp_community");
-        set => SetProperty("bgp_community", value);
-    }
+    [TerraformPropertyName("bgp_community")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BgpCommunity { get; set; }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public List<TerraformProperty<string>> DnsServers
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("dns_servers");
-        set => SetProperty("dns_servers", value);
-    }
+    [TerraformPropertyName("dns_servers")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> DnsServers { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "dns_servers");
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    public TerraformProperty<string> EdgeZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("edge_zone");
-        set => SetProperty("edge_zone", value);
-    }
+    [TerraformPropertyName("edge_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EdgeZone { get; set; }
 
     /// <summary>
     /// The flow_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double> FlowTimeoutInMinutes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("flow_timeout_in_minutes");
-        set => SetProperty("flow_timeout_in_minutes", value);
-    }
+    [TerraformPropertyName("flow_timeout_in_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? FlowTimeoutInMinutes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The private_endpoint_vnet_policies attribute.
     /// </summary>
-    public TerraformProperty<string> PrivateEndpointVnetPolicies
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("private_endpoint_vnet_policies");
-        set => SetProperty("private_endpoint_vnet_policies", value);
-    }
+    [TerraformPropertyName("private_endpoint_vnet_policies")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrivateEndpointVnetPolicies { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The subnet attribute.
     /// </summary>
-    public HashSet<TerraformProperty<object>> Subnet
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<object>>>("subnet");
-        set => SetProperty("subnet", value);
-    }
+    [TerraformPropertyName("subnet")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Subnet { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "subnet");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for ddos_protection_plan.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DdosProtectionPlan block(s) allowed")]
-    public List<AzurermVirtualNetworkDdosProtectionPlanBlock>? DdosProtectionPlan
-    {
-        set => SetProperty("ddos_protection_plan", value);
-    }
+    [TerraformPropertyName("ddos_protection_plan")]
+    public TerraformList<TerraformBlock<AzurermVirtualNetworkDdosProtectionPlanBlock>>? DdosProtectionPlan { get; set; } = new();
 
     /// <summary>
     /// Block for encryption.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    public List<AzurermVirtualNetworkEncryptionBlock>? Encryption
-    {
-        set => SetProperty("encryption", value);
-    }
+    [TerraformPropertyName("encryption")]
+    public TerraformList<TerraformBlock<AzurermVirtualNetworkEncryptionBlock>>? Encryption { get; set; } = new();
 
     /// <summary>
     /// Block for ip_address_pool.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 IpAddressPool block(s) allowed")]
-    public List<AzurermVirtualNetworkIpAddressPoolBlock>? IpAddressPool
-    {
-        set => SetProperty("ip_address_pool", value);
-    }
+    [TerraformPropertyName("ip_address_pool")]
+    public TerraformList<TerraformBlock<AzurermVirtualNetworkIpAddressPoolBlock>>? IpAddressPool { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVirtualNetworkTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVirtualNetworkTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
-    public TerraformExpression Guid => this["guid"];
+    [TerraformPropertyName("guid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Guid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "guid");
 
 }

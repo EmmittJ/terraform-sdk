@@ -9,145 +9,115 @@ public class AwsGlueSchema : TerraformResource
 {
     public AwsGlueSchema(string name) : base("aws_glue_schema", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("latest_schema_version");
-        SetOutput("next_schema_version");
-        SetOutput("registry_name");
-        SetOutput("schema_checkpoint");
-        SetOutput("compatibility");
-        SetOutput("data_format");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("registry_arn");
-        SetOutput("schema_definition");
-        SetOutput("schema_name");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The compatibility attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compatibility is required")]
-    public required TerraformProperty<string> Compatibility
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("compatibility");
-        set => SetProperty("compatibility", value);
-    }
+    [TerraformPropertyName("compatibility")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Compatibility { get; set; }
 
     /// <summary>
     /// The data_format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFormat is required")]
-    public required TerraformProperty<string> DataFormat
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_format");
-        set => SetProperty("data_format", value);
-    }
+    [TerraformPropertyName("data_format")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataFormat { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The registry_arn attribute.
     /// </summary>
-    public TerraformProperty<string> RegistryArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("registry_arn");
-        set => SetProperty("registry_arn", value);
-    }
+    [TerraformPropertyName("registry_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> RegistryArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registry_arn");
 
     /// <summary>
     /// The schema_definition attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaDefinition is required")]
-    public required TerraformProperty<string> SchemaDefinition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("schema_definition");
-        set => SetProperty("schema_definition", value);
-    }
+    [TerraformPropertyName("schema_definition")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SchemaDefinition { get; set; }
 
     /// <summary>
     /// The schema_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaName is required")]
-    public required TerraformProperty<string> SchemaName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("schema_name");
-        set => SetProperty("schema_name", value);
-    }
+    [TerraformPropertyName("schema_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SchemaName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The latest_schema_version attribute.
     /// </summary>
-    public TerraformExpression LatestSchemaVersion => this["latest_schema_version"];
+    [TerraformPropertyName("latest_schema_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> LatestSchemaVersion => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "latest_schema_version");
 
     /// <summary>
     /// The next_schema_version attribute.
     /// </summary>
-    public TerraformExpression NextSchemaVersion => this["next_schema_version"];
+    [TerraformPropertyName("next_schema_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NextSchemaVersion => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "next_schema_version");
 
     /// <summary>
     /// The registry_name attribute.
     /// </summary>
-    public TerraformExpression RegistryName => this["registry_name"];
+    [TerraformPropertyName("registry_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RegistryName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registry_name");
 
     /// <summary>
     /// The schema_checkpoint attribute.
     /// </summary>
-    public TerraformExpression SchemaCheckpoint => this["schema_checkpoint"];
+    [TerraformPropertyName("schema_checkpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SchemaCheckpoint => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "schema_checkpoint");
 
 }

@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsVpcPeeringConnectionDataSourceFilterBlock : TerraformBlock
+public class AwsVpcPeeringConnectionDataSourceFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public HashSet<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -32,15 +30,14 @@ public class AwsVpcPeeringConnectionDataSourceFilterBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsVpcPeeringConnectionDataSourceTimeoutsBlock : TerraformBlock
+public class AwsVpcPeeringConnectionDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -51,173 +48,146 @@ public class AwsVpcPeeringConnectionDataSource : TerraformDataSource
 {
     public AwsVpcPeeringConnectionDataSource(string name) : base("aws_vpc_peering_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("accepter");
-        SetOutput("cidr_block_set");
-        SetOutput("ipv6_cidr_block_set");
-        SetOutput("peer_cidr_block_set");
-        SetOutput("peer_ipv6_cidr_block_set");
-        SetOutput("peer_region");
-        SetOutput("region");
-        SetOutput("requester");
-        SetOutput("requester_region");
-        SetOutput("cidr_block");
-        SetOutput("id");
-        SetOutput("owner_id");
-        SetOutput("peer_cidr_block");
-        SetOutput("peer_owner_id");
-        SetOutput("peer_vpc_id");
-        SetOutput("status");
-        SetOutput("tags");
-        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string> CidrBlock
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cidr_block");
-        set => SetProperty("cidr_block", value);
-    }
+    [TerraformPropertyName("cidr_block")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CidrBlock { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cidr_block");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformProperty<string> OwnerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("owner_id");
-        set => SetProperty("owner_id", value);
-    }
+    [TerraformPropertyName("owner_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> OwnerId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
 
     /// <summary>
     /// The peer_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string> PeerCidrBlock
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("peer_cidr_block");
-        set => SetProperty("peer_cidr_block", value);
-    }
+    [TerraformPropertyName("peer_cidr_block")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PeerCidrBlock { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_cidr_block");
 
     /// <summary>
     /// The peer_owner_id attribute.
     /// </summary>
-    public TerraformProperty<string> PeerOwnerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("peer_owner_id");
-        set => SetProperty("peer_owner_id", value);
-    }
+    [TerraformPropertyName("peer_owner_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PeerOwnerId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_owner_id");
 
     /// <summary>
     /// The peer_vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string> PeerVpcId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("peer_vpc_id");
-        set => SetProperty("peer_vpc_id", value);
-    }
+    [TerraformPropertyName("peer_vpc_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PeerVpcId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_vpc_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Status { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string> VpcId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VpcId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsVpcPeeringConnectionDataSourceFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformSet<TerraformBlock<AwsVpcPeeringConnectionDataSourceFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsVpcPeeringConnectionDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsVpcPeeringConnectionDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The accepter attribute.
     /// </summary>
-    public TerraformExpression Accepter => this["accepter"];
+    [TerraformPropertyName("accepter")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<bool>>> Accepter => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<bool>>>(ResourceAddress, "accepter");
 
     /// <summary>
     /// The cidr_block_set attribute.
     /// </summary>
-    public TerraformExpression CidrBlockSet => this["cidr_block_set"];
+    [TerraformPropertyName("cidr_block_set")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> CidrBlockSet => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cidr_block_set");
 
     /// <summary>
     /// The ipv6_cidr_block_set attribute.
     /// </summary>
-    public TerraformExpression Ipv6CidrBlockSet => this["ipv6_cidr_block_set"];
+    [TerraformPropertyName("ipv6_cidr_block_set")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Ipv6CidrBlockSet => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ipv6_cidr_block_set");
 
     /// <summary>
     /// The peer_cidr_block_set attribute.
     /// </summary>
-    public TerraformExpression PeerCidrBlockSet => this["peer_cidr_block_set"];
+    [TerraformPropertyName("peer_cidr_block_set")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PeerCidrBlockSet => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "peer_cidr_block_set");
 
     /// <summary>
     /// The peer_ipv6_cidr_block_set attribute.
     /// </summary>
-    public TerraformExpression PeerIpv6CidrBlockSet => this["peer_ipv6_cidr_block_set"];
+    [TerraformPropertyName("peer_ipv6_cidr_block_set")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PeerIpv6CidrBlockSet => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "peer_ipv6_cidr_block_set");
 
     /// <summary>
     /// The peer_region attribute.
     /// </summary>
-    public TerraformExpression PeerRegion => this["peer_region"];
+    [TerraformPropertyName("peer_region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PeerRegion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_region");
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformExpression Region => this["region"];
+    [TerraformPropertyName("region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Region => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The requester attribute.
     /// </summary>
-    public TerraformExpression Requester => this["requester"];
+    [TerraformPropertyName("requester")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<bool>>> Requester => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<bool>>>(ResourceAddress, "requester");
 
     /// <summary>
     /// The requester_region attribute.
     /// </summary>
-    public TerraformExpression RequesterRegion => this["requester_region"];
+    [TerraformPropertyName("requester_region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RequesterRegion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "requester_region");
 
 }

@@ -9,59 +9,43 @@ public class GoogleBackupDrDataSourceReferencesDataSource : TerraformDataSource
 {
     public GoogleBackupDrDataSourceReferencesDataSource(string name) : base("google_backup_dr_data_source_references", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("data_source_references");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("resource_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location to list the data source references from.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The resource type to get the data source references for. Examples include, &amp;quot;compute.googleapis.com/Instance&amp;quot;, &amp;quot;sqladmin.googleapis.com/Instance&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
-    public required TerraformProperty<string> ResourceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
-        set => SetProperty("resource_type", value);
-    }
+    [TerraformPropertyName("resource_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceType { get; set; }
 
     /// <summary>
     /// A list of the data source references found.
     /// </summary>
-    public TerraformExpression DataSourceReferences => this["data_source_references"];
+    [TerraformPropertyName("data_source_references")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DataSourceReferences => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "data_source_references");
 
 }

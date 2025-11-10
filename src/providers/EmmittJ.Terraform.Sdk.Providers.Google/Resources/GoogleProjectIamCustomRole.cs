@@ -9,96 +9,72 @@ public class GoogleProjectIamCustomRole : TerraformResource
 {
     public GoogleProjectIamCustomRole(string name) : base("google_project_iam_custom_role", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("deleted");
-        SetOutput("name");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("permissions");
-        SetOutput("project");
-        SetOutput("role_id");
-        SetOutput("stage");
-        SetOutput("title");
     }
 
     /// <summary>
     /// A human-readable description for the role.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The names of the permissions this role grants when bound in an IAM policy. At least one permission must be specified.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
-    public HashSet<TerraformProperty<string>> Permissions
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("permissions");
-        set => SetProperty("permissions", value);
-    }
+    [TerraformPropertyName("permissions")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Permissions { get; set; }
 
     /// <summary>
     /// The project that the service account will be created in. Defaults to the provider project configuration.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The camel case role id to use for this role. Cannot contain - characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
-    public required TerraformProperty<string> RoleId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_id");
-        set => SetProperty("role_id", value);
-    }
+    [TerraformPropertyName("role_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleId { get; set; }
 
     /// <summary>
     /// The current launch stage of the role. Defaults to GA.
     /// </summary>
-    public TerraformProperty<string> Stage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("stage");
-        set => SetProperty("stage", value);
-    }
+    [TerraformPropertyName("stage")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Stage { get; set; }
 
     /// <summary>
     /// A human-readable title for the role.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
-    public required TerraformProperty<string> Title
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("title");
-        set => SetProperty("title", value);
-    }
+    [TerraformPropertyName("title")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Title { get; set; }
 
     /// <summary>
     /// The current deleted state of the role.
     /// </summary>
-    public TerraformExpression Deleted => this["deleted"];
+    [TerraformPropertyName("deleted")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Deleted => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deleted");
 
     /// <summary>
     /// The name of the role in the format projects/{{project}}/roles/{{role_id}}. Like id, this field can be used as a reference in other resources such as IAM role bindings.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

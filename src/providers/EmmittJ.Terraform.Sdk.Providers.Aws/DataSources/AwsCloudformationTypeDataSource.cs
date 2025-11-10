@@ -9,143 +9,132 @@ public class AwsCloudformationTypeDataSource : TerraformDataSource
 {
     public AwsCloudformationTypeDataSource(string name) : base("aws_cloudformation_type", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("default_version_id");
-        SetOutput("deprecated_status");
-        SetOutput("description");
-        SetOutput("documentation_url");
-        SetOutput("execution_role_arn");
-        SetOutput("is_default_version");
-        SetOutput("logging_config");
-        SetOutput("provisioning_type");
-        SetOutput("schema");
-        SetOutput("source_url");
-        SetOutput("type_arn");
-        SetOutput("visibility");
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("type");
-        SetOutput("type_name");
-        SetOutput("version_id");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string> Arn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arn");
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Arn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Type { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
     /// <summary>
     /// The type_name attribute.
     /// </summary>
-    public TerraformProperty<string> TypeName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type_name");
-        set => SetProperty("type_name", value);
-    }
+    [TerraformPropertyName("type_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TypeName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type_name");
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformProperty<string> VersionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version_id");
-        set => SetProperty("version_id", value);
-    }
+    [TerraformPropertyName("version_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VersionId { get; set; }
 
     /// <summary>
     /// The default_version_id attribute.
     /// </summary>
-    public TerraformExpression DefaultVersionId => this["default_version_id"];
+    [TerraformPropertyName("default_version_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultVersionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_version_id");
 
     /// <summary>
     /// The deprecated_status attribute.
     /// </summary>
-    public TerraformExpression DeprecatedStatus => this["deprecated_status"];
+    [TerraformPropertyName("deprecated_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeprecatedStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deprecated_status");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The documentation_url attribute.
     /// </summary>
-    public TerraformExpression DocumentationUrl => this["documentation_url"];
+    [TerraformPropertyName("documentation_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DocumentationUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "documentation_url");
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    public TerraformExpression ExecutionRoleArn => this["execution_role_arn"];
+    [TerraformPropertyName("execution_role_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExecutionRoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "execution_role_arn");
 
     /// <summary>
     /// The is_default_version attribute.
     /// </summary>
-    public TerraformExpression IsDefaultVersion => this["is_default_version"];
+    [TerraformPropertyName("is_default_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> IsDefaultVersion => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "is_default_version");
 
     /// <summary>
     /// The logging_config attribute.
     /// </summary>
-    public TerraformExpression LoggingConfig => this["logging_config"];
+    [TerraformPropertyName("logging_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> LoggingConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "logging_config");
 
     /// <summary>
     /// The provisioning_type attribute.
     /// </summary>
-    public TerraformExpression ProvisioningType => this["provisioning_type"];
+    [TerraformPropertyName("provisioning_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProvisioningType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "provisioning_type");
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
-    public TerraformExpression Schema => this["schema"];
+    [TerraformPropertyName("schema")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Schema => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "schema");
 
     /// <summary>
     /// The source_url attribute.
     /// </summary>
-    public TerraformExpression SourceUrl => this["source_url"];
+    [TerraformPropertyName("source_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_url");
 
     /// <summary>
     /// The type_arn attribute.
     /// </summary>
-    public TerraformExpression TypeArn => this["type_arn"];
+    [TerraformPropertyName("type_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TypeArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type_arn");
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
-    public TerraformExpression Visibility => this["visibility"];
+    [TerraformPropertyName("visibility")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Visibility => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "visibility");
 
 }

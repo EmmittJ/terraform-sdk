@@ -9,98 +9,98 @@ public class AwsRdsGlobalClusterDataSource : TerraformDataSource
 {
     public AwsRdsGlobalClusterDataSource(string name) : base("aws_rds_global_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("database_name");
-        SetOutput("deletion_protection");
-        SetOutput("endpoint");
-        SetOutput("engine");
-        SetOutput("engine_lifecycle_support");
-        SetOutput("engine_version");
-        SetOutput("members");
-        SetOutput("resource_id");
-        SetOutput("storage_encrypted");
-        SetOutput("tags");
-        SetOutput("identifier");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
-    public required TerraformProperty<string> Identifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identifier");
-        set => SetProperty("identifier", value);
-    }
+    [TerraformPropertyName("identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Identifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformExpression DatabaseName => this["database_name"];
+    [TerraformPropertyName("database_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DatabaseName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "database_name");
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    public TerraformExpression DeletionProtection => this["deletion_protection"];
+    [TerraformPropertyName("deletion_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformExpression Engine => this["engine"];
+    [TerraformPropertyName("engine")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Engine => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine");
 
     /// <summary>
     /// The engine_lifecycle_support attribute.
     /// </summary>
-    public TerraformExpression EngineLifecycleSupport => this["engine_lifecycle_support"];
+    [TerraformPropertyName("engine_lifecycle_support")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EngineLifecycleSupport => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_lifecycle_support");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformExpression EngineVersion => this["engine_version"];
+    [TerraformPropertyName("engine_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EngineVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
 
     /// <summary>
     /// The members attribute.
     /// </summary>
-    public TerraformExpression Members => this["members"];
+    [TerraformPropertyName("members")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Members => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "members");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformExpression ResourceId => this["resource_id"];
+    [TerraformPropertyName("resource_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_id");
 
     /// <summary>
     /// The storage_encrypted attribute.
     /// </summary>
-    public TerraformExpression StorageEncrypted => this["storage_encrypted"];
+    [TerraformPropertyName("storage_encrypted")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> StorageEncrypted => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "storage_encrypted");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
 }

@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for dynamic_membership in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadGroupWithoutMembersDynamicMembershipBlock : TerraformBlock
+public class AzureadGroupWithoutMembersDynamicMembershipBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// Rule to determine members for a dynamic group. Required when `group_types` contains &#39;DynamicMembership&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
-    public required TerraformProperty<string> Rule
-    {
-        set => SetProperty("rule", value);
-    }
+    [TerraformPropertyName("rule")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Rule { get; set; }
 
 }
 
@@ -32,39 +30,35 @@ public class AzureadGroupWithoutMembersDynamicMembershipBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadGroupWithoutMembersTimeoutsBlock : TerraformBlock
+public class AzureadGroupWithoutMembersTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -76,295 +70,232 @@ public class AzureadGroupWithoutMembers : TerraformResource
 {
     public AzureadGroupWithoutMembers(string name) : base("azuread_group_without_members", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("mail");
-        SetOutput("object_id");
-        SetOutput("onpremises_domain_name");
-        SetOutput("onpremises_netbios_name");
-        SetOutput("onpremises_sam_account_name");
-        SetOutput("onpremises_security_identifier");
-        SetOutput("onpremises_sync_enabled");
-        SetOutput("preferred_language");
-        SetOutput("proxy_addresses");
-        SetOutput("administrative_unit_ids");
-        SetOutput("assignable_to_role");
-        SetOutput("auto_subscribe_new_members");
-        SetOutput("behaviors");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("external_senders_allowed");
-        SetOutput("hide_from_address_lists");
-        SetOutput("hide_from_outlook_clients");
-        SetOutput("id");
-        SetOutput("mail_enabled");
-        SetOutput("mail_nickname");
-        SetOutput("onpremises_group_type");
-        SetOutput("owners");
-        SetOutput("prevent_duplicate_names");
-        SetOutput("provisioning_options");
-        SetOutput("security_enabled");
-        SetOutput("theme");
-        SetOutput("types");
-        SetOutput("visibility");
-        SetOutput("writeback_enabled");
     }
 
     /// <summary>
     /// The administrative unit IDs in which the group should be. If empty, the group will be created at the tenant level.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AdministrativeUnitIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("administrative_unit_ids");
-        set => SetProperty("administrative_unit_ids", value);
-    }
+    [TerraformPropertyName("administrative_unit_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AdministrativeUnitIds { get; set; }
 
     /// <summary>
     /// Indicates whether this group can be assigned to an Azure Active Directory role. This property can only be `true` for security-enabled groups.
     /// </summary>
-    public TerraformProperty<bool> AssignableToRole
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("assignable_to_role");
-        set => SetProperty("assignable_to_role", value);
-    }
+    [TerraformPropertyName("assignable_to_role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AssignableToRole { get; set; }
 
     /// <summary>
     /// Indicates whether new members added to the group will be auto-subscribed to receive email notifications.
     /// </summary>
-    public TerraformProperty<bool> AutoSubscribeNewMembers
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_subscribe_new_members");
-        set => SetProperty("auto_subscribe_new_members", value);
-    }
+    [TerraformPropertyName("auto_subscribe_new_members")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> AutoSubscribeNewMembers { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "auto_subscribe_new_members");
 
     /// <summary>
     /// The group behaviours for a Microsoft 365 group
     /// </summary>
-    public HashSet<TerraformProperty<string>> Behaviors
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("behaviors");
-        set => SetProperty("behaviors", value);
-    }
+    [TerraformPropertyName("behaviors")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Behaviors { get; set; }
 
     /// <summary>
     /// The description for the group
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display name for the group
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// Indicates whether people external to the organization can send messages to the group.
     /// </summary>
-    public TerraformProperty<bool> ExternalSendersAllowed
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("external_senders_allowed");
-        set => SetProperty("external_senders_allowed", value);
-    }
+    [TerraformPropertyName("external_senders_allowed")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> ExternalSendersAllowed { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "external_senders_allowed");
 
     /// <summary>
     /// Indicates whether the group is displayed in certain parts of the Outlook user interface: in the Address Book, in address lists for selecting message recipients, and in the Browse Groups dialog for searching groups.
     /// </summary>
-    public TerraformProperty<bool> HideFromAddressLists
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("hide_from_address_lists");
-        set => SetProperty("hide_from_address_lists", value);
-    }
+    [TerraformPropertyName("hide_from_address_lists")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> HideFromAddressLists { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "hide_from_address_lists");
 
     /// <summary>
     /// Indicates whether the group is displayed in Outlook clients, such as Outlook for Windows and Outlook on the web.
     /// </summary>
-    public TerraformProperty<bool> HideFromOutlookClients
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("hide_from_outlook_clients");
-        set => SetProperty("hide_from_outlook_clients", value);
-    }
+    [TerraformPropertyName("hide_from_outlook_clients")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> HideFromOutlookClients { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "hide_from_outlook_clients");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Whether the group is a mail enabled, with a shared group mailbox. At least one of `mail_enabled` or `security_enabled` must be specified. A group can be mail enabled _and_ security enabled
     /// </summary>
-    public TerraformProperty<bool> MailEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("mail_enabled");
-        set => SetProperty("mail_enabled", value);
-    }
+    [TerraformPropertyName("mail_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MailEnabled { get; set; }
 
     /// <summary>
     /// The mail alias for the group, unique in the organisation
     /// </summary>
-    public TerraformProperty<string> MailNickname
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mail_nickname");
-        set => SetProperty("mail_nickname", value);
-    }
+    [TerraformPropertyName("mail_nickname")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MailNickname { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mail_nickname");
 
     /// <summary>
     /// Indicates the target on-premise group type the group will be written back as
     /// </summary>
-    public TerraformProperty<string> OnpremisesGroupType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("onpremises_group_type");
-        set => SetProperty("onpremises_group_type", value);
-    }
+    [TerraformPropertyName("onpremises_group_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> OnpremisesGroupType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "onpremises_group_type");
 
     /// <summary>
     /// A set of owners who own this group. Supported object types are Users or Service Principals
     /// </summary>
-    public HashSet<TerraformProperty<string>> Owners
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("owners");
-        set => SetProperty("owners", value);
-    }
+    [TerraformPropertyName("owners")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Owners { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "owners");
 
     /// <summary>
     /// If `true`, will return an error if an existing group is found with the same name
     /// </summary>
-    public TerraformProperty<bool> PreventDuplicateNames
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("prevent_duplicate_names");
-        set => SetProperty("prevent_duplicate_names", value);
-    }
+    [TerraformPropertyName("prevent_duplicate_names")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PreventDuplicateNames { get; set; }
 
     /// <summary>
     /// The group provisioning options for a Microsoft 365 group
     /// </summary>
-    public HashSet<TerraformProperty<string>> ProvisioningOptions
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("provisioning_options");
-        set => SetProperty("provisioning_options", value);
-    }
+    [TerraformPropertyName("provisioning_options")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ProvisioningOptions { get; set; }
 
     /// <summary>
     /// Whether the group is a security group for controlling access to in-app resources. At least one of `security_enabled` or `mail_enabled` must be specified. A group can be security enabled _and_ mail enabled
     /// </summary>
-    public TerraformProperty<bool> SecurityEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("security_enabled");
-        set => SetProperty("security_enabled", value);
-    }
+    [TerraformPropertyName("security_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SecurityEnabled { get; set; }
 
     /// <summary>
     /// The colour theme for a Microsoft 365 group
     /// </summary>
-    public TerraformProperty<string> Theme
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("theme");
-        set => SetProperty("theme", value);
-    }
+    [TerraformPropertyName("theme")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Theme { get; set; }
 
     /// <summary>
     /// A set of group types to configure for the group. `Unified` specifies a Microsoft 365 group. Required when `mail_enabled` is true
     /// </summary>
-    public HashSet<TerraformProperty<string>> Types
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("types");
-        set => SetProperty("types", value);
-    }
+    [TerraformPropertyName("types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Types { get; set; }
 
     /// <summary>
     /// Specifies the group join policy and group content visibility
     /// </summary>
-    public TerraformProperty<string> Visibility
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("visibility");
-        set => SetProperty("visibility", value);
-    }
+    [TerraformPropertyName("visibility")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Visibility { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "visibility");
 
     /// <summary>
     /// Whether this group should be synced from Azure AD to the on-premises directory when Azure AD Connect is used
     /// </summary>
-    public TerraformProperty<bool> WritebackEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("writeback_enabled");
-        set => SetProperty("writeback_enabled", value);
-    }
+    [TerraformPropertyName("writeback_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WritebackEnabled { get; set; }
 
     /// <summary>
     /// Block for dynamic_membership.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DynamicMembership block(s) allowed")]
-    public List<AzureadGroupWithoutMembersDynamicMembershipBlock>? DynamicMembership
-    {
-        set => SetProperty("dynamic_membership", value);
-    }
+    [TerraformPropertyName("dynamic_membership")]
+    public TerraformList<TerraformBlock<AzureadGroupWithoutMembersDynamicMembershipBlock>>? DynamicMembership { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadGroupWithoutMembersTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadGroupWithoutMembersTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The SMTP address for the group
     /// </summary>
-    public TerraformExpression Mail => this["mail"];
+    [TerraformPropertyName("mail")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Mail => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mail");
 
     /// <summary>
     /// The object ID of the group
     /// </summary>
-    public TerraformExpression ObjectId => this["object_id"];
+    [TerraformPropertyName("object_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ObjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_id");
 
     /// <summary>
     /// The on-premises FQDN, also called dnsDomainName, synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
-    public TerraformExpression OnpremisesDomainName => this["onpremises_domain_name"];
+    [TerraformPropertyName("onpremises_domain_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OnpremisesDomainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "onpremises_domain_name");
 
     /// <summary>
     /// The on-premises NetBIOS name, synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
-    public TerraformExpression OnpremisesNetbiosName => this["onpremises_netbios_name"];
+    [TerraformPropertyName("onpremises_netbios_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OnpremisesNetbiosName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "onpremises_netbios_name");
 
     /// <summary>
     /// The on-premises SAM account name, synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
-    public TerraformExpression OnpremisesSamAccountName => this["onpremises_sam_account_name"];
+    [TerraformPropertyName("onpremises_sam_account_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OnpremisesSamAccountName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "onpremises_sam_account_name");
 
     /// <summary>
     /// The on-premises security identifier (SID), synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
-    public TerraformExpression OnpremisesSecurityIdentifier => this["onpremises_security_identifier"];
+    [TerraformPropertyName("onpremises_security_identifier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OnpremisesSecurityIdentifier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "onpremises_security_identifier");
 
     /// <summary>
     /// Whether this group is synchronized from an on-premises directory (true), no longer synchronized (false), or has never been synchronized (null)
     /// </summary>
-    public TerraformExpression OnpremisesSyncEnabled => this["onpremises_sync_enabled"];
+    [TerraformPropertyName("onpremises_sync_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> OnpremisesSyncEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "onpremises_sync_enabled");
 
     /// <summary>
     /// The preferred language for a Microsoft 365 group, in ISO 639-1 notation
     /// </summary>
-    public TerraformExpression PreferredLanguage => this["preferred_language"];
+    [TerraformPropertyName("preferred_language")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PreferredLanguage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_language");
 
     /// <summary>
     /// Email addresses for the group that direct to the same group mailbox
     /// </summary>
-    public TerraformExpression ProxyAddresses => this["proxy_addresses"];
+    [TerraformPropertyName("proxy_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ProxyAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "proxy_addresses");
 
 }

@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for network_acls in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock : TerraformBlock
+public class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock : ITerraformBlock
 {
     /// <summary>
     /// The bypass attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bypass is required")]
-    public required TerraformProperty<string> Bypass
-    {
-        set => SetProperty("bypass", value);
-    }
+    [TerraformPropertyName("bypass")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bypass { get; set; }
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
-    public required TerraformProperty<string> DefaultAction
-    {
-        set => SetProperty("default_action", value);
-    }
+    [TerraformPropertyName("default_action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DefaultAction { get; set; }
 
 }
 
@@ -32,39 +30,35 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : TerraformBlock
+public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -76,178 +70,132 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
 {
     public AzurermKeyVaultManagedHardwareSecurityModule(string name) : base("azurerm_key_vault_managed_hardware_security_module", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("hsm_uri");
-        SetOutput("security_domain_encrypted_data");
-        SetOutput("admin_object_ids");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("public_network_access_enabled");
-        SetOutput("purge_protection_enabled");
-        SetOutput("resource_group_name");
-        SetOutput("security_domain_key_vault_certificate_ids");
-        SetOutput("security_domain_quorum");
-        SetOutput("sku_name");
-        SetOutput("soft_delete_retention_days");
-        SetOutput("tags");
-        SetOutput("tenant_id");
     }
 
     /// <summary>
     /// The admin_object_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminObjectIds is required")]
-    public HashSet<TerraformProperty<string>> AdminObjectIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("admin_object_ids");
-        set => SetProperty("admin_object_ids", value);
-    }
+    [TerraformPropertyName("admin_object_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AdminObjectIds { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PublicNetworkAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
-        set => SetProperty("public_network_access_enabled", value);
-    }
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The purge_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PurgeProtectionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("purge_protection_enabled");
-        set => SetProperty("purge_protection_enabled", value);
-    }
+    [TerraformPropertyName("purge_protection_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PurgeProtectionEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The security_domain_key_vault_certificate_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>> SecurityDomainKeyVaultCertificateIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("security_domain_key_vault_certificate_ids");
-        set => SetProperty("security_domain_key_vault_certificate_ids", value);
-    }
+    [TerraformPropertyName("security_domain_key_vault_certificate_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SecurityDomainKeyVaultCertificateIds { get; set; }
 
     /// <summary>
     /// The security_domain_quorum attribute.
     /// </summary>
-    public TerraformProperty<double> SecurityDomainQuorum
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("security_domain_quorum");
-        set => SetProperty("security_domain_quorum", value);
-    }
+    [TerraformPropertyName("security_domain_quorum")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SecurityDomainQuorum { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    public required TerraformProperty<string> SkuName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
-        set => SetProperty("sku_name", value);
-    }
+    [TerraformPropertyName("sku_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SkuName { get; set; }
 
     /// <summary>
     /// The soft_delete_retention_days attribute.
     /// </summary>
-    public TerraformProperty<double> SoftDeleteRetentionDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("soft_delete_retention_days");
-        set => SetProperty("soft_delete_retention_days", value);
-    }
+    [TerraformPropertyName("soft_delete_retention_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SoftDeleteRetentionDays { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
-    public required TerraformProperty<string> TenantId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tenant_id");
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TenantId { get; set; }
 
     /// <summary>
     /// Block for network_acls.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
-    public List<AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock>? NetworkAcls
-    {
-        set => SetProperty("network_acls", value);
-    }
+    [TerraformPropertyName("network_acls")]
+    public TerraformList<TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock>>? NetworkAcls { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The hsm_uri attribute.
     /// </summary>
-    public TerraformExpression HsmUri => this["hsm_uri"];
+    [TerraformPropertyName("hsm_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HsmUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hsm_uri");
 
     /// <summary>
     /// The security_domain_encrypted_data attribute.
     /// </summary>
-    public TerraformExpression SecurityDomainEncryptedData => this["security_domain_encrypted_data"];
+    [TerraformPropertyName("security_domain_encrypted_data")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecurityDomainEncryptedData => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "security_domain_encrypted_data");
 
 }

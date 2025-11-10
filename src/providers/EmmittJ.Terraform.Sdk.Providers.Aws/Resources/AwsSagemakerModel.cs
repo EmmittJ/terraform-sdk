@@ -6,63 +6,56 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for container in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerModelContainerBlock : TerraformBlock
+public class AwsSagemakerModelContainerBlock : ITerraformBlock
 {
     /// <summary>
     /// The container_hostname attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerHostname
-    {
-        set => SetProperty("container_hostname", value);
-    }
+    [TerraformPropertyName("container_hostname")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContainerHostname { get; set; }
 
     /// <summary>
     /// The environment attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Environment
-    {
-        set => SetProperty("environment", value);
-    }
+    [TerraformPropertyName("environment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Environment { get; set; }
 
     /// <summary>
     /// The image attribute.
     /// </summary>
-    public TerraformProperty<string>? Image
-    {
-        set => SetProperty("image", value);
-    }
+    [TerraformPropertyName("image")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Image { get; set; }
 
     /// <summary>
     /// The inference_specification_name attribute.
     /// </summary>
-    public TerraformProperty<string>? InferenceSpecificationName
-    {
-        set => SetProperty("inference_specification_name", value);
-    }
+    [TerraformPropertyName("inference_specification_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InferenceSpecificationName { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string>? Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
 
     /// <summary>
     /// The model_data_url attribute.
     /// </summary>
-    public TerraformProperty<string>? ModelDataUrl
-    {
-        set => SetProperty("model_data_url", value);
-    }
+    [TerraformPropertyName("model_data_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ModelDataUrl { get; set; }
 
     /// <summary>
     /// The model_package_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ModelPackageName
-    {
-        set => SetProperty("model_package_name", value);
-    }
+    [TerraformPropertyName("model_package_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ModelPackageName { get; set; }
 
 }
 
@@ -70,16 +63,15 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
 /// Block type for inference_execution_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerModelInferenceExecutionConfigBlock : TerraformBlock
+public class AwsSagemakerModelInferenceExecutionConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    public required TerraformProperty<string> Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Mode { get; set; }
 
 }
 
@@ -87,63 +79,56 @@ public class AwsSagemakerModelInferenceExecutionConfigBlock : TerraformBlock
 /// Block type for primary_container in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
+public class AwsSagemakerModelPrimaryContainerBlock : ITerraformBlock
 {
     /// <summary>
     /// The container_hostname attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerHostname
-    {
-        set => SetProperty("container_hostname", value);
-    }
+    [TerraformPropertyName("container_hostname")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContainerHostname { get; set; }
 
     /// <summary>
     /// The environment attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Environment
-    {
-        set => SetProperty("environment", value);
-    }
+    [TerraformPropertyName("environment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Environment { get; set; }
 
     /// <summary>
     /// The image attribute.
     /// </summary>
-    public TerraformProperty<string>? Image
-    {
-        set => SetProperty("image", value);
-    }
+    [TerraformPropertyName("image")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Image { get; set; }
 
     /// <summary>
     /// The inference_specification_name attribute.
     /// </summary>
-    public TerraformProperty<string>? InferenceSpecificationName
-    {
-        set => SetProperty("inference_specification_name", value);
-    }
+    [TerraformPropertyName("inference_specification_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InferenceSpecificationName { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string>? Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
 
     /// <summary>
     /// The model_data_url attribute.
     /// </summary>
-    public TerraformProperty<string>? ModelDataUrl
-    {
-        set => SetProperty("model_data_url", value);
-    }
+    [TerraformPropertyName("model_data_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ModelDataUrl { get; set; }
 
     /// <summary>
     /// The model_package_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ModelPackageName
-    {
-        set => SetProperty("model_package_name", value);
-    }
+    [TerraformPropertyName("model_package_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ModelPackageName { get; set; }
 
 }
 
@@ -151,25 +136,23 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerModelVpcConfigBlock : TerraformBlock
+public class AwsSagemakerModelVpcConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
-    {
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
-    public HashSet<TerraformProperty<string>>? Subnets
-    {
-        set => SetProperty("subnets", value);
-    }
+    [TerraformPropertyName("subnets")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Subnets { get; set; }
 
 }
 
@@ -181,127 +164,94 @@ public class AwsSagemakerModel : TerraformResource
 {
     public AwsSagemakerModel(string name) : base("aws_sagemaker_model", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("enable_network_isolation");
-        SetOutput("execution_role_arn");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The enable_network_isolation attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableNetworkIsolation
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_network_isolation");
-        set => SetProperty("enable_network_isolation", value);
-    }
+    [TerraformPropertyName("enable_network_isolation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableNetworkIsolation { get; set; }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
-    public required TerraformProperty<string> ExecutionRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
-        set => SetProperty("execution_role_arn", value);
-    }
+    [TerraformPropertyName("execution_role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for container.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsSagemakerModelContainerBlock>? Container
-    {
-        set => SetProperty("container", value);
-    }
+    [TerraformPropertyName("container")]
+    public TerraformList<TerraformBlock<AwsSagemakerModelContainerBlock>>? Container { get; set; } = new();
 
     /// <summary>
     /// Block for inference_execution_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InferenceExecutionConfig block(s) allowed")]
-    public List<AwsSagemakerModelInferenceExecutionConfigBlock>? InferenceExecutionConfig
-    {
-        set => SetProperty("inference_execution_config", value);
-    }
+    [TerraformPropertyName("inference_execution_config")]
+    public TerraformList<TerraformBlock<AwsSagemakerModelInferenceExecutionConfigBlock>>? InferenceExecutionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for primary_container.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrimaryContainer block(s) allowed")]
-    public List<AwsSagemakerModelPrimaryContainerBlock>? PrimaryContainer
-    {
-        set => SetProperty("primary_container", value);
-    }
+    [TerraformPropertyName("primary_container")]
+    public TerraformList<TerraformBlock<AwsSagemakerModelPrimaryContainerBlock>>? PrimaryContainer { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
-    public List<AwsSagemakerModelVpcConfigBlock>? VpcConfig
-    {
-        set => SetProperty("vpc_config", value);
-    }
+    [TerraformPropertyName("vpc_config")]
+    public TerraformList<TerraformBlock<AwsSagemakerModelVpcConfigBlock>>? VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

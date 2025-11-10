@@ -6,79 +6,70 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for storage_descriptor in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGluePartitionStorageDescriptorBlock : TerraformBlock
+public class AwsGluePartitionStorageDescriptorBlock : ITerraformBlock
 {
     /// <summary>
     /// The additional_locations attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AdditionalLocations
-    {
-        set => SetProperty("additional_locations", value);
-    }
+    [TerraformPropertyName("additional_locations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AdditionalLocations { get; set; }
 
     /// <summary>
     /// The bucket_columns attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? BucketColumns
-    {
-        set => SetProperty("bucket_columns", value);
-    }
+    [TerraformPropertyName("bucket_columns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? BucketColumns { get; set; }
 
     /// <summary>
     /// The compressed attribute.
     /// </summary>
-    public TerraformProperty<bool>? Compressed
-    {
-        set => SetProperty("compressed", value);
-    }
+    [TerraformPropertyName("compressed")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Compressed { get; set; }
 
     /// <summary>
     /// The input_format attribute.
     /// </summary>
-    public TerraformProperty<string>? InputFormat
-    {
-        set => SetProperty("input_format", value);
-    }
+    [TerraformPropertyName("input_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InputFormat { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
-    {
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The number_of_buckets attribute.
     /// </summary>
-    public TerraformProperty<double>? NumberOfBuckets
-    {
-        set => SetProperty("number_of_buckets", value);
-    }
+    [TerraformPropertyName("number_of_buckets")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? NumberOfBuckets { get; set; }
 
     /// <summary>
     /// The output_format attribute.
     /// </summary>
-    public TerraformProperty<string>? OutputFormat
-    {
-        set => SetProperty("output_format", value);
-    }
+    [TerraformPropertyName("output_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OutputFormat { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
-    {
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// The stored_as_sub_directories attribute.
     /// </summary>
-    public TerraformProperty<bool>? StoredAsSubDirectories
-    {
-        set => SetProperty("stored_as_sub_directories", value);
-    }
+    [TerraformPropertyName("stored_as_sub_directories")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StoredAsSubDirectories { get; set; }
 
 }
 
@@ -90,112 +81,87 @@ public class AwsGluePartition : TerraformResource
 {
     public AwsGluePartition(string name) : base("aws_glue_partition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_time");
-        SetOutput("last_accessed_time");
-        SetOutput("last_analyzed_time");
-        SetOutput("catalog_id");
-        SetOutput("database_name");
-        SetOutput("id");
-        SetOutput("parameters");
-        SetOutput("partition_values");
-        SetOutput("region");
-        SetOutput("table_name");
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string> CatalogId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "catalog_id");
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    public required TerraformProperty<string> DatabaseName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
-        set => SetProperty("database_name", value);
-    }
+    [TerraformPropertyName("database_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Parameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// The partition_values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionValues is required")]
-    public List<TerraformProperty<string>> PartitionValues
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("partition_values");
-        set => SetProperty("partition_values", value);
-    }
+    [TerraformPropertyName("partition_values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? PartitionValues { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
-    public required TerraformProperty<string> TableName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
-        set => SetProperty("table_name", value);
-    }
+    [TerraformPropertyName("table_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TableName { get; set; }
 
     /// <summary>
     /// Block for storage_descriptor.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageDescriptor block(s) allowed")]
-    public List<AwsGluePartitionStorageDescriptorBlock>? StorageDescriptor
-    {
-        set => SetProperty("storage_descriptor", value);
-    }
+    [TerraformPropertyName("storage_descriptor")]
+    public TerraformList<TerraformBlock<AwsGluePartitionStorageDescriptorBlock>>? StorageDescriptor { get; set; } = new();
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    public TerraformExpression CreationTime => this["creation_time"];
+    [TerraformPropertyName("creation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
 
     /// <summary>
     /// The last_accessed_time attribute.
     /// </summary>
-    public TerraformExpression LastAccessedTime => this["last_accessed_time"];
+    [TerraformPropertyName("last_accessed_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastAccessedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_accessed_time");
 
     /// <summary>
     /// The last_analyzed_time attribute.
     /// </summary>
-    public TerraformExpression LastAnalyzedTime => this["last_analyzed_time"];
+    [TerraformPropertyName("last_analyzed_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastAnalyzedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_analyzed_time");
 
 }

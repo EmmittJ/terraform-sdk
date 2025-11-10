@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSubnetTimeoutsBlock : TerraformBlock
+public class AwsSubnetTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,239 +31,175 @@ public class AwsSubnet : TerraformResource
 {
     public AwsSubnet(string name) : base("aws_subnet", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("ipv6_cidr_block_association_id");
-        SetOutput("owner_id");
-        SetOutput("assign_ipv6_address_on_creation");
-        SetOutput("availability_zone");
-        SetOutput("availability_zone_id");
-        SetOutput("cidr_block");
-        SetOutput("customer_owned_ipv4_pool");
-        SetOutput("enable_dns64");
-        SetOutput("enable_lni_at_device_index");
-        SetOutput("enable_resource_name_dns_a_record_on_launch");
-        SetOutput("enable_resource_name_dns_aaaa_record_on_launch");
-        SetOutput("id");
-        SetOutput("ipv6_cidr_block");
-        SetOutput("ipv6_native");
-        SetOutput("map_customer_owned_ip_on_launch");
-        SetOutput("map_public_ip_on_launch");
-        SetOutput("outpost_arn");
-        SetOutput("private_dns_hostname_type_on_launch");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("vpc_id");
     }
 
     /// <summary>
     /// The assign_ipv6_address_on_creation attribute.
     /// </summary>
-    public TerraformProperty<bool> AssignIpv6AddressOnCreation
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("assign_ipv6_address_on_creation");
-        set => SetProperty("assign_ipv6_address_on_creation", value);
-    }
+    [TerraformPropertyName("assign_ipv6_address_on_creation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AssignIpv6AddressOnCreation { get; set; }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformProperty<string> AvailabilityZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone");
-        set => SetProperty("availability_zone", value);
-    }
+    [TerraformPropertyName("availability_zone")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone");
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
-    public TerraformProperty<string> AvailabilityZoneId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone_id");
-        set => SetProperty("availability_zone_id", value);
-    }
+    [TerraformPropertyName("availability_zone_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZoneId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone_id");
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string> CidrBlock
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cidr_block");
-        set => SetProperty("cidr_block", value);
-    }
+    [TerraformPropertyName("cidr_block")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CidrBlock { get; set; }
 
     /// <summary>
     /// The customer_owned_ipv4_pool attribute.
     /// </summary>
-    public TerraformProperty<string> CustomerOwnedIpv4Pool
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("customer_owned_ipv4_pool");
-        set => SetProperty("customer_owned_ipv4_pool", value);
-    }
+    [TerraformPropertyName("customer_owned_ipv4_pool")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomerOwnedIpv4Pool { get; set; }
 
     /// <summary>
     /// The enable_dns64 attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableDns64
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_dns64");
-        set => SetProperty("enable_dns64", value);
-    }
+    [TerraformPropertyName("enable_dns64")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableDns64 { get; set; }
 
     /// <summary>
     /// The enable_lni_at_device_index attribute.
     /// </summary>
-    public TerraformProperty<double> EnableLniAtDeviceIndex
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("enable_lni_at_device_index");
-        set => SetProperty("enable_lni_at_device_index", value);
-    }
+    [TerraformPropertyName("enable_lni_at_device_index")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? EnableLniAtDeviceIndex { get; set; }
 
     /// <summary>
     /// The enable_resource_name_dns_a_record_on_launch attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableResourceNameDnsARecordOnLaunch
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_resource_name_dns_a_record_on_launch");
-        set => SetProperty("enable_resource_name_dns_a_record_on_launch", value);
-    }
+    [TerraformPropertyName("enable_resource_name_dns_a_record_on_launch")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableResourceNameDnsARecordOnLaunch { get; set; }
 
     /// <summary>
     /// The enable_resource_name_dns_aaaa_record_on_launch attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableResourceNameDnsAaaaRecordOnLaunch
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_resource_name_dns_aaaa_record_on_launch");
-        set => SetProperty("enable_resource_name_dns_aaaa_record_on_launch", value);
-    }
+    [TerraformPropertyName("enable_resource_name_dns_aaaa_record_on_launch")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableResourceNameDnsAaaaRecordOnLaunch { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ipv6_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string> Ipv6CidrBlock
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ipv6_cidr_block");
-        set => SetProperty("ipv6_cidr_block", value);
-    }
+    [TerraformPropertyName("ipv6_cidr_block")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Ipv6CidrBlock { get; set; }
 
     /// <summary>
     /// The ipv6_native attribute.
     /// </summary>
-    public TerraformProperty<bool> Ipv6Native
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ipv6_native");
-        set => SetProperty("ipv6_native", value);
-    }
+    [TerraformPropertyName("ipv6_native")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Ipv6Native { get; set; }
 
     /// <summary>
     /// The map_customer_owned_ip_on_launch attribute.
     /// </summary>
-    public TerraformProperty<bool> MapCustomerOwnedIpOnLaunch
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("map_customer_owned_ip_on_launch");
-        set => SetProperty("map_customer_owned_ip_on_launch", value);
-    }
+    [TerraformPropertyName("map_customer_owned_ip_on_launch")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MapCustomerOwnedIpOnLaunch { get; set; }
 
     /// <summary>
     /// The map_public_ip_on_launch attribute.
     /// </summary>
-    public TerraformProperty<bool> MapPublicIpOnLaunch
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("map_public_ip_on_launch");
-        set => SetProperty("map_public_ip_on_launch", value);
-    }
+    [TerraformPropertyName("map_public_ip_on_launch")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MapPublicIpOnLaunch { get; set; }
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    public TerraformProperty<string> OutpostArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("outpost_arn");
-        set => SetProperty("outpost_arn", value);
-    }
+    [TerraformPropertyName("outpost_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OutpostArn { get; set; }
 
     /// <summary>
     /// The private_dns_hostname_type_on_launch attribute.
     /// </summary>
-    public TerraformProperty<string> PrivateDnsHostnameTypeOnLaunch
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("private_dns_hostname_type_on_launch");
-        set => SetProperty("private_dns_hostname_type_on_launch", value);
-    }
+    [TerraformPropertyName("private_dns_hostname_type_on_launch")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PrivateDnsHostnameTypeOnLaunch { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_dns_hostname_type_on_launch");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    public required TerraformProperty<string> VpcId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VpcId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsSubnetTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsSubnetTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The ipv6_cidr_block_association_id attribute.
     /// </summary>
-    public TerraformExpression Ipv6CidrBlockAssociationId => this["ipv6_cidr_block_association_id"];
+    [TerraformPropertyName("ipv6_cidr_block_association_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Ipv6CidrBlockAssociationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ipv6_cidr_block_association_id");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformExpression OwnerId => this["owner_id"];
+    [TerraformPropertyName("owner_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
 
 }

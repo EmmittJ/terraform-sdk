@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for feature_definition in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerFeatureGroupFeatureDefinitionBlock : TerraformBlock
+public class AwsSagemakerFeatureGroupFeatureDefinitionBlock : ITerraformBlock
 {
     /// <summary>
     /// The collection_type attribute.
     /// </summary>
-    public TerraformProperty<string>? CollectionType
-    {
-        set => SetProperty("collection_type", value);
-    }
+    [TerraformPropertyName("collection_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CollectionType { get; set; }
 
     /// <summary>
     /// The feature_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FeatureName
-    {
-        set => SetProperty("feature_name", value);
-    }
+    [TerraformPropertyName("feature_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FeatureName { get; set; }
 
     /// <summary>
     /// The feature_type attribute.
     /// </summary>
-    public TerraformProperty<string>? FeatureType
-    {
-        set => SetProperty("feature_type", value);
-    }
+    [TerraformPropertyName("feature_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FeatureType { get; set; }
 
 }
 
@@ -38,23 +35,21 @@ public class AwsSagemakerFeatureGroupFeatureDefinitionBlock : TerraformBlock
 /// Block type for offline_store_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerFeatureGroupOfflineStoreConfigBlock : TerraformBlock
+public class AwsSagemakerFeatureGroupOfflineStoreConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The disable_glue_table_creation attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableGlueTableCreation
-    {
-        set => SetProperty("disable_glue_table_creation", value);
-    }
+    [TerraformPropertyName("disable_glue_table_creation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DisableGlueTableCreation { get; set; }
 
     /// <summary>
     /// The table_format attribute.
     /// </summary>
-    public TerraformProperty<string>? TableFormat
-    {
-        set => SetProperty("table_format", value);
-    }
+    [TerraformPropertyName("table_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TableFormat { get; set; }
 
 }
 
@@ -62,23 +57,21 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlock : TerraformBlock
 /// Block type for online_store_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerFeatureGroupOnlineStoreConfigBlock : TerraformBlock
+public class AwsSagemakerFeatureGroupOnlineStoreConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The enable_online_store attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableOnlineStore
-    {
-        set => SetProperty("enable_online_store", value);
-    }
+    [TerraformPropertyName("enable_online_store")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableOnlineStore { get; set; }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageType
-    {
-        set => SetProperty("storage_type", value);
-    }
+    [TerraformPropertyName("storage_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageType { get; set; }
 
 }
 
@@ -86,31 +79,28 @@ public class AwsSagemakerFeatureGroupOnlineStoreConfigBlock : TerraformBlock
 /// Block type for throughput_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerFeatureGroupThroughputConfigBlock : TerraformBlock
+public class AwsSagemakerFeatureGroupThroughputConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The provisioned_read_capacity_units attribute.
     /// </summary>
-    public TerraformProperty<double>? ProvisionedReadCapacityUnits
-    {
-        set => SetProperty("provisioned_read_capacity_units", value);
-    }
+    [TerraformPropertyName("provisioned_read_capacity_units")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ProvisionedReadCapacityUnits { get; set; }
 
     /// <summary>
     /// The provisioned_write_capacity_units attribute.
     /// </summary>
-    public TerraformProperty<double>? ProvisionedWriteCapacityUnits
-    {
-        set => SetProperty("provisioned_write_capacity_units", value);
-    }
+    [TerraformPropertyName("provisioned_write_capacity_units")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ProvisionedWriteCapacityUnits { get; set; }
 
     /// <summary>
     /// The throughput_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? ThroughputMode
-    {
-        set => SetProperty("throughput_mode", value);
-    }
+    [TerraformPropertyName("throughput_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ThroughputMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "throughput_mode");
 
 }
 
@@ -122,107 +112,74 @@ public class AwsSagemakerFeatureGroup : TerraformResource
 {
     public AwsSagemakerFeatureGroup(string name) : base("aws_sagemaker_feature_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("description");
-        SetOutput("event_time_feature_name");
-        SetOutput("feature_group_name");
-        SetOutput("id");
-        SetOutput("record_identifier_feature_name");
-        SetOutput("region");
-        SetOutput("role_arn");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The event_time_feature_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTimeFeatureName is required")]
-    public required TerraformProperty<string> EventTimeFeatureName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("event_time_feature_name");
-        set => SetProperty("event_time_feature_name", value);
-    }
+    [TerraformPropertyName("event_time_feature_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventTimeFeatureName { get; set; }
 
     /// <summary>
     /// The feature_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureGroupName is required")]
-    public required TerraformProperty<string> FeatureGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("feature_group_name");
-        set => SetProperty("feature_group_name", value);
-    }
+    [TerraformPropertyName("feature_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FeatureGroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The record_identifier_feature_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordIdentifierFeatureName is required")]
-    public required TerraformProperty<string> RecordIdentifierFeatureName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("record_identifier_feature_name");
-        set => SetProperty("record_identifier_feature_name", value);
-    }
+    [TerraformPropertyName("record_identifier_feature_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RecordIdentifierFeatureName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for feature_definition.
@@ -231,44 +188,38 @@ public class AwsSagemakerFeatureGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureDefinition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FeatureDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2500, ErrorMessage = "Maximum 2500 FeatureDefinition block(s) allowed")]
-    public List<AwsSagemakerFeatureGroupFeatureDefinitionBlock>? FeatureDefinition
-    {
-        set => SetProperty("feature_definition", value);
-    }
+    [TerraformPropertyName("feature_definition")]
+    public TerraformList<TerraformBlock<AwsSagemakerFeatureGroupFeatureDefinitionBlock>>? FeatureDefinition { get; set; } = new();
 
     /// <summary>
     /// Block for offline_store_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OfflineStoreConfig block(s) allowed")]
-    public List<AwsSagemakerFeatureGroupOfflineStoreConfigBlock>? OfflineStoreConfig
-    {
-        set => SetProperty("offline_store_config", value);
-    }
+    [TerraformPropertyName("offline_store_config")]
+    public TerraformList<TerraformBlock<AwsSagemakerFeatureGroupOfflineStoreConfigBlock>>? OfflineStoreConfig { get; set; } = new();
 
     /// <summary>
     /// Block for online_store_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnlineStoreConfig block(s) allowed")]
-    public List<AwsSagemakerFeatureGroupOnlineStoreConfigBlock>? OnlineStoreConfig
-    {
-        set => SetProperty("online_store_config", value);
-    }
+    [TerraformPropertyName("online_store_config")]
+    public TerraformList<TerraformBlock<AwsSagemakerFeatureGroupOnlineStoreConfigBlock>>? OnlineStoreConfig { get; set; } = new();
 
     /// <summary>
     /// Block for throughput_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThroughputConfig block(s) allowed")]
-    public List<AwsSagemakerFeatureGroupThroughputConfigBlock>? ThroughputConfig
-    {
-        set => SetProperty("throughput_config", value);
-    }
+    [TerraformPropertyName("throughput_config")]
+    public TerraformList<TerraformBlock<AwsSagemakerFeatureGroupThroughputConfigBlock>>? ThroughputConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

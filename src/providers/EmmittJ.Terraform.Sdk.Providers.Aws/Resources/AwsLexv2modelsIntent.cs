@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for closing_setting in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsIntentClosingSettingBlock : TerraformBlock
+public class AwsLexv2modelsIntentClosingSettingBlock : ITerraformBlock
 {
     /// <summary>
     /// The active attribute.
     /// </summary>
-    public TerraformProperty<bool>? Active
-    {
-        set => SetProperty("active", value);
-    }
+    [TerraformPropertyName("active")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Active { get; set; }
 
 }
 
@@ -22,15 +21,14 @@ public class AwsLexv2modelsIntentClosingSettingBlock : TerraformBlock
 /// Block type for confirmation_setting in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsIntentConfirmationSettingBlock : TerraformBlock
+public class AwsLexv2modelsIntentConfirmationSettingBlock : ITerraformBlock
 {
     /// <summary>
     /// The active attribute.
     /// </summary>
-    public TerraformProperty<bool>? Active
-    {
-        set => SetProperty("active", value);
-    }
+    [TerraformPropertyName("active")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Active { get; set; }
 
 }
 
@@ -38,16 +36,15 @@ public class AwsLexv2modelsIntentConfirmationSettingBlock : TerraformBlock
 /// Block type for dialog_code_hook in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsIntentDialogCodeHookBlock : TerraformBlock
+public class AwsLexv2modelsIntentDialogCodeHookBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
 }
 
@@ -55,24 +52,22 @@ public class AwsLexv2modelsIntentDialogCodeHookBlock : TerraformBlock
 /// Block type for fulfillment_code_hook in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsIntentFulfillmentCodeHookBlock : TerraformBlock
+public class AwsLexv2modelsIntentFulfillmentCodeHookBlock : ITerraformBlock
 {
     /// <summary>
     /// The active attribute.
     /// </summary>
-    public TerraformProperty<bool>? Active
-    {
-        set => SetProperty("active", value);
-    }
+    [TerraformPropertyName("active")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Active { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
 }
 
@@ -80,7 +75,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlock : TerraformBlock
 /// Block type for initial_response_setting in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsIntentInitialResponseSettingBlock : TerraformBlock
+public class AwsLexv2modelsIntentInitialResponseSettingBlock : ITerraformBlock
 {
 }
 
@@ -88,16 +83,15 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlock : TerraformBlock
 /// Block type for input_context in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsIntentInputContextBlock : TerraformBlock
+public class AwsLexv2modelsIntentInputContextBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -105,32 +99,29 @@ public class AwsLexv2modelsIntentInputContextBlock : TerraformBlock
 /// Block type for kendra_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsIntentKendraConfigurationBlock : TerraformBlock
+public class AwsLexv2modelsIntentKendraConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The kendra_index attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KendraIndex is required")]
-    public required TerraformProperty<string> KendraIndex
-    {
-        set => SetProperty("kendra_index", value);
-    }
+    [TerraformPropertyName("kendra_index")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KendraIndex { get; set; }
 
     /// <summary>
     /// The query_filter_string attribute.
     /// </summary>
-    public TerraformProperty<string>? QueryFilterString
-    {
-        set => SetProperty("query_filter_string", value);
-    }
+    [TerraformPropertyName("query_filter_string")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? QueryFilterString { get; set; }
 
     /// <summary>
     /// The query_filter_string_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? QueryFilterStringEnabled
-    {
-        set => SetProperty("query_filter_string_enabled", value);
-    }
+    [TerraformPropertyName("query_filter_string_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? QueryFilterStringEnabled { get; set; }
 
 }
 
@@ -138,34 +129,31 @@ public class AwsLexv2modelsIntentKendraConfigurationBlock : TerraformBlock
 /// Block type for output_context in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsIntentOutputContextBlock : TerraformBlock
+public class AwsLexv2modelsIntentOutputContextBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The time_to_live_in_seconds attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeToLiveInSeconds is required")]
-    public required TerraformProperty<double> TimeToLiveInSeconds
-    {
-        set => SetProperty("time_to_live_in_seconds", value);
-    }
+    [TerraformPropertyName("time_to_live_in_seconds")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> TimeToLiveInSeconds { get; set; }
 
     /// <summary>
     /// The turns_to_live attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TurnsToLive is required")]
-    public required TerraformProperty<double> TurnsToLive
-    {
-        set => SetProperty("turns_to_live", value);
-    }
+    [TerraformPropertyName("turns_to_live")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> TurnsToLive { get; set; }
 
 }
 
@@ -173,16 +161,15 @@ public class AwsLexv2modelsIntentOutputContextBlock : TerraformBlock
 /// Block type for sample_utterance in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsIntentSampleUtteranceBlock : TerraformBlock
+public class AwsLexv2modelsIntentSampleUtteranceBlock : ITerraformBlock
 {
     /// <summary>
     /// The utterance attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Utterance is required")]
-    public required TerraformProperty<string> Utterance
-    {
-        set => SetProperty("utterance", value);
-    }
+    [TerraformPropertyName("utterance")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Utterance { get; set; }
 
 }
 
@@ -190,25 +177,23 @@ public class AwsLexv2modelsIntentSampleUtteranceBlock : TerraformBlock
 /// Block type for slot_priority in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsIntentSlotPriorityBlock : TerraformBlock
+public class AwsLexv2modelsIntentSlotPriorityBlock : ITerraformBlock
 {
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    public required TerraformProperty<double> Priority
-    {
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
 
     /// <summary>
     /// The slot_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotId is required")]
-    public required TerraformProperty<string> SlotId
-    {
-        set => SetProperty("slot_id", value);
-    }
+    [TerraformPropertyName("slot_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SlotId { get; set; }
 
 }
 
@@ -216,31 +201,28 @@ public class AwsLexv2modelsIntentSlotPriorityBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLexv2modelsIntentTimeoutsBlock : TerraformBlock
+public class AwsLexv2modelsIntentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -251,208 +233,164 @@ public class AwsLexv2modelsIntent : TerraformResource
 {
     public AwsLexv2modelsIntent(string name) : base("aws_lexv2models_intent", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_date_time");
-        SetOutput("id");
-        SetOutput("intent_id");
-        SetOutput("last_updated_date_time");
-        SetOutput("bot_id");
-        SetOutput("bot_version");
-        SetOutput("description");
-        SetOutput("locale_id");
-        SetOutput("name");
-        SetOutput("parent_intent_signature");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The bot_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
-    public required TerraformProperty<string> BotId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bot_id");
-        set => SetProperty("bot_id", value);
-    }
+    [TerraformPropertyName("bot_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BotId { get; set; }
 
     /// <summary>
     /// The bot_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
-    public required TerraformProperty<string> BotVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bot_version");
-        set => SetProperty("bot_version", value);
-    }
+    [TerraformPropertyName("bot_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BotVersion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The locale_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
-    public required TerraformProperty<string> LocaleId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("locale_id");
-        set => SetProperty("locale_id", value);
-    }
+    [TerraformPropertyName("locale_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LocaleId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parent_intent_signature attribute.
     /// </summary>
-    public TerraformProperty<string> ParentIntentSignature
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent_intent_signature");
-        set => SetProperty("parent_intent_signature", value);
-    }
+    [TerraformPropertyName("parent_intent_signature")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ParentIntentSignature { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for closing_setting.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsIntentClosingSettingBlock>? ClosingSetting
-    {
-        set => SetProperty("closing_setting", value);
-    }
+    [TerraformPropertyName("closing_setting")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsIntentClosingSettingBlock>>? ClosingSetting { get; set; } = new();
 
     /// <summary>
     /// Block for confirmation_setting.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsIntentConfirmationSettingBlock>? ConfirmationSetting
-    {
-        set => SetProperty("confirmation_setting", value);
-    }
+    [TerraformPropertyName("confirmation_setting")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsIntentConfirmationSettingBlock>>? ConfirmationSetting { get; set; } = new();
 
     /// <summary>
     /// Block for dialog_code_hook.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsIntentDialogCodeHookBlock>? DialogCodeHook
-    {
-        set => SetProperty("dialog_code_hook", value);
-    }
+    [TerraformPropertyName("dialog_code_hook")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsIntentDialogCodeHookBlock>>? DialogCodeHook { get; set; } = new();
 
     /// <summary>
     /// Block for fulfillment_code_hook.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsIntentFulfillmentCodeHookBlock>? FulfillmentCodeHook
-    {
-        set => SetProperty("fulfillment_code_hook", value);
-    }
+    [TerraformPropertyName("fulfillment_code_hook")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsIntentFulfillmentCodeHookBlock>>? FulfillmentCodeHook { get; set; } = new();
 
     /// <summary>
     /// Block for initial_response_setting.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsIntentInitialResponseSettingBlock>? InitialResponseSetting
-    {
-        set => SetProperty("initial_response_setting", value);
-    }
+    [TerraformPropertyName("initial_response_setting")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsIntentInitialResponseSettingBlock>>? InitialResponseSetting { get; set; } = new();
 
     /// <summary>
     /// Block for input_context.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsIntentInputContextBlock>? InputContext
-    {
-        set => SetProperty("input_context", value);
-    }
+    [TerraformPropertyName("input_context")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsIntentInputContextBlock>>? InputContext { get; set; } = new();
 
     /// <summary>
     /// Block for kendra_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsIntentKendraConfigurationBlock>? KendraConfiguration
-    {
-        set => SetProperty("kendra_configuration", value);
-    }
+    [TerraformPropertyName("kendra_configuration")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsIntentKendraConfigurationBlock>>? KendraConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for output_context.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsIntentOutputContextBlock>? OutputContext
-    {
-        set => SetProperty("output_context", value);
-    }
+    [TerraformPropertyName("output_context")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsIntentOutputContextBlock>>? OutputContext { get; set; } = new();
 
     /// <summary>
     /// Block for sample_utterance.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsIntentSampleUtteranceBlock>? SampleUtterance
-    {
-        set => SetProperty("sample_utterance", value);
-    }
+    [TerraformPropertyName("sample_utterance")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsIntentSampleUtteranceBlock>>? SampleUtterance { get; set; } = new();
 
     /// <summary>
     /// Block for slot_priority.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsIntentSlotPriorityBlock>? SlotPriority
-    {
-        set => SetProperty("slot_priority", value);
-    }
+    [TerraformPropertyName("slot_priority")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsIntentSlotPriorityBlock>>? SlotPriority { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsLexv2modelsIntentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsLexv2modelsIntentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The creation_date_time attribute.
     /// </summary>
-    public TerraformExpression CreationDateTime => this["creation_date_time"];
+    [TerraformPropertyName("creation_date_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationDateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_date_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The intent_id attribute.
     /// </summary>
-    public TerraformExpression IntentId => this["intent_id"];
+    [TerraformPropertyName("intent_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IntentId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "intent_id");
 
     /// <summary>
     /// The last_updated_date_time attribute.
     /// </summary>
-    public TerraformExpression LastUpdatedDateTime => this["last_updated_date_time"];
+    [TerraformPropertyName("last_updated_date_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastUpdatedDateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_updated_date_time");
 
 }

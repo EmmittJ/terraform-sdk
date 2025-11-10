@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3tablesTableMetadataBlock : TerraformBlock
+public class AwsS3tablesTableMetadataBlock : ITerraformBlock
 {
 }
 
@@ -17,154 +17,136 @@ public class AwsS3tablesTable : TerraformResource
 {
     public AwsS3tablesTable(string name) : base("aws_s3tables_table", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("created_at");
-        SetOutput("created_by");
-        SetOutput("metadata_location");
-        SetOutput("modified_at");
-        SetOutput("modified_by");
-        SetOutput("owner_account_id");
-        SetOutput("type");
-        SetOutput("version_token");
-        SetOutput("warehouse_location");
-        SetOutput("encryption_configuration");
-        SetOutput("format");
-        SetOutput("maintenance_configuration");
-        SetOutput("name");
-        SetOutput("namespace");
-        SetOutput("region");
-        SetOutput("table_bucket_arn");
     }
 
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    public TerraformProperty<object> EncryptionConfiguration
-    {
-        get => GetRequiredOutput<TerraformProperty<object>>("encryption_configuration");
-        set => SetProperty("encryption_configuration", value);
-    }
+    [TerraformPropertyName("encryption_configuration")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<object>> EncryptionConfiguration { get; set; } = new TerraformReferenceProperty<TerraformProperty<object>>(ResourceAddress, "encryption_configuration");
 
     /// <summary>
     /// The format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
-    public required TerraformProperty<string> Format
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("format");
-        set => SetProperty("format", value);
-    }
+    [TerraformPropertyName("format")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Format { get; set; }
 
     /// <summary>
     /// The maintenance_configuration attribute.
     /// </summary>
-    public TerraformProperty<object> MaintenanceConfiguration
-    {
-        get => GetRequiredOutput<TerraformProperty<object>>("maintenance_configuration");
-        set => SetProperty("maintenance_configuration", value);
-    }
+    [TerraformPropertyName("maintenance_configuration")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<object>> MaintenanceConfiguration { get; set; } = new TerraformReferenceProperty<TerraformProperty<object>>(ResourceAddress, "maintenance_configuration");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
-    public required TerraformProperty<string> Namespace
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace");
-        set => SetProperty("namespace", value);
-    }
+    [TerraformPropertyName("namespace")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Namespace { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The table_bucket_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableBucketArn is required")]
-    public required TerraformProperty<string> TableBucketArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_bucket_arn");
-        set => SetProperty("table_bucket_arn", value);
-    }
+    [TerraformPropertyName("table_bucket_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TableBucketArn { get; set; }
 
     /// <summary>
     /// Block for metadata.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsS3tablesTableMetadataBlock>? Metadata
-    {
-        set => SetProperty("metadata", value);
-    }
+    [TerraformPropertyName("metadata")]
+    public TerraformList<TerraformBlock<AwsS3tablesTableMetadataBlock>>? Metadata { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
-    public TerraformExpression CreatedBy => this["created_by"];
+    [TerraformPropertyName("created_by")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedBy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_by");
 
     /// <summary>
     /// The metadata_location attribute.
     /// </summary>
-    public TerraformExpression MetadataLocation => this["metadata_location"];
+    [TerraformPropertyName("metadata_location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MetadataLocation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "metadata_location");
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
-    public TerraformExpression ModifiedAt => this["modified_at"];
+    [TerraformPropertyName("modified_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ModifiedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "modified_at");
 
     /// <summary>
     /// The modified_by attribute.
     /// </summary>
-    public TerraformExpression ModifiedBy => this["modified_by"];
+    [TerraformPropertyName("modified_by")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ModifiedBy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "modified_by");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
-    public TerraformExpression OwnerAccountId => this["owner_account_id"];
+    [TerraformPropertyName("owner_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OwnerAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_account_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
     /// <summary>
     /// The version_token attribute.
     /// </summary>
-    public TerraformExpression VersionToken => this["version_token"];
+    [TerraformPropertyName("version_token")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VersionToken => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version_token");
 
     /// <summary>
     /// The warehouse_location attribute.
     /// </summary>
-    public TerraformExpression WarehouseLocation => this["warehouse_location"];
+    [TerraformPropertyName("warehouse_location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WarehouseLocation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "warehouse_location");
 
 }

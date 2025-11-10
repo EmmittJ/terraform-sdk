@@ -9,58 +9,42 @@ public class GoogleSqlDatabaseInstanceLatestRecoveryTimeDataSource : TerraformDa
 {
     public GoogleSqlDatabaseInstanceLatestRecoveryTimeDataSource(string name) : base("google_sql_database_instance_latest_recovery_time", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("latest_recovery_time");
-        SetOutput("id");
-        SetOutput("instance");
-        SetOutput("project");
-        SetOutput("source_instance_deletion_time");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    public required TerraformProperty<string> Instance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance");
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Timestamp, identifies when the source instance was deleted. If this instance is deleted, then you must set the timestamp.
     /// </summary>
-    public TerraformProperty<string> SourceInstanceDeletionTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_instance_deletion_time");
-        set => SetProperty("source_instance_deletion_time", value);
-    }
+    [TerraformPropertyName("source_instance_deletion_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceInstanceDeletionTime { get; set; }
 
     /// <summary>
     /// Timestamp, identifies the latest recovery time of the source instance.
     /// </summary>
-    public TerraformExpression LatestRecoveryTime => this["latest_recovery_time"];
+    [TerraformPropertyName("latest_recovery_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LatestRecoveryTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "latest_recovery_time");
 
 }

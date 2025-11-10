@@ -9,129 +9,92 @@ public class AwsAutoscalingSchedule : TerraformResource
 {
     public AwsAutoscalingSchedule(string name) : base("aws_autoscaling_schedule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("autoscaling_group_name");
-        SetOutput("desired_capacity");
-        SetOutput("end_time");
-        SetOutput("id");
-        SetOutput("max_size");
-        SetOutput("min_size");
-        SetOutput("recurrence");
-        SetOutput("region");
-        SetOutput("scheduled_action_name");
-        SetOutput("start_time");
-        SetOutput("time_zone");
     }
 
     /// <summary>
     /// The autoscaling_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
-    public required TerraformProperty<string> AutoscalingGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("autoscaling_group_name");
-        set => SetProperty("autoscaling_group_name", value);
-    }
+    [TerraformPropertyName("autoscaling_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AutoscalingGroupName { get; set; }
 
     /// <summary>
     /// The desired_capacity attribute.
     /// </summary>
-    public TerraformProperty<double> DesiredCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("desired_capacity");
-        set => SetProperty("desired_capacity", value);
-    }
+    [TerraformPropertyName("desired_capacity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DesiredCapacity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "desired_capacity");
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformProperty<string> EndTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("end_time");
-        set => SetProperty("end_time", value);
-    }
+    [TerraformPropertyName("end_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EndTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "end_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The max_size attribute.
     /// </summary>
-    public TerraformProperty<double> MaxSize
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_size");
-        set => SetProperty("max_size", value);
-    }
+    [TerraformPropertyName("max_size")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxSize { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_size");
 
     /// <summary>
     /// The min_size attribute.
     /// </summary>
-    public TerraformProperty<double> MinSize
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("min_size");
-        set => SetProperty("min_size", value);
-    }
+    [TerraformPropertyName("min_size")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MinSize { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_size");
 
     /// <summary>
     /// The recurrence attribute.
     /// </summary>
-    public TerraformProperty<string> Recurrence
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("recurrence");
-        set => SetProperty("recurrence", value);
-    }
+    [TerraformPropertyName("recurrence")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Recurrence { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "recurrence");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The scheduled_action_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduledActionName is required")]
-    public required TerraformProperty<string> ScheduledActionName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("scheduled_action_name");
-        set => SetProperty("scheduled_action_name", value);
-    }
+    [TerraformPropertyName("scheduled_action_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScheduledActionName { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string> StartTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
-        set => SetProperty("start_time", value);
-    }
+    [TerraformPropertyName("start_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StartTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_time");
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string> TimeZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
-        set => SetProperty("time_zone", value);
-    }
+    [TerraformPropertyName("time_zone")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TimeZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_zone");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

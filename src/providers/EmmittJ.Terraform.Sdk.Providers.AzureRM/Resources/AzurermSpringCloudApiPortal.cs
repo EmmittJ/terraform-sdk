@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for sso in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudApiPortalSsoBlock : TerraformBlock
+public class AzurermSpringCloudApiPortalSsoBlock : ITerraformBlock
 {
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientId
-    {
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientSecret
-    {
-        set => SetProperty("client_secret", value);
-    }
+    [TerraformPropertyName("client_secret")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientSecret { get; set; }
 
     /// <summary>
     /// The issuer_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? IssuerUri
-    {
-        set => SetProperty("issuer_uri", value);
-    }
+    [TerraformPropertyName("issuer_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IssuerUri { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Scope
-    {
-        set => SetProperty("scope", value);
-    }
+    [TerraformPropertyName("scope")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Scope { get; set; }
 
 }
 
@@ -46,39 +42,35 @@ public class AzurermSpringCloudApiPortalSsoBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudApiPortalTimeoutsBlock : TerraformBlock
+public class AzurermSpringCloudApiPortalTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -90,118 +82,86 @@ public class AzurermSpringCloudApiPortal : TerraformResource
 {
     public AzurermSpringCloudApiPortal(string name) : base("azurerm_spring_cloud_api_portal", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("url");
-        SetOutput("api_try_out_enabled");
-        SetOutput("gateway_ids");
-        SetOutput("https_only_enabled");
-        SetOutput("id");
-        SetOutput("instance_count");
-        SetOutput("name");
-        SetOutput("public_network_access_enabled");
-        SetOutput("spring_cloud_service_id");
     }
 
     /// <summary>
     /// The api_try_out_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ApiTryOutEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("api_try_out_enabled");
-        set => SetProperty("api_try_out_enabled", value);
-    }
+    [TerraformPropertyName("api_try_out_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ApiTryOutEnabled { get; set; }
 
     /// <summary>
     /// The gateway_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> GatewayIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("gateway_ids");
-        set => SetProperty("gateway_ids", value);
-    }
+    [TerraformPropertyName("gateway_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? GatewayIds { get; set; }
 
     /// <summary>
     /// The https_only_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> HttpsOnlyEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("https_only_enabled");
-        set => SetProperty("https_only_enabled", value);
-    }
+    [TerraformPropertyName("https_only_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? HttpsOnlyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformProperty<double> InstanceCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
-        set => SetProperty("instance_count", value);
-    }
+    [TerraformPropertyName("instance_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InstanceCount { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PublicNetworkAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
-        set => SetProperty("public_network_access_enabled", value);
-    }
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
-    public required TerraformProperty<string> SpringCloudServiceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_service_id");
-        set => SetProperty("spring_cloud_service_id", value);
-    }
+    [TerraformPropertyName("spring_cloud_service_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// Block for sso.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sso block(s) allowed")]
-    public List<AzurermSpringCloudApiPortalSsoBlock>? Sso
-    {
-        set => SetProperty("sso", value);
-    }
+    [TerraformPropertyName("sso")]
+    public TerraformList<TerraformBlock<AzurermSpringCloudApiPortalSsoBlock>>? Sso { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSpringCloudApiPortalTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSpringCloudApiPortalTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformExpression Url => this["url"];
+    [TerraformPropertyName("url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "url");
 
 }

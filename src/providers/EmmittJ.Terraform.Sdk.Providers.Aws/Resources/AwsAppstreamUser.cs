@@ -9,105 +9,78 @@ public class AwsAppstreamUser : TerraformResource
 {
     public AwsAppstreamUser(string name) : base("aws_appstream_user", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("created_time");
-        SetOutput("authentication_type");
-        SetOutput("enabled");
-        SetOutput("first_name");
-        SetOutput("id");
-        SetOutput("last_name");
-        SetOutput("region");
-        SetOutput("send_email_notification");
-        SetOutput("user_name");
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
-    public required TerraformProperty<string> AuthenticationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_type");
-        set => SetProperty("authentication_type", value);
-    }
+    [TerraformPropertyName("authentication_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthenticationType { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
-    public TerraformProperty<string> FirstName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("first_name");
-        set => SetProperty("first_name", value);
-    }
+    [TerraformPropertyName("first_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FirstName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
-    public TerraformProperty<string> LastName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("last_name");
-        set => SetProperty("last_name", value);
-    }
+    [TerraformPropertyName("last_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LastName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The send_email_notification attribute.
     /// </summary>
-    public TerraformProperty<bool> SendEmailNotification
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("send_email_notification");
-        set => SetProperty("send_email_notification", value);
-    }
+    [TerraformPropertyName("send_email_notification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SendEmailNotification { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
-    public required TerraformProperty<string> UserName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
-        set => SetProperty("user_name", value);
-    }
+    [TerraformPropertyName("user_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
-    public TerraformExpression CreatedTime => this["created_time"];
+    [TerraformPropertyName("created_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_time");
 
 }

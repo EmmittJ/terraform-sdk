@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for customer_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageBucketObjectCustomerEncryptionBlock : TerraformBlock
+public class GoogleStorageBucketObjectCustomerEncryptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The encryption algorithm. Default: AES256
     /// </summary>
-    public TerraformProperty<string>? EncryptionAlgorithm
-    {
-        set => SetProperty("encryption_algorithm", value);
-    }
+    [TerraformPropertyName("encryption_algorithm")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EncryptionAlgorithm { get; set; }
 
     /// <summary>
     /// Base64 encoded customer supplied encryption key.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionKey is required")]
-    public required TerraformProperty<string> EncryptionKey
-    {
-        set => SetProperty("encryption_key", value);
-    }
+    [TerraformPropertyName("encryption_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EncryptionKey { get; set; }
 
 }
 
@@ -31,25 +29,23 @@ public class GoogleStorageBucketObjectCustomerEncryptionBlock : TerraformBlock
 /// Block type for retention in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageBucketObjectRetentionBlock : TerraformBlock
+public class GoogleStorageBucketObjectRetentionBlock : ITerraformBlock
 {
     /// <summary>
     /// The object retention mode. Supported values include: &amp;quot;Unlocked&amp;quot;, &amp;quot;Locked&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    public required TerraformProperty<string> Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Mode { get; set; }
 
     /// <summary>
     /// Time in RFC 3339 (e.g. 2030-01-01T02:03:04Z) until which object retention protects this object.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetainUntilTime is required")]
-    public required TerraformProperty<string> RetainUntilTime
-    {
-        set => SetProperty("retain_until_time", value);
-    }
+    [TerraformPropertyName("retain_until_time")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RetainUntilTime { get; set; }
 
 }
 
@@ -57,31 +53,28 @@ public class GoogleStorageBucketObjectRetentionBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleStorageBucketObjectTimeoutsBlock : TerraformBlock
+public class GoogleStorageBucketObjectTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -93,274 +86,213 @@ public class GoogleStorageBucketObject : TerraformResource
 {
     public GoogleStorageBucketObject(string name) : base("google_storage_bucket_object", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("crc32c");
-        SetOutput("generation");
-        SetOutput("md5hash");
-        SetOutput("md5hexhash");
-        SetOutput("media_link");
-        SetOutput("output_name");
-        SetOutput("self_link");
-        SetOutput("bucket");
-        SetOutput("cache_control");
-        SetOutput("content");
-        SetOutput("content_disposition");
-        SetOutput("content_encoding");
-        SetOutput("content_language");
-        SetOutput("content_type");
-        SetOutput("deletion_policy");
-        SetOutput("detect_md5hash");
-        SetOutput("event_based_hold");
-        SetOutput("force_empty_content_type");
-        SetOutput("id");
-        SetOutput("kms_key_name");
-        SetOutput("metadata");
-        SetOutput("name");
-        SetOutput("source");
-        SetOutput("source_md5hash");
-        SetOutput("storage_class");
-        SetOutput("temporary_hold");
     }
 
     /// <summary>
     /// The name of the containing bucket.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// Cache-Control directive to specify caching behavior of object data. If omitted and object is accessible to all anonymous users, the default will be public, max-age=3600
     /// </summary>
-    public TerraformProperty<string> CacheControl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cache_control");
-        set => SetProperty("cache_control", value);
-    }
+    [TerraformPropertyName("cache_control")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CacheControl { get; set; }
 
     /// <summary>
     /// Data as string to be uploaded. Must be defined if source is not. Note: The content field is marked as sensitive. To view the raw contents of the object, please define an output.
     /// </summary>
-    public TerraformProperty<string> Content
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content");
-        set => SetProperty("content", value);
-    }
+    [TerraformPropertyName("content")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Content { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content");
 
     /// <summary>
     /// Content-Disposition of the object data.
     /// </summary>
-    public TerraformProperty<string> ContentDisposition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content_disposition");
-        set => SetProperty("content_disposition", value);
-    }
+    [TerraformPropertyName("content_disposition")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContentDisposition { get; set; }
 
     /// <summary>
     /// Content-Encoding of the object data.
     /// </summary>
-    public TerraformProperty<string> ContentEncoding
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content_encoding");
-        set => SetProperty("content_encoding", value);
-    }
+    [TerraformPropertyName("content_encoding")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContentEncoding { get; set; }
 
     /// <summary>
     /// Content-Language of the object data.
     /// </summary>
-    public TerraformProperty<string> ContentLanguage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content_language");
-        set => SetProperty("content_language", value);
-    }
+    [TerraformPropertyName("content_language")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContentLanguage { get; set; }
 
     /// <summary>
     /// Content-Type of the object data. Defaults to &amp;quot;application/octet-stream&amp;quot; or &amp;quot;text/plain; charset=utf-8&amp;quot;.
     /// </summary>
-    public TerraformProperty<string> ContentType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content_type");
-        set => SetProperty("content_type", value);
-    }
+    [TerraformPropertyName("content_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ContentType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content_type");
 
     /// <summary>
     /// The deletion policy for the object. Setting ABANDON allows the resource to be abandoned rather than deleted when removed from your Terraform configuration.
     /// </summary>
-    public TerraformProperty<string> DeletionPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
-        set => SetProperty("deletion_policy", value);
-    }
+    [TerraformPropertyName("deletion_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The detect_md5hash attribute.
     /// </summary>
-    public TerraformProperty<string> DetectMd5hash
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("detect_md5hash");
-        set => SetProperty("detect_md5hash", value);
-    }
+    [TerraformPropertyName("detect_md5hash")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DetectMd5hash { get; set; }
 
     /// <summary>
     /// Whether an object is under event-based hold. Event-based hold is a way to retain objects until an event occurs, which is signified by the hold&#39;s release (i.e. this value is set to false). After being released (set to false), such objects will be subject to bucket-level retention (if any).
     /// </summary>
-    public TerraformProperty<bool> EventBasedHold
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("event_based_hold");
-        set => SetProperty("event_based_hold", value);
-    }
+    [TerraformPropertyName("event_based_hold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EventBasedHold { get; set; }
 
     /// <summary>
     /// Flag to set empty Content-Type.
     /// </summary>
-    public TerraformProperty<bool> ForceEmptyContentType
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_empty_content_type");
-        set => SetProperty("force_empty_content_type", value);
-    }
+    [TerraformPropertyName("force_empty_content_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceEmptyContentType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Resource name of the Cloud KMS key that will be used to encrypt the object. Overrides the object metadata&#39;s kmsKeyName value, if any.
     /// </summary>
-    public TerraformProperty<string> KmsKeyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
-        set => SetProperty("kms_key_name", value);
-    }
+    [TerraformPropertyName("kms_key_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KmsKeyName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_name");
 
     /// <summary>
     /// User-provided metadata, in key/value pairs.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Metadata
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => SetProperty("metadata", value);
-    }
+    [TerraformPropertyName("metadata")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Metadata { get; set; }
 
     /// <summary>
     /// The name of the object. If you&#39;re interpolating the name of this object, see output_name instead.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// A path to the data you want to upload. Must be defined if content is not.
     /// </summary>
-    public TerraformProperty<string> Source
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source");
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Source { get; set; }
 
     /// <summary>
     /// User-provided md5hash, Base 64 MD5 hash of the object data.
     /// </summary>
-    public TerraformProperty<string> SourceMd5hash
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_md5hash");
-        set => SetProperty("source_md5hash", value);
-    }
+    [TerraformPropertyName("source_md5hash")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceMd5hash { get; set; }
 
     /// <summary>
     /// The StorageClass of the new bucket object. Supported values include: MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE. If not provided, this defaults to the bucket&#39;s default storage class or to a standard class.
     /// </summary>
-    public TerraformProperty<string> StorageClass
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_class");
-        set => SetProperty("storage_class", value);
-    }
+    [TerraformPropertyName("storage_class")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StorageClass { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_class");
 
     /// <summary>
     /// Whether an object is under temporary hold. While this flag is set to true, the object is protected against deletion and overwrites.
     /// </summary>
-    public TerraformProperty<bool> TemporaryHold
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("temporary_hold");
-        set => SetProperty("temporary_hold", value);
-    }
+    [TerraformPropertyName("temporary_hold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TemporaryHold { get; set; }
 
     /// <summary>
     /// Block for customer_encryption.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerEncryption block(s) allowed")]
-    public List<GoogleStorageBucketObjectCustomerEncryptionBlock>? CustomerEncryption
-    {
-        set => SetProperty("customer_encryption", value);
-    }
+    [TerraformPropertyName("customer_encryption")]
+    public TerraformList<TerraformBlock<GoogleStorageBucketObjectCustomerEncryptionBlock>>? CustomerEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for retention.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Retention block(s) allowed")]
-    public List<GoogleStorageBucketObjectRetentionBlock>? Retention
-    {
-        set => SetProperty("retention", value);
-    }
+    [TerraformPropertyName("retention")]
+    public TerraformList<TerraformBlock<GoogleStorageBucketObjectRetentionBlock>>? Retention { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleStorageBucketObjectTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleStorageBucketObjectTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Base 64 CRC32 hash of the uploaded data.
     /// </summary>
-    public TerraformExpression Crc32c => this["crc32c"];
+    [TerraformPropertyName("crc32c")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Crc32c => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "crc32c");
 
     /// <summary>
     /// The content generation of this object. Used for object versioning and soft delete.
     /// </summary>
-    public TerraformExpression Generation => this["generation"];
+    [TerraformPropertyName("generation")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Generation => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "generation");
 
     /// <summary>
     /// Base 64 MD5 hash of the uploaded data.
     /// </summary>
-    public TerraformExpression Md5hash => this["md5hash"];
+    [TerraformPropertyName("md5hash")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Md5hash => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "md5hash");
 
     /// <summary>
     /// Hex value of md5hash
     /// </summary>
-    public TerraformExpression Md5hexhash => this["md5hexhash"];
+    [TerraformPropertyName("md5hexhash")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Md5hexhash => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "md5hexhash");
 
     /// <summary>
     /// A url reference to download this object.
     /// </summary>
-    public TerraformExpression MediaLink => this["media_link"];
+    [TerraformPropertyName("media_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MediaLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "media_link");
 
     /// <summary>
     /// The name of the object. Use this field in interpolations with google_storage_object_acl to recreate google_storage_object_acl resources when your google_storage_bucket_object is recreated.
     /// </summary>
-    public TerraformExpression OutputName => this["output_name"];
+    [TerraformPropertyName("output_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OutputName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "output_name");
 
     /// <summary>
     /// A url reference to this object.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
 }

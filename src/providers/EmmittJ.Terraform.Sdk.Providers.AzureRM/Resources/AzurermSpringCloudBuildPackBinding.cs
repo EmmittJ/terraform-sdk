@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for launch in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudBuildPackBindingLaunchBlock : TerraformBlock
+public class AzurermSpringCloudBuildPackBindingLaunchBlock : ITerraformBlock
 {
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Properties
-    {
-        set => SetProperty("properties", value);
-    }
+    [TerraformPropertyName("properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Properties { get; set; }
 
     /// <summary>
     /// The secrets attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Secrets
-    {
-        set => SetProperty("secrets", value);
-    }
+    [TerraformPropertyName("secrets")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Secrets { get; set; }
 
 }
 
@@ -30,39 +28,35 @@ public class AzurermSpringCloudBuildPackBindingLaunchBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudBuildPackBindingTimeoutsBlock : TerraformBlock
+public class AzurermSpringCloudBuildPackBindingTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -74,72 +68,51 @@ public class AzurermSpringCloudBuildPackBinding : TerraformResource
 {
     public AzurermSpringCloudBuildPackBinding(string name) : base("azurerm_spring_cloud_build_pack_binding", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("binding_type");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("spring_cloud_builder_id");
     }
 
     /// <summary>
     /// The binding_type attribute.
     /// </summary>
-    public TerraformProperty<string> BindingType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("binding_type");
-        set => SetProperty("binding_type", value);
-    }
+    [TerraformPropertyName("binding_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BindingType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The spring_cloud_builder_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudBuilderId is required")]
-    public required TerraformProperty<string> SpringCloudBuilderId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_builder_id");
-        set => SetProperty("spring_cloud_builder_id", value);
-    }
+    [TerraformPropertyName("spring_cloud_builder_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SpringCloudBuilderId { get; set; }
 
     /// <summary>
     /// Block for launch.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Launch block(s) allowed")]
-    public List<AzurermSpringCloudBuildPackBindingLaunchBlock>? Launch
-    {
-        set => SetProperty("launch", value);
-    }
+    [TerraformPropertyName("launch")]
+    public TerraformList<TerraformBlock<AzurermSpringCloudBuildPackBindingLaunchBlock>>? Launch { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSpringCloudBuildPackBindingTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSpringCloudBuildPackBindingTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

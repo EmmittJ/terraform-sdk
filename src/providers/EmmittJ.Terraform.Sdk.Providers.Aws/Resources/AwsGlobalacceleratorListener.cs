@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for port_range in .
 /// Nesting mode: set
 /// </summary>
-public class AwsGlobalacceleratorListenerPortRangeBlock : TerraformBlock
+public class AwsGlobalacceleratorListenerPortRangeBlock : ITerraformBlock
 {
     /// <summary>
     /// The from_port attribute.
     /// </summary>
-    public TerraformProperty<double>? FromPort
-    {
-        set => SetProperty("from_port", value);
-    }
+    [TerraformPropertyName("from_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? FromPort { get; set; }
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
-    public TerraformProperty<double>? ToPort
-    {
-        set => SetProperty("to_port", value);
-    }
+    [TerraformPropertyName("to_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ToPort { get; set; }
 
 }
 
@@ -30,31 +28,28 @@ public class AwsGlobalacceleratorListenerPortRangeBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsGlobalacceleratorListenerTimeoutsBlock : TerraformBlock
+public class AwsGlobalacceleratorListenerTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -66,55 +61,37 @@ public class AwsGlobalacceleratorListener : TerraformResource
 {
     public AwsGlobalacceleratorListener(string name) : base("aws_globalaccelerator_listener", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("accelerator_arn");
-        SetOutput("client_affinity");
-        SetOutput("id");
-        SetOutput("protocol");
     }
 
     /// <summary>
     /// The accelerator_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorArn is required")]
-    public required TerraformProperty<string> AcceleratorArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("accelerator_arn");
-        set => SetProperty("accelerator_arn", value);
-    }
+    [TerraformPropertyName("accelerator_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AcceleratorArn { get; set; }
 
     /// <summary>
     /// The client_affinity attribute.
     /// </summary>
-    public TerraformProperty<string> ClientAffinity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_affinity");
-        set => SetProperty("client_affinity", value);
-    }
+    [TerraformPropertyName("client_affinity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientAffinity { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    public required TerraformProperty<string> Protocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
 
     /// <summary>
     /// Block for port_range.
@@ -123,23 +100,21 @@ public class AwsGlobalacceleratorListener : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortRange is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PortRange block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PortRange block(s) allowed")]
-    public HashSet<AwsGlobalacceleratorListenerPortRangeBlock>? PortRange
-    {
-        set => SetProperty("port_range", value);
-    }
+    [TerraformPropertyName("port_range")]
+    public TerraformSet<TerraformBlock<AwsGlobalacceleratorListenerPortRangeBlock>>? PortRange { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsGlobalacceleratorListenerTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsGlobalacceleratorListenerTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

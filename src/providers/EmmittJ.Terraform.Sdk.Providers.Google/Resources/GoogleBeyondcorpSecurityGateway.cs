@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for hubs in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleBeyondcorpSecurityGatewayHubsBlock : TerraformBlock
+public class GoogleBeyondcorpSecurityGatewayHubsBlock : ITerraformBlock
 {
     /// <summary>
     /// The region attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
-    public required TerraformProperty<string> Region
-    {
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Region { get; set; }
 
 }
 
@@ -23,31 +22,28 @@ public class GoogleBeyondcorpSecurityGatewayHubsBlock : TerraformBlock
 /// Block type for proxy_protocol_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock : TerraformBlock
+public class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The configuration for the proxy.
     /// </summary>
-    public List<TerraformProperty<string>>? AllowedClientHeaders
-    {
-        set => SetProperty("allowed_client_headers", value);
-    }
+    [TerraformPropertyName("allowed_client_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AllowedClientHeaders { get; set; }
 
     /// <summary>
     /// Client IP configuration. The client IP address is included if true.
     /// </summary>
-    public TerraformProperty<bool>? ClientIp
-    {
-        set => SetProperty("client_ip", value);
-    }
+    [TerraformPropertyName("client_ip")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ClientIp { get; set; }
 
     /// <summary>
     /// Gateway identity configuration. Possible values: [&amp;quot;RESOURCE_NAME&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? GatewayIdentity
-    {
-        set => SetProperty("gateway_identity", value);
-    }
+    [TerraformPropertyName("gateway_identity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GatewayIdentity { get; set; }
 
     /// <summary>
     /// Custom resource specific headers along with the values.
@@ -56,10 +52,9 @@ public class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock : Terraform
     ///   and &amp;quot;.&amp;quot;, and SHOULD begin with a letter.
     /// &amp;gt; Field values SHOULD contain only ASCII printable characters and tab.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? MetadataHeaders
-    {
-        set => SetProperty("metadata_headers", value);
-    }
+    [TerraformPropertyName("metadata_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? MetadataHeaders { get; set; }
 
 }
 
@@ -67,7 +62,7 @@ public class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock : Terraform
 /// Block type for service_discovery in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock : TerraformBlock
+public class GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock : ITerraformBlock
 {
 }
 
@@ -75,31 +70,28 @@ public class GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBeyondcorpSecurityGatewayTimeoutsBlock : TerraformBlock
+public class GoogleBeyondcorpSecurityGatewayTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -111,61 +103,37 @@ public class GoogleBeyondcorpSecurityGateway : TerraformResource
 {
     public GoogleBeyondcorpSecurityGateway(string name) : base("google_beyondcorp_security_gateway", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("delegating_service_account");
-        SetOutput("external_ips");
-        SetOutput("name");
-        SetOutput("state");
-        SetOutput("update_time");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("security_gateway_id");
     }
 
     /// <summary>
     /// Optional. An arbitrary user-provided name for the SecurityGateway.
     /// Cannot exceed 64 characters.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122. Must be omitted or set to &#39;global&#39;.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Optional. User-settable SecurityGateway resource ID.
@@ -174,70 +142,68 @@ public class GoogleBeyondcorpSecurityGateway : TerraformResource
     /// * Must end with a number or letter.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
-    public required TerraformProperty<string> SecurityGatewayId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_gateway_id");
-        set => SetProperty("security_gateway_id", value);
-    }
+    [TerraformPropertyName("security_gateway_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SecurityGatewayId { get; set; }
 
     /// <summary>
     /// Block for hubs.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<GoogleBeyondcorpSecurityGatewayHubsBlock>? Hubs
-    {
-        set => SetProperty("hubs", value);
-    }
+    [TerraformPropertyName("hubs")]
+    public TerraformSet<TerraformBlock<GoogleBeyondcorpSecurityGatewayHubsBlock>>? Hubs { get; set; } = new();
 
     /// <summary>
     /// Block for proxy_protocol_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProxyProtocolConfig block(s) allowed")]
-    public List<GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock>? ProxyProtocolConfig
-    {
-        set => SetProperty("proxy_protocol_config", value);
-    }
+    [TerraformPropertyName("proxy_protocol_config")]
+    public TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock>>? ProxyProtocolConfig { get; set; } = new();
 
     /// <summary>
     /// Block for service_discovery.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceDiscovery block(s) allowed")]
-    public List<GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock>? ServiceDiscovery
-    {
-        set => SetProperty("service_discovery", value);
-    }
+    [TerraformPropertyName("service_discovery")]
+    public TerraformList<TerraformBlock<GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock>>? ServiceDiscovery { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleBeyondcorpSecurityGatewayTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleBeyondcorpSecurityGatewayTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Timestamp when the resource was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Service account used for operations that involve resources in consumer projects.
     /// </summary>
-    public TerraformExpression DelegatingServiceAccount => this["delegating_service_account"];
+    [TerraformPropertyName("delegating_service_account")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DelegatingServiceAccount => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delegating_service_account");
 
     /// <summary>
     /// Output only. IP addresses that will be used for establishing
     /// connection to the endpoints.
     /// </summary>
-    public TerraformExpression ExternalIps => this["external_ips"];
+    [TerraformPropertyName("external_ips")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ExternalIps => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "external_ips");
 
     /// <summary>
     /// Identifier. Name of the resource.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Output only. The operational state of the SecurityGateway.
@@ -250,11 +216,15 @@ public class GoogleBeyondcorpSecurityGateway : TerraformResource
     /// DOWN
     /// ERROR
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// Output only. Timestamp when the resource was last modified.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

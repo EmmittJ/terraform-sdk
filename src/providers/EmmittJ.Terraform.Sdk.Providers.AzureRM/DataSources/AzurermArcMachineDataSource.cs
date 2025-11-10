@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermArcMachineDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermArcMachineDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,214 +24,225 @@ public class AzurermArcMachineDataSource : TerraformDataSource
 {
     public AzurermArcMachineDataSource(string name) : base("azurerm_arc_machine", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("active_directory_fqdn");
-        SetOutput("agent");
-        SetOutput("agent_version");
-        SetOutput("client_public_key");
-        SetOutput("cloud_metadata");
-        SetOutput("detected_properties");
-        SetOutput("display_name");
-        SetOutput("dns_fqdn");
-        SetOutput("domain_name");
-        SetOutput("identity");
-        SetOutput("last_status_change_time");
-        SetOutput("location");
-        SetOutput("location_data");
-        SetOutput("machine_fqdn");
-        SetOutput("mssql_discovered");
-        SetOutput("os_name");
-        SetOutput("os_profile");
-        SetOutput("os_sku");
-        SetOutput("os_type");
-        SetOutput("os_version");
-        SetOutput("parent_cluster_resource_id");
-        SetOutput("private_link_scope_resource_id");
-        SetOutput("service_status");
-        SetOutput("status");
-        SetOutput("tags");
-        SetOutput("vm_id");
-        SetOutput("vm_uuid");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermArcMachineDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermArcMachineDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The active_directory_fqdn attribute.
     /// </summary>
-    public TerraformExpression ActiveDirectoryFqdn => this["active_directory_fqdn"];
+    [TerraformPropertyName("active_directory_fqdn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ActiveDirectoryFqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "active_directory_fqdn");
 
     /// <summary>
     /// The agent attribute.
     /// </summary>
-    public TerraformExpression Agent => this["agent"];
+    [TerraformPropertyName("agent")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Agent => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "agent");
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
-    public TerraformExpression AgentVersion => this["agent_version"];
+    [TerraformPropertyName("agent_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AgentVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "agent_version");
 
     /// <summary>
     /// The client_public_key attribute.
     /// </summary>
-    public TerraformExpression ClientPublicKey => this["client_public_key"];
+    [TerraformPropertyName("client_public_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClientPublicKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "client_public_key");
 
     /// <summary>
     /// The cloud_metadata attribute.
     /// </summary>
-    public TerraformExpression CloudMetadata => this["cloud_metadata"];
+    [TerraformPropertyName("cloud_metadata")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> CloudMetadata => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cloud_metadata");
 
     /// <summary>
     /// The detected_properties attribute.
     /// </summary>
-    public TerraformExpression DetectedProperties => this["detected_properties"];
+    [TerraformPropertyName("detected_properties")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> DetectedProperties => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "detected_properties");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The dns_fqdn attribute.
     /// </summary>
-    public TerraformExpression DnsFqdn => this["dns_fqdn"];
+    [TerraformPropertyName("dns_fqdn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsFqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_fqdn");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformExpression DomainName => this["domain_name"];
+    [TerraformPropertyName("domain_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DomainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_name");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformExpression Identity => this["identity"];
+    [TerraformPropertyName("identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
 
     /// <summary>
     /// The last_status_change_time attribute.
     /// </summary>
-    public TerraformExpression LastStatusChangeTime => this["last_status_change_time"];
+    [TerraformPropertyName("last_status_change_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastStatusChangeTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_status_change_time");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The location_data attribute.
     /// </summary>
-    public TerraformExpression LocationData => this["location_data"];
+    [TerraformPropertyName("location_data")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> LocationData => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "location_data");
 
     /// <summary>
     /// The machine_fqdn attribute.
     /// </summary>
-    public TerraformExpression MachineFqdn => this["machine_fqdn"];
+    [TerraformPropertyName("machine_fqdn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MachineFqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "machine_fqdn");
 
     /// <summary>
     /// The mssql_discovered attribute.
     /// </summary>
-    public TerraformExpression MssqlDiscovered => this["mssql_discovered"];
+    [TerraformPropertyName("mssql_discovered")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> MssqlDiscovered => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "mssql_discovered");
 
     /// <summary>
     /// The os_name attribute.
     /// </summary>
-    public TerraformExpression OsName => this["os_name"];
+    [TerraformPropertyName("os_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "os_name");
 
     /// <summary>
     /// The os_profile attribute.
     /// </summary>
-    public TerraformExpression OsProfile => this["os_profile"];
+    [TerraformPropertyName("os_profile")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> OsProfile => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "os_profile");
 
     /// <summary>
     /// The os_sku attribute.
     /// </summary>
-    public TerraformExpression OsSku => this["os_sku"];
+    [TerraformPropertyName("os_sku")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OsSku => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "os_sku");
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
-    public TerraformExpression OsType => this["os_type"];
+    [TerraformPropertyName("os_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OsType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "os_type");
 
     /// <summary>
     /// The os_version attribute.
     /// </summary>
-    public TerraformExpression OsVersion => this["os_version"];
+    [TerraformPropertyName("os_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OsVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "os_version");
 
     /// <summary>
     /// The parent_cluster_resource_id attribute.
     /// </summary>
-    public TerraformExpression ParentClusterResourceId => this["parent_cluster_resource_id"];
+    [TerraformPropertyName("parent_cluster_resource_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ParentClusterResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parent_cluster_resource_id");
 
     /// <summary>
     /// The private_link_scope_resource_id attribute.
     /// </summary>
-    public TerraformExpression PrivateLinkScopeResourceId => this["private_link_scope_resource_id"];
+    [TerraformPropertyName("private_link_scope_resource_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateLinkScopeResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_link_scope_resource_id");
 
     /// <summary>
     /// The service_status attribute.
     /// </summary>
-    public TerraformExpression ServiceStatus => this["service_status"];
+    [TerraformPropertyName("service_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ServiceStatus => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "service_status");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The vm_id attribute.
     /// </summary>
-    public TerraformExpression VmId => this["vm_id"];
+    [TerraformPropertyName("vm_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VmId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vm_id");
 
     /// <summary>
     /// The vm_uuid attribute.
     /// </summary>
-    public TerraformExpression VmUuid => this["vm_uuid"];
+    [TerraformPropertyName("vm_uuid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VmUuid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vm_uuid");
 
 }

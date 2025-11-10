@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAmiIdsDataSourceFilterBlock : TerraformBlock
+public class AwsAmiIdsDataSourceFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public HashSet<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -32,15 +30,14 @@ public class AwsAmiIdsDataSourceFilterBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsAmiIdsDataSourceTimeoutsBlock : TerraformBlock
+public class AwsAmiIdsDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -51,106 +48,77 @@ public class AwsAmiIdsDataSource : TerraformDataSource
 {
     public AwsAmiIdsDataSource(string name) : base("aws_ami_ids", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("ids");
-        SetOutput("executable_users");
-        SetOutput("id");
-        SetOutput("include_deprecated");
-        SetOutput("name_regex");
-        SetOutput("owners");
-        SetOutput("region");
-        SetOutput("sort_ascending");
     }
 
     /// <summary>
     /// The executable_users attribute.
     /// </summary>
-    public List<TerraformProperty<string>> ExecutableUsers
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("executable_users");
-        set => SetProperty("executable_users", value);
-    }
+    [TerraformPropertyName("executable_users")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ExecutableUsers { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The include_deprecated attribute.
     /// </summary>
-    public TerraformProperty<bool> IncludeDeprecated
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("include_deprecated");
-        set => SetProperty("include_deprecated", value);
-    }
+    [TerraformPropertyName("include_deprecated")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeDeprecated { get; set; }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformProperty<string> NameRegex
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_regex");
-        set => SetProperty("name_regex", value);
-    }
+    [TerraformPropertyName("name_regex")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NameRegex { get; set; }
 
     /// <summary>
     /// The owners attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owners is required")]
-    public List<TerraformProperty<string>> Owners
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("owners");
-        set => SetProperty("owners", value);
-    }
+    [TerraformPropertyName("owners")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Owners { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The sort_ascending attribute.
     /// </summary>
-    public TerraformProperty<bool> SortAscending
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("sort_ascending");
-        set => SetProperty("sort_ascending", value);
-    }
+    [TerraformPropertyName("sort_ascending")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SortAscending { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsAmiIdsDataSourceFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformSet<TerraformBlock<AwsAmiIdsDataSourceFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsAmiIdsDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsAmiIdsDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
-    public TerraformExpression Ids => this["ids"];
+    [TerraformPropertyName("ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Ids => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "ids");
 
 }

@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSqlSourceRepresentationInstanceTimeoutsBlock : TerraformBlock
+public class GoogleSqlSourceRepresentationInstanceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,155 +31,109 @@ public class GoogleSqlSourceRepresentationInstance : TerraformResource
 {
     public GoogleSqlSourceRepresentationInstance(string name) : base("google_sql_source_representation_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("ca_certificate");
-        SetOutput("client_certificate");
-        SetOutput("client_key");
-        SetOutput("database_version");
-        SetOutput("dump_file_path");
-        SetOutput("host");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("password");
-        SetOutput("port");
-        SetOutput("project");
-        SetOutput("region");
-        SetOutput("username");
     }
 
     /// <summary>
     /// The CA certificate on the external server. Include only if SSL/TLS is used on the external server.
     /// </summary>
-    public TerraformProperty<string> CaCertificate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ca_certificate");
-        set => SetProperty("ca_certificate", value);
-    }
+    [TerraformPropertyName("ca_certificate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CaCertificate { get; set; }
 
     /// <summary>
     /// The client certificate on the external server. Required only for server-client authentication. Include only if SSL/TLS is used on the external server.
     /// </summary>
-    public TerraformProperty<string> ClientCertificate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_certificate");
-        set => SetProperty("client_certificate", value);
-    }
+    [TerraformPropertyName("client_certificate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientCertificate { get; set; }
 
     /// <summary>
     /// The private key file for the client certificate on the external server. Required only for server-client authentication. Include only if SSL/TLS is used on the external server.
     /// </summary>
-    public TerraformProperty<string> ClientKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_key");
-        set => SetProperty("client_key", value);
-    }
+    [TerraformPropertyName("client_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientKey { get; set; }
 
     /// <summary>
     /// The MySQL, PostgreSQL or SQL Server (beta) version to use. Supported values include MYSQL_5_6, MYSQL_5_7, MYSQL_8_0, MYSQL_8_4, POSTGRES_9_6, POSTGRES_10, POSTGRES_11, POSTGRES_12, POSTGRES_13, POSTGRES_14, POSTGRES_15, POSTGRES_16, POSTGRES_17. Database Version Policies includes an up-to-date reference of supported versions.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseVersion is required")]
-    public required TerraformProperty<string> DatabaseVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_version");
-        set => SetProperty("database_version", value);
-    }
+    [TerraformPropertyName("database_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseVersion { get; set; }
 
     /// <summary>
     /// A file in the bucket that contains the data from the external server.
     /// </summary>
-    public TerraformProperty<string> DumpFilePath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dump_file_path");
-        set => SetProperty("dump_file_path", value);
-    }
+    [TerraformPropertyName("dump_file_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DumpFilePath { get; set; }
 
     /// <summary>
     /// The IPv4 address and port for the external server, or the the DNS address for the external server. If the external server is hosted on Cloud SQL, the port is 5432.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
-    public required TerraformProperty<string> Host
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("host");
-        set => SetProperty("host", value);
-    }
+    [TerraformPropertyName("host")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Host { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the source representation instance. Use any valid Cloud SQL instance name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The password for the replication user account.
     /// </summary>
-    public TerraformProperty<string> Password
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("password");
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Password { get; set; }
 
     /// <summary>
     /// The externally accessible port for the source database server.
     /// Defaults to 3306.
     /// </summary>
-    public TerraformProperty<double> Port
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("port");
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The Region in which the created instance should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The replication user account on the external server.
     /// </summary>
-    public TerraformProperty<string> Username
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("username");
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Username { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleSqlSourceRepresentationInstanceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleSqlSourceRepresentationInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

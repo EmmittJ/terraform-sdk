@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAppConfigurationKeyDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermAppConfigurationKeyDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,104 +24,92 @@ public class AzurermAppConfigurationKeyDataSource : TerraformDataSource
 {
     public AzurermAppConfigurationKeyDataSource(string name) : base("azurerm_app_configuration_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("content_type");
-        SetOutput("etag");
-        SetOutput("locked");
-        SetOutput("tags");
-        SetOutput("type");
-        SetOutput("value");
-        SetOutput("vault_key_reference");
-        SetOutput("configuration_store_id");
-        SetOutput("id");
-        SetOutput("key");
-        SetOutput("label");
     }
 
     /// <summary>
     /// The configuration_store_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
-    public required TerraformProperty<string> ConfigurationStoreId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("configuration_store_id");
-        set => SetProperty("configuration_store_id", value);
-    }
+    [TerraformPropertyName("configuration_store_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConfigurationStoreId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key");
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformProperty<string> Label
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("label");
-        set => SetProperty("label", value);
-    }
+    [TerraformPropertyName("label")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Label { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermAppConfigurationKeyDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermAppConfigurationKeyDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformExpression ContentType => this["content_type"];
+    [TerraformPropertyName("content_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContentType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content_type");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
-    public TerraformExpression Locked => this["locked"];
+    [TerraformPropertyName("locked")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Locked => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "locked");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformExpression Value => this["value"];
+    [TerraformPropertyName("value")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Value => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "value");
 
     /// <summary>
     /// The vault_key_reference attribute.
     /// </summary>
-    public TerraformExpression VaultKeyReference => this["vault_key_reference"];
+    [TerraformPropertyName("vault_key_reference")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VaultKeyReference => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vault_key_reference");
 
 }

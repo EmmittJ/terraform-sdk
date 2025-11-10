@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for s3_destination in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMacie2ClassificationExportConfigurationS3DestinationBlock : TerraformBlock
+public class AwsMacie2ClassificationExportConfigurationS3DestinationBlock : ITerraformBlock
 {
     /// <summary>
     /// The bucket_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
-    public required TerraformProperty<string> BucketName
-    {
-        set => SetProperty("bucket_name", value);
-    }
+    [TerraformPropertyName("bucket_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BucketName { get; set; }
 
     /// <summary>
     /// The key_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyPrefix
-    {
-        set => SetProperty("key_prefix", value);
-    }
+    [TerraformPropertyName("key_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyPrefix { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
-    public required TerraformProperty<string> KmsKeyArn
-    {
-        set => SetProperty("kms_key_arn", value);
-    }
+    [TerraformPropertyName("kms_key_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KmsKeyArn { get; set; }
 
 }
 
@@ -44,32 +41,21 @@ public class AwsMacie2ClassificationExportConfiguration : TerraformResource
 {
     public AwsMacie2ClassificationExportConfiguration(string name) : base("aws_macie2_classification_export_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for s3_destination.
@@ -78,9 +64,7 @@ public class AwsMacie2ClassificationExportConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Destination block(s) allowed")]
-    public List<AwsMacie2ClassificationExportConfigurationS3DestinationBlock>? S3Destination
-    {
-        set => SetProperty("s3_destination", value);
-    }
+    [TerraformPropertyName("s3_destination")]
+    public TerraformList<TerraformBlock<AwsMacie2ClassificationExportConfigurationS3DestinationBlock>>? S3Destination { get; set; } = new();
 
 }

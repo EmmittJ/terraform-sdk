@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPrivateLinkServiceDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermPrivateLinkServiceDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,100 +24,92 @@ public class AzurermPrivateLinkServiceDataSource : TerraformDataSource
 {
     public AzurermPrivateLinkServiceDataSource(string name) : base("azurerm_private_link_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("alias");
-        SetOutput("auto_approval_subscription_ids");
-        SetOutput("enable_proxy_protocol");
-        SetOutput("load_balancer_frontend_ip_configuration_ids");
-        SetOutput("location");
-        SetOutput("nat_ip_configuration");
-        SetOutput("tags");
-        SetOutput("visibility_subscription_ids");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermPrivateLinkServiceDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermPrivateLinkServiceDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformExpression Alias => this["alias"];
+    [TerraformPropertyName("alias")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Alias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "alias");
 
     /// <summary>
     /// The auto_approval_subscription_ids attribute.
     /// </summary>
-    public TerraformExpression AutoApprovalSubscriptionIds => this["auto_approval_subscription_ids"];
+    [TerraformPropertyName("auto_approval_subscription_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AutoApprovalSubscriptionIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "auto_approval_subscription_ids");
 
     /// <summary>
     /// The enable_proxy_protocol attribute.
     /// </summary>
-    public TerraformExpression EnableProxyProtocol => this["enable_proxy_protocol"];
+    [TerraformPropertyName("enable_proxy_protocol")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableProxyProtocol => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_proxy_protocol");
 
     /// <summary>
     /// The load_balancer_frontend_ip_configuration_ids attribute.
     /// </summary>
-    public TerraformExpression LoadBalancerFrontendIpConfigurationIds => this["load_balancer_frontend_ip_configuration_ids"];
+    [TerraformPropertyName("load_balancer_frontend_ip_configuration_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> LoadBalancerFrontendIpConfigurationIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "load_balancer_frontend_ip_configuration_ids");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The nat_ip_configuration attribute.
     /// </summary>
-    public TerraformExpression NatIpConfiguration => this["nat_ip_configuration"];
+    [TerraformPropertyName("nat_ip_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> NatIpConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "nat_ip_configuration");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The visibility_subscription_ids attribute.
     /// </summary>
-    public TerraformExpression VisibilitySubscriptionIds => this["visibility_subscription_ids"];
+    [TerraformPropertyName("visibility_subscription_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> VisibilitySubscriptionIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "visibility_subscription_ids");
 
 }

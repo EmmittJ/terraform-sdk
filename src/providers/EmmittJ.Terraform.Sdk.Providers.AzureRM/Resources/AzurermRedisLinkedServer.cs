@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlock
+public class AzurermRedisLinkedServerTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,97 +38,74 @@ public class AzurermRedisLinkedServer : TerraformResource
 {
     public AzurermRedisLinkedServer(string name) : base("azurerm_redis_linked_server", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("geo_replicated_primary_host_name");
-        SetOutput("name");
-        SetOutput("id");
-        SetOutput("linked_redis_cache_id");
-        SetOutput("linked_redis_cache_location");
-        SetOutput("resource_group_name");
-        SetOutput("server_role");
-        SetOutput("target_redis_cache_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The linked_redis_cache_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheId is required")]
-    public required TerraformProperty<string> LinkedRedisCacheId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("linked_redis_cache_id");
-        set => SetProperty("linked_redis_cache_id", value);
-    }
+    [TerraformPropertyName("linked_redis_cache_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LinkedRedisCacheId { get; set; }
 
     /// <summary>
     /// The linked_redis_cache_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheLocation is required")]
-    public required TerraformProperty<string> LinkedRedisCacheLocation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("linked_redis_cache_location");
-        set => SetProperty("linked_redis_cache_location", value);
-    }
+    [TerraformPropertyName("linked_redis_cache_location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LinkedRedisCacheLocation { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The server_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerRole is required")]
-    public required TerraformProperty<string> ServerRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("server_role");
-        set => SetProperty("server_role", value);
-    }
+    [TerraformPropertyName("server_role")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServerRole { get; set; }
 
     /// <summary>
     /// The target_redis_cache_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRedisCacheName is required")]
-    public required TerraformProperty<string> TargetRedisCacheName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_redis_cache_name");
-        set => SetProperty("target_redis_cache_name", value);
-    }
+    [TerraformPropertyName("target_redis_cache_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetRedisCacheName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermRedisLinkedServerTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermRedisLinkedServerTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The geo_replicated_primary_host_name attribute.
     /// </summary>
-    public TerraformExpression GeoReplicatedPrimaryHostName => this["geo_replicated_primary_host_name"];
+    [TerraformPropertyName("geo_replicated_primary_host_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GeoReplicatedPrimaryHostName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "geo_replicated_primary_host_name");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for container in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermResourceDeploymentScriptAzurePowerShellContainerBlock : TerraformBlock
+public class AzurermResourceDeploymentScriptAzurePowerShellContainerBlock : ITerraformBlock
 {
     /// <summary>
     /// The container_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerGroupName
-    {
-        set => SetProperty("container_group_name", value);
-    }
+    [TerraformPropertyName("container_group_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContainerGroupName { get; set; }
 
 }
 
@@ -22,32 +21,29 @@ public class AzurermResourceDeploymentScriptAzurePowerShellContainerBlock : Terr
 /// Block type for environment_variable in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock : TerraformBlock
+public class AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The secure_value attribute.
     /// </summary>
-    public TerraformProperty<string>? SecureValue
-    {
-        set => SetProperty("secure_value", value);
-    }
+    [TerraformPropertyName("secure_value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecureValue { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -55,25 +51,23 @@ public class AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBl
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock : TerraformBlock
+public class AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -81,25 +75,23 @@ public class AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock : Terra
 /// Block type for storage_account in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock : TerraformBlock
+public class AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock : ITerraformBlock
 {
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -107,39 +99,35 @@ public class AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : TerraformBlock
+public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -151,210 +139,154 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
 {
     public AzurermResourceDeploymentScriptAzurePowerShell(string name) : base("azurerm_resource_deployment_script_azure_power_shell", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("outputs");
-        SetOutput("cleanup_preference");
-        SetOutput("command_line");
-        SetOutput("force_update_tag");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("primary_script_uri");
-        SetOutput("resource_group_name");
-        SetOutput("retention_interval");
-        SetOutput("script_content");
-        SetOutput("supporting_script_uris");
-        SetOutput("tags");
-        SetOutput("timeout");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The cleanup_preference attribute.
     /// </summary>
-    public TerraformProperty<string> CleanupPreference
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cleanup_preference");
-        set => SetProperty("cleanup_preference", value);
-    }
+    [TerraformPropertyName("cleanup_preference")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CleanupPreference { get; set; }
 
     /// <summary>
     /// The command_line attribute.
     /// </summary>
-    public TerraformProperty<string> CommandLine
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("command_line");
-        set => SetProperty("command_line", value);
-    }
+    [TerraformPropertyName("command_line")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CommandLine { get; set; }
 
     /// <summary>
     /// The force_update_tag attribute.
     /// </summary>
-    public TerraformProperty<string> ForceUpdateTag
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("force_update_tag");
-        set => SetProperty("force_update_tag", value);
-    }
+    [TerraformPropertyName("force_update_tag")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ForceUpdateTag { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The primary_script_uri attribute.
     /// </summary>
-    public TerraformProperty<string> PrimaryScriptUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("primary_script_uri");
-        set => SetProperty("primary_script_uri", value);
-    }
+    [TerraformPropertyName("primary_script_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrimaryScriptUri { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The retention_interval attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInterval is required")]
-    public required TerraformProperty<string> RetentionInterval
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("retention_interval");
-        set => SetProperty("retention_interval", value);
-    }
+    [TerraformPropertyName("retention_interval")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RetentionInterval { get; set; }
 
     /// <summary>
     /// The script_content attribute.
     /// </summary>
-    public TerraformProperty<string> ScriptContent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("script_content");
-        set => SetProperty("script_content", value);
-    }
+    [TerraformPropertyName("script_content")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ScriptContent { get; set; }
 
     /// <summary>
     /// The supporting_script_uris attribute.
     /// </summary>
-    public List<TerraformProperty<string>> SupportingScriptUris
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("supporting_script_uris");
-        set => SetProperty("supporting_script_uris", value);
-    }
+    [TerraformPropertyName("supporting_script_uris")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SupportingScriptUris { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformProperty<string> Timeout
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("timeout");
-        set => SetProperty("timeout", value);
-    }
+    [TerraformPropertyName("timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Timeout { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
     /// <summary>
     /// Block for container.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Container block(s) allowed")]
-    public List<AzurermResourceDeploymentScriptAzurePowerShellContainerBlock>? Container
-    {
-        set => SetProperty("container", value);
-    }
+    [TerraformPropertyName("container")]
+    public TerraformList<TerraformBlock<AzurermResourceDeploymentScriptAzurePowerShellContainerBlock>>? Container { get; set; } = new();
 
     /// <summary>
     /// Block for environment_variable.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock>? EnvironmentVariable
-    {
-        set => SetProperty("environment_variable", value);
-    }
+    [TerraformPropertyName("environment_variable")]
+    public TerraformSet<TerraformBlock<AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock>>? EnvironmentVariable { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for storage_account.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccount block(s) allowed")]
-    public List<AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock>? StorageAccount
-    {
-        set => SetProperty("storage_account", value);
-    }
+    [TerraformPropertyName("storage_account")]
+    public TerraformList<TerraformBlock<AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock>>? StorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The outputs attribute.
     /// </summary>
-    public TerraformExpression Outputs => this["outputs"];
+    [TerraformPropertyName("outputs")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Outputs => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "outputs");
 
 }

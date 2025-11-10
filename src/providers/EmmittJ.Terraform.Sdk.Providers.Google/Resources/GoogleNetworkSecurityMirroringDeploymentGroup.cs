@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkSecurityMirroringDeploymentGroupTimeoutsBlock : TerraformBlock
+public class GoogleNetworkSecurityMirroringDeploymentGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,47 +38,22 @@ public class GoogleNetworkSecurityMirroringDeploymentGroup : TerraformResource
 {
     public GoogleNetworkSecurityMirroringDeploymentGroup(string name) : base("google_network_security_mirroring_deployment_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("connected_endpoint_groups");
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("locations");
-        SetOutput("name");
-        SetOutput("reconciling");
-        SetOutput("state");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("mirroring_deployment_group_id");
-        SetOutput("network");
-        SetOutput("project");
     }
 
     /// <summary>
     /// User-provided description of the deployment group.
     /// Used as additional context for the deployment group.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Labels are key/value pairs that help to organize and filter resources.
@@ -89,32 +61,26 @@ public class GoogleNetworkSecurityMirroringDeploymentGroup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The cloud location of the deployment group, currently restricted to &#39;global&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The ID to use for the new deployment group, which will become the final
     /// component of the deployment group&#39;s resource name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringDeploymentGroupId is required")]
-    public required TerraformProperty<string> MirroringDeploymentGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mirroring_deployment_group_id");
-        set => SetProperty("mirroring_deployment_group_id", value);
-    }
+    [TerraformPropertyName("mirroring_deployment_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MirroringDeploymentGroupId { get; set; }
 
     /// <summary>
     /// The network that will be used for all child deployments, for example:
@@ -122,57 +88,61 @@ public class GoogleNetworkSecurityMirroringDeploymentGroup : TerraformResource
     /// See https://google.aip.dev/124.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
-    public required TerraformProperty<string> Network
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network");
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleNetworkSecurityMirroringDeploymentGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleNetworkSecurityMirroringDeploymentGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The list of endpoint groups that are connected to this resource.
     /// </summary>
-    public TerraformExpression ConnectedEndpointGroups => this["connected_endpoint_groups"];
+    [TerraformPropertyName("connected_endpoint_groups")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ConnectedEndpointGroups => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "connected_endpoint_groups");
 
     /// <summary>
     /// The timestamp when the resource was created.
     /// See https://google.aip.dev/148#timestamps.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The list of locations where the deployment group is present.
     /// </summary>
-    public TerraformExpression Locations => this["locations"];
+    [TerraformPropertyName("locations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Locations => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "locations");
 
     /// <summary>
     /// The resource name of this deployment group, for example:
     /// &#39;projects/123456789/locations/global/mirroringDeploymentGroups/my-dg&#39;.
     /// See https://google.aip.dev/122 for more details.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The current state of the resource does not match the user&#39;s intended state,
@@ -180,7 +150,9 @@ public class GoogleNetworkSecurityMirroringDeploymentGroup : TerraformResource
     /// operation (e.g. adding a new deployment to the group)
     /// See https://google.aip.dev/128.
     /// </summary>
-    public TerraformExpression Reconciling => this["reconciling"];
+    [TerraformPropertyName("reconciling")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
 
     /// <summary>
     /// The current state of the deployment group.
@@ -191,18 +163,24 @@ public class GoogleNetworkSecurityMirroringDeploymentGroup : TerraformResource
     /// CREATING
     /// DELETING
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// The timestamp when the resource was most recently updated.
     /// See https://google.aip.dev/148#timestamps.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

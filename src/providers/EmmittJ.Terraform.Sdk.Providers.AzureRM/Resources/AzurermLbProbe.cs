@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLbProbeTimeoutsBlock : TerraformBlock
+public class AzurermLbProbeTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,119 +45,86 @@ public class AzurermLbProbe : TerraformResource
 {
     public AzurermLbProbe(string name) : base("azurerm_lb_probe", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("load_balancer_rules");
-        SetOutput("id");
-        SetOutput("interval_in_seconds");
-        SetOutput("loadbalancer_id");
-        SetOutput("name");
-        SetOutput("number_of_probes");
-        SetOutput("port");
-        SetOutput("probe_threshold");
-        SetOutput("protocol");
-        SetOutput("request_path");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The interval_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> IntervalInSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("interval_in_seconds");
-        set => SetProperty("interval_in_seconds", value);
-    }
+    [TerraformPropertyName("interval_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? IntervalInSeconds { get; set; }
 
     /// <summary>
     /// The loadbalancer_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
-    public required TerraformProperty<string> LoadbalancerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("loadbalancer_id");
-        set => SetProperty("loadbalancer_id", value);
-    }
+    [TerraformPropertyName("loadbalancer_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LoadbalancerId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The number_of_probes attribute.
     /// </summary>
-    public TerraformProperty<double> NumberOfProbes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("number_of_probes");
-        set => SetProperty("number_of_probes", value);
-    }
+    [TerraformPropertyName("number_of_probes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? NumberOfProbes { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    public required TerraformProperty<double> Port
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("port");
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Port { get; set; }
 
     /// <summary>
     /// The probe_threshold attribute.
     /// </summary>
-    public TerraformProperty<double> ProbeThreshold
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("probe_threshold");
-        set => SetProperty("probe_threshold", value);
-    }
+    [TerraformPropertyName("probe_threshold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ProbeThreshold { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<string> Protocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Protocol { get; set; }
 
     /// <summary>
     /// The request_path attribute.
     /// </summary>
-    public TerraformProperty<string> RequestPath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("request_path");
-        set => SetProperty("request_path", value);
-    }
+    [TerraformPropertyName("request_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RequestPath { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLbProbeTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLbProbeTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The load_balancer_rules attribute.
     /// </summary>
-    public TerraformExpression LoadBalancerRules => this["load_balancer_rules"];
+    [TerraformPropertyName("load_balancer_rules")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> LoadBalancerRules => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "load_balancer_rules");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for environment_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataprocSessionTemplateEnvironmentConfigBlock : TerraformBlock
+public class GoogleDataprocSessionTemplateEnvironmentConfigBlock : ITerraformBlock
 {
 }
 
@@ -14,23 +14,21 @@ public class GoogleDataprocSessionTemplateEnvironmentConfigBlock : TerraformBloc
 /// Block type for jupyter_session in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataprocSessionTemplateJupyterSessionBlock : TerraformBlock
+public class GoogleDataprocSessionTemplateJupyterSessionBlock : ITerraformBlock
 {
     /// <summary>
     /// Display name, shown in the Jupyter kernelspec card.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
-    {
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// Kernel to be used with Jupyter interactive session. Possible values: [&amp;quot;PYTHON&amp;quot;, &amp;quot;SCALA&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Kernel
-    {
-        set => SetProperty("kernel", value);
-    }
+    [TerraformPropertyName("kernel")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Kernel { get; set; }
 
 }
 
@@ -38,39 +36,35 @@ public class GoogleDataprocSessionTemplateJupyterSessionBlock : TerraformBlock
 /// Block type for runtime_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataprocSessionTemplateRuntimeConfigBlock : TerraformBlock
+public class GoogleDataprocSessionTemplateRuntimeConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Optional custom container image for the job runtime environment. If not specified, a default container image will be used.
     /// </summary>
-    public TerraformProperty<string>? ContainerImage
-    {
-        set => SetProperty("container_image", value);
-    }
+    [TerraformPropertyName("container_image")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContainerImage { get; set; }
 
     /// <summary>
     /// A mapping of property names to values, which are used to configure workload execution.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? EffectiveProperties
-    {
-        set => SetProperty("effective_properties", value);
-    }
+    [TerraformPropertyName("effective_properties")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveProperties => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "effective_properties");
 
     /// <summary>
     /// A mapping of property names to values, which are used to configure workload execution.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Properties
-    {
-        set => SetProperty("properties", value);
-    }
+    [TerraformPropertyName("properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Properties { get; set; }
 
     /// <summary>
     /// Version of the session runtime.
     /// </summary>
-    public TerraformProperty<string>? Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
 }
 
@@ -78,7 +72,7 @@ public class GoogleDataprocSessionTemplateRuntimeConfigBlock : TerraformBlock
 /// Block type for spark_connect_session in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataprocSessionTemplateSparkConnectSessionBlock : TerraformBlock
+public class GoogleDataprocSessionTemplateSparkConnectSessionBlock : ITerraformBlock
 {
 }
 
@@ -86,31 +80,28 @@ public class GoogleDataprocSessionTemplateSparkConnectSessionBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataprocSessionTemplateTimeoutsBlock : TerraformBlock
+public class GoogleDataprocSessionTemplateTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -122,32 +113,14 @@ public class GoogleDataprocSessionTemplate : TerraformResource
 {
     public GoogleDataprocSessionTemplate(string name) : base("google_dataproc_session_template", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("creator");
-        SetOutput("effective_labels");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("uuid");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The labels to associate with this session template.
@@ -156,119 +129,113 @@ public class GoogleDataprocSessionTemplate : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The location in which the session template will be created in.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The resource name of the session template in the following format:
     /// projects/{project}/locations/{location}/sessionTemplates/{template_id}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for environment_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnvironmentConfig block(s) allowed")]
-    public List<GoogleDataprocSessionTemplateEnvironmentConfigBlock>? EnvironmentConfig
-    {
-        set => SetProperty("environment_config", value);
-    }
+    [TerraformPropertyName("environment_config")]
+    public TerraformList<TerraformBlock<GoogleDataprocSessionTemplateEnvironmentConfigBlock>>? EnvironmentConfig { get; set; } = new();
 
     /// <summary>
     /// Block for jupyter_session.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JupyterSession block(s) allowed")]
-    public List<GoogleDataprocSessionTemplateJupyterSessionBlock>? JupyterSession
-    {
-        set => SetProperty("jupyter_session", value);
-    }
+    [TerraformPropertyName("jupyter_session")]
+    public TerraformList<TerraformBlock<GoogleDataprocSessionTemplateJupyterSessionBlock>>? JupyterSession { get; set; } = new();
 
     /// <summary>
     /// Block for runtime_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimeConfig block(s) allowed")]
-    public List<GoogleDataprocSessionTemplateRuntimeConfigBlock>? RuntimeConfig
-    {
-        set => SetProperty("runtime_config", value);
-    }
+    [TerraformPropertyName("runtime_config")]
+    public TerraformList<TerraformBlock<GoogleDataprocSessionTemplateRuntimeConfigBlock>>? RuntimeConfig { get; set; } = new();
 
     /// <summary>
     /// Block for spark_connect_session.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkConnectSession block(s) allowed")]
-    public List<GoogleDataprocSessionTemplateSparkConnectSessionBlock>? SparkConnectSession
-    {
-        set => SetProperty("spark_connect_session", value);
-    }
+    [TerraformPropertyName("spark_connect_session")]
+    public TerraformList<TerraformBlock<GoogleDataprocSessionTemplateSparkConnectSessionBlock>>? SparkConnectSession { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDataprocSessionTemplateTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDataprocSessionTemplateTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the session template was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The email address of the user who created the session template.
     /// </summary>
-    public TerraformExpression Creator => this["creator"];
+    [TerraformPropertyName("creator")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Creator => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creator");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// The time when the session template was updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
     /// <summary>
     /// A session template UUID (Unique Universal Identifier). The service generates this value when it creates the session template.
     /// </summary>
-    public TerraformExpression Uuid => this["uuid"];
+    [TerraformPropertyName("uuid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uuid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uuid");
 
 }

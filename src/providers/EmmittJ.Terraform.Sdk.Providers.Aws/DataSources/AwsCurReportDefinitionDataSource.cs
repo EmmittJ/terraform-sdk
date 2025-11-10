@@ -9,102 +9,98 @@ public class AwsCurReportDefinitionDataSource : TerraformDataSource
 {
     public AwsCurReportDefinitionDataSource(string name) : base("aws_cur_report_definition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("additional_artifacts");
-        SetOutput("additional_schema_elements");
-        SetOutput("compression");
-        SetOutput("format");
-        SetOutput("refresh_closed_reports");
-        SetOutput("report_versioning");
-        SetOutput("s3_bucket");
-        SetOutput("s3_prefix");
-        SetOutput("s3_region");
-        SetOutput("time_unit");
-        SetOutput("id");
-        SetOutput("report_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The report_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportName is required")]
-    public required TerraformProperty<string> ReportName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("report_name");
-        set => SetProperty("report_name", value);
-    }
+    [TerraformPropertyName("report_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ReportName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The additional_artifacts attribute.
     /// </summary>
-    public TerraformExpression AdditionalArtifacts => this["additional_artifacts"];
+    [TerraformPropertyName("additional_artifacts")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AdditionalArtifacts => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "additional_artifacts");
 
     /// <summary>
     /// The additional_schema_elements attribute.
     /// </summary>
-    public TerraformExpression AdditionalSchemaElements => this["additional_schema_elements"];
+    [TerraformPropertyName("additional_schema_elements")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AdditionalSchemaElements => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "additional_schema_elements");
 
     /// <summary>
     /// The compression attribute.
     /// </summary>
-    public TerraformExpression Compression => this["compression"];
+    [TerraformPropertyName("compression")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Compression => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "compression");
 
     /// <summary>
     /// The format attribute.
     /// </summary>
-    public TerraformExpression Format => this["format"];
+    [TerraformPropertyName("format")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Format => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "format");
 
     /// <summary>
     /// The refresh_closed_reports attribute.
     /// </summary>
-    public TerraformExpression RefreshClosedReports => this["refresh_closed_reports"];
+    [TerraformPropertyName("refresh_closed_reports")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> RefreshClosedReports => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "refresh_closed_reports");
 
     /// <summary>
     /// The report_versioning attribute.
     /// </summary>
-    public TerraformExpression ReportVersioning => this["report_versioning"];
+    [TerraformPropertyName("report_versioning")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ReportVersioning => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "report_versioning");
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    public TerraformExpression S3Bucket => this["s3_bucket"];
+    [TerraformPropertyName("s3_bucket")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> S3Bucket => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "s3_bucket");
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    public TerraformExpression S3Prefix => this["s3_prefix"];
+    [TerraformPropertyName("s3_prefix")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> S3Prefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "s3_prefix");
 
     /// <summary>
     /// The s3_region attribute.
     /// </summary>
-    public TerraformExpression S3Region => this["s3_region"];
+    [TerraformPropertyName("s3_region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> S3Region => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "s3_region");
 
     /// <summary>
     /// The time_unit attribute.
     /// </summary>
-    public TerraformExpression TimeUnit => this["time_unit"];
+    [TerraformPropertyName("time_unit")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TimeUnit => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_unit");
 
 }

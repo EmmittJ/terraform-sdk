@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for details in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3controlMultiRegionAccessPointPolicyDetailsBlock : TerraformBlock
+public class AwsS3controlMultiRegionAccessPointPolicyDetailsBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
-    public required TerraformProperty<string> Policy
-    {
-        set => SetProperty("policy", value);
-    }
+    [TerraformPropertyName("policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Policy { get; set; }
 
 }
 
@@ -32,23 +30,21 @@ public class AwsS3controlMultiRegionAccessPointPolicyDetailsBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsS3controlMultiRegionAccessPointPolicyTimeoutsBlock : TerraformBlock
+public class AwsS3controlMultiRegionAccessPointPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -60,44 +56,28 @@ public class AwsS3controlMultiRegionAccessPointPolicy : TerraformResource
 {
     public AwsS3controlMultiRegionAccessPointPolicy(string name) : base("aws_s3control_multi_region_access_point_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("established");
-        SetOutput("proposed");
-        SetOutput("account_id");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string> AccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for details.
@@ -106,28 +86,28 @@ public class AwsS3controlMultiRegionAccessPointPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Details is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Details block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Details block(s) allowed")]
-    public List<AwsS3controlMultiRegionAccessPointPolicyDetailsBlock>? Details
-    {
-        set => SetProperty("details", value);
-    }
+    [TerraformPropertyName("details")]
+    public TerraformList<TerraformBlock<AwsS3controlMultiRegionAccessPointPolicyDetailsBlock>>? Details { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsS3controlMultiRegionAccessPointPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsS3controlMultiRegionAccessPointPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The established attribute.
     /// </summary>
-    public TerraformExpression Established => this["established"];
+    [TerraformPropertyName("established")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Established => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "established");
 
     /// <summary>
     /// The proposed attribute.
     /// </summary>
-    public TerraformExpression Proposed => this["proposed"];
+    [TerraformPropertyName("proposed")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Proposed => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "proposed");
 
 }

@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAvailabilityZonesDataSourceFilterBlock : TerraformBlock
+public class AwsAvailabilityZonesDataSourceFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public HashSet<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -32,15 +30,14 @@ public class AwsAvailabilityZonesDataSourceFilterBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsAvailabilityZonesDataSourceTimeoutsBlock : TerraformBlock
+public class AwsAvailabilityZonesDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -51,107 +48,83 @@ public class AwsAvailabilityZonesDataSource : TerraformDataSource
 {
     public AwsAvailabilityZonesDataSource(string name) : base("aws_availability_zones", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("group_names");
-        SetOutput("names");
-        SetOutput("zone_ids");
-        SetOutput("all_availability_zones");
-        SetOutput("exclude_names");
-        SetOutput("exclude_zone_ids");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("state");
     }
 
     /// <summary>
     /// The all_availability_zones attribute.
     /// </summary>
-    public TerraformProperty<bool> AllAvailabilityZones
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("all_availability_zones");
-        set => SetProperty("all_availability_zones", value);
-    }
+    [TerraformPropertyName("all_availability_zones")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllAvailabilityZones { get; set; }
 
     /// <summary>
     /// The exclude_names attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ExcludeNames
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("exclude_names");
-        set => SetProperty("exclude_names", value);
-    }
+    [TerraformPropertyName("exclude_names")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ExcludeNames { get; set; }
 
     /// <summary>
     /// The exclude_zone_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ExcludeZoneIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("exclude_zone_ids");
-        set => SetProperty("exclude_zone_ids", value);
-    }
+    [TerraformPropertyName("exclude_zone_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ExcludeZoneIds { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string> State
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("state");
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? State { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsAvailabilityZonesDataSourceFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformSet<TerraformBlock<AwsAvailabilityZonesDataSourceFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsAvailabilityZonesDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsAvailabilityZonesDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The group_names attribute.
     /// </summary>
-    public TerraformExpression GroupNames => this["group_names"];
+    [TerraformPropertyName("group_names")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> GroupNames => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "group_names");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
-    public TerraformExpression Names => this["names"];
+    [TerraformPropertyName("names")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Names => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "names");
 
     /// <summary>
     /// The zone_ids attribute.
     /// </summary>
-    public TerraformExpression ZoneIds => this["zone_ids"];
+    [TerraformPropertyName("zone_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ZoneIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "zone_ids");
 
 }

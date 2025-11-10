@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationApiAccessTimeoutsBlock : TerraformBlock
+public class AzureadApplicationApiAccessTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,72 +45,50 @@ public class AzureadApplicationApiAccess : TerraformResource
 {
     public AzureadApplicationApiAccess(string name) : base("azuread_application_api_access", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("api_client_id");
-        SetOutput("application_id");
-        SetOutput("id");
-        SetOutput("role_ids");
-        SetOutput("scope_ids");
     }
 
     /// <summary>
     /// The client ID of the API to which access is being granted
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiClientId is required")]
-    public required TerraformProperty<string> ApiClientId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_client_id");
-        set => SetProperty("api_client_id", value);
-    }
+    [TerraformPropertyName("api_client_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiClientId { get; set; }
 
     /// <summary>
     /// The resource ID of the application to which this API access is granted
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    public required TerraformProperty<string> ApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
-        set => SetProperty("application_id", value);
-    }
+    [TerraformPropertyName("application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// A set of role IDs to be granted to the application, as published by the API
     /// </summary>
-    public HashSet<TerraformProperty<string>> RoleIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("role_ids");
-        set => SetProperty("role_ids", value);
-    }
+    [TerraformPropertyName("role_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? RoleIds { get; set; }
 
     /// <summary>
     /// A set of scope IDs to be granted to the application, as published by the API
     /// </summary>
-    public HashSet<TerraformProperty<string>> ScopeIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("scope_ids");
-        set => SetProperty("scope_ids", value);
-    }
+    [TerraformPropertyName("scope_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ScopeIds { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadApplicationApiAccessTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadApplicationApiAccessTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

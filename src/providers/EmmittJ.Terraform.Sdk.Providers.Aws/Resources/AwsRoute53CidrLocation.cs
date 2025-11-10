@@ -9,50 +9,37 @@ public class AwsRoute53CidrLocation : TerraformResource
 {
     public AwsRoute53CidrLocation(string name) : base("aws_route53_cidr_location", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("cidr_blocks");
-        SetOutput("cidr_collection_id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The cidr_blocks attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrBlocks is required")]
-    public HashSet<TerraformProperty<string>> CidrBlocks
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("cidr_blocks");
-        set => SetProperty("cidr_blocks", value);
-    }
+    [TerraformPropertyName("cidr_blocks")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? CidrBlocks { get; set; }
 
     /// <summary>
     /// The cidr_collection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrCollectionId is required")]
-    public required TerraformProperty<string> CidrCollectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cidr_collection_id");
-        set => SetProperty("cidr_collection_id", value);
-    }
+    [TerraformPropertyName("cidr_collection_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CidrCollectionId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

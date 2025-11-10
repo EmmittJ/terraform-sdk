@@ -9,28 +9,21 @@ public class AwsIamOrganizationsFeatures : TerraformResource
 {
     public AwsIamOrganizationsFeatures(string name) : base("aws_iam_organizations_features", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("enabled_features");
     }
 
     /// <summary>
     /// The enabled_features attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledFeatures is required")]
-    public HashSet<TerraformProperty<string>> EnabledFeatures
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("enabled_features");
-        set => SetProperty("enabled_features", value);
-    }
+    [TerraformPropertyName("enabled_features")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? EnabledFeatures { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

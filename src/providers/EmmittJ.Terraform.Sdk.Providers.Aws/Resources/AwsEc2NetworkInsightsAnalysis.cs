@@ -9,142 +9,126 @@ public class AwsEc2NetworkInsightsAnalysis : TerraformResource
 {
     public AwsEc2NetworkInsightsAnalysis(string name) : base("aws_ec2_network_insights_analysis", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("alternate_path_hints");
-        SetOutput("arn");
-        SetOutput("explanations");
-        SetOutput("forward_path_components");
-        SetOutput("path_found");
-        SetOutput("return_path_components");
-        SetOutput("start_date");
-        SetOutput("status");
-        SetOutput("status_message");
-        SetOutput("warning_message");
-        SetOutput("filter_in_arns");
-        SetOutput("id");
-        SetOutput("network_insights_path_id");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("wait_for_completion");
     }
 
     /// <summary>
     /// The filter_in_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> FilterInArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("filter_in_arns");
-        set => SetProperty("filter_in_arns", value);
-    }
+    [TerraformPropertyName("filter_in_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? FilterInArns { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The network_insights_path_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInsightsPathId is required")]
-    public required TerraformProperty<string> NetworkInsightsPathId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_insights_path_id");
-        set => SetProperty("network_insights_path_id", value);
-    }
+    [TerraformPropertyName("network_insights_path_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NetworkInsightsPathId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The wait_for_completion attribute.
     /// </summary>
-    public TerraformProperty<bool> WaitForCompletion
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("wait_for_completion");
-        set => SetProperty("wait_for_completion", value);
-    }
+    [TerraformPropertyName("wait_for_completion")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WaitForCompletion { get; set; }
 
     /// <summary>
     /// The alternate_path_hints attribute.
     /// </summary>
-    public TerraformExpression AlternatePathHints => this["alternate_path_hints"];
+    [TerraformPropertyName("alternate_path_hints")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AlternatePathHints => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "alternate_path_hints");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The explanations attribute.
     /// </summary>
-    public TerraformExpression Explanations => this["explanations"];
+    [TerraformPropertyName("explanations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Explanations => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "explanations");
 
     /// <summary>
     /// The forward_path_components attribute.
     /// </summary>
-    public TerraformExpression ForwardPathComponents => this["forward_path_components"];
+    [TerraformPropertyName("forward_path_components")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ForwardPathComponents => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "forward_path_components");
 
     /// <summary>
     /// The path_found attribute.
     /// </summary>
-    public TerraformExpression PathFound => this["path_found"];
+    [TerraformPropertyName("path_found")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PathFound => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "path_found");
 
     /// <summary>
     /// The return_path_components attribute.
     /// </summary>
-    public TerraformExpression ReturnPathComponents => this["return_path_components"];
+    [TerraformPropertyName("return_path_components")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ReturnPathComponents => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "return_path_components");
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
-    public TerraformExpression StartDate => this["start_date"];
+    [TerraformPropertyName("start_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StartDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_date");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
-    public TerraformExpression StatusMessage => this["status_message"];
+    [TerraformPropertyName("status_message")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StatusMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status_message");
 
     /// <summary>
     /// The warning_message attribute.
     /// </summary>
-    public TerraformExpression WarningMessage => this["warning_message"];
+    [TerraformPropertyName("warning_message")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WarningMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "warning_message");
 
 }

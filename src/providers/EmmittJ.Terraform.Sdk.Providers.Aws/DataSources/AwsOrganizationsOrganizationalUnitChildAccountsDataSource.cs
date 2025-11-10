@@ -9,38 +9,28 @@ public class AwsOrganizationsOrganizationalUnitChildAccountsDataSource : Terrafo
 {
     public AwsOrganizationsOrganizationalUnitChildAccountsDataSource(string name) : base("aws_organizations_organizational_unit_child_accounts", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("accounts");
-        SetOutput("id");
-        SetOutput("parent_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
-    public required TerraformProperty<string> ParentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent_id");
-        set => SetProperty("parent_id", value);
-    }
+    [TerraformPropertyName("parent_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ParentId { get; set; }
 
     /// <summary>
     /// The accounts attribute.
     /// </summary>
-    public TerraformExpression Accounts => this["accounts"];
+    [TerraformPropertyName("accounts")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Accounts => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "accounts");
 
 }

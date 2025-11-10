@@ -6,50 +6,45 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
+public class GoogleGkeonpremVmwareNodePoolConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// VMware disk size to be used during creation.
     /// </summary>
-    public TerraformProperty<double>? BootDiskSizeGb
-    {
-        set => SetProperty("boot_disk_size_gb", value);
-    }
+    [TerraformPropertyName("boot_disk_size_gb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BootDiskSizeGb { get; set; }
 
     /// <summary>
     /// The number of CPUs for each node in the node pool.
     /// </summary>
-    public TerraformProperty<double>? Cpus
-    {
-        set => SetProperty("cpus", value);
-    }
+    [TerraformPropertyName("cpus")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Cpus { get; set; }
 
     /// <summary>
     /// Allow node pool traffic to be load balanced. Only works for clusters with
     /// MetalLB load balancers.
     /// </summary>
-    public TerraformProperty<bool>? EnableLoadBalancer
-    {
-        set => SetProperty("enable_load_balancer", value);
-    }
+    [TerraformPropertyName("enable_load_balancer")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableLoadBalancer { get; set; }
 
     /// <summary>
     /// The OS image name in vCenter, only valid when using Windows.
     /// </summary>
-    public TerraformProperty<string>? Image
-    {
-        set => SetProperty("image", value);
-    }
+    [TerraformPropertyName("image")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Image { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "image");
 
     /// <summary>
     /// The OS image to be used for each node in a node pool.
     /// Currently &#39;cos&#39;, &#39;cos_cgv2&#39;, &#39;ubuntu&#39;, &#39;ubuntu_cgv2&#39;, &#39;ubuntu_containerd&#39; and &#39;windows&#39; are supported.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageType is required")]
-    public required TerraformProperty<string> ImageType
-    {
-        set => SetProperty("image_type", value);
-    }
+    [TerraformPropertyName("image_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ImageType { get; set; }
 
     /// <summary>
     /// The map of Kubernetes labels (key/value pairs) to be applied to each node.
@@ -59,26 +54,23 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// the Kubernetes version -- it&#39;s best to assume the behavior is undefined
     /// and conflicts should be avoided.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
-    {
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "labels");
 
     /// <summary>
     /// The megabytes of memory for each node in the node pool.
     /// </summary>
-    public TerraformProperty<double>? MemoryMb
-    {
-        set => SetProperty("memory_mb", value);
-    }
+    [TerraformPropertyName("memory_mb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MemoryMb { get; set; }
 
     /// <summary>
     /// The number of nodes in the node pool.
     /// </summary>
-    public TerraformProperty<double>? Replicas
-    {
-        set => SetProperty("replicas", value);
-    }
+    [TerraformPropertyName("replicas")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Replicas { get; set; }
 
 }
 
@@ -86,25 +78,23 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
 /// Block type for node_pool_autoscaling in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock : TerraformBlock
+public class GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock : ITerraformBlock
 {
     /// <summary>
     /// Maximum number of replicas in the NodePool.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxReplicas is required")]
-    public required TerraformProperty<double> MaxReplicas
-    {
-        set => SetProperty("max_replicas", value);
-    }
+    [TerraformPropertyName("max_replicas")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxReplicas { get; set; }
 
     /// <summary>
     /// Minimum number of replicas in the NodePool.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicas is required")]
-    public required TerraformProperty<double> MinReplicas
-    {
-        set => SetProperty("min_replicas", value);
-    }
+    [TerraformPropertyName("min_replicas")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MinReplicas { get; set; }
 
 }
 
@@ -112,31 +102,28 @@ public class GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleGkeonpremVmwareNodePoolTimeoutsBlock : TerraformBlock
+public class GoogleGkeonpremVmwareNodePoolTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -148,28 +135,6 @@ public class GoogleGkeonpremVmwareNodePool : TerraformResource
 {
     public GoogleGkeonpremVmwareNodePool(string name) : base("google_gkeonprem_vmware_node_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("delete_time");
-        SetOutput("effective_annotations");
-        SetOutput("etag");
-        SetOutput("reconciling");
-        SetOutput("state");
-        SetOutput("status");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("annotations");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("on_prem_version");
-        SetOutput("project");
-        SetOutput("vmware_cluster");
     }
 
     /// <summary>
@@ -186,77 +151,61 @@ public class GoogleGkeonpremVmwareNodePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// The display name for the node pool.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The vmware node pool name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Anthos version for the node pool. Defaults to the user cluster version.
     /// </summary>
-    public TerraformProperty<string> OnPremVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("on_prem_version");
-        set => SetProperty("on_prem_version", value);
-    }
+    [TerraformPropertyName("on_prem_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OnPremVersion { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The cluster this node pool belongs to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareCluster is required")]
-    public required TerraformProperty<string> VmwareCluster
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vmware_cluster");
-        set => SetProperty("vmware_cluster", value);
-    }
+    [TerraformPropertyName("vmware_cluster")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VmwareCluster { get; set; }
 
     /// <summary>
     /// Block for config.
@@ -265,44 +214,44 @@ public class GoogleGkeonpremVmwareNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
-    public List<GoogleGkeonpremVmwareNodePoolConfigBlock>? Config
-    {
-        set => SetProperty("config", value);
-    }
+    [TerraformPropertyName("config")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareNodePoolConfigBlock>>? Config { get; set; } = new();
 
     /// <summary>
     /// Block for node_pool_autoscaling.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodePoolAutoscaling block(s) allowed")]
-    public List<GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock>? NodePoolAutoscaling
-    {
-        set => SetProperty("node_pool_autoscaling", value);
-    }
+    [TerraformPropertyName("node_pool_autoscaling")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock>>? NodePoolAutoscaling { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleGkeonpremVmwareNodePoolTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleGkeonpremVmwareNodePoolTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The time the cluster was deleted, in RFC3339 text format.
     /// </summary>
-    public TerraformExpression DeleteTime => this["delete_time"];
+    [TerraformPropertyName("delete_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeleteTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+    [TerraformPropertyName("effective_annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -311,31 +260,43 @@ public class GoogleGkeonpremVmwareNodePool : TerraformResource
     /// Allows clients to perform consistent read-modify-writes
     /// through optimistic concurrency control.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// If set, there are currently changes in flight to the node pool.
     /// </summary>
-    public TerraformExpression Reconciling => this["reconciling"];
+    [TerraformPropertyName("reconciling")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
 
     /// <summary>
     /// The current state of this cluster.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// ResourceStatus representing detailed cluster state.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Status => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "status");
 
     /// <summary>
     /// The unique identifier of the node pool.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

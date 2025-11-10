@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeEnvKeystoreTimeoutsBlock : TerraformBlock
+public class GoogleApigeeEnvKeystoreTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,15 +31,6 @@ public class GoogleApigeeEnvKeystore : TerraformResource
 {
     public GoogleApigeeEnvKeystore(string name) : base("google_apigee_env_keystore", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("aliases");
-        SetOutput("env_id");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
@@ -49,42 +38,36 @@ public class GoogleApigeeEnvKeystore : TerraformResource
     /// in the format &#39;organizations/{{org_name}}/environments/{{env_name}}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
-    public required TerraformProperty<string> EnvId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("env_id");
-        set => SetProperty("env_id", value);
-    }
+    [TerraformPropertyName("env_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EnvId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the newly created keystore.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeEnvKeystoreTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeEnvKeystoreTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Aliases in this keystore.
     /// </summary>
-    public TerraformExpression Aliases => this["aliases"];
+    [TerraformPropertyName("aliases")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Aliases => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "aliases");
 
 }

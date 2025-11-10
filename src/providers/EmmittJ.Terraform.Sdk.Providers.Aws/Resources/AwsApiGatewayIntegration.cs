@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for tls_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApiGatewayIntegrationTlsConfigBlock : TerraformBlock
+public class AwsApiGatewayIntegrationTlsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The insecure_skip_verification attribute.
     /// </summary>
-    public TerraformProperty<bool>? InsecureSkipVerification
-    {
-        set => SetProperty("insecure_skip_verification", value);
-    }
+    [TerraformPropertyName("insecure_skip_verification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InsecureSkipVerification { get; set; }
 
 }
 
@@ -26,205 +25,144 @@ public class AwsApiGatewayIntegration : TerraformResource
 {
     public AwsApiGatewayIntegration(string name) : base("aws_api_gateway_integration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cache_key_parameters");
-        SetOutput("cache_namespace");
-        SetOutput("connection_id");
-        SetOutput("connection_type");
-        SetOutput("content_handling");
-        SetOutput("credentials");
-        SetOutput("http_method");
-        SetOutput("id");
-        SetOutput("integration_http_method");
-        SetOutput("passthrough_behavior");
-        SetOutput("region");
-        SetOutput("request_parameters");
-        SetOutput("request_templates");
-        SetOutput("resource_id");
-        SetOutput("rest_api_id");
-        SetOutput("timeout_milliseconds");
-        SetOutput("type");
-        SetOutput("uri");
     }
 
     /// <summary>
     /// The cache_key_parameters attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> CacheKeyParameters
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("cache_key_parameters");
-        set => SetProperty("cache_key_parameters", value);
-    }
+    [TerraformPropertyName("cache_key_parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? CacheKeyParameters { get; set; }
 
     /// <summary>
     /// The cache_namespace attribute.
     /// </summary>
-    public TerraformProperty<string> CacheNamespace
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cache_namespace");
-        set => SetProperty("cache_namespace", value);
-    }
+    [TerraformPropertyName("cache_namespace")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CacheNamespace { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cache_namespace");
 
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
-    public TerraformProperty<string> ConnectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connection_id");
-        set => SetProperty("connection_id", value);
-    }
+    [TerraformPropertyName("connection_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConnectionId { get; set; }
 
     /// <summary>
     /// The connection_type attribute.
     /// </summary>
-    public TerraformProperty<string> ConnectionType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connection_type");
-        set => SetProperty("connection_type", value);
-    }
+    [TerraformPropertyName("connection_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConnectionType { get; set; }
 
     /// <summary>
     /// The content_handling attribute.
     /// </summary>
-    public TerraformProperty<string> ContentHandling
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content_handling");
-        set => SetProperty("content_handling", value);
-    }
+    [TerraformPropertyName("content_handling")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContentHandling { get; set; }
 
     /// <summary>
     /// The credentials attribute.
     /// </summary>
-    public TerraformProperty<string> Credentials
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("credentials");
-        set => SetProperty("credentials", value);
-    }
+    [TerraformPropertyName("credentials")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Credentials { get; set; }
 
     /// <summary>
     /// The http_method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
-    public required TerraformProperty<string> HttpMethod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("http_method");
-        set => SetProperty("http_method", value);
-    }
+    [TerraformPropertyName("http_method")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HttpMethod { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The integration_http_method attribute.
     /// </summary>
-    public TerraformProperty<string> IntegrationHttpMethod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("integration_http_method");
-        set => SetProperty("integration_http_method", value);
-    }
+    [TerraformPropertyName("integration_http_method")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IntegrationHttpMethod { get; set; }
 
     /// <summary>
     /// The passthrough_behavior attribute.
     /// </summary>
-    public TerraformProperty<string> PassthroughBehavior
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("passthrough_behavior");
-        set => SetProperty("passthrough_behavior", value);
-    }
+    [TerraformPropertyName("passthrough_behavior")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PassthroughBehavior { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "passthrough_behavior");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The request_parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> RequestParameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("request_parameters");
-        set => SetProperty("request_parameters", value);
-    }
+    [TerraformPropertyName("request_parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? RequestParameters { get; set; }
 
     /// <summary>
     /// The request_templates attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> RequestTemplates
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("request_templates");
-        set => SetProperty("request_templates", value);
-    }
+    [TerraformPropertyName("request_templates")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? RequestTemplates { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
-    public required TerraformProperty<string> ResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
-        set => SetProperty("resource_id", value);
-    }
+    [TerraformPropertyName("resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceId { get; set; }
 
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
-    public required TerraformProperty<string> RestApiId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rest_api_id");
-        set => SetProperty("rest_api_id", value);
-    }
+    [TerraformPropertyName("rest_api_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RestApiId { get; set; }
 
     /// <summary>
     /// The timeout_milliseconds attribute.
     /// </summary>
-    public TerraformProperty<double> TimeoutMilliseconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("timeout_milliseconds");
-        set => SetProperty("timeout_milliseconds", value);
-    }
+    [TerraformPropertyName("timeout_milliseconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TimeoutMilliseconds { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformProperty<string> Uri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("uri");
-        set => SetProperty("uri", value);
-    }
+    [TerraformPropertyName("uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Uri { get; set; }
 
     /// <summary>
     /// Block for tls_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsConfig block(s) allowed")]
-    public List<AwsApiGatewayIntegrationTlsConfigBlock>? TlsConfig
-    {
-        set => SetProperty("tls_config", value);
-    }
+    [TerraformPropertyName("tls_config")]
+    public TerraformList<TerraformBlock<AwsApiGatewayIntegrationTlsConfigBlock>>? TlsConfig { get; set; } = new();
 
 }

@@ -9,109 +9,78 @@ public class GoogleStorageObjectSignedUrlDataSource : TerraformDataSource
 {
     public GoogleStorageObjectSignedUrlDataSource(string name) : base("google_storage_object_signed_url", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("signed_url");
-        SetOutput("bucket");
-        SetOutput("content_md5");
-        SetOutput("content_type");
-        SetOutput("credentials");
-        SetOutput("duration");
-        SetOutput("extension_headers");
-        SetOutput("http_method");
-        SetOutput("id");
-        SetOutput("path");
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The content_md5 attribute.
     /// </summary>
-    public TerraformProperty<string> ContentMd5
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content_md5");
-        set => SetProperty("content_md5", value);
-    }
+    [TerraformPropertyName("content_md5")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContentMd5 { get; set; }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformProperty<string> ContentType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content_type");
-        set => SetProperty("content_type", value);
-    }
+    [TerraformPropertyName("content_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContentType { get; set; }
 
     /// <summary>
     /// The credentials attribute.
     /// </summary>
-    public TerraformProperty<string> Credentials
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("credentials");
-        set => SetProperty("credentials", value);
-    }
+    [TerraformPropertyName("credentials")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Credentials { get; set; }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public TerraformProperty<string> Duration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("duration");
-        set => SetProperty("duration", value);
-    }
+    [TerraformPropertyName("duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Duration { get; set; }
 
     /// <summary>
     /// The extension_headers attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> ExtensionHeaders
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("extension_headers");
-        set => SetProperty("extension_headers", value);
-    }
+    [TerraformPropertyName("extension_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ExtensionHeaders { get; set; }
 
     /// <summary>
     /// The http_method attribute.
     /// </summary>
-    public TerraformProperty<string> HttpMethod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("http_method");
-        set => SetProperty("http_method", value);
-    }
+    [TerraformPropertyName("http_method")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HttpMethod { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    public required TerraformProperty<string> Path
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("path");
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Path { get; set; }
 
     /// <summary>
     /// The signed_url attribute.
     /// </summary>
-    public TerraformExpression SignedUrl => this["signed_url"];
+    [TerraformPropertyName("signed_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SignedUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signed_url");
 
 }

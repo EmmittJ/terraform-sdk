@@ -6,80 +6,71 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for s_sl_info in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
+public class GoogleApigeeTargetServerSSlInfoBlock : ITerraformBlock
 {
     /// <summary>
     /// The SSL/TLS cipher suites to be used. For programmable proxies, it must be one of the cipher suite names listed in: http://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#ciphersuites. For configurable proxies, it must follow the configuration specified in: https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#Cipher-suite-configuration. This setting has no effect for configurable proxies when negotiating TLS 1.3.
     /// </summary>
-    public List<TerraformProperty<string>>? Ciphers
-    {
-        set => SetProperty("ciphers", value);
-    }
+    [TerraformPropertyName("ciphers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Ciphers { get; set; }
 
     /// <summary>
     /// Enables two-way TLS.
     /// </summary>
-    public TerraformProperty<bool>? ClientAuthEnabled
-    {
-        set => SetProperty("client_auth_enabled", value);
-    }
+    [TerraformPropertyName("client_auth_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ClientAuthEnabled { get; set; }
 
     /// <summary>
     /// Enables TLS. If false, neither one-way nor two-way TLS will be enabled.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// If true, TLS is strictly enforced.
     /// </summary>
-    public TerraformProperty<bool>? Enforce
-    {
-        set => SetProperty("enforce", value);
-    }
+    [TerraformPropertyName("enforce")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enforce { get; set; }
 
     /// <summary>
     /// If true, Edge ignores TLS certificate errors. Valid when configuring TLS for target servers and target endpoints, and when configuring virtual hosts that use 2-way TLS. When used with a target endpoint/target server, if the backend system uses SNI and returns a cert with a subject Distinguished Name (DN) that does not match the hostname, there is no way to ignore the error and the connection fails.
     /// </summary>
-    public TerraformProperty<bool>? IgnoreValidationErrors
-    {
-        set => SetProperty("ignore_validation_errors", value);
-    }
+    [TerraformPropertyName("ignore_validation_errors")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IgnoreValidationErrors { get; set; }
 
     /// <summary>
     /// Required if clientAuthEnabled is true. The resource ID for the alias containing the private key and cert.
     /// </summary>
-    public TerraformProperty<string>? KeyAlias
-    {
-        set => SetProperty("key_alias", value);
-    }
+    [TerraformPropertyName("key_alias")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyAlias { get; set; }
 
     /// <summary>
     /// Required if clientAuthEnabled is true. The resource ID of the keystore.
     /// </summary>
-    public TerraformProperty<string>? KeyStore
-    {
-        set => SetProperty("key_store", value);
-    }
+    [TerraformPropertyName("key_store")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyStore { get; set; }
 
     /// <summary>
     /// The TLS versioins to be used.
     /// </summary>
-    public List<TerraformProperty<string>>? Protocols
-    {
-        set => SetProperty("protocols", value);
-    }
+    [TerraformPropertyName("protocols")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Protocols { get; set; }
 
     /// <summary>
     /// The resource ID of the truststore.
     /// </summary>
-    public TerraformProperty<string>? TrustStore
-    {
-        set => SetProperty("trust_store", value);
-    }
+    [TerraformPropertyName("trust_store")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TrustStore { get; set; }
 
 }
 
@@ -87,31 +78,28 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeTargetServerTimeoutsBlock : TerraformBlock
+public class GoogleApigeeTargetServerTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -123,115 +111,82 @@ public class GoogleApigeeTargetServer : TerraformResource
 {
     public GoogleApigeeTargetServer(string name) : base("google_apigee_target_server", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("env_id");
-        SetOutput("host");
-        SetOutput("id");
-        SetOutput("is_enabled");
-        SetOutput("name");
-        SetOutput("port");
-        SetOutput("protocol");
     }
 
     /// <summary>
     /// A human-readable description of this TargetServer.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The Apigee environment group associated with the Apigee environment,
     /// in the format &#39;organizations/{{org_name}}/environments/{{env_name}}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
-    public required TerraformProperty<string> EnvId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("env_id");
-        set => SetProperty("env_id", value);
-    }
+    [TerraformPropertyName("env_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EnvId { get; set; }
 
     /// <summary>
     /// The host name this target connects to. Value must be a valid hostname as described by RFC-1123.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
-    public required TerraformProperty<string> Host
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("host");
-        set => SetProperty("host", value);
-    }
+    [TerraformPropertyName("host")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Host { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Enabling/disabling a TargetServer is useful when TargetServers are used in load balancing configurations, and one or more TargetServers need to taken out of rotation periodically. Defaults to true.
     /// </summary>
-    public TerraformProperty<bool> IsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_enabled");
-        set => SetProperty("is_enabled", value);
-    }
+    [TerraformPropertyName("is_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsEnabled { get; set; }
 
     /// <summary>
     /// The resource id of this reference. Values must match the regular expression [\w\s-.]+.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The port number this target connects to on the given host. Value must be between 1 and 65535, inclusive.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    public required TerraformProperty<double> Port
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("port");
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Port { get; set; }
 
     /// <summary>
     /// Immutable. The protocol used by this TargetServer. Possible values: [&amp;quot;HTTP&amp;quot;, &amp;quot;HTTP2&amp;quot;, &amp;quot;GRPC_TARGET&amp;quot;, &amp;quot;GRPC&amp;quot;, &amp;quot;EXTERNAL_CALLOUT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> Protocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Protocol { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protocol");
 
     /// <summary>
     /// Block for s_sl_info.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SSlInfo block(s) allowed")]
-    public List<GoogleApigeeTargetServerSSlInfoBlock>? SSlInfo
-    {
-        set => SetProperty("s_sl_info", value);
-    }
+    [TerraformPropertyName("s_sl_info")]
+    public TerraformList<TerraformBlock<GoogleApigeeTargetServerSSlInfoBlock>>? SSlInfo { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeTargetServerTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeTargetServerTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

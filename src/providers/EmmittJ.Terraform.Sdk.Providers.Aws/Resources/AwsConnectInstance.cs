@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsConnectInstanceTimeoutsBlock : TerraformBlock
+public class AwsConnectInstanceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,187 +31,142 @@ public class AwsConnectInstance : TerraformResource
 {
     public AwsConnectInstance(string name) : base("aws_connect_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("created_time");
-        SetOutput("service_role");
-        SetOutput("status");
-        SetOutput("auto_resolve_best_voices_enabled");
-        SetOutput("contact_flow_logs_enabled");
-        SetOutput("contact_lens_enabled");
-        SetOutput("directory_id");
-        SetOutput("early_media_enabled");
-        SetOutput("id");
-        SetOutput("identity_management_type");
-        SetOutput("inbound_calls_enabled");
-        SetOutput("instance_alias");
-        SetOutput("multi_party_conference_enabled");
-        SetOutput("outbound_calls_enabled");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The auto_resolve_best_voices_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoResolveBestVoicesEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_resolve_best_voices_enabled");
-        set => SetProperty("auto_resolve_best_voices_enabled", value);
-    }
+    [TerraformPropertyName("auto_resolve_best_voices_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoResolveBestVoicesEnabled { get; set; }
 
     /// <summary>
     /// The contact_flow_logs_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ContactFlowLogsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("contact_flow_logs_enabled");
-        set => SetProperty("contact_flow_logs_enabled", value);
-    }
+    [TerraformPropertyName("contact_flow_logs_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ContactFlowLogsEnabled { get; set; }
 
     /// <summary>
     /// The contact_lens_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ContactLensEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("contact_lens_enabled");
-        set => SetProperty("contact_lens_enabled", value);
-    }
+    [TerraformPropertyName("contact_lens_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ContactLensEnabled { get; set; }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public TerraformProperty<string> DirectoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
-        set => SetProperty("directory_id", value);
-    }
+    [TerraformPropertyName("directory_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DirectoryId { get; set; }
 
     /// <summary>
     /// The early_media_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> EarlyMediaEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("early_media_enabled");
-        set => SetProperty("early_media_enabled", value);
-    }
+    [TerraformPropertyName("early_media_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EarlyMediaEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The identity_management_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityManagementType is required")]
-    public required TerraformProperty<string> IdentityManagementType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_management_type");
-        set => SetProperty("identity_management_type", value);
-    }
+    [TerraformPropertyName("identity_management_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IdentityManagementType { get; set; }
 
     /// <summary>
     /// The inbound_calls_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InboundCallsEnabled is required")]
-    public required TerraformProperty<bool> InboundCallsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("inbound_calls_enabled");
-        set => SetProperty("inbound_calls_enabled", value);
-    }
+    [TerraformPropertyName("inbound_calls_enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> InboundCallsEnabled { get; set; }
 
     /// <summary>
     /// The instance_alias attribute.
     /// </summary>
-    public TerraformProperty<string> InstanceAlias
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_alias");
-        set => SetProperty("instance_alias", value);
-    }
+    [TerraformPropertyName("instance_alias")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InstanceAlias { get; set; }
 
     /// <summary>
     /// The multi_party_conference_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> MultiPartyConferenceEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("multi_party_conference_enabled");
-        set => SetProperty("multi_party_conference_enabled", value);
-    }
+    [TerraformPropertyName("multi_party_conference_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MultiPartyConferenceEnabled { get; set; }
 
     /// <summary>
     /// The outbound_calls_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutboundCallsEnabled is required")]
-    public required TerraformProperty<bool> OutboundCallsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("outbound_calls_enabled");
-        set => SetProperty("outbound_calls_enabled", value);
-    }
+    [TerraformPropertyName("outbound_calls_enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> OutboundCallsEnabled { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsConnectInstanceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsConnectInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
-    public TerraformExpression CreatedTime => this["created_time"];
+    [TerraformPropertyName("created_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_time");
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
-    public TerraformExpression ServiceRole => this["service_role"];
+    [TerraformPropertyName("service_role")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceRole => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_role");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

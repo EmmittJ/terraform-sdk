@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,76 +24,64 @@ public class AzurermPrivateDnsResolverForwardingRuleDataSource : TerraformDataSo
 {
     public AzurermPrivateDnsResolverForwardingRuleDataSource(string name) : base("azurerm_private_dns_resolver_forwarding_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("domain_name");
-        SetOutput("enabled");
-        SetOutput("metadata");
-        SetOutput("target_dns_servers");
-        SetOutput("dns_forwarding_ruleset_id");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The dns_forwarding_ruleset_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
-    public required TerraformProperty<string> DnsForwardingRulesetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dns_forwarding_ruleset_id");
-        set => SetProperty("dns_forwarding_ruleset_id", value);
-    }
+    [TerraformPropertyName("dns_forwarding_ruleset_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DnsForwardingRulesetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformExpression DomainName => this["domain_name"];
+    [TerraformPropertyName("domain_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DomainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_name");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformExpression Enabled => this["enabled"];
+    [TerraformPropertyName("enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Enabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enabled");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformExpression Metadata => this["metadata"];
+    [TerraformPropertyName("metadata")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Metadata => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "metadata");
 
     /// <summary>
     /// The target_dns_servers attribute.
     /// </summary>
-    public TerraformExpression TargetDnsServers => this["target_dns_servers"];
+    [TerraformPropertyName("target_dns_servers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TargetDnsServers => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "target_dns_servers");
 
 }

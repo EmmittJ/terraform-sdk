@@ -9,16 +9,6 @@ public class GoogleComputeAddressesDataSource : TerraformDataSource
 {
     public GoogleComputeAddressesDataSource(string name) : base("google_compute_addresses", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("addresses");
-        SetOutput("filter");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
@@ -45,42 +35,36 @@ public class GoogleComputeAddressesDataSource : TerraformDataSource
     /// (cpuPlatform = &amp;quot;Intel Skylake&amp;quot;) OR (cpuPlatform = &amp;quot;Intel Broadwell&amp;quot;)
     /// AND (scheduling.automaticRestart = true) &amp;quot;&amp;quot;&amp;quot;
     /// </summary>
-    public TerraformProperty<string> Filter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filter");
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The google project in which addresses are listed. Defaults to provider&#39;s configuration if missing.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Region that should be considered to search addresses. All regions are considered if missing.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
     /// <summary>
     /// The addresses attribute.
     /// </summary>
-    public TerraformExpression Addresses => this["addresses"];
+    [TerraformPropertyName("addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Addresses => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "addresses");
 
 }

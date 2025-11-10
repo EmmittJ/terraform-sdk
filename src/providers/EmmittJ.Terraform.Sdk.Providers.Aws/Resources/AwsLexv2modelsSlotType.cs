@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for composite_slot_type_setting in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock : TerraformBlock
+public class AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock : ITerraformBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock : TerraformBloc
 /// Block type for external_source_setting in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsSlotTypeExternalSourceSettingBlock : TerraformBlock
+public class AwsLexv2modelsSlotTypeExternalSourceSettingBlock : ITerraformBlock
 {
 }
 
@@ -22,7 +22,7 @@ public class AwsLexv2modelsSlotTypeExternalSourceSettingBlock : TerraformBlock
 /// Block type for slot_type_values in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsSlotTypeSlotTypeValuesBlock : TerraformBlock
+public class AwsLexv2modelsSlotTypeSlotTypeValuesBlock : ITerraformBlock
 {
 }
 
@@ -30,31 +30,28 @@ public class AwsLexv2modelsSlotTypeSlotTypeValuesBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLexv2modelsSlotTypeTimeoutsBlock : TerraformBlock
+public class AwsLexv2modelsSlotTypeTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -62,16 +59,15 @@ public class AwsLexv2modelsSlotTypeTimeoutsBlock : TerraformBlock
 /// Block type for value_selection_setting in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsSlotTypeValueSelectionSettingBlock : TerraformBlock
+public class AwsLexv2modelsSlotTypeValueSelectionSettingBlock : ITerraformBlock
 {
     /// <summary>
     /// The resolution_strategy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResolutionStrategy is required")]
-    public required TerraformProperty<string> ResolutionStrategy
-    {
-        set => SetProperty("resolution_strategy", value);
-    }
+    [TerraformPropertyName("resolution_strategy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResolutionStrategy { get; set; }
 
 }
 
@@ -82,142 +78,108 @@ public class AwsLexv2modelsSlotType : TerraformResource
 {
     public AwsLexv2modelsSlotType(string name) : base("aws_lexv2models_slot_type", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("slot_type_id");
-        SetOutput("bot_id");
-        SetOutput("bot_version");
-        SetOutput("description");
-        SetOutput("locale_id");
-        SetOutput("name");
-        SetOutput("parent_slot_type_signature");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The bot_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
-    public required TerraformProperty<string> BotId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bot_id");
-        set => SetProperty("bot_id", value);
-    }
+    [TerraformPropertyName("bot_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BotId { get; set; }
 
     /// <summary>
     /// The bot_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
-    public required TerraformProperty<string> BotVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bot_version");
-        set => SetProperty("bot_version", value);
-    }
+    [TerraformPropertyName("bot_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BotVersion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The locale_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
-    public required TerraformProperty<string> LocaleId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("locale_id");
-        set => SetProperty("locale_id", value);
-    }
+    [TerraformPropertyName("locale_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LocaleId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parent_slot_type_signature attribute.
     /// </summary>
-    public TerraformProperty<string> ParentSlotTypeSignature
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent_slot_type_signature");
-        set => SetProperty("parent_slot_type_signature", value);
-    }
+    [TerraformPropertyName("parent_slot_type_signature")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ParentSlotTypeSignature { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for composite_slot_type_setting.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock>? CompositeSlotTypeSetting
-    {
-        set => SetProperty("composite_slot_type_setting", value);
-    }
+    [TerraformPropertyName("composite_slot_type_setting")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock>>? CompositeSlotTypeSetting { get; set; } = new();
 
     /// <summary>
     /// Block for external_source_setting.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsSlotTypeExternalSourceSettingBlock>? ExternalSourceSetting
-    {
-        set => SetProperty("external_source_setting", value);
-    }
+    [TerraformPropertyName("external_source_setting")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeExternalSourceSettingBlock>>? ExternalSourceSetting { get; set; } = new();
 
     /// <summary>
     /// Block for slot_type_values.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsSlotTypeSlotTypeValuesBlock>? SlotTypeValues
-    {
-        set => SetProperty("slot_type_values", value);
-    }
+    [TerraformPropertyName("slot_type_values")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeSlotTypeValuesBlock>>? SlotTypeValues { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsLexv2modelsSlotTypeTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsLexv2modelsSlotTypeTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for value_selection_setting.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsSlotTypeValueSelectionSettingBlock>? ValueSelectionSetting
-    {
-        set => SetProperty("value_selection_setting", value);
-    }
+    [TerraformPropertyName("value_selection_setting")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsSlotTypeValueSelectionSettingBlock>>? ValueSelectionSetting { get; set; } = new();
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The slot_type_id attribute.
     /// </summary>
-    public TerraformExpression SlotTypeId => this["slot_type_id"];
+    [TerraformPropertyName("slot_type_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SlotTypeId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "slot_type_id");
 
 }

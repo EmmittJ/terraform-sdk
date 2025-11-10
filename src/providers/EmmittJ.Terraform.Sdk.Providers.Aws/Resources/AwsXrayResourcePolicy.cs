@@ -9,69 +9,50 @@ public class AwsXrayResourcePolicy : TerraformResource
 {
     public AwsXrayResourcePolicy(string name) : base("aws_xray_resource_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("last_updated_time");
-        SetOutput("bypass_policy_lockout_check");
-        SetOutput("policy_document");
-        SetOutput("policy_name");
-        SetOutput("policy_revision_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The bypass_policy_lockout_check attribute.
     /// </summary>
-    public TerraformProperty<bool> BypassPolicyLockoutCheck
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("bypass_policy_lockout_check");
-        set => SetProperty("bypass_policy_lockout_check", value);
-    }
+    [TerraformPropertyName("bypass_policy_lockout_check")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BypassPolicyLockoutCheck { get; set; }
 
     /// <summary>
     /// The policy_document attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
-    public required TerraformProperty<string> PolicyDocument
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_document");
-        set => SetProperty("policy_document", value);
-    }
+    [TerraformPropertyName("policy_document")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyDocument { get; set; }
 
     /// <summary>
     /// The policy_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyName is required")]
-    public required TerraformProperty<string> PolicyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_name");
-        set => SetProperty("policy_name", value);
-    }
+    [TerraformPropertyName("policy_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyName { get; set; }
 
     /// <summary>
     /// The policy_revision_id attribute.
     /// </summary>
-    public TerraformProperty<string> PolicyRevisionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_revision_id");
-        set => SetProperty("policy_revision_id", value);
-    }
+    [TerraformPropertyName("policy_revision_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PolicyRevisionId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy_revision_id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
-    public TerraformExpression LastUpdatedTime => this["last_updated_time"];
+    [TerraformPropertyName("last_updated_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastUpdatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_updated_time");
 
 }

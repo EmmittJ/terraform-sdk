@@ -9,57 +9,41 @@ public class GoogleServiceAccountsDataSource : TerraformDataSource
 {
     public GoogleServiceAccountsDataSource(string name) : base("google_service_accounts", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("accounts");
-        SetOutput("id");
-        SetOutput("prefix");
-        SetOutput("project");
-        SetOutput("regex");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string> Prefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("prefix");
-        set => SetProperty("prefix", value);
-    }
+    [TerraformPropertyName("prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Prefix { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The regex attribute.
     /// </summary>
-    public TerraformProperty<string> Regex
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("regex");
-        set => SetProperty("regex", value);
-    }
+    [TerraformPropertyName("regex")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Regex { get; set; }
 
     /// <summary>
     /// The accounts attribute.
     /// </summary>
-    public TerraformExpression Accounts => this["accounts"];
+    [TerraformPropertyName("accounts")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Accounts => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "accounts");
 
 }

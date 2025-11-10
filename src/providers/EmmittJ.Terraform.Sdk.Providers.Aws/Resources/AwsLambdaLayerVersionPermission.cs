@@ -9,118 +9,88 @@ public class AwsLambdaLayerVersionPermission : TerraformResource
 {
     public AwsLambdaLayerVersionPermission(string name) : base("aws_lambda_layer_version_permission", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("policy");
-        SetOutput("revision_id");
-        SetOutput("action");
-        SetOutput("id");
-        SetOutput("layer_name");
-        SetOutput("organization_id");
-        SetOutput("principal");
-        SetOutput("region");
-        SetOutput("skip_destroy");
-        SetOutput("statement_id");
-        SetOutput("version_number");
     }
 
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("action");
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The layer_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
-    public required TerraformProperty<string> LayerName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("layer_name");
-        set => SetProperty("layer_name", value);
-    }
+    [TerraformPropertyName("layer_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LayerName { get; set; }
 
     /// <summary>
     /// The organization_id attribute.
     /// </summary>
-    public TerraformProperty<string> OrganizationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("organization_id");
-        set => SetProperty("organization_id", value);
-    }
+    [TerraformPropertyName("organization_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OrganizationId { get; set; }
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
-    public required TerraformProperty<string> Principal
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal");
-        set => SetProperty("principal", value);
-    }
+    [TerraformPropertyName("principal")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
-        set => SetProperty("skip_destroy", value);
-    }
+    [TerraformPropertyName("skip_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The statement_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatementId is required")]
-    public required TerraformProperty<string> StatementId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("statement_id");
-        set => SetProperty("statement_id", value);
-    }
+    [TerraformPropertyName("statement_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StatementId { get; set; }
 
     /// <summary>
     /// The version_number attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionNumber is required")]
-    public required TerraformProperty<double> VersionNumber
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("version_number");
-        set => SetProperty("version_number", value);
-    }
+    [TerraformPropertyName("version_number")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> VersionNumber { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformExpression Policy => this["policy"];
+    [TerraformPropertyName("policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Policy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy");
 
     /// <summary>
     /// The revision_id attribute.
     /// </summary>
-    public TerraformExpression RevisionId => this["revision_id"];
+    [TerraformPropertyName("revision_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RevisionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "revision_id");
 
 }

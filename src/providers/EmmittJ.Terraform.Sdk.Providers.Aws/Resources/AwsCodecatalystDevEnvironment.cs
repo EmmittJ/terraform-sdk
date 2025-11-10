@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ides in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodecatalystDevEnvironmentIdesBlock : TerraformBlock
+public class AwsCodecatalystDevEnvironmentIdesBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
-    public TerraformProperty<string>? Runtime
-    {
-        set => SetProperty("runtime", value);
-    }
+    [TerraformPropertyName("runtime")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Runtime { get; set; }
 
 }
 
@@ -30,16 +28,15 @@ public class AwsCodecatalystDevEnvironmentIdesBlock : TerraformBlock
 /// Block type for persistent_storage in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodecatalystDevEnvironmentPersistentStorageBlock : TerraformBlock
+public class AwsCodecatalystDevEnvironmentPersistentStorageBlock : ITerraformBlock
 {
     /// <summary>
     /// The size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
-    public required TerraformProperty<double> Size
-    {
-        set => SetProperty("size", value);
-    }
+    [TerraformPropertyName("size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Size { get; set; }
 
 }
 
@@ -47,24 +44,22 @@ public class AwsCodecatalystDevEnvironmentPersistentStorageBlock : TerraformBloc
 /// Block type for repositories in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodecatalystDevEnvironmentRepositoriesBlock : TerraformBlock
+public class AwsCodecatalystDevEnvironmentRepositoriesBlock : ITerraformBlock
 {
     /// <summary>
     /// The branch_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BranchName
-    {
-        set => SetProperty("branch_name", value);
-    }
+    [TerraformPropertyName("branch_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BranchName { get; set; }
 
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
-    public required TerraformProperty<string> RepositoryName
-    {
-        set => SetProperty("repository_name", value);
-    }
+    [TerraformPropertyName("repository_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RepositoryName { get; set; }
 
 }
 
@@ -72,31 +67,28 @@ public class AwsCodecatalystDevEnvironmentRepositoriesBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsCodecatalystDevEnvironmentTimeoutsBlock : TerraformBlock
+public class AwsCodecatalystDevEnvironmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -108,85 +100,59 @@ public class AwsCodecatalystDevEnvironment : TerraformResource
 {
     public AwsCodecatalystDevEnvironment(string name) : base("aws_codecatalyst_dev_environment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("alias");
-        SetOutput("id");
-        SetOutput("inactivity_timeout_minutes");
-        SetOutput("instance_type");
-        SetOutput("project_name");
-        SetOutput("region");
-        SetOutput("space_name");
     }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformProperty<string> Alias
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alias");
-        set => SetProperty("alias", value);
-    }
+    [TerraformPropertyName("alias")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Alias { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The inactivity_timeout_minutes attribute.
     /// </summary>
-    public TerraformProperty<double> InactivityTimeoutMinutes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("inactivity_timeout_minutes");
-        set => SetProperty("inactivity_timeout_minutes", value);
-    }
+    [TerraformPropertyName("inactivity_timeout_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InactivityTimeoutMinutes { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    public required TerraformProperty<string> InstanceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceType { get; set; }
 
     /// <summary>
     /// The project_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
-    public required TerraformProperty<string> ProjectName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project_name");
-        set => SetProperty("project_name", value);
-    }
+    [TerraformPropertyName("project_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProjectName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The space_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
-    public required TerraformProperty<string> SpaceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("space_name");
-        set => SetProperty("space_name", value);
-    }
+    [TerraformPropertyName("space_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SpaceName { get; set; }
 
     /// <summary>
     /// Block for ides.
@@ -195,10 +161,8 @@ public class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ides is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Ides block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ides block(s) allowed")]
-    public List<AwsCodecatalystDevEnvironmentIdesBlock>? Ides
-    {
-        set => SetProperty("ides", value);
-    }
+    [TerraformPropertyName("ides")]
+    public TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentIdesBlock>>? Ides { get; set; } = new();
 
     /// <summary>
     /// Block for persistent_storage.
@@ -207,28 +171,22 @@ public class AwsCodecatalystDevEnvironment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PersistentStorage is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PersistentStorage block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistentStorage block(s) allowed")]
-    public List<AwsCodecatalystDevEnvironmentPersistentStorageBlock>? PersistentStorage
-    {
-        set => SetProperty("persistent_storage", value);
-    }
+    [TerraformPropertyName("persistent_storage")]
+    public TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentPersistentStorageBlock>>? PersistentStorage { get; set; } = new();
 
     /// <summary>
     /// Block for repositories.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Repositories block(s) allowed")]
-    public List<AwsCodecatalystDevEnvironmentRepositoriesBlock>? Repositories
-    {
-        set => SetProperty("repositories", value);
-    }
+    [TerraformPropertyName("repositories")]
+    public TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentRepositoriesBlock>>? Repositories { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsCodecatalystDevEnvironmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsCodecatalystDevEnvironmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

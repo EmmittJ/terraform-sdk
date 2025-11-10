@@ -9,80 +9,77 @@ public class AwsBedrockInferenceProfileDataSource : TerraformDataSource
 {
     public AwsBedrockInferenceProfileDataSource(string name) : base("aws_bedrock_inference_profile", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("created_at");
-        SetOutput("description");
-        SetOutput("inference_profile_arn");
-        SetOutput("inference_profile_name");
-        SetOutput("models");
-        SetOutput("status");
-        SetOutput("type");
-        SetOutput("updated_at");
-        SetOutput("inference_profile_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The inference_profile_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InferenceProfileId is required")]
-    public required TerraformProperty<string> InferenceProfileId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("inference_profile_id");
-        set => SetProperty("inference_profile_id", value);
-    }
+    [TerraformPropertyName("inference_profile_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InferenceProfileId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The inference_profile_arn attribute.
     /// </summary>
-    public TerraformExpression InferenceProfileArn => this["inference_profile_arn"];
+    [TerraformPropertyName("inference_profile_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InferenceProfileArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "inference_profile_arn");
 
     /// <summary>
     /// The inference_profile_name attribute.
     /// </summary>
-    public TerraformExpression InferenceProfileName => this["inference_profile_name"];
+    [TerraformPropertyName("inference_profile_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InferenceProfileName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "inference_profile_name");
 
     /// <summary>
     /// The models attribute.
     /// </summary>
-    public TerraformExpression Models => this["models"];
+    [TerraformPropertyName("models")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Models => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "models");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
-    public TerraformExpression UpdatedAt => this["updated_at"];
+    [TerraformPropertyName("updated_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "updated_at");
 
 }

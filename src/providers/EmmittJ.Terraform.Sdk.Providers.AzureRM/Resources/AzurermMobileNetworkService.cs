@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for pcc_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMobileNetworkServicePccRuleBlock : TerraformBlock
+public class AzurermMobileNetworkServicePccRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The precedence attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Precedence is required")]
-    public required TerraformProperty<double> Precedence
-    {
-        set => SetProperty("precedence", value);
-    }
+    [TerraformPropertyName("precedence")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Precedence { get; set; }
 
     /// <summary>
     /// The traffic_control_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TrafficControlEnabled
-    {
-        set => SetProperty("traffic_control_enabled", value);
-    }
+    [TerraformPropertyName("traffic_control_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TrafficControlEnabled { get; set; }
 
 }
 
@@ -40,39 +37,35 @@ public class AzurermMobileNetworkServicePccRuleBlock : TerraformBlock
 /// Block type for service_qos_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMobileNetworkServiceServiceQosPolicyBlock : TerraformBlock
+public class AzurermMobileNetworkServiceServiceQosPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The allocation_and_retention_priority_level attribute.
     /// </summary>
-    public TerraformProperty<double>? AllocationAndRetentionPriorityLevel
-    {
-        set => SetProperty("allocation_and_retention_priority_level", value);
-    }
+    [TerraformPropertyName("allocation_and_retention_priority_level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AllocationAndRetentionPriorityLevel { get; set; }
 
     /// <summary>
     /// The preemption_capability attribute.
     /// </summary>
-    public TerraformProperty<string>? PreemptionCapability
-    {
-        set => SetProperty("preemption_capability", value);
-    }
+    [TerraformPropertyName("preemption_capability")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PreemptionCapability { get; set; }
 
     /// <summary>
     /// The preemption_vulnerability attribute.
     /// </summary>
-    public TerraformProperty<string>? PreemptionVulnerability
-    {
-        set => SetProperty("preemption_vulnerability", value);
-    }
+    [TerraformPropertyName("preemption_vulnerability")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PreemptionVulnerability { get; set; }
 
     /// <summary>
     /// The qos_indicator attribute.
     /// </summary>
-    public TerraformProperty<double>? QosIndicator
-    {
-        set => SetProperty("qos_indicator", value);
-    }
+    [TerraformPropertyName("qos_indicator")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? QosIndicator { get; set; }
 
 }
 
@@ -80,39 +73,35 @@ public class AzurermMobileNetworkServiceServiceQosPolicyBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMobileNetworkServiceTimeoutsBlock : TerraformBlock
+public class AzurermMobileNetworkServiceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -124,76 +113,53 @@ public class AzurermMobileNetworkService : TerraformResource
 {
     public AzurermMobileNetworkService(string name) : base("azurerm_mobile_network_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("mobile_network_id");
-        SetOutput("name");
-        SetOutput("service_precedence");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The mobile_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
-    public required TerraformProperty<string> MobileNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mobile_network_id");
-        set => SetProperty("mobile_network_id", value);
-    }
+    [TerraformPropertyName("mobile_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MobileNetworkId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The service_precedence attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrecedence is required")]
-    public required TerraformProperty<double> ServicePrecedence
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("service_precedence");
-        set => SetProperty("service_precedence", value);
-    }
+    [TerraformPropertyName("service_precedence")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ServicePrecedence { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for pcc_rule.
@@ -201,28 +167,22 @@ public class AzurermMobileNetworkService : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PccRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PccRule block(s) required")]
-    public List<AzurermMobileNetworkServicePccRuleBlock>? PccRule
-    {
-        set => SetProperty("pcc_rule", value);
-    }
+    [TerraformPropertyName("pcc_rule")]
+    public TerraformList<TerraformBlock<AzurermMobileNetworkServicePccRuleBlock>>? PccRule { get; set; } = new();
 
     /// <summary>
     /// Block for service_qos_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceQosPolicy block(s) allowed")]
-    public List<AzurermMobileNetworkServiceServiceQosPolicyBlock>? ServiceQosPolicy
-    {
-        set => SetProperty("service_qos_policy", value);
-    }
+    [TerraformPropertyName("service_qos_policy")]
+    public TerraformList<TerraformBlock<AzurermMobileNetworkServiceServiceQosPolicyBlock>>? ServiceQosPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMobileNetworkServiceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMobileNetworkServiceTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

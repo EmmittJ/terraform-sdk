@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCosmosdbCassandraClusterIdentityBlock : TerraformBlock
+public class AzurermCosmosdbCassandraClusterIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -39,39 +36,35 @@ public class AzurermCosmosdbCassandraClusterIdentityBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCosmosdbCassandraClusterTimeoutsBlock : TerraformBlock
+public class AzurermCosmosdbCassandraClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -83,175 +76,124 @@ public class AzurermCosmosdbCassandraCluster : TerraformResource
 {
     public AzurermCosmosdbCassandraCluster(string name) : base("azurerm_cosmosdb_cassandra_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("authentication_method");
-        SetOutput("client_certificate_pems");
-        SetOutput("default_admin_password");
-        SetOutput("delegated_management_subnet_id");
-        SetOutput("external_gossip_certificate_pems");
-        SetOutput("external_seed_node_ip_addresses");
-        SetOutput("hours_between_backups");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("repair_enabled");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The authentication_method attribute.
     /// </summary>
-    public TerraformProperty<string> AuthenticationMethod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_method");
-        set => SetProperty("authentication_method", value);
-    }
+    [TerraformPropertyName("authentication_method")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthenticationMethod { get; set; }
 
     /// <summary>
     /// The client_certificate_pems attribute.
     /// </summary>
-    public List<TerraformProperty<string>> ClientCertificatePems
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("client_certificate_pems");
-        set => SetProperty("client_certificate_pems", value);
-    }
+    [TerraformPropertyName("client_certificate_pems")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ClientCertificatePems { get; set; }
 
     /// <summary>
     /// The default_admin_password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAdminPassword is required")]
-    public required TerraformProperty<string> DefaultAdminPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_admin_password");
-        set => SetProperty("default_admin_password", value);
-    }
+    [TerraformPropertyName("default_admin_password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DefaultAdminPassword { get; set; }
 
     /// <summary>
     /// The delegated_management_subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedManagementSubnetId is required")]
-    public required TerraformProperty<string> DelegatedManagementSubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("delegated_management_subnet_id");
-        set => SetProperty("delegated_management_subnet_id", value);
-    }
+    [TerraformPropertyName("delegated_management_subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DelegatedManagementSubnetId { get; set; }
 
     /// <summary>
     /// The external_gossip_certificate_pems attribute.
     /// </summary>
-    public List<TerraformProperty<string>> ExternalGossipCertificatePems
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("external_gossip_certificate_pems");
-        set => SetProperty("external_gossip_certificate_pems", value);
-    }
+    [TerraformPropertyName("external_gossip_certificate_pems")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ExternalGossipCertificatePems { get; set; }
 
     /// <summary>
     /// The external_seed_node_ip_addresses attribute.
     /// </summary>
-    public List<TerraformProperty<string>> ExternalSeedNodeIpAddresses
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("external_seed_node_ip_addresses");
-        set => SetProperty("external_seed_node_ip_addresses", value);
-    }
+    [TerraformPropertyName("external_seed_node_ip_addresses")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ExternalSeedNodeIpAddresses { get; set; }
 
     /// <summary>
     /// The hours_between_backups attribute.
     /// </summary>
-    public TerraformProperty<double> HoursBetweenBackups
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("hours_between_backups");
-        set => SetProperty("hours_between_backups", value);
-    }
+    [TerraformPropertyName("hours_between_backups")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? HoursBetweenBackups { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The repair_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> RepairEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("repair_enabled");
-        set => SetProperty("repair_enabled", value);
-    }
+    [TerraformPropertyName("repair_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RepairEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermCosmosdbCassandraClusterIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermCosmosdbCassandraClusterIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCosmosdbCassandraClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCosmosdbCassandraClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

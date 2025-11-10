@@ -6,17 +6,16 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for audio_processing_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCesAppAudioProcessingConfigBlock : TerraformBlock
+public class GoogleCesAppAudioProcessingConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The duration of user inactivity (no speech or interaction) before the agent
     /// prompts the user for reengagement. If not set, the agent will not prompt
     /// the user for reengagement.
     /// </summary>
-    public TerraformProperty<string>? InactivityTimeout
-    {
-        set => SetProperty("inactivity_timeout", value);
-    }
+    [TerraformPropertyName("inactivity_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InactivityTimeout { get; set; }
 
 }
 
@@ -24,15 +23,14 @@ public class GoogleCesAppAudioProcessingConfigBlock : TerraformBlock
 /// Block type for data_store_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCesAppDataStoreSettingsBlock : TerraformBlock
+public class GoogleCesAppDataStoreSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The engines for the app.
     /// </summary>
-    public List<TerraformProperty<object>>? Engines
-    {
-        set => SetProperty("engines", value);
-    }
+    [TerraformPropertyName("engines")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Engines => new TerraformReferenceProperty<List<TerraformProperty<object>>>("", "engines");
 
 }
 
@@ -40,7 +38,7 @@ public class GoogleCesAppDataStoreSettingsBlock : TerraformBlock
 /// Block type for default_channel_profile in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCesAppDefaultChannelProfileBlock : TerraformBlock
+public class GoogleCesAppDefaultChannelProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The type of the channel profile.
@@ -52,36 +50,32 @@ public class GoogleCesAppDefaultChannelProfileBlock : TerraformBlock
     /// GOOGLE_TELEPHONY_PLATFORM
     /// CONTACT_CENTER_AS_A_SERVICE
     /// </summary>
-    public TerraformProperty<string>? ChannelType
-    {
-        set => SetProperty("channel_type", value);
-    }
+    [TerraformPropertyName("channel_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ChannelType { get; set; }
 
     /// <summary>
     /// Whether to disable user barge-in in the conversation.
     /// - true: User interruptions are disabled while the agent is speaking.
     /// - false: The agent retains automatic control over when the user can interrupt.
     /// </summary>
-    public TerraformProperty<bool>? DisableBargeInControl
-    {
-        set => SetProperty("disable_barge_in_control", value);
-    }
+    [TerraformPropertyName("disable_barge_in_control")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DisableBargeInControl { get; set; }
 
     /// <summary>
     /// Whether to disable DTMF (dual-tone multi-frequency).
     /// </summary>
-    public TerraformProperty<bool>? DisableDtmf
-    {
-        set => SetProperty("disable_dtmf", value);
-    }
+    [TerraformPropertyName("disable_dtmf")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DisableDtmf { get; set; }
 
     /// <summary>
     /// The unique identifier of the channel profile.
     /// </summary>
-    public TerraformProperty<string>? ProfileId
-    {
-        set => SetProperty("profile_id", value);
-    }
+    [TerraformPropertyName("profile_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProfileId { get; set; }
 
 }
 
@@ -89,7 +83,7 @@ public class GoogleCesAppDefaultChannelProfileBlock : TerraformBlock
 /// Block type for evaluation_metrics_thresholds in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCesAppEvaluationMetricsThresholdsBlock : TerraformBlock
+public class GoogleCesAppEvaluationMetricsThresholdsBlock : ITerraformBlock
 {
 }
 
@@ -97,24 +91,22 @@ public class GoogleCesAppEvaluationMetricsThresholdsBlock : TerraformBlock
 /// Block type for language_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCesAppLanguageSettingsBlock : TerraformBlock
+public class GoogleCesAppLanguageSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The default language code of the app.
     /// </summary>
-    public TerraformProperty<string>? DefaultLanguageCode
-    {
-        set => SetProperty("default_language_code", value);
-    }
+    [TerraformPropertyName("default_language_code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultLanguageCode { get; set; }
 
     /// <summary>
     /// Enables multilingual support. If true, agents in the app will use pre-built
     /// instructions to improve handling of multilingual input.
     /// </summary>
-    public TerraformProperty<bool>? EnableMultilingualSupport
-    {
-        set => SetProperty("enable_multilingual_support", value);
-    }
+    [TerraformPropertyName("enable_multilingual_support")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableMultilingualSupport { get; set; }
 
     /// <summary>
     /// The action to perform when an agent receives input in an unsupported
@@ -126,19 +118,17 @@ public class GoogleCesAppLanguageSettingsBlock : TerraformBlock
     /// an EndSession signal with corresponding metadata
     /// to terminate the conversation.
     /// </summary>
-    public TerraformProperty<string>? FallbackAction
-    {
-        set => SetProperty("fallback_action", value);
-    }
+    [TerraformPropertyName("fallback_action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FallbackAction { get; set; }
 
     /// <summary>
     /// List of languages codes supported by the app, in addition to the
     /// &#39;default_language_code&#39;.
     /// </summary>
-    public List<TerraformProperty<string>>? SupportedLanguageCodes
-    {
-        set => SetProperty("supported_language_codes", value);
-    }
+    [TerraformPropertyName("supported_language_codes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SupportedLanguageCodes { get; set; }
 
 }
 
@@ -146,7 +136,7 @@ public class GoogleCesAppLanguageSettingsBlock : TerraformBlock
 /// Block type for logging_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCesAppLoggingSettingsBlock : TerraformBlock
+public class GoogleCesAppLoggingSettingsBlock : ITerraformBlock
 {
 }
 
@@ -154,16 +144,15 @@ public class GoogleCesAppLoggingSettingsBlock : TerraformBlock
 /// Block type for model_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCesAppModelSettingsBlock : TerraformBlock
+public class GoogleCesAppModelSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The LLM model that the agent should use.
     /// If not set, the agent will inherit the model from its parent agent.
     /// </summary>
-    public TerraformProperty<string>? Model
-    {
-        set => SetProperty("model", value);
-    }
+    [TerraformPropertyName("model")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Model { get; set; }
 
     /// <summary>
     /// If set, this temperature will be used for the LLM model. Temperature
@@ -171,10 +160,9 @@ public class GoogleCesAppModelSettingsBlock : TerraformBlock
     /// produce responses that are more predictable. Higher temperatures produce
     /// responses that are more creative.
     /// </summary>
-    public TerraformProperty<double>? Temperature
-    {
-        set => SetProperty("temperature", value);
-    }
+    [TerraformPropertyName("temperature")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Temperature { get; set; }
 
 }
 
@@ -182,15 +170,14 @@ public class GoogleCesAppModelSettingsBlock : TerraformBlock
 /// Block type for time_zone_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCesAppTimeZoneSettingsBlock : TerraformBlock
+public class GoogleCesAppTimeZoneSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The time zone of the app from the time zone database, e.g., America/Los_Angeles, Europe/Paris.
     /// </summary>
-    public TerraformProperty<string>? TimeZone
-    {
-        set => SetProperty("time_zone", value);
-    }
+    [TerraformPropertyName("time_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TimeZone { get; set; }
 
 }
 
@@ -198,31 +185,28 @@ public class GoogleCesAppTimeZoneSettingsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCesAppTimeoutsBlock : TerraformBlock
+public class GoogleCesAppTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -230,26 +214,24 @@ public class GoogleCesAppTimeoutsBlock : TerraformBlock
 /// Block type for variable_declarations in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCesAppVariableDeclarationsBlock : TerraformBlock
+public class GoogleCesAppVariableDeclarationsBlock : ITerraformBlock
 {
     /// <summary>
     /// The description of the variable.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
-    public required TerraformProperty<string> Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Description { get; set; }
 
     /// <summary>
     /// The name of the variable. The name must start with a letter or underscore
     /// and contain only letters, numbers, or underscores.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -261,26 +243,6 @@ public class GoogleCesApp : TerraformResource
 {
     public GoogleCesApp(string name) : base("google_ces_app", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("deployment_count");
-        SetOutput("etag");
-        SetOutput("name");
-        SetOutput("update_time");
-        SetOutput("app_id");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("global_instruction");
-        SetOutput("guardrails");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("metadata");
-        SetOutput("project");
-        SetOutput("root_agent");
     }
 
     /// <summary>
@@ -289,225 +251,195 @@ public class GoogleCesApp : TerraformResource
     /// automatically assigned for the app.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
-    public required TerraformProperty<string> AppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
-        set => SetProperty("app_id", value);
-    }
+    [TerraformPropertyName("app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppId { get; set; }
 
     /// <summary>
     /// Human-readable description of the app.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// Display name of the app.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// Instructions for all the agents in the app.
     /// You can use this instruction to set up a stable identity or personality
     /// across all the agents.
     /// </summary>
-    public TerraformProperty<string> GlobalInstruction
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("global_instruction");
-        set => SetProperty("global_instruction", value);
-    }
+    [TerraformPropertyName("global_instruction")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GlobalInstruction { get; set; }
 
     /// <summary>
     /// List of guardrails for the app.
     /// Format:
     /// &#39;projects/{project}/locations/{location}/apps/{app}/guardrails/{guardrail}&#39;
     /// </summary>
-    public List<TerraformProperty<string>> Guardrails
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("guardrails");
-        set => SetProperty("guardrails", value);
-    }
+    [TerraformPropertyName("guardrails")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Guardrails { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// Metadata about the app. This field can be used to store additional
     /// information relevant to the app&#39;s details or intended usages.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Metadata
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => SetProperty("metadata", value);
-    }
+    [TerraformPropertyName("metadata")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Metadata { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The root agent is the entry point of the app.
     /// Format: &#39;projects/{project}/locations/{location}/apps/{app}/agents/{agent}&#39;
     /// </summary>
-    public TerraformProperty<string> RootAgent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("root_agent");
-        set => SetProperty("root_agent", value);
-    }
+    [TerraformPropertyName("root_agent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RootAgent { get; set; }
 
     /// <summary>
     /// Block for audio_processing_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AudioProcessingConfig block(s) allowed")]
-    public List<GoogleCesAppAudioProcessingConfigBlock>? AudioProcessingConfig
-    {
-        set => SetProperty("audio_processing_config", value);
-    }
+    [TerraformPropertyName("audio_processing_config")]
+    public TerraformList<TerraformBlock<GoogleCesAppAudioProcessingConfigBlock>>? AudioProcessingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for data_store_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataStoreSettings block(s) allowed")]
-    public List<GoogleCesAppDataStoreSettingsBlock>? DataStoreSettings
-    {
-        set => SetProperty("data_store_settings", value);
-    }
+    [TerraformPropertyName("data_store_settings")]
+    public TerraformList<TerraformBlock<GoogleCesAppDataStoreSettingsBlock>>? DataStoreSettings { get; set; } = new();
 
     /// <summary>
     /// Block for default_channel_profile.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultChannelProfile block(s) allowed")]
-    public List<GoogleCesAppDefaultChannelProfileBlock>? DefaultChannelProfile
-    {
-        set => SetProperty("default_channel_profile", value);
-    }
+    [TerraformPropertyName("default_channel_profile")]
+    public TerraformList<TerraformBlock<GoogleCesAppDefaultChannelProfileBlock>>? DefaultChannelProfile { get; set; } = new();
 
     /// <summary>
     /// Block for evaluation_metrics_thresholds.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EvaluationMetricsThresholds block(s) allowed")]
-    public List<GoogleCesAppEvaluationMetricsThresholdsBlock>? EvaluationMetricsThresholds
-    {
-        set => SetProperty("evaluation_metrics_thresholds", value);
-    }
+    [TerraformPropertyName("evaluation_metrics_thresholds")]
+    public TerraformList<TerraformBlock<GoogleCesAppEvaluationMetricsThresholdsBlock>>? EvaluationMetricsThresholds { get; set; } = new();
 
     /// <summary>
     /// Block for language_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LanguageSettings block(s) allowed")]
-    public List<GoogleCesAppLanguageSettingsBlock>? LanguageSettings
-    {
-        set => SetProperty("language_settings", value);
-    }
+    [TerraformPropertyName("language_settings")]
+    public TerraformList<TerraformBlock<GoogleCesAppLanguageSettingsBlock>>? LanguageSettings { get; set; } = new();
 
     /// <summary>
     /// Block for logging_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingSettings block(s) allowed")]
-    public List<GoogleCesAppLoggingSettingsBlock>? LoggingSettings
-    {
-        set => SetProperty("logging_settings", value);
-    }
+    [TerraformPropertyName("logging_settings")]
+    public TerraformList<TerraformBlock<GoogleCesAppLoggingSettingsBlock>>? LoggingSettings { get; set; } = new();
 
     /// <summary>
     /// Block for model_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModelSettings block(s) allowed")]
-    public List<GoogleCesAppModelSettingsBlock>? ModelSettings
-    {
-        set => SetProperty("model_settings", value);
-    }
+    [TerraformPropertyName("model_settings")]
+    public TerraformList<TerraformBlock<GoogleCesAppModelSettingsBlock>>? ModelSettings { get; set; } = new();
 
     /// <summary>
     /// Block for time_zone_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimeZoneSettings block(s) allowed")]
-    public List<GoogleCesAppTimeZoneSettingsBlock>? TimeZoneSettings
-    {
-        set => SetProperty("time_zone_settings", value);
-    }
+    [TerraformPropertyName("time_zone_settings")]
+    public TerraformList<TerraformBlock<GoogleCesAppTimeZoneSettingsBlock>>? TimeZoneSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleCesAppTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleCesAppTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for variable_declarations.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleCesAppVariableDeclarationsBlock>? VariableDeclarations
-    {
-        set => SetProperty("variable_declarations", value);
-    }
+    [TerraformPropertyName("variable_declarations")]
+    public TerraformList<TerraformBlock<GoogleCesAppVariableDeclarationsBlock>>? VariableDeclarations { get; set; } = new();
 
     /// <summary>
     /// Timestamp when the app was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Number of deployments in the app.
     /// </summary>
-    public TerraformExpression DeploymentCount => this["deployment_count"];
+    [TerraformPropertyName("deployment_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DeploymentCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "deployment_count");
 
     /// <summary>
     /// Etag used to ensure the object hasn&#39;t changed during a read-modify-write
     /// operation. If the etag is empty, the update will overwrite any concurrent
     /// changes.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// Identifier. The unique identifier of the app.
     /// Format: &#39;projects/{project}/locations/{location}/apps/{app}&#39;
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Timestamp when the app was last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

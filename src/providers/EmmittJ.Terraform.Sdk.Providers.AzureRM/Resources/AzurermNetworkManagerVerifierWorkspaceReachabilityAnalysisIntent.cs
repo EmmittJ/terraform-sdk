@@ -6,52 +6,47 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_traffic in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock : TerraformBlock
+public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock : ITerraformBlock
 {
     /// <summary>
     /// The destination_ips attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIps is required")]
-    public List<TerraformProperty<string>>? DestinationIps
-    {
-        set => SetProperty("destination_ips", value);
-    }
+    [TerraformPropertyName("destination_ips")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? DestinationIps { get; set; }
 
     /// <summary>
     /// The destination_ports attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPorts is required")]
-    public List<TerraformProperty<string>>? DestinationPorts
-    {
-        set => SetProperty("destination_ports", value);
-    }
+    [TerraformPropertyName("destination_ports")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? DestinationPorts { get; set; }
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
-    public List<TerraformProperty<string>>? Protocols
-    {
-        set => SetProperty("protocols", value);
-    }
+    [TerraformPropertyName("protocols")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Protocols { get; set; }
 
     /// <summary>
     /// The source_ips attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIps is required")]
-    public List<TerraformProperty<string>>? SourceIps
-    {
-        set => SetProperty("source_ips", value);
-    }
+    [TerraformPropertyName("source_ips")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? SourceIps { get; set; }
 
     /// <summary>
     /// The source_ports attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePorts is required")]
-    public List<TerraformProperty<string>>? SourcePorts
-    {
-        set => SetProperty("source_ports", value);
-    }
+    [TerraformPropertyName("source_ports")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? SourcePorts { get; set; }
 
 }
 
@@ -59,31 +54,28 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock : TerraformBlock
+public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -95,76 +87,53 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
 {
     public AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(string name) : base("azurerm_network_manager_verifier_workspace_reachability_analysis_intent", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("destination_resource_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("source_resource_id");
-        SetOutput("verifier_workspace_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The destination_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationResourceId is required")]
-    public required TerraformProperty<string> DestinationResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_resource_id");
-        set => SetProperty("destination_resource_id", value);
-    }
+    [TerraformPropertyName("destination_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DestinationResourceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
-    public required TerraformProperty<string> SourceResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_resource_id");
-        set => SetProperty("source_resource_id", value);
-    }
+    [TerraformPropertyName("source_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceResourceId { get; set; }
 
     /// <summary>
     /// The verifier_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifierWorkspaceId is required")]
-    public required TerraformProperty<string> VerifierWorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("verifier_workspace_id");
-        set => SetProperty("verifier_workspace_id", value);
-    }
+    [TerraformPropertyName("verifier_workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VerifierWorkspaceId { get; set; }
 
     /// <summary>
     /// Block for ip_traffic.
@@ -173,18 +142,14 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpTraffic is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpTraffic block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpTraffic block(s) allowed")]
-    public List<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock>? IpTraffic
-    {
-        set => SetProperty("ip_traffic", value);
-    }
+    [TerraformPropertyName("ip_traffic")]
+    public TerraformList<TerraformBlock<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock>>? IpTraffic { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

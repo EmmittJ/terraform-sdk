@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPolicyVirtualMachineConfigurationAssignmentDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermPolicyVirtualMachineConfigurationAssignmentDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,99 +24,86 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentDataSource : Terr
 {
     public AzurermPolicyVirtualMachineConfigurationAssignmentDataSource(string name) : base("azurerm_policy_virtual_machine_configuration_assignment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("assignment_hash");
-        SetOutput("compliance_status");
-        SetOutput("content_hash");
-        SetOutput("content_uri");
-        SetOutput("last_compliance_status_checked");
-        SetOutput("latest_report_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("virtual_machine_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The virtual_machine_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineName is required")]
-    public required TerraformProperty<string> VirtualMachineName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_name");
-        set => SetProperty("virtual_machine_name", value);
-    }
+    [TerraformPropertyName("virtual_machine_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualMachineName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermPolicyVirtualMachineConfigurationAssignmentDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermPolicyVirtualMachineConfigurationAssignmentDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The assignment_hash attribute.
     /// </summary>
-    public TerraformExpression AssignmentHash => this["assignment_hash"];
+    [TerraformPropertyName("assignment_hash")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AssignmentHash => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "assignment_hash");
 
     /// <summary>
     /// The compliance_status attribute.
     /// </summary>
-    public TerraformExpression ComplianceStatus => this["compliance_status"];
+    [TerraformPropertyName("compliance_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ComplianceStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "compliance_status");
 
     /// <summary>
     /// The content_hash attribute.
     /// </summary>
-    public TerraformExpression ContentHash => this["content_hash"];
+    [TerraformPropertyName("content_hash")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContentHash => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content_hash");
 
     /// <summary>
     /// The content_uri attribute.
     /// </summary>
-    public TerraformExpression ContentUri => this["content_uri"];
+    [TerraformPropertyName("content_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContentUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content_uri");
 
     /// <summary>
     /// The last_compliance_status_checked attribute.
     /// </summary>
-    public TerraformExpression LastComplianceStatusChecked => this["last_compliance_status_checked"];
+    [TerraformPropertyName("last_compliance_status_checked")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastComplianceStatusChecked => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_compliance_status_checked");
 
     /// <summary>
     /// The latest_report_id attribute.
     /// </summary>
-    public TerraformExpression LatestReportId => this["latest_report_id"];
+    [TerraformPropertyName("latest_report_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LatestReportId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "latest_report_id");
 
 }

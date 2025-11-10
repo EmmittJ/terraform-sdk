@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for labels in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleDeploymentManagerDeploymentLabelsBlock : TerraformBlock
+public class GoogleDeploymentManagerDeploymentLabelsBlock : ITerraformBlock
 {
     /// <summary>
     /// Key for label.
     /// </summary>
-    public TerraformProperty<string>? Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Key { get; set; }
 
     /// <summary>
     /// Value of label.
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -30,7 +28,7 @@ public class GoogleDeploymentManagerDeploymentLabelsBlock : TerraformBlock
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDeploymentManagerDeploymentTargetBlock : TerraformBlock
+public class GoogleDeploymentManagerDeploymentTargetBlock : ITerraformBlock
 {
 }
 
@@ -38,31 +36,28 @@ public class GoogleDeploymentManagerDeploymentTargetBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDeploymentManagerDeploymentTimeoutsBlock : TerraformBlock
+public class GoogleDeploymentManagerDeploymentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -74,21 +69,6 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
 {
     public GoogleDeploymentManagerDeployment(string name) : base("google_deployment_manager_deployment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("deployment_id");
-        SetOutput("manifest");
-        SetOutput("self_link");
-        SetOutput("create_policy");
-        SetOutput("delete_policy");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("preview");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -98,11 +78,9 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// the deployment will fail. Note that updating this field does not
     /// actually affect the deployment, just how it is updated. Default value: &amp;quot;CREATE_OR_ACQUIRE&amp;quot; Possible values: [&amp;quot;ACQUIRE&amp;quot;, &amp;quot;CREATE_OR_ACQUIRE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> CreatePolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("create_policy");
-        set => SetProperty("create_policy", value);
-    }
+    [TerraformPropertyName("create_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CreatePolicy { get; set; }
 
     /// <summary>
     /// Set the policy to use for deleting new resources on update/delete.
@@ -112,39 +90,31 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// and is not actually deleted. Note that updating this field does not
     /// actually change the deployment, just how it is updated. Default value: &amp;quot;DELETE&amp;quot; Possible values: [&amp;quot;ABANDON&amp;quot;, &amp;quot;DELETE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> DeletePolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("delete_policy");
-        set => SetProperty("delete_policy", value);
-    }
+    [TerraformPropertyName("delete_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeletePolicy { get; set; }
 
     /// <summary>
     /// Optional user-provided description of deployment.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Unique name for the deployment
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// If set to true, a deployment is created with &amp;quot;shell&amp;quot; resources
@@ -156,29 +126,23 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// Terraform will force-recreate deployments if either preview is updated
     /// to true or if other fields are updated while preview is true.
     /// </summary>
-    public TerraformProperty<bool> Preview
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("preview");
-        set => SetProperty("preview", value);
-    }
+    [TerraformPropertyName("preview")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Preview { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for labels.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<GoogleDeploymentManagerDeploymentLabelsBlock>? Labels
-    {
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    public TerraformSet<TerraformBlock<GoogleDeploymentManagerDeploymentLabelsBlock>>? Labels { get; set; } = new();
 
     /// <summary>
     /// Block for target.
@@ -187,34 +151,36 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
-    public List<GoogleDeploymentManagerDeploymentTargetBlock>? Target
-    {
-        set => SetProperty("target", value);
-    }
+    [TerraformPropertyName("target")]
+    public TerraformList<TerraformBlock<GoogleDeploymentManagerDeploymentTargetBlock>>? Target { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDeploymentManagerDeploymentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDeploymentManagerDeploymentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Unique identifier for deployment. Output only.
     /// </summary>
-    public TerraformExpression DeploymentId => this["deployment_id"];
+    [TerraformPropertyName("deployment_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeploymentId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deployment_id");
 
     /// <summary>
     /// Output only. URL of the manifest representing the last manifest that
     /// was successfully deployed.
     /// </summary>
-    public TerraformExpression Manifest => this["manifest"];
+    [TerraformPropertyName("manifest")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Manifest => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "manifest");
 
     /// <summary>
     /// Output only. Server defined URL for the resource.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
 }

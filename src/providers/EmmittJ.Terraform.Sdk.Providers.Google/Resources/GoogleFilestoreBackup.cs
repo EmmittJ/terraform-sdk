@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFilestoreBackupTimeoutsBlock : TerraformBlock
+public class GoogleFilestoreBackupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,48 +38,21 @@ public class GoogleFilestoreBackup : TerraformResource
 {
     public GoogleFilestoreBackup(string name) : base("google_filestore_backup", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("capacity_gb");
-        SetOutput("create_time");
-        SetOutput("download_bytes");
-        SetOutput("effective_labels");
-        SetOutput("kms_key_name");
-        SetOutput("source_instance_tier");
-        SetOutput("state");
-        SetOutput("storage_bytes");
-        SetOutput("terraform_labels");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("source_file_share");
-        SetOutput("source_instance");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// A description of the backup with 2048 characters or less. Requests with longer descriptions will be rejected.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -91,21 +61,17 @@ public class GoogleFilestoreBackup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The resource name of the backup. The name must be unique within the specified instance.
@@ -118,40 +84,32 @@ public class GoogleFilestoreBackup : TerraformResource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Name of the file share in the source Cloud Filestore instance that the backup is created from.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileShare is required")]
-    public required TerraformProperty<string> SourceFileShare
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_file_share");
-        set => SetProperty("source_file_share", value);
-    }
+    [TerraformPropertyName("source_file_share")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceFileShare { get; set; }
 
     /// <summary>
     /// The resource name of the source Cloud Filestore instance, in the format projects/{projectId}/locations/{locationId}/instances/{instanceId}, used to create this backup.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstance is required")]
-    public required TerraformProperty<string> SourceInstance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_instance");
-        set => SetProperty("source_instance", value);
-    }
+    [TerraformPropertyName("source_instance")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceInstance { get; set; }
 
     /// <summary>
     /// A map of resource manager tags.
@@ -159,65 +117,79 @@ public class GoogleFilestoreBackup : TerraformResource
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// The field is ignored (both PUT &amp;amp; PATCH) when empty.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleFilestoreBackupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleFilestoreBackupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The amount of bytes needed to allocate a full copy of the snapshot content.
     /// </summary>
-    public TerraformExpression CapacityGb => this["capacity_gb"];
+    [TerraformPropertyName("capacity_gb")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CapacityGb => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "capacity_gb");
 
     /// <summary>
     /// The time when the snapshot was created in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Amount of bytes that will be downloaded if the backup is restored.
     /// </summary>
-    public TerraformExpression DownloadBytes => this["download_bytes"];
+    [TerraformPropertyName("download_bytes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DownloadBytes => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "download_bytes");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// KMS key name used for data encryption.
     /// </summary>
-    public TerraformExpression KmsKeyName => this["kms_key_name"];
+    [TerraformPropertyName("kms_key_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsKeyName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_name");
 
     /// <summary>
     /// The service tier of the source Cloud Filestore instance that this backup is created from.
     /// </summary>
-    public TerraformExpression SourceInstanceTier => this["source_instance_tier"];
+    [TerraformPropertyName("source_instance_tier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceInstanceTier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_instance_tier");
 
     /// <summary>
     /// The backup state.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The size of the storage used by the backup. As backups share storage, this number is expected to change with backup creation/deletion.
     /// </summary>
-    public TerraformExpression StorageBytes => this["storage_bytes"];
+    [TerraformPropertyName("storage_bytes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StorageBytes => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_bytes");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

@@ -6,47 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for analytics_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoManagedUserPoolClientAnalyticsConfigurationBlock : TerraformBlock
+public class AwsCognitoManagedUserPoolClientAnalyticsConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The application_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationArn
-    {
-        set => SetProperty("application_arn", value);
-    }
+    [TerraformPropertyName("application_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ApplicationArn { get; set; }
 
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
-    {
-        set => SetProperty("application_id", value);
-    }
+    [TerraformPropertyName("application_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ApplicationId { get; set; }
 
     /// <summary>
     /// The external_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ExternalId
-    {
-        set => SetProperty("external_id", value);
-    }
+    [TerraformPropertyName("external_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExternalId { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
-    {
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> RoleArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "role_arn");
 
     /// <summary>
     /// The user_data_shared attribute.
     /// </summary>
-    public TerraformProperty<bool>? UserDataShared
-    {
-        set => SetProperty("user_data_shared", value);
-    }
+    [TerraformPropertyName("user_data_shared")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> UserDataShared { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "user_data_shared");
 
 }
 
@@ -54,24 +49,22 @@ public class AwsCognitoManagedUserPoolClientAnalyticsConfigurationBlock : Terraf
 /// Block type for refresh_token_rotation in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoManagedUserPoolClientRefreshTokenRotationBlock : TerraformBlock
+public class AwsCognitoManagedUserPoolClientRefreshTokenRotationBlock : ITerraformBlock
 {
     /// <summary>
     /// The feature attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
-    public required TerraformProperty<string> Feature
-    {
-        set => SetProperty("feature", value);
-    }
+    [TerraformPropertyName("feature")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Feature { get; set; }
 
     /// <summary>
     /// The retry_grace_period_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? RetryGracePeriodSeconds
-    {
-        set => SetProperty("retry_grace_period_seconds", value);
-    }
+    [TerraformPropertyName("retry_grace_period_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RetryGracePeriodSeconds { get; set; }
 
 }
 
@@ -79,31 +72,28 @@ public class AwsCognitoManagedUserPoolClientRefreshTokenRotationBlock : Terrafor
 /// Block type for token_validity_units in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoManagedUserPoolClientTokenValidityUnitsBlock : TerraformBlock
+public class AwsCognitoManagedUserPoolClientTokenValidityUnitsBlock : ITerraformBlock
 {
     /// <summary>
     /// The access_token attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessToken
-    {
-        set => SetProperty("access_token", value);
-    }
+    [TerraformPropertyName("access_token")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AccessToken { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "access_token");
 
     /// <summary>
     /// The id_token attribute.
     /// </summary>
-    public TerraformProperty<string>? IdToken
-    {
-        set => SetProperty("id_token", value);
-    }
+    [TerraformPropertyName("id_token")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IdToken { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "id_token");
 
     /// <summary>
     /// The refresh_token attribute.
     /// </summary>
-    public TerraformProperty<string>? RefreshToken
-    {
-        set => SetProperty("refresh_token", value);
-    }
+    [TerraformPropertyName("refresh_token")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> RefreshToken { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "refresh_token");
 
 }
 
@@ -114,267 +104,196 @@ public class AwsCognitoManagedUserPoolClient : TerraformResource
 {
     public AwsCognitoManagedUserPoolClient(string name) : base("aws_cognito_managed_user_pool_client", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("client_secret");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("access_token_validity");
-        SetOutput("allowed_oauth_flows");
-        SetOutput("allowed_oauth_flows_user_pool_client");
-        SetOutput("allowed_oauth_scopes");
-        SetOutput("auth_session_validity");
-        SetOutput("callback_urls");
-        SetOutput("default_redirect_uri");
-        SetOutput("enable_propagate_additional_user_context_data");
-        SetOutput("enable_token_revocation");
-        SetOutput("explicit_auth_flows");
-        SetOutput("id_token_validity");
-        SetOutput("logout_urls");
-        SetOutput("name_pattern");
-        SetOutput("name_prefix");
-        SetOutput("prevent_user_existence_errors");
-        SetOutput("read_attributes");
-        SetOutput("refresh_token_validity");
-        SetOutput("region");
-        SetOutput("supported_identity_providers");
-        SetOutput("user_pool_id");
-        SetOutput("write_attributes");
     }
 
     /// <summary>
     /// The access_token_validity attribute.
     /// </summary>
-    public TerraformProperty<double> AccessTokenValidity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("access_token_validity");
-        set => SetProperty("access_token_validity", value);
-    }
+    [TerraformPropertyName("access_token_validity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> AccessTokenValidity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "access_token_validity");
 
     /// <summary>
     /// The allowed_oauth_flows attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AllowedOauthFlows
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("allowed_oauth_flows");
-        set => SetProperty("allowed_oauth_flows", value);
-    }
+    [TerraformPropertyName("allowed_oauth_flows")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AllowedOauthFlows { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "allowed_oauth_flows");
 
     /// <summary>
     /// The allowed_oauth_flows_user_pool_client attribute.
     /// </summary>
-    public TerraformProperty<bool> AllowedOauthFlowsUserPoolClient
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allowed_oauth_flows_user_pool_client");
-        set => SetProperty("allowed_oauth_flows_user_pool_client", value);
-    }
+    [TerraformPropertyName("allowed_oauth_flows_user_pool_client")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> AllowedOauthFlowsUserPoolClient { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "allowed_oauth_flows_user_pool_client");
 
     /// <summary>
     /// The allowed_oauth_scopes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AllowedOauthScopes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("allowed_oauth_scopes");
-        set => SetProperty("allowed_oauth_scopes", value);
-    }
+    [TerraformPropertyName("allowed_oauth_scopes")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AllowedOauthScopes { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "allowed_oauth_scopes");
 
     /// <summary>
     /// The auth_session_validity attribute.
     /// </summary>
-    public TerraformProperty<double> AuthSessionValidity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("auth_session_validity");
-        set => SetProperty("auth_session_validity", value);
-    }
+    [TerraformPropertyName("auth_session_validity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> AuthSessionValidity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "auth_session_validity");
 
     /// <summary>
     /// The callback_urls attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> CallbackUrls
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("callback_urls");
-        set => SetProperty("callback_urls", value);
-    }
+    [TerraformPropertyName("callback_urls")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> CallbackUrls { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "callback_urls");
 
     /// <summary>
     /// The default_redirect_uri attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultRedirectUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_redirect_uri");
-        set => SetProperty("default_redirect_uri", value);
-    }
+    [TerraformPropertyName("default_redirect_uri")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DefaultRedirectUri { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_redirect_uri");
 
     /// <summary>
     /// The enable_propagate_additional_user_context_data attribute.
     /// </summary>
-    public TerraformProperty<bool> EnablePropagateAdditionalUserContextData
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_propagate_additional_user_context_data");
-        set => SetProperty("enable_propagate_additional_user_context_data", value);
-    }
+    [TerraformPropertyName("enable_propagate_additional_user_context_data")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnablePropagateAdditionalUserContextData { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_propagate_additional_user_context_data");
 
     /// <summary>
     /// The enable_token_revocation attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableTokenRevocation
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_token_revocation");
-        set => SetProperty("enable_token_revocation", value);
-    }
+    [TerraformPropertyName("enable_token_revocation")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnableTokenRevocation { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_token_revocation");
 
     /// <summary>
     /// The explicit_auth_flows attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ExplicitAuthFlows
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("explicit_auth_flows");
-        set => SetProperty("explicit_auth_flows", value);
-    }
+    [TerraformPropertyName("explicit_auth_flows")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> ExplicitAuthFlows { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "explicit_auth_flows");
 
     /// <summary>
     /// The id_token_validity attribute.
     /// </summary>
-    public TerraformProperty<double> IdTokenValidity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("id_token_validity");
-        set => SetProperty("id_token_validity", value);
-    }
+    [TerraformPropertyName("id_token_validity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> IdTokenValidity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "id_token_validity");
 
     /// <summary>
     /// The logout_urls attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> LogoutUrls
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("logout_urls");
-        set => SetProperty("logout_urls", value);
-    }
+    [TerraformPropertyName("logout_urls")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> LogoutUrls { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "logout_urls");
 
     /// <summary>
     /// The name_pattern attribute.
     /// </summary>
-    public TerraformProperty<string> NamePattern
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_pattern");
-        set => SetProperty("name_pattern", value);
-    }
+    [TerraformPropertyName("name_pattern")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NamePattern { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NamePrefix { get; set; }
 
     /// <summary>
     /// The prevent_user_existence_errors attribute.
     /// </summary>
-    public TerraformProperty<string> PreventUserExistenceErrors
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("prevent_user_existence_errors");
-        set => SetProperty("prevent_user_existence_errors", value);
-    }
+    [TerraformPropertyName("prevent_user_existence_errors")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PreventUserExistenceErrors { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "prevent_user_existence_errors");
 
     /// <summary>
     /// The read_attributes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ReadAttributes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("read_attributes");
-        set => SetProperty("read_attributes", value);
-    }
+    [TerraformPropertyName("read_attributes")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> ReadAttributes { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "read_attributes");
 
     /// <summary>
     /// The refresh_token_validity attribute.
     /// </summary>
-    public TerraformProperty<double> RefreshTokenValidity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("refresh_token_validity");
-        set => SetProperty("refresh_token_validity", value);
-    }
+    [TerraformPropertyName("refresh_token_validity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> RefreshTokenValidity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "refresh_token_validity");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The supported_identity_providers attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SupportedIdentityProviders
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("supported_identity_providers");
-        set => SetProperty("supported_identity_providers", value);
-    }
+    [TerraformPropertyName("supported_identity_providers")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SupportedIdentityProviders { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "supported_identity_providers");
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
-    public required TerraformProperty<string> UserPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
-        set => SetProperty("user_pool_id", value);
-    }
+    [TerraformPropertyName("user_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserPoolId { get; set; }
 
     /// <summary>
     /// The write_attributes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> WriteAttributes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("write_attributes");
-        set => SetProperty("write_attributes", value);
-    }
+    [TerraformPropertyName("write_attributes")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> WriteAttributes { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "write_attributes");
 
     /// <summary>
     /// Block for analytics_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsCognitoManagedUserPoolClientAnalyticsConfigurationBlock>? AnalyticsConfiguration
-    {
-        set => SetProperty("analytics_configuration", value);
-    }
+    [TerraformPropertyName("analytics_configuration")]
+    public TerraformList<TerraformBlock<AwsCognitoManagedUserPoolClientAnalyticsConfigurationBlock>>? AnalyticsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for refresh_token_rotation.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsCognitoManagedUserPoolClientRefreshTokenRotationBlock>? RefreshTokenRotation
-    {
-        set => SetProperty("refresh_token_rotation", value);
-    }
+    [TerraformPropertyName("refresh_token_rotation")]
+    public TerraformList<TerraformBlock<AwsCognitoManagedUserPoolClientRefreshTokenRotationBlock>>? RefreshTokenRotation { get; set; } = new();
 
     /// <summary>
     /// Block for token_validity_units.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsCognitoManagedUserPoolClientTokenValidityUnitsBlock>? TokenValidityUnits
-    {
-        set => SetProperty("token_validity_units", value);
-    }
+    [TerraformPropertyName("token_validity_units")]
+    public TerraformList<TerraformBlock<AwsCognitoManagedUserPoolClientTokenValidityUnitsBlock>>? TokenValidityUnits { get; set; } = new();
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
-    public TerraformExpression ClientSecret => this["client_secret"];
+    [TerraformPropertyName("client_secret")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClientSecret => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "client_secret");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

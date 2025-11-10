@@ -9,97 +9,83 @@ public class AwsIamServerCertificateDataSource : TerraformDataSource
 {
     public AwsIamServerCertificateDataSource(string name) : base("aws_iam_server_certificate", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("certificate_body");
-        SetOutput("certificate_chain");
-        SetOutput("expiration_date");
-        SetOutput("path");
-        SetOutput("upload_date");
-        SetOutput("id");
-        SetOutput("latest");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("path_prefix");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The latest attribute.
     /// </summary>
-    public TerraformProperty<bool> Latest
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("latest");
-        set => SetProperty("latest", value);
-    }
+    [TerraformPropertyName("latest")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Latest { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NamePrefix { get; set; }
 
     /// <summary>
     /// The path_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> PathPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("path_prefix");
-        set => SetProperty("path_prefix", value);
-    }
+    [TerraformPropertyName("path_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PathPrefix { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The certificate_body attribute.
     /// </summary>
-    public TerraformExpression CertificateBody => this["certificate_body"];
+    [TerraformPropertyName("certificate_body")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CertificateBody => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_body");
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    public TerraformExpression CertificateChain => this["certificate_chain"];
+    [TerraformPropertyName("certificate_chain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CertificateChain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_chain");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    public TerraformExpression ExpirationDate => this["expiration_date"];
+    [TerraformPropertyName("expiration_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpirationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_date");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformExpression Path => this["path"];
+    [TerraformPropertyName("path")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Path => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "path");
 
     /// <summary>
     /// The upload_date attribute.
     /// </summary>
-    public TerraformExpression UploadDate => this["upload_date"];
+    [TerraformPropertyName("upload_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UploadDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "upload_date");
 
 }

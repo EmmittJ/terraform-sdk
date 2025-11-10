@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for operating_regions in .
 /// Nesting mode: set
 /// </summary>
-public class AwsVpcIpamOperatingRegionsBlock : TerraformBlock
+public class AwsVpcIpamOperatingRegionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The region_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
-    public required TerraformProperty<string> RegionName
-    {
-        set => SetProperty("region_name", value);
-    }
+    [TerraformPropertyName("region_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RegionName { get; set; }
 
 }
 
@@ -23,31 +22,28 @@ public class AwsVpcIpamOperatingRegionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsVpcIpamTimeoutsBlock : TerraformBlock
+public class AwsVpcIpamTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -59,108 +55,70 @@ public class AwsVpcIpam : TerraformResource
 {
     public AwsVpcIpam(string name) : base("aws_vpc_ipam", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("default_resource_discovery_association_id");
-        SetOutput("default_resource_discovery_id");
-        SetOutput("private_default_scope_id");
-        SetOutput("public_default_scope_id");
-        SetOutput("scope_count");
-        SetOutput("cascade");
-        SetOutput("description");
-        SetOutput("enable_private_gua");
-        SetOutput("id");
-        SetOutput("metered_account");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("tier");
     }
 
     /// <summary>
     /// The cascade attribute.
     /// </summary>
-    public TerraformProperty<bool> Cascade
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("cascade");
-        set => SetProperty("cascade", value);
-    }
+    [TerraformPropertyName("cascade")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Cascade { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The enable_private_gua attribute.
     /// </summary>
-    public TerraformProperty<bool> EnablePrivateGua
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_private_gua");
-        set => SetProperty("enable_private_gua", value);
-    }
+    [TerraformPropertyName("enable_private_gua")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnablePrivateGua { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The metered_account attribute.
     /// </summary>
-    public TerraformProperty<string> MeteredAccount
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("metered_account");
-        set => SetProperty("metered_account", value);
-    }
+    [TerraformPropertyName("metered_account")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MeteredAccount { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "metered_account");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformProperty<string> Tier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tier");
-        set => SetProperty("tier", value);
-    }
+    [TerraformPropertyName("tier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Tier { get; set; }
 
     /// <summary>
     /// Block for operating_regions.
@@ -168,48 +126,56 @@ public class AwsVpcIpam : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatingRegions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OperatingRegions block(s) required")]
-    public HashSet<AwsVpcIpamOperatingRegionsBlock>? OperatingRegions
-    {
-        set => SetProperty("operating_regions", value);
-    }
+    [TerraformPropertyName("operating_regions")]
+    public TerraformSet<TerraformBlock<AwsVpcIpamOperatingRegionsBlock>>? OperatingRegions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsVpcIpamTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsVpcIpamTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The default_resource_discovery_association_id attribute.
     /// </summary>
-    public TerraformExpression DefaultResourceDiscoveryAssociationId => this["default_resource_discovery_association_id"];
+    [TerraformPropertyName("default_resource_discovery_association_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultResourceDiscoveryAssociationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_resource_discovery_association_id");
 
     /// <summary>
     /// The default_resource_discovery_id attribute.
     /// </summary>
-    public TerraformExpression DefaultResourceDiscoveryId => this["default_resource_discovery_id"];
+    [TerraformPropertyName("default_resource_discovery_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultResourceDiscoveryId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_resource_discovery_id");
 
     /// <summary>
     /// The private_default_scope_id attribute.
     /// </summary>
-    public TerraformExpression PrivateDefaultScopeId => this["private_default_scope_id"];
+    [TerraformPropertyName("private_default_scope_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateDefaultScopeId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_default_scope_id");
 
     /// <summary>
     /// The public_default_scope_id attribute.
     /// </summary>
-    public TerraformExpression PublicDefaultScopeId => this["public_default_scope_id"];
+    [TerraformPropertyName("public_default_scope_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublicDefaultScopeId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_default_scope_id");
 
     /// <summary>
     /// The scope_count attribute.
     /// </summary>
-    public TerraformExpression ScopeCount => this["scope_count"];
+    [TerraformPropertyName("scope_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ScopeCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "scope_count");
 
 }

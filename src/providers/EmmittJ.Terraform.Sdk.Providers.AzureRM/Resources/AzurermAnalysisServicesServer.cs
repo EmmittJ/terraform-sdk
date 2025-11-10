@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ipv4_firewall_rule in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
+public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The range_end attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeEnd is required")]
-    public required TerraformProperty<string> RangeEnd
-    {
-        set => SetProperty("range_end", value);
-    }
+    [TerraformPropertyName("range_end")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RangeEnd { get; set; }
 
     /// <summary>
     /// The range_start attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeStart is required")]
-    public required TerraformProperty<string> RangeStart
-    {
-        set => SetProperty("range_start", value);
-    }
+    [TerraformPropertyName("range_start")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RangeStart { get; set; }
 
 }
 
@@ -41,39 +38,35 @@ public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAnalysisServicesServerTimeoutsBlock : TerraformBlock
+public class AzurermAnalysisServicesServerTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -84,139 +77,101 @@ public class AzurermAnalysisServicesServer : TerraformResource
 {
     public AzurermAnalysisServicesServer(string name) : base("azurerm_analysis_services_server", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("server_full_name");
-        SetOutput("admin_users");
-        SetOutput("backup_blob_container_uri");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("power_bi_service_enabled");
-        SetOutput("querypool_connection_mode");
-        SetOutput("resource_group_name");
-        SetOutput("sku");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The admin_users attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AdminUsers
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("admin_users");
-        set => SetProperty("admin_users", value);
-    }
+    [TerraformPropertyName("admin_users")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AdminUsers { get; set; }
 
     /// <summary>
     /// The backup_blob_container_uri attribute.
     /// </summary>
-    public TerraformProperty<string> BackupBlobContainerUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backup_blob_container_uri");
-        set => SetProperty("backup_blob_container_uri", value);
-    }
+    [TerraformPropertyName("backup_blob_container_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BackupBlobContainerUri { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The power_bi_service_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PowerBiServiceEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("power_bi_service_enabled");
-        set => SetProperty("power_bi_service_enabled", value);
-    }
+    [TerraformPropertyName("power_bi_service_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PowerBiServiceEnabled { get; set; }
 
     /// <summary>
     /// The querypool_connection_mode attribute.
     /// </summary>
-    public TerraformProperty<string> QuerypoolConnectionMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("querypool_connection_mode");
-        set => SetProperty("querypool_connection_mode", value);
-    }
+    [TerraformPropertyName("querypool_connection_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? QuerypoolConnectionMode { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    public required TerraformProperty<string> Sku
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku");
-        set => SetProperty("sku", value);
-    }
+    [TerraformPropertyName("sku")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for ipv4_firewall_rule.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermAnalysisServicesServerIpv4FirewallRuleBlock>? Ipv4FirewallRule
-    {
-        set => SetProperty("ipv4_firewall_rule", value);
-    }
+    [TerraformPropertyName("ipv4_firewall_rule")]
+    public TerraformSet<TerraformBlock<AzurermAnalysisServicesServerIpv4FirewallRuleBlock>>? Ipv4FirewallRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermAnalysisServicesServerTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermAnalysisServicesServerTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The server_full_name attribute.
     /// </summary>
-    public TerraformExpression ServerFullName => this["server_full_name"];
+    [TerraformPropertyName("server_full_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServerFullName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "server_full_name");
 
 }

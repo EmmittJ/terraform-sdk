@@ -9,53 +9,36 @@ public class AwsOrganizationsPolicyAttachment : TerraformResource
 {
     public AwsOrganizationsPolicyAttachment(string name) : base("aws_organizations_policy_attachment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("policy_id");
-        SetOutput("skip_destroy");
-        SetOutput("target_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
-    public required TerraformProperty<string> PolicyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_id");
-        set => SetProperty("policy_id", value);
-    }
+    [TerraformPropertyName("policy_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyId { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_destroy");
-        set => SetProperty("skip_destroy", value);
-    }
+    [TerraformPropertyName("skip_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
-    public required TerraformProperty<string> TargetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_id");
-        set => SetProperty("target_id", value);
-    }
+    [TerraformPropertyName("target_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetId { get; set; }
 
 }

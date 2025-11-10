@@ -6,59 +6,53 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for connect_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
+public class AwsDirectoryServiceDirectoryConnectSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AvailabilityZones
-    {
-        set => SetProperty("availability_zones", value);
-    }
+    [TerraformPropertyName("availability_zones")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AvailabilityZones => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "availability_zones");
 
     /// <summary>
     /// The connect_ips attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ConnectIps
-    {
-        set => SetProperty("connect_ips", value);
-    }
+    [TerraformPropertyName("connect_ips")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> ConnectIps => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "connect_ips");
 
     /// <summary>
     /// The customer_dns_ips attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerDnsIps is required")]
-    public HashSet<TerraformProperty<string>>? CustomerDnsIps
-    {
-        set => SetProperty("customer_dns_ips", value);
-    }
+    [TerraformPropertyName("customer_dns_ips")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? CustomerDnsIps { get; set; }
 
     /// <summary>
     /// The customer_username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerUsername is required")]
-    public required TerraformProperty<string> CustomerUsername
-    {
-        set => SetProperty("customer_username", value);
-    }
+    [TerraformPropertyName("customer_username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CustomerUsername { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public HashSet<TerraformProperty<string>>? SubnetIds
-    {
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    public required TerraformProperty<string> VpcId
-    {
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VpcId { get; set; }
 
 }
 
@@ -66,31 +60,28 @@ public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDirectoryServiceDirectoryTimeoutsBlock : TerraformBlock
+public class AwsDirectoryServiceDirectoryTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -98,33 +89,30 @@ public class AwsDirectoryServiceDirectoryTimeoutsBlock : TerraformBlock
 /// Block type for vpc_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDirectoryServiceDirectoryVpcSettingsBlock : TerraformBlock
+public class AwsDirectoryServiceDirectoryVpcSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AvailabilityZones
-    {
-        set => SetProperty("availability_zones", value);
-    }
+    [TerraformPropertyName("availability_zones")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AvailabilityZones => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "availability_zones");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public HashSet<TerraformProperty<string>>? SubnetIds
-    {
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    public required TerraformProperty<string> VpcId
-    {
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VpcId { get; set; }
 
 }
 
@@ -136,200 +124,150 @@ public class AwsDirectoryServiceDirectory : TerraformResource
 {
     public AwsDirectoryServiceDirectory(string name) : base("aws_directory_service_directory", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_url");
-        SetOutput("dns_ip_addresses");
-        SetOutput("security_group_id");
-        SetOutput("alias");
-        SetOutput("description");
-        SetOutput("desired_number_of_domain_controllers");
-        SetOutput("edition");
-        SetOutput("enable_sso");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("password");
-        SetOutput("region");
-        SetOutput("short_name");
-        SetOutput("size");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformProperty<string> Alias
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alias");
-        set => SetProperty("alias", value);
-    }
+    [TerraformPropertyName("alias")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Alias { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "alias");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The desired_number_of_domain_controllers attribute.
     /// </summary>
-    public TerraformProperty<double> DesiredNumberOfDomainControllers
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("desired_number_of_domain_controllers");
-        set => SetProperty("desired_number_of_domain_controllers", value);
-    }
+    [TerraformPropertyName("desired_number_of_domain_controllers")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DesiredNumberOfDomainControllers { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "desired_number_of_domain_controllers");
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
-    public TerraformProperty<string> Edition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("edition");
-        set => SetProperty("edition", value);
-    }
+    [TerraformPropertyName("edition")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Edition { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "edition");
 
     /// <summary>
     /// The enable_sso attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableSso
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_sso");
-        set => SetProperty("enable_sso", value);
-    }
+    [TerraformPropertyName("enable_sso")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableSso { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    public required TerraformProperty<string> Password
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("password");
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The short_name attribute.
     /// </summary>
-    public TerraformProperty<string> ShortName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("short_name");
-        set => SetProperty("short_name", value);
-    }
+    [TerraformPropertyName("short_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ShortName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "short_name");
 
     /// <summary>
     /// The size attribute.
     /// </summary>
-    public TerraformProperty<string> Size
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("size");
-        set => SetProperty("size", value);
-    }
+    [TerraformPropertyName("size")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Size { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "size");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
     /// <summary>
     /// Block for connect_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectSettings block(s) allowed")]
-    public List<AwsDirectoryServiceDirectoryConnectSettingsBlock>? ConnectSettings
-    {
-        set => SetProperty("connect_settings", value);
-    }
+    [TerraformPropertyName("connect_settings")]
+    public TerraformList<TerraformBlock<AwsDirectoryServiceDirectoryConnectSettingsBlock>>? ConnectSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDirectoryServiceDirectoryTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDirectoryServiceDirectoryTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcSettings block(s) allowed")]
-    public List<AwsDirectoryServiceDirectoryVpcSettingsBlock>? VpcSettings
-    {
-        set => SetProperty("vpc_settings", value);
-    }
+    [TerraformPropertyName("vpc_settings")]
+    public TerraformList<TerraformBlock<AwsDirectoryServiceDirectoryVpcSettingsBlock>>? VpcSettings { get; set; } = new();
 
     /// <summary>
     /// The access_url attribute.
     /// </summary>
-    public TerraformExpression AccessUrl => this["access_url"];
+    [TerraformPropertyName("access_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AccessUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_url");
 
     /// <summary>
     /// The dns_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression DnsIpAddresses => this["dns_ip_addresses"];
+    [TerraformPropertyName("dns_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> DnsIpAddresses => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "dns_ip_addresses");
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
-    public TerraformExpression SecurityGroupId => this["security_group_id"];
+    [TerraformPropertyName("security_group_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecurityGroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "security_group_id");
 
 }

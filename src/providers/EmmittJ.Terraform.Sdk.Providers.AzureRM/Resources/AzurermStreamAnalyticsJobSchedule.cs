@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStreamAnalyticsJobScheduleTimeoutsBlock : TerraformBlock
+public class AzurermStreamAnalyticsJobScheduleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,68 +45,50 @@ public class AzurermStreamAnalyticsJobSchedule : TerraformResource
 {
     public AzurermStreamAnalyticsJobSchedule(string name) : base("azurerm_stream_analytics_job_schedule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("last_output_time");
-        SetOutput("id");
-        SetOutput("start_mode");
-        SetOutput("start_time");
-        SetOutput("stream_analytics_job_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The start_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartMode is required")]
-    public required TerraformProperty<string> StartMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("start_mode");
-        set => SetProperty("start_mode", value);
-    }
+    [TerraformPropertyName("start_mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StartMode { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string> StartTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
-        set => SetProperty("start_time", value);
-    }
+    [TerraformPropertyName("start_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StartTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_time");
 
     /// <summary>
     /// The stream_analytics_job_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
-    public required TerraformProperty<string> StreamAnalyticsJobId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_id");
-        set => SetProperty("stream_analytics_job_id", value);
-    }
+    [TerraformPropertyName("stream_analytics_job_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StreamAnalyticsJobId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStreamAnalyticsJobScheduleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStreamAnalyticsJobScheduleTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The last_output_time attribute.
     /// </summary>
-    public TerraformExpression LastOutputTime => this["last_output_time"];
+    [TerraformPropertyName("last_output_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastOutputTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_output_time");
 
 }

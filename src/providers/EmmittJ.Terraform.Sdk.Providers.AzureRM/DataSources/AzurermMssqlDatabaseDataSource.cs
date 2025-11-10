@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMssqlDatabaseDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermMssqlDatabaseDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,142 +24,141 @@ public class AzurermMssqlDatabaseDataSource : TerraformDataSource
 {
     public AzurermMssqlDatabaseDataSource(string name) : base("azurerm_mssql_database", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("collation");
-        SetOutput("elastic_pool_id");
-        SetOutput("enclave_type");
-        SetOutput("identity");
-        SetOutput("license_type");
-        SetOutput("max_size_gb");
-        SetOutput("read_replica_count");
-        SetOutput("read_scale");
-        SetOutput("sku_name");
-        SetOutput("storage_account_type");
-        SetOutput("tags");
-        SetOutput("transparent_data_encryption_enabled");
-        SetOutput("transparent_data_encryption_key_automatic_rotation_enabled");
-        SetOutput("transparent_data_encryption_key_vault_key_id");
-        SetOutput("zone_redundant");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("server_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    public required TerraformProperty<string> ServerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("server_id");
-        set => SetProperty("server_id", value);
-    }
+    [TerraformPropertyName("server_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServerId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMssqlDatabaseDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMssqlDatabaseDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    public TerraformExpression Collation => this["collation"];
+    [TerraformPropertyName("collation")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Collation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "collation");
 
     /// <summary>
     /// The elastic_pool_id attribute.
     /// </summary>
-    public TerraformExpression ElasticPoolId => this["elastic_pool_id"];
+    [TerraformPropertyName("elastic_pool_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ElasticPoolId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "elastic_pool_id");
 
     /// <summary>
     /// The enclave_type attribute.
     /// </summary>
-    public TerraformExpression EnclaveType => this["enclave_type"];
+    [TerraformPropertyName("enclave_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EnclaveType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "enclave_type");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformExpression Identity => this["identity"];
+    [TerraformPropertyName("identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformExpression LicenseType => this["license_type"];
+    [TerraformPropertyName("license_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LicenseType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "license_type");
 
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
-    public TerraformExpression MaxSizeGb => this["max_size_gb"];
+    [TerraformPropertyName("max_size_gb")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxSizeGb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_size_gb");
 
     /// <summary>
     /// The read_replica_count attribute.
     /// </summary>
-    public TerraformExpression ReadReplicaCount => this["read_replica_count"];
+    [TerraformPropertyName("read_replica_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ReadReplicaCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "read_replica_count");
 
     /// <summary>
     /// The read_scale attribute.
     /// </summary>
-    public TerraformExpression ReadScale => this["read_scale"];
+    [TerraformPropertyName("read_scale")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ReadScale => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "read_scale");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformExpression SkuName => this["sku_name"];
+    [TerraformPropertyName("sku_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SkuName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku_name");
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
-    public TerraformExpression StorageAccountType => this["storage_account_type"];
+    [TerraformPropertyName("storage_account_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StorageAccountType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_account_type");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The transparent_data_encryption_enabled attribute.
     /// </summary>
-    public TerraformExpression TransparentDataEncryptionEnabled => this["transparent_data_encryption_enabled"];
+    [TerraformPropertyName("transparent_data_encryption_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> TransparentDataEncryptionEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "transparent_data_encryption_enabled");
 
     /// <summary>
     /// The transparent_data_encryption_key_automatic_rotation_enabled attribute.
     /// </summary>
-    public TerraformExpression TransparentDataEncryptionKeyAutomaticRotationEnabled => this["transparent_data_encryption_key_automatic_rotation_enabled"];
+    [TerraformPropertyName("transparent_data_encryption_key_automatic_rotation_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> TransparentDataEncryptionKeyAutomaticRotationEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "transparent_data_encryption_key_automatic_rotation_enabled");
 
     /// <summary>
     /// The transparent_data_encryption_key_vault_key_id attribute.
     /// </summary>
-    public TerraformExpression TransparentDataEncryptionKeyVaultKeyId => this["transparent_data_encryption_key_vault_key_id"];
+    [TerraformPropertyName("transparent_data_encryption_key_vault_key_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TransparentDataEncryptionKeyVaultKeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "transparent_data_encryption_key_vault_key_id");
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
-    public TerraformExpression ZoneRedundant => this["zone_redundant"];
+    [TerraformPropertyName("zone_redundant")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ZoneRedundant => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "zone_redundant");
 
 }

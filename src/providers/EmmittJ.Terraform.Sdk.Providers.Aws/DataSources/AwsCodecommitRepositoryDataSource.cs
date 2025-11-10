@@ -9,72 +9,63 @@ public class AwsCodecommitRepositoryDataSource : TerraformDataSource
 {
     public AwsCodecommitRepositoryDataSource(string name) : base("aws_codecommit_repository", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("clone_url_http");
-        SetOutput("clone_url_ssh");
-        SetOutput("kms_key_id");
-        SetOutput("repository_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("repository_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
-    public required TerraformProperty<string> RepositoryName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("repository_name");
-        set => SetProperty("repository_name", value);
-    }
+    [TerraformPropertyName("repository_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RepositoryName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The clone_url_http attribute.
     /// </summary>
-    public TerraformExpression CloneUrlHttp => this["clone_url_http"];
+    [TerraformPropertyName("clone_url_http")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CloneUrlHttp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "clone_url_http");
 
     /// <summary>
     /// The clone_url_ssh attribute.
     /// </summary>
-    public TerraformExpression CloneUrlSsh => this["clone_url_ssh"];
+    [TerraformPropertyName("clone_url_ssh")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CloneUrlSsh => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "clone_url_ssh");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformExpression KmsKeyId => this["kms_key_id"];
+    [TerraformPropertyName("kms_key_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsKeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_id");
 
     /// <summary>
     /// The repository_id attribute.
     /// </summary>
-    public TerraformExpression RepositoryId => this["repository_id"];
+    [TerraformPropertyName("repository_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RepositoryId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "repository_id");
 
 }

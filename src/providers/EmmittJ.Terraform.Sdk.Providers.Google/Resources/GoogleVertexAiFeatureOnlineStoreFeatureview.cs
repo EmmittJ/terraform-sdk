@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for big_query_source in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock : TerraformBlock
+public class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock : ITerraformBlock
 {
     /// <summary>
     /// Columns to construct entityId / row keys. Start by supporting 1 only.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityIdColumns is required")]
-    public List<TerraformProperty<string>>? EntityIdColumns
-    {
-        set => SetProperty("entity_id_columns", value);
-    }
+    [TerraformPropertyName("entity_id_columns")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? EntityIdColumns { get; set; }
 
     /// <summary>
     /// The BigQuery view URI that will be materialized on each sync trigger based on FeatureView.SyncConfig.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    public required TerraformProperty<string> Uri
-    {
-        set => SetProperty("uri", value);
-    }
+    [TerraformPropertyName("uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Uri { get; set; }
 
 }
 
@@ -32,15 +30,14 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock : Te
 /// Block type for feature_registry_source in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlock : TerraformBlock
+public class GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlock : ITerraformBlock
 {
     /// <summary>
     /// The project number of the parent project of the feature Groups.
     /// </summary>
-    public TerraformProperty<string>? ProjectNumber
-    {
-        set => SetProperty("project_number", value);
-    }
+    [TerraformPropertyName("project_number")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProjectNumber { get; set; }
 
 }
 
@@ -48,24 +45,22 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlo
 /// Block type for sync_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock : TerraformBlock
+public class GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// If true, syncs the FeatureView in a continuous manner to Online Store.
     /// </summary>
-    public TerraformProperty<bool>? Continuous
-    {
-        set => SetProperty("continuous", value);
-    }
+    [TerraformPropertyName("continuous")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Continuous { get; set; }
 
     /// <summary>
     /// Cron schedule (https://en.wikipedia.org/wiki/Cron) to launch scheduled runs.
     /// To explicitly set a timezone to the cron tab, apply a prefix in the cron tab: &amp;quot;CRON_TZ=${IANA_TIME_ZONE}&amp;quot; or &amp;quot;TZ=${IANA_TIME_ZONE}&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Cron
-    {
-        set => SetProperty("cron", value);
-    }
+    [TerraformPropertyName("cron")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Cron { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "cron");
 
 }
 
@@ -73,31 +68,28 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock : TerraformBlock
+public class GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -109,41 +101,22 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformResource
 {
     public GoogleVertexAiFeatureOnlineStoreFeatureview(string name) : base("google_vertex_ai_feature_online_store_featureview", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("feature_online_store");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The name of the FeatureOnlineStore to use for the featureview.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureOnlineStore is required")]
-    public required TerraformProperty<string> FeatureOnlineStore
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("feature_online_store");
-        set => SetProperty("feature_online_store", value);
-    }
+    [TerraformPropertyName("feature_online_store")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FeatureOnlineStore { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// A set of key/value label pairs to assign to this FeatureView.
@@ -152,97 +125,89 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureview : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Name of the FeatureView. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The region for the resource. It should be the same as the featureonlinestore region.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for big_query_source.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigQuerySource block(s) allowed")]
-    public List<GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock>? BigQuerySource
-    {
-        set => SetProperty("big_query_source", value);
-    }
+    [TerraformPropertyName("big_query_source")]
+    public TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock>>? BigQuerySource { get; set; } = new();
 
     /// <summary>
     /// Block for feature_registry_source.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeatureRegistrySource block(s) allowed")]
-    public List<GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlock>? FeatureRegistrySource
-    {
-        set => SetProperty("feature_registry_source", value);
-    }
+    [TerraformPropertyName("feature_registry_source")]
+    public TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlock>>? FeatureRegistrySource { get; set; } = new();
 
     /// <summary>
     /// Block for sync_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SyncConfig block(s) allowed")]
-    public List<GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock>? SyncConfig
-    {
-        set => SetProperty("sync_config", value);
-    }
+    [TerraformPropertyName("sync_config")]
+    public TerraformList<TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock>>? SyncConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the featureOnlinestore was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// The timestamp of when the featureOnlinestore was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

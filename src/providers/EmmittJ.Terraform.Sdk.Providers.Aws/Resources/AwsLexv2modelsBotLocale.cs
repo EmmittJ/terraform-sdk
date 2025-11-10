@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLexv2modelsBotLocaleTimeoutsBlock : TerraformBlock
+public class AwsLexv2modelsBotLocaleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -38,24 +35,22 @@ public class AwsLexv2modelsBotLocaleTimeoutsBlock : TerraformBlock
 /// Block type for voice_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexv2modelsBotLocaleVoiceSettingsBlock : TerraformBlock
+public class AwsLexv2modelsBotLocaleVoiceSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
-    {
-        set => SetProperty("engine", value);
-    }
+    [TerraformPropertyName("engine")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Engine { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "engine");
 
     /// <summary>
     /// The voice_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceId is required")]
-    public required TerraformProperty<string> VoiceId
-    {
-        set => SetProperty("voice_id", value);
-    }
+    [TerraformPropertyName("voice_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VoiceId { get; set; }
 
 }
 
@@ -66,109 +61,80 @@ public class AwsLexv2modelsBotLocale : TerraformResource
 {
     public AwsLexv2modelsBotLocale(string name) : base("aws_lexv2models_bot_locale", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("bot_id");
-        SetOutput("bot_version");
-        SetOutput("description");
-        SetOutput("locale_id");
-        SetOutput("n_lu_intent_confidence_threshold");
-        SetOutput("name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The bot_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
-    public required TerraformProperty<string> BotId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bot_id");
-        set => SetProperty("bot_id", value);
-    }
+    [TerraformPropertyName("bot_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BotId { get; set; }
 
     /// <summary>
     /// The bot_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
-    public required TerraformProperty<string> BotVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bot_version");
-        set => SetProperty("bot_version", value);
-    }
+    [TerraformPropertyName("bot_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BotVersion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The locale_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
-    public required TerraformProperty<string> LocaleId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("locale_id");
-        set => SetProperty("locale_id", value);
-    }
+    [TerraformPropertyName("locale_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LocaleId { get; set; }
 
     /// <summary>
     /// The n_lu_intent_confidence_threshold attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NLuIntentConfidenceThreshold is required")]
-    public required TerraformProperty<double> NLuIntentConfidenceThreshold
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("n_lu_intent_confidence_threshold");
-        set => SetProperty("n_lu_intent_confidence_threshold", value);
-    }
+    [TerraformPropertyName("n_lu_intent_confidence_threshold")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> NLuIntentConfidenceThreshold { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsLexv2modelsBotLocaleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsLexv2modelsBotLocaleTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for voice_settings.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLexv2modelsBotLocaleVoiceSettingsBlock>? VoiceSettings
-    {
-        set => SetProperty("voice_settings", value);
-    }
+    [TerraformPropertyName("voice_settings")]
+    public TerraformList<TerraformBlock<AwsLexv2modelsBotLocaleVoiceSettingsBlock>>? VoiceSettings { get; set; } = new();
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

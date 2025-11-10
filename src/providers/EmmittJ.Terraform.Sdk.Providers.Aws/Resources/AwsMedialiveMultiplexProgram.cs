@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for multiplex_program_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock : TerraformBlock
+public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The preferred_channel_pipeline attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredChannelPipeline is required")]
-    public required TerraformProperty<string> PreferredChannelPipeline
-    {
-        set => SetProperty("preferred_channel_pipeline", value);
-    }
+    [TerraformPropertyName("preferred_channel_pipeline")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PreferredChannelPipeline { get; set; }
 
     /// <summary>
     /// The program_number attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProgramNumber is required")]
-    public required TerraformProperty<double> ProgramNumber
-    {
-        set => SetProperty("program_number", value);
-    }
+    [TerraformPropertyName("program_number")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ProgramNumber { get; set; }
 
 }
 
@@ -32,15 +30,14 @@ public class AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMedialiveMultiplexProgramTimeoutsBlock : TerraformBlock
+public class AwsMedialiveMultiplexProgramTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
 }
 
@@ -51,67 +48,50 @@ public class AwsMedialiveMultiplexProgram : TerraformResource
 {
     public AwsMedialiveMultiplexProgram(string name) : base("aws_medialive_multiplex_program", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("multiplex_id");
-        SetOutput("program_name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The multiplex_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiplexId is required")]
-    public required TerraformProperty<string> MultiplexId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("multiplex_id");
-        set => SetProperty("multiplex_id", value);
-    }
+    [TerraformPropertyName("multiplex_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MultiplexId { get; set; }
 
     /// <summary>
     /// The program_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProgramName is required")]
-    public required TerraformProperty<string> ProgramName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("program_name");
-        set => SetProperty("program_name", value);
-    }
+    [TerraformPropertyName("program_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProgramName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for multiplex_program_settings.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock>? MultiplexProgramSettings
-    {
-        set => SetProperty("multiplex_program_settings", value);
-    }
+    [TerraformPropertyName("multiplex_program_settings")]
+    public TerraformList<TerraformBlock<AwsMedialiveMultiplexProgramMultiplexProgramSettingsBlock>>? MultiplexProgramSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsMedialiveMultiplexProgramTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsMedialiveMultiplexProgramTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

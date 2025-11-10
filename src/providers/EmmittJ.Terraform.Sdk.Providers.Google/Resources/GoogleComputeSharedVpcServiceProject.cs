@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeSharedVpcServiceProjectTimeoutsBlock : TerraformBlock
+public class GoogleComputeSharedVpcServiceProjectTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,63 +31,44 @@ public class GoogleComputeSharedVpcServiceProject : TerraformResource
 {
     public GoogleComputeSharedVpcServiceProject(string name) : base("google_compute_shared_vpc_service_project", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("deletion_policy");
-        SetOutput("host_project");
-        SetOutput("id");
-        SetOutput("service_project");
     }
 
     /// <summary>
     /// The deletion policy for the shared VPC service. Setting ABANDON allows the resource
     /// 				to be abandoned rather than deleted. Possible values are: &amp;quot;ABANDON&amp;quot;.
     /// </summary>
-    public TerraformProperty<string> DeletionPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
-        set => SetProperty("deletion_policy", value);
-    }
+    [TerraformPropertyName("deletion_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The ID of a host project to associate.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProject is required")]
-    public required TerraformProperty<string> HostProject
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("host_project");
-        set => SetProperty("host_project", value);
-    }
+    [TerraformPropertyName("host_project")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HostProject { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID of the project that will serve as a Shared VPC service project.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProject is required")]
-    public required TerraformProperty<string> ServiceProject
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_project");
-        set => SetProperty("service_project", value);
-    }
+    [TerraformPropertyName("service_project")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceProject { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeSharedVpcServiceProjectTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeSharedVpcServiceProjectTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

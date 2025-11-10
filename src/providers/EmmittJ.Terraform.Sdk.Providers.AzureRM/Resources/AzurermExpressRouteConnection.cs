@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for routing in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermExpressRouteConnectionRoutingBlock : TerraformBlock
+public class AzurermExpressRouteConnectionRoutingBlock : ITerraformBlock
 {
     /// <summary>
     /// The associated_route_table_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AssociatedRouteTableId
-    {
-        set => SetProperty("associated_route_table_id", value);
-    }
+    [TerraformPropertyName("associated_route_table_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AssociatedRouteTableId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "associated_route_table_id");
 
     /// <summary>
     /// The inbound_route_map_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InboundRouteMapId
-    {
-        set => SetProperty("inbound_route_map_id", value);
-    }
+    [TerraformPropertyName("inbound_route_map_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InboundRouteMapId { get; set; }
 
     /// <summary>
     /// The outbound_route_map_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OutboundRouteMapId
-    {
-        set => SetProperty("outbound_route_map_id", value);
-    }
+    [TerraformPropertyName("outbound_route_map_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OutboundRouteMapId { get; set; }
 
 }
 
@@ -38,39 +35,35 @@ public class AzurermExpressRouteConnectionRoutingBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermExpressRouteConnectionTimeoutsBlock : TerraformBlock
+public class AzurermExpressRouteConnectionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -82,124 +75,88 @@ public class AzurermExpressRouteConnection : TerraformResource
 {
     public AzurermExpressRouteConnection(string name) : base("azurerm_express_route_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("authorization_key");
-        SetOutput("enable_internet_security");
-        SetOutput("express_route_circuit_peering_id");
-        SetOutput("express_route_gateway_bypass_enabled");
-        SetOutput("express_route_gateway_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("private_link_fast_path_enabled");
-        SetOutput("routing_weight");
     }
 
     /// <summary>
     /// The authorization_key attribute.
     /// </summary>
-    public TerraformProperty<string> AuthorizationKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authorization_key");
-        set => SetProperty("authorization_key", value);
-    }
+    [TerraformPropertyName("authorization_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthorizationKey { get; set; }
 
     /// <summary>
     /// The enable_internet_security attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableInternetSecurity
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_internet_security");
-        set => SetProperty("enable_internet_security", value);
-    }
+    [TerraformPropertyName("enable_internet_security")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableInternetSecurity { get; set; }
 
     /// <summary>
     /// The express_route_circuit_peering_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitPeeringId is required")]
-    public required TerraformProperty<string> ExpressRouteCircuitPeeringId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("express_route_circuit_peering_id");
-        set => SetProperty("express_route_circuit_peering_id", value);
-    }
+    [TerraformPropertyName("express_route_circuit_peering_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExpressRouteCircuitPeeringId { get; set; }
 
     /// <summary>
     /// The express_route_gateway_bypass_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ExpressRouteGatewayBypassEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("express_route_gateway_bypass_enabled");
-        set => SetProperty("express_route_gateway_bypass_enabled", value);
-    }
+    [TerraformPropertyName("express_route_gateway_bypass_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExpressRouteGatewayBypassEnabled { get; set; }
 
     /// <summary>
     /// The express_route_gateway_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteGatewayId is required")]
-    public required TerraformProperty<string> ExpressRouteGatewayId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("express_route_gateway_id");
-        set => SetProperty("express_route_gateway_id", value);
-    }
+    [TerraformPropertyName("express_route_gateway_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExpressRouteGatewayId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The private_link_fast_path_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool> PrivateLinkFastPathEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("private_link_fast_path_enabled");
-        set => SetProperty("private_link_fast_path_enabled", value);
-    }
+    [TerraformPropertyName("private_link_fast_path_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PrivateLinkFastPathEnabled { get; set; }
 
     /// <summary>
     /// The routing_weight attribute.
     /// </summary>
-    public TerraformProperty<double> RoutingWeight
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("routing_weight");
-        set => SetProperty("routing_weight", value);
-    }
+    [TerraformPropertyName("routing_weight")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RoutingWeight { get; set; }
 
     /// <summary>
     /// Block for routing.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
-    public List<AzurermExpressRouteConnectionRoutingBlock>? Routing
-    {
-        set => SetProperty("routing", value);
-    }
+    [TerraformPropertyName("routing")]
+    public TerraformList<TerraformBlock<AzurermExpressRouteConnectionRoutingBlock>>? Routing { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermExpressRouteConnectionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermExpressRouteConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

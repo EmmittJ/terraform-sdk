@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for page in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermBotChannelFacebookPageBlock : TerraformBlock
+public class AzurermBotChannelFacebookPageBlock : ITerraformBlock
 {
     /// <summary>
     /// The access_token attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessToken is required")]
-    public required TerraformProperty<string> AccessToken
-    {
-        set => SetProperty("access_token", value);
-    }
+    [TerraformPropertyName("access_token")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccessToken { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
 }
 
@@ -32,39 +30,35 @@ public class AzurermBotChannelFacebookPageBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBotChannelFacebookTimeoutsBlock : TerraformBlock
+public class AzurermBotChannelFacebookTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -76,77 +70,54 @@ public class AzurermBotChannelFacebook : TerraformResource
 {
     public AzurermBotChannelFacebook(string name) : base("azurerm_bot_channel_facebook", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bot_name");
-        SetOutput("facebook_application_id");
-        SetOutput("facebook_application_secret");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
-    public required TerraformProperty<string> BotName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bot_name");
-        set => SetProperty("bot_name", value);
-    }
+    [TerraformPropertyName("bot_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BotName { get; set; }
 
     /// <summary>
     /// The facebook_application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FacebookApplicationId is required")]
-    public required TerraformProperty<string> FacebookApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("facebook_application_id");
-        set => SetProperty("facebook_application_id", value);
-    }
+    [TerraformPropertyName("facebook_application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FacebookApplicationId { get; set; }
 
     /// <summary>
     /// The facebook_application_secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FacebookApplicationSecret is required")]
-    public required TerraformProperty<string> FacebookApplicationSecret
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("facebook_application_secret");
-        set => SetProperty("facebook_application_secret", value);
-    }
+    [TerraformPropertyName("facebook_application_secret")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FacebookApplicationSecret { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for page.
@@ -154,18 +125,14 @@ public class AzurermBotChannelFacebook : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Page is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Page block(s) required")]
-    public HashSet<AzurermBotChannelFacebookPageBlock>? Page
-    {
-        set => SetProperty("page", value);
-    }
+    [TerraformPropertyName("page")]
+    public TerraformSet<TerraformBlock<AzurermBotChannelFacebookPageBlock>>? Page { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermBotChannelFacebookTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermBotChannelFacebookTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

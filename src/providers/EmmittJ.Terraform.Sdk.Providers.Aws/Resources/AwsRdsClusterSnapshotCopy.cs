@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRdsClusterSnapshotCopyTimeoutsBlock : TerraformBlock
+public class AwsRdsClusterSnapshotCopyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
 }
 
@@ -25,178 +24,155 @@ public class AwsRdsClusterSnapshotCopy : TerraformResource
 {
     public AwsRdsClusterSnapshotCopy(string name) : base("aws_rds_cluster_snapshot_copy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("allocated_storage");
-        SetOutput("db_cluster_snapshot_arn");
-        SetOutput("engine");
-        SetOutput("engine_version");
-        SetOutput("id");
-        SetOutput("license_model");
-        SetOutput("snapshot_type");
-        SetOutput("storage_encrypted");
-        SetOutput("storage_type");
-        SetOutput("tags_all");
-        SetOutput("vpc_id");
-        SetOutput("copy_tags");
-        SetOutput("destination_region");
-        SetOutput("kms_key_id");
-        SetOutput("presigned_url");
-        SetOutput("region");
-        SetOutput("shared_accounts");
-        SetOutput("source_db_cluster_snapshot_identifier");
-        SetOutput("tags");
-        SetOutput("target_db_cluster_snapshot_identifier");
     }
 
     /// <summary>
     /// The copy_tags attribute.
     /// </summary>
-    public TerraformProperty<bool> CopyTags
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("copy_tags");
-        set => SetProperty("copy_tags", value);
-    }
+    [TerraformPropertyName("copy_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CopyTags { get; set; }
 
     /// <summary>
     /// The destination_region attribute.
     /// </summary>
-    public TerraformProperty<string> DestinationRegion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_region");
-        set => SetProperty("destination_region", value);
-    }
+    [TerraformPropertyName("destination_region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DestinationRegion { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The presigned_url attribute.
     /// </summary>
-    public TerraformProperty<string> PresignedUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("presigned_url");
-        set => SetProperty("presigned_url", value);
-    }
+    [TerraformPropertyName("presigned_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PresignedUrl { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The shared_accounts attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SharedAccounts
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("shared_accounts");
-        set => SetProperty("shared_accounts", value);
-    }
+    [TerraformPropertyName("shared_accounts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SharedAccounts { get; set; }
 
     /// <summary>
     /// The source_db_cluster_snapshot_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDbClusterSnapshotIdentifier is required")]
-    public required TerraformProperty<string> SourceDbClusterSnapshotIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_db_cluster_snapshot_identifier");
-        set => SetProperty("source_db_cluster_snapshot_identifier", value);
-    }
+    [TerraformPropertyName("source_db_cluster_snapshot_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceDbClusterSnapshotIdentifier { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The target_db_cluster_snapshot_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDbClusterSnapshotIdentifier is required")]
-    public required TerraformProperty<string> TargetDbClusterSnapshotIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_db_cluster_snapshot_identifier");
-        set => SetProperty("target_db_cluster_snapshot_identifier", value);
-    }
+    [TerraformPropertyName("target_db_cluster_snapshot_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetDbClusterSnapshotIdentifier { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsRdsClusterSnapshotCopyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsRdsClusterSnapshotCopyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The allocated_storage attribute.
     /// </summary>
-    public TerraformExpression AllocatedStorage => this["allocated_storage"];
+    [TerraformPropertyName("allocated_storage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AllocatedStorage => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "allocated_storage");
 
     /// <summary>
     /// The db_cluster_snapshot_arn attribute.
     /// </summary>
-    public TerraformExpression DbClusterSnapshotArn => this["db_cluster_snapshot_arn"];
+    [TerraformPropertyName("db_cluster_snapshot_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DbClusterSnapshotArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "db_cluster_snapshot_arn");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformExpression Engine => this["engine"];
+    [TerraformPropertyName("engine")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Engine => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformExpression EngineVersion => this["engine_version"];
+    [TerraformPropertyName("engine_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EngineVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
-    public TerraformExpression LicenseModel => this["license_model"];
+    [TerraformPropertyName("license_model")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LicenseModel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "license_model");
 
     /// <summary>
     /// The snapshot_type attribute.
     /// </summary>
-    public TerraformExpression SnapshotType => this["snapshot_type"];
+    [TerraformPropertyName("snapshot_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SnapshotType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "snapshot_type");
 
     /// <summary>
     /// The storage_encrypted attribute.
     /// </summary>
-    public TerraformExpression StorageEncrypted => this["storage_encrypted"];
+    [TerraformPropertyName("storage_encrypted")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> StorageEncrypted => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "storage_encrypted");
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformExpression StorageType => this["storage_type"];
+    [TerraformPropertyName("storage_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StorageType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_type");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformExpression VpcId => this["vpc_id"];
+    [TerraformPropertyName("vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
 }

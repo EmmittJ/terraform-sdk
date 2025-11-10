@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRedshiftClusterIamRolesTimeoutsBlock : TerraformBlock
+public class AwsRedshiftClusterIamRolesTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,71 +38,49 @@ public class AwsRedshiftClusterIamRoles : TerraformResource
 {
     public AwsRedshiftClusterIamRoles(string name) : base("aws_redshift_cluster_iam_roles", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cluster_identifier");
-        SetOutput("default_iam_role_arn");
-        SetOutput("iam_role_arns");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
-    public required TerraformProperty<string> ClusterIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
-        set => SetProperty("cluster_identifier", value);
-    }
+    [TerraformPropertyName("cluster_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterIdentifier { get; set; }
 
     /// <summary>
     /// The default_iam_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultIamRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_iam_role_arn");
-        set => SetProperty("default_iam_role_arn", value);
-    }
+    [TerraformPropertyName("default_iam_role_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DefaultIamRoleArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_iam_role_arn");
 
     /// <summary>
     /// The iam_role_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> IamRoleArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("iam_role_arns");
-        set => SetProperty("iam_role_arns", value);
-    }
+    [TerraformPropertyName("iam_role_arns")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> IamRoleArns { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "iam_role_arns");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsRedshiftClusterIamRolesTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsRedshiftClusterIamRolesTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

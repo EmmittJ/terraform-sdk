@@ -6,55 +6,49 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for sharing in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBlock
+public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : ITerraformBlock
 {
     /// <summary>
     /// The external_tables_to_exclude attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExternalTablesToExclude
-    {
-        set => SetProperty("external_tables_to_exclude", value);
-    }
+    [TerraformPropertyName("external_tables_to_exclude")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ExternalTablesToExclude { get; set; }
 
     /// <summary>
     /// The external_tables_to_include attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExternalTablesToInclude
-    {
-        set => SetProperty("external_tables_to_include", value);
-    }
+    [TerraformPropertyName("external_tables_to_include")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ExternalTablesToInclude { get; set; }
 
     /// <summary>
     /// The materialized_views_to_exclude attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? MaterializedViewsToExclude
-    {
-        set => SetProperty("materialized_views_to_exclude", value);
-    }
+    [TerraformPropertyName("materialized_views_to_exclude")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? MaterializedViewsToExclude { get; set; }
 
     /// <summary>
     /// The materialized_views_to_include attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? MaterializedViewsToInclude
-    {
-        set => SetProperty("materialized_views_to_include", value);
-    }
+    [TerraformPropertyName("materialized_views_to_include")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? MaterializedViewsToInclude { get; set; }
 
     /// <summary>
     /// The tables_to_exclude attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? TablesToExclude
-    {
-        set => SetProperty("tables_to_exclude", value);
-    }
+    [TerraformPropertyName("tables_to_exclude")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? TablesToExclude { get; set; }
 
     /// <summary>
     /// The tables_to_include attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? TablesToInclude
-    {
-        set => SetProperty("tables_to_include", value);
-    }
+    [TerraformPropertyName("tables_to_include")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? TablesToInclude { get; set; }
 
 }
 
@@ -62,39 +56,35 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : TerraformBlock
+public class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -106,132 +96,97 @@ public class AzurermKustoAttachedDatabaseConfiguration : TerraformResource
 {
     public AzurermKustoAttachedDatabaseConfiguration(string name) : base("azurerm_kusto_attached_database_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("attached_database_names");
-        SetOutput("cluster_id");
-        SetOutput("cluster_name");
-        SetOutput("cluster_resource_id");
-        SetOutput("database_name");
-        SetOutput("default_principal_modification_kind");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string> ClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
-        set => SetProperty("cluster_id", value);
-    }
+    [TerraformPropertyName("cluster_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ClusterId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_id");
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    public required TerraformProperty<string> ClusterName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
-        set => SetProperty("cluster_name", value);
-    }
+    [TerraformPropertyName("cluster_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterName { get; set; }
 
     /// <summary>
     /// The cluster_resource_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> ClusterResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_resource_id");
-        set => SetProperty("cluster_resource_id", value);
-    }
+    [TerraformPropertyName("cluster_resource_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ClusterResourceId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_resource_id");
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    public required TerraformProperty<string> DatabaseName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
-        set => SetProperty("database_name", value);
-    }
+    [TerraformPropertyName("database_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
 
     /// <summary>
     /// The default_principal_modification_kind attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultPrincipalModificationKind
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_principal_modification_kind");
-        set => SetProperty("default_principal_modification_kind", value);
-    }
+    [TerraformPropertyName("default_principal_modification_kind")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultPrincipalModificationKind { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for sharing.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sharing block(s) allowed")]
-    public List<AzurermKustoAttachedDatabaseConfigurationSharingBlock>? Sharing
-    {
-        set => SetProperty("sharing", value);
-    }
+    [TerraformPropertyName("sharing")]
+    public TerraformList<TerraformBlock<AzurermKustoAttachedDatabaseConfigurationSharingBlock>>? Sharing { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The attached_database_names attribute.
     /// </summary>
-    public TerraformExpression AttachedDatabaseNames => this["attached_database_names"];
+    [TerraformPropertyName("attached_database_names")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AttachedDatabaseNames => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "attached_database_names");
 
 }

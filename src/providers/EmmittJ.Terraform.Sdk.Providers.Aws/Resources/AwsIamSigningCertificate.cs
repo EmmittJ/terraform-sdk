@@ -9,59 +9,43 @@ public class AwsIamSigningCertificate : TerraformResource
 {
     public AwsIamSigningCertificate(string name) : base("aws_iam_signing_certificate", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("certificate_id");
-        SetOutput("certificate_body");
-        SetOutput("id");
-        SetOutput("status");
-        SetOutput("user_name");
     }
 
     /// <summary>
     /// The certificate_body attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBody is required")]
-    public required TerraformProperty<string> CertificateBody
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate_body");
-        set => SetProperty("certificate_body", value);
-    }
+    [TerraformPropertyName("certificate_body")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CertificateBody { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
-    public required TerraformProperty<string> UserName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
-        set => SetProperty("user_name", value);
-    }
+    [TerraformPropertyName("user_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserName { get; set; }
 
     /// <summary>
     /// The certificate_id attribute.
     /// </summary>
-    public TerraformExpression CertificateId => this["certificate_id"];
+    [TerraformPropertyName("certificate_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CertificateId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_id");
 
 }

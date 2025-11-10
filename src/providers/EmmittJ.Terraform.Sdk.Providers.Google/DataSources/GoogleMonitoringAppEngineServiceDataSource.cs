@@ -9,29 +9,14 @@ public class GoogleMonitoringAppEngineServiceDataSource : TerraformDataSource
 {
     public GoogleMonitoringAppEngineServiceDataSource(string name) : base("google_monitoring_app_engine_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("display_name");
-        SetOutput("name");
-        SetOutput("service_id");
-        SetOutput("telemetry");
-        SetOutput("user_labels");
-        SetOutput("id");
-        SetOutput("module_id");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID of the App Engine module underlying this service. 
@@ -39,42 +24,46 @@ public class GoogleMonitoringAppEngineServiceDataSource : TerraformDataSource
     /// monitored resource(see https://cloud.google.com/monitoring/api/resources#tag_gae_app)
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModuleId is required")]
-    public required TerraformProperty<string> ModuleId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("module_id");
-        set => SetProperty("module_id", value);
-    }
+    [TerraformPropertyName("module_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ModuleId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// Name used for UI elements listing this Service.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The full resource name for this service. The syntax is:
     /// projects/[PROJECT_ID]/services/[SERVICE_ID].
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// An optional service ID to use. If not given, the server will generate a
     /// service ID.
     /// </summary>
-    public TerraformExpression ServiceId => this["service_id"];
+    [TerraformPropertyName("service_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_id");
 
     /// <summary>
     /// Configuration for how to query telemetry on a Service.
     /// </summary>
-    public TerraformExpression Telemetry => this["telemetry"];
+    [TerraformPropertyName("telemetry")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Telemetry => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "telemetry");
 
     /// <summary>
     /// Labels which have been used to annotate the service. Label keys must start
@@ -84,6 +73,8 @@ public class GoogleMonitoringAppEngineServiceDataSource : TerraformDataSource
     /// label entries may be stored. For labels which do not have a semantic value,
     /// the empty string may be supplied for the label value.
     /// </summary>
-    public TerraformExpression UserLabels => this["user_labels"];
+    [TerraformPropertyName("user_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> UserLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "user_labels");
 
 }

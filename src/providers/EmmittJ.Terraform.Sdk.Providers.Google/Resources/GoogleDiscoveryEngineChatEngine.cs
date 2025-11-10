@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for chat_engine_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlock : TerraformBlock
+public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// If the flag set to true, we allow the agent and engine are in
@@ -17,19 +17,17 @@ public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlock : TerraformBlo
     /// EngineService.GetEngine or EngineService.ListEngines API after engine
     /// creation.
     /// </summary>
-    public TerraformProperty<bool>? AllowCrossRegion
-    {
-        set => SetProperty("allow_cross_region", value);
-    }
+    [TerraformPropertyName("allow_cross_region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowCrossRegion { get; set; }
 
     /// <summary>
     /// The resource name of an existing Dialogflow agent to link to this Chat Engine. Format: &#39;projects/&amp;lt;Project_ID&amp;gt;/locations/&amp;lt;Location_ID&amp;gt;/agents/&amp;lt;Agent_ID&amp;gt;&#39;.
     /// Exactly one of &#39;agent_creation_config&#39; or &#39;dialogflow_agent_to_link&#39; must be set.
     /// </summary>
-    public TerraformProperty<string>? DialogflowAgentToLink
-    {
-        set => SetProperty("dialogflow_agent_to_link", value);
-    }
+    [TerraformPropertyName("dialogflow_agent_to_link")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DialogflowAgentToLink { get; set; }
 
 }
 
@@ -37,15 +35,14 @@ public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlock : TerraformBlo
 /// Block type for common_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineChatEngineCommonConfigBlock : TerraformBlock
+public class GoogleDiscoveryEngineChatEngineCommonConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The name of the company, business or entity that is associated with the engine. Setting this may help improve LLM related features.
     /// </summary>
-    public TerraformProperty<string>? CompanyName
-    {
-        set => SetProperty("company_name", value);
-    }
+    [TerraformPropertyName("company_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CompanyName { get; set; }
 
 }
 
@@ -53,31 +50,28 @@ public class GoogleDiscoveryEngineChatEngineCommonConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDiscoveryEngineChatEngineTimeoutsBlock : TerraformBlock
+public class GoogleDiscoveryEngineChatEngineTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -89,101 +83,68 @@ public class GoogleDiscoveryEngineChatEngine : TerraformResource
 {
     public GoogleDiscoveryEngineChatEngine(string name) : base("google_discovery_engine_chat_engine", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("chat_engine_metadata");
-        SetOutput("create_time");
-        SetOutput("name");
-        SetOutput("update_time");
-        SetOutput("collection_id");
-        SetOutput("data_store_ids");
-        SetOutput("display_name");
-        SetOutput("engine_id");
-        SetOutput("id");
-        SetOutput("industry_vertical");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The collection ID.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
-    public required TerraformProperty<string> CollectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("collection_id");
-        set => SetProperty("collection_id", value);
-    }
+    [TerraformPropertyName("collection_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CollectionId { get; set; }
 
     /// <summary>
     /// The data stores associated with this engine. Multiple DataStores in the same Collection can be associated here. All listed DataStores must be &#39;SOLUTION_TYPE_CHAT&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreIds is required")]
-    public List<TerraformProperty<string>> DataStoreIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("data_store_ids");
-        set => SetProperty("data_store_ids", value);
-    }
+    [TerraformPropertyName("data_store_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? DataStoreIds { get; set; }
 
     /// <summary>
     /// The display name of the engine. Should be human readable. UTF-8 encoded string with limit of 1024 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The ID to use for chat engine.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
-    public required TerraformProperty<string> EngineId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine_id");
-        set => SetProperty("engine_id", value);
-    }
+    [TerraformPropertyName("engine_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EngineId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The industry vertical that the chat engine registers. Vertical on Engine has to match vertical of the DataStore linked to the engine. Default value: &amp;quot;GENERIC&amp;quot; Possible values: [&amp;quot;GENERIC&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> IndustryVertical
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("industry_vertical");
-        set => SetProperty("industry_vertical", value);
-    }
+    [TerraformPropertyName("industry_vertical")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IndustryVertical { get; set; }
 
     /// <summary>
     /// Location.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for chat_engine_config.
@@ -192,39 +153,37 @@ public class GoogleDiscoveryEngineChatEngine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChatEngineConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ChatEngineConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ChatEngineConfig block(s) allowed")]
-    public List<GoogleDiscoveryEngineChatEngineChatEngineConfigBlock>? ChatEngineConfig
-    {
-        set => SetProperty("chat_engine_config", value);
-    }
+    [TerraformPropertyName("chat_engine_config")]
+    public TerraformList<TerraformBlock<GoogleDiscoveryEngineChatEngineChatEngineConfigBlock>>? ChatEngineConfig { get; set; } = new();
 
     /// <summary>
     /// Block for common_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CommonConfig block(s) allowed")]
-    public List<GoogleDiscoveryEngineChatEngineCommonConfigBlock>? CommonConfig
-    {
-        set => SetProperty("common_config", value);
-    }
+    [TerraformPropertyName("common_config")]
+    public TerraformList<TerraformBlock<GoogleDiscoveryEngineChatEngineCommonConfigBlock>>? CommonConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDiscoveryEngineChatEngineTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDiscoveryEngineChatEngineTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Additional information of the Chat Engine.
     /// </summary>
-    public TerraformExpression ChatEngineMetadata => this["chat_engine_metadata"];
+    [TerraformPropertyName("chat_engine_metadata")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ChatEngineMetadata => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "chat_engine_metadata");
 
     /// <summary>
     /// Timestamp the Engine was created at.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The unique full resource name of the chat engine. Values are of the format
@@ -232,11 +191,15 @@ public class GoogleDiscoveryEngineChatEngine : TerraformResource
     /// This field must be a UTF-8 encoded string with a length limit of 1024
     /// characters.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Timestamp the Engine was last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

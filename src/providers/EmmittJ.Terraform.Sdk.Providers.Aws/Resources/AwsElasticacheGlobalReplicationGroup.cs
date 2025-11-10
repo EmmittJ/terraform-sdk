@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsElasticacheGlobalReplicationGroupTimeoutsBlock : TerraformBlock
+public class AwsElasticacheGlobalReplicationGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,180 +38,148 @@ public class AwsElasticacheGlobalReplicationGroup : TerraformResource
 {
     public AwsElasticacheGlobalReplicationGroup(string name) : base("aws_elasticache_global_replication_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("at_rest_encryption_enabled");
-        SetOutput("auth_token_enabled");
-        SetOutput("cluster_enabled");
-        SetOutput("engine_version_actual");
-        SetOutput("global_node_groups");
-        SetOutput("global_replication_group_id");
-        SetOutput("transit_encryption_enabled");
-        SetOutput("automatic_failover_enabled");
-        SetOutput("cache_node_type");
-        SetOutput("engine");
-        SetOutput("engine_version");
-        SetOutput("global_replication_group_description");
-        SetOutput("global_replication_group_id_suffix");
-        SetOutput("id");
-        SetOutput("num_node_groups");
-        SetOutput("parameter_group_name");
-        SetOutput("primary_replication_group_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The automatic_failover_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AutomaticFailoverEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("automatic_failover_enabled");
-        set => SetProperty("automatic_failover_enabled", value);
-    }
+    [TerraformPropertyName("automatic_failover_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> AutomaticFailoverEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "automatic_failover_enabled");
 
     /// <summary>
     /// The cache_node_type attribute.
     /// </summary>
-    public TerraformProperty<string> CacheNodeType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cache_node_type");
-        set => SetProperty("cache_node_type", value);
-    }
+    [TerraformPropertyName("cache_node_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CacheNodeType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cache_node_type");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string> Engine
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine");
-        set => SetProperty("engine", value);
-    }
+    [TerraformPropertyName("engine")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Engine { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string> EngineVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
-        set => SetProperty("engine_version", value);
-    }
+    [TerraformPropertyName("engine_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EngineVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
 
     /// <summary>
     /// The global_replication_group_description attribute.
     /// </summary>
-    public TerraformProperty<string> GlobalReplicationGroupDescription
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("global_replication_group_description");
-        set => SetProperty("global_replication_group_description", value);
-    }
+    [TerraformPropertyName("global_replication_group_description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GlobalReplicationGroupDescription { get; set; }
 
     /// <summary>
     /// The global_replication_group_id_suffix attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalReplicationGroupIdSuffix is required")]
-    public required TerraformProperty<string> GlobalReplicationGroupIdSuffix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("global_replication_group_id_suffix");
-        set => SetProperty("global_replication_group_id_suffix", value);
-    }
+    [TerraformPropertyName("global_replication_group_id_suffix")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GlobalReplicationGroupIdSuffix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The num_node_groups attribute.
     /// </summary>
-    public TerraformProperty<double> NumNodeGroups
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("num_node_groups");
-        set => SetProperty("num_node_groups", value);
-    }
+    [TerraformPropertyName("num_node_groups")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> NumNodeGroups { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "num_node_groups");
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformProperty<string> ParameterGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parameter_group_name");
-        set => SetProperty("parameter_group_name", value);
-    }
+    [TerraformPropertyName("parameter_group_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ParameterGroupName { get; set; }
 
     /// <summary>
     /// The primary_replication_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryReplicationGroupId is required")]
-    public required TerraformProperty<string> PrimaryReplicationGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("primary_replication_group_id");
-        set => SetProperty("primary_replication_group_id", value);
-    }
+    [TerraformPropertyName("primary_replication_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrimaryReplicationGroupId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsElasticacheGlobalReplicationGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsElasticacheGlobalReplicationGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The at_rest_encryption_enabled attribute.
     /// </summary>
-    public TerraformExpression AtRestEncryptionEnabled => this["at_rest_encryption_enabled"];
+    [TerraformPropertyName("at_rest_encryption_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AtRestEncryptionEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "at_rest_encryption_enabled");
 
     /// <summary>
     /// The auth_token_enabled attribute.
     /// </summary>
-    public TerraformExpression AuthTokenEnabled => this["auth_token_enabled"];
+    [TerraformPropertyName("auth_token_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AuthTokenEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "auth_token_enabled");
 
     /// <summary>
     /// The cluster_enabled attribute.
     /// </summary>
-    public TerraformExpression ClusterEnabled => this["cluster_enabled"];
+    [TerraformPropertyName("cluster_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ClusterEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "cluster_enabled");
 
     /// <summary>
     /// The engine_version_actual attribute.
     /// </summary>
-    public TerraformExpression EngineVersionActual => this["engine_version_actual"];
+    [TerraformPropertyName("engine_version_actual")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EngineVersionActual => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version_actual");
 
     /// <summary>
     /// The global_node_groups attribute.
     /// </summary>
-    public TerraformExpression GlobalNodeGroups => this["global_node_groups"];
+    [TerraformPropertyName("global_node_groups")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> GlobalNodeGroups => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "global_node_groups");
 
     /// <summary>
     /// The global_replication_group_id attribute.
     /// </summary>
-    public TerraformExpression GlobalReplicationGroupId => this["global_replication_group_id"];
+    [TerraformPropertyName("global_replication_group_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GlobalReplicationGroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "global_replication_group_id");
 
     /// <summary>
     /// The transit_encryption_enabled attribute.
     /// </summary>
-    public TerraformExpression TransitEncryptionEnabled => this["transit_encryption_enabled"];
+    [TerraformPropertyName("transit_encryption_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> TransitEncryptionEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "transit_encryption_enabled");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authentication in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricManagedClusterAuthenticationBlock : TerraformBlock
+public class AzurermServiceFabricManagedClusterAuthenticationBlock : ITerraformBlock
 {
 }
 
@@ -14,34 +14,31 @@ public class AzurermServiceFabricManagedClusterAuthenticationBlock : TerraformBl
 /// Block type for custom_fabric_setting in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricManagedClusterCustomFabricSettingBlock : TerraformBlock
+public class AzurermServiceFabricManagedClusterCustomFabricSettingBlock : ITerraformBlock
 {
     /// <summary>
     /// The parameter attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
-    public required TerraformProperty<string> Parameter
-    {
-        set => SetProperty("parameter", value);
-    }
+    [TerraformPropertyName("parameter")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Parameter { get; set; }
 
     /// <summary>
     /// The section attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Section is required")]
-    public required TerraformProperty<string> Section
-    {
-        set => SetProperty("section", value);
-    }
+    [TerraformPropertyName("section")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Section { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<string> Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
 
 }
 
@@ -49,51 +46,46 @@ public class AzurermServiceFabricManagedClusterCustomFabricSettingBlock : Terraf
 /// Block type for lb_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricManagedClusterLbRuleBlock : TerraformBlock
+public class AzurermServiceFabricManagedClusterLbRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The backend_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
-    public required TerraformProperty<double> BackendPort
-    {
-        set => SetProperty("backend_port", value);
-    }
+    [TerraformPropertyName("backend_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> BackendPort { get; set; }
 
     /// <summary>
     /// The frontend_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPort is required")]
-    public required TerraformProperty<double> FrontendPort
-    {
-        set => SetProperty("frontend_port", value);
-    }
+    [TerraformPropertyName("frontend_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> FrontendPort { get; set; }
 
     /// <summary>
     /// The probe_protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProbeProtocol is required")]
-    public required TerraformProperty<string> ProbeProtocol
-    {
-        set => SetProperty("probe_protocol", value);
-    }
+    [TerraformPropertyName("probe_protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProbeProtocol { get; set; }
 
     /// <summary>
     /// The probe_request_path attribute.
     /// </summary>
-    public TerraformProperty<string>? ProbeRequestPath
-    {
-        set => SetProperty("probe_request_path", value);
-    }
+    [TerraformPropertyName("probe_request_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProbeRequestPath { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    public required TerraformProperty<string> Protocol
-    {
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
 
 }
 
@@ -101,153 +93,136 @@ public class AzurermServiceFabricManagedClusterLbRuleBlock : TerraformBlock
 /// Block type for node_type in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricManagedClusterNodeTypeBlock : TerraformBlock
+public class AzurermServiceFabricManagedClusterNodeTypeBlock : ITerraformBlock
 {
     /// <summary>
     /// The application_port_range attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationPortRange is required")]
-    public required TerraformProperty<string> ApplicationPortRange
-    {
-        set => SetProperty("application_port_range", value);
-    }
+    [TerraformPropertyName("application_port_range")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationPortRange { get; set; }
 
     /// <summary>
     /// The capacities attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Capacities
-    {
-        set => SetProperty("capacities", value);
-    }
+    [TerraformPropertyName("capacities")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Capacities { get; set; }
 
     /// <summary>
     /// The data_disk_size_gb attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataDiskSizeGb is required")]
-    public required TerraformProperty<double> DataDiskSizeGb
-    {
-        set => SetProperty("data_disk_size_gb", value);
-    }
+    [TerraformPropertyName("data_disk_size_gb")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> DataDiskSizeGb { get; set; }
 
     /// <summary>
     /// The data_disk_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DataDiskType
-    {
-        set => SetProperty("data_disk_type", value);
-    }
+    [TerraformPropertyName("data_disk_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DataDiskType { get; set; }
 
     /// <summary>
     /// The ephemeral_port_range attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EphemeralPortRange is required")]
-    public required TerraformProperty<string> EphemeralPortRange
-    {
-        set => SetProperty("ephemeral_port_range", value);
-    }
+    [TerraformPropertyName("ephemeral_port_range")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EphemeralPortRange { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The multiple_placement_groups_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? MultiplePlacementGroupsEnabled
-    {
-        set => SetProperty("multiple_placement_groups_enabled", value);
-    }
+    [TerraformPropertyName("multiple_placement_groups_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MultiplePlacementGroupsEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The placement_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? PlacementProperties
-    {
-        set => SetProperty("placement_properties", value);
-    }
+    [TerraformPropertyName("placement_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? PlacementProperties { get; set; }
 
     /// <summary>
     /// The primary attribute.
     /// </summary>
-    public TerraformProperty<bool>? Primary
-    {
-        set => SetProperty("primary", value);
-    }
+    [TerraformPropertyName("primary")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Primary { get; set; }
 
     /// <summary>
     /// The stateless attribute.
     /// </summary>
-    public TerraformProperty<bool>? Stateless
-    {
-        set => SetProperty("stateless", value);
-    }
+    [TerraformPropertyName("stateless")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Stateless { get; set; }
 
     /// <summary>
     /// The vm_image_offer attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmImageOffer is required")]
-    public required TerraformProperty<string> VmImageOffer
-    {
-        set => SetProperty("vm_image_offer", value);
-    }
+    [TerraformPropertyName("vm_image_offer")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VmImageOffer { get; set; }
 
     /// <summary>
     /// The vm_image_publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmImagePublisher is required")]
-    public required TerraformProperty<string> VmImagePublisher
-    {
-        set => SetProperty("vm_image_publisher", value);
-    }
+    [TerraformPropertyName("vm_image_publisher")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VmImagePublisher { get; set; }
 
     /// <summary>
     /// The vm_image_sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmImageSku is required")]
-    public required TerraformProperty<string> VmImageSku
-    {
-        set => SetProperty("vm_image_sku", value);
-    }
+    [TerraformPropertyName("vm_image_sku")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VmImageSku { get; set; }
 
     /// <summary>
     /// The vm_image_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmImageVersion is required")]
-    public required TerraformProperty<string> VmImageVersion
-    {
-        set => SetProperty("vm_image_version", value);
-    }
+    [TerraformPropertyName("vm_image_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VmImageVersion { get; set; }
 
     /// <summary>
     /// The vm_instance_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmInstanceCount is required")]
-    public required TerraformProperty<double> VmInstanceCount
-    {
-        set => SetProperty("vm_instance_count", value);
-    }
+    [TerraformPropertyName("vm_instance_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> VmInstanceCount { get; set; }
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
-    public required TerraformProperty<string> VmSize
-    {
-        set => SetProperty("vm_size", value);
-    }
+    [TerraformPropertyName("vm_size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VmSize { get; set; }
 
 }
 
@@ -255,39 +230,35 @@ public class AzurermServiceFabricManagedClusterNodeTypeBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermServiceFabricManagedClusterTimeoutsBlock : TerraformBlock
+public class AzurermServiceFabricManagedClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -299,186 +270,132 @@ public class AzurermServiceFabricManagedCluster : TerraformResource
 {
     public AzurermServiceFabricManagedCluster(string name) : base("azurerm_service_fabric_managed_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("backup_service_enabled");
-        SetOutput("client_connection_port");
-        SetOutput("dns_name");
-        SetOutput("dns_service_enabled");
-        SetOutput("http_gateway_port");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("password");
-        SetOutput("resource_group_name");
-        SetOutput("sku");
-        SetOutput("subnet_id");
-        SetOutput("tags");
-        SetOutput("upgrade_wave");
-        SetOutput("username");
     }
 
     /// <summary>
     /// The backup_service_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> BackupServiceEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("backup_service_enabled");
-        set => SetProperty("backup_service_enabled", value);
-    }
+    [TerraformPropertyName("backup_service_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BackupServiceEnabled { get; set; }
 
     /// <summary>
     /// The client_connection_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientConnectionPort is required")]
-    public required TerraformProperty<double> ClientConnectionPort
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("client_connection_port");
-        set => SetProperty("client_connection_port", value);
-    }
+    [TerraformPropertyName("client_connection_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ClientConnectionPort { get; set; }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformProperty<string> DnsName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dns_name");
-        set => SetProperty("dns_name", value);
-    }
+    [TerraformPropertyName("dns_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DnsName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
 
     /// <summary>
     /// The dns_service_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> DnsServiceEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("dns_service_enabled");
-        set => SetProperty("dns_service_enabled", value);
-    }
+    [TerraformPropertyName("dns_service_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DnsServiceEnabled { get; set; }
 
     /// <summary>
     /// The http_gateway_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpGatewayPort is required")]
-    public required TerraformProperty<double> HttpGatewayPort
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("http_gateway_port");
-        set => SetProperty("http_gateway_port", value);
-    }
+    [TerraformPropertyName("http_gateway_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> HttpGatewayPort { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string> Password
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("password");
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Password { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string> Sku
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku");
-        set => SetProperty("sku", value);
-    }
+    [TerraformPropertyName("sku")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Sku { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string> SubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The upgrade_wave attribute.
     /// </summary>
-    public TerraformProperty<string> UpgradeWave
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("upgrade_wave");
-        set => SetProperty("upgrade_wave", value);
-    }
+    [TerraformPropertyName("upgrade_wave")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UpgradeWave { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformProperty<string> Username
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("username");
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Username { get; set; }
 
     /// <summary>
     /// Block for authentication.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
-    public List<AzurermServiceFabricManagedClusterAuthenticationBlock>? Authentication
-    {
-        set => SetProperty("authentication", value);
-    }
+    [TerraformPropertyName("authentication")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricManagedClusterAuthenticationBlock>>? Authentication { get; set; } = new();
 
     /// <summary>
     /// Block for custom_fabric_setting.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermServiceFabricManagedClusterCustomFabricSettingBlock>? CustomFabricSetting
-    {
-        set => SetProperty("custom_fabric_setting", value);
-    }
+    [TerraformPropertyName("custom_fabric_setting")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricManagedClusterCustomFabricSettingBlock>>? CustomFabricSetting { get; set; } = new();
 
     /// <summary>
     /// Block for lb_rule.
@@ -486,27 +403,21 @@ public class AzurermServiceFabricManagedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LbRule block(s) required")]
-    public List<AzurermServiceFabricManagedClusterLbRuleBlock>? LbRule
-    {
-        set => SetProperty("lb_rule", value);
-    }
+    [TerraformPropertyName("lb_rule")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricManagedClusterLbRuleBlock>>? LbRule { get; set; } = new();
 
     /// <summary>
     /// Block for node_type.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermServiceFabricManagedClusterNodeTypeBlock>? NodeType
-    {
-        set => SetProperty("node_type", value);
-    }
+    [TerraformPropertyName("node_type")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricManagedClusterNodeTypeBlock>>? NodeType { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermServiceFabricManagedClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermServiceFabricManagedClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

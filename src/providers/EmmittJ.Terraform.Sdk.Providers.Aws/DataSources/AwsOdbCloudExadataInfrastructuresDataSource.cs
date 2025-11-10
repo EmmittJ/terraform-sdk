@@ -9,27 +9,20 @@ public class AwsOdbCloudExadataInfrastructuresDataSource : TerraformDataSource
 {
     public AwsOdbCloudExadataInfrastructuresDataSource(string name) : base("aws_odb_cloud_exadata_infrastructures", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cloud_exadata_infrastructures");
-        SetOutput("region");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// List of Cloud Exadata Infrastructures. Returns basic information about the Cloud Exadata Infrastructures.
     /// </summary>
-    public TerraformExpression CloudExadataInfrastructures => this["cloud_exadata_infrastructures"];
+    [TerraformPropertyName("cloud_exadata_infrastructures")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> CloudExadataInfrastructures => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cloud_exadata_infrastructures");
 
 }

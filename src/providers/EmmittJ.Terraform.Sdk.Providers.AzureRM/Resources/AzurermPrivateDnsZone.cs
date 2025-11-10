@@ -6,88 +6,78 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for soa_record in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPrivateDnsZoneSoaRecordBlock : TerraformBlock
+public class AzurermPrivateDnsZoneSoaRecordBlock : ITerraformBlock
 {
     /// <summary>
     /// The email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    public required TerraformProperty<string> Email
-    {
-        set => SetProperty("email", value);
-    }
+    [TerraformPropertyName("email")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Email { get; set; }
 
     /// <summary>
     /// The expire_time attribute.
     /// </summary>
-    public TerraformProperty<double>? ExpireTime
-    {
-        set => SetProperty("expire_time", value);
-    }
+    [TerraformPropertyName("expire_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ExpireTime { get; set; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    public TerraformProperty<string>? Fqdn
-    {
-        set => SetProperty("fqdn", value);
-    }
+    [TerraformPropertyName("fqdn")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fqdn => new TerraformReferenceProperty<TerraformProperty<string>>("", "fqdn");
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
-    public TerraformProperty<string>? HostName
-    {
-        set => SetProperty("host_name", value);
-    }
+    [TerraformPropertyName("host_name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostName => new TerraformReferenceProperty<TerraformProperty<string>>("", "host_name");
 
     /// <summary>
     /// The minimum_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? MinimumTtl
-    {
-        set => SetProperty("minimum_ttl", value);
-    }
+    [TerraformPropertyName("minimum_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinimumTtl { get; set; }
 
     /// <summary>
     /// The refresh_time attribute.
     /// </summary>
-    public TerraformProperty<double>? RefreshTime
-    {
-        set => SetProperty("refresh_time", value);
-    }
+    [TerraformPropertyName("refresh_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RefreshTime { get; set; }
 
     /// <summary>
     /// The retry_time attribute.
     /// </summary>
-    public TerraformProperty<double>? RetryTime
-    {
-        set => SetProperty("retry_time", value);
-    }
+    [TerraformPropertyName("retry_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RetryTime { get; set; }
 
     /// <summary>
     /// The serial_number attribute.
     /// </summary>
-    public TerraformProperty<double>? SerialNumber
-    {
-        set => SetProperty("serial_number", value);
-    }
+    [TerraformPropertyName("serial_number")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SerialNumber => new TerraformReferenceProperty<TerraformProperty<double>>("", "serial_number");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
-    {
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? Ttl
-    {
-        set => SetProperty("ttl", value);
-    }
+    [TerraformPropertyName("ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Ttl { get; set; }
 
 }
 
@@ -95,39 +85,35 @@ public class AzurermPrivateDnsZoneSoaRecordBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPrivateDnsZoneTimeoutsBlock : TerraformBlock
+public class AzurermPrivateDnsZoneTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -139,96 +125,79 @@ public class AzurermPrivateDnsZone : TerraformResource
 {
     public AzurermPrivateDnsZone(string name) : base("azurerm_private_dns_zone", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("max_number_of_record_sets");
-        SetOutput("max_number_of_virtual_network_links");
-        SetOutput("max_number_of_virtual_network_links_with_registration");
-        SetOutput("number_of_record_sets");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for soa_record.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoaRecord block(s) allowed")]
-    public List<AzurermPrivateDnsZoneSoaRecordBlock>? SoaRecord
-    {
-        set => SetProperty("soa_record", value);
-    }
+    [TerraformPropertyName("soa_record")]
+    public TerraformList<TerraformBlock<AzurermPrivateDnsZoneSoaRecordBlock>>? SoaRecord { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermPrivateDnsZoneTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermPrivateDnsZoneTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The max_number_of_record_sets attribute.
     /// </summary>
-    public TerraformExpression MaxNumberOfRecordSets => this["max_number_of_record_sets"];
+    [TerraformPropertyName("max_number_of_record_sets")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxNumberOfRecordSets => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_number_of_record_sets");
 
     /// <summary>
     /// The max_number_of_virtual_network_links attribute.
     /// </summary>
-    public TerraformExpression MaxNumberOfVirtualNetworkLinks => this["max_number_of_virtual_network_links"];
+    [TerraformPropertyName("max_number_of_virtual_network_links")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxNumberOfVirtualNetworkLinks => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_number_of_virtual_network_links");
 
     /// <summary>
     /// The max_number_of_virtual_network_links_with_registration attribute.
     /// </summary>
-    public TerraformExpression MaxNumberOfVirtualNetworkLinksWithRegistration => this["max_number_of_virtual_network_links_with_registration"];
+    [TerraformPropertyName("max_number_of_virtual_network_links_with_registration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxNumberOfVirtualNetworkLinksWithRegistration => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_number_of_virtual_network_links_with_registration");
 
     /// <summary>
     /// The number_of_record_sets attribute.
     /// </summary>
-    public TerraformExpression NumberOfRecordSets => this["number_of_record_sets"];
+    [TerraformPropertyName("number_of_record_sets")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NumberOfRecordSets => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "number_of_record_sets");
 
 }

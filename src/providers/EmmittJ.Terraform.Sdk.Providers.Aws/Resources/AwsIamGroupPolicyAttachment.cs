@@ -9,43 +9,29 @@ public class AwsIamGroupPolicyAttachment : TerraformResource
 {
     public AwsIamGroupPolicyAttachment(string name) : base("aws_iam_group_policy_attachment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("group");
-        SetOutput("id");
-        SetOutput("policy_arn");
     }
 
     /// <summary>
     /// The group attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
-    public required TerraformProperty<string> Group
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("group");
-        set => SetProperty("group", value);
-    }
+    [TerraformPropertyName("group")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Group { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The policy_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
-    public required TerraformProperty<string> PolicyArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_arn");
-        set => SetProperty("policy_arn", value);
-    }
+    [TerraformPropertyName("policy_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyArn { get; set; }
 
 }

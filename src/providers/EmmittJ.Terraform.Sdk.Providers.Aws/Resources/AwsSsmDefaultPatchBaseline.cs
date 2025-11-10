@@ -9,53 +9,36 @@ public class AwsSsmDefaultPatchBaseline : TerraformResource
 {
     public AwsSsmDefaultPatchBaseline(string name) : base("aws_ssm_default_patch_baseline", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("baseline_id");
-        SetOutput("id");
-        SetOutput("operating_system");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The baseline_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaselineId is required")]
-    public required TerraformProperty<string> BaselineId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("baseline_id");
-        set => SetProperty("baseline_id", value);
-    }
+    [TerraformPropertyName("baseline_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BaselineId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The operating_system attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatingSystem is required")]
-    public required TerraformProperty<string> OperatingSystem
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("operating_system");
-        set => SetProperty("operating_system", value);
-    }
+    [TerraformPropertyName("operating_system")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OperatingSystem { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
 }

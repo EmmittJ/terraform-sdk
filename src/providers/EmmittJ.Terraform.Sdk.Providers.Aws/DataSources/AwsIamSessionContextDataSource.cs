@@ -9,56 +9,49 @@ public class AwsIamSessionContextDataSource : TerraformDataSource
 {
     public AwsIamSessionContextDataSource(string name) : base("aws_iam_session_context", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("issuer_arn");
-        SetOutput("issuer_id");
-        SetOutput("issuer_name");
-        SetOutput("session_name");
-        SetOutput("arn");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    public required TerraformProperty<string> Arn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arn");
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The issuer_arn attribute.
     /// </summary>
-    public TerraformExpression IssuerArn => this["issuer_arn"];
+    [TerraformPropertyName("issuer_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IssuerArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "issuer_arn");
 
     /// <summary>
     /// The issuer_id attribute.
     /// </summary>
-    public TerraformExpression IssuerId => this["issuer_id"];
+    [TerraformPropertyName("issuer_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IssuerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "issuer_id");
 
     /// <summary>
     /// The issuer_name attribute.
     /// </summary>
-    public TerraformExpression IssuerName => this["issuer_name"];
+    [TerraformPropertyName("issuer_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IssuerName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "issuer_name");
 
     /// <summary>
     /// The session_name attribute.
     /// </summary>
-    public TerraformExpression SessionName => this["session_name"];
+    [TerraformPropertyName("session_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SessionName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "session_name");
 
 }

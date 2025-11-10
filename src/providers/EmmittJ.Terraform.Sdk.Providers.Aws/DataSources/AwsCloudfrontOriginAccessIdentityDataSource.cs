@@ -9,64 +9,63 @@ public class AwsCloudfrontOriginAccessIdentityDataSource : TerraformDataSource
 {
     public AwsCloudfrontOriginAccessIdentityDataSource(string name) : base("aws_cloudfront_origin_access_identity", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("caller_reference");
-        SetOutput("cloudfront_access_identity_path");
-        SetOutput("comment");
-        SetOutput("etag");
-        SetOutput("iam_arn");
-        SetOutput("s3_canonical_user_id");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
-    public TerraformExpression CallerReference => this["caller_reference"];
+    [TerraformPropertyName("caller_reference")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CallerReference => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "caller_reference");
 
     /// <summary>
     /// The cloudfront_access_identity_path attribute.
     /// </summary>
-    public TerraformExpression CloudfrontAccessIdentityPath => this["cloudfront_access_identity_path"];
+    [TerraformPropertyName("cloudfront_access_identity_path")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CloudfrontAccessIdentityPath => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cloudfront_access_identity_path");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformExpression Comment => this["comment"];
+    [TerraformPropertyName("comment")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Comment => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "comment");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The iam_arn attribute.
     /// </summary>
-    public TerraformExpression IamArn => this["iam_arn"];
+    [TerraformPropertyName("iam_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IamArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "iam_arn");
 
     /// <summary>
     /// The s3_canonical_user_id attribute.
     /// </summary>
-    public TerraformExpression S3CanonicalUserId => this["s3_canonical_user_id"];
+    [TerraformPropertyName("s3_canonical_user_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> S3CanonicalUserId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "s3_canonical_user_id");
 
 }

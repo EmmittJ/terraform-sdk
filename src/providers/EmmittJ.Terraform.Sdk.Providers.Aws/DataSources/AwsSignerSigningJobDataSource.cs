@@ -9,132 +9,133 @@ public class AwsSignerSigningJobDataSource : TerraformDataSource
 {
     public AwsSignerSigningJobDataSource(string name) : base("aws_signer_signing_job", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("completed_at");
-        SetOutput("created_at");
-        SetOutput("job_invoker");
-        SetOutput("job_owner");
-        SetOutput("platform_display_name");
-        SetOutput("platform_id");
-        SetOutput("profile_name");
-        SetOutput("profile_version");
-        SetOutput("requested_by");
-        SetOutput("revocation_record");
-        SetOutput("signature_expires_at");
-        SetOutput("signed_object");
-        SetOutput("source");
-        SetOutput("status");
-        SetOutput("status_reason");
-        SetOutput("id");
-        SetOutput("job_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The job_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
-    public required TerraformProperty<string> JobId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("job_id");
-        set => SetProperty("job_id", value);
-    }
+    [TerraformPropertyName("job_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> JobId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The completed_at attribute.
     /// </summary>
-    public TerraformExpression CompletedAt => this["completed_at"];
+    [TerraformPropertyName("completed_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CompletedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "completed_at");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The job_invoker attribute.
     /// </summary>
-    public TerraformExpression JobInvoker => this["job_invoker"];
+    [TerraformPropertyName("job_invoker")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> JobInvoker => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "job_invoker");
 
     /// <summary>
     /// The job_owner attribute.
     /// </summary>
-    public TerraformExpression JobOwner => this["job_owner"];
+    [TerraformPropertyName("job_owner")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> JobOwner => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "job_owner");
 
     /// <summary>
     /// The platform_display_name attribute.
     /// </summary>
-    public TerraformExpression PlatformDisplayName => this["platform_display_name"];
+    [TerraformPropertyName("platform_display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PlatformDisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "platform_display_name");
 
     /// <summary>
     /// The platform_id attribute.
     /// </summary>
-    public TerraformExpression PlatformId => this["platform_id"];
+    [TerraformPropertyName("platform_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PlatformId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "platform_id");
 
     /// <summary>
     /// The profile_name attribute.
     /// </summary>
-    public TerraformExpression ProfileName => this["profile_name"];
+    [TerraformPropertyName("profile_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProfileName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "profile_name");
 
     /// <summary>
     /// The profile_version attribute.
     /// </summary>
-    public TerraformExpression ProfileVersion => this["profile_version"];
+    [TerraformPropertyName("profile_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProfileVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "profile_version");
 
     /// <summary>
     /// The requested_by attribute.
     /// </summary>
-    public TerraformExpression RequestedBy => this["requested_by"];
+    [TerraformPropertyName("requested_by")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RequestedBy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "requested_by");
 
     /// <summary>
     /// The revocation_record attribute.
     /// </summary>
-    public TerraformExpression RevocationRecord => this["revocation_record"];
+    [TerraformPropertyName("revocation_record")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RevocationRecord => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "revocation_record");
 
     /// <summary>
     /// The signature_expires_at attribute.
     /// </summary>
-    public TerraformExpression SignatureExpiresAt => this["signature_expires_at"];
+    [TerraformPropertyName("signature_expires_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SignatureExpiresAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signature_expires_at");
 
     /// <summary>
     /// The signed_object attribute.
     /// </summary>
-    public TerraformExpression SignedObject => this["signed_object"];
+    [TerraformPropertyName("signed_object")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SignedObject => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "signed_object");
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformExpression Source => this["source"];
+    [TerraformPropertyName("source")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Source => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "source");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
-    public TerraformExpression StatusReason => this["status_reason"];
+    [TerraformPropertyName("status_reason")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StatusReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status_reason");
 
 }

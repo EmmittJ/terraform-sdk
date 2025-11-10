@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for action_group_executor in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentAgentActionGroupActionGroupExecutorBlock : TerraformBlock
+public class AwsBedrockagentAgentActionGroupActionGroupExecutorBlock : ITerraformBlock
 {
     /// <summary>
     /// The custom_control attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomControl
-    {
-        set => SetProperty("custom_control", value);
-    }
+    [TerraformPropertyName("custom_control")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomControl { get; set; }
 
     /// <summary>
     /// The lambda attribute.
     /// </summary>
-    public TerraformProperty<string>? Lambda
-    {
-        set => SetProperty("lambda", value);
-    }
+    [TerraformPropertyName("lambda")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Lambda { get; set; }
 
 }
 
@@ -30,15 +28,14 @@ public class AwsBedrockagentAgentActionGroupActionGroupExecutorBlock : Terraform
 /// Block type for api_schema in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentAgentActionGroupApiSchemaBlock : TerraformBlock
+public class AwsBedrockagentAgentActionGroupApiSchemaBlock : ITerraformBlock
 {
     /// <summary>
     /// The payload attribute.
     /// </summary>
-    public TerraformProperty<string>? Payload
-    {
-        set => SetProperty("payload", value);
-    }
+    [TerraformPropertyName("payload")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Payload { get; set; }
 
 }
 
@@ -46,7 +43,7 @@ public class AwsBedrockagentAgentActionGroupApiSchemaBlock : TerraformBlock
 /// Block type for function_schema in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentAgentActionGroupFunctionSchemaBlock : TerraformBlock
+public class AwsBedrockagentAgentActionGroupFunctionSchemaBlock : ITerraformBlock
 {
 }
 
@@ -54,23 +51,21 @@ public class AwsBedrockagentAgentActionGroupFunctionSchemaBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsBedrockagentAgentActionGroupTimeoutsBlock : TerraformBlock
+public class AwsBedrockagentAgentActionGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -81,152 +76,114 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
 {
     public AwsBedrockagentAgentActionGroup(string name) : base("aws_bedrockagent_agent_action_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("action_group_id");
-        SetOutput("id");
-        SetOutput("action_group_name");
-        SetOutput("action_group_state");
-        SetOutput("agent_id");
-        SetOutput("agent_version");
-        SetOutput("description");
-        SetOutput("parent_action_group_signature");
-        SetOutput("prepare_agent");
-        SetOutput("region");
-        SetOutput("skip_resource_in_use_check");
     }
 
     /// <summary>
     /// The action_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupName is required")]
-    public required TerraformProperty<string> ActionGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("action_group_name");
-        set => SetProperty("action_group_name", value);
-    }
+    [TerraformPropertyName("action_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ActionGroupName { get; set; }
 
     /// <summary>
     /// The action_group_state attribute.
     /// </summary>
-    public TerraformProperty<string> ActionGroupState
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("action_group_state");
-        set => SetProperty("action_group_state", value);
-    }
+    [TerraformPropertyName("action_group_state")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ActionGroupState { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "action_group_state");
 
     /// <summary>
     /// The agent_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
-    public required TerraformProperty<string> AgentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("agent_id");
-        set => SetProperty("agent_id", value);
-    }
+    [TerraformPropertyName("agent_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AgentId { get; set; }
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentVersion is required")]
-    public required TerraformProperty<string> AgentVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("agent_version");
-        set => SetProperty("agent_version", value);
-    }
+    [TerraformPropertyName("agent_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AgentVersion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The parent_action_group_signature attribute.
     /// </summary>
-    public TerraformProperty<string> ParentActionGroupSignature
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent_action_group_signature");
-        set => SetProperty("parent_action_group_signature", value);
-    }
+    [TerraformPropertyName("parent_action_group_signature")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ParentActionGroupSignature { get; set; }
 
     /// <summary>
     /// The prepare_agent attribute.
     /// </summary>
-    public TerraformProperty<bool> PrepareAgent
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("prepare_agent");
-        set => SetProperty("prepare_agent", value);
-    }
+    [TerraformPropertyName("prepare_agent")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> PrepareAgent { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "prepare_agent");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The skip_resource_in_use_check attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipResourceInUseCheck
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_resource_in_use_check");
-        set => SetProperty("skip_resource_in_use_check", value);
-    }
+    [TerraformPropertyName("skip_resource_in_use_check")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> SkipResourceInUseCheck { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "skip_resource_in_use_check");
 
     /// <summary>
     /// Block for action_group_executor.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBedrockagentAgentActionGroupActionGroupExecutorBlock>? ActionGroupExecutor
-    {
-        set => SetProperty("action_group_executor", value);
-    }
+    [TerraformPropertyName("action_group_executor")]
+    public TerraformList<TerraformBlock<AwsBedrockagentAgentActionGroupActionGroupExecutorBlock>>? ActionGroupExecutor { get; set; } = new();
 
     /// <summary>
     /// Block for api_schema.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBedrockagentAgentActionGroupApiSchemaBlock>? ApiSchema
-    {
-        set => SetProperty("api_schema", value);
-    }
+    [TerraformPropertyName("api_schema")]
+    public TerraformList<TerraformBlock<AwsBedrockagentAgentActionGroupApiSchemaBlock>>? ApiSchema { get; set; } = new();
 
     /// <summary>
     /// Block for function_schema.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBedrockagentAgentActionGroupFunctionSchemaBlock>? FunctionSchema
-    {
-        set => SetProperty("function_schema", value);
-    }
+    [TerraformPropertyName("function_schema")]
+    public TerraformList<TerraformBlock<AwsBedrockagentAgentActionGroupFunctionSchemaBlock>>? FunctionSchema { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsBedrockagentAgentActionGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsBedrockagentAgentActionGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The action_group_id attribute.
     /// </summary>
-    public TerraformExpression ActionGroupId => this["action_group_id"];
+    [TerraformPropertyName("action_group_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ActionGroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "action_group_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

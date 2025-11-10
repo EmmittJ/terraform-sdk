@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for flexible_time_window in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSchedulerScheduleFlexibleTimeWindowBlock : TerraformBlock
+public class AwsSchedulerScheduleFlexibleTimeWindowBlock : ITerraformBlock
 {
     /// <summary>
     /// The maximum_window_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumWindowInMinutes
-    {
-        set => SetProperty("maximum_window_in_minutes", value);
-    }
+    [TerraformPropertyName("maximum_window_in_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaximumWindowInMinutes { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    public required TerraformProperty<string> Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Mode { get; set; }
 
 }
 
@@ -31,33 +29,30 @@ public class AwsSchedulerScheduleFlexibleTimeWindowBlock : TerraformBlock
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSchedulerScheduleTargetBlock : TerraformBlock
+public class AwsSchedulerScheduleTargetBlock : ITerraformBlock
 {
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    public required TerraformProperty<string> Arn
-    {
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
 
     /// <summary>
     /// The input attribute.
     /// </summary>
-    public TerraformProperty<string>? Input
-    {
-        set => SetProperty("input", value);
-    }
+    [TerraformPropertyName("input")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Input { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
 }
 
@@ -69,144 +64,99 @@ public class AwsSchedulerSchedule : TerraformResource
 {
     public AwsSchedulerSchedule(string name) : base("aws_scheduler_schedule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("action_after_completion");
-        SetOutput("description");
-        SetOutput("end_date");
-        SetOutput("group_name");
-        SetOutput("id");
-        SetOutput("kms_key_arn");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("region");
-        SetOutput("schedule_expression");
-        SetOutput("schedule_expression_timezone");
-        SetOutput("start_date");
-        SetOutput("state");
     }
 
     /// <summary>
     /// The action_after_completion attribute.
     /// </summary>
-    public TerraformProperty<string> ActionAfterCompletion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("action_after_completion");
-        set => SetProperty("action_after_completion", value);
-    }
+    [TerraformPropertyName("action_after_completion")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ActionAfterCompletion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "action_after_completion");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    public TerraformProperty<string> EndDate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("end_date");
-        set => SetProperty("end_date", value);
-    }
+    [TerraformPropertyName("end_date")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndDate { get; set; }
 
     /// <summary>
     /// The group_name attribute.
     /// </summary>
-    public TerraformProperty<string> GroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("group_name");
-        set => SetProperty("group_name", value);
-    }
+    [TerraformPropertyName("group_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> GroupName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "group_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
-        set => SetProperty("kms_key_arn", value);
-    }
+    [TerraformPropertyName("kms_key_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The schedule_expression attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
-    public required TerraformProperty<string> ScheduleExpression
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("schedule_expression");
-        set => SetProperty("schedule_expression", value);
-    }
+    [TerraformPropertyName("schedule_expression")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScheduleExpression { get; set; }
 
     /// <summary>
     /// The schedule_expression_timezone attribute.
     /// </summary>
-    public TerraformProperty<string> ScheduleExpressionTimezone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("schedule_expression_timezone");
-        set => SetProperty("schedule_expression_timezone", value);
-    }
+    [TerraformPropertyName("schedule_expression_timezone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ScheduleExpressionTimezone { get; set; }
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
-    public TerraformProperty<string> StartDate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("start_date");
-        set => SetProperty("start_date", value);
-    }
+    [TerraformPropertyName("start_date")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StartDate { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string> State
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("state");
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? State { get; set; }
 
     /// <summary>
     /// Block for flexible_time_window.
@@ -215,10 +165,8 @@ public class AwsSchedulerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlexibleTimeWindow is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FlexibleTimeWindow block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FlexibleTimeWindow block(s) allowed")]
-    public List<AwsSchedulerScheduleFlexibleTimeWindowBlock>? FlexibleTimeWindow
-    {
-        set => SetProperty("flexible_time_window", value);
-    }
+    [TerraformPropertyName("flexible_time_window")]
+    public TerraformList<TerraformBlock<AwsSchedulerScheduleFlexibleTimeWindowBlock>>? FlexibleTimeWindow { get; set; } = new();
 
     /// <summary>
     /// Block for target.
@@ -227,14 +175,14 @@ public class AwsSchedulerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
-    public List<AwsSchedulerScheduleTargetBlock>? Target
-    {
-        set => SetProperty("target", value);
-    }
+    [TerraformPropertyName("target")]
+    public TerraformList<TerraformBlock<AwsSchedulerScheduleTargetBlock>>? Target { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

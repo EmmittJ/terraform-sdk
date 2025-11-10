@@ -9,42 +9,21 @@ public class GoogleMonitoringNotificationChannelDataSource : TerraformDataSource
 {
     public GoogleMonitoringNotificationChannelDataSource(string name) : base("google_monitoring_notification_channel", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("enabled");
-        SetOutput("force_delete");
-        SetOutput("name");
-        SetOutput("sensitive_labels");
-        SetOutput("verification_status");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("project");
-        SetOutput("type");
-        SetOutput("user_labels");
     }
 
     /// <summary>
     /// An optional human-readable name for this notification channel. It is recommended that you specify a non-empty and unique name in order to make it easier to identify the channels in your project, though this is not enforced. The display name is limited to 512 Unicode characters.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Configuration fields that define the channel and its behavior. The
@@ -55,48 +34,44 @@ public class GoogleMonitoringNotificationChannelDataSource : TerraformDataSource
     /// determine if there are upstream changes to these fields. They can also be configured via
     /// the sensitive_labels block, but cannot be configured in both places.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The type of the notification channel. This field matches the value of the NotificationChannelDescriptor.type field. See https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.notificationChannelDescriptors/list to get the list of valid values such as &amp;quot;email&amp;quot;, &amp;quot;slack&amp;quot;, etc...
     /// </summary>
-    public TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
     /// <summary>
     /// User-supplied key/value data that does not need to conform to the corresponding NotificationChannelDescriptor&#39;s schema, unlike the labels field. This field is intended to be used for organizing and identifying the NotificationChannel objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> UserLabels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("user_labels");
-        set => SetProperty("user_labels", value);
-    }
+    [TerraformPropertyName("user_labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? UserLabels { get; set; }
 
     /// <summary>
     /// An optional human-readable description of this notification channel. This description may provide additional details, beyond the display name, for the channel. This may not exceed 1024 Unicode characters.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// Whether notifications are forwarded to the described channel. This makes it possible to disable delivery of notifications to a particular channel without removing the channel from all alerting policies that reference the channel. This is a more convenient approach when the change is temporary and you want to receive notifications from the same set of alerting policies on the channel at some point in the future.
     /// </summary>
-    public TerraformExpression Enabled => this["enabled"];
+    [TerraformPropertyName("enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Enabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enabled");
 
     /// <summary>
     /// If true, the notification channel will be deleted regardless
@@ -105,14 +80,18 @@ public class GoogleMonitoringNotificationChannelDataSource : TerraformDataSource
     /// referenced by an existing alerting policy will fail to be
     /// deleted in a delete operation.
     /// </summary>
-    public TerraformExpression ForceDelete => this["force_delete"];
+    [TerraformPropertyName("force_delete")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ForceDelete => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "force_delete");
 
     /// <summary>
     /// The full REST resource name for this channel. The syntax is:
     /// projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]
     /// The [CHANNEL_ID] is automatically assigned by the server on creation.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Different notification type behaviors are configured primarily using the the &#39;labels&#39; field on this
@@ -123,11 +102,15 @@ public class GoogleMonitoringNotificationChannelDataSource : TerraformDataSource
     /// Credentials may not be specified in both locations and will cause an error. Changing from one location
     /// to a different credential configuration in the config will require an apply to update state.
     /// </summary>
-    public TerraformExpression SensitiveLabels => this["sensitive_labels"];
+    [TerraformPropertyName("sensitive_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SensitiveLabels => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "sensitive_labels");
 
     /// <summary>
     /// Indicates whether this channel has been verified or not. On a ListNotificationChannels or GetNotificationChannel operation, this field is expected to be populated.If the value is UNVERIFIED, then it indicates that the channel is non-functioning (it both requires verification and lacks verification); otherwise, it is assumed that the channel works.If the channel is neither VERIFIED nor UNVERIFIED, it implies that the channel is of a type that does not require verification or that this specific channel has been exempted from verification because it was created prior to verification being required for channels of this type.This field cannot be modified using a standard UpdateNotificationChannel operation. To change the value of this field, you must call VerifyNotificationChannel.
     /// </summary>
-    public TerraformExpression VerificationStatus => this["verification_status"];
+    [TerraformPropertyName("verification_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VerificationStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "verification_status");
 
 }

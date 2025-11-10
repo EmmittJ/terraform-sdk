@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for external_metrics_preference in .
 /// Nesting mode: list
 /// </summary>
-public class AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferenceBlock : TerraformBlock
+public class AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferenceBlock : ITerraformBlock
 {
     /// <summary>
     /// The source attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
-    public required TerraformProperty<string> Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Source { get; set; }
 
 }
 
@@ -23,32 +22,29 @@ public class AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferen
 /// Block type for preferred_resource in .
 /// Nesting mode: list
 /// </summary>
-public class AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock : TerraformBlock
+public class AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock : ITerraformBlock
 {
     /// <summary>
     /// The exclude_list attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExcludeList
-    {
-        set => SetProperty("exclude_list", value);
-    }
+    [TerraformPropertyName("exclude_list")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ExcludeList { get; set; }
 
     /// <summary>
     /// The include_list attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IncludeList
-    {
-        set => SetProperty("include_list", value);
-    }
+    [TerraformPropertyName("include_list")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IncludeList { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -56,25 +52,23 @@ public class AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock 
 /// Block type for scope in .
 /// Nesting mode: list
 /// </summary>
-public class AwsComputeoptimizerRecommendationPreferencesScopeBlock : TerraformBlock
+public class AwsComputeoptimizerRecommendationPreferencesScopeBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<string> Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
 
 }
 
@@ -82,16 +76,15 @@ public class AwsComputeoptimizerRecommendationPreferencesScopeBlock : TerraformB
 /// Block type for utilization_preference in .
 /// Nesting mode: list
 /// </summary>
-public class AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBlock : TerraformBlock
+public class AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBlock : ITerraformBlock
 {
     /// <summary>
     /// The metric_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
-    public required TerraformProperty<string> MetricName
-    {
-        set => SetProperty("metric_name", value);
-    }
+    [TerraformPropertyName("metric_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MetricName { get; set; }
 
 }
 
@@ -102,114 +95,84 @@ public class AwsComputeoptimizerRecommendationPreferences : TerraformResource
 {
     public AwsComputeoptimizerRecommendationPreferences(string name) : base("aws_computeoptimizer_recommendation_preferences", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("enhanced_infrastructure_metrics");
-        SetOutput("inferred_workload_types");
-        SetOutput("look_back_period");
-        SetOutput("region");
-        SetOutput("resource_type");
-        SetOutput("savings_estimation_mode");
     }
 
     /// <summary>
     /// The enhanced_infrastructure_metrics attribute.
     /// </summary>
-    public TerraformProperty<string> EnhancedInfrastructureMetrics
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("enhanced_infrastructure_metrics");
-        set => SetProperty("enhanced_infrastructure_metrics", value);
-    }
+    [TerraformPropertyName("enhanced_infrastructure_metrics")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EnhancedInfrastructureMetrics { get; set; }
 
     /// <summary>
     /// The inferred_workload_types attribute.
     /// </summary>
-    public TerraformProperty<string> InferredWorkloadTypes
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("inferred_workload_types");
-        set => SetProperty("inferred_workload_types", value);
-    }
+    [TerraformPropertyName("inferred_workload_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InferredWorkloadTypes { get; set; }
 
     /// <summary>
     /// The look_back_period attribute.
     /// </summary>
-    public TerraformProperty<string> LookBackPeriod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("look_back_period");
-        set => SetProperty("look_back_period", value);
-    }
+    [TerraformPropertyName("look_back_period")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LookBackPeriod { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "look_back_period");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
-    public required TerraformProperty<string> ResourceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
-        set => SetProperty("resource_type", value);
-    }
+    [TerraformPropertyName("resource_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceType { get; set; }
 
     /// <summary>
     /// The savings_estimation_mode attribute.
     /// </summary>
-    public TerraformProperty<string> SavingsEstimationMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("savings_estimation_mode");
-        set => SetProperty("savings_estimation_mode", value);
-    }
+    [TerraformPropertyName("savings_estimation_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SavingsEstimationMode { get; set; }
 
     /// <summary>
     /// Block for external_metrics_preference.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferenceBlock>? ExternalMetricsPreference
-    {
-        set => SetProperty("external_metrics_preference", value);
-    }
+    [TerraformPropertyName("external_metrics_preference")]
+    public TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferenceBlock>>? ExternalMetricsPreference { get; set; } = new();
 
     /// <summary>
     /// Block for preferred_resource.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock>? PreferredResource
-    {
-        set => SetProperty("preferred_resource", value);
-    }
+    [TerraformPropertyName("preferred_resource")]
+    public TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock>>? PreferredResource { get; set; } = new();
 
     /// <summary>
     /// Block for scope.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsComputeoptimizerRecommendationPreferencesScopeBlock>? Scope
-    {
-        set => SetProperty("scope", value);
-    }
+    [TerraformPropertyName("scope")]
+    public TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesScopeBlock>>? Scope { get; set; } = new();
 
     /// <summary>
     /// Block for utilization_preference.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBlock>? UtilizationPreference
-    {
-        set => SetProperty("utilization_preference", value);
-    }
+    [TerraformPropertyName("utilization_preference")]
+    public TerraformList<TerraformBlock<AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBlock>>? UtilizationPreference { get; set; } = new();
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

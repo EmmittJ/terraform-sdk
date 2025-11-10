@@ -9,108 +9,91 @@ public class AwsConnectVocabularyDataSource : TerraformDataSource
 {
     public AwsConnectVocabularyDataSource(string name) : base("aws_connect_vocabulary", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("content");
-        SetOutput("failure_reason");
-        SetOutput("language_code");
-        SetOutput("last_modified_time");
-        SetOutput("state");
-        SetOutput("id");
-        SetOutput("instance_id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("vocabulary_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
-    public required TerraformProperty<string> InstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
-        set => SetProperty("instance_id", value);
-    }
+    [TerraformPropertyName("instance_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The vocabulary_id attribute.
     /// </summary>
-    public TerraformProperty<string> VocabularyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vocabulary_id");
-        set => SetProperty("vocabulary_id", value);
-    }
+    [TerraformPropertyName("vocabulary_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VocabularyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vocabulary_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformExpression Content => this["content"];
+    [TerraformPropertyName("content")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Content => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content");
 
     /// <summary>
     /// The failure_reason attribute.
     /// </summary>
-    public TerraformExpression FailureReason => this["failure_reason"];
+    [TerraformPropertyName("failure_reason")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FailureReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "failure_reason");
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
-    public TerraformExpression LanguageCode => this["language_code"];
+    [TerraformPropertyName("language_code")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LanguageCode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "language_code");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
-    public TerraformExpression LastModifiedTime => this["last_modified_time"];
+    [TerraformPropertyName("last_modified_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
 }

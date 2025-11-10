@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automated_agent_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowConversationProfileAutomatedAgentConfigBlock : TerraformBlock
+public class GoogleDialogflowConversationProfileAutomatedAgentConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// ID of the Dialogflow agent environment to use.
     /// Expects the format &amp;quot;projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agent/environments/&amp;lt;EnvironmentID&amp;gt;&amp;quot;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Agent is required")]
-    public required TerraformProperty<string> Agent
-    {
-        set => SetProperty("agent", value);
-    }
+    [TerraformPropertyName("agent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Agent { get; set; }
 
     /// <summary>
     /// Configure lifetime of the Dialogflow session.
     /// </summary>
-    public TerraformProperty<string>? SessionTtl
-    {
-        set => SetProperty("session_ttl", value);
-    }
+    [TerraformPropertyName("session_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SessionTtl { get; set; }
 
 }
 
@@ -32,7 +30,7 @@ public class GoogleDialogflowConversationProfileAutomatedAgentConfigBlock : Terr
 /// Block type for human_agent_assistant_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlock : TerraformBlock
+public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlock : ITerraformBlock
 {
 }
 
@@ -40,7 +38,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlock :
 /// Block type for human_agent_handoff_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlock : TerraformBlock
+public class GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlock : ITerraformBlock
 {
 }
 
@@ -48,15 +46,14 @@ public class GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlock : T
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowConversationProfileLoggingConfigBlock : TerraformBlock
+public class GoogleDialogflowConversationProfileLoggingConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether to log conversation events
     /// </summary>
-    public TerraformProperty<bool>? EnableStackdriverLogging
-    {
-        set => SetProperty("enable_stackdriver_logging", value);
-    }
+    [TerraformPropertyName("enable_stackdriver_logging")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableStackdriverLogging { get; set; }
 
 }
 
@@ -64,23 +61,21 @@ public class GoogleDialogflowConversationProfileLoggingConfigBlock : TerraformBl
 /// Block type for new_message_event_notification_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowConversationProfileNewMessageEventNotificationConfigBlock : TerraformBlock
+public class GoogleDialogflowConversationProfileNewMessageEventNotificationConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Format of the message Possible values: [&amp;quot;MESSAGE_FORMAT_UNSPECIFIED&amp;quot;, &amp;quot;PROTO&amp;quot;, &amp;quot;JSON&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? MessageFormat
-    {
-        set => SetProperty("message_format", value);
-    }
+    [TerraformPropertyName("message_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MessageFormat { get; set; }
 
     /// <summary>
     /// Name of the Pub/Sub topic to publish conversation events
     /// </summary>
-    public TerraformProperty<string>? Topic
-    {
-        set => SetProperty("topic", value);
-    }
+    [TerraformPropertyName("topic")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Topic { get; set; }
 
 }
 
@@ -88,15 +83,14 @@ public class GoogleDialogflowConversationProfileNewMessageEventNotificationConfi
 /// Block type for new_recognition_result_notification_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowConversationProfileNewRecognitionResultNotificationConfigBlock : TerraformBlock
+public class GoogleDialogflowConversationProfileNewRecognitionResultNotificationConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Format of message. Possible values: [&amp;quot;MESSAGE_FORMAT_UNSPECIFIED&amp;quot;, &amp;quot;PROTO&amp;quot;, &amp;quot;JSON&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? MessageFormat
-    {
-        set => SetProperty("message_format", value);
-    }
+    [TerraformPropertyName("message_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MessageFormat { get; set; }
 
     /// <summary>
     /// Name of the Pub/Sub topic to publish conversation events like CONVERSATION_STARTED as serialized ConversationEvent protos.
@@ -104,10 +98,9 @@ public class GoogleDialogflowConversationProfileNewRecognitionResultNotification
     /// For chat integration to receive notification, make sure API caller has been granted the Dialogflow Service Agent role for the topic.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/topics/&amp;lt;Topic ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? Topic
-    {
-        set => SetProperty("topic", value);
-    }
+    [TerraformPropertyName("topic")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Topic { get; set; }
 
 }
 
@@ -115,23 +108,21 @@ public class GoogleDialogflowConversationProfileNewRecognitionResultNotification
 /// Block type for notification_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowConversationProfileNotificationConfigBlock : TerraformBlock
+public class GoogleDialogflowConversationProfileNotificationConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Format of the message Possible values: [&amp;quot;MESSAGE_FORMAT_UNSPECIFIED&amp;quot;, &amp;quot;PROTO&amp;quot;, &amp;quot;JSON&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? MessageFormat
-    {
-        set => SetProperty("message_format", value);
-    }
+    [TerraformPropertyName("message_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MessageFormat { get; set; }
 
     /// <summary>
     /// Name of the Pub/Sub topic to publish conversation events
     /// </summary>
-    public TerraformProperty<string>? Topic
-    {
-        set => SetProperty("topic", value);
-    }
+    [TerraformPropertyName("topic")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Topic { get; set; }
 
 }
 
@@ -139,64 +130,57 @@ public class GoogleDialogflowConversationProfileNotificationConfigBlock : Terraf
 /// Block type for stt_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
+public class GoogleDialogflowConversationProfileSttConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Audio encoding of the audio content to process. Possible values: [&amp;quot;AUDIO_ENCODING_UNSPECIFIED&amp;quot;, &amp;quot;AUDIO_ENCODING_LINEAR_16&amp;quot;, &amp;quot;AUDIO_ENCODING_FLAC&amp;quot;, &amp;quot;AUDIO_ENCODING_MULAW&amp;quot;, &amp;quot;AUDIO_ENCODING_AMR&amp;quot;, &amp;quot;AUDIO_ENCODING_AMR_WB&amp;quot;, &amp;quot;AUDIO_ENCODING_OGG_OPUS&amp;quot;, &amp;quot;AUDIOENCODING_SPEEX_WITH_HEADER_BYTE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? AudioEncoding
-    {
-        set => SetProperty("audio_encoding", value);
-    }
+    [TerraformPropertyName("audio_encoding")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AudioEncoding { get; set; }
 
     /// <summary>
     /// If true, Dialogflow returns SpeechWordInfo in StreamingRecognitionResult with information about the recognized speech words.
     /// </summary>
-    public TerraformProperty<bool>? EnableWordInfo
-    {
-        set => SetProperty("enable_word_info", value);
-    }
+    [TerraformPropertyName("enable_word_info")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableWordInfo { get; set; }
 
     /// <summary>
     /// The language of the supplied audio.
     /// </summary>
-    public TerraformProperty<string>? LanguageCode
-    {
-        set => SetProperty("language_code", value);
-    }
+    [TerraformPropertyName("language_code")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LanguageCode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "language_code");
 
     /// <summary>
     /// Which Speech model to select.
     /// Leave this field unspecified to use Agent Speech settings for model selection.
     /// </summary>
-    public TerraformProperty<string>? Model
-    {
-        set => SetProperty("model", value);
-    }
+    [TerraformPropertyName("model")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Model { get; set; }
 
     /// <summary>
     /// Sample rate (in Hertz) of the audio content sent in the query.
     /// </summary>
-    public TerraformProperty<double>? SampleRateHertz
-    {
-        set => SetProperty("sample_rate_hertz", value);
-    }
+    [TerraformPropertyName("sample_rate_hertz")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SampleRateHertz { get; set; }
 
     /// <summary>
     /// The speech model used in speech to text. Possible values: [&amp;quot;SPEECH_MODEL_VARIANT_UNSPECIFIED&amp;quot;, &amp;quot;USE_BEST_AVAILABLE&amp;quot;, &amp;quot;USE_STANDARD&amp;quot;, &amp;quot;USE_ENHANCED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? SpeechModelVariant
-    {
-        set => SetProperty("speech_model_variant", value);
-    }
+    [TerraformPropertyName("speech_model_variant")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SpeechModelVariant { get; set; }
 
     /// <summary>
     /// Use timeout based endpointing, interpreting endpointer sensitivy as seconds of timeout value.
     /// </summary>
-    public TerraformProperty<bool>? UseTimeoutBasedEndpointing
-    {
-        set => SetProperty("use_timeout_based_endpointing", value);
-    }
+    [TerraformPropertyName("use_timeout_based_endpointing")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseTimeoutBasedEndpointing { get; set; }
 
 }
 
@@ -204,31 +188,28 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowConversationProfileTimeoutsBlock : TerraformBlock
+public class GoogleDialogflowConversationProfileTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -236,39 +217,35 @@ public class GoogleDialogflowConversationProfileTimeoutsBlock : TerraformBlock
 /// Block type for tts_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowConversationProfileTtsConfigBlock : TerraformBlock
+public class GoogleDialogflowConversationProfileTtsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// An identifier which selects &#39;audio effects&#39; profiles that are applied on (post synthesized) text to speech. Effects are applied on top of each other in the order they are given.
     /// </summary>
-    public List<TerraformProperty<string>>? EffectsProfileId
-    {
-        set => SetProperty("effects_profile_id", value);
-    }
+    [TerraformPropertyName("effects_profile_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? EffectsProfileId { get; set; }
 
     /// <summary>
     /// Speaking pitch, in the range [-20.0, 20.0]. 20 means increase 20 semitones from the original pitch. -20 means decrease 20 semitones from the original pitch.
     /// </summary>
-    public TerraformProperty<double>? Pitch
-    {
-        set => SetProperty("pitch", value);
-    }
+    [TerraformPropertyName("pitch")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Pitch { get; set; }
 
     /// <summary>
     /// Speaking rate/speed, in the range [0.25, 4.0].
     /// </summary>
-    public TerraformProperty<double>? SpeakingRate
-    {
-        set => SetProperty("speaking_rate", value);
-    }
+    [TerraformPropertyName("speaking_rate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SpeakingRate { get; set; }
 
     /// <summary>
     /// Volume gain (in dB) of the normal native volume supported by the specific voice.
     /// </summary>
-    public TerraformProperty<double>? VolumeGainDb
-    {
-        set => SetProperty("volume_gain_db", value);
-    }
+    [TerraformPropertyName("volume_gain_db")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? VolumeGainDb { get; set; }
 
 }
 
@@ -280,188 +257,143 @@ public class GoogleDialogflowConversationProfile : TerraformResource
 {
     public GoogleDialogflowConversationProfile(string name) : base("google_dialogflow_conversation_profile", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("language_code");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("security_settings");
-        SetOutput("time_zone");
     }
 
     /// <summary>
     /// Required. Human readable name for this profile. Max length 1024 bytes.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Language code for the conversation profile. This should be a BCP-47 language tag.
     /// </summary>
-    public TerraformProperty<string> LanguageCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
-        set => SetProperty("language_code", value);
-    }
+    [TerraformPropertyName("language_code")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LanguageCode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "language_code");
 
     /// <summary>
     /// desc
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Name of the CX SecuritySettings reference for the agent.
     /// </summary>
-    public TerraformProperty<string> SecuritySettings
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_settings");
-        set => SetProperty("security_settings", value);
-    }
+    [TerraformPropertyName("security_settings")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecuritySettings { get; set; }
 
     /// <summary>
     /// The time zone of this conversational profile.
     /// </summary>
-    public TerraformProperty<string> TimeZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
-        set => SetProperty("time_zone", value);
-    }
+    [TerraformPropertyName("time_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TimeZone { get; set; }
 
     /// <summary>
     /// Block for automated_agent_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedAgentConfig block(s) allowed")]
-    public List<GoogleDialogflowConversationProfileAutomatedAgentConfigBlock>? AutomatedAgentConfig
-    {
-        set => SetProperty("automated_agent_config", value);
-    }
+    [TerraformPropertyName("automated_agent_config")]
+    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileAutomatedAgentConfigBlock>>? AutomatedAgentConfig { get; set; } = new();
 
     /// <summary>
     /// Block for human_agent_assistant_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanAgentAssistantConfig block(s) allowed")]
-    public List<GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlock>? HumanAgentAssistantConfig
-    {
-        set => SetProperty("human_agent_assistant_config", value);
-    }
+    [TerraformPropertyName("human_agent_assistant_config")]
+    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlock>>? HumanAgentAssistantConfig { get; set; } = new();
 
     /// <summary>
     /// Block for human_agent_handoff_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HumanAgentHandoffConfig block(s) allowed")]
-    public List<GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlock>? HumanAgentHandoffConfig
-    {
-        set => SetProperty("human_agent_handoff_config", value);
-    }
+    [TerraformPropertyName("human_agent_handoff_config")]
+    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlock>>? HumanAgentHandoffConfig { get; set; } = new();
 
     /// <summary>
     /// Block for logging_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
-    public List<GoogleDialogflowConversationProfileLoggingConfigBlock>? LoggingConfig
-    {
-        set => SetProperty("logging_config", value);
-    }
+    [TerraformPropertyName("logging_config")]
+    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileLoggingConfigBlock>>? LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for new_message_event_notification_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NewMessageEventNotificationConfig block(s) allowed")]
-    public List<GoogleDialogflowConversationProfileNewMessageEventNotificationConfigBlock>? NewMessageEventNotificationConfig
-    {
-        set => SetProperty("new_message_event_notification_config", value);
-    }
+    [TerraformPropertyName("new_message_event_notification_config")]
+    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileNewMessageEventNotificationConfigBlock>>? NewMessageEventNotificationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for new_recognition_result_notification_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NewRecognitionResultNotificationConfig block(s) allowed")]
-    public List<GoogleDialogflowConversationProfileNewRecognitionResultNotificationConfigBlock>? NewRecognitionResultNotificationConfig
-    {
-        set => SetProperty("new_recognition_result_notification_config", value);
-    }
+    [TerraformPropertyName("new_recognition_result_notification_config")]
+    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileNewRecognitionResultNotificationConfigBlock>>? NewRecognitionResultNotificationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for notification_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
-    public List<GoogleDialogflowConversationProfileNotificationConfigBlock>? NotificationConfig
-    {
-        set => SetProperty("notification_config", value);
-    }
+    [TerraformPropertyName("notification_config")]
+    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileNotificationConfigBlock>>? NotificationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for stt_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SttConfig block(s) allowed")]
-    public List<GoogleDialogflowConversationProfileSttConfigBlock>? SttConfig
-    {
-        set => SetProperty("stt_config", value);
-    }
+    [TerraformPropertyName("stt_config")]
+    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileSttConfigBlock>>? SttConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDialogflowConversationProfileTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDialogflowConversationProfileTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tts_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TtsConfig block(s) allowed")]
-    public List<GoogleDialogflowConversationProfileTtsConfigBlock>? TtsConfig
-    {
-        set => SetProperty("tts_config", value);
-    }
+    [TerraformPropertyName("tts_config")]
+    public TerraformList<TerraformBlock<GoogleDialogflowConversationProfileTtsConfigBlock>>? TtsConfig { get; set; } = new();
 
     /// <summary>
     /// name
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

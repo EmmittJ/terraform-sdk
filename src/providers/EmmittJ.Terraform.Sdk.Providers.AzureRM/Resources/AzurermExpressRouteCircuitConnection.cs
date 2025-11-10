@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
+public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,94 +45,66 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
 {
     public AzurermExpressRouteCircuitConnection(string name) : base("azurerm_express_route_circuit_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("address_prefix_ipv4");
-        SetOutput("address_prefix_ipv6");
-        SetOutput("authorization_key");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("peer_peering_id");
-        SetOutput("peering_id");
     }
 
     /// <summary>
     /// The address_prefix_ipv4 attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixIpv4 is required")]
-    public required TerraformProperty<string> AddressPrefixIpv4
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("address_prefix_ipv4");
-        set => SetProperty("address_prefix_ipv4", value);
-    }
+    [TerraformPropertyName("address_prefix_ipv4")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AddressPrefixIpv4 { get; set; }
 
     /// <summary>
     /// The address_prefix_ipv6 attribute.
     /// </summary>
-    public TerraformProperty<string> AddressPrefixIpv6
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("address_prefix_ipv6");
-        set => SetProperty("address_prefix_ipv6", value);
-    }
+    [TerraformPropertyName("address_prefix_ipv6")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AddressPrefixIpv6 { get; set; }
 
     /// <summary>
     /// The authorization_key attribute.
     /// </summary>
-    public TerraformProperty<string> AuthorizationKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authorization_key");
-        set => SetProperty("authorization_key", value);
-    }
+    [TerraformPropertyName("authorization_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthorizationKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The peer_peering_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerPeeringId is required")]
-    public required TerraformProperty<string> PeerPeeringId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("peer_peering_id");
-        set => SetProperty("peer_peering_id", value);
-    }
+    [TerraformPropertyName("peer_peering_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PeerPeeringId { get; set; }
 
     /// <summary>
     /// The peering_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringId is required")]
-    public required TerraformProperty<string> PeeringId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("peering_id");
-        set => SetProperty("peering_id", value);
-    }
+    [TerraformPropertyName("peering_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PeeringId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermExpressRouteCircuitConnectionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermExpressRouteCircuitConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

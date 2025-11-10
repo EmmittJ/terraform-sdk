@@ -9,86 +9,65 @@ public class AwsDxGatewayAssociationProposal : TerraformResource
 {
     public AwsDxGatewayAssociationProposal(string name) : base("aws_dx_gateway_association_proposal", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("associated_gateway_owner_account_id");
-        SetOutput("associated_gateway_type");
-        SetOutput("allowed_prefixes");
-        SetOutput("associated_gateway_id");
-        SetOutput("dx_gateway_id");
-        SetOutput("dx_gateway_owner_account_id");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The allowed_prefixes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AllowedPrefixes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("allowed_prefixes");
-        set => SetProperty("allowed_prefixes", value);
-    }
+    [TerraformPropertyName("allowed_prefixes")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AllowedPrefixes { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "allowed_prefixes");
 
     /// <summary>
     /// The associated_gateway_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociatedGatewayId is required")]
-    public required TerraformProperty<string> AssociatedGatewayId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("associated_gateway_id");
-        set => SetProperty("associated_gateway_id", value);
-    }
+    [TerraformPropertyName("associated_gateway_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AssociatedGatewayId { get; set; }
 
     /// <summary>
     /// The dx_gateway_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DxGatewayId is required")]
-    public required TerraformProperty<string> DxGatewayId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dx_gateway_id");
-        set => SetProperty("dx_gateway_id", value);
-    }
+    [TerraformPropertyName("dx_gateway_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DxGatewayId { get; set; }
 
     /// <summary>
     /// The dx_gateway_owner_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DxGatewayOwnerAccountId is required")]
-    public required TerraformProperty<string> DxGatewayOwnerAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dx_gateway_owner_account_id");
-        set => SetProperty("dx_gateway_owner_account_id", value);
-    }
+    [TerraformPropertyName("dx_gateway_owner_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DxGatewayOwnerAccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The associated_gateway_owner_account_id attribute.
     /// </summary>
-    public TerraformExpression AssociatedGatewayOwnerAccountId => this["associated_gateway_owner_account_id"];
+    [TerraformPropertyName("associated_gateway_owner_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AssociatedGatewayOwnerAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "associated_gateway_owner_account_id");
 
     /// <summary>
     /// The associated_gateway_type attribute.
     /// </summary>
-    public TerraformExpression AssociatedGatewayType => this["associated_gateway_type"];
+    [TerraformPropertyName("associated_gateway_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AssociatedGatewayType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "associated_gateway_type");
 
 }

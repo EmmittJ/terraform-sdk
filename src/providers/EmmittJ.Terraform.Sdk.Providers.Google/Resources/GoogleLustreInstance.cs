@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleLustreInstanceTimeoutsBlock : TerraformBlock
+public class GoogleLustreInstanceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,29 +38,6 @@ public class GoogleLustreInstance : TerraformResource
 {
     public GoogleLustreInstance(string name) : base("google_lustre_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("mount_point");
-        SetOutput("name");
-        SetOutput("state");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("capacity_gib");
-        SetOutput("description");
-        SetOutput("filesystem");
-        SetOutput("gke_support_enabled");
-        SetOutput("id");
-        SetOutput("instance_id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("network");
-        SetOutput("per_unit_storage_throughput");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -71,20 +45,16 @@ public class GoogleLustreInstance : TerraformResource
     /// are from &#39;18000&#39; to &#39;954000&#39;, in increments of 9000.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
-    public required TerraformProperty<string> CapacityGib
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("capacity_gib");
-        set => SetProperty("capacity_gib", value);
-    }
+    [TerraformPropertyName("capacity_gib")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CapacityGib { get; set; }
 
     /// <summary>
     /// A user-readable description of the instance.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The filesystem name for this instance. This name is used by client-side
@@ -92,30 +62,24 @@ public class GoogleLustreInstance : TerraformResource
     /// less and can only contain letters and numbers.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filesystem is required")]
-    public required TerraformProperty<string> Filesystem
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filesystem");
-        set => SetProperty("filesystem", value);
-    }
+    [TerraformPropertyName("filesystem")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Filesystem { get; set; }
 
     /// <summary>
     /// Indicates whether you want to enable support for GKE clients. By default,
     /// GKE clients are not supported.
     /// </summary>
-    public TerraformProperty<bool> GkeSupportEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("gke_support_enabled");
-        set => SetProperty("gke_support_enabled", value);
-    }
+    [TerraformPropertyName("gke_support_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? GkeSupportEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the Managed Lustre instance.
@@ -126,11 +90,9 @@ public class GoogleLustreInstance : TerraformResource
     /// * Must end with a number or a letter.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
-    public required TerraformProperty<string> InstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
-        set => SetProperty("instance_id", value);
-    }
+    [TerraformPropertyName("instance_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
 
     /// <summary>
     /// Labels as key value pairs.
@@ -138,21 +100,17 @@ public class GoogleLustreInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The full name of the VPC network to which the instance is connected.
@@ -160,60 +118,60 @@ public class GoogleLustreInstance : TerraformResource
     /// &#39;projects/{project_id}/global/networks/{network_name}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
-    public required TerraformProperty<string> Network
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network");
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
 
     /// <summary>
     /// The throughput of the instance in MB/s/TiB.
     /// Valid values are 125, 250, 500, 1000.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerUnitStorageThroughput is required")]
-    public required TerraformProperty<string> PerUnitStorageThroughput
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("per_unit_storage_throughput");
-        set => SetProperty("per_unit_storage_throughput", value);
-    }
+    [TerraformPropertyName("per_unit_storage_throughput")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PerUnitStorageThroughput { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleLustreInstanceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleLustreInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Timestamp when the instance was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Mount point of the instance in the format &#39;IP_ADDRESS@tcp:/FILESYSTEM&#39;.
     /// </summary>
-    public TerraformExpression MountPoint => this["mount_point"];
+    [TerraformPropertyName("mount_point")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MountPoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mount_point");
 
     /// <summary>
     /// Identifier. The name of the instance.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The state of the instance.
@@ -226,17 +184,23 @@ public class GoogleLustreInstance : TerraformResource
     /// REPAIRING
     /// STOPPED
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Timestamp when the instance was last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

@@ -6,88 +6,78 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for artifacts in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
+public class AwsCodebuildProjectArtifactsBlock : ITerraformBlock
 {
     /// <summary>
     /// The artifact_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ArtifactIdentifier
-    {
-        set => SetProperty("artifact_identifier", value);
-    }
+    [TerraformPropertyName("artifact_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ArtifactIdentifier { get; set; }
 
     /// <summary>
     /// The bucket_owner_access attribute.
     /// </summary>
-    public TerraformProperty<string>? BucketOwnerAccess
-    {
-        set => SetProperty("bucket_owner_access", value);
-    }
+    [TerraformPropertyName("bucket_owner_access")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BucketOwnerAccess { get; set; }
 
     /// <summary>
     /// The encryption_disabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EncryptionDisabled
-    {
-        set => SetProperty("encryption_disabled", value);
-    }
+    [TerraformPropertyName("encryption_disabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EncryptionDisabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
-    {
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The namespace_type attribute.
     /// </summary>
-    public TerraformProperty<string>? NamespaceType
-    {
-        set => SetProperty("namespace_type", value);
-    }
+    [TerraformPropertyName("namespace_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NamespaceType { get; set; }
 
     /// <summary>
     /// The override_artifact_name attribute.
     /// </summary>
-    public TerraformProperty<bool>? OverrideArtifactName
-    {
-        set => SetProperty("override_artifact_name", value);
-    }
+    [TerraformPropertyName("override_artifact_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? OverrideArtifactName { get; set; }
 
     /// <summary>
     /// The packaging attribute.
     /// </summary>
-    public TerraformProperty<string>? Packaging
-    {
-        set => SetProperty("packaging", value);
-    }
+    [TerraformPropertyName("packaging")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Packaging { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
-    {
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -95,32 +85,29 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
 /// Block type for build_batch_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodebuildProjectBuildBatchConfigBlock : TerraformBlock
+public class AwsCodebuildProjectBuildBatchConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The combine_artifacts attribute.
     /// </summary>
-    public TerraformProperty<bool>? CombineArtifacts
-    {
-        set => SetProperty("combine_artifacts", value);
-    }
+    [TerraformPropertyName("combine_artifacts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CombineArtifacts { get; set; }
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
-    public required TerraformProperty<string> ServiceRole
-    {
-        set => SetProperty("service_role", value);
-    }
+    [TerraformPropertyName("service_role")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceRole { get; set; }
 
     /// <summary>
     /// The timeout_in_mins attribute.
     /// </summary>
-    public TerraformProperty<double>? TimeoutInMins
-    {
-        set => SetProperty("timeout_in_mins", value);
-    }
+    [TerraformPropertyName("timeout_in_mins")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TimeoutInMins { get; set; }
 
 }
 
@@ -128,31 +115,28 @@ public class AwsCodebuildProjectBuildBatchConfigBlock : TerraformBlock
 /// Block type for cache in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodebuildProjectCacheBlock : TerraformBlock
+public class AwsCodebuildProjectCacheBlock : ITerraformBlock
 {
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
-    {
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The modes attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Modes
-    {
-        set => SetProperty("modes", value);
-    }
+    [TerraformPropertyName("modes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Modes { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -160,58 +144,52 @@ public class AwsCodebuildProjectCacheBlock : TerraformBlock
 /// Block type for environment in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
+public class AwsCodebuildProjectEnvironmentBlock : ITerraformBlock
 {
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    public TerraformProperty<string>? Certificate
-    {
-        set => SetProperty("certificate", value);
-    }
+    [TerraformPropertyName("certificate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Certificate { get; set; }
 
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeType is required")]
-    public required TerraformProperty<string> ComputeType
-    {
-        set => SetProperty("compute_type", value);
-    }
+    [TerraformPropertyName("compute_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ComputeType { get; set; }
 
     /// <summary>
     /// The image attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
-    public required TerraformProperty<string> Image
-    {
-        set => SetProperty("image", value);
-    }
+    [TerraformPropertyName("image")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Image { get; set; }
 
     /// <summary>
     /// The image_pull_credentials_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ImagePullCredentialsType
-    {
-        set => SetProperty("image_pull_credentials_type", value);
-    }
+    [TerraformPropertyName("image_pull_credentials_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ImagePullCredentialsType { get; set; }
 
     /// <summary>
     /// The privileged_mode attribute.
     /// </summary>
-    public TerraformProperty<bool>? PrivilegedMode
-    {
-        set => SetProperty("privileged_mode", value);
-    }
+    [TerraformPropertyName("privileged_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PrivilegedMode { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -219,47 +197,42 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
 /// Block type for file_system_locations in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBlock
+public class AwsCodebuildProjectFileSystemLocationsBlock : ITerraformBlock
 {
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? Identifier
-    {
-        set => SetProperty("identifier", value);
-    }
+    [TerraformPropertyName("identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Identifier { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
-    {
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The mount_options attribute.
     /// </summary>
-    public TerraformProperty<string>? MountOptions
-    {
-        set => SetProperty("mount_options", value);
-    }
+    [TerraformPropertyName("mount_options")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MountOptions { get; set; }
 
     /// <summary>
     /// The mount_point attribute.
     /// </summary>
-    public TerraformProperty<string>? MountPoint
-    {
-        set => SetProperty("mount_point", value);
-    }
+    [TerraformPropertyName("mount_point")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MountPoint { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -267,7 +240,7 @@ public class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBlock
 /// Block type for logs_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodebuildProjectLogsConfigBlock : TerraformBlock
+public class AwsCodebuildProjectLogsConfigBlock : ITerraformBlock
 {
 }
 
@@ -275,89 +248,79 @@ public class AwsCodebuildProjectLogsConfigBlock : TerraformBlock
 /// Block type for secondary_artifacts in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
+public class AwsCodebuildProjectSecondaryArtifactsBlock : ITerraformBlock
 {
     /// <summary>
     /// The artifact_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactIdentifier is required")]
-    public required TerraformProperty<string> ArtifactIdentifier
-    {
-        set => SetProperty("artifact_identifier", value);
-    }
+    [TerraformPropertyName("artifact_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ArtifactIdentifier { get; set; }
 
     /// <summary>
     /// The bucket_owner_access attribute.
     /// </summary>
-    public TerraformProperty<string>? BucketOwnerAccess
-    {
-        set => SetProperty("bucket_owner_access", value);
-    }
+    [TerraformPropertyName("bucket_owner_access")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BucketOwnerAccess { get; set; }
 
     /// <summary>
     /// The encryption_disabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EncryptionDisabled
-    {
-        set => SetProperty("encryption_disabled", value);
-    }
+    [TerraformPropertyName("encryption_disabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EncryptionDisabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
-    {
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The namespace_type attribute.
     /// </summary>
-    public TerraformProperty<string>? NamespaceType
-    {
-        set => SetProperty("namespace_type", value);
-    }
+    [TerraformPropertyName("namespace_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NamespaceType { get; set; }
 
     /// <summary>
     /// The override_artifact_name attribute.
     /// </summary>
-    public TerraformProperty<bool>? OverrideArtifactName
-    {
-        set => SetProperty("override_artifact_name", value);
-    }
+    [TerraformPropertyName("override_artifact_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? OverrideArtifactName { get; set; }
 
     /// <summary>
     /// The packaging attribute.
     /// </summary>
-    public TerraformProperty<string>? Packaging
-    {
-        set => SetProperty("packaging", value);
-    }
+    [TerraformPropertyName("packaging")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Packaging { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
-    {
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -365,25 +328,23 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
 /// Block type for secondary_source_version in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCodebuildProjectSecondarySourceVersionBlock : TerraformBlock
+public class AwsCodebuildProjectSecondarySourceVersionBlock : ITerraformBlock
 {
     /// <summary>
     /// The source_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIdentifier is required")]
-    public required TerraformProperty<string> SourceIdentifier
-    {
-        set => SetProperty("source_identifier", value);
-    }
+    [TerraformPropertyName("source_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceIdentifier { get; set; }
 
     /// <summary>
     /// The source_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVersion is required")]
-    public required TerraformProperty<string> SourceVersion
-    {
-        set => SetProperty("source_version", value);
-    }
+    [TerraformPropertyName("source_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceVersion { get; set; }
 
 }
 
@@ -391,65 +352,58 @@ public class AwsCodebuildProjectSecondarySourceVersionBlock : TerraformBlock
 /// Block type for secondary_sources in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
+public class AwsCodebuildProjectSecondarySourcesBlock : ITerraformBlock
 {
     /// <summary>
     /// The buildspec attribute.
     /// </summary>
-    public TerraformProperty<string>? Buildspec
-    {
-        set => SetProperty("buildspec", value);
-    }
+    [TerraformPropertyName("buildspec")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Buildspec { get; set; }
 
     /// <summary>
     /// The git_clone_depth attribute.
     /// </summary>
-    public TerraformProperty<double>? GitCloneDepth
-    {
-        set => SetProperty("git_clone_depth", value);
-    }
+    [TerraformPropertyName("git_clone_depth")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? GitCloneDepth { get; set; }
 
     /// <summary>
     /// The insecure_ssl attribute.
     /// </summary>
-    public TerraformProperty<bool>? InsecureSsl
-    {
-        set => SetProperty("insecure_ssl", value);
-    }
+    [TerraformPropertyName("insecure_ssl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InsecureSsl { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
-    {
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The report_build_status attribute.
     /// </summary>
-    public TerraformProperty<bool>? ReportBuildStatus
-    {
-        set => SetProperty("report_build_status", value);
-    }
+    [TerraformPropertyName("report_build_status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ReportBuildStatus { get; set; }
 
     /// <summary>
     /// The source_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIdentifier is required")]
-    public required TerraformProperty<string> SourceIdentifier
-    {
-        set => SetProperty("source_identifier", value);
-    }
+    [TerraformPropertyName("source_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceIdentifier { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -457,56 +411,50 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodebuildProjectSourceBlock : TerraformBlock
+public class AwsCodebuildProjectSourceBlock : ITerraformBlock
 {
     /// <summary>
     /// The buildspec attribute.
     /// </summary>
-    public TerraformProperty<string>? Buildspec
-    {
-        set => SetProperty("buildspec", value);
-    }
+    [TerraformPropertyName("buildspec")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Buildspec { get; set; }
 
     /// <summary>
     /// The git_clone_depth attribute.
     /// </summary>
-    public TerraformProperty<double>? GitCloneDepth
-    {
-        set => SetProperty("git_clone_depth", value);
-    }
+    [TerraformPropertyName("git_clone_depth")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? GitCloneDepth { get; set; }
 
     /// <summary>
     /// The insecure_ssl attribute.
     /// </summary>
-    public TerraformProperty<bool>? InsecureSsl
-    {
-        set => SetProperty("insecure_ssl", value);
-    }
+    [TerraformPropertyName("insecure_ssl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InsecureSsl { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
-    {
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The report_build_status attribute.
     /// </summary>
-    public TerraformProperty<bool>? ReportBuildStatus
-    {
-        set => SetProperty("report_build_status", value);
-    }
+    [TerraformPropertyName("report_build_status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ReportBuildStatus { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -514,34 +462,31 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodebuildProjectVpcConfigBlock : TerraformBlock
+public class AwsCodebuildProjectVpcConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
-    {
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
-    public HashSet<TerraformProperty<string>>? Subnets
-    {
-        set => SetProperty("subnets", value);
-    }
+    [TerraformPropertyName("subnets")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Subnets { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    public required TerraformProperty<string> VpcId
-    {
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VpcId { get; set; }
 
 }
 
@@ -553,177 +498,121 @@ public class AwsCodebuildProject : TerraformResource
 {
     public AwsCodebuildProject(string name) : base("aws_codebuild_project", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("badge_url");
-        SetOutput("public_project_alias");
-        SetOutput("auto_retry_limit");
-        SetOutput("badge_enabled");
-        SetOutput("build_timeout");
-        SetOutput("concurrent_build_limit");
-        SetOutput("description");
-        SetOutput("encryption_key");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project_visibility");
-        SetOutput("queued_timeout");
-        SetOutput("region");
-        SetOutput("resource_access_role");
-        SetOutput("service_role");
-        SetOutput("source_version");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// Maximum number of additional automatic retries after a failed build. The default value is 0.
     /// </summary>
-    public TerraformProperty<double> AutoRetryLimit
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("auto_retry_limit");
-        set => SetProperty("auto_retry_limit", value);
-    }
+    [TerraformPropertyName("auto_retry_limit")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> AutoRetryLimit { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "auto_retry_limit");
 
     /// <summary>
     /// The badge_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> BadgeEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("badge_enabled");
-        set => SetProperty("badge_enabled", value);
-    }
+    [TerraformPropertyName("badge_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BadgeEnabled { get; set; }
 
     /// <summary>
     /// The build_timeout attribute.
     /// </summary>
-    public TerraformProperty<double> BuildTimeout
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("build_timeout");
-        set => SetProperty("build_timeout", value);
-    }
+    [TerraformPropertyName("build_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BuildTimeout { get; set; }
 
     /// <summary>
     /// The concurrent_build_limit attribute.
     /// </summary>
-    public TerraformProperty<double> ConcurrentBuildLimit
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("concurrent_build_limit");
-        set => SetProperty("concurrent_build_limit", value);
-    }
+    [TerraformPropertyName("concurrent_build_limit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ConcurrentBuildLimit { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Description { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The encryption_key attribute.
     /// </summary>
-    public TerraformProperty<string> EncryptionKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("encryption_key");
-        set => SetProperty("encryption_key", value);
-    }
+    [TerraformPropertyName("encryption_key")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EncryptionKey { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "encryption_key");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project_visibility attribute.
     /// </summary>
-    public TerraformProperty<string> ProjectVisibility
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project_visibility");
-        set => SetProperty("project_visibility", value);
-    }
+    [TerraformPropertyName("project_visibility")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProjectVisibility { get; set; }
 
     /// <summary>
     /// The queued_timeout attribute.
     /// </summary>
-    public TerraformProperty<double> QueuedTimeout
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("queued_timeout");
-        set => SetProperty("queued_timeout", value);
-    }
+    [TerraformPropertyName("queued_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? QueuedTimeout { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource_access_role attribute.
     /// </summary>
-    public TerraformProperty<string> ResourceAccessRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_access_role");
-        set => SetProperty("resource_access_role", value);
-    }
+    [TerraformPropertyName("resource_access_role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceAccessRole { get; set; }
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
-    public required TerraformProperty<string> ServiceRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_role");
-        set => SetProperty("service_role", value);
-    }
+    [TerraformPropertyName("service_role")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceRole { get; set; }
 
     /// <summary>
     /// The source_version attribute.
     /// </summary>
-    public TerraformProperty<string> SourceVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_version");
-        set => SetProperty("source_version", value);
-    }
+    [TerraformPropertyName("source_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceVersion { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for artifacts.
@@ -732,30 +621,24 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Artifacts is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Artifacts block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Artifacts block(s) allowed")]
-    public List<AwsCodebuildProjectArtifactsBlock>? Artifacts
-    {
-        set => SetProperty("artifacts", value);
-    }
+    [TerraformPropertyName("artifacts")]
+    public TerraformList<TerraformBlock<AwsCodebuildProjectArtifactsBlock>>? Artifacts { get; set; } = new();
 
     /// <summary>
     /// Block for build_batch_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BuildBatchConfig block(s) allowed")]
-    public List<AwsCodebuildProjectBuildBatchConfigBlock>? BuildBatchConfig
-    {
-        set => SetProperty("build_batch_config", value);
-    }
+    [TerraformPropertyName("build_batch_config")]
+    public TerraformList<TerraformBlock<AwsCodebuildProjectBuildBatchConfigBlock>>? BuildBatchConfig { get; set; } = new();
 
     /// <summary>
     /// Block for cache.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cache block(s) allowed")]
-    public List<AwsCodebuildProjectCacheBlock>? Cache
-    {
-        set => SetProperty("cache", value);
-    }
+    [TerraformPropertyName("cache")]
+    public TerraformList<TerraformBlock<AwsCodebuildProjectCacheBlock>>? Cache { get; set; } = new();
 
     /// <summary>
     /// Block for environment.
@@ -764,59 +647,47 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Environment block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Environment block(s) allowed")]
-    public List<AwsCodebuildProjectEnvironmentBlock>? Environment
-    {
-        set => SetProperty("environment", value);
-    }
+    [TerraformPropertyName("environment")]
+    public TerraformList<TerraformBlock<AwsCodebuildProjectEnvironmentBlock>>? Environment { get; set; } = new();
 
     /// <summary>
     /// Block for file_system_locations.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsCodebuildProjectFileSystemLocationsBlock>? FileSystemLocations
-    {
-        set => SetProperty("file_system_locations", value);
-    }
+    [TerraformPropertyName("file_system_locations")]
+    public TerraformSet<TerraformBlock<AwsCodebuildProjectFileSystemLocationsBlock>>? FileSystemLocations { get; set; } = new();
 
     /// <summary>
     /// Block for logs_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogsConfig block(s) allowed")]
-    public List<AwsCodebuildProjectLogsConfigBlock>? LogsConfig
-    {
-        set => SetProperty("logs_config", value);
-    }
+    [TerraformPropertyName("logs_config")]
+    public TerraformList<TerraformBlock<AwsCodebuildProjectLogsConfigBlock>>? LogsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for secondary_artifacts.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(12, ErrorMessage = "Maximum 12 SecondaryArtifacts block(s) allowed")]
-    public HashSet<AwsCodebuildProjectSecondaryArtifactsBlock>? SecondaryArtifacts
-    {
-        set => SetProperty("secondary_artifacts", value);
-    }
+    [TerraformPropertyName("secondary_artifacts")]
+    public TerraformSet<TerraformBlock<AwsCodebuildProjectSecondaryArtifactsBlock>>? SecondaryArtifacts { get; set; } = new();
 
     /// <summary>
     /// Block for secondary_source_version.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(12, ErrorMessage = "Maximum 12 SecondarySourceVersion block(s) allowed")]
-    public HashSet<AwsCodebuildProjectSecondarySourceVersionBlock>? SecondarySourceVersion
-    {
-        set => SetProperty("secondary_source_version", value);
-    }
+    [TerraformPropertyName("secondary_source_version")]
+    public TerraformSet<TerraformBlock<AwsCodebuildProjectSecondarySourceVersionBlock>>? SecondarySourceVersion { get; set; } = new();
 
     /// <summary>
     /// Block for secondary_sources.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(12, ErrorMessage = "Maximum 12 SecondarySources block(s) allowed")]
-    public HashSet<AwsCodebuildProjectSecondarySourcesBlock>? SecondarySources
-    {
-        set => SetProperty("secondary_sources", value);
-    }
+    [TerraformPropertyName("secondary_sources")]
+    public TerraformSet<TerraformBlock<AwsCodebuildProjectSecondarySourcesBlock>>? SecondarySources { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -825,34 +696,36 @@ public class AwsCodebuildProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    public List<AwsCodebuildProjectSourceBlock>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    public TerraformList<TerraformBlock<AwsCodebuildProjectSourceBlock>>? Source { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
-    public List<AwsCodebuildProjectVpcConfigBlock>? VpcConfig
-    {
-        set => SetProperty("vpc_config", value);
-    }
+    [TerraformPropertyName("vpc_config")]
+    public TerraformList<TerraformBlock<AwsCodebuildProjectVpcConfigBlock>>? VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The badge_url attribute.
     /// </summary>
-    public TerraformExpression BadgeUrl => this["badge_url"];
+    [TerraformPropertyName("badge_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BadgeUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "badge_url");
 
     /// <summary>
     /// The public_project_alias attribute.
     /// </summary>
-    public TerraformExpression PublicProjectAlias => this["public_project_alias"];
+    [TerraformPropertyName("public_project_alias")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublicProjectAlias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "public_project_alias");
 
 }

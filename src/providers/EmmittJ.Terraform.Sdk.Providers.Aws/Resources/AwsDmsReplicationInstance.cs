@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for kerberos_authentication_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock : TerraformBlock
+public class AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The key_cache_secret_iam_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyCacheSecretIamArn is required")]
-    public required TerraformProperty<string> KeyCacheSecretIamArn
-    {
-        set => SetProperty("key_cache_secret_iam_arn", value);
-    }
+    [TerraformPropertyName("key_cache_secret_iam_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyCacheSecretIamArn { get; set; }
 
     /// <summary>
     /// The key_cache_secret_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyCacheSecretId is required")]
-    public required TerraformProperty<string> KeyCacheSecretId
-    {
-        set => SetProperty("key_cache_secret_id", value);
-    }
+    [TerraformPropertyName("key_cache_secret_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyCacheSecretId { get; set; }
 
     /// <summary>
     /// The krb5_file_contents attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Krb5FileContents is required")]
-    public required TerraformProperty<string> Krb5FileContents
-    {
-        set => SetProperty("krb5_file_contents", value);
-    }
+    [TerraformPropertyName("krb5_file_contents")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Krb5FileContents { get; set; }
 
 }
 
@@ -41,31 +38,28 @@ public class AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDmsReplicationInstanceTimeoutsBlock : TerraformBlock
+public class AwsDmsReplicationInstanceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -77,250 +71,184 @@ public class AwsDmsReplicationInstance : TerraformResource
 {
     public AwsDmsReplicationInstance(string name) : base("aws_dms_replication_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("replication_instance_arn");
-        SetOutput("replication_instance_private_ips");
-        SetOutput("replication_instance_public_ips");
-        SetOutput("allocated_storage");
-        SetOutput("allow_major_version_upgrade");
-        SetOutput("apply_immediately");
-        SetOutput("auto_minor_version_upgrade");
-        SetOutput("availability_zone");
-        SetOutput("dns_name_servers");
-        SetOutput("engine_version");
-        SetOutput("id");
-        SetOutput("kms_key_arn");
-        SetOutput("multi_az");
-        SetOutput("network_type");
-        SetOutput("preferred_maintenance_window");
-        SetOutput("publicly_accessible");
-        SetOutput("region");
-        SetOutput("replication_instance_class");
-        SetOutput("replication_instance_id");
-        SetOutput("replication_subnet_group_id");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("vpc_security_group_ids");
     }
 
     /// <summary>
     /// The allocated_storage attribute.
     /// </summary>
-    public TerraformProperty<double> AllocatedStorage
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("allocated_storage");
-        set => SetProperty("allocated_storage", value);
-    }
+    [TerraformPropertyName("allocated_storage")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> AllocatedStorage { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "allocated_storage");
 
     /// <summary>
     /// The allow_major_version_upgrade attribute.
     /// </summary>
-    public TerraformProperty<bool> AllowMajorVersionUpgrade
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_major_version_upgrade");
-        set => SetProperty("allow_major_version_upgrade", value);
-    }
+    [TerraformPropertyName("allow_major_version_upgrade")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowMajorVersionUpgrade { get; set; }
 
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public TerraformProperty<bool> ApplyImmediately
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("apply_immediately");
-        set => SetProperty("apply_immediately", value);
-    }
+    [TerraformPropertyName("apply_immediately")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ApplyImmediately { get; set; }
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoMinorVersionUpgrade
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_minor_version_upgrade");
-        set => SetProperty("auto_minor_version_upgrade", value);
-    }
+    [TerraformPropertyName("auto_minor_version_upgrade")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> AutoMinorVersionUpgrade { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "auto_minor_version_upgrade");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformProperty<string> AvailabilityZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone");
-        set => SetProperty("availability_zone", value);
-    }
+    [TerraformPropertyName("availability_zone")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone");
 
     /// <summary>
     /// The dns_name_servers attribute.
     /// </summary>
-    public TerraformProperty<string> DnsNameServers
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dns_name_servers");
-        set => SetProperty("dns_name_servers", value);
-    }
+    [TerraformPropertyName("dns_name_servers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DnsNameServers { get; set; }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string> EngineVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
-        set => SetProperty("engine_version", value);
-    }
+    [TerraformPropertyName("engine_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EngineVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
-        set => SetProperty("kms_key_arn", value);
-    }
+    [TerraformPropertyName("kms_key_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KmsKeyArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_arn");
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
-    public TerraformProperty<bool> MultiAz
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("multi_az");
-        set => SetProperty("multi_az", value);
-    }
+    [TerraformPropertyName("multi_az")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> MultiAz { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "multi_az");
 
     /// <summary>
     /// The network_type attribute.
     /// </summary>
-    public TerraformProperty<string> NetworkType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_type");
-        set => SetProperty("network_type", value);
-    }
+    [TerraformPropertyName("network_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NetworkType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_type");
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string> PreferredMaintenanceWindow
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("preferred_maintenance_window");
-        set => SetProperty("preferred_maintenance_window", value);
-    }
+    [TerraformPropertyName("preferred_maintenance_window")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PreferredMaintenanceWindow { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_maintenance_window");
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformProperty<bool> PubliclyAccessible
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("publicly_accessible");
-        set => SetProperty("publicly_accessible", value);
-    }
+    [TerraformPropertyName("publicly_accessible")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> PubliclyAccessible { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "publicly_accessible");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The replication_instance_class attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInstanceClass is required")]
-    public required TerraformProperty<string> ReplicationInstanceClass
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("replication_instance_class");
-        set => SetProperty("replication_instance_class", value);
-    }
+    [TerraformPropertyName("replication_instance_class")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ReplicationInstanceClass { get; set; }
 
     /// <summary>
     /// The replication_instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInstanceId is required")]
-    public required TerraformProperty<string> ReplicationInstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("replication_instance_id");
-        set => SetProperty("replication_instance_id", value);
-    }
+    [TerraformPropertyName("replication_instance_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ReplicationInstanceId { get; set; }
 
     /// <summary>
     /// The replication_subnet_group_id attribute.
     /// </summary>
-    public TerraformProperty<string> ReplicationSubnetGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("replication_subnet_group_id");
-        set => SetProperty("replication_subnet_group_id", value);
-    }
+    [TerraformPropertyName("replication_subnet_group_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ReplicationSubnetGroupId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "replication_subnet_group_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> VpcSecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
-        set => SetProperty("vpc_security_group_ids", value);
-    }
+    [TerraformPropertyName("vpc_security_group_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> VpcSecurityGroupIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "vpc_security_group_ids");
 
     /// <summary>
     /// Block for kerberos_authentication_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KerberosAuthenticationSettings block(s) allowed")]
-    public List<AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock>? KerberosAuthenticationSettings
-    {
-        set => SetProperty("kerberos_authentication_settings", value);
-    }
+    [TerraformPropertyName("kerberos_authentication_settings")]
+    public TerraformList<TerraformBlock<AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock>>? KerberosAuthenticationSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDmsReplicationInstanceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDmsReplicationInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The replication_instance_arn attribute.
     /// </summary>
-    public TerraformExpression ReplicationInstanceArn => this["replication_instance_arn"];
+    [TerraformPropertyName("replication_instance_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ReplicationInstanceArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "replication_instance_arn");
 
     /// <summary>
     /// The replication_instance_private_ips attribute.
     /// </summary>
-    public TerraformExpression ReplicationInstancePrivateIps => this["replication_instance_private_ips"];
+    [TerraformPropertyName("replication_instance_private_ips")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ReplicationInstancePrivateIps => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "replication_instance_private_ips");
 
     /// <summary>
     /// The replication_instance_public_ips attribute.
     /// </summary>
-    public TerraformExpression ReplicationInstancePublicIps => this["replication_instance_public_ips"];
+    [TerraformPropertyName("replication_instance_public_ips")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ReplicationInstancePublicIps => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "replication_instance_public_ips");
 
 }

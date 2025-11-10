@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for create_database_default_permissions in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlock : TerraformBlock
+public class AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Permissions
-    {
-        set => SetProperty("permissions", value);
-    }
+    [TerraformPropertyName("permissions")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Permissions { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "permissions");
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
-    public TerraformProperty<string>? Principal
-    {
-        set => SetProperty("principal", value);
-    }
+    [TerraformPropertyName("principal")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Principal { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "principal");
 
 }
 
@@ -30,23 +28,21 @@ public class AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlo
 /// Block type for create_table_default_permissions in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock : TerraformBlock
+public class AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Permissions
-    {
-        set => SetProperty("permissions", value);
-    }
+    [TerraformPropertyName("permissions")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Permissions { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "permissions");
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
-    public TerraformProperty<string>? Principal
-    {
-        set => SetProperty("principal", value);
-    }
+    [TerraformPropertyName("principal")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Principal { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "principal");
 
 }
 
@@ -58,141 +54,99 @@ public class AwsLakeformationDataLakeSettings : TerraformResource
 {
     public AwsLakeformationDataLakeSettings(string name) : base("aws_lakeformation_data_lake_settings", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("admins");
-        SetOutput("allow_external_data_filtering");
-        SetOutput("allow_full_table_external_data_access");
-        SetOutput("authorized_session_tag_value_list");
-        SetOutput("catalog_id");
-        SetOutput("external_data_filtering_allow_list");
-        SetOutput("id");
-        SetOutput("parameters");
-        SetOutput("read_only_admins");
-        SetOutput("region");
-        SetOutput("trusted_resource_owners");
     }
 
     /// <summary>
     /// The admins attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Admins
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("admins");
-        set => SetProperty("admins", value);
-    }
+    [TerraformPropertyName("admins")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Admins { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "admins");
 
     /// <summary>
     /// The allow_external_data_filtering attribute.
     /// </summary>
-    public TerraformProperty<bool> AllowExternalDataFiltering
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_external_data_filtering");
-        set => SetProperty("allow_external_data_filtering", value);
-    }
+    [TerraformPropertyName("allow_external_data_filtering")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowExternalDataFiltering { get; set; }
 
     /// <summary>
     /// The allow_full_table_external_data_access attribute.
     /// </summary>
-    public TerraformProperty<bool> AllowFullTableExternalDataAccess
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_full_table_external_data_access");
-        set => SetProperty("allow_full_table_external_data_access", value);
-    }
+    [TerraformPropertyName("allow_full_table_external_data_access")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowFullTableExternalDataAccess { get; set; }
 
     /// <summary>
     /// The authorized_session_tag_value_list attribute.
     /// </summary>
-    public List<TerraformProperty<string>> AuthorizedSessionTagValueList
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("authorized_session_tag_value_list");
-        set => SetProperty("authorized_session_tag_value_list", value);
-    }
+    [TerraformPropertyName("authorized_session_tag_value_list")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> AuthorizedSessionTagValueList { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "authorized_session_tag_value_list");
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string> CatalogId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CatalogId { get; set; }
 
     /// <summary>
     /// The external_data_filtering_allow_list attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ExternalDataFilteringAllowList
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("external_data_filtering_allow_list");
-        set => SetProperty("external_data_filtering_allow_list", value);
-    }
+    [TerraformPropertyName("external_data_filtering_allow_list")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> ExternalDataFilteringAllowList { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "external_data_filtering_allow_list");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Parameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Parameters { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "parameters");
 
     /// <summary>
     /// The read_only_admins attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ReadOnlyAdmins
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("read_only_admins");
-        set => SetProperty("read_only_admins", value);
-    }
+    [TerraformPropertyName("read_only_admins")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> ReadOnlyAdmins { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "read_only_admins");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The trusted_resource_owners attribute.
     /// </summary>
-    public List<TerraformProperty<string>> TrustedResourceOwners
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("trusted_resource_owners");
-        set => SetProperty("trusted_resource_owners", value);
-    }
+    [TerraformPropertyName("trusted_resource_owners")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> TrustedResourceOwners { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "trusted_resource_owners");
 
     /// <summary>
     /// Block for create_database_default_permissions.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 CreateDatabaseDefaultPermissions block(s) allowed")]
-    public List<AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlock>? CreateDatabaseDefaultPermissions
-    {
-        set => SetProperty("create_database_default_permissions", value);
-    }
+    [TerraformPropertyName("create_database_default_permissions")]
+    public TerraformList<TerraformBlock<AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlock>>? CreateDatabaseDefaultPermissions { get; set; } = new();
 
     /// <summary>
     /// Block for create_table_default_permissions.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 CreateTableDefaultPermissions block(s) allowed")]
-    public List<AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock>? CreateTableDefaultPermissions
-    {
-        set => SetProperty("create_table_default_permissions", value);
-    }
+    [TerraformPropertyName("create_table_default_permissions")]
+    public TerraformList<TerraformBlock<AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock>>? CreateTableDefaultPermissions { get; set; } = new();
 
 }

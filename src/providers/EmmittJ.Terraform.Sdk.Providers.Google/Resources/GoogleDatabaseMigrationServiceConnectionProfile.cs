@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for alloydb in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock : TerraformBlock
+public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock : ITerraformBlock
 {
     /// <summary>
     /// Required. The AlloyDB cluster ID that this connection profile is associated with.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    public required TerraformProperty<string> ClusterId
-    {
-        set => SetProperty("cluster_id", value);
-    }
+    [TerraformPropertyName("cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
 
 }
 
@@ -23,31 +22,28 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock : Terra
 /// Block type for cloudsql in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock : TerraformBlock
+public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock : ITerraformBlock
 {
     /// <summary>
     /// Output only. The Cloud SQL instance ID that this connection profile is associated with.
     /// </summary>
-    public TerraformProperty<string>? CloudSqlId
-    {
-        set => SetProperty("cloud_sql_id", value);
-    }
+    [TerraformPropertyName("cloud_sql_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CloudSqlId => new TerraformReferenceProperty<TerraformProperty<string>>("", "cloud_sql_id");
 
     /// <summary>
     /// Output only. The Cloud SQL database instance&#39;s private IP.
     /// </summary>
-    public TerraformProperty<string>? PrivateIp
-    {
-        set => SetProperty("private_ip", value);
-    }
+    [TerraformPropertyName("private_ip")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateIp => new TerraformReferenceProperty<TerraformProperty<string>>("", "private_ip");
 
     /// <summary>
     /// Output only. The Cloud SQL database instance&#39;s public IP.
     /// </summary>
-    public TerraformProperty<string>? PublicIp
-    {
-        set => SetProperty("public_ip", value);
-    }
+    [TerraformPropertyName("public_ip")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublicIp => new TerraformReferenceProperty<TerraformProperty<string>>("", "public_ip");
 
 }
 
@@ -55,56 +51,50 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock : Terr
 /// Block type for mysql in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : TerraformBlock
+public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : ITerraformBlock
 {
     /// <summary>
     /// If the source is a Cloud SQL database, use this field to provide the Cloud SQL instance ID of the source.
     /// </summary>
-    public TerraformProperty<string>? CloudSqlId
-    {
-        set => SetProperty("cloud_sql_id", value);
-    }
+    [TerraformPropertyName("cloud_sql_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CloudSqlId { get; set; }
 
     /// <summary>
     /// The IP or hostname of the source MySQL database.
     /// </summary>
-    public TerraformProperty<string>? Host
-    {
-        set => SetProperty("host", value);
-    }
+    [TerraformPropertyName("host")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Host { get; set; }
 
     /// <summary>
     /// Input only. The password for the user that Database Migration Service will be using to connect to the database.
     /// This field is not returned on request, and the value is encrypted when stored in Database Migration Service.
     /// </summary>
-    public TerraformProperty<string>? Password
-    {
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Password { get; set; }
 
     /// <summary>
     /// Output only. Indicates If this connection profile password is stored.
     /// </summary>
-    public TerraformProperty<bool>? PasswordSet
-    {
-        set => SetProperty("password_set", value);
-    }
+    [TerraformPropertyName("password_set")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PasswordSet => new TerraformReferenceProperty<TerraformProperty<bool>>("", "password_set");
 
     /// <summary>
     /// The network port of the source MySQL database.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// The username that Database Migration Service will use to connect to the database. The value is encrypted when stored in Database Migration Service.
     /// </summary>
-    public TerraformProperty<string>? Username
-    {
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Username { get; set; }
 
 }
 
@@ -112,61 +102,55 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : Terrafo
 /// Block type for oracle in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : TerraformBlock
+public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : ITerraformBlock
 {
     /// <summary>
     /// Required. Database service for the Oracle connection.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseService is required")]
-    public required TerraformProperty<string> DatabaseService
-    {
-        set => SetProperty("database_service", value);
-    }
+    [TerraformPropertyName("database_service")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseService { get; set; }
 
     /// <summary>
     /// Required. The IP or hostname of the source Oracle database.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
-    public required TerraformProperty<string> Host
-    {
-        set => SetProperty("host", value);
-    }
+    [TerraformPropertyName("host")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Host { get; set; }
 
     /// <summary>
     /// Required. Input only. The password for the user that Database Migration Service will be using to connect to the database.
     /// This field is not returned on request, and the value is encrypted when stored in Database Migration Service.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    public required TerraformProperty<string> Password
-    {
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
 
     /// <summary>
     /// Output only. Indicates If this connection profile password is stored.
     /// </summary>
-    public TerraformProperty<bool>? PasswordSet
-    {
-        set => SetProperty("password_set", value);
-    }
+    [TerraformPropertyName("password_set")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PasswordSet => new TerraformReferenceProperty<TerraformProperty<bool>>("", "password_set");
 
     /// <summary>
     /// Required. The network port of the source Oracle database.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    public required TerraformProperty<double> Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Port { get; set; }
 
     /// <summary>
     /// Required. The username that Database Migration Service will use to connect to the database. The value is encrypted when stored in Database Migration Service.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    public required TerraformProperty<string> Username
-    {
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
 
 }
 
@@ -174,72 +158,64 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
 /// Block type for postgresql in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : TerraformBlock
+public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : ITerraformBlock
 {
     /// <summary>
     /// If the connected database is an AlloyDB instance, use this field to provide the AlloyDB cluster ID.
     /// </summary>
-    public TerraformProperty<string>? AlloydbClusterId
-    {
-        set => SetProperty("alloydb_cluster_id", value);
-    }
+    [TerraformPropertyName("alloydb_cluster_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AlloydbClusterId { get; set; }
 
     /// <summary>
     /// If the source is a Cloud SQL database, use this field to provide the Cloud SQL instance ID of the source.
     /// </summary>
-    public TerraformProperty<string>? CloudSqlId
-    {
-        set => SetProperty("cloud_sql_id", value);
-    }
+    [TerraformPropertyName("cloud_sql_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CloudSqlId { get; set; }
 
     /// <summary>
     /// The IP or hostname of the source MySQL database.
     /// </summary>
-    public TerraformProperty<string>? Host
-    {
-        set => SetProperty("host", value);
-    }
+    [TerraformPropertyName("host")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Host { get; set; }
 
     /// <summary>
     /// Output only. If the source is a Cloud SQL database, this field indicates the network architecture it&#39;s associated with.
     /// </summary>
-    public TerraformProperty<string>? NetworkArchitecture
-    {
-        set => SetProperty("network_architecture", value);
-    }
+    [TerraformPropertyName("network_architecture")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NetworkArchitecture => new TerraformReferenceProperty<TerraformProperty<string>>("", "network_architecture");
 
     /// <summary>
     /// Input only. The password for the user that Database Migration Service will be using to connect to the database.
     /// This field is not returned on request, and the value is encrypted when stored in Database Migration Service.
     /// </summary>
-    public TerraformProperty<string>? Password
-    {
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Password { get; set; }
 
     /// <summary>
     /// Output only. Indicates If this connection profile password is stored.
     /// </summary>
-    public TerraformProperty<bool>? PasswordSet
-    {
-        set => SetProperty("password_set", value);
-    }
+    [TerraformPropertyName("password_set")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PasswordSet => new TerraformReferenceProperty<TerraformProperty<bool>>("", "password_set");
 
     /// <summary>
     /// The network port of the source MySQL database.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// The username that Database Migration Service will use to connect to the database. The value is encrypted when stored in Database Migration Service.
     /// </summary>
-    public TerraformProperty<string>? Username
-    {
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Username { get; set; }
 
 }
 
@@ -247,31 +223,28 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock : TerraformBlock
+public class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -283,53 +256,29 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
 {
     public GoogleDatabaseMigrationServiceConnectionProfile(string name) : base("google_database_migration_service_connection_profile", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("dbprovider");
-        SetOutput("effective_labels");
-        SetOutput("error");
-        SetOutput("name");
-        SetOutput("state");
-        SetOutput("terraform_labels");
-        SetOutput("connection_profile_id");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The ID of the connection profile.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionProfileId is required")]
-    public required TerraformProperty<string> ConnectionProfileId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connection_profile_id");
-        set => SetProperty("connection_profile_id", value);
-    }
+    [TerraformPropertyName("connection_profile_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConnectionProfileId { get; set; }
 
     /// <summary>
     /// The connection profile display name.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The resource labels for connection profile to use to annotate any related underlying resources such as Compute Engine VMs.
@@ -338,123 +287,119 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The location where the connection profile should reside.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for alloydb.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Alloydb block(s) allowed")]
-    public List<GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock>? Alloydb
-    {
-        set => SetProperty("alloydb", value);
-    }
+    [TerraformPropertyName("alloydb")]
+    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock>>? Alloydb { get; set; } = new();
 
     /// <summary>
     /// Block for cloudsql.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cloudsql block(s) allowed")]
-    public List<GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock>? Cloudsql
-    {
-        set => SetProperty("cloudsql", value);
-    }
+    [TerraformPropertyName("cloudsql")]
+    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock>>? Cloudsql { get; set; } = new();
 
     /// <summary>
     /// Block for mysql.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Mysql block(s) allowed")]
-    public List<GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock>? Mysql
-    {
-        set => SetProperty("mysql", value);
-    }
+    [TerraformPropertyName("mysql")]
+    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock>>? Mysql { get; set; } = new();
 
     /// <summary>
     /// Block for oracle.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oracle block(s) allowed")]
-    public List<GoogleDatabaseMigrationServiceConnectionProfileOracleBlock>? Oracle
-    {
-        set => SetProperty("oracle", value);
-    }
+    [TerraformPropertyName("oracle")]
+    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileOracleBlock>>? Oracle { get; set; } = new();
 
     /// <summary>
     /// Block for postgresql.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Postgresql block(s) allowed")]
-    public List<GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock>? Postgresql
-    {
-        set => SetProperty("postgresql", value);
-    }
+    [TerraformPropertyName("postgresql")]
+    public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock>>? Postgresql { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The timestamp when the resource was created. A timestamp in RFC3339 UTC &#39;Zulu&#39; format, accurate to nanoseconds. Example: &#39;2014-10-02T15:01:23.045123456Z&#39;.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The database provider.
     /// </summary>
-    public TerraformExpression Dbprovider => this["dbprovider"];
+    [TerraformPropertyName("dbprovider")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Dbprovider => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dbprovider");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Output only. The error details in case of state FAILED.
     /// </summary>
-    public TerraformExpression Error => this["error"];
+    [TerraformPropertyName("error")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Error => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "error");
 
     /// <summary>
     /// The name of this connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The current connection profile state.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

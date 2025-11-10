@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCdnFrontdoorFirewallPolicyDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermCdnFrontdoorFirewallPolicyDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,94 +24,85 @@ public class AzurermCdnFrontdoorFirewallPolicyDataSource : TerraformDataSource
 {
     public AzurermCdnFrontdoorFirewallPolicyDataSource(string name) : base("azurerm_cdn_frontdoor_firewall_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("captcha_cookie_expiration_in_minutes");
-        SetOutput("enabled");
-        SetOutput("frontend_endpoint_ids");
-        SetOutput("js_challenge_cookie_expiration_in_minutes");
-        SetOutput("mode");
-        SetOutput("redirect_url");
-        SetOutput("sku_name");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCdnFrontdoorFirewallPolicyDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCdnFrontdoorFirewallPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The captcha_cookie_expiration_in_minutes attribute.
     /// </summary>
-    public TerraformExpression CaptchaCookieExpirationInMinutes => this["captcha_cookie_expiration_in_minutes"];
+    [TerraformPropertyName("captcha_cookie_expiration_in_minutes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> CaptchaCookieExpirationInMinutes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "captcha_cookie_expiration_in_minutes");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformExpression Enabled => this["enabled"];
+    [TerraformPropertyName("enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Enabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enabled");
 
     /// <summary>
     /// The frontend_endpoint_ids attribute.
     /// </summary>
-    public TerraformExpression FrontendEndpointIds => this["frontend_endpoint_ids"];
+    [TerraformPropertyName("frontend_endpoint_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> FrontendEndpointIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "frontend_endpoint_ids");
 
     /// <summary>
     /// The js_challenge_cookie_expiration_in_minutes attribute.
     /// </summary>
-    public TerraformExpression JsChallengeCookieExpirationInMinutes => this["js_challenge_cookie_expiration_in_minutes"];
+    [TerraformPropertyName("js_challenge_cookie_expiration_in_minutes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> JsChallengeCookieExpirationInMinutes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "js_challenge_cookie_expiration_in_minutes");
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformExpression Mode => this["mode"];
+    [TerraformPropertyName("mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Mode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mode");
 
     /// <summary>
     /// The redirect_url attribute.
     /// </summary>
-    public TerraformExpression RedirectUrl => this["redirect_url"];
+    [TerraformPropertyName("redirect_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RedirectUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "redirect_url");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformExpression SkuName => this["sku_name"];
+    [TerraformPropertyName("sku_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SkuName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku_name");
 
 }

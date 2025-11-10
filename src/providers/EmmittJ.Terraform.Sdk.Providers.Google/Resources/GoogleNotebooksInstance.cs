@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for accelerator_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNotebooksInstanceAcceleratorConfigBlock : TerraformBlock
+public class GoogleNotebooksInstanceAcceleratorConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Count of cores of this accelerator.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreCount is required")]
-    public required TerraformProperty<double> CoreCount
-    {
-        set => SetProperty("core_count", value);
-    }
+    [TerraformPropertyName("core_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> CoreCount { get; set; }
 
     /// <summary>
     /// Type of this accelerator. Possible values: [&amp;quot;ACCELERATOR_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;NVIDIA_TESLA_K80&amp;quot;, &amp;quot;NVIDIA_TESLA_P100&amp;quot;, &amp;quot;NVIDIA_TESLA_V100&amp;quot;, &amp;quot;NVIDIA_TESLA_P4&amp;quot;, &amp;quot;NVIDIA_TESLA_T4&amp;quot;, &amp;quot;NVIDIA_TESLA_T4_VWS&amp;quot;, &amp;quot;NVIDIA_TESLA_P100_VWS&amp;quot;, &amp;quot;NVIDIA_TESLA_P4_VWS&amp;quot;, &amp;quot;NVIDIA_TESLA_A100&amp;quot;, &amp;quot;TPU_V2&amp;quot;, &amp;quot;TPU_V3&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -32,25 +30,23 @@ public class GoogleNotebooksInstanceAcceleratorConfigBlock : TerraformBlock
 /// Block type for container_image in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNotebooksInstanceContainerImageBlock : TerraformBlock
+public class GoogleNotebooksInstanceContainerImageBlock : ITerraformBlock
 {
     /// <summary>
     /// The path to the container image repository.
     /// For example: gcr.io/{project_id}/{imageName}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
-    public required TerraformProperty<string> Repository
-    {
-        set => SetProperty("repository", value);
-    }
+    [TerraformPropertyName("repository")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Repository { get; set; }
 
     /// <summary>
     /// The tag of the container image. If not specified, this defaults to the latest tag.
     /// </summary>
-    public TerraformProperty<string>? Tag
-    {
-        set => SetProperty("tag", value);
-    }
+    [TerraformPropertyName("tag")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Tag { get; set; }
 
 }
 
@@ -58,32 +54,29 @@ public class GoogleNotebooksInstanceContainerImageBlock : TerraformBlock
 /// Block type for reservation_affinity in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNotebooksInstanceReservationAffinityBlock : TerraformBlock
+public class GoogleNotebooksInstanceReservationAffinityBlock : ITerraformBlock
 {
     /// <summary>
     /// The type of Compute Reservation. Possible values: [&amp;quot;NO_RESERVATION&amp;quot;, &amp;quot;ANY_RESERVATION&amp;quot;, &amp;quot;SPECIFIC_RESERVATION&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumeReservationType is required")]
-    public required TerraformProperty<string> ConsumeReservationType
-    {
-        set => SetProperty("consume_reservation_type", value);
-    }
+    [TerraformPropertyName("consume_reservation_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConsumeReservationType { get; set; }
 
     /// <summary>
     /// Corresponds to the label key of reservation resource.
     /// </summary>
-    public TerraformProperty<string>? Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Key { get; set; }
 
     /// <summary>
     /// Corresponds to the label values of reservation resource.
     /// </summary>
-    public List<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -91,7 +84,7 @@ public class GoogleNotebooksInstanceReservationAffinityBlock : TerraformBlock
 /// Block type for shielded_instance_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNotebooksInstanceShieldedInstanceConfigBlock : TerraformBlock
+public class GoogleNotebooksInstanceShieldedInstanceConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Defines whether the instance has integrity monitoring enabled. Enables monitoring and attestation of the
@@ -99,10 +92,9 @@ public class GoogleNotebooksInstanceShieldedInstanceConfigBlock : TerraformBlock
     /// This baseline is initially derived from the implicitly trusted boot image when the instance is created.
     /// Enabled by default.
     /// </summary>
-    public TerraformProperty<bool>? EnableIntegrityMonitoring
-    {
-        set => SetProperty("enable_integrity_monitoring", value);
-    }
+    [TerraformPropertyName("enable_integrity_monitoring")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableIntegrityMonitoring { get; set; }
 
     /// <summary>
     /// Defines whether the instance has Secure Boot enabled. Secure Boot helps ensure that the system only runs
@@ -110,19 +102,17 @@ public class GoogleNotebooksInstanceShieldedInstanceConfigBlock : TerraformBlock
     /// if signature verification fails.
     /// Disabled by default.
     /// </summary>
-    public TerraformProperty<bool>? EnableSecureBoot
-    {
-        set => SetProperty("enable_secure_boot", value);
-    }
+    [TerraformPropertyName("enable_secure_boot")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableSecureBoot { get; set; }
 
     /// <summary>
     /// Defines whether the instance has the vTPM enabled.
     /// Enabled by default.
     /// </summary>
-    public TerraformProperty<bool>? EnableVtpm
-    {
-        set => SetProperty("enable_vtpm", value);
-    }
+    [TerraformPropertyName("enable_vtpm")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableVtpm { get; set; }
 
 }
 
@@ -130,31 +120,28 @@ public class GoogleNotebooksInstanceShieldedInstanceConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNotebooksInstanceTimeoutsBlock : TerraformBlock
+public class GoogleNotebooksInstanceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -162,33 +149,30 @@ public class GoogleNotebooksInstanceTimeoutsBlock : TerraformBlock
 /// Block type for vm_image in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNotebooksInstanceVmImageBlock : TerraformBlock
+public class GoogleNotebooksInstanceVmImageBlock : ITerraformBlock
 {
     /// <summary>
     /// Use this VM image family to find the image; the newest image in this family will be used.
     /// </summary>
-    public TerraformProperty<string>? ImageFamily
-    {
-        set => SetProperty("image_family", value);
-    }
+    [TerraformPropertyName("image_family")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ImageFamily { get; set; }
 
     /// <summary>
     /// Use VM image name to find the image.
     /// </summary>
-    public TerraformProperty<string>? ImageName
-    {
-        set => SetProperty("image_name", value);
-    }
+    [TerraformPropertyName("image_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ImageName { get; set; }
 
     /// <summary>
     /// The name of the Google Cloud project that this VM image belongs to.
     /// Format: projects/{project_id}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
-    public required TerraformProperty<string> Project
-    {
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Project { get; set; }
 
 }
 
@@ -201,44 +185,6 @@ public class GoogleNotebooksInstance : TerraformResource
 {
     public GoogleNotebooksInstance(string name) : base("google_notebooks_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("effective_labels");
-        SetOutput("proxy_uri");
-        SetOutput("state");
-        SetOutput("terraform_labels");
-        SetOutput("boot_disk_size_gb");
-        SetOutput("boot_disk_type");
-        SetOutput("create_time");
-        SetOutput("custom_gpu_driver_path");
-        SetOutput("data_disk_size_gb");
-        SetOutput("data_disk_type");
-        SetOutput("desired_state");
-        SetOutput("disk_encryption");
-        SetOutput("id");
-        SetOutput("install_gpu_driver");
-        SetOutput("instance_owners");
-        SetOutput("kms_key");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("machine_type");
-        SetOutput("metadata");
-        SetOutput("name");
-        SetOutput("network");
-        SetOutput("nic_type");
-        SetOutput("no_proxy_access");
-        SetOutput("no_public_ip");
-        SetOutput("no_remove_data_disk");
-        SetOutput("post_startup_script");
-        SetOutput("project");
-        SetOutput("service_account");
-        SetOutput("service_account_scopes");
-        SetOutput("subnet");
-        SetOutput("tags");
-        SetOutput("update_time");
     }
 
     /// <summary>
@@ -246,39 +192,31 @@ public class GoogleNotebooksInstance : TerraformResource
     /// up to a maximum of 64000 GB (64 TB). The minimum recommended value is 100 GB.
     /// If not specified, this defaults to 100.
     /// </summary>
-    public TerraformProperty<double> BootDiskSizeGb
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("boot_disk_size_gb");
-        set => SetProperty("boot_disk_size_gb", value);
-    }
+    [TerraformPropertyName("boot_disk_size_gb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BootDiskSizeGb { get; set; }
 
     /// <summary>
     /// Possible disk types for notebook instances. Possible values: [&amp;quot;DISK_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;PD_STANDARD&amp;quot;, &amp;quot;PD_SSD&amp;quot;, &amp;quot;PD_BALANCED&amp;quot;, &amp;quot;PD_EXTREME&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> BootDiskType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("boot_disk_type");
-        set => SetProperty("boot_disk_type", value);
-    }
+    [TerraformPropertyName("boot_disk_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BootDiskType { get; set; }
 
     /// <summary>
     /// Instance creation time
     /// </summary>
-    public TerraformProperty<string> CreateTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("create_time");
-        set => SetProperty("create_time", value);
-    }
+    [TerraformPropertyName("create_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CreateTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Specify a custom Cloud Storage path where the GPU driver is stored.
     /// If not specified, we&#39;ll automatically choose from official GPU drivers.
     /// </summary>
-    public TerraformProperty<string> CustomGpuDriverPath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("custom_gpu_driver_path");
-        set => SetProperty("custom_gpu_driver_path", value);
-    }
+    [TerraformPropertyName("custom_gpu_driver_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomGpuDriverPath { get; set; }
 
     /// <summary>
     /// The size of the data disk in GB attached to this instance,
@@ -286,58 +224,46 @@ public class GoogleNotebooksInstance : TerraformResource
     /// You can choose the size of the data disk based on how big your notebooks and data are.
     /// If not specified, this defaults to 100.
     /// </summary>
-    public TerraformProperty<double> DataDiskSizeGb
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("data_disk_size_gb");
-        set => SetProperty("data_disk_size_gb", value);
-    }
+    [TerraformPropertyName("data_disk_size_gb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DataDiskSizeGb { get; set; }
 
     /// <summary>
     /// Possible disk types for notebook instances. Possible values: [&amp;quot;DISK_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;PD_STANDARD&amp;quot;, &amp;quot;PD_SSD&amp;quot;, &amp;quot;PD_BALANCED&amp;quot;, &amp;quot;PD_EXTREME&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> DataDiskType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_disk_type");
-        set => SetProperty("data_disk_type", value);
-    }
+    [TerraformPropertyName("data_disk_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DataDiskType { get; set; }
 
     /// <summary>
     /// Desired state of the Notebook Instance. Set this field to &#39;ACTIVE&#39; to start the Instance, and &#39;STOPPED&#39; to stop the Instance.
     /// </summary>
-    public TerraformProperty<string> DesiredState
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("desired_state");
-        set => SetProperty("desired_state", value);
-    }
+    [TerraformPropertyName("desired_state")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DesiredState { get; set; }
 
     /// <summary>
     /// Disk encryption method used on the boot and data disks, defaults to GMEK. Possible values: [&amp;quot;DISK_ENCRYPTION_UNSPECIFIED&amp;quot;, &amp;quot;GMEK&amp;quot;, &amp;quot;CMEK&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> DiskEncryption
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("disk_encryption");
-        set => SetProperty("disk_encryption", value);
-    }
+    [TerraformPropertyName("disk_encryption")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DiskEncryption { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "disk_encryption");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Whether the end user authorizes Google Cloud to install GPU driver
     /// on this instance. If this field is empty or set to false, the GPU driver
     /// won&#39;t be installed. Only applicable to instances with GPUs.
     /// </summary>
-    public TerraformProperty<bool> InstallGpuDriver
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("install_gpu_driver");
-        set => SetProperty("install_gpu_driver", value);
-    }
+    [TerraformPropertyName("install_gpu_driver")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InstallGpuDriver { get; set; }
 
     /// <summary>
     /// The list of owners of this instance after creation.
@@ -346,21 +272,17 @@ public class GoogleNotebooksInstance : TerraformResource
     /// If not specified, all of the service account users of
     /// your VM instance&#39;s service account can use the instance.
     /// </summary>
-    public List<TerraformProperty<string>> InstanceOwners
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("instance_owners");
-        set => SetProperty("instance_owners", value);
-    }
+    [TerraformPropertyName("instance_owners")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? InstanceOwners { get; set; }
 
     /// <summary>
     /// The KMS key used to encrypt the disks, only applicable if diskEncryption is CMEK.
     /// Format: projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}
     /// </summary>
-    public TerraformProperty<string> KmsKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key");
-        set => SetProperty("kms_key", value);
-    }
+    [TerraformPropertyName("kms_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKey { get; set; }
 
     /// <summary>
     /// Labels to apply to this instance. These can be later modified by the setLabels method.
@@ -370,117 +292,93 @@ public class GoogleNotebooksInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// A reference to the zone where the machine resides.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// A reference to a machine type which defines VM kind.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineType is required")]
-    public required TerraformProperty<string> MachineType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("machine_type");
-        set => SetProperty("machine_type", value);
-    }
+    [TerraformPropertyName("machine_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MachineType { get; set; }
 
     /// <summary>
     /// Custom metadata to apply to this instance.
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Metadata
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => SetProperty("metadata", value);
-    }
+    [TerraformPropertyName("metadata")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Metadata { get; set; }
 
     /// <summary>
     /// The name specified for the Notebook instance.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The name of the VPC that this instance is in.
     /// Format: projects/{project_id}/global/networks/{network_id}
     /// </summary>
-    public TerraformProperty<string> Network
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network");
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Network { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network");
 
     /// <summary>
     /// The type of vNIC driver. Possible values: [&amp;quot;UNSPECIFIED_NIC_TYPE&amp;quot;, &amp;quot;VIRTIO_NET&amp;quot;, &amp;quot;GVNIC&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> NicType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("nic_type");
-        set => SetProperty("nic_type", value);
-    }
+    [TerraformPropertyName("nic_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NicType { get; set; }
 
     /// <summary>
     /// The notebook instance will not register with the proxy..
     /// </summary>
-    public TerraformProperty<bool> NoProxyAccess
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("no_proxy_access");
-        set => SetProperty("no_proxy_access", value);
-    }
+    [TerraformPropertyName("no_proxy_access")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? NoProxyAccess { get; set; }
 
     /// <summary>
     /// No public IP will be assigned to this instance.
     /// </summary>
-    public TerraformProperty<bool> NoPublicIp
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("no_public_ip");
-        set => SetProperty("no_public_ip", value);
-    }
+    [TerraformPropertyName("no_public_ip")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? NoPublicIp { get; set; }
 
     /// <summary>
     /// If true, the data disk will not be auto deleted when deleting the instance.
     /// </summary>
-    public TerraformProperty<bool> NoRemoveDataDisk
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("no_remove_data_disk");
-        set => SetProperty("no_remove_data_disk", value);
-    }
+    [TerraformPropertyName("no_remove_data_disk")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? NoRemoveDataDisk { get; set; }
 
     /// <summary>
     /// Path to a Bash script that automatically runs after a
     /// notebook instance fully boots up. The path must be a URL
     /// or Cloud Storage path (gs://path-to-file/file-name).
     /// </summary>
-    public TerraformProperty<string> PostStartupScript
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("post_startup_script");
-        set => SetProperty("post_startup_script", value);
-    }
+    [TerraformPropertyName("post_startup_script")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PostStartupScript { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The service account on this instance, giving access to other
@@ -489,11 +387,9 @@ public class GoogleNotebooksInstance : TerraformResource
     /// permission to use the instance. If not specified,
     /// the Compute Engine default service account is used.
     /// </summary>
-    public TerraformProperty<string> ServiceAccount
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_account");
-        set => SetProperty("service_account", value);
-    }
+    [TerraformPropertyName("service_account")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ServiceAccount { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_account");
 
     /// <summary>
     /// Optional. The URIs of service account scopes to be included in Compute Engine instances.
@@ -501,103 +397,85 @@ public class GoogleNotebooksInstance : TerraformResource
     /// - https://www.googleapis.com/auth/cloud-platform
     /// - https://www.googleapis.com/auth/userinfo.email
     /// </summary>
-    public List<TerraformProperty<string>> ServiceAccountScopes
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("service_account_scopes");
-        set => SetProperty("service_account_scopes", value);
-    }
+    [TerraformPropertyName("service_account_scopes")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> ServiceAccountScopes { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "service_account_scopes");
 
     /// <summary>
     /// The name of the subnet that this instance is in.
     /// Format: projects/{project_id}/regions/{region}/subnetworks/{subnetwork_id}
     /// </summary>
-    public TerraformProperty<string> Subnet
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet");
-        set => SetProperty("subnet", value);
-    }
+    [TerraformPropertyName("subnet")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Subnet { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subnet");
 
     /// <summary>
     /// The Compute Engine tags to add to instance.
     /// </summary>
-    public List<TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// Instance update time.
     /// </summary>
-    public TerraformProperty<string> UpdateTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("update_time");
-        set => SetProperty("update_time", value);
-    }
+    [TerraformPropertyName("update_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> UpdateTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
     /// <summary>
     /// Block for accelerator_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AcceleratorConfig block(s) allowed")]
-    public List<GoogleNotebooksInstanceAcceleratorConfigBlock>? AcceleratorConfig
-    {
-        set => SetProperty("accelerator_config", value);
-    }
+    [TerraformPropertyName("accelerator_config")]
+    public TerraformList<TerraformBlock<GoogleNotebooksInstanceAcceleratorConfigBlock>>? AcceleratorConfig { get; set; } = new();
 
     /// <summary>
     /// Block for container_image.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerImage block(s) allowed")]
-    public List<GoogleNotebooksInstanceContainerImageBlock>? ContainerImage
-    {
-        set => SetProperty("container_image", value);
-    }
+    [TerraformPropertyName("container_image")]
+    public TerraformList<TerraformBlock<GoogleNotebooksInstanceContainerImageBlock>>? ContainerImage { get; set; } = new();
 
     /// <summary>
     /// Block for reservation_affinity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationAffinity block(s) allowed")]
-    public List<GoogleNotebooksInstanceReservationAffinityBlock>? ReservationAffinity
-    {
-        set => SetProperty("reservation_affinity", value);
-    }
+    [TerraformPropertyName("reservation_affinity")]
+    public TerraformList<TerraformBlock<GoogleNotebooksInstanceReservationAffinityBlock>>? ReservationAffinity { get; set; } = new();
 
     /// <summary>
     /// Block for shielded_instance_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShieldedInstanceConfig block(s) allowed")]
-    public List<GoogleNotebooksInstanceShieldedInstanceConfigBlock>? ShieldedInstanceConfig
-    {
-        set => SetProperty("shielded_instance_config", value);
-    }
+    [TerraformPropertyName("shielded_instance_config")]
+    public TerraformList<TerraformBlock<GoogleNotebooksInstanceShieldedInstanceConfigBlock>>? ShieldedInstanceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleNotebooksInstanceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleNotebooksInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vm_image.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VmImage block(s) allowed")]
-    public List<GoogleNotebooksInstanceVmImageBlock>? VmImage
-    {
-        set => SetProperty("vm_image", value);
-    }
+    [TerraformPropertyName("vm_image")]
+    public TerraformList<TerraformBlock<GoogleNotebooksInstanceVmImageBlock>>? VmImage { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The proxy endpoint that is used to access the Jupyter notebook.
@@ -605,17 +483,23 @@ public class GoogleNotebooksInstance : TerraformResource
     /// needed you can utilize &#39;terraform apply -refresh-only&#39; to await
     /// the population of this value.
     /// </summary>
-    public TerraformExpression ProxyUri => this["proxy_uri"];
+    [TerraformPropertyName("proxy_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProxyUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "proxy_uri");
 
     /// <summary>
     /// The state of this instance.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

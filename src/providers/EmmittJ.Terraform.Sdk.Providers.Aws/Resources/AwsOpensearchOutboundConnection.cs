@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for connection_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchOutboundConnectionConnectionPropertiesBlock : TerraformBlock
+public class AwsOpensearchOutboundConnectionConnectionPropertiesBlock : ITerraformBlock
 {
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? Endpoint
-    {
-        set => SetProperty("endpoint", value);
-    }
+    [TerraformPropertyName("endpoint")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>("", "endpoint");
 
 }
 
@@ -22,34 +21,31 @@ public class AwsOpensearchOutboundConnectionConnectionPropertiesBlock : Terrafor
 /// Block type for local_domain_info in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : TerraformBlock
+public class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : ITerraformBlock
 {
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    public required TerraformProperty<string> DomainName
-    {
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerId is required")]
-    public required TerraformProperty<string> OwnerId
-    {
-        set => SetProperty("owner_id", value);
-    }
+    [TerraformPropertyName("owner_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OwnerId { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
-    public required TerraformProperty<string> Region
-    {
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Region { get; set; }
 
 }
 
@@ -57,34 +53,31 @@ public class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : TerraformBloc
 /// Block type for remote_domain_info in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : TerraformBlock
+public class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : ITerraformBlock
 {
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    public required TerraformProperty<string> DomainName
-    {
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerId is required")]
-    public required TerraformProperty<string> OwnerId
-    {
-        set => SetProperty("owner_id", value);
-    }
+    [TerraformPropertyName("owner_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OwnerId { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
-    public required TerraformProperty<string> Region
-    {
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Region { get; set; }
 
 }
 
@@ -92,23 +85,21 @@ public class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsOpensearchOutboundConnectionTimeoutsBlock : TerraformBlock
+public class AwsOpensearchOutboundConnectionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -120,74 +111,51 @@ public class AwsOpensearchOutboundConnection : TerraformResource
 {
     public AwsOpensearchOutboundConnection(string name) : base("aws_opensearch_outbound_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("connection_status");
-        SetOutput("accept_connection");
-        SetOutput("connection_alias");
-        SetOutput("connection_mode");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The accept_connection attribute.
     /// </summary>
-    public TerraformProperty<bool> AcceptConnection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("accept_connection");
-        set => SetProperty("accept_connection", value);
-    }
+    [TerraformPropertyName("accept_connection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AcceptConnection { get; set; }
 
     /// <summary>
     /// The connection_alias attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionAlias is required")]
-    public required TerraformProperty<string> ConnectionAlias
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connection_alias");
-        set => SetProperty("connection_alias", value);
-    }
+    [TerraformPropertyName("connection_alias")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConnectionAlias { get; set; }
 
     /// <summary>
     /// The connection_mode attribute.
     /// </summary>
-    public TerraformProperty<string> ConnectionMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connection_mode");
-        set => SetProperty("connection_mode", value);
-    }
+    [TerraformPropertyName("connection_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ConnectionMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "connection_mode");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for connection_properties.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionProperties block(s) allowed")]
-    public List<AwsOpensearchOutboundConnectionConnectionPropertiesBlock>? ConnectionProperties
-    {
-        set => SetProperty("connection_properties", value);
-    }
+    [TerraformPropertyName("connection_properties")]
+    public TerraformList<TerraformBlock<AwsOpensearchOutboundConnectionConnectionPropertiesBlock>>? ConnectionProperties { get; set; } = new();
 
     /// <summary>
     /// Block for local_domain_info.
@@ -196,10 +164,8 @@ public class AwsOpensearchOutboundConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalDomainInfo is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LocalDomainInfo block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalDomainInfo block(s) allowed")]
-    public List<AwsOpensearchOutboundConnectionLocalDomainInfoBlock>? LocalDomainInfo
-    {
-        set => SetProperty("local_domain_info", value);
-    }
+    [TerraformPropertyName("local_domain_info")]
+    public TerraformList<TerraformBlock<AwsOpensearchOutboundConnectionLocalDomainInfoBlock>>? LocalDomainInfo { get; set; } = new();
 
     /// <summary>
     /// Block for remote_domain_info.
@@ -208,23 +174,21 @@ public class AwsOpensearchOutboundConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteDomainInfo is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RemoteDomainInfo block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteDomainInfo block(s) allowed")]
-    public List<AwsOpensearchOutboundConnectionRemoteDomainInfoBlock>? RemoteDomainInfo
-    {
-        set => SetProperty("remote_domain_info", value);
-    }
+    [TerraformPropertyName("remote_domain_info")]
+    public TerraformList<TerraformBlock<AwsOpensearchOutboundConnectionRemoteDomainInfoBlock>>? RemoteDomainInfo { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsOpensearchOutboundConnectionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsOpensearchOutboundConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The connection_status attribute.
     /// </summary>
-    public TerraformExpression ConnectionStatus => this["connection_status"];
+    [TerraformPropertyName("connection_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConnectionStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "connection_status");
 
 }

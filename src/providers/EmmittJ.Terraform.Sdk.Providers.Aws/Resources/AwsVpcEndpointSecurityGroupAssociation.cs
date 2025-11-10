@@ -9,63 +9,43 @@ public class AwsVpcEndpointSecurityGroupAssociation : TerraformResource
 {
     public AwsVpcEndpointSecurityGroupAssociation(string name) : base("aws_vpc_endpoint_security_group_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("replace_default_association");
-        SetOutput("security_group_id");
-        SetOutput("vpc_endpoint_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The replace_default_association attribute.
     /// </summary>
-    public TerraformProperty<bool> ReplaceDefaultAssociation
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("replace_default_association");
-        set => SetProperty("replace_default_association", value);
-    }
+    [TerraformPropertyName("replace_default_association")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ReplaceDefaultAssociation { get; set; }
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
-    public required TerraformProperty<string> SecurityGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_group_id");
-        set => SetProperty("security_group_id", value);
-    }
+    [TerraformPropertyName("security_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SecurityGroupId { get; set; }
 
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointId is required")]
-    public required TerraformProperty<string> VpcEndpointId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_endpoint_id");
-        set => SetProperty("vpc_endpoint_id", value);
-    }
+    [TerraformPropertyName("vpc_endpoint_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VpcEndpointId { get; set; }
 
 }

@@ -9,82 +9,70 @@ public class AwsSyntheticsRuntimeVersionDataSource : TerraformDataSource
 {
     public AwsSyntheticsRuntimeVersionDataSource(string name) : base("aws_synthetics_runtime_version", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("deprecation_date");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("release_date");
-        SetOutput("version_name");
-        SetOutput("latest");
-        SetOutput("prefix");
-        SetOutput("region");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The latest attribute.
     /// </summary>
-    public TerraformProperty<bool> Latest
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("latest");
-        set => SetProperty("latest", value);
-    }
+    [TerraformPropertyName("latest")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Latest { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
-    public required TerraformProperty<string> Prefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("prefix");
-        set => SetProperty("prefix", value);
-    }
+    [TerraformPropertyName("prefix")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Prefix { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
     /// <summary>
     /// The deprecation_date attribute.
     /// </summary>
-    public TerraformExpression DeprecationDate => this["deprecation_date"];
+    [TerraformPropertyName("deprecation_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeprecationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deprecation_date");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The release_date attribute.
     /// </summary>
-    public TerraformExpression ReleaseDate => this["release_date"];
+    [TerraformPropertyName("release_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ReleaseDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "release_date");
 
     /// <summary>
     /// The version_name attribute.
     /// </summary>
-    public TerraformExpression VersionName => this["version_name"];
+    [TerraformPropertyName("version_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VersionName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version_name");
 
 }

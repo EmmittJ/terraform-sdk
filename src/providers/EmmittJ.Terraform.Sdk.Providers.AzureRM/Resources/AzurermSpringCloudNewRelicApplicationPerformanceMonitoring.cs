@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsBlock : TerraformBlock
+public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,154 +45,108 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
 {
     public AzurermSpringCloudNewRelicApplicationPerformanceMonitoring(string name) : base("azurerm_spring_cloud_new_relic_application_performance_monitoring", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("agent_enabled");
-        SetOutput("app_name");
-        SetOutput("app_server_port");
-        SetOutput("audit_mode_enabled");
-        SetOutput("auto_app_naming_enabled");
-        SetOutput("auto_transaction_naming_enabled");
-        SetOutput("custom_tracing_enabled");
-        SetOutput("globally_enabled");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("license_key");
-        SetOutput("name");
-        SetOutput("spring_cloud_service_id");
     }
 
     /// <summary>
     /// The agent_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AgentEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("agent_enabled");
-        set => SetProperty("agent_enabled", value);
-    }
+    [TerraformPropertyName("agent_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AgentEnabled { get; set; }
 
     /// <summary>
     /// The app_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
-    public required TerraformProperty<string> AppName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_name");
-        set => SetProperty("app_name", value);
-    }
+    [TerraformPropertyName("app_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppName { get; set; }
 
     /// <summary>
     /// The app_server_port attribute.
     /// </summary>
-    public TerraformProperty<double> AppServerPort
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("app_server_port");
-        set => SetProperty("app_server_port", value);
-    }
+    [TerraformPropertyName("app_server_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AppServerPort { get; set; }
 
     /// <summary>
     /// The audit_mode_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AuditModeEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("audit_mode_enabled");
-        set => SetProperty("audit_mode_enabled", value);
-    }
+    [TerraformPropertyName("audit_mode_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AuditModeEnabled { get; set; }
 
     /// <summary>
     /// The auto_app_naming_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoAppNamingEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_app_naming_enabled");
-        set => SetProperty("auto_app_naming_enabled", value);
-    }
+    [TerraformPropertyName("auto_app_naming_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoAppNamingEnabled { get; set; }
 
     /// <summary>
     /// The auto_transaction_naming_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoTransactionNamingEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_transaction_naming_enabled");
-        set => SetProperty("auto_transaction_naming_enabled", value);
-    }
+    [TerraformPropertyName("auto_transaction_naming_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoTransactionNamingEnabled { get; set; }
 
     /// <summary>
     /// The custom_tracing_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> CustomTracingEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("custom_tracing_enabled");
-        set => SetProperty("custom_tracing_enabled", value);
-    }
+    [TerraformPropertyName("custom_tracing_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CustomTracingEnabled { get; set; }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> GloballyEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("globally_enabled");
-        set => SetProperty("globally_enabled", value);
-    }
+    [TerraformPropertyName("globally_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? GloballyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The license_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseKey is required")]
-    public required TerraformProperty<string> LicenseKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("license_key");
-        set => SetProperty("license_key", value);
-    }
+    [TerraformPropertyName("license_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LicenseKey { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
-    public required TerraformProperty<string> SpringCloudServiceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_service_id");
-        set => SetProperty("spring_cloud_service_id", value);
-    }
+    [TerraformPropertyName("spring_cloud_service_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

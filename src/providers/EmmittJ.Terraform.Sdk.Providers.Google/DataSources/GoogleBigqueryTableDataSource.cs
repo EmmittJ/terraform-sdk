@@ -9,165 +9,142 @@ public class GoogleBigqueryTableDataSource : TerraformDataSource
 {
     public GoogleBigqueryTableDataSource(string name) : base("google_bigquery_table", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("biglake_configuration");
-        SetOutput("clustering");
-        SetOutput("creation_time");
-        SetOutput("deletion_protection");
-        SetOutput("description");
-        SetOutput("effective_labels");
-        SetOutput("encryption_configuration");
-        SetOutput("etag");
-        SetOutput("expiration_time");
-        SetOutput("external_catalog_table_options");
-        SetOutput("external_data_configuration");
-        SetOutput("friendly_name");
-        SetOutput("generated_schema_columns");
-        SetOutput("ignore_auto_generated_schema");
-        SetOutput("ignore_schema_changes");
-        SetOutput("labels");
-        SetOutput("last_modified_time");
-        SetOutput("location");
-        SetOutput("materialized_view");
-        SetOutput("max_staleness");
-        SetOutput("num_bytes");
-        SetOutput("num_long_term_bytes");
-        SetOutput("num_rows");
-        SetOutput("range_partitioning");
-        SetOutput("require_partition_filter");
-        SetOutput("resource_tags");
-        SetOutput("schema");
-        SetOutput("schema_foreign_type_info");
-        SetOutput("self_link");
-        SetOutput("table_constraints");
-        SetOutput("table_metadata_view");
-        SetOutput("table_replication_info");
-        SetOutput("terraform_labels");
-        SetOutput("time_partitioning");
-        SetOutput("type");
-        SetOutput("view");
-        SetOutput("dataset_id");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("table_id");
     }
 
     /// <summary>
     /// The dataset ID to create the table in. Changing this forces a new resource to be created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
-    public required TerraformProperty<string> DatasetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dataset_id");
-        set => SetProperty("dataset_id", value);
-    }
+    [TerraformPropertyName("dataset_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatasetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID of the project in which the resource belongs.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// A unique ID for the resource. Changing this forces a new resource to be created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
-    public required TerraformProperty<string> TableId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_id");
-        set => SetProperty("table_id", value);
-    }
+    [TerraformPropertyName("table_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TableId { get; set; }
 
     /// <summary>
     /// Specifies the configuration of a BigLake managed table.
     /// </summary>
-    public TerraformExpression BiglakeConfiguration => this["biglake_configuration"];
+    [TerraformPropertyName("biglake_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> BiglakeConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "biglake_configuration");
 
     /// <summary>
     /// Specifies column names to use for data clustering. Up to four top-level columns are allowed, and should be specified in descending priority order.
     /// </summary>
-    public TerraformExpression Clustering => this["clustering"];
+    [TerraformPropertyName("clustering")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Clustering => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "clustering");
 
     /// <summary>
     /// The time when this table was created, in milliseconds since the epoch.
     /// </summary>
-    public TerraformExpression CreationTime => this["creation_time"];
+    [TerraformPropertyName("creation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> CreationTime => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "creation_time");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the instance. When the field is set to true or unset in Terraform state, a terraform apply or terraform destroy that would delete the table will fail. When the field is set to false, deleting the table is allowed.
     /// </summary>
-    public TerraformExpression DeletionProtection => this["deletion_protection"];
+    [TerraformPropertyName("deletion_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection");
 
     /// <summary>
     /// The field description.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Specifies how the table should be encrypted. If left blank, the table will be encrypted with a Google-managed key; that process is transparent to the user.
     /// </summary>
-    public TerraformExpression EncryptionConfiguration => this["encryption_configuration"];
+    [TerraformPropertyName("encryption_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> EncryptionConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "encryption_configuration");
 
     /// <summary>
     /// A hash of the resource.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The time when this table expires, in milliseconds since the epoch. If not present, the table will persist indefinitely. Expired tables will be deleted and their storage reclaimed.
     /// </summary>
-    public TerraformExpression ExpirationTime => this["expiration_time"];
+    [TerraformPropertyName("expiration_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ExpirationTime => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "expiration_time");
 
     /// <summary>
     /// Options defining open source compatible table.
     /// </summary>
-    public TerraformExpression ExternalCatalogTableOptions => this["external_catalog_table_options"];
+    [TerraformPropertyName("external_catalog_table_options")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ExternalCatalogTableOptions => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "external_catalog_table_options");
 
     /// <summary>
     /// Describes the data format, location, and other properties of a table stored outside of BigQuery. By defining these properties, the data source can then be queried as if it were a standard BigQuery table.
     /// </summary>
-    public TerraformExpression ExternalDataConfiguration => this["external_data_configuration"];
+    [TerraformPropertyName("external_data_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ExternalDataConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "external_data_configuration");
 
     /// <summary>
     /// A descriptive name for the table.
     /// </summary>
-    public TerraformExpression FriendlyName => this["friendly_name"];
+    [TerraformPropertyName("friendly_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FriendlyName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "friendly_name");
 
     /// <summary>
     /// (Output-only) A list of autogenerated schema fields.
     /// </summary>
-    public TerraformExpression GeneratedSchemaColumns => this["generated_schema_columns"];
+    [TerraformPropertyName("generated_schema_columns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GeneratedSchemaColumns => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "generated_schema_columns");
 
     /// <summary>
     /// Whether Terraform will prevent implicitly added columns in schema from showing diff.
     /// </summary>
-    public TerraformExpression IgnoreAutoGeneratedSchema => this["ignore_auto_generated_schema"];
+    [TerraformPropertyName("ignore_auto_generated_schema")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> IgnoreAutoGeneratedSchema => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "ignore_auto_generated_schema");
 
     /// <summary>
     /// Mention which fields in schema are to be ignored
     /// </summary>
-    public TerraformExpression IgnoreSchemaChanges => this["ignore_schema_changes"];
+    [TerraformPropertyName("ignore_schema_changes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> IgnoreSchemaChanges => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "ignore_schema_changes");
 
     /// <summary>
     /// A mapping of labels to assign to the resource.
@@ -175,106 +152,148 @@ public class GoogleBigqueryTableDataSource : TerraformDataSource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformExpression Labels => this["labels"];
+    [TerraformPropertyName("labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
 
     /// <summary>
     /// The time when this table was last modified, in milliseconds since the epoch.
     /// </summary>
-    public TerraformExpression LastModifiedTime => this["last_modified_time"];
+    [TerraformPropertyName("last_modified_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> LastModifiedTime => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "last_modified_time");
 
     /// <summary>
     /// The geographic location where the table resides. This value is inherited from the dataset.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// If specified, configures this table as a materialized view.
     /// </summary>
-    public TerraformExpression MaterializedView => this["materialized_view"];
+    [TerraformPropertyName("materialized_view")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MaterializedView => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "materialized_view");
 
     /// <summary>
     /// The maximum staleness of data that could be returned when the table (or stale MV) is queried. Staleness encoded as a string encoding of [SQL IntervalValue type](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#interval_type).
     /// </summary>
-    public TerraformExpression MaxStaleness => this["max_staleness"];
+    [TerraformPropertyName("max_staleness")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MaxStaleness => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "max_staleness");
 
     /// <summary>
     /// The geographic location where the table resides. This value is inherited from the dataset.
     /// </summary>
-    public TerraformExpression NumBytes => this["num_bytes"];
+    [TerraformPropertyName("num_bytes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NumBytes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "num_bytes");
 
     /// <summary>
     /// The number of bytes in the table that are considered &amp;quot;long-term storage&amp;quot;.
     /// </summary>
-    public TerraformExpression NumLongTermBytes => this["num_long_term_bytes"];
+    [TerraformPropertyName("num_long_term_bytes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NumLongTermBytes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "num_long_term_bytes");
 
     /// <summary>
     /// The number of rows of data in this table, excluding any data in the streaming buffer.
     /// </summary>
-    public TerraformExpression NumRows => this["num_rows"];
+    [TerraformPropertyName("num_rows")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NumRows => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "num_rows");
 
     /// <summary>
     /// If specified, configures range-based partitioning for this table.
     /// </summary>
-    public TerraformExpression RangePartitioning => this["range_partitioning"];
+    [TerraformPropertyName("range_partitioning")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RangePartitioning => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "range_partitioning");
 
     /// <summary>
     /// If set to true, queries over this table require a partition filter that can be used for partition elimination to be specified.
     /// </summary>
-    public TerraformExpression RequirePartitionFilter => this["require_partition_filter"];
+    [TerraformPropertyName("require_partition_filter")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> RequirePartitionFilter => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "require_partition_filter");
 
     /// <summary>
     /// The tags attached to this table. Tag keys are globally unique. Tag key is expected to be in the namespaced format, for example &amp;quot;123456789012/environment&amp;quot; where 123456789012 is the ID of the parent organization or project resource for this tag key. Tag value is expected to be the short name, for example &amp;quot;Production&amp;quot;.
     /// </summary>
-    public TerraformExpression ResourceTags => this["resource_tags"];
+    [TerraformPropertyName("resource_tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> ResourceTags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "resource_tags");
 
     /// <summary>
     /// A JSON schema for the table.
     /// </summary>
-    public TerraformExpression Schema => this["schema"];
+    [TerraformPropertyName("schema")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Schema => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "schema");
 
     /// <summary>
     /// Specifies metadata of the foreign data type definition in field schema.
     /// </summary>
-    public TerraformExpression SchemaForeignTypeInfo => this["schema_foreign_type_info"];
+    [TerraformPropertyName("schema_foreign_type_info")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SchemaForeignTypeInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "schema_foreign_type_info");
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
     /// <summary>
     /// Defines the primary key and foreign keys.
     /// </summary>
-    public TerraformExpression TableConstraints => this["table_constraints"];
+    [TerraformPropertyName("table_constraints")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TableConstraints => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "table_constraints");
 
     /// <summary>
     /// View sets the optional parameter &amp;quot;view&amp;quot;: Specifies the view that determines which table information is returned. By default, basic table information and storage statistics (STORAGE_STATS) are returned. Possible values: TABLE_METADATA_VIEW_UNSPECIFIED, BASIC, STORAGE_STATS, FULL
     /// </summary>
-    public TerraformExpression TableMetadataView => this["table_metadata_view"];
+    [TerraformPropertyName("table_metadata_view")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TableMetadataView => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "table_metadata_view");
 
     /// <summary>
     /// Replication info of a table created using &amp;quot;AS REPLICA&amp;quot; DDL like: &amp;quot;CREATE MATERIALIZED VIEW mv1 AS REPLICA OF src_mv&amp;quot;.
     /// </summary>
-    public TerraformExpression TableReplicationInfo => this["table_replication_info"];
+    [TerraformPropertyName("table_replication_info")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TableReplicationInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "table_replication_info");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// If specified, configures time-based partitioning for this table.
     /// </summary>
-    public TerraformExpression TimePartitioning => this["time_partitioning"];
+    [TerraformPropertyName("time_partitioning")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TimePartitioning => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "time_partitioning");
 
     /// <summary>
     /// Describes the table type.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
     /// <summary>
     /// If specified, configures this table as a view.
     /// </summary>
-    public TerraformExpression View => this["view"];
+    [TerraformPropertyName("view")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> View => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "view");
 
 }

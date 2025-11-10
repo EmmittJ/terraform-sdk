@@ -9,71 +9,62 @@ public class GoogleOrganizationDataSource : TerraformDataSource
 {
     public GoogleOrganizationDataSource(string name) : base("google_organization", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("directory_customer_id");
-        SetOutput("lifecycle_state");
-        SetOutput("name");
-        SetOutput("org_id");
-        SetOutput("domain");
-        SetOutput("id");
-        SetOutput("organization");
     }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string> Domain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain");
-        set => SetProperty("domain", value);
-    }
+    [TerraformPropertyName("domain")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Domain { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The organization attribute.
     /// </summary>
-    public TerraformProperty<string> Organization
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("organization");
-        set => SetProperty("organization", value);
-    }
+    [TerraformPropertyName("organization")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Organization { get; set; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The directory_customer_id attribute.
     /// </summary>
-    public TerraformExpression DirectoryCustomerId => this["directory_customer_id"];
+    [TerraformPropertyName("directory_customer_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DirectoryCustomerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "directory_customer_id");
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
-    public TerraformExpression LifecycleState => this["lifecycle_state"];
+    [TerraformPropertyName("lifecycle_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LifecycleState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "lifecycle_state");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
-    public TerraformExpression OrgId => this["org_id"];
+    [TerraformPropertyName("org_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OrgId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "org_id");
 
 }

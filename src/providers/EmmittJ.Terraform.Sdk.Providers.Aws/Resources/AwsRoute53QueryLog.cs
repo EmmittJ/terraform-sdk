@@ -9,49 +9,36 @@ public class AwsRoute53QueryLog : TerraformResource
 {
     public AwsRoute53QueryLog(string name) : base("aws_route53_query_log", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("cloudwatch_log_group_arn");
-        SetOutput("id");
-        SetOutput("zone_id");
     }
 
     /// <summary>
     /// The cloudwatch_log_group_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogGroupArn is required")]
-    public required TerraformProperty<string> CloudwatchLogGroupArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloudwatch_log_group_arn");
-        set => SetProperty("cloudwatch_log_group_arn", value);
-    }
+    [TerraformPropertyName("cloudwatch_log_group_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CloudwatchLogGroupArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
-    public required TerraformProperty<string> ZoneId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("zone_id");
-        set => SetProperty("zone_id", value);
-    }
+    [TerraformPropertyName("zone_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ZoneId { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

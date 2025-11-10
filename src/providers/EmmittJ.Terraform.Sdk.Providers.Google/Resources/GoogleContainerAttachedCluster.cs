@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for authorization in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAttachedClusterAuthorizationBlock : TerraformBlock
+public class GoogleContainerAttachedClusterAuthorizationBlock : ITerraformBlock
 {
     /// <summary>
     /// Groups that can perform operations as a cluster admin. A managed
@@ -16,10 +16,9 @@ public class GoogleContainerAttachedClusterAuthorizationBlock : TerraformBlock
     /// For more info on RBAC, see
     /// https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles
     /// </summary>
-    public List<TerraformProperty<string>>? AdminGroups
-    {
-        set => SetProperty("admin_groups", value);
-    }
+    [TerraformPropertyName("admin_groups")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AdminGroups { get; set; }
 
     /// <summary>
     /// Users that can perform operations as a cluster admin. A managed
@@ -29,10 +28,9 @@ public class GoogleContainerAttachedClusterAuthorizationBlock : TerraformBlock
     /// For more info on RBAC, see
     /// https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles
     /// </summary>
-    public List<TerraformProperty<string>>? AdminUsers
-    {
-        set => SetProperty("admin_users", value);
-    }
+    [TerraformPropertyName("admin_users")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AdminUsers { get; set; }
 
 }
 
@@ -40,15 +38,14 @@ public class GoogleContainerAttachedClusterAuthorizationBlock : TerraformBlock
 /// Block type for binary_authorization in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAttachedClusterBinaryAuthorizationBlock : TerraformBlock
+public class GoogleContainerAttachedClusterBinaryAuthorizationBlock : ITerraformBlock
 {
     /// <summary>
     /// Configure Binary Authorization evaluation mode. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;PROJECT_SINGLETON_POLICY_ENFORCE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? EvaluationMode
-    {
-        set => SetProperty("evaluation_mode", value);
-    }
+    [TerraformPropertyName("evaluation_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EvaluationMode { get; set; }
 
 }
 
@@ -56,26 +53,24 @@ public class GoogleContainerAttachedClusterBinaryAuthorizationBlock : TerraformB
 /// Block type for fleet in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAttachedClusterFleetBlock : TerraformBlock
+public class GoogleContainerAttachedClusterFleetBlock : ITerraformBlock
 {
     /// <summary>
     /// The name of the managed Hub Membership resource associated to this
     /// cluster. Membership names are formatted as
     /// projects/&amp;lt;project-number&amp;gt;/locations/global/membership/&amp;lt;cluster-id&amp;gt;.
     /// </summary>
-    public TerraformProperty<string>? Membership
-    {
-        set => SetProperty("membership", value);
-    }
+    [TerraformPropertyName("membership")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Membership => new TerraformReferenceProperty<TerraformProperty<string>>("", "membership");
 
     /// <summary>
     /// The number of the Fleet host project where this cluster will be registered.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
-    public required TerraformProperty<string> Project
-    {
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Project { get; set; }
 
 }
 
@@ -83,7 +78,7 @@ public class GoogleContainerAttachedClusterFleetBlock : TerraformBlock
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAttachedClusterLoggingConfigBlock : TerraformBlock
+public class GoogleContainerAttachedClusterLoggingConfigBlock : ITerraformBlock
 {
 }
 
@@ -91,7 +86,7 @@ public class GoogleContainerAttachedClusterLoggingConfigBlock : TerraformBlock
 /// Block type for monitoring_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAttachedClusterMonitoringConfigBlock : TerraformBlock
+public class GoogleContainerAttachedClusterMonitoringConfigBlock : ITerraformBlock
 {
 }
 
@@ -99,24 +94,22 @@ public class GoogleContainerAttachedClusterMonitoringConfigBlock : TerraformBloc
 /// Block type for oidc_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAttachedClusterOidcConfigBlock : TerraformBlock
+public class GoogleContainerAttachedClusterOidcConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// A JSON Web Token (JWT) issuer URI. &#39;issuer&#39; must start with &#39;https://&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUrl is required")]
-    public required TerraformProperty<string> IssuerUrl
-    {
-        set => SetProperty("issuer_url", value);
-    }
+    [TerraformPropertyName("issuer_url")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IssuerUrl { get; set; }
 
     /// <summary>
     /// OIDC verification keys in JWKS format (RFC 7517).
     /// </summary>
-    public TerraformProperty<string>? Jwks
-    {
-        set => SetProperty("jwks", value);
-    }
+    [TerraformPropertyName("jwks")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Jwks { get; set; }
 
 }
 
@@ -124,7 +117,7 @@ public class GoogleContainerAttachedClusterOidcConfigBlock : TerraformBlock
 /// Block type for proxy_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAttachedClusterProxyConfigBlock : TerraformBlock
+public class GoogleContainerAttachedClusterProxyConfigBlock : ITerraformBlock
 {
 }
 
@@ -133,16 +126,15 @@ public class GoogleContainerAttachedClusterProxyConfigBlock : TerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class GoogleContainerAttachedClusterSecurityPostureConfigBlock : TerraformBlock
+public class GoogleContainerAttachedClusterSecurityPostureConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Sets the mode of the Kubernetes security posture API&#39;s workload vulnerability scanning. Possible values: [&amp;quot;VULNERABILITY_DISABLED&amp;quot;, &amp;quot;VULNERABILITY_ENTERPRISE&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VulnerabilityMode is required")]
-    public required TerraformProperty<string> VulnerabilityMode
-    {
-        set => SetProperty("vulnerability_mode", value);
-    }
+    [TerraformPropertyName("vulnerability_mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VulnerabilityMode { get; set; }
 
 }
 
@@ -150,31 +142,28 @@ public class GoogleContainerAttachedClusterSecurityPostureConfigBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleContainerAttachedClusterTimeoutsBlock : TerraformBlock
+public class GoogleContainerAttachedClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -186,30 +175,6 @@ public class GoogleContainerAttachedCluster : TerraformResource
 {
     public GoogleContainerAttachedCluster(string name) : base("google_container_attached_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cluster_region");
-        SetOutput("create_time");
-        SetOutput("effective_annotations");
-        SetOutput("errors");
-        SetOutput("kubernetes_version");
-        SetOutput("reconciling");
-        SetOutput("state");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("workload_identity_config");
-        SetOutput("annotations");
-        SetOutput("deletion_policy");
-        SetOutput("description");
-        SetOutput("distribution");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("platform_version");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -224,30 +189,24 @@ public class GoogleContainerAttachedCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// Policy to determine what flags to send on delete. Possible values: DELETE, DELETE_IGNORE_ERRORS
     /// </summary>
-    public TerraformProperty<string> DeletionPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
-        set => SetProperty("deletion_policy", value);
-    }
+    [TerraformPropertyName("deletion_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// A human readable description of this attached cluster. Cannot be longer
     /// than 255 UTF-8 encoded bytes.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The Kubernetes distribution of the underlying attached cluster. Supported values:
@@ -255,79 +214,63 @@ public class GoogleContainerAttachedCluster : TerraformResource
     /// or migrate any CNCF conformant cluster.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Distribution is required")]
-    public required TerraformProperty<string> Distribution
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("distribution");
-        set => SetProperty("distribution", value);
-    }
+    [TerraformPropertyName("distribution")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Distribution { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location for the resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name of this resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The platform version for the cluster (e.g. &#39;1.23.0-gke.1&#39;).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformVersion is required")]
-    public required TerraformProperty<string> PlatformVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("platform_version");
-        set => SetProperty("platform_version", value);
-    }
+    [TerraformPropertyName("platform_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PlatformVersion { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for authorization.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
-    public List<GoogleContainerAttachedClusterAuthorizationBlock>? Authorization
-    {
-        set => SetProperty("authorization", value);
-    }
+    [TerraformPropertyName("authorization")]
+    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterAuthorizationBlock>>? Authorization { get; set; } = new();
 
     /// <summary>
     /// Block for binary_authorization.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
-    public List<GoogleContainerAttachedClusterBinaryAuthorizationBlock>? BinaryAuthorization
-    {
-        set => SetProperty("binary_authorization", value);
-    }
+    [TerraformPropertyName("binary_authorization")]
+    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for fleet.
@@ -336,30 +279,24 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fleet is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
-    public List<GoogleContainerAttachedClusterFleetBlock>? Fleet
-    {
-        set => SetProperty("fleet", value);
-    }
+    [TerraformPropertyName("fleet")]
+    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterFleetBlock>>? Fleet { get; set; } = new();
 
     /// <summary>
     /// Block for logging_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
-    public List<GoogleContainerAttachedClusterLoggingConfigBlock>? LoggingConfig
-    {
-        set => SetProperty("logging_config", value);
-    }
+    [TerraformPropertyName("logging_config")]
+    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterLoggingConfigBlock>>? LoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for monitoring_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringConfig block(s) allowed")]
-    public List<GoogleContainerAttachedClusterMonitoringConfigBlock>? MonitoringConfig
-    {
-        set => SetProperty("monitoring_config", value);
-    }
+    [TerraformPropertyName("monitoring_config")]
+    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterMonitoringConfigBlock>>? MonitoringConfig { get; set; } = new();
 
     /// <summary>
     /// Block for oidc_config.
@@ -368,20 +305,16 @@ public class GoogleContainerAttachedCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OidcConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OidcConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OidcConfig block(s) allowed")]
-    public List<GoogleContainerAttachedClusterOidcConfigBlock>? OidcConfig
-    {
-        set => SetProperty("oidc_config", value);
-    }
+    [TerraformPropertyName("oidc_config")]
+    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterOidcConfigBlock>>? OidcConfig { get; set; } = new();
 
     /// <summary>
     /// Block for proxy_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProxyConfig block(s) allowed")]
-    public List<GoogleContainerAttachedClusterProxyConfigBlock>? ProxyConfig
-    {
-        set => SetProperty("proxy_config", value);
-    }
+    [TerraformPropertyName("proxy_config")]
+    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterProxyConfigBlock>>? ProxyConfig { get; set; } = new();
 
     /// <summary>
     /// Block for security_posture_config.
@@ -389,19 +322,15 @@ public class GoogleContainerAttachedCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityPostureConfig block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public List<GoogleContainerAttachedClusterSecurityPostureConfigBlock>? SecurityPostureConfig
-    {
-        set => SetProperty("security_posture_config", value);
-    }
+    [TerraformPropertyName("security_posture_config")]
+    public TerraformList<TerraformBlock<GoogleContainerAttachedClusterSecurityPostureConfigBlock>>? SecurityPostureConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleContainerAttachedClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleContainerAttachedClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The region where this cluster runs.
@@ -409,53 +338,73 @@ public class GoogleContainerAttachedCluster : TerraformResource
     /// For EKS clusters, this is an AWS region. For AKS clusters,
     /// this is an Azure region.
     /// </summary>
-    public TerraformExpression ClusterRegion => this["cluster_region"];
+    [TerraformPropertyName("cluster_region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClusterRegion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_region");
 
     /// <summary>
     /// Output only. The time at which this cluster was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+    [TerraformPropertyName("effective_annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
 
     /// <summary>
     /// A set of errors found in the cluster.
     /// </summary>
-    public TerraformExpression Errors => this["errors"];
+    [TerraformPropertyName("errors")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Errors => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "errors");
 
     /// <summary>
     /// The Kubernetes version of the cluster.
     /// </summary>
-    public TerraformExpression KubernetesVersion => this["kubernetes_version"];
+    [TerraformPropertyName("kubernetes_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KubernetesVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kubernetes_version");
 
     /// <summary>
     /// If set, there are currently changes in flight to the cluster.
     /// </summary>
-    public TerraformExpression Reconciling => this["reconciling"];
+    [TerraformPropertyName("reconciling")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
 
     /// <summary>
     /// The current state of the cluster. Possible values:
     /// STATE_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR,
     /// DEGRADED
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// A globally unique identifier for the cluster.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// The time at which this cluster was last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
     /// <summary>
     /// Workload Identity settings.
     /// </summary>
-    public TerraformExpression WorkloadIdentityConfig => this["workload_identity_config"];
+    [TerraformPropertyName("workload_identity_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> WorkloadIdentityConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "workload_identity_config");
 
 }

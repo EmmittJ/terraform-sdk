@@ -9,110 +9,79 @@ public class AwsPinpointEmailChannel : TerraformResource
 {
     public AwsPinpointEmailChannel(string name) : base("aws_pinpoint_email_channel", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("messages_per_second");
-        SetOutput("application_id");
-        SetOutput("configuration_set");
-        SetOutput("enabled");
-        SetOutput("from_address");
-        SetOutput("id");
-        SetOutput("identity");
-        SetOutput("orchestration_sending_role_arn");
-        SetOutput("region");
-        SetOutput("role_arn");
     }
 
     /// <summary>
     /// The application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    public required TerraformProperty<string> ApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
-        set => SetProperty("application_id", value);
-    }
+    [TerraformPropertyName("application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
 
     /// <summary>
     /// The configuration_set attribute.
     /// </summary>
-    public TerraformProperty<string> ConfigurationSet
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("configuration_set");
-        set => SetProperty("configuration_set", value);
-    }
+    [TerraformPropertyName("configuration_set")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConfigurationSet { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The from_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromAddress is required")]
-    public required TerraformProperty<string> FromAddress
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("from_address");
-        set => SetProperty("from_address", value);
-    }
+    [TerraformPropertyName("from_address")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FromAddress { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
-    public required TerraformProperty<string> Identity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity");
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Identity { get; set; }
 
     /// <summary>
     /// The orchestration_sending_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> OrchestrationSendingRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("orchestration_sending_role_arn");
-        set => SetProperty("orchestration_sending_role_arn", value);
-    }
+    [TerraformPropertyName("orchestration_sending_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OrchestrationSendingRoleArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleArn { get; set; }
 
     /// <summary>
     /// The messages_per_second attribute.
     /// </summary>
-    public TerraformExpression MessagesPerSecond => this["messages_per_second"];
+    [TerraformPropertyName("messages_per_second")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MessagesPerSecond => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "messages_per_second");
 
 }

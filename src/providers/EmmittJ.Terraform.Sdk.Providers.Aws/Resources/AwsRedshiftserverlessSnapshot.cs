@@ -9,105 +9,92 @@ public class AwsRedshiftserverlessSnapshot : TerraformResource
 {
     public AwsRedshiftserverlessSnapshot(string name) : base("aws_redshiftserverless_snapshot", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("accounts_with_provisioned_restore_access");
-        SetOutput("accounts_with_restore_access");
-        SetOutput("admin_username");
-        SetOutput("arn");
-        SetOutput("kms_key_id");
-        SetOutput("namespace_arn");
-        SetOutput("owner_account");
-        SetOutput("id");
-        SetOutput("namespace_name");
-        SetOutput("region");
-        SetOutput("retention_period");
-        SetOutput("snapshot_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
-    public required TerraformProperty<string> NamespaceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
-        set => SetProperty("namespace_name", value);
-    }
+    [TerraformPropertyName("namespace_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NamespaceName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The retention_period attribute.
     /// </summary>
-    public TerraformProperty<double> RetentionPeriod
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("retention_period");
-        set => SetProperty("retention_period", value);
-    }
+    [TerraformPropertyName("retention_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RetentionPeriod { get; set; }
 
     /// <summary>
     /// The snapshot_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotName is required")]
-    public required TerraformProperty<string> SnapshotName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_name");
-        set => SetProperty("snapshot_name", value);
-    }
+    [TerraformPropertyName("snapshot_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SnapshotName { get; set; }
 
     /// <summary>
     /// The accounts_with_provisioned_restore_access attribute.
     /// </summary>
-    public TerraformExpression AccountsWithProvisionedRestoreAccess => this["accounts_with_provisioned_restore_access"];
+    [TerraformPropertyName("accounts_with_provisioned_restore_access")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AccountsWithProvisionedRestoreAccess => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "accounts_with_provisioned_restore_access");
 
     /// <summary>
     /// The accounts_with_restore_access attribute.
     /// </summary>
-    public TerraformExpression AccountsWithRestoreAccess => this["accounts_with_restore_access"];
+    [TerraformPropertyName("accounts_with_restore_access")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AccountsWithRestoreAccess => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "accounts_with_restore_access");
 
     /// <summary>
     /// The admin_username attribute.
     /// </summary>
-    public TerraformExpression AdminUsername => this["admin_username"];
+    [TerraformPropertyName("admin_username")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AdminUsername => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "admin_username");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformExpression KmsKeyId => this["kms_key_id"];
+    [TerraformPropertyName("kms_key_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsKeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_id");
 
     /// <summary>
     /// The namespace_arn attribute.
     /// </summary>
-    public TerraformExpression NamespaceArn => this["namespace_arn"];
+    [TerraformPropertyName("namespace_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NamespaceArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "namespace_arn");
 
     /// <summary>
     /// The owner_account attribute.
     /// </summary>
-    public TerraformExpression OwnerAccount => this["owner_account"];
+    [TerraformPropertyName("owner_account")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OwnerAccount => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_account");
 
 }

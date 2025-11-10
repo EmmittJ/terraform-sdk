@@ -9,95 +9,80 @@ public class GoogleFirestoreDocumentDataSource : TerraformDataSource
 {
     public GoogleFirestoreDocumentDataSource(string name) : base("google_firestore_document", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("fields");
-        SetOutput("name");
-        SetOutput("path");
-        SetOutput("update_time");
-        SetOutput("collection");
-        SetOutput("database");
-        SetOutput("document_id");
-        SetOutput("id");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The collection ID, relative to database. For example: chatrooms or chatrooms/my-document/private-messages.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
-    public required TerraformProperty<string> Collection
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("collection");
-        set => SetProperty("collection", value);
-    }
+    [TerraformPropertyName("collection")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Collection { get; set; }
 
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
-    public required TerraformProperty<string> Database
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database");
-        set => SetProperty("database", value);
-    }
+    [TerraformPropertyName("database")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Database { get; set; }
 
     /// <summary>
     /// The client-assigned document ID to use for this document during creation.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentId is required")]
-    public required TerraformProperty<string> DocumentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("document_id");
-        set => SetProperty("document_id", value);
-    }
+    [TerraformPropertyName("document_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DocumentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 format.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The document&#39;s [fields](https://cloud.google.com/firestore/docs/reference/rest/v1/projects.databases.documents) formated as a json string.
     /// </summary>
-    public TerraformExpression Fields => this["fields"];
+    [TerraformPropertyName("fields")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fields => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fields");
 
     /// <summary>
     /// A server defined name for this document. Format:
     /// &#39;projects/{{project_id}}/databases/{{database_id}}/documents/{{path}}/{{document_id}}&#39;
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// A relative path to the collection this document exists within
     /// </summary>
-    public TerraformExpression Path => this["path"];
+    [TerraformPropertyName("path")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Path => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "path");
 
     /// <summary>
     /// Last update timestamp in RFC3339 format.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

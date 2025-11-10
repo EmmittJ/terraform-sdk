@@ -9,95 +9,80 @@ public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
 {
     public AwsGrafanaWorkspaceServiceAccountToken(string name) : base("aws_grafana_workspace_service_account_token", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("created_at");
-        SetOutput("expires_at");
-        SetOutput("id");
-        SetOutput("key");
-        SetOutput("service_account_token_id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("seconds_to_live");
-        SetOutput("service_account_id");
-        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The seconds_to_live attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecondsToLive is required")]
-    public required TerraformProperty<double> SecondsToLive
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("seconds_to_live");
-        set => SetProperty("seconds_to_live", value);
-    }
+    [TerraformPropertyName("seconds_to_live")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> SecondsToLive { get; set; }
 
     /// <summary>
     /// The service_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountId is required")]
-    public required TerraformProperty<string> ServiceAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_account_id");
-        set => SetProperty("service_account_id", value);
-    }
+    [TerraformPropertyName("service_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceAccountId { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    public required TerraformProperty<string> WorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
-        set => SetProperty("workspace_id", value);
-    }
+    [TerraformPropertyName("workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The expires_at attribute.
     /// </summary>
-    public TerraformExpression ExpiresAt => this["expires_at"];
+    [TerraformPropertyName("expires_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpiresAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expires_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformExpression Key => this["key"];
+    [TerraformPropertyName("key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Key => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key");
 
     /// <summary>
     /// The service_account_token_id attribute.
     /// </summary>
-    public TerraformExpression ServiceAccountTokenId => this["service_account_token_id"];
+    [TerraformPropertyName("service_account_token_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceAccountTokenId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_account_token_id");
 
 }

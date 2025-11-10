@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadAdministrativeUnitTimeoutsBlock : TerraformBlock
+public class AzureadAdministrativeUnitTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,87 +45,63 @@ public class AzureadAdministrativeUnit : TerraformResource
 {
     public AzureadAdministrativeUnit(string name) : base("azuread_administrative_unit", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("object_id");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("hidden_membership_enabled");
-        SetOutput("id");
-        SetOutput("members");
-        SetOutput("prevent_duplicate_names");
     }
 
     /// <summary>
     /// The description for the administrative unit
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display name for the administrative unit
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// Whether the administrative unit and its members are hidden or publicly viewable in the directory
     /// </summary>
-    public TerraformProperty<bool> HiddenMembershipEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("hidden_membership_enabled");
-        set => SetProperty("hidden_membership_enabled", value);
-    }
+    [TerraformPropertyName("hidden_membership_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? HiddenMembershipEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// A set of object IDs of members who should be present in this administrative unit. Supported object types are Users or Groups
     /// </summary>
-    public HashSet<TerraformProperty<string>> Members
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("members");
-        set => SetProperty("members", value);
-    }
+    [TerraformPropertyName("members")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Members { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "members");
 
     /// <summary>
     /// If `true`, will return an error if an existing administrative unit is found with the same name
     /// </summary>
-    public TerraformProperty<bool> PreventDuplicateNames
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("prevent_duplicate_names");
-        set => SetProperty("prevent_duplicate_names", value);
-    }
+    [TerraformPropertyName("prevent_duplicate_names")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PreventDuplicateNames { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadAdministrativeUnitTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadAdministrativeUnitTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The object ID of the administrative unit
     /// </summary>
-    public TerraformExpression ObjectId => this["object_id"];
+    [TerraformPropertyName("object_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ObjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_id");
 
 }

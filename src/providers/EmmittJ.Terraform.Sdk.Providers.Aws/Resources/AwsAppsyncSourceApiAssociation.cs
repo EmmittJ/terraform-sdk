@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsAppsyncSourceApiAssociationTimeoutsBlock : TerraformBlock
+public class AwsAppsyncSourceApiAssociationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,108 +38,83 @@ public class AwsAppsyncSourceApiAssociation : TerraformResource
 {
     public AwsAppsyncSourceApiAssociation(string name) : base("aws_appsync_source_api_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("association_id");
-        SetOutput("id");
-        SetOutput("description");
-        SetOutput("merged_api_arn");
-        SetOutput("merged_api_id");
-        SetOutput("region");
-        SetOutput("source_api_arn");
-        SetOutput("source_api_association_config");
-        SetOutput("source_api_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The merged_api_arn attribute.
     /// </summary>
-    public TerraformProperty<string> MergedApiArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("merged_api_arn");
-        set => SetProperty("merged_api_arn", value);
-    }
+    [TerraformPropertyName("merged_api_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MergedApiArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "merged_api_arn");
 
     /// <summary>
     /// The merged_api_id attribute.
     /// </summary>
-    public TerraformProperty<string> MergedApiId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("merged_api_id");
-        set => SetProperty("merged_api_id", value);
-    }
+    [TerraformPropertyName("merged_api_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MergedApiId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "merged_api_id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The source_api_arn attribute.
     /// </summary>
-    public TerraformProperty<string> SourceApiArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_api_arn");
-        set => SetProperty("source_api_arn", value);
-    }
+    [TerraformPropertyName("source_api_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SourceApiArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_api_arn");
 
     /// <summary>
     /// The source_api_association_config attribute.
     /// </summary>
-    public List<TerraformProperty<object>> SourceApiAssociationConfig
-    {
-        get => GetRequiredOutput<List<TerraformProperty<object>>>("source_api_association_config");
-        set => SetProperty("source_api_association_config", value);
-    }
+    [TerraformPropertyName("source_api_association_config")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<object>>> SourceApiAssociationConfig { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "source_api_association_config");
 
     /// <summary>
     /// The source_api_id attribute.
     /// </summary>
-    public TerraformProperty<string> SourceApiId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_api_id");
-        set => SetProperty("source_api_id", value);
-    }
+    [TerraformPropertyName("source_api_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SourceApiId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_api_id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsAppsyncSourceApiAssociationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsAppsyncSourceApiAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
-    public TerraformExpression AssociationId => this["association_id"];
+    [TerraformPropertyName("association_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AssociationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "association_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

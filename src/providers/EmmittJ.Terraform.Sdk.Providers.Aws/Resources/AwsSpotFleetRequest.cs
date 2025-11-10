@@ -6,145 +6,128 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for launch_specification in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
+public class AwsSpotFleetRequestLaunchSpecificationBlock : ITerraformBlock
 {
     /// <summary>
     /// The ami attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ami is required")]
-    public required TerraformProperty<string> Ami
-    {
-        set => SetProperty("ami", value);
-    }
+    [TerraformPropertyName("ami")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Ami { get; set; }
 
     /// <summary>
     /// The associate_public_ip_address attribute.
     /// </summary>
-    public TerraformProperty<bool>? AssociatePublicIpAddress
-    {
-        set => SetProperty("associate_public_ip_address", value);
-    }
+    [TerraformPropertyName("associate_public_ip_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AssociatePublicIpAddress { get; set; }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZone
-    {
-        set => SetProperty("availability_zone", value);
-    }
+    [TerraformPropertyName("availability_zone")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "availability_zone");
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public TerraformProperty<bool>? EbsOptimized
-    {
-        set => SetProperty("ebs_optimized", value);
-    }
+    [TerraformPropertyName("ebs_optimized")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EbsOptimized { get; set; }
 
     /// <summary>
     /// The iam_instance_profile attribute.
     /// </summary>
-    public TerraformProperty<string>? IamInstanceProfile
-    {
-        set => SetProperty("iam_instance_profile", value);
-    }
+    [TerraformPropertyName("iam_instance_profile")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IamInstanceProfile { get; set; }
 
     /// <summary>
     /// The iam_instance_profile_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? IamInstanceProfileArn
-    {
-        set => SetProperty("iam_instance_profile_arn", value);
-    }
+    [TerraformPropertyName("iam_instance_profile_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IamInstanceProfileArn { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    public required TerraformProperty<string> InstanceType
-    {
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceType { get; set; }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyName
-    {
-        set => SetProperty("key_name", value);
-    }
+    [TerraformPropertyName("key_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KeyName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "key_name");
 
     /// <summary>
     /// The monitoring attribute.
     /// </summary>
-    public TerraformProperty<bool>? Monitoring
-    {
-        set => SetProperty("monitoring", value);
-    }
+    [TerraformPropertyName("monitoring")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Monitoring { get; set; }
 
     /// <summary>
     /// The placement_group attribute.
     /// </summary>
-    public TerraformProperty<string>? PlacementGroup
-    {
-        set => SetProperty("placement_group", value);
-    }
+    [TerraformPropertyName("placement_group")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PlacementGroup { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "placement_group");
 
     /// <summary>
     /// The placement_tenancy attribute.
     /// </summary>
-    public TerraformProperty<string>? PlacementTenancy
-    {
-        set => SetProperty("placement_tenancy", value);
-    }
+    [TerraformPropertyName("placement_tenancy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PlacementTenancy { get; set; }
 
     /// <summary>
     /// The spot_price attribute.
     /// </summary>
-    public TerraformProperty<string>? SpotPrice
-    {
-        set => SetProperty("spot_price", value);
-    }
+    [TerraformPropertyName("spot_price")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SpotPrice { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SubnetId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "subnet_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
-    {
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The user_data attribute.
     /// </summary>
-    public TerraformProperty<string>? UserData
-    {
-        set => SetProperty("user_data", value);
-    }
+    [TerraformPropertyName("user_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserData { get; set; }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
-    {
-        set => SetProperty("vpc_security_group_ids", value);
-    }
+    [TerraformPropertyName("vpc_security_group_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> VpcSecurityGroupIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "vpc_security_group_ids");
 
     /// <summary>
     /// The weighted_capacity attribute.
     /// </summary>
-    public TerraformProperty<string>? WeightedCapacity
-    {
-        set => SetProperty("weighted_capacity", value);
-    }
+    [TerraformPropertyName("weighted_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WeightedCapacity { get; set; }
 
 }
 
@@ -152,7 +135,7 @@ public class AwsSpotFleetRequestLaunchSpecificationBlock : TerraformBlock
 /// Block type for launch_template_config in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSpotFleetRequestLaunchTemplateConfigBlock : TerraformBlock
+public class AwsSpotFleetRequestLaunchTemplateConfigBlock : ITerraformBlock
 {
 }
 
@@ -160,7 +143,7 @@ public class AwsSpotFleetRequestLaunchTemplateConfigBlock : TerraformBlock
 /// Block type for spot_maintenance_strategies in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSpotFleetRequestSpotMaintenanceStrategiesBlock : TerraformBlock
+public class AwsSpotFleetRequestSpotMaintenanceStrategiesBlock : ITerraformBlock
 {
 }
 
@@ -168,31 +151,28 @@ public class AwsSpotFleetRequestSpotMaintenanceStrategiesBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSpotFleetRequestTimeoutsBlock : TerraformBlock
+public class AwsSpotFleetRequestTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -204,312 +184,226 @@ public class AwsSpotFleetRequest : TerraformResource
 {
     public AwsSpotFleetRequest(string name) : base("aws_spot_fleet_request", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("client_token");
-        SetOutput("spot_request_state");
-        SetOutput("allocation_strategy");
-        SetOutput("context");
-        SetOutput("excess_capacity_termination_policy");
-        SetOutput("fleet_type");
-        SetOutput("iam_fleet_role");
-        SetOutput("id");
-        SetOutput("instance_interruption_behaviour");
-        SetOutput("instance_pools_to_use_count");
-        SetOutput("load_balancers");
-        SetOutput("on_demand_allocation_strategy");
-        SetOutput("on_demand_max_total_price");
-        SetOutput("on_demand_target_capacity");
-        SetOutput("region");
-        SetOutput("replace_unhealthy_instances");
-        SetOutput("spot_price");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("target_capacity");
-        SetOutput("target_capacity_unit_type");
-        SetOutput("target_group_arns");
-        SetOutput("terminate_instances_on_delete");
-        SetOutput("terminate_instances_with_expiration");
-        SetOutput("valid_from");
-        SetOutput("valid_until");
-        SetOutput("wait_for_fulfillment");
     }
 
     /// <summary>
     /// The allocation_strategy attribute.
     /// </summary>
-    public TerraformProperty<string> AllocationStrategy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("allocation_strategy");
-        set => SetProperty("allocation_strategy", value);
-    }
+    [TerraformPropertyName("allocation_strategy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AllocationStrategy { get; set; }
 
     /// <summary>
     /// The context attribute.
     /// </summary>
-    public TerraformProperty<string> Context
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("context");
-        set => SetProperty("context", value);
-    }
+    [TerraformPropertyName("context")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Context { get; set; }
 
     /// <summary>
     /// The excess_capacity_termination_policy attribute.
     /// </summary>
-    public TerraformProperty<string> ExcessCapacityTerminationPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("excess_capacity_termination_policy");
-        set => SetProperty("excess_capacity_termination_policy", value);
-    }
+    [TerraformPropertyName("excess_capacity_termination_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExcessCapacityTerminationPolicy { get; set; }
 
     /// <summary>
     /// The fleet_type attribute.
     /// </summary>
-    public TerraformProperty<string> FleetType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("fleet_type");
-        set => SetProperty("fleet_type", value);
-    }
+    [TerraformPropertyName("fleet_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FleetType { get; set; }
 
     /// <summary>
     /// The iam_fleet_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamFleetRole is required")]
-    public required TerraformProperty<string> IamFleetRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam_fleet_role");
-        set => SetProperty("iam_fleet_role", value);
-    }
+    [TerraformPropertyName("iam_fleet_role")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IamFleetRole { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_interruption_behaviour attribute.
     /// </summary>
-    public TerraformProperty<string> InstanceInterruptionBehaviour
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_interruption_behaviour");
-        set => SetProperty("instance_interruption_behaviour", value);
-    }
+    [TerraformPropertyName("instance_interruption_behaviour")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InstanceInterruptionBehaviour { get; set; }
 
     /// <summary>
     /// The instance_pools_to_use_count attribute.
     /// </summary>
-    public TerraformProperty<double> InstancePoolsToUseCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("instance_pools_to_use_count");
-        set => SetProperty("instance_pools_to_use_count", value);
-    }
+    [TerraformPropertyName("instance_pools_to_use_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InstancePoolsToUseCount { get; set; }
 
     /// <summary>
     /// The load_balancers attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> LoadBalancers
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("load_balancers");
-        set => SetProperty("load_balancers", value);
-    }
+    [TerraformPropertyName("load_balancers")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> LoadBalancers { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "load_balancers");
 
     /// <summary>
     /// The on_demand_allocation_strategy attribute.
     /// </summary>
-    public TerraformProperty<string> OnDemandAllocationStrategy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("on_demand_allocation_strategy");
-        set => SetProperty("on_demand_allocation_strategy", value);
-    }
+    [TerraformPropertyName("on_demand_allocation_strategy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OnDemandAllocationStrategy { get; set; }
 
     /// <summary>
     /// The on_demand_max_total_price attribute.
     /// </summary>
-    public TerraformProperty<string> OnDemandMaxTotalPrice
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("on_demand_max_total_price");
-        set => SetProperty("on_demand_max_total_price", value);
-    }
+    [TerraformPropertyName("on_demand_max_total_price")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OnDemandMaxTotalPrice { get; set; }
 
     /// <summary>
     /// The on_demand_target_capacity attribute.
     /// </summary>
-    public TerraformProperty<double> OnDemandTargetCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("on_demand_target_capacity");
-        set => SetProperty("on_demand_target_capacity", value);
-    }
+    [TerraformPropertyName("on_demand_target_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? OnDemandTargetCapacity { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The replace_unhealthy_instances attribute.
     /// </summary>
-    public TerraformProperty<bool> ReplaceUnhealthyInstances
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("replace_unhealthy_instances");
-        set => SetProperty("replace_unhealthy_instances", value);
-    }
+    [TerraformPropertyName("replace_unhealthy_instances")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ReplaceUnhealthyInstances { get; set; }
 
     /// <summary>
     /// The spot_price attribute.
     /// </summary>
-    public TerraformProperty<string> SpotPrice
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("spot_price");
-        set => SetProperty("spot_price", value);
-    }
+    [TerraformPropertyName("spot_price")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SpotPrice { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The target_capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetCapacity is required")]
-    public required TerraformProperty<double> TargetCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("target_capacity");
-        set => SetProperty("target_capacity", value);
-    }
+    [TerraformPropertyName("target_capacity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> TargetCapacity { get; set; }
 
     /// <summary>
     /// The target_capacity_unit_type attribute.
     /// </summary>
-    public TerraformProperty<string> TargetCapacityUnitType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_capacity_unit_type");
-        set => SetProperty("target_capacity_unit_type", value);
-    }
+    [TerraformPropertyName("target_capacity_unit_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetCapacityUnitType { get; set; }
 
     /// <summary>
     /// The target_group_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> TargetGroupArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("target_group_arns");
-        set => SetProperty("target_group_arns", value);
-    }
+    [TerraformPropertyName("target_group_arns")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> TargetGroupArns { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "target_group_arns");
 
     /// <summary>
     /// The terminate_instances_on_delete attribute.
     /// </summary>
-    public TerraformProperty<string> TerminateInstancesOnDelete
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("terminate_instances_on_delete");
-        set => SetProperty("terminate_instances_on_delete", value);
-    }
+    [TerraformPropertyName("terminate_instances_on_delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TerminateInstancesOnDelete { get; set; }
 
     /// <summary>
     /// The terminate_instances_with_expiration attribute.
     /// </summary>
-    public TerraformProperty<bool> TerminateInstancesWithExpiration
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("terminate_instances_with_expiration");
-        set => SetProperty("terminate_instances_with_expiration", value);
-    }
+    [TerraformPropertyName("terminate_instances_with_expiration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TerminateInstancesWithExpiration { get; set; }
 
     /// <summary>
     /// The valid_from attribute.
     /// </summary>
-    public TerraformProperty<string> ValidFrom
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("valid_from");
-        set => SetProperty("valid_from", value);
-    }
+    [TerraformPropertyName("valid_from")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ValidFrom { get; set; }
 
     /// <summary>
     /// The valid_until attribute.
     /// </summary>
-    public TerraformProperty<string> ValidUntil
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("valid_until");
-        set => SetProperty("valid_until", value);
-    }
+    [TerraformPropertyName("valid_until")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ValidUntil { get; set; }
 
     /// <summary>
     /// The wait_for_fulfillment attribute.
     /// </summary>
-    public TerraformProperty<bool> WaitForFulfillment
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("wait_for_fulfillment");
-        set => SetProperty("wait_for_fulfillment", value);
-    }
+    [TerraformPropertyName("wait_for_fulfillment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WaitForFulfillment { get; set; }
 
     /// <summary>
     /// Block for launch_specification.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsSpotFleetRequestLaunchSpecificationBlock>? LaunchSpecification
-    {
-        set => SetProperty("launch_specification", value);
-    }
+    [TerraformPropertyName("launch_specification")]
+    public TerraformSet<TerraformBlock<AwsSpotFleetRequestLaunchSpecificationBlock>>? LaunchSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for launch_template_config.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsSpotFleetRequestLaunchTemplateConfigBlock>? LaunchTemplateConfig
-    {
-        set => SetProperty("launch_template_config", value);
-    }
+    [TerraformPropertyName("launch_template_config")]
+    public TerraformSet<TerraformBlock<AwsSpotFleetRequestLaunchTemplateConfigBlock>>? LaunchTemplateConfig { get; set; } = new();
 
     /// <summary>
     /// Block for spot_maintenance_strategies.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpotMaintenanceStrategies block(s) allowed")]
-    public List<AwsSpotFleetRequestSpotMaintenanceStrategiesBlock>? SpotMaintenanceStrategies
-    {
-        set => SetProperty("spot_maintenance_strategies", value);
-    }
+    [TerraformPropertyName("spot_maintenance_strategies")]
+    public TerraformList<TerraformBlock<AwsSpotFleetRequestSpotMaintenanceStrategiesBlock>>? SpotMaintenanceStrategies { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsSpotFleetRequestTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsSpotFleetRequestTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The client_token attribute.
     /// </summary>
-    public TerraformExpression ClientToken => this["client_token"];
+    [TerraformPropertyName("client_token")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClientToken => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "client_token");
 
     /// <summary>
     /// The spot_request_state attribute.
     /// </summary>
-    public TerraformExpression SpotRequestState => this["spot_request_state"];
+    [TerraformPropertyName("spot_request_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SpotRequestState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "spot_request_state");
 
 }

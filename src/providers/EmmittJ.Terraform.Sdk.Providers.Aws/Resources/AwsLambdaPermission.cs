@@ -9,144 +9,100 @@ public class AwsLambdaPermission : TerraformResource
 {
     public AwsLambdaPermission(string name) : base("aws_lambda_permission", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("action");
-        SetOutput("event_source_token");
-        SetOutput("function_name");
-        SetOutput("function_url_auth_type");
-        SetOutput("id");
-        SetOutput("principal");
-        SetOutput("principal_org_id");
-        SetOutput("qualifier");
-        SetOutput("region");
-        SetOutput("source_account");
-        SetOutput("source_arn");
-        SetOutput("statement_id");
-        SetOutput("statement_id_prefix");
     }
 
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("action");
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// The event_source_token attribute.
     /// </summary>
-    public TerraformProperty<string> EventSourceToken
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("event_source_token");
-        set => SetProperty("event_source_token", value);
-    }
+    [TerraformPropertyName("event_source_token")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EventSourceToken { get; set; }
 
     /// <summary>
     /// The function_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
-    public required TerraformProperty<string> FunctionName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
-        set => SetProperty("function_name", value);
-    }
+    [TerraformPropertyName("function_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FunctionName { get; set; }
 
     /// <summary>
     /// The function_url_auth_type attribute.
     /// </summary>
-    public TerraformProperty<string> FunctionUrlAuthType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("function_url_auth_type");
-        set => SetProperty("function_url_auth_type", value);
-    }
+    [TerraformPropertyName("function_url_auth_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FunctionUrlAuthType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
-    public required TerraformProperty<string> Principal
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal");
-        set => SetProperty("principal", value);
-    }
+    [TerraformPropertyName("principal")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
 
     /// <summary>
     /// The principal_org_id attribute.
     /// </summary>
-    public TerraformProperty<string> PrincipalOrgId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal_org_id");
-        set => SetProperty("principal_org_id", value);
-    }
+    [TerraformPropertyName("principal_org_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrincipalOrgId { get; set; }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public TerraformProperty<string> Qualifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("qualifier");
-        set => SetProperty("qualifier", value);
-    }
+    [TerraformPropertyName("qualifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Qualifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The source_account attribute.
     /// </summary>
-    public TerraformProperty<string> SourceAccount
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_account");
-        set => SetProperty("source_account", value);
-    }
+    [TerraformPropertyName("source_account")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceAccount { get; set; }
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
-    public TerraformProperty<string> SourceArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_arn");
-        set => SetProperty("source_arn", value);
-    }
+    [TerraformPropertyName("source_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceArn { get; set; }
 
     /// <summary>
     /// The statement_id attribute.
     /// </summary>
-    public TerraformProperty<string> StatementId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("statement_id");
-        set => SetProperty("statement_id", value);
-    }
+    [TerraformPropertyName("statement_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StatementId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "statement_id");
 
     /// <summary>
     /// The statement_id_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> StatementIdPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("statement_id_prefix");
-        set => SetProperty("statement_id_prefix", value);
-    }
+    [TerraformPropertyName("statement_id_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StatementIdPrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "statement_id_prefix");
 
 }

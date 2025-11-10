@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock : TerraformBlock
+public class AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,96 +45,68 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
 {
     public AzurermHealthcareMedtechServiceFhirDestination(string name) : base("azurerm_healthcare_medtech_service_fhir_destination", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("destination_fhir_mapping_json");
-        SetOutput("destination_fhir_service_id");
-        SetOutput("destination_identity_resolution_type");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("medtech_service_id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The destination_fhir_mapping_json attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFhirMappingJson is required")]
-    public required TerraformProperty<string> DestinationFhirMappingJson
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_fhir_mapping_json");
-        set => SetProperty("destination_fhir_mapping_json", value);
-    }
+    [TerraformPropertyName("destination_fhir_mapping_json")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DestinationFhirMappingJson { get; set; }
 
     /// <summary>
     /// The destination_fhir_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFhirServiceId is required")]
-    public required TerraformProperty<string> DestinationFhirServiceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_fhir_service_id");
-        set => SetProperty("destination_fhir_service_id", value);
-    }
+    [TerraformPropertyName("destination_fhir_service_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DestinationFhirServiceId { get; set; }
 
     /// <summary>
     /// The destination_identity_resolution_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIdentityResolutionType is required")]
-    public required TerraformProperty<string> DestinationIdentityResolutionType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_identity_resolution_type");
-        set => SetProperty("destination_identity_resolution_type", value);
-    }
+    [TerraformPropertyName("destination_identity_resolution_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DestinationIdentityResolutionType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The medtech_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MedtechServiceId is required")]
-    public required TerraformProperty<string> MedtechServiceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("medtech_service_id");
-        set => SetProperty("medtech_service_id", value);
-    }
+    [TerraformPropertyName("medtech_service_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MedtechServiceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

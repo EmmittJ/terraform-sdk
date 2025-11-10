@@ -6,55 +6,49 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cors_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApigatewayv2ApiCorsConfigurationBlock : TerraformBlock
+public class AwsApigatewayv2ApiCorsConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The allow_credentials attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowCredentials
-    {
-        set => SetProperty("allow_credentials", value);
-    }
+    [TerraformPropertyName("allow_credentials")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowCredentials { get; set; }
 
     /// <summary>
     /// The allow_headers attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowHeaders
-    {
-        set => SetProperty("allow_headers", value);
-    }
+    [TerraformPropertyName("allow_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowHeaders { get; set; }
 
     /// <summary>
     /// The allow_methods attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowMethods
-    {
-        set => SetProperty("allow_methods", value);
-    }
+    [TerraformPropertyName("allow_methods")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowMethods { get; set; }
 
     /// <summary>
     /// The allow_origins attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowOrigins
-    {
-        set => SetProperty("allow_origins", value);
-    }
+    [TerraformPropertyName("allow_origins")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowOrigins { get; set; }
 
     /// <summary>
     /// The expose_headers attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExposeHeaders
-    {
-        set => SetProperty("expose_headers", value);
-    }
+    [TerraformPropertyName("expose_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ExposeHeaders { get; set; }
 
     /// <summary>
     /// The max_age attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxAge
-    {
-        set => SetProperty("max_age", value);
-    }
+    [TerraformPropertyName("max_age")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxAge { get; set; }
 
 }
 
@@ -66,211 +60,156 @@ public class AwsApigatewayv2Api : TerraformResource
 {
     public AwsApigatewayv2Api(string name) : base("aws_apigatewayv2_api", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("api_endpoint");
-        SetOutput("arn");
-        SetOutput("execution_arn");
-        SetOutput("api_key_selection_expression");
-        SetOutput("body");
-        SetOutput("credentials_arn");
-        SetOutput("description");
-        SetOutput("disable_execute_api_endpoint");
-        SetOutput("fail_on_warnings");
-        SetOutput("id");
-        SetOutput("ip_address_type");
-        SetOutput("name");
-        SetOutput("protocol_type");
-        SetOutput("region");
-        SetOutput("route_key");
-        SetOutput("route_selection_expression");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("target");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The api_key_selection_expression attribute.
     /// </summary>
-    public TerraformProperty<string> ApiKeySelectionExpression
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_key_selection_expression");
-        set => SetProperty("api_key_selection_expression", value);
-    }
+    [TerraformPropertyName("api_key_selection_expression")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ApiKeySelectionExpression { get; set; }
 
     /// <summary>
     /// The body attribute.
     /// </summary>
-    public TerraformProperty<string> Body
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("body");
-        set => SetProperty("body", value);
-    }
+    [TerraformPropertyName("body")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Body { get; set; }
 
     /// <summary>
     /// The credentials_arn attribute.
     /// </summary>
-    public TerraformProperty<string> CredentialsArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("credentials_arn");
-        set => SetProperty("credentials_arn", value);
-    }
+    [TerraformPropertyName("credentials_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CredentialsArn { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The disable_execute_api_endpoint attribute.
     /// </summary>
-    public TerraformProperty<bool> DisableExecuteApiEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("disable_execute_api_endpoint");
-        set => SetProperty("disable_execute_api_endpoint", value);
-    }
+    [TerraformPropertyName("disable_execute_api_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DisableExecuteApiEndpoint { get; set; }
 
     /// <summary>
     /// The fail_on_warnings attribute.
     /// </summary>
-    public TerraformProperty<bool> FailOnWarnings
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("fail_on_warnings");
-        set => SetProperty("fail_on_warnings", value);
-    }
+    [TerraformPropertyName("fail_on_warnings")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? FailOnWarnings { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformProperty<string> IpAddressType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ip_address_type");
-        set => SetProperty("ip_address_type", value);
-    }
+    [TerraformPropertyName("ip_address_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IpAddressType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address_type");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolType is required")]
-    public required TerraformProperty<string> ProtocolType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protocol_type");
-        set => SetProperty("protocol_type", value);
-    }
+    [TerraformPropertyName("protocol_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProtocolType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The route_key attribute.
     /// </summary>
-    public TerraformProperty<string> RouteKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("route_key");
-        set => SetProperty("route_key", value);
-    }
+    [TerraformPropertyName("route_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RouteKey { get; set; }
 
     /// <summary>
     /// The route_selection_expression attribute.
     /// </summary>
-    public TerraformProperty<string> RouteSelectionExpression
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("route_selection_expression");
-        set => SetProperty("route_selection_expression", value);
-    }
+    [TerraformPropertyName("route_selection_expression")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RouteSelectionExpression { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The target attribute.
     /// </summary>
-    public TerraformProperty<string> Target
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target");
-        set => SetProperty("target", value);
-    }
+    [TerraformPropertyName("target")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Target { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
     /// <summary>
     /// Block for cors_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorsConfiguration block(s) allowed")]
-    public List<AwsApigatewayv2ApiCorsConfigurationBlock>? CorsConfiguration
-    {
-        set => SetProperty("cors_configuration", value);
-    }
+    [TerraformPropertyName("cors_configuration")]
+    public TerraformList<TerraformBlock<AwsApigatewayv2ApiCorsConfigurationBlock>>? CorsConfiguration { get; set; } = new();
 
     /// <summary>
     /// The api_endpoint attribute.
     /// </summary>
-    public TerraformExpression ApiEndpoint => this["api_endpoint"];
+    [TerraformPropertyName("api_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ApiEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "api_endpoint");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
-    public TerraformExpression ExecutionArn => this["execution_arn"];
+    [TerraformPropertyName("execution_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExecutionArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "execution_arn");
 
 }

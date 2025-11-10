@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2CapacityReservationTimeoutsBlock : TerraformBlock
+public class AwsEc2CapacityReservationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,196 +38,143 @@ public class AwsEc2CapacityReservation : TerraformResource
 {
     public AwsEc2CapacityReservation(string name) : base("aws_ec2_capacity_reservation", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("owner_id");
-        SetOutput("availability_zone");
-        SetOutput("ebs_optimized");
-        SetOutput("end_date");
-        SetOutput("end_date_type");
-        SetOutput("ephemeral_storage");
-        SetOutput("id");
-        SetOutput("instance_count");
-        SetOutput("instance_match_criteria");
-        SetOutput("instance_platform");
-        SetOutput("instance_type");
-        SetOutput("outpost_arn");
-        SetOutput("placement_group_arn");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("tenancy");
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
-    public required TerraformProperty<string> AvailabilityZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("availability_zone");
-        set => SetProperty("availability_zone", value);
-    }
+    [TerraformPropertyName("availability_zone")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AvailabilityZone { get; set; }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public TerraformProperty<bool> EbsOptimized
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ebs_optimized");
-        set => SetProperty("ebs_optimized", value);
-    }
+    [TerraformPropertyName("ebs_optimized")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EbsOptimized { get; set; }
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    public TerraformProperty<string> EndDate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("end_date");
-        set => SetProperty("end_date", value);
-    }
+    [TerraformPropertyName("end_date")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndDate { get; set; }
 
     /// <summary>
     /// The end_date_type attribute.
     /// </summary>
-    public TerraformProperty<string> EndDateType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("end_date_type");
-        set => SetProperty("end_date_type", value);
-    }
+    [TerraformPropertyName("end_date_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndDateType { get; set; }
 
     /// <summary>
     /// The ephemeral_storage attribute.
     /// </summary>
-    public TerraformProperty<bool> EphemeralStorage
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ephemeral_storage");
-        set => SetProperty("ephemeral_storage", value);
-    }
+    [TerraformPropertyName("ephemeral_storage")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EphemeralStorage { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
-    public required TerraformProperty<double> InstanceCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
-        set => SetProperty("instance_count", value);
-    }
+    [TerraformPropertyName("instance_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> InstanceCount { get; set; }
 
     /// <summary>
     /// The instance_match_criteria attribute.
     /// </summary>
-    public TerraformProperty<string> InstanceMatchCriteria
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_match_criteria");
-        set => SetProperty("instance_match_criteria", value);
-    }
+    [TerraformPropertyName("instance_match_criteria")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InstanceMatchCriteria { get; set; }
 
     /// <summary>
     /// The instance_platform attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePlatform is required")]
-    public required TerraformProperty<string> InstancePlatform
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_platform");
-        set => SetProperty("instance_platform", value);
-    }
+    [TerraformPropertyName("instance_platform")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstancePlatform { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    public required TerraformProperty<string> InstanceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceType { get; set; }
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    public TerraformProperty<string> OutpostArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("outpost_arn");
-        set => SetProperty("outpost_arn", value);
-    }
+    [TerraformPropertyName("outpost_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OutpostArn { get; set; }
 
     /// <summary>
     /// The placement_group_arn attribute.
     /// </summary>
-    public TerraformProperty<string> PlacementGroupArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("placement_group_arn");
-        set => SetProperty("placement_group_arn", value);
-    }
+    [TerraformPropertyName("placement_group_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PlacementGroupArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
-    public TerraformProperty<string> Tenancy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tenancy");
-        set => SetProperty("tenancy", value);
-    }
+    [TerraformPropertyName("tenancy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Tenancy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEc2CapacityReservationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEc2CapacityReservationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformExpression OwnerId => this["owner_id"];
+    [TerraformPropertyName("owner_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
 
 }

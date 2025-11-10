@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleKmsCryptoKeyTimeoutsBlock : TerraformBlock
+public class GoogleKmsCryptoKeyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -38,25 +35,23 @@ public class GoogleKmsCryptoKeyTimeoutsBlock : TerraformBlock
 /// Block type for version_template in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleKmsCryptoKeyVersionTemplateBlock : TerraformBlock
+public class GoogleKmsCryptoKeyVersionTemplateBlock : ITerraformBlock
 {
     /// <summary>
     /// The algorithm to use when creating a version based on this template.
     /// See the [algorithm reference](https://cloud.google.com/kms/docs/reference/rest/v1/CryptoKeyVersionAlgorithm) for possible inputs.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
-    public required TerraformProperty<string> Algorithm
-    {
-        set => SetProperty("algorithm", value);
-    }
+    [TerraformPropertyName("algorithm")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Algorithm { get; set; }
 
     /// <summary>
     /// The protection level to use when creating a version based on this template. Possible values include &amp;quot;SOFTWARE&amp;quot;, &amp;quot;HSM&amp;quot;, &amp;quot;EXTERNAL&amp;quot;, &amp;quot;EXTERNAL_VPC&amp;quot;. Defaults to &amp;quot;SOFTWARE&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? ProtectionLevel
-    {
-        set => SetProperty("protection_level", value);
-    }
+    [TerraformPropertyName("protection_level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProtectionLevel { get; set; }
 
 }
 
@@ -68,74 +63,46 @@ public class GoogleKmsCryptoKey : TerraformResource
 {
     public GoogleKmsCryptoKey(string name) : base("google_kms_crypto_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("effective_labels");
-        SetOutput("primary");
-        SetOutput("terraform_labels");
-        SetOutput("crypto_key_backend");
-        SetOutput("destroy_scheduled_duration");
-        SetOutput("id");
-        SetOutput("import_only");
-        SetOutput("key_ring");
-        SetOutput("labels");
-        SetOutput("name");
-        SetOutput("purpose");
-        SetOutput("rotation_period");
-        SetOutput("skip_initial_version_creation");
     }
 
     /// <summary>
     /// The resource name of the backend environment associated with all CryptoKeyVersions within this CryptoKey.
     /// The resource name is in the format &amp;quot;projects/*/locations/*/ekmConnections/*&amp;quot; and only applies to &amp;quot;EXTERNAL_VPC&amp;quot; keys.
     /// </summary>
-    public TerraformProperty<string> CryptoKeyBackend
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("crypto_key_backend");
-        set => SetProperty("crypto_key_backend", value);
-    }
+    [TerraformPropertyName("crypto_key_backend")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CryptoKeyBackend { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "crypto_key_backend");
 
     /// <summary>
     /// The period of time that versions of this key spend in the DESTROY_SCHEDULED state before transitioning to DESTROYED.
     /// If not specified at creation time, the default duration is 30 days.
     /// </summary>
-    public TerraformProperty<string> DestroyScheduledDuration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destroy_scheduled_duration");
-        set => SetProperty("destroy_scheduled_duration", value);
-    }
+    [TerraformPropertyName("destroy_scheduled_duration")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DestroyScheduledDuration { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "destroy_scheduled_duration");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Whether this key may contain imported versions only.
     /// </summary>
-    public TerraformProperty<bool> ImportOnly
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("import_only");
-        set => SetProperty("import_only", value);
-    }
+    [TerraformPropertyName("import_only")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> ImportOnly { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "import_only");
 
     /// <summary>
     /// The KeyRing that this key belongs to.
     /// Format: &#39;&#39;projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}&#39;&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
-    public required TerraformProperty<string> KeyRing
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_ring");
-        set => SetProperty("key_ring", value);
-    }
+    [TerraformPropertyName("key_ring")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyRing { get; set; }
 
     /// <summary>
     /// Labels with user-defined metadata to apply to this resource.
@@ -144,21 +111,17 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The resource name for the CryptoKey.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The immutable purpose of this CryptoKey. See the
@@ -166,11 +129,9 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// for possible inputs.
     /// Default value is &amp;quot;ENCRYPT_DECRYPT&amp;quot;.
     /// </summary>
-    public TerraformProperty<string> Purpose
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("purpose");
-        set => SetProperty("purpose", value);
-    }
+    [TerraformPropertyName("purpose")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Purpose { get; set; }
 
     /// <summary>
     /// Every time this period passes, generate a new CryptoKeyVersion and set it as the primary.
@@ -178,11 +139,9 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// the format of a decimal number with up to 9 fractional digits, followed by the
     /// letter &#39;s&#39; (seconds). It must be greater than a day (ie, 86400).
     /// </summary>
-    public TerraformProperty<string> RotationPeriod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rotation_period");
-        set => SetProperty("rotation_period", value);
-    }
+    [TerraformPropertyName("rotation_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RotationPeriod { get; set; }
 
     /// <summary>
     /// If set to true, the request will create a CryptoKey without any CryptoKeyVersions.
@@ -190,46 +149,46 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// or &#39;google_kms_key_ring_import_job&#39; resource to import the CryptoKeyVersion.
     /// This field is only applicable during initial CryptoKey creation.
     /// </summary>
-    public TerraformProperty<bool> SkipInitialVersionCreation
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_initial_version_creation");
-        set => SetProperty("skip_initial_version_creation", value);
-    }
+    [TerraformPropertyName("skip_initial_version_creation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipInitialVersionCreation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleKmsCryptoKeyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleKmsCryptoKeyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for version_template.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VersionTemplate block(s) allowed")]
-    public List<GoogleKmsCryptoKeyVersionTemplateBlock>? VersionTemplate
-    {
-        set => SetProperty("version_template", value);
-    }
+    [TerraformPropertyName("version_template")]
+    public TerraformList<TerraformBlock<GoogleKmsCryptoKeyVersionTemplateBlock>>? VersionTemplate { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// A copy of the primary CryptoKeyVersion that will be used by cryptoKeys.encrypt when this CryptoKey is given in EncryptRequest.name.
     /// Keys with purpose ENCRYPT_DECRYPT may have a primary. For other keys, this field will be unset.
     /// </summary>
-    public TerraformExpression Primary => this["primary"];
+    [TerraformPropertyName("primary")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Primary => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "primary");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

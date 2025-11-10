@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSourceControlTokenDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermSourceControlTokenDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,53 +24,42 @@ public class AzurermSourceControlTokenDataSource : TerraformDataSource
 {
     public AzurermSourceControlTokenDataSource(string name) : base("azurerm_source_control_token", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("token");
-        SetOutput("token_secret");
-        SetOutput("id");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSourceControlTokenDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSourceControlTokenDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The token attribute.
     /// </summary>
-    public TerraformExpression Token => this["token"];
+    [TerraformPropertyName("token")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Token => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "token");
 
     /// <summary>
     /// The token_secret attribute.
     /// </summary>
-    public TerraformExpression TokenSecret => this["token_secret"];
+    [TerraformPropertyName("token_secret")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TokenSecret => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "token_secret");
 
 }

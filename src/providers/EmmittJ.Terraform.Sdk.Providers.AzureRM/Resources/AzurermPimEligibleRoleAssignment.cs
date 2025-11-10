@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPimEligibleRoleAssignmentScheduleBlock : TerraformBlock
+public class AzurermPimEligibleRoleAssignmentScheduleBlock : ITerraformBlock
 {
     /// <summary>
     /// The start date/time
     /// </summary>
-    public TerraformProperty<string>? StartDateTime
-    {
-        set => SetProperty("start_date_time", value);
-    }
+    [TerraformPropertyName("start_date_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StartDateTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "start_date_time");
 
 }
 
@@ -22,23 +21,21 @@ public class AzurermPimEligibleRoleAssignmentScheduleBlock : TerraformBlock
 /// Block type for ticket in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPimEligibleRoleAssignmentTicketBlock : TerraformBlock
+public class AzurermPimEligibleRoleAssignmentTicketBlock : ITerraformBlock
 {
     /// <summary>
     /// User-supplied ticket number to be included with the request
     /// </summary>
-    public TerraformProperty<string>? Number
-    {
-        set => SetProperty("number", value);
-    }
+    [TerraformPropertyName("number")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Number { get; set; }
 
     /// <summary>
     /// User-supplied ticket system name to be included with the request
     /// </summary>
-    public TerraformProperty<string>? System
-    {
-        set => SetProperty("system", value);
-    }
+    [TerraformPropertyName("system")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? System { get; set; }
 
 }
 
@@ -46,31 +43,28 @@ public class AzurermPimEligibleRoleAssignmentTicketBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPimEligibleRoleAssignmentTimeoutsBlock : TerraformBlock
+public class AzurermPimEligibleRoleAssignmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -82,119 +76,88 @@ public class AzurermPimEligibleRoleAssignment : TerraformResource
 {
     public AzurermPimEligibleRoleAssignment(string name) : base("azurerm_pim_eligible_role_assignment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("principal_type");
-        SetOutput("condition");
-        SetOutput("condition_version");
-        SetOutput("id");
-        SetOutput("justification");
-        SetOutput("principal_id");
-        SetOutput("role_definition_id");
-        SetOutput("scope");
     }
 
     /// <summary>
     /// The condition attribute.
     /// </summary>
-    public TerraformProperty<string> Condition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("condition");
-        set => SetProperty("condition", value);
-    }
+    [TerraformPropertyName("condition")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Condition { get; set; }
 
     /// <summary>
     /// The condition_version attribute.
     /// </summary>
-    public TerraformProperty<string> ConditionVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("condition_version");
-        set => SetProperty("condition_version", value);
-    }
+    [TerraformPropertyName("condition_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConditionVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The justification for this eligible role assignment
     /// </summary>
-    public TerraformProperty<string> Justification
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("justification");
-        set => SetProperty("justification", value);
-    }
+    [TerraformPropertyName("justification")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Justification { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "justification");
 
     /// <summary>
     /// Object ID of the principal for this eligible role assignment
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    public required TerraformProperty<string> PrincipalId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrincipalId { get; set; }
 
     /// <summary>
     /// Role definition ID for this eligible role assignment
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
-    public required TerraformProperty<string> RoleDefinitionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_definition_id");
-        set => SetProperty("role_definition_id", value);
-    }
+    [TerraformPropertyName("role_definition_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleDefinitionId { get; set; }
 
     /// <summary>
     /// Scope for this eligible role assignment, should be a valid resource ID
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
-    public required TerraformProperty<string> Scope
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("scope");
-        set => SetProperty("scope", value);
-    }
+    [TerraformPropertyName("scope")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Scope { get; set; }
 
     /// <summary>
     /// Block for schedule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    public List<AzurermPimEligibleRoleAssignmentScheduleBlock>? Schedule
-    {
-        set => SetProperty("schedule", value);
-    }
+    [TerraformPropertyName("schedule")]
+    public TerraformList<TerraformBlock<AzurermPimEligibleRoleAssignmentScheduleBlock>>? Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for ticket.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ticket block(s) allowed")]
-    public List<AzurermPimEligibleRoleAssignmentTicketBlock>? Ticket
-    {
-        set => SetProperty("ticket", value);
-    }
+    [TerraformPropertyName("ticket")]
+    public TerraformList<TerraformBlock<AzurermPimEligibleRoleAssignmentTicketBlock>>? Ticket { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermPimEligibleRoleAssignmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermPimEligibleRoleAssignmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Type of principal to which the role will be assigned
     /// </summary>
-    public TerraformExpression PrincipalType => this["principal_type"];
+    [TerraformPropertyName("principal_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "principal_type");
 
 }

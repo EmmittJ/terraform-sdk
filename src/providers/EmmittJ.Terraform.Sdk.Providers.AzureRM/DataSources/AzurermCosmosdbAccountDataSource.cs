@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCosmosdbAccountDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermCosmosdbAccountDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,226 +24,239 @@ public class AzurermCosmosdbAccountDataSource : TerraformDataSource
 {
     public AzurermCosmosdbAccountDataSource(string name) : base("azurerm_cosmosdb_account", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("automatic_failover_enabled");
-        SetOutput("capabilities");
-        SetOutput("consistency_policy");
-        SetOutput("endpoint");
-        SetOutput("free_tier_enabled");
-        SetOutput("geo_location");
-        SetOutput("ip_range_filter");
-        SetOutput("is_virtual_network_filter_enabled");
-        SetOutput("key_vault_key_id");
-        SetOutput("kind");
-        SetOutput("location");
-        SetOutput("multiple_write_locations_enabled");
-        SetOutput("offer_type");
-        SetOutput("primary_key");
-        SetOutput("primary_mongodb_connection_string");
-        SetOutput("primary_readonly_key");
-        SetOutput("primary_readonly_mongodb_connection_string");
-        SetOutput("primary_readonly_sql_connection_string");
-        SetOutput("primary_sql_connection_string");
-        SetOutput("read_endpoints");
-        SetOutput("secondary_key");
-        SetOutput("secondary_mongodb_connection_string");
-        SetOutput("secondary_readonly_key");
-        SetOutput("secondary_readonly_mongodb_connection_string");
-        SetOutput("secondary_readonly_sql_connection_string");
-        SetOutput("secondary_sql_connection_string");
-        SetOutput("tags");
-        SetOutput("virtual_network_rule");
-        SetOutput("write_endpoints");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCosmosdbAccountDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCosmosdbAccountDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The automatic_failover_enabled attribute.
     /// </summary>
-    public TerraformExpression AutomaticFailoverEnabled => this["automatic_failover_enabled"];
+    [TerraformPropertyName("automatic_failover_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AutomaticFailoverEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "automatic_failover_enabled");
 
     /// <summary>
     /// The capabilities attribute.
     /// </summary>
-    public TerraformExpression Capabilities => this["capabilities"];
+    [TerraformPropertyName("capabilities")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Capabilities => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "capabilities");
 
     /// <summary>
     /// The consistency_policy attribute.
     /// </summary>
-    public TerraformExpression ConsistencyPolicy => this["consistency_policy"];
+    [TerraformPropertyName("consistency_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ConsistencyPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "consistency_policy");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The free_tier_enabled attribute.
     /// </summary>
-    public TerraformExpression FreeTierEnabled => this["free_tier_enabled"];
+    [TerraformPropertyName("free_tier_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> FreeTierEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "free_tier_enabled");
 
     /// <summary>
     /// The geo_location attribute.
     /// </summary>
-    public TerraformExpression GeoLocation => this["geo_location"];
+    [TerraformPropertyName("geo_location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> GeoLocation => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "geo_location");
 
     /// <summary>
     /// The ip_range_filter attribute.
     /// </summary>
-    public TerraformExpression IpRangeFilter => this["ip_range_filter"];
+    [TerraformPropertyName("ip_range_filter")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpRangeFilter => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_range_filter");
 
     /// <summary>
     /// The is_virtual_network_filter_enabled attribute.
     /// </summary>
-    public TerraformExpression IsVirtualNetworkFilterEnabled => this["is_virtual_network_filter_enabled"];
+    [TerraformPropertyName("is_virtual_network_filter_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> IsVirtualNetworkFilterEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "is_virtual_network_filter_enabled");
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformExpression KeyVaultKeyId => this["key_vault_key_id"];
+    [TerraformPropertyName("key_vault_key_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyVaultKeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_vault_key_id");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformExpression Kind => this["kind"];
+    [TerraformPropertyName("kind")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Kind => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The multiple_write_locations_enabled attribute.
     /// </summary>
-    public TerraformExpression MultipleWriteLocationsEnabled => this["multiple_write_locations_enabled"];
+    [TerraformPropertyName("multiple_write_locations_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> MultipleWriteLocationsEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "multiple_write_locations_enabled");
 
     /// <summary>
     /// The offer_type attribute.
     /// </summary>
-    public TerraformExpression OfferType => this["offer_type"];
+    [TerraformPropertyName("offer_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OfferType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "offer_type");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    public TerraformExpression PrimaryKey => this["primary_key"];
+    [TerraformPropertyName("primary_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_key");
 
     /// <summary>
     /// The primary_mongodb_connection_string attribute.
     /// </summary>
-    public TerraformExpression PrimaryMongodbConnectionString => this["primary_mongodb_connection_string"];
+    [TerraformPropertyName("primary_mongodb_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryMongodbConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_mongodb_connection_string");
 
     /// <summary>
     /// The primary_readonly_key attribute.
     /// </summary>
-    public TerraformExpression PrimaryReadonlyKey => this["primary_readonly_key"];
+    [TerraformPropertyName("primary_readonly_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryReadonlyKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_readonly_key");
 
     /// <summary>
     /// The primary_readonly_mongodb_connection_string attribute.
     /// </summary>
-    public TerraformExpression PrimaryReadonlyMongodbConnectionString => this["primary_readonly_mongodb_connection_string"];
+    [TerraformPropertyName("primary_readonly_mongodb_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryReadonlyMongodbConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_readonly_mongodb_connection_string");
 
     /// <summary>
     /// The primary_readonly_sql_connection_string attribute.
     /// </summary>
-    public TerraformExpression PrimaryReadonlySqlConnectionString => this["primary_readonly_sql_connection_string"];
+    [TerraformPropertyName("primary_readonly_sql_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryReadonlySqlConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_readonly_sql_connection_string");
 
     /// <summary>
     /// The primary_sql_connection_string attribute.
     /// </summary>
-    public TerraformExpression PrimarySqlConnectionString => this["primary_sql_connection_string"];
+    [TerraformPropertyName("primary_sql_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimarySqlConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_sql_connection_string");
 
     /// <summary>
     /// The read_endpoints attribute.
     /// </summary>
-    public TerraformExpression ReadEndpoints => this["read_endpoints"];
+    [TerraformPropertyName("read_endpoints")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ReadEndpoints => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "read_endpoints");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    public TerraformExpression SecondaryKey => this["secondary_key"];
+    [TerraformPropertyName("secondary_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_key");
 
     /// <summary>
     /// The secondary_mongodb_connection_string attribute.
     /// </summary>
-    public TerraformExpression SecondaryMongodbConnectionString => this["secondary_mongodb_connection_string"];
+    [TerraformPropertyName("secondary_mongodb_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryMongodbConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_mongodb_connection_string");
 
     /// <summary>
     /// The secondary_readonly_key attribute.
     /// </summary>
-    public TerraformExpression SecondaryReadonlyKey => this["secondary_readonly_key"];
+    [TerraformPropertyName("secondary_readonly_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryReadonlyKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_readonly_key");
 
     /// <summary>
     /// The secondary_readonly_mongodb_connection_string attribute.
     /// </summary>
-    public TerraformExpression SecondaryReadonlyMongodbConnectionString => this["secondary_readonly_mongodb_connection_string"];
+    [TerraformPropertyName("secondary_readonly_mongodb_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryReadonlyMongodbConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_readonly_mongodb_connection_string");
 
     /// <summary>
     /// The secondary_readonly_sql_connection_string attribute.
     /// </summary>
-    public TerraformExpression SecondaryReadonlySqlConnectionString => this["secondary_readonly_sql_connection_string"];
+    [TerraformPropertyName("secondary_readonly_sql_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryReadonlySqlConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_readonly_sql_connection_string");
 
     /// <summary>
     /// The secondary_sql_connection_string attribute.
     /// </summary>
-    public TerraformExpression SecondarySqlConnectionString => this["secondary_sql_connection_string"];
+    [TerraformPropertyName("secondary_sql_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondarySqlConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_sql_connection_string");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The virtual_network_rule attribute.
     /// </summary>
-    public TerraformExpression VirtualNetworkRule => this["virtual_network_rule"];
+    [TerraformPropertyName("virtual_network_rule")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> VirtualNetworkRule => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "virtual_network_rule");
 
     /// <summary>
     /// The write_endpoints attribute.
     /// </summary>
-    public TerraformExpression WriteEndpoints => this["write_endpoints"];
+    [TerraformPropertyName("write_endpoints")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> WriteEndpoints => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "write_endpoints");
 
 }

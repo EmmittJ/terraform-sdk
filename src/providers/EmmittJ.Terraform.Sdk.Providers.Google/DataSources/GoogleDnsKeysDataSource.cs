@@ -9,54 +9,42 @@ public class GoogleDnsKeysDataSource : TerraformDataSource
 {
     public GoogleDnsKeysDataSource(string name) : base("google_dns_keys", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("key_signing_keys");
-        SetOutput("zone_signing_keys");
-        SetOutput("id");
-        SetOutput("managed_zone");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The managed_zone attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedZone is required")]
-    public required TerraformProperty<string> ManagedZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_zone");
-        set => SetProperty("managed_zone", value);
-    }
+    [TerraformPropertyName("managed_zone")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ManagedZone { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The key_signing_keys attribute.
     /// </summary>
-    public TerraformExpression KeySigningKeys => this["key_signing_keys"];
+    [TerraformPropertyName("key_signing_keys")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> KeySigningKeys => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "key_signing_keys");
 
     /// <summary>
     /// The zone_signing_keys attribute.
     /// </summary>
-    public TerraformExpression ZoneSigningKeys => this["zone_signing_keys"];
+    [TerraformPropertyName("zone_signing_keys")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ZoneSigningKeys => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "zone_signing_keys");
 
 }

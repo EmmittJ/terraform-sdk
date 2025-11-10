@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_deployment in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudformationStackSetAutoDeploymentBlock : TerraformBlock
+public class AwsCloudformationStackSetAutoDeploymentBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The retain_stacks_on_account_removal attribute.
     /// </summary>
-    public TerraformProperty<bool>? RetainStacksOnAccountRemoval
-    {
-        set => SetProperty("retain_stacks_on_account_removal", value);
-    }
+    [TerraformPropertyName("retain_stacks_on_account_removal")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RetainStacksOnAccountRemoval { get; set; }
 
 }
 
@@ -30,15 +28,14 @@ public class AwsCloudformationStackSetAutoDeploymentBlock : TerraformBlock
 /// Block type for managed_execution in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudformationStackSetManagedExecutionBlock : TerraformBlock
+public class AwsCloudformationStackSetManagedExecutionBlock : ITerraformBlock
 {
     /// <summary>
     /// The active attribute.
     /// </summary>
-    public TerraformProperty<bool>? Active
-    {
-        set => SetProperty("active", value);
-    }
+    [TerraformPropertyName("active")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Active { get; set; }
 
 }
 
@@ -46,55 +43,49 @@ public class AwsCloudformationStackSetManagedExecutionBlock : TerraformBlock
 /// Block type for operation_preferences in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudformationStackSetOperationPreferencesBlock : TerraformBlock
+public class AwsCloudformationStackSetOperationPreferencesBlock : ITerraformBlock
 {
     /// <summary>
     /// The failure_tolerance_count attribute.
     /// </summary>
-    public TerraformProperty<double>? FailureToleranceCount
-    {
-        set => SetProperty("failure_tolerance_count", value);
-    }
+    [TerraformPropertyName("failure_tolerance_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? FailureToleranceCount { get; set; }
 
     /// <summary>
     /// The failure_tolerance_percentage attribute.
     /// </summary>
-    public TerraformProperty<double>? FailureTolerancePercentage
-    {
-        set => SetProperty("failure_tolerance_percentage", value);
-    }
+    [TerraformPropertyName("failure_tolerance_percentage")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? FailureTolerancePercentage { get; set; }
 
     /// <summary>
     /// The max_concurrent_count attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxConcurrentCount
-    {
-        set => SetProperty("max_concurrent_count", value);
-    }
+    [TerraformPropertyName("max_concurrent_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxConcurrentCount { get; set; }
 
     /// <summary>
     /// The max_concurrent_percentage attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxConcurrentPercentage
-    {
-        set => SetProperty("max_concurrent_percentage", value);
-    }
+    [TerraformPropertyName("max_concurrent_percentage")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxConcurrentPercentage { get; set; }
 
     /// <summary>
     /// The region_concurrency_type attribute.
     /// </summary>
-    public TerraformProperty<string>? RegionConcurrencyType
-    {
-        set => SetProperty("region_concurrency_type", value);
-    }
+    [TerraformPropertyName("region_concurrency_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RegionConcurrencyType { get; set; }
 
     /// <summary>
     /// The region_order attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? RegionOrder
-    {
-        set => SetProperty("region_order", value);
-    }
+    [TerraformPropertyName("region_order")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? RegionOrder { get; set; }
 
 }
 
@@ -102,15 +93,14 @@ public class AwsCloudformationStackSetOperationPreferencesBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsCloudformationStackSetTimeoutsBlock : TerraformBlock
+public class AwsCloudformationStackSetTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -122,203 +112,150 @@ public class AwsCloudformationStackSet : TerraformResource
 {
     public AwsCloudformationStackSet(string name) : base("aws_cloudformation_stack_set", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("stack_set_id");
-        SetOutput("administration_role_arn");
-        SetOutput("call_as");
-        SetOutput("capabilities");
-        SetOutput("description");
-        SetOutput("execution_role_name");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("parameters");
-        SetOutput("permission_model");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("template_body");
-        SetOutput("template_url");
     }
 
     /// <summary>
     /// The administration_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> AdministrationRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("administration_role_arn");
-        set => SetProperty("administration_role_arn", value);
-    }
+    [TerraformPropertyName("administration_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AdministrationRoleArn { get; set; }
 
     /// <summary>
     /// The call_as attribute.
     /// </summary>
-    public TerraformProperty<string> CallAs
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("call_as");
-        set => SetProperty("call_as", value);
-    }
+    [TerraformPropertyName("call_as")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CallAs { get; set; }
 
     /// <summary>
     /// The capabilities attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Capabilities
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("capabilities");
-        set => SetProperty("capabilities", value);
-    }
+    [TerraformPropertyName("capabilities")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Capabilities { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The execution_role_name attribute.
     /// </summary>
-    public TerraformProperty<string> ExecutionRoleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_name");
-        set => SetProperty("execution_role_name", value);
-    }
+    [TerraformPropertyName("execution_role_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ExecutionRoleName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "execution_role_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Parameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// The permission_model attribute.
     /// </summary>
-    public TerraformProperty<string> PermissionModel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("permission_model");
-        set => SetProperty("permission_model", value);
-    }
+    [TerraformPropertyName("permission_model")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PermissionModel { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
-    public TerraformProperty<string> TemplateBody
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("template_body");
-        set => SetProperty("template_body", value);
-    }
+    [TerraformPropertyName("template_body")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TemplateBody { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "template_body");
 
     /// <summary>
     /// The template_url attribute.
     /// </summary>
-    public TerraformProperty<string> TemplateUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("template_url");
-        set => SetProperty("template_url", value);
-    }
+    [TerraformPropertyName("template_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TemplateUrl { get; set; }
 
     /// <summary>
     /// Block for auto_deployment.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoDeployment block(s) allowed")]
-    public List<AwsCloudformationStackSetAutoDeploymentBlock>? AutoDeployment
-    {
-        set => SetProperty("auto_deployment", value);
-    }
+    [TerraformPropertyName("auto_deployment")]
+    public TerraformList<TerraformBlock<AwsCloudformationStackSetAutoDeploymentBlock>>? AutoDeployment { get; set; } = new();
 
     /// <summary>
     /// Block for managed_execution.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedExecution block(s) allowed")]
-    public List<AwsCloudformationStackSetManagedExecutionBlock>? ManagedExecution
-    {
-        set => SetProperty("managed_execution", value);
-    }
+    [TerraformPropertyName("managed_execution")]
+    public TerraformList<TerraformBlock<AwsCloudformationStackSetManagedExecutionBlock>>? ManagedExecution { get; set; } = new();
 
     /// <summary>
     /// Block for operation_preferences.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OperationPreferences block(s) allowed")]
-    public List<AwsCloudformationStackSetOperationPreferencesBlock>? OperationPreferences
-    {
-        set => SetProperty("operation_preferences", value);
-    }
+    [TerraformPropertyName("operation_preferences")]
+    public TerraformList<TerraformBlock<AwsCloudformationStackSetOperationPreferencesBlock>>? OperationPreferences { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsCloudformationStackSetTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsCloudformationStackSetTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The stack_set_id attribute.
     /// </summary>
-    public TerraformExpression StackSetId => this["stack_set_id"];
+    [TerraformPropertyName("stack_set_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StackSetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "stack_set_id");
 
 }

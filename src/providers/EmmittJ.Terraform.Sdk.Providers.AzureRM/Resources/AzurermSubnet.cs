@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for delegation in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSubnetDelegationBlock : TerraformBlock
+public class AzurermSubnetDelegationBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -23,33 +22,30 @@ public class AzurermSubnetDelegationBlock : TerraformBlock
 /// Block type for ip_address_pool in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSubnetIpAddressPoolBlock : TerraformBlock
+public class AzurermSubnetIpAddressPoolBlock : ITerraformBlock
 {
     /// <summary>
     /// The allocated_ip_address_prefixes attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AllocatedIpAddressPrefixes
-    {
-        set => SetProperty("allocated_ip_address_prefixes", value);
-    }
+    [TerraformPropertyName("allocated_ip_address_prefixes")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AllocatedIpAddressPrefixes => new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "allocated_ip_address_prefixes");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
     /// <summary>
     /// The number_of_ip_addresses attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfIpAddresses is required")]
-    public required TerraformProperty<string> NumberOfIpAddresses
-    {
-        set => SetProperty("number_of_ip_addresses", value);
-    }
+    [TerraformPropertyName("number_of_ip_addresses")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NumberOfIpAddresses { get; set; }
 
 }
 
@@ -57,39 +53,35 @@ public class AzurermSubnetIpAddressPoolBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSubnetTimeoutsBlock : TerraformBlock
+public class AzurermSubnetTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -101,152 +93,108 @@ public class AzurermSubnet : TerraformResource
 {
     public AzurermSubnet(string name) : base("azurerm_subnet", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("address_prefixes");
-        SetOutput("default_outbound_access_enabled");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("private_endpoint_network_policies");
-        SetOutput("private_link_service_network_policies_enabled");
-        SetOutput("resource_group_name");
-        SetOutput("service_endpoint_policy_ids");
-        SetOutput("service_endpoints");
-        SetOutput("sharing_scope");
-        SetOutput("virtual_network_name");
     }
 
     /// <summary>
     /// The address_prefixes attribute.
     /// </summary>
-    public List<TerraformProperty<string>> AddressPrefixes
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("address_prefixes");
-        set => SetProperty("address_prefixes", value);
-    }
+    [TerraformPropertyName("address_prefixes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AddressPrefixes { get; set; }
 
     /// <summary>
     /// The default_outbound_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> DefaultOutboundAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("default_outbound_access_enabled");
-        set => SetProperty("default_outbound_access_enabled", value);
-    }
+    [TerraformPropertyName("default_outbound_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DefaultOutboundAccessEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The private_endpoint_network_policies attribute.
     /// </summary>
-    public TerraformProperty<string> PrivateEndpointNetworkPolicies
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("private_endpoint_network_policies");
-        set => SetProperty("private_endpoint_network_policies", value);
-    }
+    [TerraformPropertyName("private_endpoint_network_policies")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrivateEndpointNetworkPolicies { get; set; }
 
     /// <summary>
     /// The private_link_service_network_policies_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PrivateLinkServiceNetworkPoliciesEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("private_link_service_network_policies_enabled");
-        set => SetProperty("private_link_service_network_policies_enabled", value);
-    }
+    [TerraformPropertyName("private_link_service_network_policies_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PrivateLinkServiceNetworkPoliciesEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The service_endpoint_policy_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ServiceEndpointPolicyIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("service_endpoint_policy_ids");
-        set => SetProperty("service_endpoint_policy_ids", value);
-    }
+    [TerraformPropertyName("service_endpoint_policy_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ServiceEndpointPolicyIds { get; set; }
 
     /// <summary>
     /// The service_endpoints attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ServiceEndpoints
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("service_endpoints");
-        set => SetProperty("service_endpoints", value);
-    }
+    [TerraformPropertyName("service_endpoints")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ServiceEndpoints { get; set; }
 
     /// <summary>
     /// The sharing_scope attribute.
     /// </summary>
-    public TerraformProperty<string> SharingScope
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sharing_scope");
-        set => SetProperty("sharing_scope", value);
-    }
+    [TerraformPropertyName("sharing_scope")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SharingScope { get; set; }
 
     /// <summary>
     /// The virtual_network_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkName is required")]
-    public required TerraformProperty<string> VirtualNetworkName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_name");
-        set => SetProperty("virtual_network_name", value);
-    }
+    [TerraformPropertyName("virtual_network_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualNetworkName { get; set; }
 
     /// <summary>
     /// Block for delegation.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSubnetDelegationBlock>? Delegation
-    {
-        set => SetProperty("delegation", value);
-    }
+    [TerraformPropertyName("delegation")]
+    public TerraformList<TerraformBlock<AzurermSubnetDelegationBlock>>? Delegation { get; set; } = new();
 
     /// <summary>
     /// Block for ip_address_pool.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpAddressPool block(s) allowed")]
-    public List<AzurermSubnetIpAddressPoolBlock>? IpAddressPool
-    {
-        set => SetProperty("ip_address_pool", value);
-    }
+    [TerraformPropertyName("ip_address_pool")]
+    public TerraformList<TerraformBlock<AzurermSubnetIpAddressPoolBlock>>? IpAddressPool { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSubnetTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSubnetTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

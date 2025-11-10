@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for log in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDatadogMonitorTagRuleLogBlock : TerraformBlock
+public class AzurermDatadogMonitorTagRuleLogBlock : ITerraformBlock
 {
     /// <summary>
     /// The aad_log_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AadLogEnabled
-    {
-        set => SetProperty("aad_log_enabled", value);
-    }
+    [TerraformPropertyName("aad_log_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AadLogEnabled { get; set; }
 
     /// <summary>
     /// The resource_log_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ResourceLogEnabled
-    {
-        set => SetProperty("resource_log_enabled", value);
-    }
+    [TerraformPropertyName("resource_log_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ResourceLogEnabled { get; set; }
 
     /// <summary>
     /// The subscription_log_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SubscriptionLogEnabled
-    {
-        set => SetProperty("subscription_log_enabled", value);
-    }
+    [TerraformPropertyName("subscription_log_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SubscriptionLogEnabled { get; set; }
 
 }
 
@@ -38,7 +35,7 @@ public class AzurermDatadogMonitorTagRuleLogBlock : TerraformBlock
 /// Block type for metric in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDatadogMonitorTagRuleMetricBlock : TerraformBlock
+public class AzurermDatadogMonitorTagRuleMetricBlock : ITerraformBlock
 {
 }
 
@@ -46,39 +43,35 @@ public class AzurermDatadogMonitorTagRuleMetricBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDatadogMonitorTagRuleTimeoutsBlock : TerraformBlock
+public class AzurermDatadogMonitorTagRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -89,69 +82,49 @@ public class AzurermDatadogMonitorTagRule : TerraformResource
 {
     public AzurermDatadogMonitorTagRule(string name) : base("azurerm_datadog_monitor_tag_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("datadog_monitor_id");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The datadog_monitor_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatadogMonitorId is required")]
-    public required TerraformProperty<string> DatadogMonitorId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("datadog_monitor_id");
-        set => SetProperty("datadog_monitor_id", value);
-    }
+    [TerraformPropertyName("datadog_monitor_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatadogMonitorId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// Block for log.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermDatadogMonitorTagRuleLogBlock>? Log
-    {
-        set => SetProperty("log", value);
-    }
+    [TerraformPropertyName("log")]
+    public TerraformList<TerraformBlock<AzurermDatadogMonitorTagRuleLogBlock>>? Log { get; set; } = new();
 
     /// <summary>
     /// Block for metric.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermDatadogMonitorTagRuleMetricBlock>? Metric
-    {
-        set => SetProperty("metric", value);
-    }
+    [TerraformPropertyName("metric")]
+    public TerraformList<TerraformBlock<AzurermDatadogMonitorTagRuleMetricBlock>>? Metric { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDatadogMonitorTagRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDatadogMonitorTagRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

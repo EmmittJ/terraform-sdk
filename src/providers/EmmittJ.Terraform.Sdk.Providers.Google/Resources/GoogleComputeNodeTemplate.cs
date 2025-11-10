@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for accelerators in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeNodeTemplateAcceleratorsBlock : TerraformBlock
+public class GoogleComputeNodeTemplateAcceleratorsBlock : ITerraformBlock
 {
     /// <summary>
     /// The number of the guest accelerator cards exposed to this
     /// node template.
     /// </summary>
-    public TerraformProperty<double>? AcceleratorCount
-    {
-        set => SetProperty("accelerator_count", value);
-    }
+    [TerraformPropertyName("accelerator_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AcceleratorCount { get; set; }
 
     /// <summary>
     /// Full or partial URL of the accelerator type resource to expose
     /// to this node template.
     /// </summary>
-    public TerraformProperty<string>? AcceleratorType
-    {
-        set => SetProperty("accelerator_type", value);
-    }
+    [TerraformPropertyName("accelerator_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AcceleratorType { get; set; }
 
 }
 
@@ -32,31 +30,28 @@ public class GoogleComputeNodeTemplateAcceleratorsBlock : TerraformBlock
 /// Block type for disks in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeNodeTemplateDisksBlock : TerraformBlock
+public class GoogleComputeNodeTemplateDisksBlock : ITerraformBlock
 {
     /// <summary>
     /// Specifies the number of such disks.
     /// </summary>
-    public TerraformProperty<double>? DiskCount
-    {
-        set => SetProperty("disk_count", value);
-    }
+    [TerraformPropertyName("disk_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DiskCount { get; set; }
 
     /// <summary>
     /// Specifies the size of the disk in base-2 GB.
     /// </summary>
-    public TerraformProperty<double>? DiskSizeGb
-    {
-        set => SetProperty("disk_size_gb", value);
-    }
+    [TerraformPropertyName("disk_size_gb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DiskSizeGb { get; set; }
 
     /// <summary>
     /// Specifies the desired disk type on the node. This disk type must be a local storage type (e.g.: local-ssd). Note that for nodeTemplates, this should be the name of the disk type and not its URL.
     /// </summary>
-    public TerraformProperty<string>? DiskType
-    {
-        set => SetProperty("disk_type", value);
-    }
+    [TerraformPropertyName("disk_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DiskType { get; set; }
 
 }
 
@@ -64,31 +59,28 @@ public class GoogleComputeNodeTemplateDisksBlock : TerraformBlock
 /// Block type for node_type_flexibility in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeNodeTemplateNodeTypeFlexibilityBlock : TerraformBlock
+public class GoogleComputeNodeTemplateNodeTypeFlexibilityBlock : ITerraformBlock
 {
     /// <summary>
     /// Number of virtual CPUs to use.
     /// </summary>
-    public TerraformProperty<string>? Cpus
-    {
-        set => SetProperty("cpus", value);
-    }
+    [TerraformPropertyName("cpus")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Cpus { get; set; }
 
     /// <summary>
     /// Use local SSD
     /// </summary>
-    public TerraformProperty<string>? LocalSsd
-    {
-        set => SetProperty("local_ssd", value);
-    }
+    [TerraformPropertyName("local_ssd")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LocalSsd => new TerraformReferenceProperty<TerraformProperty<string>>("", "local_ssd");
 
     /// <summary>
     /// Physical memory available to the node, defined in MB.
     /// </summary>
-    public TerraformProperty<string>? Memory
-    {
-        set => SetProperty("memory", value);
-    }
+    [TerraformPropertyName("memory")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Memory { get; set; }
 
 }
 
@@ -96,7 +88,7 @@ public class GoogleComputeNodeTemplateNodeTypeFlexibilityBlock : TerraformBlock
 /// Block type for server_binding in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeNodeTemplateServerBindingBlock : TerraformBlock
+public class GoogleComputeNodeTemplateServerBindingBlock : ITerraformBlock
 {
     /// <summary>
     /// Type of server binding policy. If &#39;RESTART_NODE_ON_ANY_SERVER&#39;,
@@ -113,10 +105,9 @@ public class GoogleComputeNodeTemplateServerBindingBlock : TerraformBlock
     /// nodes will experience outages while maintenance is applied. Possible values: [&amp;quot;RESTART_NODE_ON_ANY_SERVER&amp;quot;, &amp;quot;RESTART_NODE_ON_MINIMAL_SERVERS&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -124,23 +115,21 @@ public class GoogleComputeNodeTemplateServerBindingBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeNodeTemplateTimeoutsBlock : TerraformBlock
+public class GoogleComputeNodeTemplateTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -152,154 +141,117 @@ public class GoogleComputeNodeTemplate : TerraformResource
 {
     public GoogleComputeNodeTemplate(string name) : base("google_compute_node_template", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_timestamp");
-        SetOutput("self_link");
-        SetOutput("cpu_overcommit_type");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("node_affinity_labels");
-        SetOutput("node_type");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
     /// CPU overcommit. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;NONE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> CpuOvercommitType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cpu_overcommit_type");
-        set => SetProperty("cpu_overcommit_type", value);
-    }
+    [TerraformPropertyName("cpu_overcommit_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CpuOvercommitType { get; set; }
 
     /// <summary>
     /// An optional textual description of the resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Name of the resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Labels to use for node affinity, which will be used in
     /// instance scheduling.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> NodeAffinityLabels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("node_affinity_labels");
-        set => SetProperty("node_affinity_labels", value);
-    }
+    [TerraformPropertyName("node_affinity_labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? NodeAffinityLabels { get; set; }
 
     /// <summary>
     /// Node type to use for nodes group that are created from this template.
     /// Only one of nodeTypeFlexibility and nodeType can be specified.
     /// </summary>
-    public TerraformProperty<string> NodeType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("node_type");
-        set => SetProperty("node_type", value);
-    }
+    [TerraformPropertyName("node_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NodeType { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Region where nodes using the node template will be created.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for accelerators.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleComputeNodeTemplateAcceleratorsBlock>? Accelerators
-    {
-        set => SetProperty("accelerators", value);
-    }
+    [TerraformPropertyName("accelerators")]
+    public TerraformList<TerraformBlock<GoogleComputeNodeTemplateAcceleratorsBlock>>? Accelerators { get; set; } = new();
 
     /// <summary>
     /// Block for disks.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleComputeNodeTemplateDisksBlock>? Disks
-    {
-        set => SetProperty("disks", value);
-    }
+    [TerraformPropertyName("disks")]
+    public TerraformList<TerraformBlock<GoogleComputeNodeTemplateDisksBlock>>? Disks { get; set; } = new();
 
     /// <summary>
     /// Block for node_type_flexibility.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeTypeFlexibility block(s) allowed")]
-    public List<GoogleComputeNodeTemplateNodeTypeFlexibilityBlock>? NodeTypeFlexibility
-    {
-        set => SetProperty("node_type_flexibility", value);
-    }
+    [TerraformPropertyName("node_type_flexibility")]
+    public TerraformList<TerraformBlock<GoogleComputeNodeTemplateNodeTypeFlexibilityBlock>>? NodeTypeFlexibility { get; set; } = new();
 
     /// <summary>
     /// Block for server_binding.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerBinding block(s) allowed")]
-    public List<GoogleComputeNodeTemplateServerBindingBlock>? ServerBinding
-    {
-        set => SetProperty("server_binding", value);
-    }
+    [TerraformPropertyName("server_binding")]
+    public TerraformList<TerraformBlock<GoogleComputeNodeTemplateServerBindingBlock>>? ServerBinding { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeNodeTemplateTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeNodeTemplateTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreationTimestamp => this["creation_timestamp"];
+    [TerraformPropertyName("creation_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
 }

@@ -9,95 +9,80 @@ public class AwsServicequotasTemplate : TerraformResource
 {
     public AwsServicequotasTemplate(string name) : base("aws_servicequotas_template", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("global_quota");
-        SetOutput("id");
-        SetOutput("quota_name");
-        SetOutput("service_name");
-        SetOutput("unit");
-        SetOutput("aws_region");
-        SetOutput("quota_code");
-        SetOutput("region");
-        SetOutput("service_code");
-        SetOutput("value");
     }
 
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
-    public TerraformProperty<string> AwsRegion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("aws_region");
-        set => SetProperty("aws_region", value);
-    }
+    [TerraformPropertyName("aws_region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AwsRegion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_region");
 
     /// <summary>
     /// The quota_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaCode is required")]
-    public required TerraformProperty<string> QuotaCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("quota_code");
-        set => SetProperty("quota_code", value);
-    }
+    [TerraformPropertyName("quota_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> QuotaCode { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The service_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
-    public required TerraformProperty<string> ServiceCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_code");
-        set => SetProperty("service_code", value);
-    }
+    [TerraformPropertyName("service_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceCode { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<double> Value
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("value");
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Value { get; set; }
 
     /// <summary>
     /// The global_quota attribute.
     /// </summary>
-    public TerraformExpression GlobalQuota => this["global_quota"];
+    [TerraformPropertyName("global_quota")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> GlobalQuota => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "global_quota");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The quota_name attribute.
     /// </summary>
-    public TerraformExpression QuotaName => this["quota_name"];
+    [TerraformPropertyName("quota_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> QuotaName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "quota_name");
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public TerraformExpression ServiceName => this["service_name"];
+    [TerraformPropertyName("service_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_name");
 
     /// <summary>
     /// The unit attribute.
     /// </summary>
-    public TerraformExpression Unit => this["unit"];
+    [TerraformPropertyName("unit")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Unit => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "unit");
 
 }

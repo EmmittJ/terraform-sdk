@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermConsumptionBudgetResourceGroupFilterBlock : TerraformBlock
+public class AzurermConsumptionBudgetResourceGroupFilterBlock : ITerraformBlock
 {
 }
 
@@ -14,65 +14,58 @@ public class AzurermConsumptionBudgetResourceGroupFilterBlock : TerraformBlock
 /// Block type for notification in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermConsumptionBudgetResourceGroupNotificationBlock : TerraformBlock
+public class AzurermConsumptionBudgetResourceGroupNotificationBlock : ITerraformBlock
 {
     /// <summary>
     /// The contact_emails attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ContactEmails
-    {
-        set => SetProperty("contact_emails", value);
-    }
+    [TerraformPropertyName("contact_emails")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ContactEmails { get; set; }
 
     /// <summary>
     /// The contact_groups attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ContactGroups
-    {
-        set => SetProperty("contact_groups", value);
-    }
+    [TerraformPropertyName("contact_groups")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ContactGroups { get; set; }
 
     /// <summary>
     /// The contact_roles attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ContactRoles
-    {
-        set => SetProperty("contact_roles", value);
-    }
+    [TerraformPropertyName("contact_roles")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ContactRoles { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The operator attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
-    public required TerraformProperty<string> Operator
-    {
-        set => SetProperty("operator", value);
-    }
+    [TerraformPropertyName("operator")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Operator { get; set; }
 
     /// <summary>
     /// The threshold attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
-    public required TerraformProperty<double> Threshold
-    {
-        set => SetProperty("threshold", value);
-    }
+    [TerraformPropertyName("threshold")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Threshold { get; set; }
 
     /// <summary>
     /// The threshold_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ThresholdType
-    {
-        set => SetProperty("threshold_type", value);
-    }
+    [TerraformPropertyName("threshold_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ThresholdType { get; set; }
 
 }
 
@@ -80,24 +73,22 @@ public class AzurermConsumptionBudgetResourceGroupNotificationBlock : TerraformB
 /// Block type for time_period in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermConsumptionBudgetResourceGroupTimePeriodBlock : TerraformBlock
+public class AzurermConsumptionBudgetResourceGroupTimePeriodBlock : ITerraformBlock
 {
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    public TerraformProperty<string>? EndDate
-    {
-        set => SetProperty("end_date", value);
-    }
+    [TerraformPropertyName("end_date")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EndDate { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "end_date");
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDate is required")]
-    public required TerraformProperty<string> StartDate
-    {
-        set => SetProperty("start_date", value);
-    }
+    [TerraformPropertyName("start_date")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StartDate { get; set; }
 
 }
 
@@ -105,39 +96,35 @@ public class AzurermConsumptionBudgetResourceGroupTimePeriodBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermConsumptionBudgetResourceGroupTimeoutsBlock : TerraformBlock
+public class AzurermConsumptionBudgetResourceGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -149,85 +136,60 @@ public class AzurermConsumptionBudgetResourceGroup : TerraformResource
 {
     public AzurermConsumptionBudgetResourceGroup(string name) : base("azurerm_consumption_budget_resource_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("amount");
-        SetOutput("etag");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_id");
-        SetOutput("time_grain");
     }
 
     /// <summary>
     /// The amount attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
-    public required TerraformProperty<double> Amount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("amount");
-        set => SetProperty("amount", value);
-    }
+    [TerraformPropertyName("amount")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Amount { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformProperty<string> Etag
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("etag");
-        set => SetProperty("etag", value);
-    }
+    [TerraformPropertyName("etag")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Etag { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
-    public required TerraformProperty<string> ResourceGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_id");
-        set => SetProperty("resource_group_id", value);
-    }
+    [TerraformPropertyName("resource_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupId { get; set; }
 
     /// <summary>
     /// The time_grain attribute.
     /// </summary>
-    public TerraformProperty<string> TimeGrain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_grain");
-        set => SetProperty("time_grain", value);
-    }
+    [TerraformPropertyName("time_grain")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TimeGrain { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
-    public List<AzurermConsumptionBudgetResourceGroupFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformList<TerraformBlock<AzurermConsumptionBudgetResourceGroupFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// Block for notification.
@@ -235,10 +197,8 @@ public class AzurermConsumptionBudgetResourceGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notification is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Notification block(s) required")]
-    public HashSet<AzurermConsumptionBudgetResourceGroupNotificationBlock>? Notification
-    {
-        set => SetProperty("notification", value);
-    }
+    [TerraformPropertyName("notification")]
+    public TerraformSet<TerraformBlock<AzurermConsumptionBudgetResourceGroupNotificationBlock>>? Notification { get; set; } = new();
 
     /// <summary>
     /// Block for time_period.
@@ -247,18 +207,14 @@ public class AzurermConsumptionBudgetResourceGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimePeriod is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TimePeriod block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimePeriod block(s) allowed")]
-    public List<AzurermConsumptionBudgetResourceGroupTimePeriodBlock>? TimePeriod
-    {
-        set => SetProperty("time_period", value);
-    }
+    [TerraformPropertyName("time_period")]
+    public TerraformList<TerraformBlock<AzurermConsumptionBudgetResourceGroupTimePeriodBlock>>? TimePeriod { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermConsumptionBudgetResourceGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermConsumptionBudgetResourceGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

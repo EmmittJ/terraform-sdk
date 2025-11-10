@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationPreAuthorizedTimeoutsBlock : TerraformBlock
+public class AzureadApplicationPreAuthorizedTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,63 +45,44 @@ public class AzureadApplicationPreAuthorized : TerraformResource
 {
     public AzureadApplicationPreAuthorized(string name) : base("azuread_application_pre_authorized", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("application_id");
-        SetOutput("authorized_client_id");
-        SetOutput("id");
-        SetOutput("permission_ids");
     }
 
     /// <summary>
     /// The resource ID of the application to which this pre-authorized application should be added
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    public required TerraformProperty<string> ApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
-        set => SetProperty("application_id", value);
-    }
+    [TerraformPropertyName("application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
 
     /// <summary>
     /// The client ID of the pre-authorized application
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizedClientId is required")]
-    public required TerraformProperty<string> AuthorizedClientId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authorized_client_id");
-        set => SetProperty("authorized_client_id", value);
-    }
+    [TerraformPropertyName("authorized_client_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthorizedClientId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The IDs of the permission scopes required by the pre-authorized application
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionIds is required")]
-    public HashSet<TerraformProperty<string>> PermissionIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("permission_ids");
-        set => SetProperty("permission_ids", value);
-    }
+    [TerraformPropertyName("permission_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? PermissionIds { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadApplicationPreAuthorizedTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadApplicationPreAuthorizedTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

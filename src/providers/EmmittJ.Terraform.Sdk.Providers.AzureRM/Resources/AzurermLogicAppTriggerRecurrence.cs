@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlock
+public class AzurermLogicAppTriggerRecurrenceScheduleBlock : ITerraformBlock
 {
     /// <summary>
     /// The at_these_hours attribute.
     /// </summary>
-    public HashSet<TerraformProperty<double>>? AtTheseHours
-    {
-        set => SetProperty("at_these_hours", value);
-    }
+    [TerraformPropertyName("at_these_hours")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<double>>>? AtTheseHours { get; set; }
 
     /// <summary>
     /// The at_these_minutes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<double>>? AtTheseMinutes
-    {
-        set => SetProperty("at_these_minutes", value);
-    }
+    [TerraformPropertyName("at_these_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<double>>>? AtTheseMinutes { get; set; }
 
     /// <summary>
     /// The on_these_days attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? OnTheseDays
-    {
-        set => SetProperty("on_these_days", value);
-    }
+    [TerraformPropertyName("on_these_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? OnTheseDays { get; set; }
 
 }
 
@@ -38,39 +35,35 @@ public class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
+public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -82,104 +75,74 @@ public class AzurermLogicAppTriggerRecurrence : TerraformResource
 {
     public AzurermLogicAppTriggerRecurrence(string name) : base("azurerm_logic_app_trigger_recurrence", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("frequency");
-        SetOutput("id");
-        SetOutput("interval");
-        SetOutput("logic_app_id");
-        SetOutput("name");
-        SetOutput("start_time");
-        SetOutput("time_zone");
     }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
-    public required TerraformProperty<string> Frequency
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("frequency");
-        set => SetProperty("frequency", value);
-    }
+    [TerraformPropertyName("frequency")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Frequency { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
-    public required TerraformProperty<double> Interval
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("interval");
-        set => SetProperty("interval", value);
-    }
+    [TerraformPropertyName("interval")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Interval { get; set; }
 
     /// <summary>
     /// The logic_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
-    public required TerraformProperty<string> LogicAppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("logic_app_id");
-        set => SetProperty("logic_app_id", value);
-    }
+    [TerraformPropertyName("logic_app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogicAppId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string> StartTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
-        set => SetProperty("start_time", value);
-    }
+    [TerraformPropertyName("start_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StartTime { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string> TimeZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
-        set => SetProperty("time_zone", value);
-    }
+    [TerraformPropertyName("time_zone")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TimeZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_zone");
 
     /// <summary>
     /// Block for schedule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    public List<AzurermLogicAppTriggerRecurrenceScheduleBlock>? Schedule
-    {
-        set => SetProperty("schedule", value);
-    }
+    [TerraformPropertyName("schedule")]
+    public TerraformList<TerraformBlock<AzurermLogicAppTriggerRecurrenceScheduleBlock>>? Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLogicAppTriggerRecurrenceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLogicAppTriggerRecurrenceTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

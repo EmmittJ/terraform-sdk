@@ -6,79 +6,70 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for correlation_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : TerraformBlock
+public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentType
-    {
-        set => SetProperty("content_type", value);
-    }
+    [TerraformPropertyName("content_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContentType { get; set; }
 
     /// <summary>
     /// The correlation_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CorrelationId
-    {
-        set => SetProperty("correlation_id", value);
-    }
+    [TerraformPropertyName("correlation_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CorrelationId { get; set; }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformProperty<string>? Label
-    {
-        set => SetProperty("label", value);
-    }
+    [TerraformPropertyName("label")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Label { get; set; }
 
     /// <summary>
     /// The message_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MessageId
-    {
-        set => SetProperty("message_id", value);
-    }
+    [TerraformPropertyName("message_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MessageId { get; set; }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Properties
-    {
-        set => SetProperty("properties", value);
-    }
+    [TerraformPropertyName("properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Properties { get; set; }
 
     /// <summary>
     /// The reply_to attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplyTo
-    {
-        set => SetProperty("reply_to", value);
-    }
+    [TerraformPropertyName("reply_to")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ReplyTo { get; set; }
 
     /// <summary>
     /// The reply_to_session_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplyToSessionId
-    {
-        set => SetProperty("reply_to_session_id", value);
-    }
+    [TerraformPropertyName("reply_to_session_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ReplyToSessionId { get; set; }
 
     /// <summary>
     /// The session_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SessionId
-    {
-        set => SetProperty("session_id", value);
-    }
+    [TerraformPropertyName("session_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SessionId { get; set; }
 
     /// <summary>
     /// The to attribute.
     /// </summary>
-    public TerraformProperty<string>? To
-    {
-        set => SetProperty("to", value);
-    }
+    [TerraformPropertyName("to")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? To { get; set; }
 
 }
 
@@ -86,39 +77,35 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermServicebusSubscriptionRuleTimeoutsBlock : TerraformBlock
+public class AzurermServicebusSubscriptionRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -130,99 +117,73 @@ public class AzurermServicebusSubscriptionRule : TerraformResource
 {
     public AzurermServicebusSubscriptionRule(string name) : base("azurerm_servicebus_subscription_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("sql_filter_compatibility_level");
-        SetOutput("action");
-        SetOutput("filter_type");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("sql_filter");
-        SetOutput("subscription_id");
     }
 
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformProperty<string> Action
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("action");
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Action { get; set; }
 
     /// <summary>
     /// The filter_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
-    public required TerraformProperty<string> FilterType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filter_type");
-        set => SetProperty("filter_type", value);
-    }
+    [TerraformPropertyName("filter_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FilterType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The sql_filter attribute.
     /// </summary>
-    public TerraformProperty<string> SqlFilter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sql_filter");
-        set => SetProperty("sql_filter", value);
-    }
+    [TerraformPropertyName("sql_filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SqlFilter { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
-    public required TerraformProperty<string> SubscriptionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subscription_id");
-        set => SetProperty("subscription_id", value);
-    }
+    [TerraformPropertyName("subscription_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubscriptionId { get; set; }
 
     /// <summary>
     /// Block for correlation_filter.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorrelationFilter block(s) allowed")]
-    public List<AzurermServicebusSubscriptionRuleCorrelationFilterBlock>? CorrelationFilter
-    {
-        set => SetProperty("correlation_filter", value);
-    }
+    [TerraformPropertyName("correlation_filter")]
+    public TerraformList<TerraformBlock<AzurermServicebusSubscriptionRuleCorrelationFilterBlock>>? CorrelationFilter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermServicebusSubscriptionRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermServicebusSubscriptionRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The sql_filter_compatibility_level attribute.
     /// </summary>
-    public TerraformExpression SqlFilterCompatibilityLevel => this["sql_filter_compatibility_level"];
+    [TerraformPropertyName("sql_filter_compatibility_level")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SqlFilterCompatibilityLevel => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "sql_filter_compatibility_level");
 
 }

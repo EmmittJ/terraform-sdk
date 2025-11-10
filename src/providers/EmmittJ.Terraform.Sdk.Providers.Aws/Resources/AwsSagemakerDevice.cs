@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for device in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerDeviceDeviceBlock : TerraformBlock
+public class AwsSagemakerDeviceDeviceBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The device_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
-    public required TerraformProperty<string> DeviceName
-    {
-        set => SetProperty("device_name", value);
-    }
+    [TerraformPropertyName("device_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DeviceName { get; set; }
 
     /// <summary>
     /// The iot_thing_name attribute.
     /// </summary>
-    public TerraformProperty<string>? IotThingName
-    {
-        set => SetProperty("iot_thing_name", value);
-    }
+    [TerraformPropertyName("iot_thing_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IotThingName { get; set; }
 
 }
 
@@ -43,45 +40,29 @@ public class AwsSagemakerDevice : TerraformResource
 {
     public AwsSagemakerDevice(string name) : base("aws_sagemaker_device", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("agent_version");
-        SetOutput("arn");
-        SetOutput("device_fleet_name");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The device_fleet_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceFleetName is required")]
-    public required TerraformProperty<string> DeviceFleetName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("device_fleet_name");
-        set => SetProperty("device_fleet_name", value);
-    }
+    [TerraformPropertyName("device_fleet_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DeviceFleetName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for device.
@@ -90,19 +71,21 @@ public class AwsSagemakerDevice : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Device is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Device block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Device block(s) allowed")]
-    public List<AwsSagemakerDeviceDeviceBlock>? Device
-    {
-        set => SetProperty("device", value);
-    }
+    [TerraformPropertyName("device")]
+    public TerraformList<TerraformBlock<AwsSagemakerDeviceDeviceBlock>>? Device { get; set; } = new();
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
-    public TerraformExpression AgentVersion => this["agent_version"];
+    [TerraformPropertyName("agent_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AgentVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "agent_version");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

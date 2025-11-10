@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSecretManagerSecretVersionTimeoutsBlock : TerraformBlock
+public class GoogleSecretManagerSecretVersionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,23 +38,6 @@ public class GoogleSecretManagerSecretVersion : TerraformResource
 {
     public GoogleSecretManagerSecretVersion(string name) : base("google_secret_manager_secret_version", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("destroy_time");
-        SetOutput("name");
-        SetOutput("version");
-        SetOutput("deletion_policy");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("is_secret_data_base64");
-        SetOutput("secret");
-        SetOutput("secret_data");
-        SetOutput("secret_data_wo");
-        SetOutput("secret_data_wo_version");
     }
 
     /// <summary>
@@ -68,104 +48,94 @@ public class GoogleSecretManagerSecretVersion : TerraformResource
     ///   * DISABLE
     ///   * ABANDON
     /// </summary>
-    public TerraformProperty<string> DeletionPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
-        set => SetProperty("deletion_policy", value);
-    }
+    [TerraformPropertyName("deletion_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The current state of the SecretVersion.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// If set to &#39;true&#39;, the secret data is expected to be base64-encoded string and would be sent as is.
     /// </summary>
-    public TerraformProperty<bool> IsSecretDataBase64
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_secret_data_base64");
-        set => SetProperty("is_secret_data_base64", value);
-    }
+    [TerraformPropertyName("is_secret_data_base64")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsSecretDataBase64 { get; set; }
 
     /// <summary>
     /// Secret Manager secret resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
-    public required TerraformProperty<string> Secret
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("secret");
-        set => SetProperty("secret", value);
-    }
+    [TerraformPropertyName("secret")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Secret { get; set; }
 
     /// <summary>
     /// The secret data. Must be no larger than 64KiB.
     /// </summary>
-    public TerraformProperty<string> SecretData
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("secret_data");
-        set => SetProperty("secret_data", value);
-    }
+    [TerraformPropertyName("secret_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecretData { get; set; }
 
     /// <summary>
     /// The secret data. Must be no larger than 64KiB. For more info see [updating write-only attributes](/docs/providers/google/guides/using_write_only_attributes.html#updating-write-only-attributes)
     /// </summary>
-    public TerraformProperty<string> SecretDataWo
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("secret_data_wo");
-        set => SetProperty("secret_data_wo", value);
-    }
+    [TerraformPropertyName("secret_data_wo")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecretDataWo { get; set; }
 
     /// <summary>
     /// Triggers update of secret data write-only. For more info see [updating write-only attributes](/docs/providers/google/guides/using_write_only_attributes.html#updating-write-only-attributes)
     /// </summary>
-    public TerraformProperty<double> SecretDataWoVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("secret_data_wo_version");
-        set => SetProperty("secret_data_wo_version", value);
-    }
+    [TerraformPropertyName("secret_data_wo_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SecretDataWoVersion { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleSecretManagerSecretVersionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleSecretManagerSecretVersionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time at which the Secret was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The time at which the Secret was destroyed. Only present if state is DESTROYED.
     /// </summary>
-    public TerraformExpression DestroyTime => this["destroy_time"];
+    [TerraformPropertyName("destroy_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DestroyTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "destroy_time");
 
     /// <summary>
     /// The resource name of the SecretVersion. Format:
     /// &#39;projects/{{project}}/secrets/{{secret_id}}/versions/{{version}}&#39;
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The version of the Secret.
     /// </summary>
-    public TerraformExpression Version => this["version"];
+    [TerraformPropertyName("version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
 }

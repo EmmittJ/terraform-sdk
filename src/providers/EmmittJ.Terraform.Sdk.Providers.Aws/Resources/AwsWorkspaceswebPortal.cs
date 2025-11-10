@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsWorkspaceswebPortalTimeoutsBlock : TerraformBlock
+public class AwsWorkspaceswebPortalTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,200 +38,181 @@ public class AwsWorkspaceswebPortal : TerraformResource
 {
     public AwsWorkspaceswebPortal(string name) : base("aws_workspacesweb_portal", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("browser_type");
-        SetOutput("creation_date");
-        SetOutput("data_protection_settings_arn");
-        SetOutput("ip_access_settings_arn");
-        SetOutput("network_settings_arn");
-        SetOutput("portal_arn");
-        SetOutput("portal_endpoint");
-        SetOutput("portal_status");
-        SetOutput("renderer_type");
-        SetOutput("session_logger_arn");
-        SetOutput("status_reason");
-        SetOutput("tags_all");
-        SetOutput("trust_store_arn");
-        SetOutput("user_access_logging_settings_arn");
-        SetOutput("user_settings_arn");
-        SetOutput("additional_encryption_context");
-        SetOutput("authentication_type");
-        SetOutput("browser_settings_arn");
-        SetOutput("customer_managed_key");
-        SetOutput("display_name");
-        SetOutput("instance_type");
-        SetOutput("max_concurrent_sessions");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> AdditionalEncryptionContext
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
-        set => SetProperty("additional_encryption_context", value);
-    }
+    [TerraformPropertyName("additional_encryption_context")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? AdditionalEncryptionContext { get; set; }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformProperty<string> AuthenticationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_type");
-        set => SetProperty("authentication_type", value);
-    }
+    [TerraformPropertyName("authentication_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AuthenticationType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "authentication_type");
 
     /// <summary>
     /// The browser_settings_arn attribute.
     /// </summary>
-    public TerraformProperty<string> BrowserSettingsArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("browser_settings_arn");
-        set => SetProperty("browser_settings_arn", value);
-    }
+    [TerraformPropertyName("browser_settings_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> BrowserSettingsArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "browser_settings_arn");
 
     /// <summary>
     /// The customer_managed_key attribute.
     /// </summary>
-    public TerraformProperty<string> CustomerManagedKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("customer_managed_key");
-        set => SetProperty("customer_managed_key", value);
-    }
+    [TerraformPropertyName("customer_managed_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomerManagedKey { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string> InstanceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> InstanceType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "instance_type");
 
     /// <summary>
     /// The max_concurrent_sessions attribute.
     /// </summary>
-    public TerraformProperty<double> MaxConcurrentSessions
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_concurrent_sessions");
-        set => SetProperty("max_concurrent_sessions", value);
-    }
+    [TerraformPropertyName("max_concurrent_sessions")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxConcurrentSessions { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_concurrent_sessions");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsWorkspaceswebPortalTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsWorkspaceswebPortalTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The browser_type attribute.
     /// </summary>
-    public TerraformExpression BrowserType => this["browser_type"];
+    [TerraformPropertyName("browser_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BrowserType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "browser_type");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
-    public TerraformExpression CreationDate => this["creation_date"];
+    [TerraformPropertyName("creation_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_date");
 
     /// <summary>
     /// The data_protection_settings_arn attribute.
     /// </summary>
-    public TerraformExpression DataProtectionSettingsArn => this["data_protection_settings_arn"];
+    [TerraformPropertyName("data_protection_settings_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DataProtectionSettingsArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "data_protection_settings_arn");
 
     /// <summary>
     /// The ip_access_settings_arn attribute.
     /// </summary>
-    public TerraformExpression IpAccessSettingsArn => this["ip_access_settings_arn"];
+    [TerraformPropertyName("ip_access_settings_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpAccessSettingsArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_access_settings_arn");
 
     /// <summary>
     /// The network_settings_arn attribute.
     /// </summary>
-    public TerraformExpression NetworkSettingsArn => this["network_settings_arn"];
+    [TerraformPropertyName("network_settings_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NetworkSettingsArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_settings_arn");
 
     /// <summary>
     /// The portal_arn attribute.
     /// </summary>
-    public TerraformExpression PortalArn => this["portal_arn"];
+    [TerraformPropertyName("portal_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PortalArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "portal_arn");
 
     /// <summary>
     /// The portal_endpoint attribute.
     /// </summary>
-    public TerraformExpression PortalEndpoint => this["portal_endpoint"];
+    [TerraformPropertyName("portal_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PortalEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "portal_endpoint");
 
     /// <summary>
     /// The portal_status attribute.
     /// </summary>
-    public TerraformExpression PortalStatus => this["portal_status"];
+    [TerraformPropertyName("portal_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PortalStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "portal_status");
 
     /// <summary>
     /// The renderer_type attribute.
     /// </summary>
-    public TerraformExpression RendererType => this["renderer_type"];
+    [TerraformPropertyName("renderer_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RendererType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "renderer_type");
 
     /// <summary>
     /// The session_logger_arn attribute.
     /// </summary>
-    public TerraformExpression SessionLoggerArn => this["session_logger_arn"];
+    [TerraformPropertyName("session_logger_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SessionLoggerArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "session_logger_arn");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
-    public TerraformExpression StatusReason => this["status_reason"];
+    [TerraformPropertyName("status_reason")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StatusReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status_reason");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The trust_store_arn attribute.
     /// </summary>
-    public TerraformExpression TrustStoreArn => this["trust_store_arn"];
+    [TerraformPropertyName("trust_store_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TrustStoreArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "trust_store_arn");
 
     /// <summary>
     /// The user_access_logging_settings_arn attribute.
     /// </summary>
-    public TerraformExpression UserAccessLoggingSettingsArn => this["user_access_logging_settings_arn"];
+    [TerraformPropertyName("user_access_logging_settings_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserAccessLoggingSettingsArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_access_logging_settings_arn");
 
     /// <summary>
     /// The user_settings_arn attribute.
     /// </summary>
-    public TerraformExpression UserSettingsArn => this["user_settings_arn"];
+    [TerraformPropertyName("user_settings_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserSettingsArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_settings_arn");
 
 }

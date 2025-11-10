@@ -9,87 +9,76 @@ public class AwsGlobalacceleratorCustomRoutingAcceleratorDataSource : TerraformD
 {
     public AwsGlobalacceleratorCustomRoutingAcceleratorDataSource(string name) : base("aws_globalaccelerator_custom_routing_accelerator", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("attributes");
-        SetOutput("dns_name");
-        SetOutput("enabled");
-        SetOutput("hosted_zone_id");
-        SetOutput("ip_address_type");
-        SetOutput("ip_sets");
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string> Arn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arn");
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Arn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public TerraformExpression Attributes => this["attributes"];
+    [TerraformPropertyName("attributes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Attributes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "attributes");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformExpression DnsName => this["dns_name"];
+    [TerraformPropertyName("dns_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformExpression Enabled => this["enabled"];
+    [TerraformPropertyName("enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Enabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enabled");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    public TerraformExpression HostedZoneId => this["hosted_zone_id"];
+    [TerraformPropertyName("hosted_zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostedZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hosted_zone_id");
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformExpression IpAddressType => this["ip_address_type"];
+    [TerraformPropertyName("ip_address_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpAddressType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address_type");
 
     /// <summary>
     /// The ip_sets attribute.
     /// </summary>
-    public TerraformExpression IpSets => this["ip_sets"];
+    [TerraformPropertyName("ip_sets")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> IpSets => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ip_sets");
 
 }

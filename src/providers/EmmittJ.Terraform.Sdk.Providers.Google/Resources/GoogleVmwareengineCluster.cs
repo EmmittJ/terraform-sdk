@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscaling_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVmwareengineClusterAutoscalingSettingsBlock : TerraformBlock
+public class GoogleVmwareengineClusterAutoscalingSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The minimum duration between consecutive autoscale operations.
@@ -15,28 +15,25 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlock : TerraformBlock
     /// Cool down period must be in whole minutes (for example, 30m, 31m, 50m).
     /// Mandatory for successful addition of autoscaling settings in cluster.
     /// </summary>
-    public TerraformProperty<string>? CoolDownPeriod
-    {
-        set => SetProperty("cool_down_period", value);
-    }
+    [TerraformPropertyName("cool_down_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CoolDownPeriod { get; set; }
 
     /// <summary>
     /// Maximum number of nodes of any type in a cluster.
     /// Mandatory for successful addition of autoscaling settings in cluster.
     /// </summary>
-    public TerraformProperty<double>? MaxClusterNodeCount
-    {
-        set => SetProperty("max_cluster_node_count", value);
-    }
+    [TerraformPropertyName("max_cluster_node_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxClusterNodeCount { get; set; }
 
     /// <summary>
     /// Minimum number of nodes of any type in a cluster.
     /// Mandatory for successful addition of autoscaling settings in cluster.
     /// </summary>
-    public TerraformProperty<double>? MinClusterNodeCount
-    {
-        set => SetProperty("min_cluster_node_count", value);
-    }
+    [TerraformPropertyName("min_cluster_node_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinClusterNodeCount { get; set; }
 
 }
 
@@ -44,7 +41,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlock : TerraformBlock
 /// Block type for node_type_configs in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlock
+public class GoogleVmwareengineClusterNodeTypeConfigsBlock : ITerraformBlock
 {
     /// <summary>
     /// Customized number of cores available to each node of the type.
@@ -52,28 +49,25 @@ public class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlock
     /// If zero is provided max value from &#39;nodeType.availableCustomCoreCounts&#39; will be used.
     /// Once the customer is created then corecount cannot be changed.
     /// </summary>
-    public TerraformProperty<double>? CustomCoreCount
-    {
-        set => SetProperty("custom_core_count", value);
-    }
+    [TerraformPropertyName("custom_core_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CustomCoreCount { get; set; }
 
     /// <summary>
     /// The number of nodes of this type in the cluster.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
-    public required TerraformProperty<double> NodeCount
-    {
-        set => SetProperty("node_count", value);
-    }
+    [TerraformPropertyName("node_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> NodeCount { get; set; }
 
     /// <summary>
     /// The node_type_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTypeId is required")]
-    public required TerraformProperty<string> NodeTypeId
-    {
-        set => SetProperty("node_type_id", value);
-    }
+    [TerraformPropertyName("node_type_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NodeTypeId { get; set; }
 
 }
 
@@ -81,31 +75,28 @@ public class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVmwareengineClusterTimeoutsBlock : TerraformBlock
+public class GoogleVmwareengineClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -117,39 +108,22 @@ public class GoogleVmwareengineCluster : TerraformResource
 {
     public GoogleVmwareengineCluster(string name) : base("google_vmwareengine_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("management");
-        SetOutput("state");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID of the Cluster.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource name of the private cloud to create a new cluster in.
@@ -157,68 +131,70 @@ public class GoogleVmwareengineCluster : TerraformResource
     /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    public required TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
 
     /// <summary>
     /// Block for autoscaling_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscalingSettings block(s) allowed")]
-    public List<GoogleVmwareengineClusterAutoscalingSettingsBlock>? AutoscalingSettings
-    {
-        set => SetProperty("autoscaling_settings", value);
-    }
+    [TerraformPropertyName("autoscaling_settings")]
+    public TerraformList<TerraformBlock<GoogleVmwareengineClusterAutoscalingSettingsBlock>>? AutoscalingSettings { get; set; } = new();
 
     /// <summary>
     /// Block for node_type_configs.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<GoogleVmwareengineClusterNodeTypeConfigsBlock>? NodeTypeConfigs
-    {
-        set => SetProperty("node_type_configs", value);
-    }
+    [TerraformPropertyName("node_type_configs")]
+    public TerraformSet<TerraformBlock<GoogleVmwareengineClusterNodeTypeConfigsBlock>>? NodeTypeConfigs { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleVmwareengineClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleVmwareengineClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation time of this resource.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// True if the cluster is a management cluster; false otherwise.
     /// There can only be one management cluster in a private cloud and it has to be the first one.
     /// </summary>
-    public TerraformExpression Management => this["management"];
+    [TerraformPropertyName("management")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Management => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "management");
 
     /// <summary>
     /// State of the Cluster.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// Last updated time of this resource.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

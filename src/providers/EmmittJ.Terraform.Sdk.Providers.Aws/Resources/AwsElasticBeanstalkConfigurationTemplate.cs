@@ -6,42 +6,38 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for setting in .
 /// Nesting mode: set
 /// </summary>
-public class AwsElasticBeanstalkConfigurationTemplateSettingBlock : TerraformBlock
+public class AwsElasticBeanstalkConfigurationTemplateSettingBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
-    public required TerraformProperty<string> Namespace
-    {
-        set => SetProperty("namespace", value);
-    }
+    [TerraformPropertyName("namespace")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Namespace { get; set; }
 
     /// <summary>
     /// The resource attribute.
     /// </summary>
-    public TerraformProperty<string>? Resource
-    {
-        set => SetProperty("resource", value);
-    }
+    [TerraformPropertyName("resource")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Resource { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<string> Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
 
 }
 
@@ -52,92 +48,64 @@ public class AwsElasticBeanstalkConfigurationTemplate : TerraformResource
 {
     public AwsElasticBeanstalkConfigurationTemplate(string name) : base("aws_elastic_beanstalk_configuration_template", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("application");
-        SetOutput("description");
-        SetOutput("environment_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("solution_stack_name");
     }
 
     /// <summary>
     /// The application attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Application is required")]
-    public required TerraformProperty<string> Application
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application");
-        set => SetProperty("application", value);
-    }
+    [TerraformPropertyName("application")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Application { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
-    public TerraformProperty<string> EnvironmentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("environment_id");
-        set => SetProperty("environment_id", value);
-    }
+    [TerraformPropertyName("environment_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EnvironmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The solution_stack_name attribute.
     /// </summary>
-    public TerraformProperty<string> SolutionStackName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("solution_stack_name");
-        set => SetProperty("solution_stack_name", value);
-    }
+    [TerraformPropertyName("solution_stack_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SolutionStackName { get; set; }
 
     /// <summary>
     /// Block for setting.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsElasticBeanstalkConfigurationTemplateSettingBlock>? Setting
-    {
-        set => SetProperty("setting", value);
-    }
+    [TerraformPropertyName("setting")]
+    public TerraformSet<TerraformBlock<AwsElasticBeanstalkConfigurationTemplateSettingBlock>>? Setting { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for account_takeover_risk_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlock : TerraformBlock
+public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -14,15 +14,14 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlock : 
 /// Block type for compromised_credentials_risk_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationBlock : TerraformBlock
+public class AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The event_filter attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? EventFilter
-    {
-        set => SetProperty("event_filter", value);
-    }
+    [TerraformPropertyName("event_filter")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> EventFilter { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "event_filter");
 
 }
 
@@ -30,23 +29,21 @@ public class AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationB
 /// Block type for risk_exception_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock : TerraformBlock
+public class AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The blocked_ip_range_list attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? BlockedIpRangeList
-    {
-        set => SetProperty("blocked_ip_range_list", value);
-    }
+    [TerraformPropertyName("blocked_ip_range_list")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? BlockedIpRangeList { get; set; }
 
     /// <summary>
     /// The skipped_ip_range_list attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SkippedIpRangeList
-    {
-        set => SetProperty("skipped_ip_range_list", value);
-    }
+    [TerraformPropertyName("skipped_ip_range_list")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SkippedIpRangeList { get; set; }
 
 }
 
@@ -58,82 +55,59 @@ public class AwsCognitoRiskConfiguration : TerraformResource
 {
     public AwsCognitoRiskConfiguration(string name) : base("aws_cognito_risk_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("client_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("user_pool_id");
     }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string> ClientId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
-    public required TerraformProperty<string> UserPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_pool_id");
-        set => SetProperty("user_pool_id", value);
-    }
+    [TerraformPropertyName("user_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserPoolId { get; set; }
 
     /// <summary>
     /// Block for account_takeover_risk_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccountTakeoverRiskConfiguration block(s) allowed")]
-    public List<AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlock>? AccountTakeoverRiskConfiguration
-    {
-        set => SetProperty("account_takeover_risk_configuration", value);
-    }
+    [TerraformPropertyName("account_takeover_risk_configuration")]
+    public TerraformList<TerraformBlock<AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlock>>? AccountTakeoverRiskConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for compromised_credentials_risk_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CompromisedCredentialsRiskConfiguration block(s) allowed")]
-    public List<AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationBlock>? CompromisedCredentialsRiskConfiguration
-    {
-        set => SetProperty("compromised_credentials_risk_configuration", value);
-    }
+    [TerraformPropertyName("compromised_credentials_risk_configuration")]
+    public TerraformList<TerraformBlock<AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationBlock>>? CompromisedCredentialsRiskConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for risk_exception_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RiskExceptionConfiguration block(s) allowed")]
-    public List<AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock>? RiskExceptionConfiguration
-    {
-        set => SetProperty("risk_exception_configuration", value);
-    }
+    [TerraformPropertyName("risk_exception_configuration")]
+    public TerraformList<TerraformBlock<AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock>>? RiskExceptionConfiguration { get; set; } = new();
 
 }

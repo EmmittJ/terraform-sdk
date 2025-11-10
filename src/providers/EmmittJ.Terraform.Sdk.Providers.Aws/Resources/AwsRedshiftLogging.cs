@@ -9,78 +9,56 @@ public class AwsRedshiftLogging : TerraformResource
 {
     public AwsRedshiftLogging(string name) : base("aws_redshift_logging", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("bucket_name");
-        SetOutput("cluster_identifier");
-        SetOutput("log_destination_type");
-        SetOutput("log_exports");
-        SetOutput("region");
-        SetOutput("s3_key_prefix");
     }
 
     /// <summary>
     /// The bucket_name attribute.
     /// </summary>
-    public TerraformProperty<string> BucketName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket_name");
-        set => SetProperty("bucket_name", value);
-    }
+    [TerraformPropertyName("bucket_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BucketName { get; set; }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
-    public required TerraformProperty<string> ClusterIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
-        set => SetProperty("cluster_identifier", value);
-    }
+    [TerraformPropertyName("cluster_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterIdentifier { get; set; }
 
     /// <summary>
     /// The log_destination_type attribute.
     /// </summary>
-    public TerraformProperty<string> LogDestinationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("log_destination_type");
-        set => SetProperty("log_destination_type", value);
-    }
+    [TerraformPropertyName("log_destination_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LogDestinationType { get; set; }
 
     /// <summary>
     /// The log_exports attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> LogExports
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("log_exports");
-        set => SetProperty("log_exports", value);
-    }
+    [TerraformPropertyName("log_exports")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? LogExports { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The s3_key_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> S3KeyPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_key_prefix");
-        set => SetProperty("s3_key_prefix", value);
-    }
+    [TerraformPropertyName("s3_key_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? S3KeyPrefix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

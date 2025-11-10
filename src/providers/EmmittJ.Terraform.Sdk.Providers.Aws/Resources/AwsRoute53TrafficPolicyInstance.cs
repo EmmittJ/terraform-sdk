@@ -9,82 +9,60 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
 {
     public AwsRoute53TrafficPolicyInstance(string name) : base("aws_route53_traffic_policy_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("hosted_zone_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("traffic_policy_id");
-        SetOutput("traffic_policy_version");
-        SetOutput("ttl");
     }
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
-    public required TerraformProperty<string> HostedZoneId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("hosted_zone_id");
-        set => SetProperty("hosted_zone_id", value);
-    }
+    [TerraformPropertyName("hosted_zone_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HostedZoneId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The traffic_policy_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficPolicyId is required")]
-    public required TerraformProperty<string> TrafficPolicyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("traffic_policy_id");
-        set => SetProperty("traffic_policy_id", value);
-    }
+    [TerraformPropertyName("traffic_policy_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TrafficPolicyId { get; set; }
 
     /// <summary>
     /// The traffic_policy_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficPolicyVersion is required")]
-    public required TerraformProperty<double> TrafficPolicyVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("traffic_policy_version");
-        set => SetProperty("traffic_policy_version", value);
-    }
+    [TerraformPropertyName("traffic_policy_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> TrafficPolicyVersion { get; set; }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
-    public required TerraformProperty<double> Ttl
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("ttl");
-        set => SetProperty("ttl", value);
-    }
+    [TerraformPropertyName("ttl")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Ttl { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

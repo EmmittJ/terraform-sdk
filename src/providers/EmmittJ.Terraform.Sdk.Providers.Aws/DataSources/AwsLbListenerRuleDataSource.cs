@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLbListenerRuleDataSourceActionBlock : TerraformBlock
+public class AwsLbListenerRuleDataSourceActionBlock : ITerraformBlock
 {
     /// <summary>
     /// The order attribute.
     /// </summary>
-    public TerraformProperty<double>? Order
-    {
-        set => SetProperty("order", value);
-    }
+    [TerraformPropertyName("order")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Order => new TerraformReferenceProperty<TerraformProperty<double>>("", "order");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>("", "type");
 
 }
 
@@ -30,7 +28,7 @@ public class AwsLbListenerRuleDataSourceActionBlock : TerraformBlock
 /// Block type for condition in .
 /// Nesting mode: set
 /// </summary>
-public class AwsLbListenerRuleDataSourceConditionBlock : TerraformBlock
+public class AwsLbListenerRuleDataSourceConditionBlock : ITerraformBlock
 {
 }
 
@@ -38,15 +36,14 @@ public class AwsLbListenerRuleDataSourceConditionBlock : TerraformBlock
 /// Block type for transform in .
 /// Nesting mode: set
 /// </summary>
-public class AwsLbListenerRuleDataSourceTransformBlock : TerraformBlock
+public class AwsLbListenerRuleDataSourceTransformBlock : ITerraformBlock
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>("", "type");
 
 }
 
@@ -57,84 +54,62 @@ public class AwsLbListenerRuleDataSource : TerraformDataSource
 {
     public AwsLbListenerRuleDataSource(string name) : base("aws_lb_listener_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("tags");
-        SetOutput("arn");
-        SetOutput("listener_arn");
-        SetOutput("priority");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string> Arn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arn");
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Arn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The listener_arn attribute.
     /// </summary>
-    public TerraformProperty<string> ListenerArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("listener_arn");
-        set => SetProperty("listener_arn", value);
-    }
+    [TerraformPropertyName("listener_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ListenerArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "listener_arn");
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double> Priority
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("priority");
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Priority { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "priority");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for action.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsLbListenerRuleDataSourceActionBlock>? Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    public TerraformList<TerraformBlock<AwsLbListenerRuleDataSourceActionBlock>>? Action { get; set; } = new();
 
     /// <summary>
     /// Block for condition.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsLbListenerRuleDataSourceConditionBlock>? Condition
-    {
-        set => SetProperty("condition", value);
-    }
+    [TerraformPropertyName("condition")]
+    public TerraformSet<TerraformBlock<AwsLbListenerRuleDataSourceConditionBlock>>? Condition { get; set; } = new();
 
     /// <summary>
     /// Block for transform.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsLbListenerRuleDataSourceTransformBlock>? Transform
-    {
-        set => SetProperty("transform", value);
-    }
+    [TerraformPropertyName("transform")]
+    public TerraformSet<TerraformBlock<AwsLbListenerRuleDataSourceTransformBlock>>? Transform { get; set; } = new();
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
 }

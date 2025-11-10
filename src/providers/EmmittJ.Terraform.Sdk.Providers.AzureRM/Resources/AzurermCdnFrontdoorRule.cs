@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for actions in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnFrontdoorRuleActionsBlock : TerraformBlock
+public class AzurermCdnFrontdoorRuleActionsBlock : ITerraformBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AzurermCdnFrontdoorRuleActionsBlock : TerraformBlock
 /// Block type for conditions in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnFrontdoorRuleConditionsBlock : TerraformBlock
+public class AzurermCdnFrontdoorRuleConditionsBlock : ITerraformBlock
 {
 }
 
@@ -22,39 +22,35 @@ public class AzurermCdnFrontdoorRuleConditionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCdnFrontdoorRuleTimeoutsBlock : TerraformBlock
+public class AzurermCdnFrontdoorRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -66,66 +62,45 @@ public class AzurermCdnFrontdoorRule : TerraformResource
 {
     public AzurermCdnFrontdoorRule(string name) : base("azurerm_cdn_frontdoor_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cdn_frontdoor_rule_set_name");
-        SetOutput("behavior_on_match");
-        SetOutput("cdn_frontdoor_rule_set_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("order");
     }
 
     /// <summary>
     /// The behavior_on_match attribute.
     /// </summary>
-    public TerraformProperty<string> BehaviorOnMatch
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("behavior_on_match");
-        set => SetProperty("behavior_on_match", value);
-    }
+    [TerraformPropertyName("behavior_on_match")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BehaviorOnMatch { get; set; }
 
     /// <summary>
     /// The cdn_frontdoor_rule_set_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorRuleSetId is required")]
-    public required TerraformProperty<string> CdnFrontdoorRuleSetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cdn_frontdoor_rule_set_id");
-        set => SetProperty("cdn_frontdoor_rule_set_id", value);
-    }
+    [TerraformPropertyName("cdn_frontdoor_rule_set_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CdnFrontdoorRuleSetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
-    public required TerraformProperty<double> Order
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("order");
-        set => SetProperty("order", value);
-    }
+    [TerraformPropertyName("order")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Order { get; set; }
 
     /// <summary>
     /// Block for actions.
@@ -134,33 +109,29 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Actions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Actions block(s) allowed")]
-    public List<AzurermCdnFrontdoorRuleActionsBlock>? Actions
-    {
-        set => SetProperty("actions", value);
-    }
+    [TerraformPropertyName("actions")]
+    public TerraformList<TerraformBlock<AzurermCdnFrontdoorRuleActionsBlock>>? Actions { get; set; } = new();
 
     /// <summary>
     /// Block for conditions.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Conditions block(s) allowed")]
-    public List<AzurermCdnFrontdoorRuleConditionsBlock>? Conditions
-    {
-        set => SetProperty("conditions", value);
-    }
+    [TerraformPropertyName("conditions")]
+    public TerraformList<TerraformBlock<AzurermCdnFrontdoorRuleConditionsBlock>>? Conditions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCdnFrontdoorRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCdnFrontdoorRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The cdn_frontdoor_rule_set_name attribute.
     /// </summary>
-    public TerraformExpression CdnFrontdoorRuleSetName => this["cdn_frontdoor_rule_set_name"];
+    [TerraformPropertyName("cdn_frontdoor_rule_set_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CdnFrontdoorRuleSetName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cdn_frontdoor_rule_set_name");
 
 }

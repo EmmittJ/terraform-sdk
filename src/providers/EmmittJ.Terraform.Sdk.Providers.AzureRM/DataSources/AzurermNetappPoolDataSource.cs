@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetappPoolDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermNetappPoolDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,99 +24,86 @@ public class AzurermNetappPoolDataSource : TerraformDataSource
 {
     public AzurermNetappPoolDataSource(string name) : base("azurerm_netapp_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cool_access_enabled");
-        SetOutput("custom_throughput_mibps");
-        SetOutput("encryption_type");
-        SetOutput("location");
-        SetOutput("service_level");
-        SetOutput("size_in_tb");
-        SetOutput("account_name");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    public required TerraformProperty<string> AccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
-        set => SetProperty("account_name", value);
-    }
+    [TerraformPropertyName("account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNetappPoolDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNetappPoolDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The cool_access_enabled attribute.
     /// </summary>
-    public TerraformExpression CoolAccessEnabled => this["cool_access_enabled"];
+    [TerraformPropertyName("cool_access_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> CoolAccessEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "cool_access_enabled");
 
     /// <summary>
     /// The custom_throughput_mibps attribute.
     /// </summary>
-    public TerraformExpression CustomThroughputMibps => this["custom_throughput_mibps"];
+    [TerraformPropertyName("custom_throughput_mibps")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> CustomThroughputMibps => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "custom_throughput_mibps");
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
-    public TerraformExpression EncryptionType => this["encryption_type"];
+    [TerraformPropertyName("encryption_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EncryptionType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "encryption_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The service_level attribute.
     /// </summary>
-    public TerraformExpression ServiceLevel => this["service_level"];
+    [TerraformPropertyName("service_level")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceLevel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_level");
 
     /// <summary>
     /// The size_in_tb attribute.
     /// </summary>
-    public TerraformExpression SizeInTb => this["size_in_tb"];
+    [TerraformPropertyName("size_in_tb")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SizeInTb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "size_in_tb");
 
 }

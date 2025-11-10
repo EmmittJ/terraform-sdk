@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsNetworkInterfacePermissionTimeoutsBlock : TerraformBlock
+public class AwsNetworkInterfacePermissionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,69 +31,51 @@ public class AwsNetworkInterfacePermission : TerraformResource
 {
     public AwsNetworkInterfacePermission(string name) : base("aws_network_interface_permission", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("network_interface_permission_id");
-        SetOutput("aws_account_id");
-        SetOutput("network_interface_id");
-        SetOutput("permission");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsAccountId is required")]
-    public required TerraformProperty<string> AwsAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
-        set => SetProperty("aws_account_id", value);
-    }
+    [TerraformPropertyName("aws_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AwsAccountId { get; set; }
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
-    public required TerraformProperty<string> NetworkInterfaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_interface_id");
-        set => SetProperty("network_interface_id", value);
-    }
+    [TerraformPropertyName("network_interface_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NetworkInterfaceId { get; set; }
 
     /// <summary>
     /// The permission attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
-    public required TerraformProperty<string> Permission
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("permission");
-        set => SetProperty("permission", value);
-    }
+    [TerraformPropertyName("permission")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Permission { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsNetworkInterfacePermissionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsNetworkInterfacePermissionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The network_interface_permission_id attribute.
     /// </summary>
-    public TerraformExpression NetworkInterfacePermissionId => this["network_interface_permission_id"];
+    [TerraformPropertyName("network_interface_permission_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NetworkInterfacePermissionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_interface_permission_id");
 
 }

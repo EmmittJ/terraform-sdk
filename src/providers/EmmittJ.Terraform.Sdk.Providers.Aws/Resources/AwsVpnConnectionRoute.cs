@@ -9,53 +9,36 @@ public class AwsVpnConnectionRoute : TerraformResource
 {
     public AwsVpnConnectionRoute(string name) : base("aws_vpn_connection_route", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("destination_cidr_block");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("vpn_connection_id");
     }
 
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
-    public required TerraformProperty<string> DestinationCidrBlock
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_cidr_block");
-        set => SetProperty("destination_cidr_block", value);
-    }
+    [TerraformPropertyName("destination_cidr_block")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DestinationCidrBlock { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The vpn_connection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnConnectionId is required")]
-    public required TerraformProperty<string> VpnConnectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpn_connection_id");
-        set => SetProperty("vpn_connection_id", value);
-    }
+    [TerraformPropertyName("vpn_connection_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VpnConnectionId { get; set; }
 
 }

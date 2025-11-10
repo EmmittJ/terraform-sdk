@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for instance_metadata_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock : TerraformBlock
+public class AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The http_put_response_hop_limit attribute.
     /// </summary>
-    public TerraformProperty<double>? HttpPutResponseHopLimit
-    {
-        set => SetProperty("http_put_response_hop_limit", value);
-    }
+    [TerraformPropertyName("http_put_response_hop_limit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? HttpPutResponseHopLimit { get; set; }
 
     /// <summary>
     /// The http_tokens attribute.
     /// </summary>
-    public TerraformProperty<string>? HttpTokens
-    {
-        set => SetProperty("http_tokens", value);
-    }
+    [TerraformPropertyName("http_tokens")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HttpTokens { get; set; }
 
 }
 
@@ -30,7 +28,7 @@ public class AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBl
 /// Block type for logging in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderInfrastructureConfigurationLoggingBlock : TerraformBlock
+public class AwsImagebuilderInfrastructureConfigurationLoggingBlock : ITerraformBlock
 {
 }
 
@@ -38,39 +36,35 @@ public class AwsImagebuilderInfrastructureConfigurationLoggingBlock : TerraformB
 /// Block type for placement in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderInfrastructureConfigurationPlacementBlock : TerraformBlock
+public class AwsImagebuilderInfrastructureConfigurationPlacementBlock : ITerraformBlock
 {
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZone
-    {
-        set => SetProperty("availability_zone", value);
-    }
+    [TerraformPropertyName("availability_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AvailabilityZone { get; set; }
 
     /// <summary>
     /// The host_id attribute.
     /// </summary>
-    public TerraformProperty<string>? HostId
-    {
-        set => SetProperty("host_id", value);
-    }
+    [TerraformPropertyName("host_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HostId { get; set; }
 
     /// <summary>
     /// The host_resource_group_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? HostResourceGroupArn
-    {
-        set => SetProperty("host_resource_group_arn", value);
-    }
+    [TerraformPropertyName("host_resource_group_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HostResourceGroupArn { get; set; }
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
-    public TerraformProperty<string>? Tenancy
-    {
-        set => SetProperty("tenancy", value);
-    }
+    [TerraformPropertyName("tenancy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Tenancy { get; set; }
 
 }
 
@@ -82,201 +76,151 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
 {
     public AwsImagebuilderInfrastructureConfiguration(string name) : base("aws_imagebuilder_infrastructure_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("date_created");
-        SetOutput("date_updated");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("instance_profile_name");
-        SetOutput("instance_types");
-        SetOutput("key_pair");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("resource_tags");
-        SetOutput("security_group_ids");
-        SetOutput("sns_topic_arn");
-        SetOutput("subnet_id");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("terminate_instance_on_failure");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_profile_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceProfileName is required")]
-    public required TerraformProperty<string> InstanceProfileName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_profile_name");
-        set => SetProperty("instance_profile_name", value);
-    }
+    [TerraformPropertyName("instance_profile_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceProfileName { get; set; }
 
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> InstanceTypes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("instance_types");
-        set => SetProperty("instance_types", value);
-    }
+    [TerraformPropertyName("instance_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? InstanceTypes { get; set; }
 
     /// <summary>
     /// The key_pair attribute.
     /// </summary>
-    public TerraformProperty<string> KeyPair
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_pair");
-        set => SetProperty("key_pair", value);
-    }
+    [TerraformPropertyName("key_pair")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyPair { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> ResourceTags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("resource_tags");
-        set => SetProperty("resource_tags", value);
-    }
+    [TerraformPropertyName("resource_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ResourceTags { get; set; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string> SnsTopicArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sns_topic_arn");
-        set => SetProperty("sns_topic_arn", value);
-    }
+    [TerraformPropertyName("sns_topic_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SnsTopicArn { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string> SubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The terminate_instance_on_failure attribute.
     /// </summary>
-    public TerraformProperty<bool> TerminateInstanceOnFailure
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("terminate_instance_on_failure");
-        set => SetProperty("terminate_instance_on_failure", value);
-    }
+    [TerraformPropertyName("terminate_instance_on_failure")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TerminateInstanceOnFailure { get; set; }
 
     /// <summary>
     /// Block for instance_metadata_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceMetadataOptions block(s) allowed")]
-    public List<AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock>? InstanceMetadataOptions
-    {
-        set => SetProperty("instance_metadata_options", value);
-    }
+    [TerraformPropertyName("instance_metadata_options")]
+    public TerraformList<TerraformBlock<AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock>>? InstanceMetadataOptions { get; set; } = new();
 
     /// <summary>
     /// Block for logging.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
-    public List<AwsImagebuilderInfrastructureConfigurationLoggingBlock>? Logging
-    {
-        set => SetProperty("logging", value);
-    }
+    [TerraformPropertyName("logging")]
+    public TerraformList<TerraformBlock<AwsImagebuilderInfrastructureConfigurationLoggingBlock>>? Logging { get; set; } = new();
 
     /// <summary>
     /// Block for placement.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Placement block(s) allowed")]
-    public List<AwsImagebuilderInfrastructureConfigurationPlacementBlock>? Placement
-    {
-        set => SetProperty("placement", value);
-    }
+    [TerraformPropertyName("placement")]
+    public TerraformList<TerraformBlock<AwsImagebuilderInfrastructureConfigurationPlacementBlock>>? Placement { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
-    public TerraformExpression DateCreated => this["date_created"];
+    [TerraformPropertyName("date_created")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DateCreated => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "date_created");
 
     /// <summary>
     /// The date_updated attribute.
     /// </summary>
-    public TerraformExpression DateUpdated => this["date_updated"];
+    [TerraformPropertyName("date_updated")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DateUpdated => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "date_updated");
 
 }

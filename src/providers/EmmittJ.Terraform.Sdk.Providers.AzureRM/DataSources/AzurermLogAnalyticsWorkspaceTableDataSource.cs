@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,70 +24,57 @@ public class AzurermLogAnalyticsWorkspaceTableDataSource : TerraformDataSource
 {
     public AzurermLogAnalyticsWorkspaceTableDataSource(string name) : base("azurerm_log_analytics_workspace_table", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("plan");
-        SetOutput("retention_in_days");
-        SetOutput("total_retention_in_days");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    public required TerraformProperty<string> WorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
-        set => SetProperty("workspace_id", value);
-    }
+    [TerraformPropertyName("workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
-    public TerraformExpression Plan => this["plan"];
+    [TerraformPropertyName("plan")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Plan => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "plan");
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    public TerraformExpression RetentionInDays => this["retention_in_days"];
+    [TerraformPropertyName("retention_in_days")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RetentionInDays => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "retention_in_days");
 
     /// <summary>
     /// The total_retention_in_days attribute.
     /// </summary>
-    public TerraformExpression TotalRetentionInDays => this["total_retention_in_days"];
+    [TerraformPropertyName("total_retention_in_days")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalRetentionInDays => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_retention_in_days");
 
 }

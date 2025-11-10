@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for emergency_contact in .
 /// Nesting mode: list
 /// </summary>
-public class AwsShieldProactiveEngagementEmergencyContactBlock : TerraformBlock
+public class AwsShieldProactiveEngagementEmergencyContactBlock : ITerraformBlock
 {
     /// <summary>
     /// The contact_notes attribute.
     /// </summary>
-    public TerraformProperty<string>? ContactNotes
-    {
-        set => SetProperty("contact_notes", value);
-    }
+    [TerraformPropertyName("contact_notes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContactNotes { get; set; }
 
     /// <summary>
     /// The email_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
-    public required TerraformProperty<string> EmailAddress
-    {
-        set => SetProperty("email_address", value);
-    }
+    [TerraformPropertyName("email_address")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EmailAddress { get; set; }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformProperty<string>? PhoneNumber
-    {
-        set => SetProperty("phone_number", value);
-    }
+    [TerraformPropertyName("phone_number")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PhoneNumber { get; set; }
 
 }
 
@@ -42,37 +39,28 @@ public class AwsShieldProactiveEngagement : TerraformResource
 {
     public AwsShieldProactiveEngagement(string name) : base("aws_shield_proactive_engagement", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("enabled");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// Block for emergency_contact.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsShieldProactiveEngagementEmergencyContactBlock>? EmergencyContact
-    {
-        set => SetProperty("emergency_contact", value);
-    }
+    [TerraformPropertyName("emergency_contact")]
+    public TerraformList<TerraformBlock<AwsShieldProactiveEngagementEmergencyContactBlock>>? EmergencyContact { get; set; } = new();
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

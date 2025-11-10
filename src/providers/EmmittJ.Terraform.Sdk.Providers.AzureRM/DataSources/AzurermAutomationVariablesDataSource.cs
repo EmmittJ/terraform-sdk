@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAutomationVariablesDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermAutomationVariablesDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,83 +24,77 @@ public class AzurermAutomationVariablesDataSource : TerraformDataSource
 {
     public AzurermAutomationVariablesDataSource(string name) : base("azurerm_automation_variables", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bool");
-        SetOutput("datetime");
-        SetOutput("encrypted");
-        SetOutput("int");
-        SetOutput("null");
-        SetOutput("object");
-        SetOutput("string");
-        SetOutput("automation_account_id");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
-    public required TerraformProperty<string> AutomationAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("automation_account_id");
-        set => SetProperty("automation_account_id", value);
-    }
+    [TerraformPropertyName("automation_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AutomationAccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermAutomationVariablesDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermAutomationVariablesDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The bool attribute.
     /// </summary>
-    public TerraformExpression Bool => this["bool"];
+    [TerraformPropertyName("bool")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Bool => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "bool");
 
     /// <summary>
     /// The datetime attribute.
     /// </summary>
-    public TerraformExpression Datetime => this["datetime"];
+    [TerraformPropertyName("datetime")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Datetime => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "datetime");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformExpression Encrypted => this["encrypted"];
+    [TerraformPropertyName("encrypted")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Encrypted => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "encrypted");
 
     /// <summary>
     /// The int attribute.
     /// </summary>
-    public TerraformExpression Int => this["int"];
+    [TerraformPropertyName("int")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Int => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "int");
 
     /// <summary>
     /// The null attribute.
     /// </summary>
-    public TerraformExpression Null => this["null"];
+    [TerraformPropertyName("null")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Null => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "null");
 
     /// <summary>
     /// The object attribute.
     /// </summary>
-    public TerraformExpression Object => this["object"];
+    [TerraformPropertyName("object")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Object => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "object");
 
     /// <summary>
     /// The string attribute.
     /// </summary>
-    public TerraformExpression String => this["string"];
+    [TerraformPropertyName("string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> String => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "string");
 
 }

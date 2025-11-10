@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsGrafanaLicenseAssociationTimeoutsBlock : TerraformBlock
+public class AwsGrafanaLicenseAssociationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,84 +31,64 @@ public class AwsGrafanaLicenseAssociation : TerraformResource
 {
     public AwsGrafanaLicenseAssociation(string name) : base("aws_grafana_license_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("free_trial_expiration");
-        SetOutput("license_expiration");
-        SetOutput("grafana_token");
-        SetOutput("id");
-        SetOutput("license_type");
-        SetOutput("region");
-        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The grafana_token attribute.
     /// </summary>
-    public TerraformProperty<string> GrafanaToken
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("grafana_token");
-        set => SetProperty("grafana_token", value);
-    }
+    [TerraformPropertyName("grafana_token")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GrafanaToken { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
-    public required TerraformProperty<string> LicenseType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("license_type");
-        set => SetProperty("license_type", value);
-    }
+    [TerraformPropertyName("license_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LicenseType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    public required TerraformProperty<string> WorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
-        set => SetProperty("workspace_id", value);
-    }
+    [TerraformPropertyName("workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsGrafanaLicenseAssociationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsGrafanaLicenseAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The free_trial_expiration attribute.
     /// </summary>
-    public TerraformExpression FreeTrialExpiration => this["free_trial_expiration"];
+    [TerraformPropertyName("free_trial_expiration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FreeTrialExpiration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "free_trial_expiration");
 
     /// <summary>
     /// The license_expiration attribute.
     /// </summary>
-    public TerraformExpression LicenseExpiration => this["license_expiration"];
+    [TerraformPropertyName("license_expiration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LicenseExpiration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "license_expiration");
 
 }

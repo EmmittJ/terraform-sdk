@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMarketplaceRoleAssignmentTimeoutsBlock : TerraformBlock
+public class AzurermMarketplaceRoleAssignmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,127 +38,91 @@ public class AzurermMarketplaceRoleAssignment : TerraformResource
 {
     public AzurermMarketplaceRoleAssignment(string name) : base("azurerm_marketplace_role_assignment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("principal_type");
-        SetOutput("condition");
-        SetOutput("condition_version");
-        SetOutput("delegated_managed_identity_resource_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("principal_id");
-        SetOutput("role_definition_id");
-        SetOutput("role_definition_name");
-        SetOutput("skip_service_principal_aad_check");
     }
 
     /// <summary>
     /// The condition attribute.
     /// </summary>
-    public TerraformProperty<string> Condition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("condition");
-        set => SetProperty("condition", value);
-    }
+    [TerraformPropertyName("condition")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Condition { get; set; }
 
     /// <summary>
     /// The condition_version attribute.
     /// </summary>
-    public TerraformProperty<string> ConditionVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("condition_version");
-        set => SetProperty("condition_version", value);
-    }
+    [TerraformPropertyName("condition_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConditionVersion { get; set; }
 
     /// <summary>
     /// The delegated_managed_identity_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string> DelegatedManagedIdentityResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("delegated_managed_identity_resource_id");
-        set => SetProperty("delegated_managed_identity_resource_id", value);
-    }
+    [TerraformPropertyName("delegated_managed_identity_resource_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DelegatedManagedIdentityResourceId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    public required TerraformProperty<string> PrincipalId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrincipalId { get; set; }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    public TerraformProperty<string> RoleDefinitionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_definition_id");
-        set => SetProperty("role_definition_id", value);
-    }
+    [TerraformPropertyName("role_definition_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleDefinitionId { get; set; }
 
     /// <summary>
     /// The role_definition_name attribute.
     /// </summary>
-    public TerraformProperty<string> RoleDefinitionName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_definition_name");
-        set => SetProperty("role_definition_name", value);
-    }
+    [TerraformPropertyName("role_definition_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleDefinitionName { get; set; }
 
     /// <summary>
     /// The skip_service_principal_aad_check attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipServicePrincipalAadCheck
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_service_principal_aad_check");
-        set => SetProperty("skip_service_principal_aad_check", value);
-    }
+    [TerraformPropertyName("skip_service_principal_aad_check")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipServicePrincipalAadCheck { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMarketplaceRoleAssignmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMarketplaceRoleAssignmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    public TerraformExpression PrincipalType => this["principal_type"];
+    [TerraformPropertyName("principal_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "principal_type");
 
 }

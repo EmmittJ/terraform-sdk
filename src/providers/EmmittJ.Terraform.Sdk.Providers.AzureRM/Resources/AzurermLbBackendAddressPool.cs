@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLbBackendAddressPoolTimeoutsBlock : TerraformBlock
+public class AzurermLbBackendAddressPoolTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -46,43 +42,39 @@ public class AzurermLbBackendAddressPoolTimeoutsBlock : TerraformBlock
 /// Block type for tunnel_interface in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlock
+public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : ITerraformBlock
 {
     /// <summary>
     /// The identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
-    public required TerraformProperty<double> Identifier
-    {
-        set => SetProperty("identifier", value);
-    }
+    [TerraformPropertyName("identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Identifier { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    public required TerraformProperty<double> Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Port { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    public required TerraformProperty<string> Protocol
-    {
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -93,105 +85,85 @@ public class AzurermLbBackendAddressPool : TerraformResource
 {
     public AzurermLbBackendAddressPool(string name) : base("azurerm_lb_backend_address_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("backend_ip_configurations");
-        SetOutput("inbound_nat_rules");
-        SetOutput("load_balancing_rules");
-        SetOutput("outbound_rules");
-        SetOutput("id");
-        SetOutput("loadbalancer_id");
-        SetOutput("name");
-        SetOutput("synchronous_mode");
-        SetOutput("virtual_network_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The loadbalancer_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
-    public required TerraformProperty<string> LoadbalancerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("loadbalancer_id");
-        set => SetProperty("loadbalancer_id", value);
-    }
+    [TerraformPropertyName("loadbalancer_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LoadbalancerId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The synchronous_mode attribute.
     /// </summary>
-    public TerraformProperty<string> SynchronousMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("synchronous_mode");
-        set => SetProperty("synchronous_mode", value);
-    }
+    [TerraformPropertyName("synchronous_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SynchronousMode { get; set; }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    public TerraformProperty<string> VirtualNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_id");
-        set => SetProperty("virtual_network_id", value);
-    }
+    [TerraformPropertyName("virtual_network_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VirtualNetworkId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLbBackendAddressPoolTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLbBackendAddressPoolTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tunnel_interface.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermLbBackendAddressPoolTunnelInterfaceBlock>? TunnelInterface
-    {
-        set => SetProperty("tunnel_interface", value);
-    }
+    [TerraformPropertyName("tunnel_interface")]
+    public TerraformList<TerraformBlock<AzurermLbBackendAddressPoolTunnelInterfaceBlock>>? TunnelInterface { get; set; } = new();
 
     /// <summary>
     /// The backend_ip_configurations attribute.
     /// </summary>
-    public TerraformExpression BackendIpConfigurations => this["backend_ip_configurations"];
+    [TerraformPropertyName("backend_ip_configurations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> BackendIpConfigurations => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "backend_ip_configurations");
 
     /// <summary>
     /// The inbound_nat_rules attribute.
     /// </summary>
-    public TerraformExpression InboundNatRules => this["inbound_nat_rules"];
+    [TerraformPropertyName("inbound_nat_rules")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> InboundNatRules => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "inbound_nat_rules");
 
     /// <summary>
     /// The load_balancing_rules attribute.
     /// </summary>
-    public TerraformExpression LoadBalancingRules => this["load_balancing_rules"];
+    [TerraformPropertyName("load_balancing_rules")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> LoadBalancingRules => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "load_balancing_rules");
 
     /// <summary>
     /// The outbound_rules attribute.
     /// </summary>
-    public TerraformExpression OutboundRules => this["outbound_rules"];
+    [TerraformPropertyName("outbound_rules")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> OutboundRules => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "outbound_rules");
 
 }

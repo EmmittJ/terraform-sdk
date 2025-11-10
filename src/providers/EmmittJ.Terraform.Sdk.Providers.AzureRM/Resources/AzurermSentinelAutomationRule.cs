@@ -6,64 +6,57 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action_incident in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
+public class AzurermSentinelAutomationRuleActionIncidentBlock : ITerraformBlock
 {
     /// <summary>
     /// The classification attribute.
     /// </summary>
-    public TerraformProperty<string>? Classification
-    {
-        set => SetProperty("classification", value);
-    }
+    [TerraformPropertyName("classification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Classification { get; set; }
 
     /// <summary>
     /// The classification_comment attribute.
     /// </summary>
-    public TerraformProperty<string>? ClassificationComment
-    {
-        set => SetProperty("classification_comment", value);
-    }
+    [TerraformPropertyName("classification_comment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClassificationComment { get; set; }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Labels
-    {
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
-    public required TerraformProperty<double> Order
-    {
-        set => SetProperty("order", value);
-    }
+    [TerraformPropertyName("order")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Order { get; set; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OwnerId
-    {
-        set => SetProperty("owner_id", value);
-    }
+    [TerraformPropertyName("owner_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OwnerId { get; set; }
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
-    public TerraformProperty<string>? Severity
-    {
-        set => SetProperty("severity", value);
-    }
+    [TerraformPropertyName("severity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Severity { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
 }
 
@@ -71,33 +64,30 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
 /// Block type for action_incident_task in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlock
+public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
-    public required TerraformProperty<double> Order
-    {
-        set => SetProperty("order", value);
-    }
+    [TerraformPropertyName("order")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Order { get; set; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
-    public required TerraformProperty<string> Title
-    {
-        set => SetProperty("title", value);
-    }
+    [TerraformPropertyName("title")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Title { get; set; }
 
 }
 
@@ -105,33 +95,30 @@ public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlo
 /// Block type for action_playbook in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlock
+public class AzurermSentinelAutomationRuleActionPlaybookBlock : ITerraformBlock
 {
     /// <summary>
     /// The logic_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
-    public required TerraformProperty<string> LogicAppId
-    {
-        set => SetProperty("logic_app_id", value);
-    }
+    [TerraformPropertyName("logic_app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogicAppId { get; set; }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
-    public required TerraformProperty<double> Order
-    {
-        set => SetProperty("order", value);
-    }
+    [TerraformPropertyName("order")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Order { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TenantId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
 }
 
@@ -139,39 +126,35 @@ public class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSentinelAutomationRuleTimeoutsBlock : TerraformBlock
+public class AzurermSentinelAutomationRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -182,151 +165,108 @@ public class AzurermSentinelAutomationRule : TerraformResource
 {
     public AzurermSentinelAutomationRule(string name) : base("azurerm_sentinel_automation_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("condition_json");
-        SetOutput("display_name");
-        SetOutput("enabled");
-        SetOutput("expiration");
-        SetOutput("id");
-        SetOutput("log_analytics_workspace_id");
-        SetOutput("name");
-        SetOutput("order");
-        SetOutput("triggers_on");
-        SetOutput("triggers_when");
     }
 
     /// <summary>
     /// The condition_json attribute.
     /// </summary>
-    public TerraformProperty<string> ConditionJson
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("condition_json");
-        set => SetProperty("condition_json", value);
-    }
+    [TerraformPropertyName("condition_json")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConditionJson { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
-    public TerraformProperty<string> Expiration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("expiration");
-        set => SetProperty("expiration", value);
-    }
+    [TerraformPropertyName("expiration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Expiration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    public required TerraformProperty<string> LogAnalyticsWorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => SetProperty("log_analytics_workspace_id", value);
-    }
+    [TerraformPropertyName("log_analytics_workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
-    public required TerraformProperty<double> Order
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("order");
-        set => SetProperty("order", value);
-    }
+    [TerraformPropertyName("order")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Order { get; set; }
 
     /// <summary>
     /// The triggers_on attribute.
     /// </summary>
-    public TerraformProperty<string> TriggersOn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("triggers_on");
-        set => SetProperty("triggers_on", value);
-    }
+    [TerraformPropertyName("triggers_on")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TriggersOn { get; set; }
 
     /// <summary>
     /// The triggers_when attribute.
     /// </summary>
-    public TerraformProperty<string> TriggersWhen
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("triggers_when");
-        set => SetProperty("triggers_when", value);
-    }
+    [TerraformPropertyName("triggers_when")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TriggersWhen { get; set; }
 
     /// <summary>
     /// Block for action_incident.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSentinelAutomationRuleActionIncidentBlock>? ActionIncident
-    {
-        set => SetProperty("action_incident", value);
-    }
+    [TerraformPropertyName("action_incident")]
+    public TerraformList<TerraformBlock<AzurermSentinelAutomationRuleActionIncidentBlock>>? ActionIncident { get; set; } = new();
 
     /// <summary>
     /// Block for action_incident_task.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSentinelAutomationRuleActionIncidentTaskBlock>? ActionIncidentTask
-    {
-        set => SetProperty("action_incident_task", value);
-    }
+    [TerraformPropertyName("action_incident_task")]
+    public TerraformList<TerraformBlock<AzurermSentinelAutomationRuleActionIncidentTaskBlock>>? ActionIncidentTask { get; set; } = new();
 
     /// <summary>
     /// Block for action_playbook.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSentinelAutomationRuleActionPlaybookBlock>? ActionPlaybook
-    {
-        set => SetProperty("action_playbook", value);
-    }
+    [TerraformPropertyName("action_playbook")]
+    public TerraformList<TerraformBlock<AzurermSentinelAutomationRuleActionPlaybookBlock>>? ActionPlaybook { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSentinelAutomationRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSentinelAutomationRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

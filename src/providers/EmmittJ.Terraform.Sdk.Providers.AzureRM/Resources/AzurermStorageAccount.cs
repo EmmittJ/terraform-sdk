@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_files_authentication in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountAzureFilesAuthenticationBlock : TerraformBlock
+public class AzurermStorageAccountAzureFilesAuthenticationBlock : ITerraformBlock
 {
     /// <summary>
     /// The default_share_level_permission attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultShareLevelPermission
-    {
-        set => SetProperty("default_share_level_permission", value);
-    }
+    [TerraformPropertyName("default_share_level_permission")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultShareLevelPermission { get; set; }
 
     /// <summary>
     /// The directory_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryType is required")]
-    public required TerraformProperty<string> DirectoryType
-    {
-        set => SetProperty("directory_type", value);
-    }
+    [TerraformPropertyName("directory_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DirectoryType { get; set; }
 
 }
 
@@ -31,47 +29,42 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlock : TerraformBlock
 /// Block type for blob_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountBlobPropertiesBlock : TerraformBlock
+public class AzurermStorageAccountBlobPropertiesBlock : ITerraformBlock
 {
     /// <summary>
     /// The change_feed_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ChangeFeedEnabled
-    {
-        set => SetProperty("change_feed_enabled", value);
-    }
+    [TerraformPropertyName("change_feed_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ChangeFeedEnabled { get; set; }
 
     /// <summary>
     /// The change_feed_retention_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? ChangeFeedRetentionInDays
-    {
-        set => SetProperty("change_feed_retention_in_days", value);
-    }
+    [TerraformPropertyName("change_feed_retention_in_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ChangeFeedRetentionInDays { get; set; }
 
     /// <summary>
     /// The default_service_version attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultServiceVersion
-    {
-        set => SetProperty("default_service_version", value);
-    }
+    [TerraformPropertyName("default_service_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DefaultServiceVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "default_service_version");
 
     /// <summary>
     /// The last_access_time_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LastAccessTimeEnabled
-    {
-        set => SetProperty("last_access_time_enabled", value);
-    }
+    [TerraformPropertyName("last_access_time_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LastAccessTimeEnabled { get; set; }
 
     /// <summary>
     /// The versioning_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? VersioningEnabled
-    {
-        set => SetProperty("versioning_enabled", value);
-    }
+    [TerraformPropertyName("versioning_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? VersioningEnabled { get; set; }
 
 }
 
@@ -79,24 +72,22 @@ public class AzurermStorageAccountBlobPropertiesBlock : TerraformBlock
 /// Block type for custom_domain in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountCustomDomainBlock : TerraformBlock
+public class AzurermStorageAccountCustomDomainBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The use_subdomain attribute.
     /// </summary>
-    public TerraformProperty<bool>? UseSubdomain
-    {
-        set => SetProperty("use_subdomain", value);
-    }
+    [TerraformPropertyName("use_subdomain")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseSubdomain { get; set; }
 
 }
 
@@ -104,32 +95,29 @@ public class AzurermStorageAccountCustomDomainBlock : TerraformBlock
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountCustomerManagedKeyBlock : TerraformBlock
+public class AzurermStorageAccountCustomerManagedKeyBlock : ITerraformBlock
 {
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultKeyId
-    {
-        set => SetProperty("key_vault_key_id", value);
-    }
+    [TerraformPropertyName("key_vault_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedHsmKeyId
-    {
-        set => SetProperty("managed_hsm_key_id", value);
-    }
+    [TerraformPropertyName("managed_hsm_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManagedHsmKeyId { get; set; }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserAssignedIdentityId is required")]
-    public required TerraformProperty<string> UserAssignedIdentityId
-    {
-        set => SetProperty("user_assigned_identity_id", value);
-    }
+    [TerraformPropertyName("user_assigned_identity_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserAssignedIdentityId { get; set; }
 
 }
 
@@ -137,40 +125,36 @@ public class AzurermStorageAccountCustomerManagedKeyBlock : TerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountIdentityBlock : TerraformBlock
+public class AzurermStorageAccountIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -178,34 +162,31 @@ public class AzurermStorageAccountIdentityBlock : TerraformBlock
 /// Block type for immutability_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlock
+public class AzurermStorageAccountImmutabilityPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The allow_protected_append_writes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowProtectedAppendWrites is required")]
-    public required TerraformProperty<bool> AllowProtectedAppendWrites
-    {
-        set => SetProperty("allow_protected_append_writes", value);
-    }
+    [TerraformPropertyName("allow_protected_append_writes")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> AllowProtectedAppendWrites { get; set; }
 
     /// <summary>
     /// The period_since_creation_in_days attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeriodSinceCreationInDays is required")]
-    public required TerraformProperty<double> PeriodSinceCreationInDays
-    {
-        set => SetProperty("period_since_creation_in_days", value);
-    }
+    [TerraformPropertyName("period_since_creation_in_days")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> PeriodSinceCreationInDays { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
-    public required TerraformProperty<string> State
-    {
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> State { get; set; }
 
 }
 
@@ -213,40 +194,36 @@ public class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlock
 /// Block type for network_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountNetworkRulesBlock : TerraformBlock
+public class AzurermStorageAccountNetworkRulesBlock : ITerraformBlock
 {
     /// <summary>
     /// The bypass attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Bypass
-    {
-        set => SetProperty("bypass", value);
-    }
+    [TerraformPropertyName("bypass")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Bypass { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "bypass");
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
-    public required TerraformProperty<string> DefaultAction
-    {
-        set => SetProperty("default_action", value);
-    }
+    [TerraformPropertyName("default_action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DefaultAction { get; set; }
 
     /// <summary>
     /// The ip_rules attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IpRules
-    {
-        set => SetProperty("ip_rules", value);
-    }
+    [TerraformPropertyName("ip_rules")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> IpRules { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "ip_rules");
 
     /// <summary>
     /// The virtual_network_subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? VirtualNetworkSubnetIds
-    {
-        set => SetProperty("virtual_network_subnet_ids", value);
-    }
+    [TerraformPropertyName("virtual_network_subnet_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> VirtualNetworkSubnetIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "virtual_network_subnet_ids");
 
 }
 
@@ -255,7 +232,7 @@ public class AzurermStorageAccountNetworkRulesBlock : TerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AzurermStorageAccountQueuePropertiesBlock : TerraformBlock
+public class AzurermStorageAccountQueuePropertiesBlock : ITerraformBlock
 {
 }
 
@@ -263,31 +240,28 @@ public class AzurermStorageAccountQueuePropertiesBlock : TerraformBlock
 /// Block type for routing in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountRoutingBlock : TerraformBlock
+public class AzurermStorageAccountRoutingBlock : ITerraformBlock
 {
     /// <summary>
     /// The choice attribute.
     /// </summary>
-    public TerraformProperty<string>? Choice
-    {
-        set => SetProperty("choice", value);
-    }
+    [TerraformPropertyName("choice")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Choice { get; set; }
 
     /// <summary>
     /// The publish_internet_endpoints attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublishInternetEndpoints
-    {
-        set => SetProperty("publish_internet_endpoints", value);
-    }
+    [TerraformPropertyName("publish_internet_endpoints")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublishInternetEndpoints { get; set; }
 
     /// <summary>
     /// The publish_microsoft_endpoints attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublishMicrosoftEndpoints
-    {
-        set => SetProperty("publish_microsoft_endpoints", value);
-    }
+    [TerraformPropertyName("publish_microsoft_endpoints")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublishMicrosoftEndpoints { get; set; }
 
 }
 
@@ -295,24 +269,22 @@ public class AzurermStorageAccountRoutingBlock : TerraformBlock
 /// Block type for sas_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountSasPolicyBlock : TerraformBlock
+public class AzurermStorageAccountSasPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The expiration_action attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpirationAction
-    {
-        set => SetProperty("expiration_action", value);
-    }
+    [TerraformPropertyName("expiration_action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExpirationAction { get; set; }
 
     /// <summary>
     /// The expiration_period attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpirationPeriod is required")]
-    public required TerraformProperty<string> ExpirationPeriod
-    {
-        set => SetProperty("expiration_period", value);
-    }
+    [TerraformPropertyName("expiration_period")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExpirationPeriod { get; set; }
 
 }
 
@@ -320,7 +292,7 @@ public class AzurermStorageAccountSasPolicyBlock : TerraformBlock
 /// Block type for share_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountSharePropertiesBlock : TerraformBlock
+public class AzurermStorageAccountSharePropertiesBlock : ITerraformBlock
 {
 }
 
@@ -329,23 +301,21 @@ public class AzurermStorageAccountSharePropertiesBlock : TerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AzurermStorageAccountStaticWebsiteBlock : TerraformBlock
+public class AzurermStorageAccountStaticWebsiteBlock : ITerraformBlock
 {
     /// <summary>
     /// The error_404_document attribute.
     /// </summary>
-    public TerraformProperty<string>? Error404Document
-    {
-        set => SetProperty("error_404_document", value);
-    }
+    [TerraformPropertyName("error_404_document")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Error404Document { get; set; }
 
     /// <summary>
     /// The index_document attribute.
     /// </summary>
-    public TerraformProperty<string>? IndexDocument
-    {
-        set => SetProperty("index_document", value);
-    }
+    [TerraformPropertyName("index_document")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IndexDocument { get; set; }
 
 }
 
@@ -353,39 +323,35 @@ public class AzurermStorageAccountStaticWebsiteBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageAccountTimeoutsBlock : TerraformBlock
+public class AzurermStorageAccountTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -397,439 +363,264 @@ public class AzurermStorageAccount : TerraformResource
 {
     public AzurermStorageAccount(string name) : base("azurerm_storage_account", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("primary_access_key");
-        SetOutput("primary_blob_connection_string");
-        SetOutput("primary_blob_endpoint");
-        SetOutput("primary_blob_host");
-        SetOutput("primary_blob_internet_endpoint");
-        SetOutput("primary_blob_internet_host");
-        SetOutput("primary_blob_microsoft_endpoint");
-        SetOutput("primary_blob_microsoft_host");
-        SetOutput("primary_connection_string");
-        SetOutput("primary_dfs_endpoint");
-        SetOutput("primary_dfs_host");
-        SetOutput("primary_dfs_internet_endpoint");
-        SetOutput("primary_dfs_internet_host");
-        SetOutput("primary_dfs_microsoft_endpoint");
-        SetOutput("primary_dfs_microsoft_host");
-        SetOutput("primary_file_endpoint");
-        SetOutput("primary_file_host");
-        SetOutput("primary_file_internet_endpoint");
-        SetOutput("primary_file_internet_host");
-        SetOutput("primary_file_microsoft_endpoint");
-        SetOutput("primary_file_microsoft_host");
-        SetOutput("primary_location");
-        SetOutput("primary_queue_endpoint");
-        SetOutput("primary_queue_host");
-        SetOutput("primary_queue_microsoft_endpoint");
-        SetOutput("primary_queue_microsoft_host");
-        SetOutput("primary_table_endpoint");
-        SetOutput("primary_table_host");
-        SetOutput("primary_table_microsoft_endpoint");
-        SetOutput("primary_table_microsoft_host");
-        SetOutput("primary_web_endpoint");
-        SetOutput("primary_web_host");
-        SetOutput("primary_web_internet_endpoint");
-        SetOutput("primary_web_internet_host");
-        SetOutput("primary_web_microsoft_endpoint");
-        SetOutput("primary_web_microsoft_host");
-        SetOutput("secondary_access_key");
-        SetOutput("secondary_blob_connection_string");
-        SetOutput("secondary_blob_endpoint");
-        SetOutput("secondary_blob_host");
-        SetOutput("secondary_blob_internet_endpoint");
-        SetOutput("secondary_blob_internet_host");
-        SetOutput("secondary_blob_microsoft_endpoint");
-        SetOutput("secondary_blob_microsoft_host");
-        SetOutput("secondary_connection_string");
-        SetOutput("secondary_dfs_endpoint");
-        SetOutput("secondary_dfs_host");
-        SetOutput("secondary_dfs_internet_endpoint");
-        SetOutput("secondary_dfs_internet_host");
-        SetOutput("secondary_dfs_microsoft_endpoint");
-        SetOutput("secondary_dfs_microsoft_host");
-        SetOutput("secondary_file_endpoint");
-        SetOutput("secondary_file_host");
-        SetOutput("secondary_file_internet_endpoint");
-        SetOutput("secondary_file_internet_host");
-        SetOutput("secondary_file_microsoft_endpoint");
-        SetOutput("secondary_file_microsoft_host");
-        SetOutput("secondary_location");
-        SetOutput("secondary_queue_endpoint");
-        SetOutput("secondary_queue_host");
-        SetOutput("secondary_queue_microsoft_endpoint");
-        SetOutput("secondary_queue_microsoft_host");
-        SetOutput("secondary_table_endpoint");
-        SetOutput("secondary_table_host");
-        SetOutput("secondary_table_microsoft_endpoint");
-        SetOutput("secondary_table_microsoft_host");
-        SetOutput("secondary_web_endpoint");
-        SetOutput("secondary_web_host");
-        SetOutput("secondary_web_internet_endpoint");
-        SetOutput("secondary_web_internet_host");
-        SetOutput("secondary_web_microsoft_endpoint");
-        SetOutput("secondary_web_microsoft_host");
-        SetOutput("access_tier");
-        SetOutput("account_kind");
-        SetOutput("account_replication_type");
-        SetOutput("account_tier");
-        SetOutput("allow_nested_items_to_be_public");
-        SetOutput("allowed_copy_scope");
-        SetOutput("cross_tenant_replication_enabled");
-        SetOutput("default_to_oauth_authentication");
-        SetOutput("dns_endpoint_type");
-        SetOutput("edge_zone");
-        SetOutput("https_traffic_only_enabled");
-        SetOutput("id");
-        SetOutput("infrastructure_encryption_enabled");
-        SetOutput("is_hns_enabled");
-        SetOutput("large_file_share_enabled");
-        SetOutput("local_user_enabled");
-        SetOutput("location");
-        SetOutput("min_tls_version");
-        SetOutput("name");
-        SetOutput("nfsv3_enabled");
-        SetOutput("provisioned_billing_model_version");
-        SetOutput("public_network_access_enabled");
-        SetOutput("queue_encryption_key_type");
-        SetOutput("resource_group_name");
-        SetOutput("sftp_enabled");
-        SetOutput("shared_access_key_enabled");
-        SetOutput("table_encryption_key_type");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
-    public TerraformProperty<string> AccessTier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_tier");
-        set => SetProperty("access_tier", value);
-    }
+    [TerraformPropertyName("access_tier")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AccessTier { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_tier");
 
     /// <summary>
     /// The account_kind attribute.
     /// </summary>
-    public TerraformProperty<string> AccountKind
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_kind");
-        set => SetProperty("account_kind", value);
-    }
+    [TerraformPropertyName("account_kind")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AccountKind { get; set; }
 
     /// <summary>
     /// The account_replication_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountReplicationType is required")]
-    public required TerraformProperty<string> AccountReplicationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_replication_type");
-        set => SetProperty("account_replication_type", value);
-    }
+    [TerraformPropertyName("account_replication_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountReplicationType { get; set; }
 
     /// <summary>
     /// The account_tier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountTier is required")]
-    public required TerraformProperty<string> AccountTier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_tier");
-        set => SetProperty("account_tier", value);
-    }
+    [TerraformPropertyName("account_tier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountTier { get; set; }
 
     /// <summary>
     /// The allow_nested_items_to_be_public attribute.
     /// </summary>
-    public TerraformProperty<bool> AllowNestedItemsToBePublic
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_nested_items_to_be_public");
-        set => SetProperty("allow_nested_items_to_be_public", value);
-    }
+    [TerraformPropertyName("allow_nested_items_to_be_public")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowNestedItemsToBePublic { get; set; }
 
     /// <summary>
     /// The allowed_copy_scope attribute.
     /// </summary>
-    public TerraformProperty<string> AllowedCopyScope
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("allowed_copy_scope");
-        set => SetProperty("allowed_copy_scope", value);
-    }
+    [TerraformPropertyName("allowed_copy_scope")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AllowedCopyScope { get; set; }
 
     /// <summary>
     /// The cross_tenant_replication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> CrossTenantReplicationEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("cross_tenant_replication_enabled");
-        set => SetProperty("cross_tenant_replication_enabled", value);
-    }
+    [TerraformPropertyName("cross_tenant_replication_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CrossTenantReplicationEnabled { get; set; }
 
     /// <summary>
     /// The default_to_oauth_authentication attribute.
     /// </summary>
-    public TerraformProperty<bool> DefaultToOauthAuthentication
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("default_to_oauth_authentication");
-        set => SetProperty("default_to_oauth_authentication", value);
-    }
+    [TerraformPropertyName("default_to_oauth_authentication")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DefaultToOauthAuthentication { get; set; }
 
     /// <summary>
     /// The dns_endpoint_type attribute.
     /// </summary>
-    public TerraformProperty<string> DnsEndpointType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dns_endpoint_type");
-        set => SetProperty("dns_endpoint_type", value);
-    }
+    [TerraformPropertyName("dns_endpoint_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DnsEndpointType { get; set; }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    public TerraformProperty<string> EdgeZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("edge_zone");
-        set => SetProperty("edge_zone", value);
-    }
+    [TerraformPropertyName("edge_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EdgeZone { get; set; }
 
     /// <summary>
     /// The https_traffic_only_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> HttpsTrafficOnlyEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("https_traffic_only_enabled");
-        set => SetProperty("https_traffic_only_enabled", value);
-    }
+    [TerraformPropertyName("https_traffic_only_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? HttpsTrafficOnlyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> InfrastructureEncryptionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("infrastructure_encryption_enabled");
-        set => SetProperty("infrastructure_encryption_enabled", value);
-    }
+    [TerraformPropertyName("infrastructure_encryption_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InfrastructureEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The is_hns_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> IsHnsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_hns_enabled");
-        set => SetProperty("is_hns_enabled", value);
-    }
+    [TerraformPropertyName("is_hns_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsHnsEnabled { get; set; }
 
     /// <summary>
     /// The large_file_share_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LargeFileShareEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("large_file_share_enabled");
-        set => SetProperty("large_file_share_enabled", value);
-    }
+    [TerraformPropertyName("large_file_share_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> LargeFileShareEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "large_file_share_enabled");
 
     /// <summary>
     /// The local_user_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LocalUserEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("local_user_enabled");
-        set => SetProperty("local_user_enabled", value);
-    }
+    [TerraformPropertyName("local_user_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LocalUserEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The min_tls_version attribute.
     /// </summary>
-    public TerraformProperty<string> MinTlsVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("min_tls_version");
-        set => SetProperty("min_tls_version", value);
-    }
+    [TerraformPropertyName("min_tls_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MinTlsVersion { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The nfsv3_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Nfsv3Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("nfsv3_enabled");
-        set => SetProperty("nfsv3_enabled", value);
-    }
+    [TerraformPropertyName("nfsv3_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Nfsv3Enabled { get; set; }
 
     /// <summary>
     /// The provisioned_billing_model_version attribute.
     /// </summary>
-    public TerraformProperty<string> ProvisionedBillingModelVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("provisioned_billing_model_version");
-        set => SetProperty("provisioned_billing_model_version", value);
-    }
+    [TerraformPropertyName("provisioned_billing_model_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProvisionedBillingModelVersion { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PublicNetworkAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
-        set => SetProperty("public_network_access_enabled", value);
-    }
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The queue_encryption_key_type attribute.
     /// </summary>
-    public TerraformProperty<string> QueueEncryptionKeyType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("queue_encryption_key_type");
-        set => SetProperty("queue_encryption_key_type", value);
-    }
+    [TerraformPropertyName("queue_encryption_key_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? QueueEncryptionKeyType { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sftp_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> SftpEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("sftp_enabled");
-        set => SetProperty("sftp_enabled", value);
-    }
+    [TerraformPropertyName("sftp_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SftpEnabled { get; set; }
 
     /// <summary>
     /// The shared_access_key_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> SharedAccessKeyEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("shared_access_key_enabled");
-        set => SetProperty("shared_access_key_enabled", value);
-    }
+    [TerraformPropertyName("shared_access_key_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SharedAccessKeyEnabled { get; set; }
 
     /// <summary>
     /// The table_encryption_key_type attribute.
     /// </summary>
-    public TerraformProperty<string> TableEncryptionKeyType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_encryption_key_type");
-        set => SetProperty("table_encryption_key_type", value);
-    }
+    [TerraformPropertyName("table_encryption_key_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TableEncryptionKeyType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for azure_files_authentication.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureFilesAuthentication block(s) allowed")]
-    public List<AzurermStorageAccountAzureFilesAuthenticationBlock>? AzureFilesAuthentication
-    {
-        set => SetProperty("azure_files_authentication", value);
-    }
+    [TerraformPropertyName("azure_files_authentication")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountAzureFilesAuthenticationBlock>>? AzureFilesAuthentication { get; set; } = new();
 
     /// <summary>
     /// Block for blob_properties.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlobProperties block(s) allowed")]
-    public List<AzurermStorageAccountBlobPropertiesBlock>? BlobProperties
-    {
-        set => SetProperty("blob_properties", value);
-    }
+    [TerraformPropertyName("blob_properties")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountBlobPropertiesBlock>>? BlobProperties { get; set; } = new();
 
     /// <summary>
     /// Block for custom_domain.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomDomain block(s) allowed")]
-    public List<AzurermStorageAccountCustomDomainBlock>? CustomDomain
-    {
-        set => SetProperty("custom_domain", value);
-    }
+    [TerraformPropertyName("custom_domain")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountCustomDomainBlock>>? CustomDomain { get; set; } = new();
 
     /// <summary>
     /// Block for customer_managed_key.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    public List<AzurermStorageAccountCustomerManagedKeyBlock>? CustomerManagedKey
-    {
-        set => SetProperty("customer_managed_key", value);
-    }
+    [TerraformPropertyName("customer_managed_key")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermStorageAccountIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for immutability_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImmutabilityPolicy block(s) allowed")]
-    public List<AzurermStorageAccountImmutabilityPolicyBlock>? ImmutabilityPolicy
-    {
-        set => SetProperty("immutability_policy", value);
-    }
+    [TerraformPropertyName("immutability_policy")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountImmutabilityPolicyBlock>>? ImmutabilityPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for network_rules.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkRules block(s) allowed")]
-    public List<AzurermStorageAccountNetworkRulesBlock>? NetworkRules
-    {
-        set => SetProperty("network_rules", value);
-    }
+    [TerraformPropertyName("network_rules")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountNetworkRulesBlock>>? NetworkRules { get; set; } = new();
 
     /// <summary>
     /// Block for queue_properties.
@@ -837,40 +628,32 @@ public class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueueProperties block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public List<AzurermStorageAccountQueuePropertiesBlock>? QueueProperties
-    {
-        set => SetProperty("queue_properties", value);
-    }
+    [TerraformPropertyName("queue_properties")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesBlock>>? QueueProperties { get; set; } = new();
 
     /// <summary>
     /// Block for routing.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
-    public List<AzurermStorageAccountRoutingBlock>? Routing
-    {
-        set => SetProperty("routing", value);
-    }
+    [TerraformPropertyName("routing")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountRoutingBlock>>? Routing { get; set; } = new();
 
     /// <summary>
     /// Block for sas_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SasPolicy block(s) allowed")]
-    public List<AzurermStorageAccountSasPolicyBlock>? SasPolicy
-    {
-        set => SetProperty("sas_policy", value);
-    }
+    [TerraformPropertyName("sas_policy")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountSasPolicyBlock>>? SasPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for share_properties.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShareProperties block(s) allowed")]
-    public List<AzurermStorageAccountSharePropertiesBlock>? ShareProperties
-    {
-        set => SetProperty("share_properties", value);
-    }
+    [TerraformPropertyName("share_properties")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountSharePropertiesBlock>>? ShareProperties { get; set; } = new();
 
     /// <summary>
     /// Block for static_website.
@@ -878,378 +661,518 @@ public class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StaticWebsite block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public List<AzurermStorageAccountStaticWebsiteBlock>? StaticWebsite
-    {
-        set => SetProperty("static_website", value);
-    }
+    [TerraformPropertyName("static_website")]
+    public TerraformList<TerraformBlock<AzurermStorageAccountStaticWebsiteBlock>>? StaticWebsite { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStorageAccountTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStorageAccountTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
-    public TerraformExpression PrimaryAccessKey => this["primary_access_key"];
+    [TerraformPropertyName("primary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_access_key");
 
     /// <summary>
     /// The primary_blob_connection_string attribute.
     /// </summary>
-    public TerraformExpression PrimaryBlobConnectionString => this["primary_blob_connection_string"];
+    [TerraformPropertyName("primary_blob_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryBlobConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_blob_connection_string");
 
     /// <summary>
     /// The primary_blob_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryBlobEndpoint => this["primary_blob_endpoint"];
+    [TerraformPropertyName("primary_blob_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryBlobEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_blob_endpoint");
 
     /// <summary>
     /// The primary_blob_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryBlobHost => this["primary_blob_host"];
+    [TerraformPropertyName("primary_blob_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryBlobHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_blob_host");
 
     /// <summary>
     /// The primary_blob_internet_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryBlobInternetEndpoint => this["primary_blob_internet_endpoint"];
+    [TerraformPropertyName("primary_blob_internet_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryBlobInternetEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_blob_internet_endpoint");
 
     /// <summary>
     /// The primary_blob_internet_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryBlobInternetHost => this["primary_blob_internet_host"];
+    [TerraformPropertyName("primary_blob_internet_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryBlobInternetHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_blob_internet_host");
 
     /// <summary>
     /// The primary_blob_microsoft_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryBlobMicrosoftEndpoint => this["primary_blob_microsoft_endpoint"];
+    [TerraformPropertyName("primary_blob_microsoft_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryBlobMicrosoftEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_blob_microsoft_endpoint");
 
     /// <summary>
     /// The primary_blob_microsoft_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryBlobMicrosoftHost => this["primary_blob_microsoft_host"];
+    [TerraformPropertyName("primary_blob_microsoft_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryBlobMicrosoftHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_blob_microsoft_host");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
-    public TerraformExpression PrimaryConnectionString => this["primary_connection_string"];
+    [TerraformPropertyName("primary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_connection_string");
 
     /// <summary>
     /// The primary_dfs_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryDfsEndpoint => this["primary_dfs_endpoint"];
+    [TerraformPropertyName("primary_dfs_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryDfsEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_dfs_endpoint");
 
     /// <summary>
     /// The primary_dfs_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryDfsHost => this["primary_dfs_host"];
+    [TerraformPropertyName("primary_dfs_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryDfsHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_dfs_host");
 
     /// <summary>
     /// The primary_dfs_internet_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryDfsInternetEndpoint => this["primary_dfs_internet_endpoint"];
+    [TerraformPropertyName("primary_dfs_internet_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryDfsInternetEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_dfs_internet_endpoint");
 
     /// <summary>
     /// The primary_dfs_internet_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryDfsInternetHost => this["primary_dfs_internet_host"];
+    [TerraformPropertyName("primary_dfs_internet_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryDfsInternetHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_dfs_internet_host");
 
     /// <summary>
     /// The primary_dfs_microsoft_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryDfsMicrosoftEndpoint => this["primary_dfs_microsoft_endpoint"];
+    [TerraformPropertyName("primary_dfs_microsoft_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryDfsMicrosoftEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_dfs_microsoft_endpoint");
 
     /// <summary>
     /// The primary_dfs_microsoft_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryDfsMicrosoftHost => this["primary_dfs_microsoft_host"];
+    [TerraformPropertyName("primary_dfs_microsoft_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryDfsMicrosoftHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_dfs_microsoft_host");
 
     /// <summary>
     /// The primary_file_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryFileEndpoint => this["primary_file_endpoint"];
+    [TerraformPropertyName("primary_file_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryFileEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_file_endpoint");
 
     /// <summary>
     /// The primary_file_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryFileHost => this["primary_file_host"];
+    [TerraformPropertyName("primary_file_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryFileHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_file_host");
 
     /// <summary>
     /// The primary_file_internet_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryFileInternetEndpoint => this["primary_file_internet_endpoint"];
+    [TerraformPropertyName("primary_file_internet_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryFileInternetEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_file_internet_endpoint");
 
     /// <summary>
     /// The primary_file_internet_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryFileInternetHost => this["primary_file_internet_host"];
+    [TerraformPropertyName("primary_file_internet_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryFileInternetHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_file_internet_host");
 
     /// <summary>
     /// The primary_file_microsoft_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryFileMicrosoftEndpoint => this["primary_file_microsoft_endpoint"];
+    [TerraformPropertyName("primary_file_microsoft_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryFileMicrosoftEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_file_microsoft_endpoint");
 
     /// <summary>
     /// The primary_file_microsoft_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryFileMicrosoftHost => this["primary_file_microsoft_host"];
+    [TerraformPropertyName("primary_file_microsoft_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryFileMicrosoftHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_file_microsoft_host");
 
     /// <summary>
     /// The primary_location attribute.
     /// </summary>
-    public TerraformExpression PrimaryLocation => this["primary_location"];
+    [TerraformPropertyName("primary_location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryLocation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_location");
 
     /// <summary>
     /// The primary_queue_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryQueueEndpoint => this["primary_queue_endpoint"];
+    [TerraformPropertyName("primary_queue_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryQueueEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_queue_endpoint");
 
     /// <summary>
     /// The primary_queue_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryQueueHost => this["primary_queue_host"];
+    [TerraformPropertyName("primary_queue_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryQueueHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_queue_host");
 
     /// <summary>
     /// The primary_queue_microsoft_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryQueueMicrosoftEndpoint => this["primary_queue_microsoft_endpoint"];
+    [TerraformPropertyName("primary_queue_microsoft_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryQueueMicrosoftEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_queue_microsoft_endpoint");
 
     /// <summary>
     /// The primary_queue_microsoft_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryQueueMicrosoftHost => this["primary_queue_microsoft_host"];
+    [TerraformPropertyName("primary_queue_microsoft_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryQueueMicrosoftHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_queue_microsoft_host");
 
     /// <summary>
     /// The primary_table_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryTableEndpoint => this["primary_table_endpoint"];
+    [TerraformPropertyName("primary_table_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryTableEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_table_endpoint");
 
     /// <summary>
     /// The primary_table_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryTableHost => this["primary_table_host"];
+    [TerraformPropertyName("primary_table_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryTableHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_table_host");
 
     /// <summary>
     /// The primary_table_microsoft_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryTableMicrosoftEndpoint => this["primary_table_microsoft_endpoint"];
+    [TerraformPropertyName("primary_table_microsoft_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryTableMicrosoftEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_table_microsoft_endpoint");
 
     /// <summary>
     /// The primary_table_microsoft_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryTableMicrosoftHost => this["primary_table_microsoft_host"];
+    [TerraformPropertyName("primary_table_microsoft_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryTableMicrosoftHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_table_microsoft_host");
 
     /// <summary>
     /// The primary_web_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryWebEndpoint => this["primary_web_endpoint"];
+    [TerraformPropertyName("primary_web_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryWebEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_web_endpoint");
 
     /// <summary>
     /// The primary_web_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryWebHost => this["primary_web_host"];
+    [TerraformPropertyName("primary_web_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryWebHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_web_host");
 
     /// <summary>
     /// The primary_web_internet_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryWebInternetEndpoint => this["primary_web_internet_endpoint"];
+    [TerraformPropertyName("primary_web_internet_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryWebInternetEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_web_internet_endpoint");
 
     /// <summary>
     /// The primary_web_internet_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryWebInternetHost => this["primary_web_internet_host"];
+    [TerraformPropertyName("primary_web_internet_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryWebInternetHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_web_internet_host");
 
     /// <summary>
     /// The primary_web_microsoft_endpoint attribute.
     /// </summary>
-    public TerraformExpression PrimaryWebMicrosoftEndpoint => this["primary_web_microsoft_endpoint"];
+    [TerraformPropertyName("primary_web_microsoft_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryWebMicrosoftEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_web_microsoft_endpoint");
 
     /// <summary>
     /// The primary_web_microsoft_host attribute.
     /// </summary>
-    public TerraformExpression PrimaryWebMicrosoftHost => this["primary_web_microsoft_host"];
+    [TerraformPropertyName("primary_web_microsoft_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryWebMicrosoftHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_web_microsoft_host");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
-    public TerraformExpression SecondaryAccessKey => this["secondary_access_key"];
+    [TerraformPropertyName("secondary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_access_key");
 
     /// <summary>
     /// The secondary_blob_connection_string attribute.
     /// </summary>
-    public TerraformExpression SecondaryBlobConnectionString => this["secondary_blob_connection_string"];
+    [TerraformPropertyName("secondary_blob_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryBlobConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_blob_connection_string");
 
     /// <summary>
     /// The secondary_blob_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryBlobEndpoint => this["secondary_blob_endpoint"];
+    [TerraformPropertyName("secondary_blob_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryBlobEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_blob_endpoint");
 
     /// <summary>
     /// The secondary_blob_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryBlobHost => this["secondary_blob_host"];
+    [TerraformPropertyName("secondary_blob_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryBlobHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_blob_host");
 
     /// <summary>
     /// The secondary_blob_internet_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryBlobInternetEndpoint => this["secondary_blob_internet_endpoint"];
+    [TerraformPropertyName("secondary_blob_internet_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryBlobInternetEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_blob_internet_endpoint");
 
     /// <summary>
     /// The secondary_blob_internet_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryBlobInternetHost => this["secondary_blob_internet_host"];
+    [TerraformPropertyName("secondary_blob_internet_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryBlobInternetHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_blob_internet_host");
 
     /// <summary>
     /// The secondary_blob_microsoft_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryBlobMicrosoftEndpoint => this["secondary_blob_microsoft_endpoint"];
+    [TerraformPropertyName("secondary_blob_microsoft_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryBlobMicrosoftEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_blob_microsoft_endpoint");
 
     /// <summary>
     /// The secondary_blob_microsoft_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryBlobMicrosoftHost => this["secondary_blob_microsoft_host"];
+    [TerraformPropertyName("secondary_blob_microsoft_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryBlobMicrosoftHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_blob_microsoft_host");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
-    public TerraformExpression SecondaryConnectionString => this["secondary_connection_string"];
+    [TerraformPropertyName("secondary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_connection_string");
 
     /// <summary>
     /// The secondary_dfs_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryDfsEndpoint => this["secondary_dfs_endpoint"];
+    [TerraformPropertyName("secondary_dfs_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryDfsEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_dfs_endpoint");
 
     /// <summary>
     /// The secondary_dfs_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryDfsHost => this["secondary_dfs_host"];
+    [TerraformPropertyName("secondary_dfs_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryDfsHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_dfs_host");
 
     /// <summary>
     /// The secondary_dfs_internet_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryDfsInternetEndpoint => this["secondary_dfs_internet_endpoint"];
+    [TerraformPropertyName("secondary_dfs_internet_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryDfsInternetEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_dfs_internet_endpoint");
 
     /// <summary>
     /// The secondary_dfs_internet_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryDfsInternetHost => this["secondary_dfs_internet_host"];
+    [TerraformPropertyName("secondary_dfs_internet_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryDfsInternetHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_dfs_internet_host");
 
     /// <summary>
     /// The secondary_dfs_microsoft_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryDfsMicrosoftEndpoint => this["secondary_dfs_microsoft_endpoint"];
+    [TerraformPropertyName("secondary_dfs_microsoft_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryDfsMicrosoftEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_dfs_microsoft_endpoint");
 
     /// <summary>
     /// The secondary_dfs_microsoft_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryDfsMicrosoftHost => this["secondary_dfs_microsoft_host"];
+    [TerraformPropertyName("secondary_dfs_microsoft_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryDfsMicrosoftHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_dfs_microsoft_host");
 
     /// <summary>
     /// The secondary_file_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryFileEndpoint => this["secondary_file_endpoint"];
+    [TerraformPropertyName("secondary_file_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryFileEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_file_endpoint");
 
     /// <summary>
     /// The secondary_file_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryFileHost => this["secondary_file_host"];
+    [TerraformPropertyName("secondary_file_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryFileHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_file_host");
 
     /// <summary>
     /// The secondary_file_internet_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryFileInternetEndpoint => this["secondary_file_internet_endpoint"];
+    [TerraformPropertyName("secondary_file_internet_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryFileInternetEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_file_internet_endpoint");
 
     /// <summary>
     /// The secondary_file_internet_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryFileInternetHost => this["secondary_file_internet_host"];
+    [TerraformPropertyName("secondary_file_internet_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryFileInternetHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_file_internet_host");
 
     /// <summary>
     /// The secondary_file_microsoft_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryFileMicrosoftEndpoint => this["secondary_file_microsoft_endpoint"];
+    [TerraformPropertyName("secondary_file_microsoft_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryFileMicrosoftEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_file_microsoft_endpoint");
 
     /// <summary>
     /// The secondary_file_microsoft_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryFileMicrosoftHost => this["secondary_file_microsoft_host"];
+    [TerraformPropertyName("secondary_file_microsoft_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryFileMicrosoftHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_file_microsoft_host");
 
     /// <summary>
     /// The secondary_location attribute.
     /// </summary>
-    public TerraformExpression SecondaryLocation => this["secondary_location"];
+    [TerraformPropertyName("secondary_location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryLocation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_location");
 
     /// <summary>
     /// The secondary_queue_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryQueueEndpoint => this["secondary_queue_endpoint"];
+    [TerraformPropertyName("secondary_queue_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryQueueEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_queue_endpoint");
 
     /// <summary>
     /// The secondary_queue_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryQueueHost => this["secondary_queue_host"];
+    [TerraformPropertyName("secondary_queue_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryQueueHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_queue_host");
 
     /// <summary>
     /// The secondary_queue_microsoft_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryQueueMicrosoftEndpoint => this["secondary_queue_microsoft_endpoint"];
+    [TerraformPropertyName("secondary_queue_microsoft_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryQueueMicrosoftEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_queue_microsoft_endpoint");
 
     /// <summary>
     /// The secondary_queue_microsoft_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryQueueMicrosoftHost => this["secondary_queue_microsoft_host"];
+    [TerraformPropertyName("secondary_queue_microsoft_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryQueueMicrosoftHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_queue_microsoft_host");
 
     /// <summary>
     /// The secondary_table_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryTableEndpoint => this["secondary_table_endpoint"];
+    [TerraformPropertyName("secondary_table_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryTableEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_table_endpoint");
 
     /// <summary>
     /// The secondary_table_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryTableHost => this["secondary_table_host"];
+    [TerraformPropertyName("secondary_table_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryTableHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_table_host");
 
     /// <summary>
     /// The secondary_table_microsoft_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryTableMicrosoftEndpoint => this["secondary_table_microsoft_endpoint"];
+    [TerraformPropertyName("secondary_table_microsoft_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryTableMicrosoftEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_table_microsoft_endpoint");
 
     /// <summary>
     /// The secondary_table_microsoft_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryTableMicrosoftHost => this["secondary_table_microsoft_host"];
+    [TerraformPropertyName("secondary_table_microsoft_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryTableMicrosoftHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_table_microsoft_host");
 
     /// <summary>
     /// The secondary_web_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryWebEndpoint => this["secondary_web_endpoint"];
+    [TerraformPropertyName("secondary_web_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryWebEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_web_endpoint");
 
     /// <summary>
     /// The secondary_web_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryWebHost => this["secondary_web_host"];
+    [TerraformPropertyName("secondary_web_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryWebHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_web_host");
 
     /// <summary>
     /// The secondary_web_internet_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryWebInternetEndpoint => this["secondary_web_internet_endpoint"];
+    [TerraformPropertyName("secondary_web_internet_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryWebInternetEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_web_internet_endpoint");
 
     /// <summary>
     /// The secondary_web_internet_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryWebInternetHost => this["secondary_web_internet_host"];
+    [TerraformPropertyName("secondary_web_internet_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryWebInternetHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_web_internet_host");
 
     /// <summary>
     /// The secondary_web_microsoft_endpoint attribute.
     /// </summary>
-    public TerraformExpression SecondaryWebMicrosoftEndpoint => this["secondary_web_microsoft_endpoint"];
+    [TerraformPropertyName("secondary_web_microsoft_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryWebMicrosoftEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_web_microsoft_endpoint");
 
     /// <summary>
     /// The secondary_web_microsoft_host attribute.
     /// </summary>
-    public TerraformExpression SecondaryWebMicrosoftHost => this["secondary_web_microsoft_host"];
+    [TerraformPropertyName("secondary_web_microsoft_host")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryWebMicrosoftHost => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_web_microsoft_host");
 
 }

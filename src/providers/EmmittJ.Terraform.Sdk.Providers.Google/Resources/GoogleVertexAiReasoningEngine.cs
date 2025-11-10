@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiReasoningEngineEncryptionSpecBlock : TerraformBlock
+public class GoogleVertexAiReasoningEngineEncryptionSpecBlock : ITerraformBlock
 {
     /// <summary>
     /// Required. The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource.
@@ -14,10 +14,9 @@ public class GoogleVertexAiReasoningEngineEncryptionSpecBlock : TerraformBlock
     /// The key needs to be in the same region as where the compute resource is created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
-    public required TerraformProperty<string> KmsKeyName
-    {
-        set => SetProperty("kms_key_name", value);
-    }
+    [TerraformPropertyName("kms_key_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KmsKeyName { get; set; }
 
 }
 
@@ -25,23 +24,21 @@ public class GoogleVertexAiReasoningEngineEncryptionSpecBlock : TerraformBlock
 /// Block type for spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiReasoningEngineSpecBlock : TerraformBlock
+public class GoogleVertexAiReasoningEngineSpecBlock : ITerraformBlock
 {
     /// <summary>
     /// Optional. The OSS agent framework used to develop the agent.
     /// </summary>
-    public TerraformProperty<string>? AgentFramework
-    {
-        set => SetProperty("agent_framework", value);
-    }
+    [TerraformPropertyName("agent_framework")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AgentFramework { get; set; }
 
     /// <summary>
     /// Optional. Declarations for object class methods in OpenAPI specification format.
     /// </summary>
-    public TerraformProperty<string>? ClassMethods
-    {
-        set => SetProperty("class_methods", value);
-    }
+    [TerraformPropertyName("class_methods")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClassMethods { get; set; }
 
     /// <summary>
     /// Optional. The service account that the Reasoning Engine artifact runs as.
@@ -49,10 +46,9 @@ public class GoogleVertexAiReasoningEngineSpecBlock : TerraformBlock
     /// Cloud Storage and &amp;quot;roles/aiplatform.user&amp;quot; for using Vertex extensions.
     /// If not specified, the Vertex AI Reasoning Engine service Agent in the project will be used.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccount
-    {
-        set => SetProperty("service_account", value);
-    }
+    [TerraformPropertyName("service_account")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServiceAccount { get; set; }
 
 }
 
@@ -60,31 +56,28 @@ public class GoogleVertexAiReasoningEngineSpecBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVertexAiReasoningEngineTimeoutsBlock : TerraformBlock
+public class GoogleVertexAiReasoningEngineTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -96,112 +89,89 @@ public class GoogleVertexAiReasoningEngine : TerraformResource
 {
     public GoogleVertexAiReasoningEngine(string name) : base("google_vertex_ai_reasoning_engine", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("name");
-        SetOutput("update_time");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The description of the ReasoningEngine.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display name of the ReasoningEngine.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The region of the reasoning engine. eg us-central1
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
     /// <summary>
     /// Block for encryption_spec.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
-    public List<GoogleVertexAiReasoningEngineEncryptionSpecBlock>? EncryptionSpec
-    {
-        set => SetProperty("encryption_spec", value);
-    }
+    [TerraformPropertyName("encryption_spec")]
+    public TerraformList<TerraformBlock<GoogleVertexAiReasoningEngineEncryptionSpecBlock>>? EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for spec.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
-    public List<GoogleVertexAiReasoningEngineSpecBlock>? Spec
-    {
-        set => SetProperty("spec", value);
-    }
+    [TerraformPropertyName("spec")]
+    public TerraformList<TerraformBlock<GoogleVertexAiReasoningEngineSpecBlock>>? Spec { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleVertexAiReasoningEngineTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleVertexAiReasoningEngineTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
     /// with nanosecond resolution and up to nine fractional digits.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The generated name of the ReasoningEngine, in the format
     /// &#39;projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}&#39;
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The timestamp of when the Index was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
     /// with nanosecond resolution and up to nine fractional digits.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

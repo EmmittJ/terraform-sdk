@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for destination_ip_ranges in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock : TerraformBlock
+public class GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock : ITerraformBlock
 {
     /// <summary>
     /// The name of an &#39;ExternalAddress&#39; resource.
     /// </summary>
-    public TerraformProperty<string>? ExternalAddress
-    {
-        set => SetProperty("external_address", value);
-    }
+    [TerraformPropertyName("external_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExternalAddress { get; set; }
 
     /// <summary>
     /// An IP address range in the CIDR format.
     /// </summary>
-    public TerraformProperty<string>? IpAddressRange
-    {
-        set => SetProperty("ip_address_range", value);
-    }
+    [TerraformPropertyName("ip_address_range")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IpAddressRange { get; set; }
 
 }
 
@@ -30,23 +28,21 @@ public class GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock : Terr
 /// Block type for source_ip_ranges in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock : TerraformBlock
+public class GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock : ITerraformBlock
 {
     /// <summary>
     /// A single IP address.
     /// </summary>
-    public TerraformProperty<string>? IpAddress
-    {
-        set => SetProperty("ip_address", value);
-    }
+    [TerraformPropertyName("ip_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IpAddress { get; set; }
 
     /// <summary>
     /// An IP address range in the CIDR format.
     /// </summary>
-    public TerraformProperty<string>? IpAddressRange
-    {
-        set => SetProperty("ip_address_range", value);
-    }
+    [TerraformPropertyName("ip_address_range")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IpAddressRange { get; set; }
 
 }
 
@@ -54,31 +50,28 @@ public class GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVmwareengineExternalAccessRuleTimeoutsBlock : TerraformBlock
+public class GoogleVmwareengineExternalAccessRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -90,83 +83,53 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
 {
     public GoogleVmwareengineExternalAccessRule(string name) : base("google_vmwareengine_external_access_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("state");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("action");
-        SetOutput("description");
-        SetOutput("destination_ports");
-        SetOutput("id");
-        SetOutput("ip_protocol");
-        SetOutput("name");
-        SetOutput("parent");
-        SetOutput("priority");
-        SetOutput("source_ports");
     }
 
     /// <summary>
     /// The action that the external access rule performs. Possible values: [&amp;quot;ALLOW&amp;quot;, &amp;quot;DENY&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("action");
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// User-provided description for the external access rule.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// A list of destination ports to which the external access rule applies.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPorts is required")]
-    public List<TerraformProperty<string>> DestinationPorts
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("destination_ports");
-        set => SetProperty("destination_ports", value);
-    }
+    [TerraformPropertyName("destination_ports")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? DestinationPorts { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The IP protocol to which the external access rule applies.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
-    public required TerraformProperty<string> IpProtocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ip_protocol");
-        set => SetProperty("ip_protocol", value);
-    }
+    [TerraformPropertyName("ip_protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IpProtocol { get; set; }
 
     /// <summary>
     /// The ID of the external access rule.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource name of the network policy.
@@ -174,31 +137,25 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     /// For example: projects/my-project/locations/us-west1-a/networkPolicies/my-policy
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    public required TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
 
     /// <summary>
     /// External access rule priority, which determines the external access rule to use when multiple rules apply.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    public required TerraformProperty<double> Priority
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("priority");
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
 
     /// <summary>
     /// A list of source ports to which the external access rule applies.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePorts is required")]
-    public List<TerraformProperty<string>> SourcePorts
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("source_ports");
-        set => SetProperty("source_ports", value);
-    }
+    [TerraformPropertyName("source_ports")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? SourcePorts { get; set; }
 
     /// <summary>
     /// Block for destination_ip_ranges.
@@ -206,10 +163,8 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIpRanges is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationIpRanges block(s) required")]
-    public List<GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock>? DestinationIpRanges
-    {
-        set => SetProperty("destination_ip_ranges", value);
-    }
+    [TerraformPropertyName("destination_ip_ranges")]
+    public TerraformList<TerraformBlock<GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock>>? DestinationIpRanges { get; set; } = new();
 
     /// <summary>
     /// Block for source_ip_ranges.
@@ -217,42 +172,46 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIpRanges is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SourceIpRanges block(s) required")]
-    public List<GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock>? SourceIpRanges
-    {
-        set => SetProperty("source_ip_ranges", value);
-    }
+    [TerraformPropertyName("source_ip_ranges")]
+    public TerraformList<TerraformBlock<GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock>>? SourceIpRanges { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleVmwareengineExternalAccessRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleVmwareengineExternalAccessRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation time of this resource.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// State of the Cluster.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// Last updated time of this resource.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

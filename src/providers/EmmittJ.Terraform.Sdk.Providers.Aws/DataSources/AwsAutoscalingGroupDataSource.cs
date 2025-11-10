@@ -9,216 +9,231 @@ public class AwsAutoscalingGroupDataSource : TerraformDataSource
 {
     public AwsAutoscalingGroupDataSource(string name) : base("aws_autoscaling_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("availability_zones");
-        SetOutput("default_cooldown");
-        SetOutput("desired_capacity");
-        SetOutput("desired_capacity_type");
-        SetOutput("enabled_metrics");
-        SetOutput("health_check_grace_period");
-        SetOutput("health_check_type");
-        SetOutput("instance_maintenance_policy");
-        SetOutput("launch_configuration");
-        SetOutput("launch_template");
-        SetOutput("load_balancers");
-        SetOutput("max_instance_lifetime");
-        SetOutput("max_size");
-        SetOutput("min_size");
-        SetOutput("mixed_instances_policy");
-        SetOutput("new_instances_protected_from_scale_in");
-        SetOutput("placement_group");
-        SetOutput("predicted_capacity");
-        SetOutput("service_linked_role_arn");
-        SetOutput("status");
-        SetOutput("suspended_processes");
-        SetOutput("tag");
-        SetOutput("target_group_arns");
-        SetOutput("termination_policies");
-        SetOutput("traffic_source");
-        SetOutput("vpc_zone_identifier");
-        SetOutput("warm_pool");
-        SetOutput("warm_pool_size");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformExpression AvailabilityZones => this["availability_zones"];
+    [TerraformPropertyName("availability_zones")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AvailabilityZones => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "availability_zones");
 
     /// <summary>
     /// The default_cooldown attribute.
     /// </summary>
-    public TerraformExpression DefaultCooldown => this["default_cooldown"];
+    [TerraformPropertyName("default_cooldown")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DefaultCooldown => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "default_cooldown");
 
     /// <summary>
     /// The desired_capacity attribute.
     /// </summary>
-    public TerraformExpression DesiredCapacity => this["desired_capacity"];
+    [TerraformPropertyName("desired_capacity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DesiredCapacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "desired_capacity");
 
     /// <summary>
     /// The desired_capacity_type attribute.
     /// </summary>
-    public TerraformExpression DesiredCapacityType => this["desired_capacity_type"];
+    [TerraformPropertyName("desired_capacity_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DesiredCapacityType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "desired_capacity_type");
 
     /// <summary>
     /// The enabled_metrics attribute.
     /// </summary>
-    public TerraformExpression EnabledMetrics => this["enabled_metrics"];
+    [TerraformPropertyName("enabled_metrics")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> EnabledMetrics => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "enabled_metrics");
 
     /// <summary>
     /// The health_check_grace_period attribute.
     /// </summary>
-    public TerraformExpression HealthCheckGracePeriod => this["health_check_grace_period"];
+    [TerraformPropertyName("health_check_grace_period")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> HealthCheckGracePeriod => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "health_check_grace_period");
 
     /// <summary>
     /// The health_check_type attribute.
     /// </summary>
-    public TerraformExpression HealthCheckType => this["health_check_type"];
+    [TerraformPropertyName("health_check_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HealthCheckType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "health_check_type");
 
     /// <summary>
     /// The instance_maintenance_policy attribute.
     /// </summary>
-    public TerraformExpression InstanceMaintenancePolicy => this["instance_maintenance_policy"];
+    [TerraformPropertyName("instance_maintenance_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> InstanceMaintenancePolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "instance_maintenance_policy");
 
     /// <summary>
     /// The launch_configuration attribute.
     /// </summary>
-    public TerraformExpression LaunchConfiguration => this["launch_configuration"];
+    [TerraformPropertyName("launch_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LaunchConfiguration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "launch_configuration");
 
     /// <summary>
     /// The launch_template attribute.
     /// </summary>
-    public TerraformExpression LaunchTemplate => this["launch_template"];
+    [TerraformPropertyName("launch_template")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> LaunchTemplate => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "launch_template");
 
     /// <summary>
     /// The load_balancers attribute.
     /// </summary>
-    public TerraformExpression LoadBalancers => this["load_balancers"];
+    [TerraformPropertyName("load_balancers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> LoadBalancers => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "load_balancers");
 
     /// <summary>
     /// The max_instance_lifetime attribute.
     /// </summary>
-    public TerraformExpression MaxInstanceLifetime => this["max_instance_lifetime"];
+    [TerraformPropertyName("max_instance_lifetime")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxInstanceLifetime => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_instance_lifetime");
 
     /// <summary>
     /// The max_size attribute.
     /// </summary>
-    public TerraformExpression MaxSize => this["max_size"];
+    [TerraformPropertyName("max_size")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxSize => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_size");
 
     /// <summary>
     /// The min_size attribute.
     /// </summary>
-    public TerraformExpression MinSize => this["min_size"];
+    [TerraformPropertyName("min_size")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MinSize => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_size");
 
     /// <summary>
     /// The mixed_instances_policy attribute.
     /// </summary>
-    public TerraformExpression MixedInstancesPolicy => this["mixed_instances_policy"];
+    [TerraformPropertyName("mixed_instances_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MixedInstancesPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "mixed_instances_policy");
 
     /// <summary>
     /// The new_instances_protected_from_scale_in attribute.
     /// </summary>
-    public TerraformExpression NewInstancesProtectedFromScaleIn => this["new_instances_protected_from_scale_in"];
+    [TerraformPropertyName("new_instances_protected_from_scale_in")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> NewInstancesProtectedFromScaleIn => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "new_instances_protected_from_scale_in");
 
     /// <summary>
     /// The placement_group attribute.
     /// </summary>
-    public TerraformExpression PlacementGroup => this["placement_group"];
+    [TerraformPropertyName("placement_group")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PlacementGroup => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "placement_group");
 
     /// <summary>
     /// The predicted_capacity attribute.
     /// </summary>
-    public TerraformExpression PredictedCapacity => this["predicted_capacity"];
+    [TerraformPropertyName("predicted_capacity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> PredictedCapacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "predicted_capacity");
 
     /// <summary>
     /// The service_linked_role_arn attribute.
     /// </summary>
-    public TerraformExpression ServiceLinkedRoleArn => this["service_linked_role_arn"];
+    [TerraformPropertyName("service_linked_role_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceLinkedRoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_linked_role_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The suspended_processes attribute.
     /// </summary>
-    public TerraformExpression SuspendedProcesses => this["suspended_processes"];
+    [TerraformPropertyName("suspended_processes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SuspendedProcesses => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "suspended_processes");
 
     /// <summary>
     /// The tag attribute.
     /// </summary>
-    public TerraformExpression Tag => this["tag"];
+    [TerraformPropertyName("tag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Tag => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "tag");
 
     /// <summary>
     /// The target_group_arns attribute.
     /// </summary>
-    public TerraformExpression TargetGroupArns => this["target_group_arns"];
+    [TerraformPropertyName("target_group_arns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> TargetGroupArns => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "target_group_arns");
 
     /// <summary>
     /// The termination_policies attribute.
     /// </summary>
-    public TerraformExpression TerminationPolicies => this["termination_policies"];
+    [TerraformPropertyName("termination_policies")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> TerminationPolicies => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "termination_policies");
 
     /// <summary>
     /// The traffic_source attribute.
     /// </summary>
-    public TerraformExpression TrafficSource => this["traffic_source"];
+    [TerraformPropertyName("traffic_source")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> TrafficSource => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "traffic_source");
 
     /// <summary>
     /// The vpc_zone_identifier attribute.
     /// </summary>
-    public TerraformExpression VpcZoneIdentifier => this["vpc_zone_identifier"];
+    [TerraformPropertyName("vpc_zone_identifier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcZoneIdentifier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_zone_identifier");
 
     /// <summary>
     /// The warm_pool attribute.
     /// </summary>
-    public TerraformExpression WarmPool => this["warm_pool"];
+    [TerraformPropertyName("warm_pool")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> WarmPool => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "warm_pool");
 
     /// <summary>
     /// The warm_pool_size attribute.
     /// </summary>
-    public TerraformExpression WarmPoolSize => this["warm_pool_size"];
+    [TerraformPropertyName("warm_pool_size")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> WarmPoolSize => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "warm_pool_size");
 
 }

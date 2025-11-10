@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDxPublicVirtualInterfaceTimeoutsBlock : TerraformBlock
+public class AwsDxPublicVirtualInterfaceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,174 +31,131 @@ public class AwsDxPublicVirtualInterface : TerraformResource
 {
     public AwsDxPublicVirtualInterface(string name) : base("aws_dx_public_virtual_interface", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("amazon_side_asn");
-        SetOutput("arn");
-        SetOutput("aws_device");
-        SetOutput("address_family");
-        SetOutput("amazon_address");
-        SetOutput("bgp_asn");
-        SetOutput("bgp_auth_key");
-        SetOutput("connection_id");
-        SetOutput("customer_address");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("route_filter_prefixes");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("vlan");
     }
 
     /// <summary>
     /// The address_family attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
-    public required TerraformProperty<string> AddressFamily
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("address_family");
-        set => SetProperty("address_family", value);
-    }
+    [TerraformPropertyName("address_family")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AddressFamily { get; set; }
 
     /// <summary>
     /// The amazon_address attribute.
     /// </summary>
-    public TerraformProperty<string> AmazonAddress
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("amazon_address");
-        set => SetProperty("amazon_address", value);
-    }
+    [TerraformPropertyName("amazon_address")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AmazonAddress { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "amazon_address");
 
     /// <summary>
     /// The bgp_asn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpAsn is required")]
-    public required TerraformProperty<double> BgpAsn
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("bgp_asn");
-        set => SetProperty("bgp_asn", value);
-    }
+    [TerraformPropertyName("bgp_asn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> BgpAsn { get; set; }
 
     /// <summary>
     /// The bgp_auth_key attribute.
     /// </summary>
-    public TerraformProperty<string> BgpAuthKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bgp_auth_key");
-        set => SetProperty("bgp_auth_key", value);
-    }
+    [TerraformPropertyName("bgp_auth_key")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> BgpAuthKey { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bgp_auth_key");
 
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
-    public required TerraformProperty<string> ConnectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connection_id");
-        set => SetProperty("connection_id", value);
-    }
+    [TerraformPropertyName("connection_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConnectionId { get; set; }
 
     /// <summary>
     /// The customer_address attribute.
     /// </summary>
-    public TerraformProperty<string> CustomerAddress
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("customer_address");
-        set => SetProperty("customer_address", value);
-    }
+    [TerraformPropertyName("customer_address")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CustomerAddress { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "customer_address");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The route_filter_prefixes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteFilterPrefixes is required")]
-    public HashSet<TerraformProperty<string>> RouteFilterPrefixes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("route_filter_prefixes");
-        set => SetProperty("route_filter_prefixes", value);
-    }
+    [TerraformPropertyName("route_filter_prefixes")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? RouteFilterPrefixes { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The vlan attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vlan is required")]
-    public required TerraformProperty<double> Vlan
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("vlan");
-        set => SetProperty("vlan", value);
-    }
+    [TerraformPropertyName("vlan")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Vlan { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDxPublicVirtualInterfaceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDxPublicVirtualInterfaceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The amazon_side_asn attribute.
     /// </summary>
-    public TerraformExpression AmazonSideAsn => this["amazon_side_asn"];
+    [TerraformPropertyName("amazon_side_asn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AmazonSideAsn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "amazon_side_asn");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The aws_device attribute.
     /// </summary>
-    public TerraformExpression AwsDevice => this["aws_device"];
+    [TerraformPropertyName("aws_device")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AwsDevice => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_device");
 
 }

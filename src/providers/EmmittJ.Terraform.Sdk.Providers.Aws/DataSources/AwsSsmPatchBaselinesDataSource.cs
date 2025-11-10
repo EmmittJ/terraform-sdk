@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsmPatchBaselinesDataSourceFilterBlock : TerraformBlock
+public class AwsSsmPatchBaselinesDataSourceFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public HashSet<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -35,46 +33,34 @@ public class AwsSsmPatchBaselinesDataSource : TerraformDataSource
 {
     public AwsSsmPatchBaselinesDataSource(string name) : base("aws_ssm_patch_baselines", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("baseline_identities");
-        SetOutput("default_baselines");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The default_baselines attribute.
     /// </summary>
-    public TerraformProperty<bool> DefaultBaselines
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("default_baselines");
-        set => SetProperty("default_baselines", value);
-    }
+    [TerraformPropertyName("default_baselines")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DefaultBaselines { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsSsmPatchBaselinesDataSourceFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformList<TerraformBlock<AwsSsmPatchBaselinesDataSourceFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// The baseline_identities attribute.
     /// </summary>
-    public TerraformExpression BaselineIdentities => this["baseline_identities"];
+    [TerraformPropertyName("baseline_identities")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> BaselineIdentities => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "baseline_identities");
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for autoscale_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock : TerraformBlock
+public class AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The max_throughput attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxThroughput
-    {
-        set => SetProperty("max_throughput", value);
-    }
+    [TerraformPropertyName("max_throughput")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxThroughput { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "max_throughput");
 
 }
 
@@ -22,32 +21,29 @@ public class AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock : TerraformBlock
 /// Block type for conflict_resolution_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock : TerraformBlock
+public class AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The conflict_resolution_path attribute.
     /// </summary>
-    public TerraformProperty<string>? ConflictResolutionPath
-    {
-        set => SetProperty("conflict_resolution_path", value);
-    }
+    [TerraformPropertyName("conflict_resolution_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConflictResolutionPath { get; set; }
 
     /// <summary>
     /// The conflict_resolution_procedure attribute.
     /// </summary>
-    public TerraformProperty<string>? ConflictResolutionProcedure
-    {
-        set => SetProperty("conflict_resolution_procedure", value);
-    }
+    [TerraformPropertyName("conflict_resolution_procedure")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConflictResolutionProcedure { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    public required TerraformProperty<string> Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Mode { get; set; }
 
 }
 
@@ -55,40 +51,36 @@ public class AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock : Terrafor
 /// Block type for index_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBlock
+public class AzurermCosmosdbGremlinGraphIndexPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The automatic attribute.
     /// </summary>
-    public TerraformProperty<bool>? Automatic
-    {
-        set => SetProperty("automatic", value);
-    }
+    [TerraformPropertyName("automatic")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Automatic { get; set; }
 
     /// <summary>
     /// The excluded_paths attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExcludedPaths
-    {
-        set => SetProperty("excluded_paths", value);
-    }
+    [TerraformPropertyName("excluded_paths")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> ExcludedPaths { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "excluded_paths");
 
     /// <summary>
     /// The included_paths attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IncludedPaths
-    {
-        set => SetProperty("included_paths", value);
-    }
+    [TerraformPropertyName("included_paths")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> IncludedPaths { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "included_paths");
 
     /// <summary>
     /// The indexing_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexingMode is required")]
-    public required TerraformProperty<string> IndexingMode
-    {
-        set => SetProperty("indexing_mode", value);
-    }
+    [TerraformPropertyName("indexing_mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IndexingMode { get; set; }
 
 }
 
@@ -96,39 +88,35 @@ public class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCosmosdbGremlinGraphTimeoutsBlock : TerraformBlock
+public class AzurermCosmosdbGremlinGraphTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -136,16 +124,15 @@ public class AzurermCosmosdbGremlinGraphTimeoutsBlock : TerraformBlock
 /// Block type for unique_key in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermCosmosdbGremlinGraphUniqueKeyBlock : TerraformBlock
+public class AzurermCosmosdbGremlinGraphUniqueKeyBlock : ITerraformBlock
 {
     /// <summary>
     /// The paths attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
-    public HashSet<TerraformProperty<string>>? Paths
-    {
-        set => SetProperty("paths", value);
-    }
+    [TerraformPropertyName("paths")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Paths { get; set; }
 
 }
 
@@ -157,164 +144,119 @@ public class AzurermCosmosdbGremlinGraph : TerraformResource
 {
     public AzurermCosmosdbGremlinGraph(string name) : base("azurerm_cosmosdb_gremlin_graph", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account_name");
-        SetOutput("analytical_storage_ttl");
-        SetOutput("database_name");
-        SetOutput("default_ttl");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("partition_key_path");
-        SetOutput("partition_key_version");
-        SetOutput("resource_group_name");
-        SetOutput("throughput");
     }
 
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    public required TerraformProperty<string> AccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
-        set => SetProperty("account_name", value);
-    }
+    [TerraformPropertyName("account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountName { get; set; }
 
     /// <summary>
     /// The analytical_storage_ttl attribute.
     /// </summary>
-    public TerraformProperty<double> AnalyticalStorageTtl
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("analytical_storage_ttl");
-        set => SetProperty("analytical_storage_ttl", value);
-    }
+    [TerraformPropertyName("analytical_storage_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AnalyticalStorageTtl { get; set; }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    public required TerraformProperty<string> DatabaseName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
-        set => SetProperty("database_name", value);
-    }
+    [TerraformPropertyName("database_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformProperty<double> DefaultTtl
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("default_ttl");
-        set => SetProperty("default_ttl", value);
-    }
+    [TerraformPropertyName("default_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DefaultTtl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The partition_key_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKeyPath is required")]
-    public required TerraformProperty<string> PartitionKeyPath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("partition_key_path");
-        set => SetProperty("partition_key_path", value);
-    }
+    [TerraformPropertyName("partition_key_path")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PartitionKeyPath { get; set; }
 
     /// <summary>
     /// The partition_key_version attribute.
     /// </summary>
-    public TerraformProperty<double> PartitionKeyVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("partition_key_version");
-        set => SetProperty("partition_key_version", value);
-    }
+    [TerraformPropertyName("partition_key_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? PartitionKeyVersion { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformProperty<double> Throughput
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("throughput");
-        set => SetProperty("throughput", value);
-    }
+    [TerraformPropertyName("throughput")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Throughput { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "throughput");
 
     /// <summary>
     /// Block for autoscale_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
-    public List<AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock>? AutoscaleSettings
-    {
-        set => SetProperty("autoscale_settings", value);
-    }
+    [TerraformPropertyName("autoscale_settings")]
+    public TerraformList<TerraformBlock<AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; } = new();
 
     /// <summary>
     /// Block for conflict_resolution_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConflictResolutionPolicy block(s) allowed")]
-    public List<AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock>? ConflictResolutionPolicy
-    {
-        set => SetProperty("conflict_resolution_policy", value);
-    }
+    [TerraformPropertyName("conflict_resolution_policy")]
+    public TerraformList<TerraformBlock<AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock>>? ConflictResolutionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for index_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexPolicy block(s) allowed")]
-    public List<AzurermCosmosdbGremlinGraphIndexPolicyBlock>? IndexPolicy
-    {
-        set => SetProperty("index_policy", value);
-    }
+    [TerraformPropertyName("index_policy")]
+    public TerraformList<TerraformBlock<AzurermCosmosdbGremlinGraphIndexPolicyBlock>>? IndexPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCosmosdbGremlinGraphTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCosmosdbGremlinGraphTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for unique_key.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermCosmosdbGremlinGraphUniqueKeyBlock>? UniqueKey
-    {
-        set => SetProperty("unique_key", value);
-    }
+    [TerraformPropertyName("unique_key")]
+    public TerraformSet<TerraformBlock<AzurermCosmosdbGremlinGraphUniqueKeyBlock>>? UniqueKey { get; set; } = new();
 
 }

@@ -9,68 +9,49 @@ public class AwsStoragegatewayLocalDiskDataSource : TerraformDataSource
 {
     public AwsStoragegatewayLocalDiskDataSource(string name) : base("aws_storagegateway_local_disk", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("disk_id");
-        SetOutput("disk_node");
-        SetOutput("disk_path");
-        SetOutput("gateway_arn");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The disk_node attribute.
     /// </summary>
-    public TerraformProperty<string> DiskNode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("disk_node");
-        set => SetProperty("disk_node", value);
-    }
+    [TerraformPropertyName("disk_node")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DiskNode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "disk_node");
 
     /// <summary>
     /// The disk_path attribute.
     /// </summary>
-    public TerraformProperty<string> DiskPath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("disk_path");
-        set => SetProperty("disk_path", value);
-    }
+    [TerraformPropertyName("disk_path")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DiskPath { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "disk_path");
 
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
-    public required TerraformProperty<string> GatewayArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gateway_arn");
-        set => SetProperty("gateway_arn", value);
-    }
+    [TerraformPropertyName("gateway_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GatewayArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The disk_id attribute.
     /// </summary>
-    public TerraformExpression DiskId => this["disk_id"];
+    [TerraformPropertyName("disk_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DiskId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "disk_id");
 
 }

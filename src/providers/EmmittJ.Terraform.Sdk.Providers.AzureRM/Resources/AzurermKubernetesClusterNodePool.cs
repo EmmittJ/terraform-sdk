@@ -6,87 +6,77 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for kubelet_config in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
+public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The allowed_unsafe_sysctls attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowedUnsafeSysctls
-    {
-        set => SetProperty("allowed_unsafe_sysctls", value);
-    }
+    [TerraformPropertyName("allowed_unsafe_sysctls")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedUnsafeSysctls { get; set; }
 
     /// <summary>
     /// The container_log_max_line attribute.
     /// </summary>
-    public TerraformProperty<double>? ContainerLogMaxLine
-    {
-        set => SetProperty("container_log_max_line", value);
-    }
+    [TerraformPropertyName("container_log_max_line")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ContainerLogMaxLine { get; set; }
 
     /// <summary>
     /// The container_log_max_size_mb attribute.
     /// </summary>
-    public TerraformProperty<double>? ContainerLogMaxSizeMb
-    {
-        set => SetProperty("container_log_max_size_mb", value);
-    }
+    [TerraformPropertyName("container_log_max_size_mb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ContainerLogMaxSizeMb { get; set; }
 
     /// <summary>
     /// The cpu_cfs_quota_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CpuCfsQuotaEnabled
-    {
-        set => SetProperty("cpu_cfs_quota_enabled", value);
-    }
+    [TerraformPropertyName("cpu_cfs_quota_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CpuCfsQuotaEnabled { get; set; }
 
     /// <summary>
     /// The cpu_cfs_quota_period attribute.
     /// </summary>
-    public TerraformProperty<string>? CpuCfsQuotaPeriod
-    {
-        set => SetProperty("cpu_cfs_quota_period", value);
-    }
+    [TerraformPropertyName("cpu_cfs_quota_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CpuCfsQuotaPeriod { get; set; }
 
     /// <summary>
     /// The cpu_manager_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? CpuManagerPolicy
-    {
-        set => SetProperty("cpu_manager_policy", value);
-    }
+    [TerraformPropertyName("cpu_manager_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CpuManagerPolicy { get; set; }
 
     /// <summary>
     /// The image_gc_high_threshold attribute.
     /// </summary>
-    public TerraformProperty<double>? ImageGcHighThreshold
-    {
-        set => SetProperty("image_gc_high_threshold", value);
-    }
+    [TerraformPropertyName("image_gc_high_threshold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ImageGcHighThreshold { get; set; }
 
     /// <summary>
     /// The image_gc_low_threshold attribute.
     /// </summary>
-    public TerraformProperty<double>? ImageGcLowThreshold
-    {
-        set => SetProperty("image_gc_low_threshold", value);
-    }
+    [TerraformPropertyName("image_gc_low_threshold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ImageGcLowThreshold { get; set; }
 
     /// <summary>
     /// The pod_max_pid attribute.
     /// </summary>
-    public TerraformProperty<double>? PodMaxPid
-    {
-        set => SetProperty("pod_max_pid", value);
-    }
+    [TerraformPropertyName("pod_max_pid")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? PodMaxPid { get; set; }
 
     /// <summary>
     /// The topology_manager_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? TopologyManagerPolicy
-    {
-        set => SetProperty("topology_manager_policy", value);
-    }
+    [TerraformPropertyName("topology_manager_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TopologyManagerPolicy { get; set; }
 
 }
 
@@ -94,40 +84,36 @@ public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
 /// Block type for linux_os_config in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock : TerraformBlock
+public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The swap_file_size_mb attribute.
     /// </summary>
-    public TerraformProperty<double>? SwapFileSizeMb
-    {
-        set => SetProperty("swap_file_size_mb", value);
-    }
+    [TerraformPropertyName("swap_file_size_mb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SwapFileSizeMb { get; set; }
 
     /// <summary>
     /// The transparent_huge_page attribute.
     /// </summary>
-    public TerraformProperty<string>? TransparentHugePage
-    {
-        set => SetProperty("transparent_huge_page", value);
-    }
+    [TerraformPropertyName("transparent_huge_page")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TransparentHugePage { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "transparent_huge_page");
 
     /// <summary>
     /// The transparent_huge_page_defrag attribute.
     /// </summary>
-    public TerraformProperty<string>? TransparentHugePageDefrag
-    {
-        set => SetProperty("transparent_huge_page_defrag", value);
-    }
+    [TerraformPropertyName("transparent_huge_page_defrag")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TransparentHugePageDefrag { get; set; }
 
     /// <summary>
     /// The transparent_huge_page_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? TransparentHugePageEnabled
-    {
-        set => SetProperty("transparent_huge_page_enabled", value);
-    }
+    [TerraformPropertyName("transparent_huge_page_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TransparentHugePageEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "transparent_huge_page_enabled");
 
 }
 
@@ -135,23 +121,21 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock : TerraformBlock
 /// Block type for node_network_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock : TerraformBlock
+public class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The application_security_group_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ApplicationSecurityGroupIds
-    {
-        set => SetProperty("application_security_group_ids", value);
-    }
+    [TerraformPropertyName("application_security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ApplicationSecurityGroupIds { get; set; }
 
     /// <summary>
     /// The node_public_ip_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? NodePublicIpTags
-    {
-        set => SetProperty("node_public_ip_tags", value);
-    }
+    [TerraformPropertyName("node_public_ip_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? NodePublicIpTags { get; set; }
 
 }
 
@@ -159,39 +143,35 @@ public class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKubernetesClusterNodePoolTimeoutsBlock : TerraformBlock
+public class AzurermKubernetesClusterNodePoolTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -199,32 +179,29 @@ public class AzurermKubernetesClusterNodePoolTimeoutsBlock : TerraformBlock
 /// Block type for upgrade_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKubernetesClusterNodePoolUpgradeSettingsBlock : TerraformBlock
+public class AzurermKubernetesClusterNodePoolUpgradeSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The drain_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? DrainTimeoutInMinutes
-    {
-        set => SetProperty("drain_timeout_in_minutes", value);
-    }
+    [TerraformPropertyName("drain_timeout_in_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DrainTimeoutInMinutes { get; set; }
 
     /// <summary>
     /// The max_surge attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSurge is required")]
-    public required TerraformProperty<string> MaxSurge
-    {
-        set => SetProperty("max_surge", value);
-    }
+    [TerraformPropertyName("max_surge")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MaxSurge { get; set; }
 
     /// <summary>
     /// The node_soak_duration_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? NodeSoakDurationInMinutes
-    {
-        set => SetProperty("node_soak_duration_in_minutes", value);
-    }
+    [TerraformPropertyName("node_soak_duration_in_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? NodeSoakDurationInMinutes { get; set; }
 
 }
 
@@ -232,15 +209,14 @@ public class AzurermKubernetesClusterNodePoolUpgradeSettingsBlock : TerraformBlo
 /// Block type for windows_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKubernetesClusterNodePoolWindowsProfileBlock : TerraformBlock
+public class AzurermKubernetesClusterNodePoolWindowsProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The outbound_nat_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? OutboundNatEnabled
-    {
-        set => SetProperty("outbound_nat_enabled", value);
-    }
+    [TerraformPropertyName("outbound_nat_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? OutboundNatEnabled { get; set; }
 
 }
 
@@ -252,462 +228,328 @@ public class AzurermKubernetesClusterNodePool : TerraformResource
 {
     public AzurermKubernetesClusterNodePool(string name) : base("azurerm_kubernetes_cluster_node_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("auto_scaling_enabled");
-        SetOutput("capacity_reservation_group_id");
-        SetOutput("eviction_policy");
-        SetOutput("fips_enabled");
-        SetOutput("gpu_driver");
-        SetOutput("gpu_instance");
-        SetOutput("host_encryption_enabled");
-        SetOutput("host_group_id");
-        SetOutput("id");
-        SetOutput("kubelet_disk_type");
-        SetOutput("kubernetes_cluster_id");
-        SetOutput("max_count");
-        SetOutput("max_pods");
-        SetOutput("min_count");
-        SetOutput("mode");
-        SetOutput("name");
-        SetOutput("node_count");
-        SetOutput("node_labels");
-        SetOutput("node_public_ip_enabled");
-        SetOutput("node_public_ip_prefix_id");
-        SetOutput("node_taints");
-        SetOutput("orchestrator_version");
-        SetOutput("os_disk_size_gb");
-        SetOutput("os_disk_type");
-        SetOutput("os_sku");
-        SetOutput("os_type");
-        SetOutput("pod_subnet_id");
-        SetOutput("priority");
-        SetOutput("proximity_placement_group_id");
-        SetOutput("scale_down_mode");
-        SetOutput("snapshot_id");
-        SetOutput("spot_max_price");
-        SetOutput("tags");
-        SetOutput("temporary_name_for_rotation");
-        SetOutput("ultra_ssd_enabled");
-        SetOutput("vm_size");
-        SetOutput("vnet_subnet_id");
-        SetOutput("workload_runtime");
-        SetOutput("zones");
     }
 
     /// <summary>
     /// The auto_scaling_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoScalingEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_scaling_enabled");
-        set => SetProperty("auto_scaling_enabled", value);
-    }
+    [TerraformPropertyName("auto_scaling_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoScalingEnabled { get; set; }
 
     /// <summary>
     /// The capacity_reservation_group_id attribute.
     /// </summary>
-    public TerraformProperty<string> CapacityReservationGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("capacity_reservation_group_id");
-        set => SetProperty("capacity_reservation_group_id", value);
-    }
+    [TerraformPropertyName("capacity_reservation_group_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CapacityReservationGroupId { get; set; }
 
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
-    public TerraformProperty<string> EvictionPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eviction_policy");
-        set => SetProperty("eviction_policy", value);
-    }
+    [TerraformPropertyName("eviction_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EvictionPolicy { get; set; }
 
     /// <summary>
     /// The fips_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> FipsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("fips_enabled");
-        set => SetProperty("fips_enabled", value);
-    }
+    [TerraformPropertyName("fips_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? FipsEnabled { get; set; }
 
     /// <summary>
     /// The gpu_driver attribute.
     /// </summary>
-    public TerraformProperty<string> GpuDriver
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gpu_driver");
-        set => SetProperty("gpu_driver", value);
-    }
+    [TerraformPropertyName("gpu_driver")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GpuDriver { get; set; }
 
     /// <summary>
     /// The gpu_instance attribute.
     /// </summary>
-    public TerraformProperty<string> GpuInstance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gpu_instance");
-        set => SetProperty("gpu_instance", value);
-    }
+    [TerraformPropertyName("gpu_instance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GpuInstance { get; set; }
 
     /// <summary>
     /// The host_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> HostEncryptionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("host_encryption_enabled");
-        set => SetProperty("host_encryption_enabled", value);
-    }
+    [TerraformPropertyName("host_encryption_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? HostEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The host_group_id attribute.
     /// </summary>
-    public TerraformProperty<string> HostGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("host_group_id");
-        set => SetProperty("host_group_id", value);
-    }
+    [TerraformPropertyName("host_group_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HostGroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kubelet_disk_type attribute.
     /// </summary>
-    public TerraformProperty<string> KubeletDiskType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kubelet_disk_type");
-        set => SetProperty("kubelet_disk_type", value);
-    }
+    [TerraformPropertyName("kubelet_disk_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KubeletDiskType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kubelet_disk_type");
 
     /// <summary>
     /// The kubernetes_cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
-    public required TerraformProperty<string> KubernetesClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kubernetes_cluster_id");
-        set => SetProperty("kubernetes_cluster_id", value);
-    }
+    [TerraformPropertyName("kubernetes_cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KubernetesClusterId { get; set; }
 
     /// <summary>
     /// The max_count attribute.
     /// </summary>
-    public TerraformProperty<double> MaxCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_count");
-        set => SetProperty("max_count", value);
-    }
+    [TerraformPropertyName("max_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxCount { get; set; }
 
     /// <summary>
     /// The max_pods attribute.
     /// </summary>
-    public TerraformProperty<double> MaxPods
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_pods");
-        set => SetProperty("max_pods", value);
-    }
+    [TerraformPropertyName("max_pods")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxPods { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_pods");
 
     /// <summary>
     /// The min_count attribute.
     /// </summary>
-    public TerraformProperty<double> MinCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("min_count");
-        set => SetProperty("min_count", value);
-    }
+    [TerraformPropertyName("min_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinCount { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string> Mode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mode");
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
-    public TerraformProperty<double> NodeCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("node_count");
-        set => SetProperty("node_count", value);
-    }
+    [TerraformPropertyName("node_count")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> NodeCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "node_count");
 
     /// <summary>
     /// The node_labels attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> NodeLabels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("node_labels");
-        set => SetProperty("node_labels", value);
-    }
+    [TerraformPropertyName("node_labels")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> NodeLabels { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "node_labels");
 
     /// <summary>
     /// The node_public_ip_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> NodePublicIpEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("node_public_ip_enabled");
-        set => SetProperty("node_public_ip_enabled", value);
-    }
+    [TerraformPropertyName("node_public_ip_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? NodePublicIpEnabled { get; set; }
 
     /// <summary>
     /// The node_public_ip_prefix_id attribute.
     /// </summary>
-    public TerraformProperty<string> NodePublicIpPrefixId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("node_public_ip_prefix_id");
-        set => SetProperty("node_public_ip_prefix_id", value);
-    }
+    [TerraformPropertyName("node_public_ip_prefix_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NodePublicIpPrefixId { get; set; }
 
     /// <summary>
     /// The node_taints attribute.
     /// </summary>
-    public List<TerraformProperty<string>> NodeTaints
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("node_taints");
-        set => SetProperty("node_taints", value);
-    }
+    [TerraformPropertyName("node_taints")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? NodeTaints { get; set; }
 
     /// <summary>
     /// The orchestrator_version attribute.
     /// </summary>
-    public TerraformProperty<string> OrchestratorVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("orchestrator_version");
-        set => SetProperty("orchestrator_version", value);
-    }
+    [TerraformPropertyName("orchestrator_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> OrchestratorVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "orchestrator_version");
 
     /// <summary>
     /// The os_disk_size_gb attribute.
     /// </summary>
-    public TerraformProperty<double> OsDiskSizeGb
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("os_disk_size_gb");
-        set => SetProperty("os_disk_size_gb", value);
-    }
+    [TerraformPropertyName("os_disk_size_gb")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> OsDiskSizeGb { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "os_disk_size_gb");
 
     /// <summary>
     /// The os_disk_type attribute.
     /// </summary>
-    public TerraformProperty<string> OsDiskType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("os_disk_type");
-        set => SetProperty("os_disk_type", value);
-    }
+    [TerraformPropertyName("os_disk_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OsDiskType { get; set; }
 
     /// <summary>
     /// The os_sku attribute.
     /// </summary>
-    public TerraformProperty<string> OsSku
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("os_sku");
-        set => SetProperty("os_sku", value);
-    }
+    [TerraformPropertyName("os_sku")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> OsSku { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "os_sku");
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
-    public TerraformProperty<string> OsType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("os_type");
-        set => SetProperty("os_type", value);
-    }
+    [TerraformPropertyName("os_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OsType { get; set; }
 
     /// <summary>
     /// The pod_subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string> PodSubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pod_subnet_id");
-        set => SetProperty("pod_subnet_id", value);
-    }
+    [TerraformPropertyName("pod_subnet_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PodSubnetId { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<string> Priority
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("priority");
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Priority { get; set; }
 
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
-    public TerraformProperty<string> ProximityPlacementGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("proximity_placement_group_id");
-        set => SetProperty("proximity_placement_group_id", value);
-    }
+    [TerraformPropertyName("proximity_placement_group_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProximityPlacementGroupId { get; set; }
 
     /// <summary>
     /// The scale_down_mode attribute.
     /// </summary>
-    public TerraformProperty<string> ScaleDownMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("scale_down_mode");
-        set => SetProperty("scale_down_mode", value);
-    }
+    [TerraformPropertyName("scale_down_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ScaleDownMode { get; set; }
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
-    public TerraformProperty<string> SnapshotId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_id");
-        set => SetProperty("snapshot_id", value);
-    }
+    [TerraformPropertyName("snapshot_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SnapshotId { get; set; }
 
     /// <summary>
     /// The spot_max_price attribute.
     /// </summary>
-    public TerraformProperty<double> SpotMaxPrice
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("spot_max_price");
-        set => SetProperty("spot_max_price", value);
-    }
+    [TerraformPropertyName("spot_max_price")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SpotMaxPrice { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The temporary_name_for_rotation attribute.
     /// </summary>
-    public TerraformProperty<string> TemporaryNameForRotation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("temporary_name_for_rotation");
-        set => SetProperty("temporary_name_for_rotation", value);
-    }
+    [TerraformPropertyName("temporary_name_for_rotation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TemporaryNameForRotation { get; set; }
 
     /// <summary>
     /// The ultra_ssd_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> UltraSsdEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ultra_ssd_enabled");
-        set => SetProperty("ultra_ssd_enabled", value);
-    }
+    [TerraformPropertyName("ultra_ssd_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UltraSsdEnabled { get; set; }
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
-    public TerraformProperty<string> VmSize
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vm_size");
-        set => SetProperty("vm_size", value);
-    }
+    [TerraformPropertyName("vm_size")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VmSize { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vm_size");
 
     /// <summary>
     /// The vnet_subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string> VnetSubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vnet_subnet_id");
-        set => SetProperty("vnet_subnet_id", value);
-    }
+    [TerraformPropertyName("vnet_subnet_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VnetSubnetId { get; set; }
 
     /// <summary>
     /// The workload_runtime attribute.
     /// </summary>
-    public TerraformProperty<string> WorkloadRuntime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workload_runtime");
-        set => SetProperty("workload_runtime", value);
-    }
+    [TerraformPropertyName("workload_runtime")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WorkloadRuntime { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Zones
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
-        set => SetProperty("zones", value);
-    }
+    [TerraformPropertyName("zones")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Zones { get; set; }
 
     /// <summary>
     /// Block for kubelet_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KubeletConfig block(s) allowed")]
-    public List<AzurermKubernetesClusterNodePoolKubeletConfigBlock>? KubeletConfig
-    {
-        set => SetProperty("kubelet_config", value);
-    }
+    [TerraformPropertyName("kubelet_config")]
+    public TerraformList<TerraformBlock<AzurermKubernetesClusterNodePoolKubeletConfigBlock>>? KubeletConfig { get; set; } = new();
 
     /// <summary>
     /// Block for linux_os_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinuxOsConfig block(s) allowed")]
-    public List<AzurermKubernetesClusterNodePoolLinuxOsConfigBlock>? LinuxOsConfig
-    {
-        set => SetProperty("linux_os_config", value);
-    }
+    [TerraformPropertyName("linux_os_config")]
+    public TerraformList<TerraformBlock<AzurermKubernetesClusterNodePoolLinuxOsConfigBlock>>? LinuxOsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for node_network_profile.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeNetworkProfile block(s) allowed")]
-    public List<AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock>? NodeNetworkProfile
-    {
-        set => SetProperty("node_network_profile", value);
-    }
+    [TerraformPropertyName("node_network_profile")]
+    public TerraformList<TerraformBlock<AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock>>? NodeNetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermKubernetesClusterNodePoolTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermKubernetesClusterNodePoolTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for upgrade_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradeSettings block(s) allowed")]
-    public List<AzurermKubernetesClusterNodePoolUpgradeSettingsBlock>? UpgradeSettings
-    {
-        set => SetProperty("upgrade_settings", value);
-    }
+    [TerraformPropertyName("upgrade_settings")]
+    public TerraformList<TerraformBlock<AzurermKubernetesClusterNodePoolUpgradeSettingsBlock>>? UpgradeSettings { get; set; } = new();
 
     /// <summary>
     /// Block for windows_profile.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WindowsProfile block(s) allowed")]
-    public List<AzurermKubernetesClusterNodePoolWindowsProfileBlock>? WindowsProfile
-    {
-        set => SetProperty("windows_profile", value);
-    }
+    [TerraformPropertyName("windows_profile")]
+    public TerraformList<TerraformBlock<AzurermKubernetesClusterNodePoolWindowsProfileBlock>>? WindowsProfile { get; set; } = new();
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataShareDatasetKustoClusterDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermDataShareDatasetKustoClusterDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,70 +24,57 @@ public class AzurermDataShareDatasetKustoClusterDataSource : TerraformDataSource
 {
     public AzurermDataShareDatasetKustoClusterDataSource(string name) : base("azurerm_data_share_dataset_kusto_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("display_name");
-        SetOutput("kusto_cluster_id");
-        SetOutput("kusto_cluster_location");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("share_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The share_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareId is required")]
-    public required TerraformProperty<string> ShareId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("share_id");
-        set => SetProperty("share_id", value);
-    }
+    [TerraformPropertyName("share_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ShareId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDataShareDatasetKustoClusterDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDataShareDatasetKustoClusterDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The kusto_cluster_id attribute.
     /// </summary>
-    public TerraformExpression KustoClusterId => this["kusto_cluster_id"];
+    [TerraformPropertyName("kusto_cluster_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KustoClusterId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kusto_cluster_id");
 
     /// <summary>
     /// The kusto_cluster_location attribute.
     /// </summary>
-    public TerraformExpression KustoClusterLocation => this["kusto_cluster_location"];
+    [TerraformPropertyName("kusto_cluster_location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KustoClusterLocation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kusto_cluster_location");
 
 }

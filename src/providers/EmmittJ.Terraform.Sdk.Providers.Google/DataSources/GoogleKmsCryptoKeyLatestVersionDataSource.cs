@@ -9,31 +9,15 @@ public class GoogleKmsCryptoKeyLatestVersionDataSource : TerraformDataSource
 {
     public GoogleKmsCryptoKeyLatestVersionDataSource(string name) : base("google_kms_crypto_key_latest_version", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("algorithm");
-        SetOutput("name");
-        SetOutput("protection_level");
-        SetOutput("public_key");
-        SetOutput("state");
-        SetOutput("version");
-        SetOutput("crypto_key");
-        SetOutput("filter");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The crypto_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
-    public required TerraformProperty<string> CryptoKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("crypto_key");
-        set => SetProperty("crypto_key", value);
-    }
+    [TerraformPropertyName("crypto_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CryptoKey { get; set; }
 
     /// <summary>
     /// 
@@ -46,49 +30,57 @@ public class GoogleKmsCryptoKeyLatestVersionDataSource : TerraformDataSource
     /// 					[See the documentation about using filters](https://cloud.google.com/kms/docs/sorting-and-filtering)
     /// 				
     /// </summary>
-    public TerraformProperty<string> Filter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filter");
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The algorithm attribute.
     /// </summary>
-    public TerraformExpression Algorithm => this["algorithm"];
+    [TerraformPropertyName("algorithm")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Algorithm => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "algorithm");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The protection_level attribute.
     /// </summary>
-    public TerraformExpression ProtectionLevel => this["protection_level"];
+    [TerraformPropertyName("protection_level")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProtectionLevel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protection_level");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
-    public TerraformExpression PublicKey => this["public_key"];
+    [TerraformPropertyName("public_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PublicKey => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "public_key");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformExpression Version => this["version"];
+    [TerraformPropertyName("version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Version => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "version");
 
 }

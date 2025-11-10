@@ -9,136 +9,133 @@ public class AwsMskClusterDataSource : TerraformDataSource
 {
     public AwsMskClusterDataSource(string name) : base("aws_msk_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("bootstrap_brokers");
-        SetOutput("bootstrap_brokers_public_sasl_iam");
-        SetOutput("bootstrap_brokers_public_sasl_scram");
-        SetOutput("bootstrap_brokers_public_tls");
-        SetOutput("bootstrap_brokers_sasl_iam");
-        SetOutput("bootstrap_brokers_sasl_scram");
-        SetOutput("bootstrap_brokers_tls");
-        SetOutput("broker_node_group_info");
-        SetOutput("cluster_uuid");
-        SetOutput("kafka_version");
-        SetOutput("number_of_broker_nodes");
-        SetOutput("zookeeper_connect_string");
-        SetOutput("zookeeper_connect_string_tls");
-        SetOutput("cluster_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    public required TerraformProperty<string> ClusterName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
-        set => SetProperty("cluster_name", value);
-    }
+    [TerraformPropertyName("cluster_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The bootstrap_brokers attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokers => this["bootstrap_brokers"];
+    [TerraformPropertyName("bootstrap_brokers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokers => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers");
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_iam attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersPublicSaslIam => this["bootstrap_brokers_public_sasl_iam"];
+    [TerraformPropertyName("bootstrap_brokers_public_sasl_iam")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersPublicSaslIam => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_public_sasl_iam");
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_scram attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersPublicSaslScram => this["bootstrap_brokers_public_sasl_scram"];
+    [TerraformPropertyName("bootstrap_brokers_public_sasl_scram")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersPublicSaslScram => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_public_sasl_scram");
 
     /// <summary>
     /// The bootstrap_brokers_public_tls attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersPublicTls => this["bootstrap_brokers_public_tls"];
+    [TerraformPropertyName("bootstrap_brokers_public_tls")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersPublicTls => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_public_tls");
 
     /// <summary>
     /// The bootstrap_brokers_sasl_iam attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersSaslIam => this["bootstrap_brokers_sasl_iam"];
+    [TerraformPropertyName("bootstrap_brokers_sasl_iam")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersSaslIam => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_sasl_iam");
 
     /// <summary>
     /// The bootstrap_brokers_sasl_scram attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersSaslScram => this["bootstrap_brokers_sasl_scram"];
+    [TerraformPropertyName("bootstrap_brokers_sasl_scram")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersSaslScram => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_sasl_scram");
 
     /// <summary>
     /// The bootstrap_brokers_tls attribute.
     /// </summary>
-    public TerraformExpression BootstrapBrokersTls => this["bootstrap_brokers_tls"];
+    [TerraformPropertyName("bootstrap_brokers_tls")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BootstrapBrokersTls => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_brokers_tls");
 
     /// <summary>
     /// The broker_node_group_info attribute.
     /// </summary>
-    public TerraformExpression BrokerNodeGroupInfo => this["broker_node_group_info"];
+    [TerraformPropertyName("broker_node_group_info")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> BrokerNodeGroupInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "broker_node_group_info");
 
     /// <summary>
     /// The cluster_uuid attribute.
     /// </summary>
-    public TerraformExpression ClusterUuid => this["cluster_uuid"];
+    [TerraformPropertyName("cluster_uuid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClusterUuid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_uuid");
 
     /// <summary>
     /// The kafka_version attribute.
     /// </summary>
-    public TerraformExpression KafkaVersion => this["kafka_version"];
+    [TerraformPropertyName("kafka_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KafkaVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kafka_version");
 
     /// <summary>
     /// The number_of_broker_nodes attribute.
     /// </summary>
-    public TerraformExpression NumberOfBrokerNodes => this["number_of_broker_nodes"];
+    [TerraformPropertyName("number_of_broker_nodes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NumberOfBrokerNodes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "number_of_broker_nodes");
 
     /// <summary>
     /// The zookeeper_connect_string attribute.
     /// </summary>
-    public TerraformExpression ZookeeperConnectString => this["zookeeper_connect_string"];
+    [TerraformPropertyName("zookeeper_connect_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ZookeeperConnectString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zookeeper_connect_string");
 
     /// <summary>
     /// The zookeeper_connect_string_tls attribute.
     /// </summary>
-    public TerraformExpression ZookeeperConnectStringTls => this["zookeeper_connect_string_tls"];
+    [TerraformPropertyName("zookeeper_connect_string_tls")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ZookeeperConnectStringTls => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zookeeper_connect_string_tls");
 
 }

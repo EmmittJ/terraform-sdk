@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cognito_identity_providers in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCognitoIdentityPoolCognitoIdentityProvidersBlock : TerraformBlock
+public class AwsCognitoIdentityPoolCognitoIdentityProvidersBlock : ITerraformBlock
 {
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientId
-    {
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientId { get; set; }
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ProviderName
-    {
-        set => SetProperty("provider_name", value);
-    }
+    [TerraformPropertyName("provider_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProviderName { get; set; }
 
     /// <summary>
     /// The server_side_token_check attribute.
     /// </summary>
-    public TerraformProperty<bool>? ServerSideTokenCheck
-    {
-        set => SetProperty("server_side_token_check", value);
-    }
+    [TerraformPropertyName("server_side_token_check")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ServerSideTokenCheck { get; set; }
 
 }
 
@@ -41,137 +38,98 @@ public class AwsCognitoIdentityPool : TerraformResource
 {
     public AwsCognitoIdentityPool(string name) : base("aws_cognito_identity_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("allow_classic_flow");
-        SetOutput("allow_unauthenticated_identities");
-        SetOutput("developer_provider_name");
-        SetOutput("id");
-        SetOutput("identity_pool_name");
-        SetOutput("openid_connect_provider_arns");
-        SetOutput("region");
-        SetOutput("saml_provider_arns");
-        SetOutput("supported_login_providers");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The allow_classic_flow attribute.
     /// </summary>
-    public TerraformProperty<bool> AllowClassicFlow
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_classic_flow");
-        set => SetProperty("allow_classic_flow", value);
-    }
+    [TerraformPropertyName("allow_classic_flow")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowClassicFlow { get; set; }
 
     /// <summary>
     /// The allow_unauthenticated_identities attribute.
     /// </summary>
-    public TerraformProperty<bool> AllowUnauthenticatedIdentities
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_unauthenticated_identities");
-        set => SetProperty("allow_unauthenticated_identities", value);
-    }
+    [TerraformPropertyName("allow_unauthenticated_identities")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowUnauthenticatedIdentities { get; set; }
 
     /// <summary>
     /// The developer_provider_name attribute.
     /// </summary>
-    public TerraformProperty<string> DeveloperProviderName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("developer_provider_name");
-        set => SetProperty("developer_provider_name", value);
-    }
+    [TerraformPropertyName("developer_provider_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeveloperProviderName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The identity_pool_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolName is required")]
-    public required TerraformProperty<string> IdentityPoolName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_pool_name");
-        set => SetProperty("identity_pool_name", value);
-    }
+    [TerraformPropertyName("identity_pool_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IdentityPoolName { get; set; }
 
     /// <summary>
     /// The openid_connect_provider_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> OpenidConnectProviderArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("openid_connect_provider_arns");
-        set => SetProperty("openid_connect_provider_arns", value);
-    }
+    [TerraformPropertyName("openid_connect_provider_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? OpenidConnectProviderArns { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The saml_provider_arns attribute.
     /// </summary>
-    public List<TerraformProperty<string>> SamlProviderArns
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("saml_provider_arns");
-        set => SetProperty("saml_provider_arns", value);
-    }
+    [TerraformPropertyName("saml_provider_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SamlProviderArns { get; set; }
 
     /// <summary>
     /// The supported_login_providers attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> SupportedLoginProviders
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("supported_login_providers");
-        set => SetProperty("supported_login_providers", value);
-    }
+    [TerraformPropertyName("supported_login_providers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? SupportedLoginProviders { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for cognito_identity_providers.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsCognitoIdentityPoolCognitoIdentityProvidersBlock>? CognitoIdentityProviders
-    {
-        set => SetProperty("cognito_identity_providers", value);
-    }
+    [TerraformPropertyName("cognito_identity_providers")]
+    public TerraformSet<TerraformBlock<AwsCognitoIdentityPoolCognitoIdentityProvidersBlock>>? CognitoIdentityProviders { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

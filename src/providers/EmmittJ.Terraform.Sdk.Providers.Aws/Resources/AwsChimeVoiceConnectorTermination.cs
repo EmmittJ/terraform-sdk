@@ -9,94 +9,65 @@ public class AwsChimeVoiceConnectorTermination : TerraformResource
 {
     public AwsChimeVoiceConnectorTermination(string name) : base("aws_chime_voice_connector_termination", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("calling_regions");
-        SetOutput("cidr_allow_list");
-        SetOutput("cps_limit");
-        SetOutput("default_phone_number");
-        SetOutput("disabled");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("voice_connector_id");
     }
 
     /// <summary>
     /// The calling_regions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallingRegions is required")]
-    public HashSet<TerraformProperty<string>> CallingRegions
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("calling_regions");
-        set => SetProperty("calling_regions", value);
-    }
+    [TerraformPropertyName("calling_regions")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? CallingRegions { get; set; }
 
     /// <summary>
     /// The cidr_allow_list attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrAllowList is required")]
-    public HashSet<TerraformProperty<string>> CidrAllowList
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("cidr_allow_list");
-        set => SetProperty("cidr_allow_list", value);
-    }
+    [TerraformPropertyName("cidr_allow_list")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? CidrAllowList { get; set; }
 
     /// <summary>
     /// The cps_limit attribute.
     /// </summary>
-    public TerraformProperty<double> CpsLimit
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("cps_limit");
-        set => SetProperty("cps_limit", value);
-    }
+    [TerraformPropertyName("cps_limit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CpsLimit { get; set; }
 
     /// <summary>
     /// The default_phone_number attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultPhoneNumber
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_phone_number");
-        set => SetProperty("default_phone_number", value);
-    }
+    [TerraformPropertyName("default_phone_number")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultPhoneNumber { get; set; }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Disabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("disabled");
-        set => SetProperty("disabled", value);
-    }
+    [TerraformPropertyName("disabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The voice_connector_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
-    public required TerraformProperty<string> VoiceConnectorId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("voice_connector_id");
-        set => SetProperty("voice_connector_id", value);
-    }
+    [TerraformPropertyName("voice_connector_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VoiceConnectorId { get; set; }
 
 }

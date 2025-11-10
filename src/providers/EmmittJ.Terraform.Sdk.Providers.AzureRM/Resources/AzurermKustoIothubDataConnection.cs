@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKustoIothubDataConnectionTimeoutsBlock : TerraformBlock
+public class AzurermKustoIothubDataConnectionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,168 +38,119 @@ public class AzurermKustoIothubDataConnection : TerraformResource
 {
     public AzurermKustoIothubDataConnection(string name) : base("azurerm_kusto_iothub_data_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cluster_name");
-        SetOutput("consumer_group");
-        SetOutput("data_format");
-        SetOutput("database_name");
-        SetOutput("database_routing_type");
-        SetOutput("event_system_properties");
-        SetOutput("id");
-        SetOutput("iothub_id");
-        SetOutput("location");
-        SetOutput("mapping_rule_name");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("shared_access_policy_name");
-        SetOutput("table_name");
     }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    public required TerraformProperty<string> ClusterName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
-        set => SetProperty("cluster_name", value);
-    }
+    [TerraformPropertyName("cluster_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterName { get; set; }
 
     /// <summary>
     /// The consumer_group attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerGroup is required")]
-    public required TerraformProperty<string> ConsumerGroup
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("consumer_group");
-        set => SetProperty("consumer_group", value);
-    }
+    [TerraformPropertyName("consumer_group")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConsumerGroup { get; set; }
 
     /// <summary>
     /// The data_format attribute.
     /// </summary>
-    public TerraformProperty<string> DataFormat
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_format");
-        set => SetProperty("data_format", value);
-    }
+    [TerraformPropertyName("data_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DataFormat { get; set; }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    public required TerraformProperty<string> DatabaseName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
-        set => SetProperty("database_name", value);
-    }
+    [TerraformPropertyName("database_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
 
     /// <summary>
     /// The database_routing_type attribute.
     /// </summary>
-    public TerraformProperty<string> DatabaseRoutingType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_routing_type");
-        set => SetProperty("database_routing_type", value);
-    }
+    [TerraformPropertyName("database_routing_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DatabaseRoutingType { get; set; }
 
     /// <summary>
     /// The event_system_properties attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> EventSystemProperties
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("event_system_properties");
-        set => SetProperty("event_system_properties", value);
-    }
+    [TerraformPropertyName("event_system_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? EventSystemProperties { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The iothub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
-    public required TerraformProperty<string> IothubId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iothub_id");
-        set => SetProperty("iothub_id", value);
-    }
+    [TerraformPropertyName("iothub_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IothubId { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The mapping_rule_name attribute.
     /// </summary>
-    public TerraformProperty<string> MappingRuleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mapping_rule_name");
-        set => SetProperty("mapping_rule_name", value);
-    }
+    [TerraformPropertyName("mapping_rule_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MappingRuleName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The shared_access_policy_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedAccessPolicyName is required")]
-    public required TerraformProperty<string> SharedAccessPolicyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("shared_access_policy_name");
-        set => SetProperty("shared_access_policy_name", value);
-    }
+    [TerraformPropertyName("shared_access_policy_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SharedAccessPolicyName { get; set; }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformProperty<string> TableName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
-        set => SetProperty("table_name", value);
-    }
+    [TerraformPropertyName("table_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TableName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermKustoIothubDataConnectionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermKustoIothubDataConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

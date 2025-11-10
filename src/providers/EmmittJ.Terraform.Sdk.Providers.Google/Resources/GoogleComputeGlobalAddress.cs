@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeGlobalAddressTimeoutsBlock : TerraformBlock
+public class GoogleComputeGlobalAddressTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,27 +38,6 @@ public class GoogleComputeGlobalAddress : TerraformResource
 {
     public GoogleComputeGlobalAddress(string name) : base("google_compute_global_address", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_timestamp");
-        SetOutput("effective_labels");
-        SetOutput("label_fingerprint");
-        SetOutput("self_link");
-        SetOutput("terraform_labels");
-        SetOutput("address");
-        SetOutput("address_type");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("ip_version");
-        SetOutput("labels");
-        SetOutput("name");
-        SetOutput("network");
-        SetOutput("prefix_length");
-        SetOutput("project");
-        SetOutput("purpose");
     }
 
     /// <summary>
@@ -69,11 +45,9 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// resource. This can be supplied as an input to reserve a specific
     /// address or omitted to allow GCP to choose a valid one for you.
     /// </summary>
-    public TerraformProperty<string> Address
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("address");
-        set => SetProperty("address", value);
-    }
+    [TerraformPropertyName("address")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Address { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "address");
 
     /// <summary>
     /// The type of the address to reserve.
@@ -81,38 +55,30 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// * EXTERNAL indicates public/external single IP address.
     /// * INTERNAL indicates internal IP ranges belonging to some network. Default value: &amp;quot;EXTERNAL&amp;quot; Possible values: [&amp;quot;EXTERNAL&amp;quot;, &amp;quot;INTERNAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> AddressType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("address_type");
-        set => SetProperty("address_type", value);
-    }
+    [TerraformPropertyName("address_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AddressType { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The IP Version that will be used by this address. The default value is &#39;IPV4&#39;. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> IpVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ip_version");
-        set => SetProperty("ip_version", value);
-    }
+    [TerraformPropertyName("ip_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IpVersion { get; set; }
 
     /// <summary>
     /// Labels to apply to this address.  A list of key-&amp;gt;value pairs.
@@ -121,11 +87,9 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -137,11 +101,9 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The URL of the network in which to reserve the IP range. The IP range
@@ -150,11 +112,9 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// 
     /// This should only be set when using an Internal address.
     /// </summary>
-    public TerraformProperty<string> Network
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network");
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Network { get; set; }
 
     /// <summary>
     /// The prefix length of the IP range. If not present, it means the
@@ -163,20 +123,16 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// This field is not applicable to addresses with addressType=INTERNAL
     /// when purpose=PRIVATE_SERVICE_CONNECT
     /// </summary>
-    public TerraformProperty<double> PrefixLength
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("prefix_length");
-        set => SetProperty("prefix_length", value);
-    }
+    [TerraformPropertyName("prefix_length")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> PrefixLength { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "prefix_length");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The purpose of the resource. Possible values include:
@@ -185,46 +141,52 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// 
     /// * PRIVATE_SERVICE_CONNECT - for ([Beta](https://terraform.io/docs/providers/google/guides/provider_versions.html) only) Private Service Connect networks
     /// </summary>
-    public TerraformProperty<string> Purpose
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("purpose");
-        set => SetProperty("purpose", value);
-    }
+    [TerraformPropertyName("purpose")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Purpose { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeGlobalAddressTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeGlobalAddressTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreationTimestamp => this["creation_timestamp"];
+    [TerraformPropertyName("creation_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
-    public TerraformExpression LabelFingerprint => this["label_fingerprint"];
+    [TerraformPropertyName("label_fingerprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LabelFingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "label_fingerprint");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

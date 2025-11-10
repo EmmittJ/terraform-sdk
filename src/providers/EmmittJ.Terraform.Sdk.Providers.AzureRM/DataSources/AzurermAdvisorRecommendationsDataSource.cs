@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAdvisorRecommendationsDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermAdvisorRecommendationsDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,56 +24,41 @@ public class AzurermAdvisorRecommendationsDataSource : TerraformDataSource
 {
     public AzurermAdvisorRecommendationsDataSource(string name) : base("azurerm_advisor_recommendations", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("recommendations");
-        SetOutput("filter_by_category");
-        SetOutput("filter_by_resource_groups");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The filter_by_category attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> FilterByCategory
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("filter_by_category");
-        set => SetProperty("filter_by_category", value);
-    }
+    [TerraformPropertyName("filter_by_category")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? FilterByCategory { get; set; }
 
     /// <summary>
     /// The filter_by_resource_groups attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> FilterByResourceGroups
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("filter_by_resource_groups");
-        set => SetProperty("filter_by_resource_groups", value);
-    }
+    [TerraformPropertyName("filter_by_resource_groups")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? FilterByResourceGroups { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermAdvisorRecommendationsDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermAdvisorRecommendationsDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The recommendations attribute.
     /// </summary>
-    public TerraformExpression Recommendations => this["recommendations"];
+    [TerraformPropertyName("recommendations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Recommendations => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "recommendations");
 
 }

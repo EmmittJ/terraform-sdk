@@ -9,71 +9,57 @@ public class AwsDxRouterConfigurationDataSource : TerraformDataSource
 {
     public AwsDxRouterConfigurationDataSource(string name) : base("aws_dx_router_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("customer_router_config");
-        SetOutput("router");
-        SetOutput("virtual_interface_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("router_type_identifier");
-        SetOutput("virtual_interface_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The router_type_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouterTypeIdentifier is required")]
-    public required TerraformProperty<string> RouterTypeIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("router_type_identifier");
-        set => SetProperty("router_type_identifier", value);
-    }
+    [TerraformPropertyName("router_type_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RouterTypeIdentifier { get; set; }
 
     /// <summary>
     /// The virtual_interface_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualInterfaceId is required")]
-    public required TerraformProperty<string> VirtualInterfaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_interface_id");
-        set => SetProperty("virtual_interface_id", value);
-    }
+    [TerraformPropertyName("virtual_interface_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualInterfaceId { get; set; }
 
     /// <summary>
     /// The customer_router_config attribute.
     /// </summary>
-    public TerraformExpression CustomerRouterConfig => this["customer_router_config"];
+    [TerraformPropertyName("customer_router_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CustomerRouterConfig => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "customer_router_config");
 
     /// <summary>
     /// The router attribute.
     /// </summary>
-    public TerraformExpression Router => this["router"];
+    [TerraformPropertyName("router")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Router => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "router");
 
     /// <summary>
     /// The virtual_interface_name attribute.
     /// </summary>
-    public TerraformExpression VirtualInterfaceName => this["virtual_interface_name"];
+    [TerraformPropertyName("virtual_interface_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VirtualInterfaceName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "virtual_interface_name");
 
 }

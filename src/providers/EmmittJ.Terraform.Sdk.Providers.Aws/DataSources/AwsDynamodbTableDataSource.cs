@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for server_side_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDynamodbTableDataSourceServerSideEncryptionBlock : TerraformBlock
+public class AwsDynamodbTableDataSourceServerSideEncryptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Enabled => new TerraformReferenceProperty<TerraformProperty<bool>>("", "enabled");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
-    {
-        set => SetProperty("kms_key_arn", value);
-    }
+    [TerraformPropertyName("kms_key_arn")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsKeyArn => new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key_arn");
 
 }
 
@@ -34,182 +32,183 @@ public class AwsDynamodbTableDataSource : TerraformDataSource
 {
     public AwsDynamodbTableDataSource(string name) : base("aws_dynamodb_table", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("attribute");
-        SetOutput("billing_mode");
-        SetOutput("deletion_protection_enabled");
-        SetOutput("global_secondary_index");
-        SetOutput("hash_key");
-        SetOutput("local_secondary_index");
-        SetOutput("on_demand_throughput");
-        SetOutput("point_in_time_recovery");
-        SetOutput("range_key");
-        SetOutput("read_capacity");
-        SetOutput("replica");
-        SetOutput("stream_arn");
-        SetOutput("stream_enabled");
-        SetOutput("stream_label");
-        SetOutput("stream_view_type");
-        SetOutput("table_class");
-        SetOutput("ttl");
-        SetOutput("warm_throughput");
-        SetOutput("write_capacity");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// Block for server_side_encryption.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
-    public List<AwsDynamodbTableDataSourceServerSideEncryptionBlock>? ServerSideEncryption
-    {
-        set => SetProperty("server_side_encryption", value);
-    }
+    [TerraformPropertyName("server_side_encryption")]
+    public TerraformList<TerraformBlock<AwsDynamodbTableDataSourceServerSideEncryptionBlock>>? ServerSideEncryption { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The attribute attribute.
     /// </summary>
-    public TerraformExpression Attribute => this["attribute"];
+    [TerraformPropertyName("attribute")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Attribute => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "attribute");
 
     /// <summary>
     /// The billing_mode attribute.
     /// </summary>
-    public TerraformExpression BillingMode => this["billing_mode"];
+    [TerraformPropertyName("billing_mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BillingMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "billing_mode");
 
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformExpression DeletionProtectionEnabled => this["deletion_protection_enabled"];
+    [TerraformPropertyName("deletion_protection_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtectionEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection_enabled");
 
     /// <summary>
     /// The global_secondary_index attribute.
     /// </summary>
-    public TerraformExpression GlobalSecondaryIndex => this["global_secondary_index"];
+    [TerraformPropertyName("global_secondary_index")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> GlobalSecondaryIndex => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "global_secondary_index");
 
     /// <summary>
     /// The hash_key attribute.
     /// </summary>
-    public TerraformExpression HashKey => this["hash_key"];
+    [TerraformPropertyName("hash_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HashKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hash_key");
 
     /// <summary>
     /// The local_secondary_index attribute.
     /// </summary>
-    public TerraformExpression LocalSecondaryIndex => this["local_secondary_index"];
+    [TerraformPropertyName("local_secondary_index")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> LocalSecondaryIndex => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "local_secondary_index");
 
     /// <summary>
     /// The on_demand_throughput attribute.
     /// </summary>
-    public TerraformExpression OnDemandThroughput => this["on_demand_throughput"];
+    [TerraformPropertyName("on_demand_throughput")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> OnDemandThroughput => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "on_demand_throughput");
 
     /// <summary>
     /// The point_in_time_recovery attribute.
     /// </summary>
-    public TerraformExpression PointInTimeRecovery => this["point_in_time_recovery"];
+    [TerraformPropertyName("point_in_time_recovery")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PointInTimeRecovery => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "point_in_time_recovery");
 
     /// <summary>
     /// The range_key attribute.
     /// </summary>
-    public TerraformExpression RangeKey => this["range_key"];
+    [TerraformPropertyName("range_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RangeKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "range_key");
 
     /// <summary>
     /// The read_capacity attribute.
     /// </summary>
-    public TerraformExpression ReadCapacity => this["read_capacity"];
+    [TerraformPropertyName("read_capacity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ReadCapacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "read_capacity");
 
     /// <summary>
     /// The replica attribute.
     /// </summary>
-    public TerraformExpression Replica => this["replica"];
+    [TerraformPropertyName("replica")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Replica => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "replica");
 
     /// <summary>
     /// The stream_arn attribute.
     /// </summary>
-    public TerraformExpression StreamArn => this["stream_arn"];
+    [TerraformPropertyName("stream_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StreamArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "stream_arn");
 
     /// <summary>
     /// The stream_enabled attribute.
     /// </summary>
-    public TerraformExpression StreamEnabled => this["stream_enabled"];
+    [TerraformPropertyName("stream_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> StreamEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "stream_enabled");
 
     /// <summary>
     /// The stream_label attribute.
     /// </summary>
-    public TerraformExpression StreamLabel => this["stream_label"];
+    [TerraformPropertyName("stream_label")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StreamLabel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "stream_label");
 
     /// <summary>
     /// The stream_view_type attribute.
     /// </summary>
-    public TerraformExpression StreamViewType => this["stream_view_type"];
+    [TerraformPropertyName("stream_view_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StreamViewType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "stream_view_type");
 
     /// <summary>
     /// The table_class attribute.
     /// </summary>
-    public TerraformExpression TableClass => this["table_class"];
+    [TerraformPropertyName("table_class")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TableClass => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "table_class");
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformExpression Ttl => this["ttl"];
+    [TerraformPropertyName("ttl")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Ttl => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "ttl");
 
     /// <summary>
     /// The warm_throughput attribute.
     /// </summary>
-    public TerraformExpression WarmThroughput => this["warm_throughput"];
+    [TerraformPropertyName("warm_throughput")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> WarmThroughput => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "warm_throughput");
 
     /// <summary>
     /// The write_capacity attribute.
     /// </summary>
-    public TerraformExpression WriteCapacity => this["write_capacity"];
+    [TerraformPropertyName("write_capacity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> WriteCapacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "write_capacity");
 
 }

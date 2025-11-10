@@ -6,47 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for connection_pool_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : TerraformBlock
+public class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The connection_borrow_timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? ConnectionBorrowTimeout
-    {
-        set => SetProperty("connection_borrow_timeout", value);
-    }
+    [TerraformPropertyName("connection_borrow_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ConnectionBorrowTimeout { get; set; }
 
     /// <summary>
     /// The init_query attribute.
     /// </summary>
-    public TerraformProperty<string>? InitQuery
-    {
-        set => SetProperty("init_query", value);
-    }
+    [TerraformPropertyName("init_query")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InitQuery { get; set; }
 
     /// <summary>
     /// The max_connections_percent attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxConnectionsPercent
-    {
-        set => SetProperty("max_connections_percent", value);
-    }
+    [TerraformPropertyName("max_connections_percent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxConnectionsPercent { get; set; }
 
     /// <summary>
     /// The max_idle_connections_percent attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxIdleConnectionsPercent
-    {
-        set => SetProperty("max_idle_connections_percent", value);
-    }
+    [TerraformPropertyName("max_idle_connections_percent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxIdleConnectionsPercent { get; set; }
 
     /// <summary>
     /// The session_pinning_filters attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SessionPinningFilters
-    {
-        set => SetProperty("session_pinning_filters", value);
-    }
+    [TerraformPropertyName("session_pinning_filters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SessionPinningFilters { get; set; }
 
 }
 
@@ -54,23 +49,21 @@ public class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDbProxyDefaultTargetGroupTimeoutsBlock : TerraformBlock
+public class AwsDbProxyDefaultTargetGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -82,73 +75,57 @@ public class AwsDbProxyDefaultTargetGroup : TerraformResource
 {
     public AwsDbProxyDefaultTargetGroup(string name) : base("aws_db_proxy_default_target_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("name");
-        SetOutput("db_proxy_name");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The db_proxy_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyName is required")]
-    public required TerraformProperty<string> DbProxyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_proxy_name");
-        set => SetProperty("db_proxy_name", value);
-    }
+    [TerraformPropertyName("db_proxy_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DbProxyName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for connection_pool_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionPoolConfig block(s) allowed")]
-    public List<AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock>? ConnectionPoolConfig
-    {
-        set => SetProperty("connection_pool_config", value);
-    }
+    [TerraformPropertyName("connection_pool_config")]
+    public TerraformList<TerraformBlock<AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock>>? ConnectionPoolConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDbProxyDefaultTargetGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDbProxyDefaultTargetGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

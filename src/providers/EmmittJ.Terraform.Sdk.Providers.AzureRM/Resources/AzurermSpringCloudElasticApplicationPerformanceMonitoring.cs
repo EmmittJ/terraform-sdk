@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBlock : TerraformBlock
+public class AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,95 +45,67 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
 {
     public AzurermSpringCloudElasticApplicationPerformanceMonitoring(string name) : base("azurerm_spring_cloud_elastic_application_performance_monitoring", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("application_packages");
-        SetOutput("globally_enabled");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("server_url");
-        SetOutput("service_name");
-        SetOutput("spring_cloud_service_id");
     }
 
     /// <summary>
     /// The application_packages attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationPackages is required")]
-    public List<TerraformProperty<string>> ApplicationPackages
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("application_packages");
-        set => SetProperty("application_packages", value);
-    }
+    [TerraformPropertyName("application_packages")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? ApplicationPackages { get; set; }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> GloballyEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("globally_enabled");
-        set => SetProperty("globally_enabled", value);
-    }
+    [TerraformPropertyName("globally_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? GloballyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The server_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerUrl is required")]
-    public required TerraformProperty<string> ServerUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("server_url");
-        set => SetProperty("server_url", value);
-    }
+    [TerraformPropertyName("server_url")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServerUrl { get; set; }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
-    public required TerraformProperty<string> ServiceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
-        set => SetProperty("service_name", value);
-    }
+    [TerraformPropertyName("service_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceName { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
-    public required TerraformProperty<string> SpringCloudServiceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_service_id");
-        set => SetProperty("spring_cloud_service_id", value);
-    }
+    [TerraformPropertyName("spring_cloud_service_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

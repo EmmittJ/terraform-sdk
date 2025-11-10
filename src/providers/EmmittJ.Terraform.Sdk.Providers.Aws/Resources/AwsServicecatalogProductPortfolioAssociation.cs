@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsServicecatalogProductPortfolioAssociationTimeoutsBlock : TerraformBlock
+public class AwsServicecatalogProductPortfolioAssociationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,82 +38,57 @@ public class AwsServicecatalogProductPortfolioAssociation : TerraformResource
 {
     public AwsServicecatalogProductPortfolioAssociation(string name) : base("aws_servicecatalog_product_portfolio_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("accept_language");
-        SetOutput("id");
-        SetOutput("portfolio_id");
-        SetOutput("product_id");
-        SetOutput("region");
-        SetOutput("source_portfolio_id");
     }
 
     /// <summary>
     /// The accept_language attribute.
     /// </summary>
-    public TerraformProperty<string> AcceptLanguage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("accept_language");
-        set => SetProperty("accept_language", value);
-    }
+    [TerraformPropertyName("accept_language")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AcceptLanguage { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The portfolio_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
-    public required TerraformProperty<string> PortfolioId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("portfolio_id");
-        set => SetProperty("portfolio_id", value);
-    }
+    [TerraformPropertyName("portfolio_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PortfolioId { get; set; }
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
-    public required TerraformProperty<string> ProductId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("product_id");
-        set => SetProperty("product_id", value);
-    }
+    [TerraformPropertyName("product_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProductId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The source_portfolio_id attribute.
     /// </summary>
-    public TerraformProperty<string> SourcePortfolioId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_portfolio_id");
-        set => SetProperty("source_portfolio_id", value);
-    }
+    [TerraformPropertyName("source_portfolio_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourcePortfolioId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsServicecatalogProductPortfolioAssociationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsServicecatalogProductPortfolioAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

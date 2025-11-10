@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermServicePlanTimeoutsBlock : TerraformBlock
+public class AzurermServicePlanTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,167 +45,123 @@ public class AzurermServicePlan : TerraformResource
 {
     public AzurermServicePlan(string name) : base("azurerm_service_plan", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("kind");
-        SetOutput("reserved");
-        SetOutput("app_service_environment_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("maximum_elastic_worker_count");
-        SetOutput("name");
-        SetOutput("os_type");
-        SetOutput("per_site_scaling_enabled");
-        SetOutput("premium_plan_auto_scale_enabled");
-        SetOutput("resource_group_name");
-        SetOutput("sku_name");
-        SetOutput("tags");
-        SetOutput("worker_count");
-        SetOutput("zone_balancing_enabled");
     }
 
     /// <summary>
     /// The app_service_environment_id attribute.
     /// </summary>
-    public TerraformProperty<string> AppServiceEnvironmentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_service_environment_id");
-        set => SetProperty("app_service_environment_id", value);
-    }
+    [TerraformPropertyName("app_service_environment_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AppServiceEnvironmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The maximum_elastic_worker_count attribute.
     /// </summary>
-    public TerraformProperty<double> MaximumElasticWorkerCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("maximum_elastic_worker_count");
-        set => SetProperty("maximum_elastic_worker_count", value);
-    }
+    [TerraformPropertyName("maximum_elastic_worker_count")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaximumElasticWorkerCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "maximum_elastic_worker_count");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
-    public required TerraformProperty<string> OsType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("os_type");
-        set => SetProperty("os_type", value);
-    }
+    [TerraformPropertyName("os_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OsType { get; set; }
 
     /// <summary>
     /// The per_site_scaling_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PerSiteScalingEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("per_site_scaling_enabled");
-        set => SetProperty("per_site_scaling_enabled", value);
-    }
+    [TerraformPropertyName("per_site_scaling_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PerSiteScalingEnabled { get; set; }
 
     /// <summary>
     /// The premium_plan_auto_scale_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PremiumPlanAutoScaleEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("premium_plan_auto_scale_enabled");
-        set => SetProperty("premium_plan_auto_scale_enabled", value);
-    }
+    [TerraformPropertyName("premium_plan_auto_scale_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PremiumPlanAutoScaleEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    public required TerraformProperty<string> SkuName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
-        set => SetProperty("sku_name", value);
-    }
+    [TerraformPropertyName("sku_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The worker_count attribute.
     /// </summary>
-    public TerraformProperty<double> WorkerCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("worker_count");
-        set => SetProperty("worker_count", value);
-    }
+    [TerraformPropertyName("worker_count")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> WorkerCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "worker_count");
 
     /// <summary>
     /// The zone_balancing_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ZoneBalancingEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("zone_balancing_enabled");
-        set => SetProperty("zone_balancing_enabled", value);
-    }
+    [TerraformPropertyName("zone_balancing_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ZoneBalancingEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermServicePlanTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermServicePlanTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformExpression Kind => this["kind"];
+    [TerraformPropertyName("kind")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Kind => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kind");
 
     /// <summary>
     /// The reserved attribute.
     /// </summary>
-    public TerraformExpression Reserved => this["reserved"];
+    [TerraformPropertyName("reserved")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Reserved => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reserved");
 
 }

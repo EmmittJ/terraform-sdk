@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for versioning_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketVersioningVersioningConfigurationBlock : TerraformBlock
+public class AwsS3BucketVersioningVersioningConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The mfa_delete attribute.
     /// </summary>
-    public TerraformProperty<string>? MfaDelete
-    {
-        set => SetProperty("mfa_delete", value);
-    }
+    [TerraformPropertyName("mfa_delete")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MfaDelete { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "mfa_delete");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
-    public required TerraformProperty<string> Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Status { get; set; }
 
 }
 
@@ -35,63 +33,43 @@ public class AwsS3BucketVersioning : TerraformResource
 {
     public AwsS3BucketVersioning(string name) : base("aws_s3_bucket_versioning", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bucket");
-        SetOutput("expected_bucket_owner");
-        SetOutput("id");
-        SetOutput("mfa");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string> ExpectedBucketOwner
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("expected_bucket_owner");
-        set => SetProperty("expected_bucket_owner", value);
-    }
+    [TerraformPropertyName("expected_bucket_owner")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The mfa attribute.
     /// </summary>
-    public TerraformProperty<string> Mfa
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mfa");
-        set => SetProperty("mfa", value);
-    }
+    [TerraformPropertyName("mfa")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Mfa { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for versioning_configuration.
@@ -100,9 +78,7 @@ public class AwsS3BucketVersioning : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersioningConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VersioningConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VersioningConfiguration block(s) allowed")]
-    public List<AwsS3BucketVersioningVersioningConfigurationBlock>? VersioningConfiguration
-    {
-        set => SetProperty("versioning_configuration", value);
-    }
+    [TerraformPropertyName("versioning_configuration")]
+    public TerraformList<TerraformBlock<AwsS3BucketVersioningVersioningConfigurationBlock>>? VersioningConfiguration { get; set; } = new();
 
 }

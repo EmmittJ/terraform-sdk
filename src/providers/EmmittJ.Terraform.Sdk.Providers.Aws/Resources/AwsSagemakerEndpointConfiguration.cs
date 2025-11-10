@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for async_inference_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock : TerraformBlock
+public class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock : ITerraformBlock
 {
 }
 
@@ -14,41 +14,37 @@ public class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock : Terraf
 /// Block type for data_capture_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : TerraformBlock
+public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The destination_s3_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationS3Uri is required")]
-    public required TerraformProperty<string> DestinationS3Uri
-    {
-        set => SetProperty("destination_s3_uri", value);
-    }
+    [TerraformPropertyName("destination_s3_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DestinationS3Uri { get; set; }
 
     /// <summary>
     /// The enable_capture attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableCapture
-    {
-        set => SetProperty("enable_capture", value);
-    }
+    [TerraformPropertyName("enable_capture")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableCapture { get; set; }
 
     /// <summary>
     /// The initial_sampling_percentage attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialSamplingPercentage is required")]
-    public required TerraformProperty<double> InitialSamplingPercentage
-    {
-        set => SetProperty("initial_sampling_percentage", value);
-    }
+    [TerraformPropertyName("initial_sampling_percentage")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> InitialSamplingPercentage { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
-    {
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
 
 }
 
@@ -56,96 +52,85 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : Terraform
 /// Block type for production_variants in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : TerraformBlock
+public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : ITerraformBlock
 {
     /// <summary>
     /// The accelerator_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AcceleratorType
-    {
-        set => SetProperty("accelerator_type", value);
-    }
+    [TerraformPropertyName("accelerator_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AcceleratorType { get; set; }
 
     /// <summary>
     /// The container_startup_health_check_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? ContainerStartupHealthCheckTimeoutInSeconds
-    {
-        set => SetProperty("container_startup_health_check_timeout_in_seconds", value);
-    }
+    [TerraformPropertyName("container_startup_health_check_timeout_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ContainerStartupHealthCheckTimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The enable_ssm_access attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableSsmAccess
-    {
-        set => SetProperty("enable_ssm_access", value);
-    }
+    [TerraformPropertyName("enable_ssm_access")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableSsmAccess { get; set; }
 
     /// <summary>
     /// The inference_ami_version attribute.
     /// </summary>
-    public TerraformProperty<string>? InferenceAmiVersion
-    {
-        set => SetProperty("inference_ami_version", value);
-    }
+    [TerraformPropertyName("inference_ami_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InferenceAmiVersion { get; set; }
 
     /// <summary>
     /// The initial_instance_count attribute.
     /// </summary>
-    public TerraformProperty<double>? InitialInstanceCount
-    {
-        set => SetProperty("initial_instance_count", value);
-    }
+    [TerraformPropertyName("initial_instance_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InitialInstanceCount { get; set; }
 
     /// <summary>
     /// The initial_variant_weight attribute.
     /// </summary>
-    public TerraformProperty<double>? InitialVariantWeight
-    {
-        set => SetProperty("initial_variant_weight", value);
-    }
+    [TerraformPropertyName("initial_variant_weight")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InitialVariantWeight { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
-    {
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InstanceType { get; set; }
 
     /// <summary>
     /// The model_data_download_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? ModelDataDownloadTimeoutInSeconds
-    {
-        set => SetProperty("model_data_download_timeout_in_seconds", value);
-    }
+    [TerraformPropertyName("model_data_download_timeout_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ModelDataDownloadTimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The model_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
-    public required TerraformProperty<string> ModelName
-    {
-        set => SetProperty("model_name", value);
-    }
+    [TerraformPropertyName("model_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ModelName { get; set; }
 
     /// <summary>
     /// The variant_name attribute.
     /// </summary>
-    public TerraformProperty<string>? VariantName
-    {
-        set => SetProperty("variant_name", value);
-    }
+    [TerraformPropertyName("variant_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VariantName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "variant_name");
 
     /// <summary>
     /// The volume_size_in_gb attribute.
     /// </summary>
-    public TerraformProperty<double>? VolumeSizeInGb
-    {
-        set => SetProperty("volume_size_in_gb", value);
-    }
+    [TerraformPropertyName("volume_size_in_gb")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> VolumeSizeInGb { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "volume_size_in_gb");
 
 }
 
@@ -153,96 +138,85 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
 /// Block type for shadow_production_variants in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : TerraformBlock
+public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : ITerraformBlock
 {
     /// <summary>
     /// The accelerator_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AcceleratorType
-    {
-        set => SetProperty("accelerator_type", value);
-    }
+    [TerraformPropertyName("accelerator_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AcceleratorType { get; set; }
 
     /// <summary>
     /// The container_startup_health_check_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? ContainerStartupHealthCheckTimeoutInSeconds
-    {
-        set => SetProperty("container_startup_health_check_timeout_in_seconds", value);
-    }
+    [TerraformPropertyName("container_startup_health_check_timeout_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ContainerStartupHealthCheckTimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The enable_ssm_access attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableSsmAccess
-    {
-        set => SetProperty("enable_ssm_access", value);
-    }
+    [TerraformPropertyName("enable_ssm_access")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableSsmAccess { get; set; }
 
     /// <summary>
     /// The inference_ami_version attribute.
     /// </summary>
-    public TerraformProperty<string>? InferenceAmiVersion
-    {
-        set => SetProperty("inference_ami_version", value);
-    }
+    [TerraformPropertyName("inference_ami_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InferenceAmiVersion { get; set; }
 
     /// <summary>
     /// The initial_instance_count attribute.
     /// </summary>
-    public TerraformProperty<double>? InitialInstanceCount
-    {
-        set => SetProperty("initial_instance_count", value);
-    }
+    [TerraformPropertyName("initial_instance_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InitialInstanceCount { get; set; }
 
     /// <summary>
     /// The initial_variant_weight attribute.
     /// </summary>
-    public TerraformProperty<double>? InitialVariantWeight
-    {
-        set => SetProperty("initial_variant_weight", value);
-    }
+    [TerraformPropertyName("initial_variant_weight")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InitialVariantWeight { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
-    {
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InstanceType { get; set; }
 
     /// <summary>
     /// The model_data_download_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? ModelDataDownloadTimeoutInSeconds
-    {
-        set => SetProperty("model_data_download_timeout_in_seconds", value);
-    }
+    [TerraformPropertyName("model_data_download_timeout_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ModelDataDownloadTimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The model_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
-    public required TerraformProperty<string> ModelName
-    {
-        set => SetProperty("model_name", value);
-    }
+    [TerraformPropertyName("model_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ModelName { get; set; }
 
     /// <summary>
     /// The variant_name attribute.
     /// </summary>
-    public TerraformProperty<string>? VariantName
-    {
-        set => SetProperty("variant_name", value);
-    }
+    [TerraformPropertyName("variant_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VariantName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "variant_name");
 
     /// <summary>
     /// The volume_size_in_gb attribute.
     /// </summary>
-    public TerraformProperty<double>? VolumeSizeInGb
-    {
-        set => SetProperty("volume_size_in_gb", value);
-    }
+    [TerraformPropertyName("volume_size_in_gb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? VolumeSizeInGb { get; set; }
 
 }
 
@@ -254,103 +228,72 @@ public class AwsSagemakerEndpointConfiguration : TerraformResource
 {
     public AwsSagemakerEndpointConfiguration(string name) : base("aws_sagemaker_endpoint_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("kms_key_arn");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_arn");
-        set => SetProperty("kms_key_arn", value);
-    }
+    [TerraformPropertyName("kms_key_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for async_inference_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AsyncInferenceConfig block(s) allowed")]
-    public List<AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock>? AsyncInferenceConfig
-    {
-        set => SetProperty("async_inference_config", value);
-    }
+    [TerraformPropertyName("async_inference_config")]
+    public TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlock>>? AsyncInferenceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for data_capture_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCaptureConfig block(s) allowed")]
-    public List<AwsSagemakerEndpointConfigurationDataCaptureConfigBlock>? DataCaptureConfig
-    {
-        set => SetProperty("data_capture_config", value);
-    }
+    [TerraformPropertyName("data_capture_config")]
+    public TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationDataCaptureConfigBlock>>? DataCaptureConfig { get; set; } = new();
 
     /// <summary>
     /// Block for production_variants.
@@ -359,24 +302,22 @@ public class AwsSagemakerEndpointConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductionVariants is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProductionVariants block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 ProductionVariants block(s) allowed")]
-    public List<AwsSagemakerEndpointConfigurationProductionVariantsBlock>? ProductionVariants
-    {
-        set => SetProperty("production_variants", value);
-    }
+    [TerraformPropertyName("production_variants")]
+    public TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationProductionVariantsBlock>>? ProductionVariants { get; set; } = new();
 
     /// <summary>
     /// Block for shadow_production_variants.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 ShadowProductionVariants block(s) allowed")]
-    public List<AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock>? ShadowProductionVariants
-    {
-        set => SetProperty("shadow_production_variants", value);
-    }
+    [TerraformPropertyName("shadow_production_variants")]
+    public TerraformList<TerraformBlock<AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock>>? ShadowProductionVariants { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

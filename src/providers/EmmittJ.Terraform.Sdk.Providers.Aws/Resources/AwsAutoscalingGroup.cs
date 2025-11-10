@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for availability_zone_distribution in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAutoscalingGroupAvailabilityZoneDistributionBlock : TerraformBlock
+public class AwsAutoscalingGroupAvailabilityZoneDistributionBlock : ITerraformBlock
 {
     /// <summary>
     /// The capacity_distribution_strategy attribute.
     /// </summary>
-    public TerraformProperty<string>? CapacityDistributionStrategy
-    {
-        set => SetProperty("capacity_distribution_strategy", value);
-    }
+    [TerraformPropertyName("capacity_distribution_strategy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CapacityDistributionStrategy { get; set; }
 
 }
 
@@ -22,15 +21,14 @@ public class AwsAutoscalingGroupAvailabilityZoneDistributionBlock : TerraformBlo
 /// Block type for capacity_reservation_specification in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAutoscalingGroupCapacityReservationSpecificationBlock : TerraformBlock
+public class AwsAutoscalingGroupCapacityReservationSpecificationBlock : ITerraformBlock
 {
     /// <summary>
     /// The capacity_reservation_preference attribute.
     /// </summary>
-    public TerraformProperty<string>? CapacityReservationPreference
-    {
-        set => SetProperty("capacity_reservation_preference", value);
-    }
+    [TerraformPropertyName("capacity_reservation_preference")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CapacityReservationPreference { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "capacity_reservation_preference");
 
 }
 
@@ -38,65 +36,58 @@ public class AwsAutoscalingGroupCapacityReservationSpecificationBlock : Terrafor
 /// Block type for initial_lifecycle_hook in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAutoscalingGroupInitialLifecycleHookBlock : TerraformBlock
+public class AwsAutoscalingGroupInitialLifecycleHookBlock : ITerraformBlock
 {
     /// <summary>
     /// The default_result attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultResult
-    {
-        set => SetProperty("default_result", value);
-    }
+    [TerraformPropertyName("default_result")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DefaultResult { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "default_result");
 
     /// <summary>
     /// The heartbeat_timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? HeartbeatTimeout
-    {
-        set => SetProperty("heartbeat_timeout", value);
-    }
+    [TerraformPropertyName("heartbeat_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? HeartbeatTimeout { get; set; }
 
     /// <summary>
     /// The lifecycle_transition attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LifecycleTransition is required")]
-    public required TerraformProperty<string> LifecycleTransition
-    {
-        set => SetProperty("lifecycle_transition", value);
-    }
+    [TerraformPropertyName("lifecycle_transition")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LifecycleTransition { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The notification_metadata attribute.
     /// </summary>
-    public TerraformProperty<string>? NotificationMetadata
-    {
-        set => SetProperty("notification_metadata", value);
-    }
+    [TerraformPropertyName("notification_metadata")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NotificationMetadata { get; set; }
 
     /// <summary>
     /// The notification_target_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? NotificationTargetArn
-    {
-        set => SetProperty("notification_target_arn", value);
-    }
+    [TerraformPropertyName("notification_target_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NotificationTargetArn { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
-    {
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleArn { get; set; }
 
 }
 
@@ -104,25 +95,23 @@ public class AwsAutoscalingGroupInitialLifecycleHookBlock : TerraformBlock
 /// Block type for instance_maintenance_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAutoscalingGroupInstanceMaintenancePolicyBlock : TerraformBlock
+public class AwsAutoscalingGroupInstanceMaintenancePolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The max_healthy_percentage attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxHealthyPercentage is required")]
-    public required TerraformProperty<double> MaxHealthyPercentage
-    {
-        set => SetProperty("max_healthy_percentage", value);
-    }
+    [TerraformPropertyName("max_healthy_percentage")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxHealthyPercentage { get; set; }
 
     /// <summary>
     /// The min_healthy_percentage attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinHealthyPercentage is required")]
-    public required TerraformProperty<double> MinHealthyPercentage
-    {
-        set => SetProperty("min_healthy_percentage", value);
-    }
+    [TerraformPropertyName("min_healthy_percentage")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MinHealthyPercentage { get; set; }
 
 }
 
@@ -130,24 +119,22 @@ public class AwsAutoscalingGroupInstanceMaintenancePolicyBlock : TerraformBlock
 /// Block type for instance_refresh in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAutoscalingGroupInstanceRefreshBlock : TerraformBlock
+public class AwsAutoscalingGroupInstanceRefreshBlock : ITerraformBlock
 {
     /// <summary>
     /// The strategy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Strategy is required")]
-    public required TerraformProperty<string> Strategy
-    {
-        set => SetProperty("strategy", value);
-    }
+    [TerraformPropertyName("strategy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Strategy { get; set; }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Triggers
-    {
-        set => SetProperty("triggers", value);
-    }
+    [TerraformPropertyName("triggers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Triggers { get; set; }
 
 }
 
@@ -155,31 +142,28 @@ public class AwsAutoscalingGroupInstanceRefreshBlock : TerraformBlock
 /// Block type for launch_template in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAutoscalingGroupLaunchTemplateBlock : TerraformBlock
+public class AwsAutoscalingGroupLaunchTemplateBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "name");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Version { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "version");
 
 }
 
@@ -187,7 +171,7 @@ public class AwsAutoscalingGroupLaunchTemplateBlock : TerraformBlock
 /// Block type for mixed_instances_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAutoscalingGroupMixedInstancesPolicyBlock : TerraformBlock
+public class AwsAutoscalingGroupMixedInstancesPolicyBlock : ITerraformBlock
 {
 }
 
@@ -195,34 +179,31 @@ public class AwsAutoscalingGroupMixedInstancesPolicyBlock : TerraformBlock
 /// Block type for tag in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAutoscalingGroupTagBlock : TerraformBlock
+public class AwsAutoscalingGroupTagBlock : ITerraformBlock
 {
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// The propagate_at_launch attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropagateAtLaunch is required")]
-    public required TerraformProperty<bool> PropagateAtLaunch
-    {
-        set => SetProperty("propagate_at_launch", value);
-    }
+    [TerraformPropertyName("propagate_at_launch")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> PropagateAtLaunch { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<string> Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
 
 }
 
@@ -230,23 +211,21 @@ public class AwsAutoscalingGroupTagBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsAutoscalingGroupTimeoutsBlock : TerraformBlock
+public class AwsAutoscalingGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -254,24 +233,22 @@ public class AwsAutoscalingGroupTimeoutsBlock : TerraformBlock
 /// Block type for traffic_source in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAutoscalingGroupTrafficSourceBlock : TerraformBlock
+public class AwsAutoscalingGroupTrafficSourceBlock : ITerraformBlock
 {
     /// <summary>
     /// The identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
-    public required TerraformProperty<string> Identifier
-    {
-        set => SetProperty("identifier", value);
-    }
+    [TerraformPropertyName("identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Identifier { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -279,31 +256,28 @@ public class AwsAutoscalingGroupTrafficSourceBlock : TerraformBlock
 /// Block type for warm_pool in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAutoscalingGroupWarmPoolBlock : TerraformBlock
+public class AwsAutoscalingGroupWarmPoolBlock : ITerraformBlock
 {
     /// <summary>
     /// The max_group_prepared_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxGroupPreparedCapacity
-    {
-        set => SetProperty("max_group_prepared_capacity", value);
-    }
+    [TerraformPropertyName("max_group_prepared_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxGroupPreparedCapacity { get; set; }
 
     /// <summary>
     /// The min_size attribute.
     /// </summary>
-    public TerraformProperty<double>? MinSize
-    {
-        set => SetProperty("min_size", value);
-    }
+    [TerraformPropertyName("min_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinSize { get; set; }
 
     /// <summary>
     /// The pool_state attribute.
     /// </summary>
-    public TerraformProperty<string>? PoolState
-    {
-        set => SetProperty("pool_state", value);
-    }
+    [TerraformPropertyName("pool_state")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PoolState { get; set; }
 
 }
 
@@ -315,467 +289,344 @@ public class AwsAutoscalingGroup : TerraformResource
 {
     public AwsAutoscalingGroup(string name) : base("aws_autoscaling_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("predicted_capacity");
-        SetOutput("warm_pool_size");
-        SetOutput("availability_zones");
-        SetOutput("capacity_rebalance");
-        SetOutput("context");
-        SetOutput("default_cooldown");
-        SetOutput("default_instance_warmup");
-        SetOutput("desired_capacity");
-        SetOutput("desired_capacity_type");
-        SetOutput("enabled_metrics");
-        SetOutput("force_delete");
-        SetOutput("force_delete_warm_pool");
-        SetOutput("health_check_grace_period");
-        SetOutput("health_check_type");
-        SetOutput("id");
-        SetOutput("ignore_failed_scaling_activities");
-        SetOutput("launch_configuration");
-        SetOutput("load_balancers");
-        SetOutput("max_instance_lifetime");
-        SetOutput("max_size");
-        SetOutput("metrics_granularity");
-        SetOutput("min_elb_capacity");
-        SetOutput("min_size");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("placement_group");
-        SetOutput("protect_from_scale_in");
-        SetOutput("region");
-        SetOutput("service_linked_role_arn");
-        SetOutput("suspended_processes");
-        SetOutput("target_group_arns");
-        SetOutput("termination_policies");
-        SetOutput("vpc_zone_identifier");
-        SetOutput("wait_for_capacity_timeout");
-        SetOutput("wait_for_elb_capacity");
     }
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AvailabilityZones
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("availability_zones");
-        set => SetProperty("availability_zones", value);
-    }
+    [TerraformPropertyName("availability_zones")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AvailabilityZones { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "availability_zones");
 
     /// <summary>
     /// The capacity_rebalance attribute.
     /// </summary>
-    public TerraformProperty<bool> CapacityRebalance
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("capacity_rebalance");
-        set => SetProperty("capacity_rebalance", value);
-    }
+    [TerraformPropertyName("capacity_rebalance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CapacityRebalance { get; set; }
 
     /// <summary>
     /// The context attribute.
     /// </summary>
-    public TerraformProperty<string> Context
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("context");
-        set => SetProperty("context", value);
-    }
+    [TerraformPropertyName("context")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Context { get; set; }
 
     /// <summary>
     /// The default_cooldown attribute.
     /// </summary>
-    public TerraformProperty<double> DefaultCooldown
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("default_cooldown");
-        set => SetProperty("default_cooldown", value);
-    }
+    [TerraformPropertyName("default_cooldown")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DefaultCooldown { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "default_cooldown");
 
     /// <summary>
     /// The default_instance_warmup attribute.
     /// </summary>
-    public TerraformProperty<double> DefaultInstanceWarmup
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("default_instance_warmup");
-        set => SetProperty("default_instance_warmup", value);
-    }
+    [TerraformPropertyName("default_instance_warmup")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DefaultInstanceWarmup { get; set; }
 
     /// <summary>
     /// The desired_capacity attribute.
     /// </summary>
-    public TerraformProperty<double> DesiredCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("desired_capacity");
-        set => SetProperty("desired_capacity", value);
-    }
+    [TerraformPropertyName("desired_capacity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DesiredCapacity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "desired_capacity");
 
     /// <summary>
     /// The desired_capacity_type attribute.
     /// </summary>
-    public TerraformProperty<string> DesiredCapacityType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("desired_capacity_type");
-        set => SetProperty("desired_capacity_type", value);
-    }
+    [TerraformPropertyName("desired_capacity_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DesiredCapacityType { get; set; }
 
     /// <summary>
     /// The enabled_metrics attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> EnabledMetrics
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("enabled_metrics");
-        set => SetProperty("enabled_metrics", value);
-    }
+    [TerraformPropertyName("enabled_metrics")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? EnabledMetrics { get; set; }
 
     /// <summary>
     /// The force_delete attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceDelete
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_delete");
-        set => SetProperty("force_delete", value);
-    }
+    [TerraformPropertyName("force_delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceDelete { get; set; }
 
     /// <summary>
     /// The force_delete_warm_pool attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceDeleteWarmPool
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_delete_warm_pool");
-        set => SetProperty("force_delete_warm_pool", value);
-    }
+    [TerraformPropertyName("force_delete_warm_pool")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceDeleteWarmPool { get; set; }
 
     /// <summary>
     /// The health_check_grace_period attribute.
     /// </summary>
-    public TerraformProperty<double> HealthCheckGracePeriod
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("health_check_grace_period");
-        set => SetProperty("health_check_grace_period", value);
-    }
+    [TerraformPropertyName("health_check_grace_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? HealthCheckGracePeriod { get; set; }
 
     /// <summary>
     /// The health_check_type attribute.
     /// </summary>
-    public TerraformProperty<string> HealthCheckType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("health_check_type");
-        set => SetProperty("health_check_type", value);
-    }
+    [TerraformPropertyName("health_check_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> HealthCheckType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "health_check_type");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ignore_failed_scaling_activities attribute.
     /// </summary>
-    public TerraformProperty<bool> IgnoreFailedScalingActivities
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_failed_scaling_activities");
-        set => SetProperty("ignore_failed_scaling_activities", value);
-    }
+    [TerraformPropertyName("ignore_failed_scaling_activities")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IgnoreFailedScalingActivities { get; set; }
 
     /// <summary>
     /// The launch_configuration attribute.
     /// </summary>
-    public TerraformProperty<string> LaunchConfiguration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("launch_configuration");
-        set => SetProperty("launch_configuration", value);
-    }
+    [TerraformPropertyName("launch_configuration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LaunchConfiguration { get; set; }
 
     /// <summary>
     /// The load_balancers attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> LoadBalancers
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("load_balancers");
-        set => SetProperty("load_balancers", value);
-    }
+    [TerraformPropertyName("load_balancers")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> LoadBalancers { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "load_balancers");
 
     /// <summary>
     /// The max_instance_lifetime attribute.
     /// </summary>
-    public TerraformProperty<double> MaxInstanceLifetime
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_instance_lifetime");
-        set => SetProperty("max_instance_lifetime", value);
-    }
+    [TerraformPropertyName("max_instance_lifetime")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxInstanceLifetime { get; set; }
 
     /// <summary>
     /// The max_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSize is required")]
-    public required TerraformProperty<double> MaxSize
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_size");
-        set => SetProperty("max_size", value);
-    }
+    [TerraformPropertyName("max_size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxSize { get; set; }
 
     /// <summary>
     /// The metrics_granularity attribute.
     /// </summary>
-    public TerraformProperty<string> MetricsGranularity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("metrics_granularity");
-        set => SetProperty("metrics_granularity", value);
-    }
+    [TerraformPropertyName("metrics_granularity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MetricsGranularity { get; set; }
 
     /// <summary>
     /// The min_elb_capacity attribute.
     /// </summary>
-    public TerraformProperty<double> MinElbCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("min_elb_capacity");
-        set => SetProperty("min_elb_capacity", value);
-    }
+    [TerraformPropertyName("min_elb_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinElbCapacity { get; set; }
 
     /// <summary>
     /// The min_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinSize is required")]
-    public required TerraformProperty<double> MinSize
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("min_size");
-        set => SetProperty("min_size", value);
-    }
+    [TerraformPropertyName("min_size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MinSize { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
 
     /// <summary>
     /// The placement_group attribute.
     /// </summary>
-    public TerraformProperty<string> PlacementGroup
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("placement_group");
-        set => SetProperty("placement_group", value);
-    }
+    [TerraformPropertyName("placement_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PlacementGroup { get; set; }
 
     /// <summary>
     /// The protect_from_scale_in attribute.
     /// </summary>
-    public TerraformProperty<bool> ProtectFromScaleIn
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("protect_from_scale_in");
-        set => SetProperty("protect_from_scale_in", value);
-    }
+    [TerraformPropertyName("protect_from_scale_in")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ProtectFromScaleIn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The service_linked_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> ServiceLinkedRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_linked_role_arn");
-        set => SetProperty("service_linked_role_arn", value);
-    }
+    [TerraformPropertyName("service_linked_role_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ServiceLinkedRoleArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_linked_role_arn");
 
     /// <summary>
     /// The suspended_processes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SuspendedProcesses
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("suspended_processes");
-        set => SetProperty("suspended_processes", value);
-    }
+    [TerraformPropertyName("suspended_processes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SuspendedProcesses { get; set; }
 
     /// <summary>
     /// The target_group_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> TargetGroupArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("target_group_arns");
-        set => SetProperty("target_group_arns", value);
-    }
+    [TerraformPropertyName("target_group_arns")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> TargetGroupArns { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "target_group_arns");
 
     /// <summary>
     /// The termination_policies attribute.
     /// </summary>
-    public List<TerraformProperty<string>> TerminationPolicies
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("termination_policies");
-        set => SetProperty("termination_policies", value);
-    }
+    [TerraformPropertyName("termination_policies")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? TerminationPolicies { get; set; }
 
     /// <summary>
     /// The vpc_zone_identifier attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> VpcZoneIdentifier
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_zone_identifier");
-        set => SetProperty("vpc_zone_identifier", value);
-    }
+    [TerraformPropertyName("vpc_zone_identifier")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> VpcZoneIdentifier { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "vpc_zone_identifier");
 
     /// <summary>
     /// The wait_for_capacity_timeout attribute.
     /// </summary>
-    public TerraformProperty<string> WaitForCapacityTimeout
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("wait_for_capacity_timeout");
-        set => SetProperty("wait_for_capacity_timeout", value);
-    }
+    [TerraformPropertyName("wait_for_capacity_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WaitForCapacityTimeout { get; set; }
 
     /// <summary>
     /// The wait_for_elb_capacity attribute.
     /// </summary>
-    public TerraformProperty<double> WaitForElbCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("wait_for_elb_capacity");
-        set => SetProperty("wait_for_elb_capacity", value);
-    }
+    [TerraformPropertyName("wait_for_elb_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? WaitForElbCapacity { get; set; }
 
     /// <summary>
     /// Block for availability_zone_distribution.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AvailabilityZoneDistribution block(s) allowed")]
-    public List<AwsAutoscalingGroupAvailabilityZoneDistributionBlock>? AvailabilityZoneDistribution
-    {
-        set => SetProperty("availability_zone_distribution", value);
-    }
+    [TerraformPropertyName("availability_zone_distribution")]
+    public TerraformList<TerraformBlock<AwsAutoscalingGroupAvailabilityZoneDistributionBlock>>? AvailabilityZoneDistribution { get; set; } = new();
 
     /// <summary>
     /// Block for capacity_reservation_specification.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityReservationSpecification block(s) allowed")]
-    public List<AwsAutoscalingGroupCapacityReservationSpecificationBlock>? CapacityReservationSpecification
-    {
-        set => SetProperty("capacity_reservation_specification", value);
-    }
+    [TerraformPropertyName("capacity_reservation_specification")]
+    public TerraformList<TerraformBlock<AwsAutoscalingGroupCapacityReservationSpecificationBlock>>? CapacityReservationSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for initial_lifecycle_hook.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsAutoscalingGroupInitialLifecycleHookBlock>? InitialLifecycleHook
-    {
-        set => SetProperty("initial_lifecycle_hook", value);
-    }
+    [TerraformPropertyName("initial_lifecycle_hook")]
+    public TerraformSet<TerraformBlock<AwsAutoscalingGroupInitialLifecycleHookBlock>>? InitialLifecycleHook { get; set; } = new();
 
     /// <summary>
     /// Block for instance_maintenance_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceMaintenancePolicy block(s) allowed")]
-    public List<AwsAutoscalingGroupInstanceMaintenancePolicyBlock>? InstanceMaintenancePolicy
-    {
-        set => SetProperty("instance_maintenance_policy", value);
-    }
+    [TerraformPropertyName("instance_maintenance_policy")]
+    public TerraformList<TerraformBlock<AwsAutoscalingGroupInstanceMaintenancePolicyBlock>>? InstanceMaintenancePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for instance_refresh.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceRefresh block(s) allowed")]
-    public List<AwsAutoscalingGroupInstanceRefreshBlock>? InstanceRefresh
-    {
-        set => SetProperty("instance_refresh", value);
-    }
+    [TerraformPropertyName("instance_refresh")]
+    public TerraformList<TerraformBlock<AwsAutoscalingGroupInstanceRefreshBlock>>? InstanceRefresh { get; set; } = new();
 
     /// <summary>
     /// Block for launch_template.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchTemplate block(s) allowed")]
-    public List<AwsAutoscalingGroupLaunchTemplateBlock>? LaunchTemplate
-    {
-        set => SetProperty("launch_template", value);
-    }
+    [TerraformPropertyName("launch_template")]
+    public TerraformList<TerraformBlock<AwsAutoscalingGroupLaunchTemplateBlock>>? LaunchTemplate { get; set; } = new();
 
     /// <summary>
     /// Block for mixed_instances_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MixedInstancesPolicy block(s) allowed")]
-    public List<AwsAutoscalingGroupMixedInstancesPolicyBlock>? MixedInstancesPolicy
-    {
-        set => SetProperty("mixed_instances_policy", value);
-    }
+    [TerraformPropertyName("mixed_instances_policy")]
+    public TerraformList<TerraformBlock<AwsAutoscalingGroupMixedInstancesPolicyBlock>>? MixedInstancesPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for tag.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsAutoscalingGroupTagBlock>? Tag
-    {
-        set => SetProperty("tag", value);
-    }
+    [TerraformPropertyName("tag")]
+    public TerraformSet<TerraformBlock<AwsAutoscalingGroupTagBlock>>? Tag { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsAutoscalingGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsAutoscalingGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for traffic_source.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsAutoscalingGroupTrafficSourceBlock>? TrafficSource
-    {
-        set => SetProperty("traffic_source", value);
-    }
+    [TerraformPropertyName("traffic_source")]
+    public TerraformSet<TerraformBlock<AwsAutoscalingGroupTrafficSourceBlock>>? TrafficSource { get; set; } = new();
 
     /// <summary>
     /// Block for warm_pool.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WarmPool block(s) allowed")]
-    public List<AwsAutoscalingGroupWarmPoolBlock>? WarmPool
-    {
-        set => SetProperty("warm_pool", value);
-    }
+    [TerraformPropertyName("warm_pool")]
+    public TerraformList<TerraformBlock<AwsAutoscalingGroupWarmPoolBlock>>? WarmPool { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The predicted_capacity attribute.
     /// </summary>
-    public TerraformExpression PredictedCapacity => this["predicted_capacity"];
+    [TerraformPropertyName("predicted_capacity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> PredictedCapacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "predicted_capacity");
 
     /// <summary>
     /// The warm_pool_size attribute.
     /// </summary>
-    public TerraformExpression WarmPoolSize => this["warm_pool_size"];
+    [TerraformPropertyName("warm_pool_size")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> WarmPoolSize => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "warm_pool_size");
 
 }

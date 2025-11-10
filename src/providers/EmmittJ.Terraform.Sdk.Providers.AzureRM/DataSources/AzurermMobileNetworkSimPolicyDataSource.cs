@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMobileNetworkSimPolicyDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermMobileNetworkSimPolicyDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,94 +24,85 @@ public class AzurermMobileNetworkSimPolicyDataSource : TerraformDataSource
 {
     public AzurermMobileNetworkSimPolicyDataSource(string name) : base("azurerm_mobile_network_sim_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("default_slice_id");
-        SetOutput("location");
-        SetOutput("rat_frequency_selection_priority_index");
-        SetOutput("registration_timer_in_seconds");
-        SetOutput("slice");
-        SetOutput("tags");
-        SetOutput("user_equipment_aggregate_maximum_bit_rate");
-        SetOutput("id");
-        SetOutput("mobile_network_id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The mobile_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
-    public required TerraformProperty<string> MobileNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mobile_network_id");
-        set => SetProperty("mobile_network_id", value);
-    }
+    [TerraformPropertyName("mobile_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MobileNetworkId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMobileNetworkSimPolicyDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMobileNetworkSimPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The default_slice_id attribute.
     /// </summary>
-    public TerraformExpression DefaultSliceId => this["default_slice_id"];
+    [TerraformPropertyName("default_slice_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultSliceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_slice_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The rat_frequency_selection_priority_index attribute.
     /// </summary>
-    public TerraformExpression RatFrequencySelectionPriorityIndex => this["rat_frequency_selection_priority_index"];
+    [TerraformPropertyName("rat_frequency_selection_priority_index")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RatFrequencySelectionPriorityIndex => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "rat_frequency_selection_priority_index");
 
     /// <summary>
     /// The registration_timer_in_seconds attribute.
     /// </summary>
-    public TerraformExpression RegistrationTimerInSeconds => this["registration_timer_in_seconds"];
+    [TerraformPropertyName("registration_timer_in_seconds")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RegistrationTimerInSeconds => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "registration_timer_in_seconds");
 
     /// <summary>
     /// The slice attribute.
     /// </summary>
-    public TerraformExpression Slice => this["slice"];
+    [TerraformPropertyName("slice")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Slice => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "slice");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The user_equipment_aggregate_maximum_bit_rate attribute.
     /// </summary>
-    public TerraformExpression UserEquipmentAggregateMaximumBitRate => this["user_equipment_aggregate_maximum_bit_rate"];
+    [TerraformPropertyName("user_equipment_aggregate_maximum_bit_rate")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> UserEquipmentAggregateMaximumBitRate => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "user_equipment_aggregate_maximum_bit_rate");
 
 }

@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermMonitorMetricAlertActionBlock : TerraformBlock
+public class AzurermMonitorMetricAlertActionBlock : ITerraformBlock
 {
     /// <summary>
     /// The action_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupId is required")]
-    public required TerraformProperty<string> ActionGroupId
-    {
-        set => SetProperty("action_group_id", value);
-    }
+    [TerraformPropertyName("action_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ActionGroupId { get; set; }
 
     /// <summary>
     /// The webhook_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? WebhookProperties
-    {
-        set => SetProperty("webhook_properties", value);
-    }
+    [TerraformPropertyName("webhook_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? WebhookProperties { get; set; }
 
 }
 
@@ -31,34 +29,31 @@ public class AzurermMonitorMetricAlertActionBlock : TerraformBlock
 /// Block type for application_insights_web_test_location_availability_criteria in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaBlock : TerraformBlock
+public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaBlock : ITerraformBlock
 {
     /// <summary>
     /// The component_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentId is required")]
-    public required TerraformProperty<string> ComponentId
-    {
-        set => SetProperty("component_id", value);
-    }
+    [TerraformPropertyName("component_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ComponentId { get; set; }
 
     /// <summary>
     /// The failed_location_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailedLocationCount is required")]
-    public required TerraformProperty<double> FailedLocationCount
-    {
-        set => SetProperty("failed_location_count", value);
-    }
+    [TerraformPropertyName("failed_location_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> FailedLocationCount { get; set; }
 
     /// <summary>
     /// The web_test_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebTestId is required")]
-    public required TerraformProperty<string> WebTestId
-    {
-        set => SetProperty("web_test_id", value);
-    }
+    [TerraformPropertyName("web_test_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WebTestId { get; set; }
 
 }
 
@@ -66,60 +61,54 @@ public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabi
 /// Block type for criteria in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
+public class AzurermMonitorMetricAlertCriteriaBlock : ITerraformBlock
 {
     /// <summary>
     /// The aggregation attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Aggregation is required")]
-    public required TerraformProperty<string> Aggregation
-    {
-        set => SetProperty("aggregation", value);
-    }
+    [TerraformPropertyName("aggregation")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Aggregation { get; set; }
 
     /// <summary>
     /// The metric_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
-    public required TerraformProperty<string> MetricName
-    {
-        set => SetProperty("metric_name", value);
-    }
+    [TerraformPropertyName("metric_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MetricName { get; set; }
 
     /// <summary>
     /// The metric_namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricNamespace is required")]
-    public required TerraformProperty<string> MetricNamespace
-    {
-        set => SetProperty("metric_namespace", value);
-    }
+    [TerraformPropertyName("metric_namespace")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MetricNamespace { get; set; }
 
     /// <summary>
     /// The operator attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
-    public required TerraformProperty<string> Operator
-    {
-        set => SetProperty("operator", value);
-    }
+    [TerraformPropertyName("operator")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Operator { get; set; }
 
     /// <summary>
     /// The skip_metric_validation attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipMetricValidation
-    {
-        set => SetProperty("skip_metric_validation", value);
-    }
+    [TerraformPropertyName("skip_metric_validation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipMetricValidation { get; set; }
 
     /// <summary>
     /// The threshold attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
-    public required TerraformProperty<double> Threshold
-    {
-        set => SetProperty("threshold", value);
-    }
+    [TerraformPropertyName("threshold")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Threshold { get; set; }
 
 }
 
@@ -127,84 +116,75 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
 /// Block type for dynamic_criteria in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
+public class AzurermMonitorMetricAlertDynamicCriteriaBlock : ITerraformBlock
 {
     /// <summary>
     /// The aggregation attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Aggregation is required")]
-    public required TerraformProperty<string> Aggregation
-    {
-        set => SetProperty("aggregation", value);
-    }
+    [TerraformPropertyName("aggregation")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Aggregation { get; set; }
 
     /// <summary>
     /// The alert_sensitivity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertSensitivity is required")]
-    public required TerraformProperty<string> AlertSensitivity
-    {
-        set => SetProperty("alert_sensitivity", value);
-    }
+    [TerraformPropertyName("alert_sensitivity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AlertSensitivity { get; set; }
 
     /// <summary>
     /// The evaluation_failure_count attribute.
     /// </summary>
-    public TerraformProperty<double>? EvaluationFailureCount
-    {
-        set => SetProperty("evaluation_failure_count", value);
-    }
+    [TerraformPropertyName("evaluation_failure_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? EvaluationFailureCount { get; set; }
 
     /// <summary>
     /// The evaluation_total_count attribute.
     /// </summary>
-    public TerraformProperty<double>? EvaluationTotalCount
-    {
-        set => SetProperty("evaluation_total_count", value);
-    }
+    [TerraformPropertyName("evaluation_total_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? EvaluationTotalCount { get; set; }
 
     /// <summary>
     /// The ignore_data_before attribute.
     /// </summary>
-    public TerraformProperty<string>? IgnoreDataBefore
-    {
-        set => SetProperty("ignore_data_before", value);
-    }
+    [TerraformPropertyName("ignore_data_before")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IgnoreDataBefore { get; set; }
 
     /// <summary>
     /// The metric_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
-    public required TerraformProperty<string> MetricName
-    {
-        set => SetProperty("metric_name", value);
-    }
+    [TerraformPropertyName("metric_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MetricName { get; set; }
 
     /// <summary>
     /// The metric_namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricNamespace is required")]
-    public required TerraformProperty<string> MetricNamespace
-    {
-        set => SetProperty("metric_namespace", value);
-    }
+    [TerraformPropertyName("metric_namespace")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MetricNamespace { get; set; }
 
     /// <summary>
     /// The operator attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
-    public required TerraformProperty<string> Operator
-    {
-        set => SetProperty("operator", value);
-    }
+    [TerraformPropertyName("operator")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Operator { get; set; }
 
     /// <summary>
     /// The skip_metric_validation attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipMetricValidation
-    {
-        set => SetProperty("skip_metric_validation", value);
-    }
+    [TerraformPropertyName("skip_metric_validation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipMetricValidation { get; set; }
 
 }
 
@@ -212,39 +192,35 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorMetricAlertTimeoutsBlock : TerraformBlock
+public class AzurermMonitorMetricAlertTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -256,191 +232,137 @@ public class AzurermMonitorMetricAlert : TerraformResource
 {
     public AzurermMonitorMetricAlert(string name) : base("azurerm_monitor_metric_alert", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("auto_mitigate");
-        SetOutput("description");
-        SetOutput("enabled");
-        SetOutput("frequency");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("scopes");
-        SetOutput("severity");
-        SetOutput("tags");
-        SetOutput("target_resource_location");
-        SetOutput("target_resource_type");
-        SetOutput("window_size");
     }
 
     /// <summary>
     /// The auto_mitigate attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoMitigate
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_mitigate");
-        set => SetProperty("auto_mitigate", value);
-    }
+    [TerraformPropertyName("auto_mitigate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoMitigate { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    public TerraformProperty<string> Frequency
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("frequency");
-        set => SetProperty("frequency", value);
-    }
+    [TerraformPropertyName("frequency")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Frequency { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    public HashSet<TerraformProperty<string>> Scopes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("scopes");
-        set => SetProperty("scopes", value);
-    }
+    [TerraformPropertyName("scopes")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Scopes { get; set; }
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
-    public TerraformProperty<double> Severity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("severity");
-        set => SetProperty("severity", value);
-    }
+    [TerraformPropertyName("severity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Severity { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The location of the target pluginsdk. Required when using subscription, resource group scope or multiple scopes.
     /// </summary>
-    public TerraformProperty<string> TargetResourceLocation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_location");
-        set => SetProperty("target_resource_location", value);
-    }
+    [TerraformPropertyName("target_resource_location")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TargetResourceLocation { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "target_resource_location");
 
     /// <summary>
     /// The resource type (e.g. Microsoft.Compute/virtualMachines) of the target pluginsdk. Required when using subscription, resource group scope or multiple scopes.
     /// </summary>
-    public TerraformProperty<string> TargetResourceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_type");
-        set => SetProperty("target_resource_type", value);
-    }
+    [TerraformPropertyName("target_resource_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TargetResourceType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "target_resource_type");
 
     /// <summary>
     /// The window_size attribute.
     /// </summary>
-    public TerraformProperty<string> WindowSize
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("window_size");
-        set => SetProperty("window_size", value);
-    }
+    [TerraformPropertyName("window_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WindowSize { get; set; }
 
     /// <summary>
     /// Block for action.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermMonitorMetricAlertActionBlock>? Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    public TerraformSet<TerraformBlock<AzurermMonitorMetricAlertActionBlock>>? Action { get; set; } = new();
 
     /// <summary>
     /// Block for application_insights_web_test_location_availability_criteria.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationInsightsWebTestLocationAvailabilityCriteria block(s) allowed")]
-    public List<AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaBlock>? ApplicationInsightsWebTestLocationAvailabilityCriteria
-    {
-        set => SetProperty("application_insights_web_test_location_availability_criteria", value);
-    }
+    [TerraformPropertyName("application_insights_web_test_location_availability_criteria")]
+    public TerraformList<TerraformBlock<AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaBlock>>? ApplicationInsightsWebTestLocationAvailabilityCriteria { get; set; } = new();
 
     /// <summary>
     /// Block for criteria.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermMonitorMetricAlertCriteriaBlock>? Criteria
-    {
-        set => SetProperty("criteria", value);
-    }
+    [TerraformPropertyName("criteria")]
+    public TerraformList<TerraformBlock<AzurermMonitorMetricAlertCriteriaBlock>>? Criteria { get; set; } = new();
 
     /// <summary>
     /// Block for dynamic_criteria.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DynamicCriteria block(s) allowed")]
-    public List<AzurermMonitorMetricAlertDynamicCriteriaBlock>? DynamicCriteria
-    {
-        set => SetProperty("dynamic_criteria", value);
-    }
+    [TerraformPropertyName("dynamic_criteria")]
+    public TerraformList<TerraformBlock<AzurermMonitorMetricAlertDynamicCriteriaBlock>>? DynamicCriteria { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMonitorMetricAlertTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMonitorMetricAlertTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

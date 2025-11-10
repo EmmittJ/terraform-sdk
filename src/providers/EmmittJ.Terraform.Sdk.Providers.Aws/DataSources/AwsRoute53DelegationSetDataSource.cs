@@ -9,40 +9,35 @@ public class AwsRoute53DelegationSetDataSource : TerraformDataSource
 {
     public AwsRoute53DelegationSetDataSource(string name) : base("aws_route53_delegation_set", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("caller_reference");
-        SetOutput("name_servers");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
-    public TerraformExpression CallerReference => this["caller_reference"];
+    [TerraformPropertyName("caller_reference")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CallerReference => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "caller_reference");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
-    public TerraformExpression NameServers => this["name_servers"];
+    [TerraformPropertyName("name_servers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> NameServers => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "name_servers");
 
 }

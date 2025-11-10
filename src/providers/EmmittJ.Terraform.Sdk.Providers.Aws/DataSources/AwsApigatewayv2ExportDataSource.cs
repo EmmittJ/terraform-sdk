@@ -9,100 +9,72 @@ public class AwsApigatewayv2ExportDataSource : TerraformDataSource
 {
     public AwsApigatewayv2ExportDataSource(string name) : base("aws_apigatewayv2_export", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("body");
-        SetOutput("api_id");
-        SetOutput("export_version");
-        SetOutput("id");
-        SetOutput("include_extensions");
-        SetOutput("output_type");
-        SetOutput("region");
-        SetOutput("specification");
-        SetOutput("stage_name");
     }
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
-    public required TerraformProperty<string> ApiId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
-        set => SetProperty("api_id", value);
-    }
+    [TerraformPropertyName("api_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiId { get; set; }
 
     /// <summary>
     /// The export_version attribute.
     /// </summary>
-    public TerraformProperty<string> ExportVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("export_version");
-        set => SetProperty("export_version", value);
-    }
+    [TerraformPropertyName("export_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExportVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The include_extensions attribute.
     /// </summary>
-    public TerraformProperty<bool> IncludeExtensions
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("include_extensions");
-        set => SetProperty("include_extensions", value);
-    }
+    [TerraformPropertyName("include_extensions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeExtensions { get; set; }
 
     /// <summary>
     /// The output_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputType is required")]
-    public required TerraformProperty<string> OutputType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("output_type");
-        set => SetProperty("output_type", value);
-    }
+    [TerraformPropertyName("output_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OutputType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The specification attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Specification is required")]
-    public required TerraformProperty<string> Specification
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("specification");
-        set => SetProperty("specification", value);
-    }
+    [TerraformPropertyName("specification")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Specification { get; set; }
 
     /// <summary>
     /// The stage_name attribute.
     /// </summary>
-    public TerraformProperty<string> StageName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("stage_name");
-        set => SetProperty("stage_name", value);
-    }
+    [TerraformPropertyName("stage_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StageName { get; set; }
 
     /// <summary>
     /// The body attribute.
     /// </summary>
-    public TerraformExpression Body => this["body"];
+    [TerraformPropertyName("body")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Body => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "body");
 
 }

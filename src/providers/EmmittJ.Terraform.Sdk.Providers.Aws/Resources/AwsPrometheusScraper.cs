@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public class AwsPrometheusScraperDestinationBlock : TerraformBlock
+public class AwsPrometheusScraperDestinationBlock : ITerraformBlock
 {
 }
 
@@ -14,23 +14,21 @@ public class AwsPrometheusScraperDestinationBlock : TerraformBlock
 /// Block type for role_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsPrometheusScraperRoleConfigurationBlock : TerraformBlock
+public class AwsPrometheusScraperRoleConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The source_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceRoleArn
-    {
-        set => SetProperty("source_role_arn", value);
-    }
+    [TerraformPropertyName("source_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceRoleArn { get; set; }
 
     /// <summary>
     /// The target_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetRoleArn
-    {
-        set => SetProperty("target_role_arn", value);
-    }
+    [TerraformPropertyName("target_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetRoleArn { get; set; }
 
 }
 
@@ -38,7 +36,7 @@ public class AwsPrometheusScraperRoleConfigurationBlock : TerraformBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsPrometheusScraperSourceBlock : TerraformBlock
+public class AwsPrometheusScraperSourceBlock : ITerraformBlock
 {
 }
 
@@ -46,31 +44,28 @@ public class AwsPrometheusScraperSourceBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsPrometheusScraperTimeoutsBlock : TerraformBlock
+public class AwsPrometheusScraperTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -81,112 +76,91 @@ public class AwsPrometheusScraper : TerraformResource
 {
     public AwsPrometheusScraper(string name) : base("aws_prometheus_scraper", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("role_arn");
-        SetOutput("tags_all");
-        SetOutput("alias");
-        SetOutput("region");
-        SetOutput("scrape_configuration");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformProperty<string> Alias
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alias");
-        set => SetProperty("alias", value);
-    }
+    [TerraformPropertyName("alias")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Alias { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The scrape_configuration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScrapeConfiguration is required")]
-    public required TerraformProperty<string> ScrapeConfiguration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("scrape_configuration");
-        set => SetProperty("scrape_configuration", value);
-    }
+    [TerraformPropertyName("scrape_configuration")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScrapeConfiguration { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for destination.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsPrometheusScraperDestinationBlock>? Destination
-    {
-        set => SetProperty("destination", value);
-    }
+    [TerraformPropertyName("destination")]
+    public TerraformList<TerraformBlock<AwsPrometheusScraperDestinationBlock>>? Destination { get; set; } = new();
 
     /// <summary>
     /// Block for role_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsPrometheusScraperRoleConfigurationBlock>? RoleConfiguration
-    {
-        set => SetProperty("role_configuration", value);
-    }
+    [TerraformPropertyName("role_configuration")]
+    public TerraformList<TerraformBlock<AwsPrometheusScraperRoleConfigurationBlock>>? RoleConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsPrometheusScraperSourceBlock>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    public TerraformList<TerraformBlock<AwsPrometheusScraperSourceBlock>>? Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsPrometheusScraperTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsPrometheusScraperTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformExpression RoleArn => this["role_arn"];
+    [TerraformPropertyName("role_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

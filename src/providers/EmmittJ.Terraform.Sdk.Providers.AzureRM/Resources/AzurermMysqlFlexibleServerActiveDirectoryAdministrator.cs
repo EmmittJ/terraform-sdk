@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMysqlFlexibleServerActiveDirectoryAdministratorTimeoutsBlock : TerraformBlock
+public class AzurermMysqlFlexibleServerActiveDirectoryAdministratorTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,85 +45,60 @@ public class AzurermMysqlFlexibleServerActiveDirectoryAdministrator : TerraformR
 {
     public AzurermMysqlFlexibleServerActiveDirectoryAdministrator(string name) : base("azurerm_mysql_flexible_server_active_directory_administrator", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("identity_id");
-        SetOutput("login");
-        SetOutput("object_id");
-        SetOutput("server_id");
-        SetOutput("tenant_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityId is required")]
-    public required TerraformProperty<string> IdentityId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_id");
-        set => SetProperty("identity_id", value);
-    }
+    [TerraformPropertyName("identity_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IdentityId { get; set; }
 
     /// <summary>
     /// The login attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Login is required")]
-    public required TerraformProperty<string> Login
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("login");
-        set => SetProperty("login", value);
-    }
+    [TerraformPropertyName("login")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Login { get; set; }
 
     /// <summary>
     /// The object_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
-    public required TerraformProperty<string> ObjectId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("object_id");
-        set => SetProperty("object_id", value);
-    }
+    [TerraformPropertyName("object_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ObjectId { get; set; }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    public required TerraformProperty<string> ServerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("server_id");
-        set => SetProperty("server_id", value);
-    }
+    [TerraformPropertyName("server_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServerId { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
-    public required TerraformProperty<string> TenantId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tenant_id");
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TenantId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMysqlFlexibleServerActiveDirectoryAdministratorTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMysqlFlexibleServerActiveDirectoryAdministratorTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

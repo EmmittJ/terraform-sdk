@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for additional_authentication_provider in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock : TerraformBlock
+public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock : ITerraformBlock
 {
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
-    public required TerraformProperty<string> AuthenticationType
-    {
-        set => SetProperty("authentication_type", value);
-    }
+    [TerraformPropertyName("authentication_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthenticationType { get; set; }
 
 }
 
@@ -23,34 +22,31 @@ public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock : Terrafo
 /// Block type for enhanced_metrics_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : TerraformBlock
+public class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The data_source_level_metrics_behavior attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceLevelMetricsBehavior is required")]
-    public required TerraformProperty<string> DataSourceLevelMetricsBehavior
-    {
-        set => SetProperty("data_source_level_metrics_behavior", value);
-    }
+    [TerraformPropertyName("data_source_level_metrics_behavior")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataSourceLevelMetricsBehavior { get; set; }
 
     /// <summary>
     /// The operation_level_metrics_config attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperationLevelMetricsConfig is required")]
-    public required TerraformProperty<string> OperationLevelMetricsConfig
-    {
-        set => SetProperty("operation_level_metrics_config", value);
-    }
+    [TerraformPropertyName("operation_level_metrics_config")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OperationLevelMetricsConfig { get; set; }
 
     /// <summary>
     /// The resolver_level_metrics_behavior attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResolverLevelMetricsBehavior is required")]
-    public required TerraformProperty<string> ResolverLevelMetricsBehavior
-    {
-        set => SetProperty("resolver_level_metrics_behavior", value);
-    }
+    [TerraformPropertyName("resolver_level_metrics_behavior")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResolverLevelMetricsBehavior { get; set; }
 
 }
 
@@ -58,32 +54,29 @@ public class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : TerraformBlock
 /// Block type for lambda_authorizer_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock : TerraformBlock
+public class AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The authorizer_result_ttl_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? AuthorizerResultTtlInSeconds
-    {
-        set => SetProperty("authorizer_result_ttl_in_seconds", value);
-    }
+    [TerraformPropertyName("authorizer_result_ttl_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AuthorizerResultTtlInSeconds { get; set; }
 
     /// <summary>
     /// The authorizer_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerUri is required")]
-    public required TerraformProperty<string> AuthorizerUri
-    {
-        set => SetProperty("authorizer_uri", value);
-    }
+    [TerraformPropertyName("authorizer_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthorizerUri { get; set; }
 
     /// <summary>
     /// The identity_validation_expression attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityValidationExpression
-    {
-        set => SetProperty("identity_validation_expression", value);
-    }
+    [TerraformPropertyName("identity_validation_expression")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IdentityValidationExpression { get; set; }
 
 }
 
@@ -91,33 +84,30 @@ public class AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock : TerraformBlock
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncGraphqlApiLogConfigBlock : TerraformBlock
+public class AwsAppsyncGraphqlApiLogConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The cloudwatch_logs_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogsRoleArn is required")]
-    public required TerraformProperty<string> CloudwatchLogsRoleArn
-    {
-        set => SetProperty("cloudwatch_logs_role_arn", value);
-    }
+    [TerraformPropertyName("cloudwatch_logs_role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CloudwatchLogsRoleArn { get; set; }
 
     /// <summary>
     /// The exclude_verbose_content attribute.
     /// </summary>
-    public TerraformProperty<bool>? ExcludeVerboseContent
-    {
-        set => SetProperty("exclude_verbose_content", value);
-    }
+    [TerraformPropertyName("exclude_verbose_content")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExcludeVerboseContent { get; set; }
 
     /// <summary>
     /// The field_log_level attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldLogLevel is required")]
-    public required TerraformProperty<string> FieldLogLevel
-    {
-        set => SetProperty("field_log_level", value);
-    }
+    [TerraformPropertyName("field_log_level")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FieldLogLevel { get; set; }
 
 }
 
@@ -125,40 +115,36 @@ public class AwsAppsyncGraphqlApiLogConfigBlock : TerraformBlock
 /// Block type for openid_connect_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncGraphqlApiOpenidConnectConfigBlock : TerraformBlock
+public class AwsAppsyncGraphqlApiOpenidConnectConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The auth_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? AuthTtl
-    {
-        set => SetProperty("auth_ttl", value);
-    }
+    [TerraformPropertyName("auth_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AuthTtl { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientId
-    {
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientId { get; set; }
 
     /// <summary>
     /// The iat_ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? IatTtl
-    {
-        set => SetProperty("iat_ttl", value);
-    }
+    [TerraformPropertyName("iat_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? IatTtl { get; set; }
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
-    public required TerraformProperty<string> Issuer
-    {
-        set => SetProperty("issuer", value);
-    }
+    [TerraformPropertyName("issuer")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Issuer { get; set; }
 
 }
 
@@ -166,41 +152,37 @@ public class AwsAppsyncGraphqlApiOpenidConnectConfigBlock : TerraformBlock
 /// Block type for user_pool_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncGraphqlApiUserPoolConfigBlock : TerraformBlock
+public class AwsAppsyncGraphqlApiUserPoolConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The app_id_client_regex attribute.
     /// </summary>
-    public TerraformProperty<string>? AppIdClientRegex
-    {
-        set => SetProperty("app_id_client_regex", value);
-    }
+    [TerraformPropertyName("app_id_client_regex")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AppIdClientRegex { get; set; }
 
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsRegion
-    {
-        set => SetProperty("aws_region", value);
-    }
+    [TerraformPropertyName("aws_region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AwsRegion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "aws_region");
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
-    public required TerraformProperty<string> DefaultAction
-    {
-        set => SetProperty("default_action", value);
-    }
+    [TerraformPropertyName("default_action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DefaultAction { get; set; }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
-    public required TerraformProperty<string> UserPoolId
-    {
-        set => SetProperty("user_pool_id", value);
-    }
+    [TerraformPropertyName("user_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserPoolId { get; set; }
 
 }
 
@@ -212,224 +194,167 @@ public class AwsAppsyncGraphqlApi : TerraformResource
 {
     public AwsAppsyncGraphqlApi(string name) : base("aws_appsync_graphql_api", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("uris");
-        SetOutput("api_type");
-        SetOutput("authentication_type");
-        SetOutput("id");
-        SetOutput("introspection_config");
-        SetOutput("merged_api_execution_role_arn");
-        SetOutput("name");
-        SetOutput("query_depth_limit");
-        SetOutput("region");
-        SetOutput("resolver_count_limit");
-        SetOutput("schema");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("visibility");
-        SetOutput("xray_enabled");
     }
 
     /// <summary>
     /// The api_type attribute.
     /// </summary>
-    public TerraformProperty<string> ApiType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_type");
-        set => SetProperty("api_type", value);
-    }
+    [TerraformPropertyName("api_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ApiType { get; set; }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
-    public required TerraformProperty<string> AuthenticationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_type");
-        set => SetProperty("authentication_type", value);
-    }
+    [TerraformPropertyName("authentication_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthenticationType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The introspection_config attribute.
     /// </summary>
-    public TerraformProperty<string> IntrospectionConfig
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("introspection_config");
-        set => SetProperty("introspection_config", value);
-    }
+    [TerraformPropertyName("introspection_config")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IntrospectionConfig { get; set; }
 
     /// <summary>
     /// The merged_api_execution_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> MergedApiExecutionRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("merged_api_execution_role_arn");
-        set => SetProperty("merged_api_execution_role_arn", value);
-    }
+    [TerraformPropertyName("merged_api_execution_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MergedApiExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The query_depth_limit attribute.
     /// </summary>
-    public TerraformProperty<double> QueryDepthLimit
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("query_depth_limit");
-        set => SetProperty("query_depth_limit", value);
-    }
+    [TerraformPropertyName("query_depth_limit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? QueryDepthLimit { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resolver_count_limit attribute.
     /// </summary>
-    public TerraformProperty<double> ResolverCountLimit
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("resolver_count_limit");
-        set => SetProperty("resolver_count_limit", value);
-    }
+    [TerraformPropertyName("resolver_count_limit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ResolverCountLimit { get; set; }
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
-    public TerraformProperty<string> Schema
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("schema");
-        set => SetProperty("schema", value);
-    }
+    [TerraformPropertyName("schema")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Schema { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
-    public TerraformProperty<string> Visibility
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("visibility");
-        set => SetProperty("visibility", value);
-    }
+    [TerraformPropertyName("visibility")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Visibility { get; set; }
 
     /// <summary>
     /// The xray_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> XrayEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("xray_enabled");
-        set => SetProperty("xray_enabled", value);
-    }
+    [TerraformPropertyName("xray_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? XrayEnabled { get; set; }
 
     /// <summary>
     /// Block for additional_authentication_provider.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock>? AdditionalAuthenticationProvider
-    {
-        set => SetProperty("additional_authentication_provider", value);
-    }
+    [TerraformPropertyName("additional_authentication_provider")]
+    public TerraformList<TerraformBlock<AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock>>? AdditionalAuthenticationProvider { get; set; } = new();
 
     /// <summary>
     /// Block for enhanced_metrics_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnhancedMetricsConfig block(s) allowed")]
-    public List<AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock>? EnhancedMetricsConfig
-    {
-        set => SetProperty("enhanced_metrics_config", value);
-    }
+    [TerraformPropertyName("enhanced_metrics_config")]
+    public TerraformList<TerraformBlock<AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock>>? EnhancedMetricsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for lambda_authorizer_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LambdaAuthorizerConfig block(s) allowed")]
-    public List<AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock>? LambdaAuthorizerConfig
-    {
-        set => SetProperty("lambda_authorizer_config", value);
-    }
+    [TerraformPropertyName("lambda_authorizer_config")]
+    public TerraformList<TerraformBlock<AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock>>? LambdaAuthorizerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for log_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
-    public List<AwsAppsyncGraphqlApiLogConfigBlock>? LogConfig
-    {
-        set => SetProperty("log_config", value);
-    }
+    [TerraformPropertyName("log_config")]
+    public TerraformList<TerraformBlock<AwsAppsyncGraphqlApiLogConfigBlock>>? LogConfig { get; set; } = new();
 
     /// <summary>
     /// Block for openid_connect_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenidConnectConfig block(s) allowed")]
-    public List<AwsAppsyncGraphqlApiOpenidConnectConfigBlock>? OpenidConnectConfig
-    {
-        set => SetProperty("openid_connect_config", value);
-    }
+    [TerraformPropertyName("openid_connect_config")]
+    public TerraformList<TerraformBlock<AwsAppsyncGraphqlApiOpenidConnectConfigBlock>>? OpenidConnectConfig { get; set; } = new();
 
     /// <summary>
     /// Block for user_pool_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserPoolConfig block(s) allowed")]
-    public List<AwsAppsyncGraphqlApiUserPoolConfigBlock>? UserPoolConfig
-    {
-        set => SetProperty("user_pool_config", value);
-    }
+    [TerraformPropertyName("user_pool_config")]
+    public TerraformList<TerraformBlock<AwsAppsyncGraphqlApiUserPoolConfigBlock>>? UserPoolConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The uris attribute.
     /// </summary>
-    public TerraformExpression Uris => this["uris"];
+    [TerraformPropertyName("uris")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Uris => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "uris");
 
 }

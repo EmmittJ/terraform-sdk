@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationRegistrationTimeoutsBlock : TerraformBlock
+public class AzureadApplicationRegistrationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,205 +45,154 @@ public class AzureadApplicationRegistration : TerraformResource
 {
     public AzureadApplicationRegistration(string name) : base("azuread_application_registration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("client_id");
-        SetOutput("disabled_by_microsoft");
-        SetOutput("object_id");
-        SetOutput("publisher_domain");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("group_membership_claims");
-        SetOutput("homepage_url");
-        SetOutput("id");
-        SetOutput("implicit_access_token_issuance_enabled");
-        SetOutput("implicit_id_token_issuance_enabled");
-        SetOutput("logout_url");
-        SetOutput("marketing_url");
-        SetOutput("notes");
-        SetOutput("privacy_statement_url");
-        SetOutput("requested_access_token_version");
-        SetOutput("service_management_reference");
-        SetOutput("sign_in_audience");
-        SetOutput("support_url");
-        SetOutput("terms_of_service_url");
     }
 
     /// <summary>
     /// Description of the application as shown to end users
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display name for the application
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// Configures the `groups` claim that the app expects issued in a user or OAuth access token
     /// </summary>
-    public HashSet<TerraformProperty<string>> GroupMembershipClaims
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("group_membership_claims");
-        set => SetProperty("group_membership_claims", value);
-    }
+    [TerraformPropertyName("group_membership_claims")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? GroupMembershipClaims { get; set; }
 
     /// <summary>
     /// URL of the home page for the application
     /// </summary>
-    public TerraformProperty<string> HomepageUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("homepage_url");
-        set => SetProperty("homepage_url", value);
-    }
+    [TerraformPropertyName("homepage_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HomepageUrl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Whether this application can request an access token using OAuth implicit flow
     /// </summary>
-    public TerraformProperty<bool> ImplicitAccessTokenIssuanceEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("implicit_access_token_issuance_enabled");
-        set => SetProperty("implicit_access_token_issuance_enabled", value);
-    }
+    [TerraformPropertyName("implicit_access_token_issuance_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ImplicitAccessTokenIssuanceEnabled { get; set; }
 
     /// <summary>
     /// Whether this application can request an ID token using OAuth implicit flow
     /// </summary>
-    public TerraformProperty<bool> ImplicitIdTokenIssuanceEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("implicit_id_token_issuance_enabled");
-        set => SetProperty("implicit_id_token_issuance_enabled", value);
-    }
+    [TerraformPropertyName("implicit_id_token_issuance_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ImplicitIdTokenIssuanceEnabled { get; set; }
 
     /// <summary>
     /// URL of the logout page for the application, where the session is cleared for single sign-out
     /// </summary>
-    public TerraformProperty<string> LogoutUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("logout_url");
-        set => SetProperty("logout_url", value);
-    }
+    [TerraformPropertyName("logout_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LogoutUrl { get; set; }
 
     /// <summary>
     /// URL of the marketing page for the application
     /// </summary>
-    public TerraformProperty<string> MarketingUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("marketing_url");
-        set => SetProperty("marketing_url", value);
-    }
+    [TerraformPropertyName("marketing_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MarketingUrl { get; set; }
 
     /// <summary>
     /// User-specified notes relevant for the management of the application
     /// </summary>
-    public TerraformProperty<string> Notes
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("notes");
-        set => SetProperty("notes", value);
-    }
+    [TerraformPropertyName("notes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Notes { get; set; }
 
     /// <summary>
     /// URL of the privacy statement for the application
     /// </summary>
-    public TerraformProperty<string> PrivacyStatementUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("privacy_statement_url");
-        set => SetProperty("privacy_statement_url", value);
-    }
+    [TerraformPropertyName("privacy_statement_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrivacyStatementUrl { get; set; }
 
     /// <summary>
     /// The access token version expected by this resource
     /// </summary>
-    public TerraformProperty<double> RequestedAccessTokenVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("requested_access_token_version");
-        set => SetProperty("requested_access_token_version", value);
-    }
+    [TerraformPropertyName("requested_access_token_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RequestedAccessTokenVersion { get; set; }
 
     /// <summary>
     /// References application or contact information from a service or asset management database
     /// </summary>
-    public TerraformProperty<string> ServiceManagementReference
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_management_reference");
-        set => SetProperty("service_management_reference", value);
-    }
+    [TerraformPropertyName("service_management_reference")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServiceManagementReference { get; set; }
 
     /// <summary>
     /// The Microsoft account types that are supported for the current application
     /// </summary>
-    public TerraformProperty<string> SignInAudience
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sign_in_audience");
-        set => SetProperty("sign_in_audience", value);
-    }
+    [TerraformPropertyName("sign_in_audience")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SignInAudience { get; set; }
 
     /// <summary>
     /// URL of the support page for the application
     /// </summary>
-    public TerraformProperty<string> SupportUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("support_url");
-        set => SetProperty("support_url", value);
-    }
+    [TerraformPropertyName("support_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SupportUrl { get; set; }
 
     /// <summary>
     /// URL of the terms of service statement for the application
     /// </summary>
-    public TerraformProperty<string> TermsOfServiceUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("terms_of_service_url");
-        set => SetProperty("terms_of_service_url", value);
-    }
+    [TerraformPropertyName("terms_of_service_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TermsOfServiceUrl { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadApplicationRegistrationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadApplicationRegistrationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The Client ID (also called Application ID)
     /// </summary>
-    public TerraformExpression ClientId => this["client_id"];
+    [TerraformPropertyName("client_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClientId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "client_id");
 
     /// <summary>
     /// If the application has been disabled by Microsoft, this shows the status or reason
     /// </summary>
-    public TerraformExpression DisabledByMicrosoft => this["disabled_by_microsoft"];
+    [TerraformPropertyName("disabled_by_microsoft")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisabledByMicrosoft => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "disabled_by_microsoft");
 
     /// <summary>
     /// The object ID of the application within the tenant
     /// </summary>
-    public TerraformExpression ObjectId => this["object_id"];
+    [TerraformPropertyName("object_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ObjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_id");
 
     /// <summary>
     /// The verified publisher domain for the application
     /// </summary>
-    public TerraformExpression PublisherDomain => this["publisher_domain"];
+    [TerraformPropertyName("publisher_domain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PublisherDomain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "publisher_domain");
 
 }

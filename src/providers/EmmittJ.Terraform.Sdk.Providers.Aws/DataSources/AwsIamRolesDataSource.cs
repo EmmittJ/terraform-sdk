@@ -9,53 +9,41 @@ public class AwsIamRolesDataSource : TerraformDataSource
 {
     public AwsIamRolesDataSource(string name) : base("aws_iam_roles", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arns");
-        SetOutput("names");
-        SetOutput("id");
-        SetOutput("name_regex");
-        SetOutput("path_prefix");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformProperty<string> NameRegex
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_regex");
-        set => SetProperty("name_regex", value);
-    }
+    [TerraformPropertyName("name_regex")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NameRegex { get; set; }
 
     /// <summary>
     /// The path_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> PathPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("path_prefix");
-        set => SetProperty("path_prefix", value);
-    }
+    [TerraformPropertyName("path_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PathPrefix { get; set; }
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
-    public TerraformExpression Arns => this["arns"];
+    [TerraformPropertyName("arns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Arns => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "arns");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
-    public TerraformExpression Names => this["names"];
+    [TerraformPropertyName("names")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Names => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "names");
 
 }

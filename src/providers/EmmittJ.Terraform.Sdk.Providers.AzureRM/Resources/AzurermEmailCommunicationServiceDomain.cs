@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermEmailCommunicationServiceDomainTimeoutsBlock : TerraformBlock
+public class AzurermEmailCommunicationServiceDomainTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,101 +45,79 @@ public class AzurermEmailCommunicationServiceDomain : TerraformResource
 {
     public AzurermEmailCommunicationServiceDomain(string name) : base("azurerm_email_communication_service_domain", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("from_sender_domain");
-        SetOutput("mail_from_sender_domain");
-        SetOutput("verification_records");
-        SetOutput("domain_management");
-        SetOutput("email_service_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("tags");
-        SetOutput("user_engagement_tracking_enabled");
     }
 
     /// <summary>
     /// The domain_management attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainManagement is required")]
-    public required TerraformProperty<string> DomainManagement
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_management");
-        set => SetProperty("domain_management", value);
-    }
+    [TerraformPropertyName("domain_management")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainManagement { get; set; }
 
     /// <summary>
     /// The email_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailServiceId is required")]
-    public required TerraformProperty<string> EmailServiceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("email_service_id");
-        set => SetProperty("email_service_id", value);
-    }
+    [TerraformPropertyName("email_service_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EmailServiceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The user_engagement_tracking_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> UserEngagementTrackingEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("user_engagement_tracking_enabled");
-        set => SetProperty("user_engagement_tracking_enabled", value);
-    }
+    [TerraformPropertyName("user_engagement_tracking_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UserEngagementTrackingEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermEmailCommunicationServiceDomainTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermEmailCommunicationServiceDomainTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The from_sender_domain attribute.
     /// </summary>
-    public TerraformExpression FromSenderDomain => this["from_sender_domain"];
+    [TerraformPropertyName("from_sender_domain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FromSenderDomain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "from_sender_domain");
 
     /// <summary>
     /// The mail_from_sender_domain attribute.
     /// </summary>
-    public TerraformExpression MailFromSenderDomain => this["mail_from_sender_domain"];
+    [TerraformPropertyName("mail_from_sender_domain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MailFromSenderDomain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mail_from_sender_domain");
 
     /// <summary>
     /// The verification_records attribute.
     /// </summary>
-    public TerraformExpression VerificationRecords => this["verification_records"];
+    [TerraformPropertyName("verification_records")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> VerificationRecords => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "verification_records");
 
 }

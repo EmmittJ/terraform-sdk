@@ -6,63 +6,57 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bigquery_config in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
+public class GooglePubsubSubscriptionBigqueryConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// When true and use_topic_schema or use_table_schema is true, any fields that are a part of the topic schema or message schema that
     /// are not part of the BigQuery table schema are dropped when writing to BigQuery. Otherwise, the schemas must be kept in sync
     /// and any messages with extra fields are not written and remain in the subscription&#39;s backlog.
     /// </summary>
-    public TerraformProperty<bool>? DropUnknownFields
-    {
-        set => SetProperty("drop_unknown_fields", value);
-    }
+    [TerraformPropertyName("drop_unknown_fields")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DropUnknownFields { get; set; }
 
     /// <summary>
     /// The service account to use to write to BigQuery. If not specified, the Pub/Sub
     /// [service agent](https://cloud.google.com/iam/docs/service-agents),
     /// service-{project_number}@gcp-sa-pubsub.iam.gserviceaccount.com, is used.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccountEmail
-    {
-        set => SetProperty("service_account_email", value);
-    }
+    [TerraformPropertyName("service_account_email")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServiceAccountEmail { get; set; }
 
     /// <summary>
     /// The name of the table to which to write data, of the form {projectId}.{datasetId}.{tableId}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
-    public required TerraformProperty<string> Table
-    {
-        set => SetProperty("table", value);
-    }
+    [TerraformPropertyName("table")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Table { get; set; }
 
     /// <summary>
     /// When true, use the BigQuery table&#39;s schema as the columns to write to in BigQuery. Messages
     /// must be published in JSON format. Only one of use_topic_schema and use_table_schema can be set.
     /// </summary>
-    public TerraformProperty<bool>? UseTableSchema
-    {
-        set => SetProperty("use_table_schema", value);
-    }
+    [TerraformPropertyName("use_table_schema")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseTableSchema { get; set; }
 
     /// <summary>
     /// When true, use the topic&#39;s schema as the columns to write to in BigQuery, if it exists.
     /// Only one of use_topic_schema and use_table_schema can be set.
     /// </summary>
-    public TerraformProperty<bool>? UseTopicSchema
-    {
-        set => SetProperty("use_topic_schema", value);
-    }
+    [TerraformPropertyName("use_topic_schema")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseTopicSchema { get; set; }
 
     /// <summary>
     /// When true, write the subscription name, messageId, publishTime, attributes, and orderingKey to additional columns in the table.
     /// The subscription name, messageId, and publishTime fields are put in their own columns while all other message properties (other than data) are written to a JSON object in the attributes column.
     /// </summary>
-    public TerraformProperty<bool>? WriteMetadata
-    {
-        set => SetProperty("write_metadata", value);
-    }
+    [TerraformPropertyName("write_metadata")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WriteMetadata { get; set; }
 
 }
 
@@ -70,85 +64,76 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
 /// Block type for cloud_storage_config in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
+public class GooglePubsubSubscriptionCloudStorageConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// User-provided name for the Cloud Storage bucket. The bucket must be created by the user. The bucket name must be without any prefix like &amp;quot;gs://&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// User-provided format string specifying how to represent datetimes in Cloud Storage filenames.
     /// </summary>
-    public TerraformProperty<string>? FilenameDatetimeFormat
-    {
-        set => SetProperty("filename_datetime_format", value);
-    }
+    [TerraformPropertyName("filename_datetime_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FilenameDatetimeFormat { get; set; }
 
     /// <summary>
     /// User-provided prefix for Cloud Storage filename.
     /// </summary>
-    public TerraformProperty<string>? FilenamePrefix
-    {
-        set => SetProperty("filename_prefix", value);
-    }
+    [TerraformPropertyName("filename_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FilenamePrefix { get; set; }
 
     /// <summary>
     /// User-provided suffix for Cloud Storage filename. Must not end in &amp;quot;/&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? FilenameSuffix
-    {
-        set => SetProperty("filename_suffix", value);
-    }
+    [TerraformPropertyName("filename_suffix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FilenameSuffix { get; set; }
 
     /// <summary>
     /// The maximum bytes that can be written to a Cloud Storage file before a new file is created. Min 1 KB, max 10 GiB.
     /// The maxBytes limit may be exceeded in cases where messages are larger than the limit.
     /// </summary>
-    public TerraformProperty<double>? MaxBytes
-    {
-        set => SetProperty("max_bytes", value);
-    }
+    [TerraformPropertyName("max_bytes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxBytes { get; set; }
 
     /// <summary>
     /// The maximum duration that can elapse before a new Cloud Storage file is created. Min 1 minute, max 10 minutes, default 5 minutes.
     /// May not exceed the subscription&#39;s acknowledgement deadline.
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? MaxDuration
-    {
-        set => SetProperty("max_duration", value);
-    }
+    [TerraformPropertyName("max_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaxDuration { get; set; }
 
     /// <summary>
     /// The maximum messages that can be written to a Cloud Storage file before a new file is created. Min 1000 messages.
     /// </summary>
-    public TerraformProperty<double>? MaxMessages
-    {
-        set => SetProperty("max_messages", value);
-    }
+    [TerraformPropertyName("max_messages")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxMessages { get; set; }
 
     /// <summary>
     /// The service account to use to write to Cloud Storage. If not specified, the Pub/Sub
     /// [service agent](https://cloud.google.com/iam/docs/service-agents),
     /// service-{project_number}@gcp-sa-pubsub.iam.gserviceaccount.com, is used.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccountEmail
-    {
-        set => SetProperty("service_account_email", value);
-    }
+    [TerraformPropertyName("service_account_email")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServiceAccountEmail { get; set; }
 
     /// <summary>
     /// An output-only field that indicates whether or not the subscription can receive messages.
     /// </summary>
-    public TerraformProperty<string>? State
-    {
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>("", "state");
 
 }
 
@@ -156,7 +141,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
 /// Block type for dead_letter_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubSubscriptionDeadLetterPolicyBlock : TerraformBlock
+public class GooglePubsubSubscriptionDeadLetterPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The name of the topic to which dead letter messages should be published.
@@ -171,10 +156,9 @@ public class GooglePubsubSubscriptionDeadLetterPolicyBlock : TerraformBlock
     /// Users should ensure that there is a subscription attached to this topic
     /// since messages published to a topic with no subscriptions are lost.
     /// </summary>
-    public TerraformProperty<string>? DeadLetterTopic
-    {
-        set => SetProperty("dead_letter_topic", value);
-    }
+    [TerraformPropertyName("dead_letter_topic")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeadLetterTopic { get; set; }
 
     /// <summary>
     /// The maximum number of delivery attempts for any message. The value must be
@@ -190,10 +174,9 @@ public class GooglePubsubSubscriptionDeadLetterPolicyBlock : TerraformBlock
     /// 
     /// If this parameter is 0, a default value of 5 is used.
     /// </summary>
-    public TerraformProperty<double>? MaxDeliveryAttempts
-    {
-        set => SetProperty("max_delivery_attempts", value);
-    }
+    [TerraformPropertyName("max_delivery_attempts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxDeliveryAttempts { get; set; }
 
 }
 
@@ -201,7 +184,7 @@ public class GooglePubsubSubscriptionDeadLetterPolicyBlock : TerraformBlock
 /// Block type for expiration_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubSubscriptionExpirationPolicyBlock : TerraformBlock
+public class GooglePubsubSubscriptionExpirationPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// Specifies the &amp;quot;time-to-live&amp;quot; duration for an associated resource. The
@@ -211,10 +194,9 @@ public class GooglePubsubSubscriptionExpirationPolicyBlock : TerraformBlock
     /// Example - &amp;quot;3.5s&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
-    public required TerraformProperty<string> Ttl
-    {
-        set => SetProperty("ttl", value);
-    }
+    [TerraformPropertyName("ttl")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Ttl { get; set; }
 
 }
 
@@ -222,16 +204,15 @@ public class GooglePubsubSubscriptionExpirationPolicyBlock : TerraformBlock
 /// Block type for message_transforms in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubSubscriptionMessageTransformsBlock : TerraformBlock
+public class GooglePubsubSubscriptionMessageTransformsBlock : ITerraformBlock
 {
     /// <summary>
     /// Controls whether or not to use this transform. If not set or &#39;false&#39;,
     /// the transform will be applied to messages. Default: &#39;true&#39;.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
-    {
-        set => SetProperty("disabled", value);
-    }
+    [TerraformPropertyName("disabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
 
 }
 
@@ -239,7 +220,7 @@ public class GooglePubsubSubscriptionMessageTransformsBlock : TerraformBlock
 /// Block type for push_config in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubSubscriptionPushConfigBlock : TerraformBlock
+public class GooglePubsubSubscriptionPushConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Endpoint configuration attributes.
@@ -266,10 +247,9 @@ public class GooglePubsubSubscriptionPushConfigBlock : TerraformBlock
     /// - v1beta1: uses the push format defined in the v1beta1 Pub/Sub API.
     /// - v1 or v1beta2: uses the push format defined in the v1 Pub/Sub API.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Attributes
-    {
-        set => SetProperty("attributes", value);
-    }
+    [TerraformPropertyName("attributes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Attributes { get; set; }
 
     /// <summary>
     /// A URL locating the endpoint to which messages should be pushed.
@@ -277,10 +257,9 @@ public class GooglePubsubSubscriptionPushConfigBlock : TerraformBlock
     /// &amp;quot;https://example.com/push&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PushEndpoint is required")]
-    public required TerraformProperty<string> PushEndpoint
-    {
-        set => SetProperty("push_endpoint", value);
-    }
+    [TerraformPropertyName("push_endpoint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PushEndpoint { get; set; }
 
 }
 
@@ -288,25 +267,23 @@ public class GooglePubsubSubscriptionPushConfigBlock : TerraformBlock
 /// Block type for retry_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubSubscriptionRetryPolicyBlock : TerraformBlock
+public class GooglePubsubSubscriptionRetryPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The maximum delay between consecutive deliveries of a given message. Value should be between 0 and 600 seconds. Defaults to 600 seconds.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? MaximumBackoff
-    {
-        set => SetProperty("maximum_backoff", value);
-    }
+    [TerraformPropertyName("maximum_backoff")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MaximumBackoff { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "maximum_backoff");
 
     /// <summary>
     /// The minimum delay between consecutive deliveries of a given message. Value should be between 0 and 600 seconds. Defaults to 10 seconds.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? MinimumBackoff
-    {
-        set => SetProperty("minimum_backoff", value);
-    }
+    [TerraformPropertyName("minimum_backoff")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MinimumBackoff { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "minimum_backoff");
 
 }
 
@@ -314,31 +291,28 @@ public class GooglePubsubSubscriptionRetryPolicyBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GooglePubsubSubscriptionTimeoutsBlock : TerraformBlock
+public class GooglePubsubSubscriptionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -350,25 +324,6 @@ public class GooglePubsubSubscription : TerraformResource
 {
     public GooglePubsubSubscription(string name) : base("google_pubsub_subscription", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("effective_labels");
-        SetOutput("terraform_labels");
-        SetOutput("ack_deadline_seconds");
-        SetOutput("enable_exactly_once_delivery");
-        SetOutput("enable_message_ordering");
-        SetOutput("filter");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("message_retention_duration");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("retain_acked_messages");
-        SetOutput("tags");
-        SetOutput("topic");
     }
 
     /// <summary>
@@ -391,11 +346,9 @@ public class GooglePubsubSubscription : TerraformResource
     /// If the subscriber never acknowledges the message, the Pub/Sub system
     /// will eventually redeliver the message.
     /// </summary>
-    public TerraformProperty<double> AckDeadlineSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("ack_deadline_seconds");
-        set => SetProperty("ack_deadline_seconds", value);
-    }
+    [TerraformPropertyName("ack_deadline_seconds")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> AckDeadlineSeconds { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ack_deadline_seconds");
 
     /// <summary>
     /// If &#39;true&#39;, Pub/Sub provides the following guarantees for the delivery
@@ -408,22 +361,18 @@ public class GooglePubsubSubscription : TerraformResource
     /// Note that subscribers may still receive multiple copies of a message when &#39;enable_exactly_once_delivery&#39;
     /// is true if the message was published multiple times by a publisher client. These copies are considered distinct by Pub/Sub and have distinct messageId values
     /// </summary>
-    public TerraformProperty<bool> EnableExactlyOnceDelivery
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_exactly_once_delivery");
-        set => SetProperty("enable_exactly_once_delivery", value);
-    }
+    [TerraformPropertyName("enable_exactly_once_delivery")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableExactlyOnceDelivery { get; set; }
 
     /// <summary>
     /// If &#39;true&#39;, messages published with the same orderingKey in PubsubMessage will be delivered to
     /// the subscribers in the order in which they are received by the Pub/Sub system. Otherwise, they
     /// may be delivered in any order.
     /// </summary>
-    public TerraformProperty<bool> EnableMessageOrdering
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_message_ordering");
-        set => SetProperty("enable_message_ordering", value);
-    }
+    [TerraformPropertyName("enable_message_ordering")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableMessageOrdering { get; set; }
 
     /// <summary>
     /// The subscription only delivers the messages that match the filter.
@@ -431,20 +380,16 @@ public class GooglePubsubSubscription : TerraformResource
     /// by their attributes. The maximum length of a filter is 256 bytes. After creating the subscription,
     /// you can&#39;t modify the filter.
     /// </summary>
-    public TerraformProperty<string> Filter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filter");
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// A set of key/value label pairs to assign to this Subscription.
@@ -453,11 +398,9 @@ public class GooglePubsubSubscription : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// How long to retain unacknowledged messages in the subscription&#39;s
@@ -470,30 +413,24 @@ public class GooglePubsubSubscription : TerraformResource
     /// A duration in seconds with up to nine fractional digits, terminated
     /// by &#39;s&#39;. Example: &#39;&amp;quot;600.5s&amp;quot;&#39;.
     /// </summary>
-    public TerraformProperty<string> MessageRetentionDuration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("message_retention_duration");
-        set => SetProperty("message_retention_duration", value);
-    }
+    [TerraformPropertyName("message_retention_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MessageRetentionDuration { get; set; }
 
     /// <summary>
     /// Name of the subscription.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Indicates whether to retain acknowledged messages. If &#39;true&#39;, then
@@ -501,11 +438,9 @@ public class GooglePubsubSubscription : TerraformResource
     /// they are acknowledged, until they fall out of the
     /// messageRetentionDuration window.
     /// </summary>
-    public TerraformProperty<bool> RetainAckedMessages
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("retain_acked_messages");
-        set => SetProperty("retain_acked_messages", value);
-    }
+    [TerraformPropertyName("retain_acked_messages")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RetainAckedMessages { get; set; }
 
     /// <summary>
     /// Input only. Resource manager tags to be bound to the subscription. Tag
@@ -517,11 +452,9 @@ public class GooglePubsubSubscription : TerraformResource
     /// apply tags to an existing resource, see the &#39;google_tags_tag_value&#39;
     /// resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// A reference to a Topic resource, of the form projects/{project}/topics/{{name}}
@@ -529,99 +462,85 @@ public class GooglePubsubSubscription : TerraformResource
     /// the topic is in the same project as the subscription.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
-    public required TerraformProperty<string> Topic
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("topic");
-        set => SetProperty("topic", value);
-    }
+    [TerraformPropertyName("topic")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Topic { get; set; }
 
     /// <summary>
     /// Block for bigquery_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BigqueryConfig block(s) allowed")]
-    public List<GooglePubsubSubscriptionBigqueryConfigBlock>? BigqueryConfig
-    {
-        set => SetProperty("bigquery_config", value);
-    }
+    [TerraformPropertyName("bigquery_config")]
+    public TerraformList<TerraformBlock<GooglePubsubSubscriptionBigqueryConfigBlock>>? BigqueryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for cloud_storage_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudStorageConfig block(s) allowed")]
-    public List<GooglePubsubSubscriptionCloudStorageConfigBlock>? CloudStorageConfig
-    {
-        set => SetProperty("cloud_storage_config", value);
-    }
+    [TerraformPropertyName("cloud_storage_config")]
+    public TerraformList<TerraformBlock<GooglePubsubSubscriptionCloudStorageConfigBlock>>? CloudStorageConfig { get; set; } = new();
 
     /// <summary>
     /// Block for dead_letter_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterPolicy block(s) allowed")]
-    public List<GooglePubsubSubscriptionDeadLetterPolicyBlock>? DeadLetterPolicy
-    {
-        set => SetProperty("dead_letter_policy", value);
-    }
+    [TerraformPropertyName("dead_letter_policy")]
+    public TerraformList<TerraformBlock<GooglePubsubSubscriptionDeadLetterPolicyBlock>>? DeadLetterPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for expiration_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpirationPolicy block(s) allowed")]
-    public List<GooglePubsubSubscriptionExpirationPolicyBlock>? ExpirationPolicy
-    {
-        set => SetProperty("expiration_policy", value);
-    }
+    [TerraformPropertyName("expiration_policy")]
+    public TerraformList<TerraformBlock<GooglePubsubSubscriptionExpirationPolicyBlock>>? ExpirationPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for message_transforms.
     /// Nesting mode: list
     /// </summary>
-    public List<GooglePubsubSubscriptionMessageTransformsBlock>? MessageTransforms
-    {
-        set => SetProperty("message_transforms", value);
-    }
+    [TerraformPropertyName("message_transforms")]
+    public TerraformList<TerraformBlock<GooglePubsubSubscriptionMessageTransformsBlock>>? MessageTransforms { get; set; } = new();
 
     /// <summary>
     /// Block for push_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PushConfig block(s) allowed")]
-    public List<GooglePubsubSubscriptionPushConfigBlock>? PushConfig
-    {
-        set => SetProperty("push_config", value);
-    }
+    [TerraformPropertyName("push_config")]
+    public TerraformList<TerraformBlock<GooglePubsubSubscriptionPushConfigBlock>>? PushConfig { get; set; } = new();
 
     /// <summary>
     /// Block for retry_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
-    public List<GooglePubsubSubscriptionRetryPolicyBlock>? RetryPolicy
-    {
-        set => SetProperty("retry_policy", value);
-    }
+    [TerraformPropertyName("retry_policy")]
+    public TerraformList<TerraformBlock<GooglePubsubSubscriptionRetryPolicyBlock>>? RetryPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GooglePubsubSubscriptionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GooglePubsubSubscriptionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

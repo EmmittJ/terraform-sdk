@@ -6,63 +6,56 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : TerraformBlock
+public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : ITerraformBlock
 {
     /// <summary>
     /// The days_of_week attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? DaysOfWeek
-    {
-        set => SetProperty("days_of_week", value);
-    }
+    [TerraformPropertyName("days_of_week")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> DaysOfWeek { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "days_of_week");
 
     /// <summary>
     /// The hours_of_day attribute.
     /// </summary>
-    public List<TerraformProperty<double>>? HoursOfDay
-    {
-        set => SetProperty("hours_of_day", value);
-    }
+    [TerraformPropertyName("hours_of_day")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<double>>> HoursOfDay { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<double>>>("", "hours_of_day");
 
     /// <summary>
     /// The lead_time_in_weeks attribute.
     /// </summary>
-    public TerraformProperty<double>? LeadTimeInWeeks
-    {
-        set => SetProperty("lead_time_in_weeks", value);
-    }
+    [TerraformPropertyName("lead_time_in_weeks")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> LeadTimeInWeeks { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "lead_time_in_weeks");
 
     /// <summary>
     /// The months attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Months
-    {
-        set => SetProperty("months", value);
-    }
+    [TerraformPropertyName("months")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> Months { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "months");
 
     /// <summary>
     /// The patching_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? PatchingMode
-    {
-        set => SetProperty("patching_mode", value);
-    }
+    [TerraformPropertyName("patching_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PatchingMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "patching_mode");
 
     /// <summary>
     /// The preference attribute.
     /// </summary>
-    public TerraformProperty<string>? Preference
-    {
-        set => SetProperty("preference", value);
-    }
+    [TerraformPropertyName("preference")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Preference { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "preference");
 
     /// <summary>
     /// The weeks_of_month attribute.
     /// </summary>
-    public List<TerraformProperty<double>>? WeeksOfMonth
-    {
-        set => SetProperty("weeks_of_month", value);
-    }
+    [TerraformPropertyName("weeks_of_month")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<double>>> WeeksOfMonth { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<double>>>("", "weeks_of_month");
 
 }
 
@@ -70,39 +63,35 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermOracleExadataInfrastructureTimeoutsBlock : TerraformBlock
+public class AzurermOracleExadataInfrastructureTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -113,167 +102,119 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
 {
     public AzurermOracleExadataInfrastructure(string name) : base("azurerm_oracle_exadata_infrastructure", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("compute_count");
-        SetOutput("customer_contacts");
-        SetOutput("database_server_type");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("shape");
-        SetOutput("storage_count");
-        SetOutput("storage_server_type");
-        SetOutput("tags");
-        SetOutput("zones");
     }
 
     /// <summary>
     /// The compute_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
-    public required TerraformProperty<double> ComputeCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("compute_count");
-        set => SetProperty("compute_count", value);
-    }
+    [TerraformPropertyName("compute_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ComputeCount { get; set; }
 
     /// <summary>
     /// The customer_contacts attribute.
     /// </summary>
-    public List<TerraformProperty<string>> CustomerContacts
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("customer_contacts");
-        set => SetProperty("customer_contacts", value);
-    }
+    [TerraformPropertyName("customer_contacts")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> CustomerContacts { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "customer_contacts");
 
     /// <summary>
     /// The database_server_type attribute.
     /// </summary>
-    public TerraformProperty<string> DatabaseServerType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_server_type");
-        set => SetProperty("database_server_type", value);
-    }
+    [TerraformPropertyName("database_server_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DatabaseServerType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "database_server_type");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The shape attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
-    public required TerraformProperty<string> Shape
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("shape");
-        set => SetProperty("shape", value);
-    }
+    [TerraformPropertyName("shape")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Shape { get; set; }
 
     /// <summary>
     /// The storage_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCount is required")]
-    public required TerraformProperty<double> StorageCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("storage_count");
-        set => SetProperty("storage_count", value);
-    }
+    [TerraformPropertyName("storage_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> StorageCount { get; set; }
 
     /// <summary>
     /// The storage_server_type attribute.
     /// </summary>
-    public TerraformProperty<string> StorageServerType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_server_type");
-        set => SetProperty("storage_server_type", value);
-    }
+    [TerraformPropertyName("storage_server_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StorageServerType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_server_type");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zones is required")]
-    public HashSet<TerraformProperty<string>> Zones
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
-        set => SetProperty("zones", value);
-    }
+    [TerraformPropertyName("zones")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Zones { get; set; }
 
     /// <summary>
     /// Block for maintenance_window.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermOracleExadataInfrastructureMaintenanceWindowBlock>? MaintenanceWindow
-    {
-        set => SetProperty("maintenance_window", value);
-    }
+    [TerraformPropertyName("maintenance_window")]
+    public TerraformList<TerraformBlock<AzurermOracleExadataInfrastructureMaintenanceWindowBlock>>? MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermOracleExadataInfrastructureTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermOracleExadataInfrastructureTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

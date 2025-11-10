@@ -6,41 +6,37 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for output_target in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMssqlJobStepOutputTargetBlock : TerraformBlock
+public class AzurermMssqlJobStepOutputTargetBlock : ITerraformBlock
 {
     /// <summary>
     /// The job_credential_id attribute.
     /// </summary>
-    public TerraformProperty<string>? JobCredentialId
-    {
-        set => SetProperty("job_credential_id", value);
-    }
+    [TerraformPropertyName("job_credential_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? JobCredentialId { get; set; }
 
     /// <summary>
     /// The mssql_database_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MssqlDatabaseId is required")]
-    public required TerraformProperty<string> MssqlDatabaseId
-    {
-        set => SetProperty("mssql_database_id", value);
-    }
+    [TerraformPropertyName("mssql_database_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MssqlDatabaseId { get; set; }
 
     /// <summary>
     /// The schema_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SchemaName
-    {
-        set => SetProperty("schema_name", value);
-    }
+    [TerraformPropertyName("schema_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SchemaName { get; set; }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
-    public required TerraformProperty<string> TableName
-    {
-        set => SetProperty("table_name", value);
-    }
+    [TerraformPropertyName("table_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TableName { get; set; }
 
 }
 
@@ -48,39 +44,35 @@ public class AzurermMssqlJobStepOutputTargetBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMssqlJobStepTimeoutsBlock : TerraformBlock
+public class AzurermMssqlJobStepTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -92,155 +84,110 @@ public class AzurermMssqlJobStep : TerraformResource
 {
     public AzurermMssqlJobStep(string name) : base("azurerm_mssql_job_step", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("initial_retry_interval_seconds");
-        SetOutput("job_credential_id");
-        SetOutput("job_id");
-        SetOutput("job_step_index");
-        SetOutput("job_target_group_id");
-        SetOutput("maximum_retry_interval_seconds");
-        SetOutput("name");
-        SetOutput("retry_attempts");
-        SetOutput("retry_interval_backoff_multiplier");
-        SetOutput("sql_script");
-        SetOutput("timeout_seconds");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The initial_retry_interval_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> InitialRetryIntervalSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("initial_retry_interval_seconds");
-        set => SetProperty("initial_retry_interval_seconds", value);
-    }
+    [TerraformPropertyName("initial_retry_interval_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InitialRetryIntervalSeconds { get; set; }
 
     /// <summary>
     /// The job_credential_id attribute.
     /// </summary>
-    public TerraformProperty<string> JobCredentialId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("job_credential_id");
-        set => SetProperty("job_credential_id", value);
-    }
+    [TerraformPropertyName("job_credential_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? JobCredentialId { get; set; }
 
     /// <summary>
     /// The job_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
-    public required TerraformProperty<string> JobId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("job_id");
-        set => SetProperty("job_id", value);
-    }
+    [TerraformPropertyName("job_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> JobId { get; set; }
 
     /// <summary>
     /// The job_step_index attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobStepIndex is required")]
-    public required TerraformProperty<double> JobStepIndex
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("job_step_index");
-        set => SetProperty("job_step_index", value);
-    }
+    [TerraformPropertyName("job_step_index")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> JobStepIndex { get; set; }
 
     /// <summary>
     /// The job_target_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobTargetGroupId is required")]
-    public required TerraformProperty<string> JobTargetGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("job_target_group_id");
-        set => SetProperty("job_target_group_id", value);
-    }
+    [TerraformPropertyName("job_target_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> JobTargetGroupId { get; set; }
 
     /// <summary>
     /// The maximum_retry_interval_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> MaximumRetryIntervalSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("maximum_retry_interval_seconds");
-        set => SetProperty("maximum_retry_interval_seconds", value);
-    }
+    [TerraformPropertyName("maximum_retry_interval_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaximumRetryIntervalSeconds { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The retry_attempts attribute.
     /// </summary>
-    public TerraformProperty<double> RetryAttempts
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("retry_attempts");
-        set => SetProperty("retry_attempts", value);
-    }
+    [TerraformPropertyName("retry_attempts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RetryAttempts { get; set; }
 
     /// <summary>
     /// The retry_interval_backoff_multiplier attribute.
     /// </summary>
-    public TerraformProperty<double> RetryIntervalBackoffMultiplier
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("retry_interval_backoff_multiplier");
-        set => SetProperty("retry_interval_backoff_multiplier", value);
-    }
+    [TerraformPropertyName("retry_interval_backoff_multiplier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RetryIntervalBackoffMultiplier { get; set; }
 
     /// <summary>
     /// The sql_script attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlScript is required")]
-    public required TerraformProperty<string> SqlScript
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sql_script");
-        set => SetProperty("sql_script", value);
-    }
+    [TerraformPropertyName("sql_script")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SqlScript { get; set; }
 
     /// <summary>
     /// The timeout_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> TimeoutSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("timeout_seconds");
-        set => SetProperty("timeout_seconds", value);
-    }
+    [TerraformPropertyName("timeout_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TimeoutSeconds { get; set; }
 
     /// <summary>
     /// Block for output_target.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputTarget block(s) allowed")]
-    public List<AzurermMssqlJobStepOutputTargetBlock>? OutputTarget
-    {
-        set => SetProperty("output_target", value);
-    }
+    [TerraformPropertyName("output_target")]
+    public TerraformList<TerraformBlock<AzurermMssqlJobStepOutputTargetBlock>>? OutputTarget { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMssqlJobStepTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMssqlJobStepTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -6,48 +6,43 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for conditions in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlock
+public class AzureadConditionalAccessPolicyConditionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The client_app_types attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientAppTypes is required")]
-    public List<TerraformProperty<string>>? ClientAppTypes
-    {
-        set => SetProperty("client_app_types", value);
-    }
+    [TerraformPropertyName("client_app_types")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? ClientAppTypes { get; set; }
 
     /// <summary>
     /// The insider_risk_levels attribute.
     /// </summary>
-    public TerraformProperty<string>? InsiderRiskLevels
-    {
-        set => SetProperty("insider_risk_levels", value);
-    }
+    [TerraformPropertyName("insider_risk_levels")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> InsiderRiskLevels { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "insider_risk_levels");
 
     /// <summary>
     /// The service_principal_risk_levels attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ServicePrincipalRiskLevels
-    {
-        set => SetProperty("service_principal_risk_levels", value);
-    }
+    [TerraformPropertyName("service_principal_risk_levels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ServicePrincipalRiskLevels { get; set; }
 
     /// <summary>
     /// The sign_in_risk_levels attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SignInRiskLevels
-    {
-        set => SetProperty("sign_in_risk_levels", value);
-    }
+    [TerraformPropertyName("sign_in_risk_levels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SignInRiskLevels { get; set; }
 
     /// <summary>
     /// The user_risk_levels attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? UserRiskLevels
-    {
-        set => SetProperty("user_risk_levels", value);
-    }
+    [TerraformPropertyName("user_risk_levels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? UserRiskLevels { get; set; }
 
 }
 
@@ -55,48 +50,43 @@ public class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlock
 /// Block type for grant_controls in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
+public class AzureadConditionalAccessPolicyGrantControlsBlock : ITerraformBlock
 {
     /// <summary>
     /// The authentication_strength_policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationStrengthPolicyId
-    {
-        set => SetProperty("authentication_strength_policy_id", value);
-    }
+    [TerraformPropertyName("authentication_strength_policy_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthenticationStrengthPolicyId { get; set; }
 
     /// <summary>
     /// The built_in_controls attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? BuiltInControls
-    {
-        set => SetProperty("built_in_controls", value);
-    }
+    [TerraformPropertyName("built_in_controls")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? BuiltInControls { get; set; }
 
     /// <summary>
     /// The custom_authentication_factors attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? CustomAuthenticationFactors
-    {
-        set => SetProperty("custom_authentication_factors", value);
-    }
+    [TerraformPropertyName("custom_authentication_factors")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? CustomAuthenticationFactors { get; set; }
 
     /// <summary>
     /// The operator attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
-    public required TerraformProperty<string> Operator
-    {
-        set => SetProperty("operator", value);
-    }
+    [TerraformPropertyName("operator")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Operator { get; set; }
 
     /// <summary>
     /// The terms_of_use attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? TermsOfUse
-    {
-        set => SetProperty("terms_of_use", value);
-    }
+    [TerraformPropertyName("terms_of_use")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? TermsOfUse { get; set; }
 
 }
 
@@ -104,71 +94,63 @@ public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
 /// Block type for session_controls in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
+public class AzureadConditionalAccessPolicySessionControlsBlock : ITerraformBlock
 {
     /// <summary>
     /// The application_enforced_restrictions_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApplicationEnforcedRestrictionsEnabled
-    {
-        set => SetProperty("application_enforced_restrictions_enabled", value);
-    }
+    [TerraformPropertyName("application_enforced_restrictions_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ApplicationEnforcedRestrictionsEnabled { get; set; }
 
     /// <summary>
     /// The cloud_app_security_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? CloudAppSecurityPolicy
-    {
-        set => SetProperty("cloud_app_security_policy", value);
-    }
+    [TerraformPropertyName("cloud_app_security_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CloudAppSecurityPolicy { get; set; }
 
     /// <summary>
     /// The disable_resilience_defaults attribute.
     /// </summary>
-    public TerraformProperty<bool>? DisableResilienceDefaults
-    {
-        set => SetProperty("disable_resilience_defaults", value);
-    }
+    [TerraformPropertyName("disable_resilience_defaults")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DisableResilienceDefaults { get; set; }
 
     /// <summary>
     /// The persistent_browser_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? PersistentBrowserMode
-    {
-        set => SetProperty("persistent_browser_mode", value);
-    }
+    [TerraformPropertyName("persistent_browser_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PersistentBrowserMode { get; set; }
 
     /// <summary>
     /// The sign_in_frequency attribute.
     /// </summary>
-    public TerraformProperty<double>? SignInFrequency
-    {
-        set => SetProperty("sign_in_frequency", value);
-    }
+    [TerraformPropertyName("sign_in_frequency")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SignInFrequency { get; set; }
 
     /// <summary>
     /// The sign_in_frequency_authentication_type attribute.
     /// </summary>
-    public TerraformProperty<string>? SignInFrequencyAuthenticationType
-    {
-        set => SetProperty("sign_in_frequency_authentication_type", value);
-    }
+    [TerraformPropertyName("sign_in_frequency_authentication_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SignInFrequencyAuthenticationType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "sign_in_frequency_authentication_type");
 
     /// <summary>
     /// The sign_in_frequency_interval attribute.
     /// </summary>
-    public TerraformProperty<string>? SignInFrequencyInterval
-    {
-        set => SetProperty("sign_in_frequency_interval", value);
-    }
+    [TerraformPropertyName("sign_in_frequency_interval")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SignInFrequencyInterval { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "sign_in_frequency_interval");
 
     /// <summary>
     /// The sign_in_frequency_period attribute.
     /// </summary>
-    public TerraformProperty<string>? SignInFrequencyPeriod
-    {
-        set => SetProperty("sign_in_frequency_period", value);
-    }
+    [TerraformPropertyName("sign_in_frequency_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SignInFrequencyPeriod { get; set; }
 
 }
 
@@ -176,39 +158,35 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadConditionalAccessPolicyTimeoutsBlock : TerraformBlock
+public class AzureadConditionalAccessPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -220,45 +198,30 @@ public class AzureadConditionalAccessPolicy : TerraformResource
 {
     public AzureadConditionalAccessPolicy(string name) : base("azuread_conditional_access_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("object_id");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("state");
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
-    public required TerraformProperty<string> State
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("state");
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> State { get; set; }
 
     /// <summary>
     /// Block for conditions.
@@ -267,43 +230,37 @@ public class AzureadConditionalAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Conditions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Conditions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Conditions block(s) allowed")]
-    public List<AzureadConditionalAccessPolicyConditionsBlock>? Conditions
-    {
-        set => SetProperty("conditions", value);
-    }
+    [TerraformPropertyName("conditions")]
+    public TerraformList<TerraformBlock<AzureadConditionalAccessPolicyConditionsBlock>>? Conditions { get; set; } = new();
 
     /// <summary>
     /// Block for grant_controls.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrantControls block(s) allowed")]
-    public List<AzureadConditionalAccessPolicyGrantControlsBlock>? GrantControls
-    {
-        set => SetProperty("grant_controls", value);
-    }
+    [TerraformPropertyName("grant_controls")]
+    public TerraformList<TerraformBlock<AzureadConditionalAccessPolicyGrantControlsBlock>>? GrantControls { get; set; } = new();
 
     /// <summary>
     /// Block for session_controls.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SessionControls block(s) allowed")]
-    public List<AzureadConditionalAccessPolicySessionControlsBlock>? SessionControls
-    {
-        set => SetProperty("session_controls", value);
-    }
+    [TerraformPropertyName("session_controls")]
+    public TerraformList<TerraformBlock<AzureadConditionalAccessPolicySessionControlsBlock>>? SessionControls { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadConditionalAccessPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadConditionalAccessPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The object ID of the policy
     /// </summary>
-    public TerraformExpression ObjectId => this["object_id"];
+    [TerraformPropertyName("object_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ObjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_id");
 
 }

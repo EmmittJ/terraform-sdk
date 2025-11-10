@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for psc_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : TerraformBlock
+public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// List of Projects, Folders, or Organizations from where the Producer instance can be within. For example,
@@ -19,36 +19,32 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : Te
     /// allowedGoogleProducersResourceHierarchyLevel value: &#39;projects/&#39; or &#39;folders/&#39; or &#39;organizations/&#39; Eg.
     /// [projects/my-project-id, projects/567, folders/891, organizations/123]
     /// </summary>
-    public List<TerraformProperty<string>>? AllowedGoogleProducersResourceHierarchyLevel
-    {
-        set => SetProperty("allowed_google_producers_resource_hierarchy_level", value);
-    }
+    [TerraformPropertyName("allowed_google_producers_resource_hierarchy_level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AllowedGoogleProducersResourceHierarchyLevel { get; set; }
 
     /// <summary>
     /// Max number of PSC connections for this policy.
     /// </summary>
-    public TerraformProperty<string>? Limit
-    {
-        set => SetProperty("limit", value);
-    }
+    [TerraformPropertyName("limit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Limit { get; set; }
 
     /// <summary>
     /// ProducerInstanceLocation is used to specify which authorization mechanism to use to determine which projects
     /// the Producer instance can be within. Possible values: [&amp;quot;PRODUCER_INSTANCE_LOCATION_UNSPECIFIED&amp;quot;, &amp;quot;CUSTOM_RESOURCE_HIERARCHY_LEVELS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ProducerInstanceLocation
-    {
-        set => SetProperty("producer_instance_location", value);
-    }
+    [TerraformPropertyName("producer_instance_location")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ProducerInstanceLocation { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "producer_instance_location");
 
     /// <summary>
     /// IDs of the subnetworks or fully qualified identifiers for the subnetworks
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnetworks is required")]
-    public List<TerraformProperty<string>>? Subnetworks
-    {
-        set => SetProperty("subnetworks", value);
-    }
+    [TerraformPropertyName("subnetworks")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Subnetworks { get; set; }
 
 }
 
@@ -56,31 +52,28 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock : TerraformBlock
+public class GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -92,45 +85,21 @@ public class GoogleNetworkConnectivityServiceConnectionPolicy : TerraformResourc
 {
     public GoogleNetworkConnectivityServiceConnectionPolicy(string name) : base("google_network_connectivity_service_connection_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("etag");
-        SetOutput("infrastructure");
-        SetOutput("psc_connections");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("network");
-        SetOutput("project");
-        SetOutput("service_class");
     }
 
     /// <summary>
     /// Free-text description of the resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// User-defined labels.
@@ -139,115 +108,113 @@ public class GoogleNetworkConnectivityServiceConnectionPolicy : TerraformResourc
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The location of the ServiceConnectionPolicy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name of a ServiceConnectionPolicy. Format: projects/{project}/locations/{location}/serviceConnectionPolicies/{service_connection_policy} See: https://google.aip.dev/122#fields-representing-resource-names
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource path of the consumer network. Example: - projects/{projectNumOrId}/global/networks/{resourceId}.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
-    public required TerraformProperty<string> Network
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network");
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The service class identifier for which this ServiceConnectionPolicy is for. The service class identifier is a unique, symbolic representation of a ServiceClass.
     /// It is provided by the Service Producer. Google services have a prefix of gcp. For example, gcp-cloud-sql. 3rd party services do not. For example, test-service-a3dfcx.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceClass is required")]
-    public required TerraformProperty<string> ServiceClass
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_class");
-        set => SetProperty("service_class", value);
-    }
+    [TerraformPropertyName("service_class")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceClass { get; set; }
 
     /// <summary>
     /// Block for psc_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscConfig block(s) allowed")]
-    public List<GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock>? PscConfig
-    {
-        set => SetProperty("psc_config", value);
-    }
+    [TerraformPropertyName("psc_config")]
+    public TerraformList<TerraformBlock<GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock>>? PscConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp when the resource was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The etag is computed by the server, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The type of underlying resources used to create the connection.
     /// </summary>
-    public TerraformExpression Infrastructure => this["infrastructure"];
+    [TerraformPropertyName("infrastructure")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Infrastructure => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "infrastructure");
 
     /// <summary>
     /// Information about each Private Service Connect connection.
     /// </summary>
-    public TerraformExpression PscConnections => this["psc_connections"];
+    [TerraformPropertyName("psc_connections")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PscConnections => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "psc_connections");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// The timestamp when the resource was updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

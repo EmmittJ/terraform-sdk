@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for player_latency_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock : TerraformBlock
+public class AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The maximum_individual_player_latency_milliseconds attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumIndividualPlayerLatencyMilliseconds is required")]
-    public required TerraformProperty<double> MaximumIndividualPlayerLatencyMilliseconds
-    {
-        set => SetProperty("maximum_individual_player_latency_milliseconds", value);
-    }
+    [TerraformPropertyName("maximum_individual_player_latency_milliseconds")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaximumIndividualPlayerLatencyMilliseconds { get; set; }
 
     /// <summary>
     /// The policy_duration_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? PolicyDurationSeconds
-    {
-        set => SetProperty("policy_duration_seconds", value);
-    }
+    [TerraformPropertyName("policy_duration_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? PolicyDurationSeconds { get; set; }
 
 }
 
@@ -34,117 +32,84 @@ public class AwsGameliftGameSessionQueue : TerraformResource
 {
     public AwsGameliftGameSessionQueue(string name) : base("aws_gamelift_game_session_queue", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("custom_event_data");
-        SetOutput("destinations");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("notification_target");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("timeout_in_seconds");
     }
 
     /// <summary>
     /// The custom_event_data attribute.
     /// </summary>
-    public TerraformProperty<string> CustomEventData
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("custom_event_data");
-        set => SetProperty("custom_event_data", value);
-    }
+    [TerraformPropertyName("custom_event_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomEventData { get; set; }
 
     /// <summary>
     /// The destinations attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Destinations
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("destinations");
-        set => SetProperty("destinations", value);
-    }
+    [TerraformPropertyName("destinations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Destinations { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The notification_target attribute.
     /// </summary>
-    public TerraformProperty<string> NotificationTarget
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("notification_target");
-        set => SetProperty("notification_target", value);
-    }
+    [TerraformPropertyName("notification_target")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NotificationTarget { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> TimeoutInSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("timeout_in_seconds");
-        set => SetProperty("timeout_in_seconds", value);
-    }
+    [TerraformPropertyName("timeout_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TimeoutInSeconds { get; set; }
 
     /// <summary>
     /// Block for player_latency_policy.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock>? PlayerLatencyPolicy
-    {
-        set => SetProperty("player_latency_policy", value);
-    }
+    [TerraformPropertyName("player_latency_policy")]
+    public TerraformList<TerraformBlock<AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock>>? PlayerLatencyPolicy { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

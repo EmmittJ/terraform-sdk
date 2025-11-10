@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,82 +24,71 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanDataSource : TerraformDat
 {
     public AzurermSiteRecoveryReplicationRecoveryPlanDataSource(string name) : base("azurerm_site_recovery_replication_recovery_plan", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("azure_to_azure_settings");
-        SetOutput("failover_deployment_model");
-        SetOutput("recovery_group");
-        SetOutput("source_recovery_fabric_id");
-        SetOutput("target_recovery_fabric_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("recovery_vault_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The recovery_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
-    public required TerraformProperty<string> RecoveryVaultId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_id");
-        set => SetProperty("recovery_vault_id", value);
-    }
+    [TerraformPropertyName("recovery_vault_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RecoveryVaultId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The azure_to_azure_settings attribute.
     /// </summary>
-    public TerraformExpression AzureToAzureSettings => this["azure_to_azure_settings"];
+    [TerraformPropertyName("azure_to_azure_settings")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AzureToAzureSettings => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "azure_to_azure_settings");
 
     /// <summary>
     /// The failover_deployment_model attribute.
     /// </summary>
-    public TerraformExpression FailoverDeploymentModel => this["failover_deployment_model"];
+    [TerraformPropertyName("failover_deployment_model")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FailoverDeploymentModel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "failover_deployment_model");
 
     /// <summary>
     /// The recovery_group attribute.
     /// </summary>
-    public TerraformExpression RecoveryGroup => this["recovery_group"];
+    [TerraformPropertyName("recovery_group")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> RecoveryGroup => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "recovery_group");
 
     /// <summary>
     /// The source_recovery_fabric_id attribute.
     /// </summary>
-    public TerraformExpression SourceRecoveryFabricId => this["source_recovery_fabric_id"];
+    [TerraformPropertyName("source_recovery_fabric_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceRecoveryFabricId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_recovery_fabric_id");
 
     /// <summary>
     /// The target_recovery_fabric_id attribute.
     /// </summary>
-    public TerraformExpression TargetRecoveryFabricId => this["target_recovery_fabric_id"];
+    [TerraformPropertyName("target_recovery_fabric_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TargetRecoveryFabricId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "target_recovery_fabric_id");
 
 }

@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDatazoneEnvironmentTimeoutsBlock : TerraformBlock
+public class AwsDatazoneEnvironmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -38,23 +35,21 @@ public class AwsDatazoneEnvironmentTimeoutsBlock : TerraformBlock
 /// Block type for user_parameters in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDatazoneEnvironmentUserParametersBlock : TerraformBlock
+public class AwsDatazoneEnvironmentUserParametersBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -65,169 +60,136 @@ public class AwsDatazoneEnvironment : TerraformResource
 {
     public AwsDatazoneEnvironment(string name) : base("aws_datazone_environment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("created_at");
-        SetOutput("created_by");
-        SetOutput("id");
-        SetOutput("last_deployment");
-        SetOutput("provider_environment");
-        SetOutput("provisioned_resources");
-        SetOutput("account_identifier");
-        SetOutput("account_region");
-        SetOutput("blueprint_identifier");
-        SetOutput("description");
-        SetOutput("domain_identifier");
-        SetOutput("glossary_terms");
-        SetOutput("name");
-        SetOutput("profile_identifier");
-        SetOutput("project_identifier");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The account_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> AccountIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_identifier");
-        set => SetProperty("account_identifier", value);
-    }
+    [TerraformPropertyName("account_identifier")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AccountIdentifier { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_identifier");
 
     /// <summary>
     /// The account_region attribute.
     /// </summary>
-    public TerraformProperty<string> AccountRegion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_region");
-        set => SetProperty("account_region", value);
-    }
+    [TerraformPropertyName("account_region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AccountRegion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_region");
 
     /// <summary>
     /// The blueprint_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> BlueprintIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("blueprint_identifier");
-        set => SetProperty("blueprint_identifier", value);
-    }
+    [TerraformPropertyName("blueprint_identifier")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> BlueprintIdentifier { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "blueprint_identifier");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The domain_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
-    public required TerraformProperty<string> DomainIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_identifier");
-        set => SetProperty("domain_identifier", value);
-    }
+    [TerraformPropertyName("domain_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainIdentifier { get; set; }
 
     /// <summary>
     /// The glossary_terms attribute.
     /// </summary>
-    public List<TerraformProperty<string>> GlossaryTerms
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("glossary_terms");
-        set => SetProperty("glossary_terms", value);
-    }
+    [TerraformPropertyName("glossary_terms")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? GlossaryTerms { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The profile_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileIdentifier is required")]
-    public required TerraformProperty<string> ProfileIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("profile_identifier");
-        set => SetProperty("profile_identifier", value);
-    }
+    [TerraformPropertyName("profile_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProfileIdentifier { get; set; }
 
     /// <summary>
     /// The project_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectIdentifier is required")]
-    public required TerraformProperty<string> ProjectIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project_identifier");
-        set => SetProperty("project_identifier", value);
-    }
+    [TerraformPropertyName("project_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProjectIdentifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDatazoneEnvironmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDatazoneEnvironmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_parameters.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsDatazoneEnvironmentUserParametersBlock>? UserParameters
-    {
-        set => SetProperty("user_parameters", value);
-    }
+    [TerraformPropertyName("user_parameters")]
+    public TerraformList<TerraformBlock<AwsDatazoneEnvironmentUserParametersBlock>>? UserParameters { get; set; } = new();
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
-    public TerraformExpression CreatedBy => this["created_by"];
+    [TerraformPropertyName("created_by")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedBy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_by");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The last_deployment attribute.
     /// </summary>
-    public TerraformExpression LastDeployment => this["last_deployment"];
+    [TerraformPropertyName("last_deployment")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> LastDeployment => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "last_deployment");
 
     /// <summary>
     /// The provider_environment attribute.
     /// </summary>
-    public TerraformExpression ProviderEnvironment => this["provider_environment"];
+    [TerraformPropertyName("provider_environment")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProviderEnvironment => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "provider_environment");
 
     /// <summary>
     /// The provisioned_resources attribute.
     /// </summary>
-    public TerraformExpression ProvisionedResources => this["provisioned_resources"];
+    [TerraformPropertyName("provisioned_resources")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ProvisionedResources => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "provisioned_resources");
 
 }

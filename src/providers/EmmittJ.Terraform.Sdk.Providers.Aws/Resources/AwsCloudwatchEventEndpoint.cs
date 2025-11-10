@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for event_bus in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchEventEndpointEventBusBlock : TerraformBlock
+public class AwsCloudwatchEventEndpointEventBusBlock : ITerraformBlock
 {
     /// <summary>
     /// The event_bus_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventBusArn is required")]
-    public required TerraformProperty<string> EventBusArn
-    {
-        set => SetProperty("event_bus_arn", value);
-    }
+    [TerraformPropertyName("event_bus_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventBusArn { get; set; }
 
 }
 
@@ -23,15 +22,14 @@ public class AwsCloudwatchEventEndpointEventBusBlock : TerraformBlock
 /// Block type for replication_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchEventEndpointReplicationConfigBlock : TerraformBlock
+public class AwsCloudwatchEventEndpointReplicationConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string>? State
-    {
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? State { get; set; }
 
 }
 
@@ -39,7 +37,7 @@ public class AwsCloudwatchEventEndpointReplicationConfigBlock : TerraformBlock
 /// Block type for routing_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchEventEndpointRoutingConfigBlock : TerraformBlock
+public class AwsCloudwatchEventEndpointRoutingConfigBlock : ITerraformBlock
 {
 }
 
@@ -51,65 +49,43 @@ public class AwsCloudwatchEventEndpoint : TerraformResource
 {
     public AwsCloudwatchEventEndpoint(string name) : base("aws_cloudwatch_event_endpoint", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("endpoint_url");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("role_arn");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleArn { get; set; }
 
     /// <summary>
     /// Block for event_bus.
@@ -117,20 +93,16 @@ public class AwsCloudwatchEventEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 EventBus block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 EventBus block(s) allowed")]
-    public List<AwsCloudwatchEventEndpointEventBusBlock>? EventBus
-    {
-        set => SetProperty("event_bus", value);
-    }
+    [TerraformPropertyName("event_bus")]
+    public TerraformList<TerraformBlock<AwsCloudwatchEventEndpointEventBusBlock>>? EventBus { get; set; } = new();
 
     /// <summary>
     /// Block for replication_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationConfig block(s) allowed")]
-    public List<AwsCloudwatchEventEndpointReplicationConfigBlock>? ReplicationConfig
-    {
-        set => SetProperty("replication_config", value);
-    }
+    [TerraformPropertyName("replication_config")]
+    public TerraformList<TerraformBlock<AwsCloudwatchEventEndpointReplicationConfigBlock>>? ReplicationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for routing_config.
@@ -139,19 +111,21 @@ public class AwsCloudwatchEventEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RoutingConfig block(s) allowed")]
-    public List<AwsCloudwatchEventEndpointRoutingConfigBlock>? RoutingConfig
-    {
-        set => SetProperty("routing_config", value);
-    }
+    [TerraformPropertyName("routing_config")]
+    public TerraformList<TerraformBlock<AwsCloudwatchEventEndpointRoutingConfigBlock>>? RoutingConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The endpoint_url attribute.
     /// </summary>
-    public TerraformExpression EndpointUrl => this["endpoint_url"];
+    [TerraformPropertyName("endpoint_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EndpointUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_url");
 
 }

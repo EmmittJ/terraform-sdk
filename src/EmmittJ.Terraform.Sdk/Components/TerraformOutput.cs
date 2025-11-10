@@ -60,7 +60,7 @@ public class TerraformOutput(string name) : TerraformConstruct
         => TerraformExpression.Identifier($"output.{Name}");
 
     /// <inheritdoc/>
-    protected override void WriteAdditionalProperties(System.Text.StringBuilder sb, ITerraformContext context)
+    protected override void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
         if (Value == null)
         {
@@ -70,6 +70,9 @@ public class TerraformOutput(string name) : TerraformConstruct
                 this,
                 "Value");
         }
+
+        // Call base to write all regular properties
+        base.WriteProperties(sb, context);
     }
 
     /// <inheritdoc/>
@@ -88,7 +91,6 @@ public class TerraformOutput(string name) : TerraformConstruct
 
         using (context.PushIndent())
         {
-            WriteAdditionalProperties(sb, context);
             WriteProperties(sb, context);
 
             if (DependsOn.Count > 0)

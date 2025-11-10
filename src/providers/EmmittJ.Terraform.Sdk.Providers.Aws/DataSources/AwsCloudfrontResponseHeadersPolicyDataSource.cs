@@ -9,79 +9,76 @@ public class AwsCloudfrontResponseHeadersPolicyDataSource : TerraformDataSource
 {
     public AwsCloudfrontResponseHeadersPolicyDataSource(string name) : base("aws_cloudfront_response_headers_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("comment");
-        SetOutput("cors_config");
-        SetOutput("custom_headers_config");
-        SetOutput("etag");
-        SetOutput("remove_headers_config");
-        SetOutput("security_headers_config");
-        SetOutput("server_timing_headers_config");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformExpression Comment => this["comment"];
+    [TerraformPropertyName("comment")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Comment => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "comment");
 
     /// <summary>
     /// The cors_config attribute.
     /// </summary>
-    public TerraformExpression CorsConfig => this["cors_config"];
+    [TerraformPropertyName("cors_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> CorsConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cors_config");
 
     /// <summary>
     /// The custom_headers_config attribute.
     /// </summary>
-    public TerraformExpression CustomHeadersConfig => this["custom_headers_config"];
+    [TerraformPropertyName("custom_headers_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> CustomHeadersConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "custom_headers_config");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The remove_headers_config attribute.
     /// </summary>
-    public TerraformExpression RemoveHeadersConfig => this["remove_headers_config"];
+    [TerraformPropertyName("remove_headers_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RemoveHeadersConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "remove_headers_config");
 
     /// <summary>
     /// The security_headers_config attribute.
     /// </summary>
-    public TerraformExpression SecurityHeadersConfig => this["security_headers_config"];
+    [TerraformPropertyName("security_headers_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SecurityHeadersConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "security_headers_config");
 
     /// <summary>
     /// The server_timing_headers_config attribute.
     /// </summary>
-    public TerraformExpression ServerTimingHeadersConfig => this["server_timing_headers_config"];
+    [TerraformPropertyName("server_timing_headers_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ServerTimingHeadersConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "server_timing_headers_config");
 
 }

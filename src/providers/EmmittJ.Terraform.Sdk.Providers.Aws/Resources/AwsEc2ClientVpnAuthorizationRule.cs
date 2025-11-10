@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock : TerraformBlock
+public class AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,92 +31,64 @@ public class AwsEc2ClientVpnAuthorizationRule : TerraformResource
 {
     public AwsEc2ClientVpnAuthorizationRule(string name) : base("aws_ec2_client_vpn_authorization_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_group_id");
-        SetOutput("authorize_all_groups");
-        SetOutput("client_vpn_endpoint_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("target_network_cidr");
     }
 
     /// <summary>
     /// The access_group_id attribute.
     /// </summary>
-    public TerraformProperty<string> AccessGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_group_id");
-        set => SetProperty("access_group_id", value);
-    }
+    [TerraformPropertyName("access_group_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AccessGroupId { get; set; }
 
     /// <summary>
     /// The authorize_all_groups attribute.
     /// </summary>
-    public TerraformProperty<bool> AuthorizeAllGroups
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("authorize_all_groups");
-        set => SetProperty("authorize_all_groups", value);
-    }
+    [TerraformPropertyName("authorize_all_groups")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AuthorizeAllGroups { get; set; }
 
     /// <summary>
     /// The client_vpn_endpoint_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientVpnEndpointId is required")]
-    public required TerraformProperty<string> ClientVpnEndpointId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_vpn_endpoint_id");
-        set => SetProperty("client_vpn_endpoint_id", value);
-    }
+    [TerraformPropertyName("client_vpn_endpoint_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientVpnEndpointId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The target_network_cidr attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkCidr is required")]
-    public required TerraformProperty<string> TargetNetworkCidr
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_network_cidr");
-        set => SetProperty("target_network_cidr", value);
-    }
+    [TerraformPropertyName("target_network_cidr")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetNetworkCidr { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

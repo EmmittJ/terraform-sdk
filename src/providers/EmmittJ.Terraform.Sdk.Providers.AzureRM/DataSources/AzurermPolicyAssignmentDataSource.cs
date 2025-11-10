@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPolicyAssignmentDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermPolicyAssignmentDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,112 +24,106 @@ public class AzurermPolicyAssignmentDataSource : TerraformDataSource
 {
     public AzurermPolicyAssignmentDataSource(string name) : base("azurerm_policy_assignment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("enforce");
-        SetOutput("identity");
-        SetOutput("location");
-        SetOutput("metadata");
-        SetOutput("non_compliance_message");
-        SetOutput("not_scopes");
-        SetOutput("parameters");
-        SetOutput("policy_definition_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("scope_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The scope_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
-    public required TerraformProperty<string> ScopeId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("scope_id");
-        set => SetProperty("scope_id", value);
-    }
+    [TerraformPropertyName("scope_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScopeId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermPolicyAssignmentDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermPolicyAssignmentDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The enforce attribute.
     /// </summary>
-    public TerraformExpression Enforce => this["enforce"];
+    [TerraformPropertyName("enforce")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Enforce => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enforce");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformExpression Identity => this["identity"];
+    [TerraformPropertyName("identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformExpression Metadata => this["metadata"];
+    [TerraformPropertyName("metadata")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Metadata => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "metadata");
 
     /// <summary>
     /// The non_compliance_message attribute.
     /// </summary>
-    public TerraformExpression NonComplianceMessage => this["non_compliance_message"];
+    [TerraformPropertyName("non_compliance_message")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> NonComplianceMessage => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "non_compliance_message");
 
     /// <summary>
     /// The not_scopes attribute.
     /// </summary>
-    public TerraformExpression NotScopes => this["not_scopes"];
+    [TerraformPropertyName("not_scopes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> NotScopes => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "not_scopes");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformExpression Parameters => this["parameters"];
+    [TerraformPropertyName("parameters")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Parameters => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parameters");
 
     /// <summary>
     /// The policy_definition_id attribute.
     /// </summary>
-    public TerraformExpression PolicyDefinitionId => this["policy_definition_id"];
+    [TerraformPropertyName("policy_definition_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PolicyDefinitionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy_definition_id");
 
 }

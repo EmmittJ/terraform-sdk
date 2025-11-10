@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for bandwidth in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkmanagerLinkBandwidthBlock : TerraformBlock
+public class AwsNetworkmanagerLinkBandwidthBlock : ITerraformBlock
 {
     /// <summary>
     /// The download_speed attribute.
     /// </summary>
-    public TerraformProperty<double>? DownloadSpeed
-    {
-        set => SetProperty("download_speed", value);
-    }
+    [TerraformPropertyName("download_speed")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DownloadSpeed { get; set; }
 
     /// <summary>
     /// The upload_speed attribute.
     /// </summary>
-    public TerraformProperty<double>? UploadSpeed
-    {
-        set => SetProperty("upload_speed", value);
-    }
+    [TerraformPropertyName("upload_speed")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? UploadSpeed { get; set; }
 
 }
 
@@ -30,31 +28,28 @@ public class AwsNetworkmanagerLinkBandwidthBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsNetworkmanagerLinkTimeoutsBlock : TerraformBlock
+public class AwsNetworkmanagerLinkTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -66,95 +61,65 @@ public class AwsNetworkmanagerLink : TerraformResource
 {
     public AwsNetworkmanagerLink(string name) : base("aws_networkmanager_link", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("description");
-        SetOutput("global_network_id");
-        SetOutput("id");
-        SetOutput("provider_name");
-        SetOutput("site_id");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
-    public required TerraformProperty<string> GlobalNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("global_network_id");
-        set => SetProperty("global_network_id", value);
-    }
+    [TerraformPropertyName("global_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GlobalNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    public TerraformProperty<string> ProviderName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("provider_name");
-        set => SetProperty("provider_name", value);
-    }
+    [TerraformPropertyName("provider_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProviderName { get; set; }
 
     /// <summary>
     /// The site_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteId is required")]
-    public required TerraformProperty<string> SiteId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("site_id");
-        set => SetProperty("site_id", value);
-    }
+    [TerraformPropertyName("site_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SiteId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
     /// <summary>
     /// Block for bandwidth.
@@ -163,23 +128,21 @@ public class AwsNetworkmanagerLink : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bandwidth is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Bandwidth block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bandwidth block(s) allowed")]
-    public List<AwsNetworkmanagerLinkBandwidthBlock>? Bandwidth
-    {
-        set => SetProperty("bandwidth", value);
-    }
+    [TerraformPropertyName("bandwidth")]
+    public TerraformList<TerraformBlock<AwsNetworkmanagerLinkBandwidthBlock>>? Bandwidth { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsNetworkmanagerLinkTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsNetworkmanagerLinkTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

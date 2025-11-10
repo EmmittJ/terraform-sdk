@@ -9,101 +9,78 @@ public class AwsCloudwatchLogDelivery : TerraformResource
 {
     public AwsCloudwatchLogDelivery(string name) : base("aws_cloudwatch_log_delivery", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("tags_all");
-        SetOutput("delivery_destination_arn");
-        SetOutput("delivery_source_name");
-        SetOutput("field_delimiter");
-        SetOutput("record_fields");
-        SetOutput("region");
-        SetOutput("s3_delivery_configuration");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The delivery_destination_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryDestinationArn is required")]
-    public required TerraformProperty<string> DeliveryDestinationArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("delivery_destination_arn");
-        set => SetProperty("delivery_destination_arn", value);
-    }
+    [TerraformPropertyName("delivery_destination_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DeliveryDestinationArn { get; set; }
 
     /// <summary>
     /// The delivery_source_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliverySourceName is required")]
-    public required TerraformProperty<string> DeliverySourceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("delivery_source_name");
-        set => SetProperty("delivery_source_name", value);
-    }
+    [TerraformPropertyName("delivery_source_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DeliverySourceName { get; set; }
 
     /// <summary>
     /// The field_delimiter attribute.
     /// </summary>
-    public TerraformProperty<string> FieldDelimiter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("field_delimiter");
-        set => SetProperty("field_delimiter", value);
-    }
+    [TerraformPropertyName("field_delimiter")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> FieldDelimiter { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "field_delimiter");
 
     /// <summary>
     /// The record_fields attribute.
     /// </summary>
-    public List<TerraformProperty<string>> RecordFields
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("record_fields");
-        set => SetProperty("record_fields", value);
-    }
+    [TerraformPropertyName("record_fields")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> RecordFields { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "record_fields");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The s3_delivery_configuration attribute.
     /// </summary>
-    public List<TerraformProperty<object>> S3DeliveryConfiguration
-    {
-        get => GetRequiredOutput<List<TerraformProperty<object>>>("s3_delivery_configuration");
-        set => SetProperty("s3_delivery_configuration", value);
-    }
+    [TerraformPropertyName("s3_delivery_configuration")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<object>>> S3DeliveryConfiguration { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "s3_delivery_configuration");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

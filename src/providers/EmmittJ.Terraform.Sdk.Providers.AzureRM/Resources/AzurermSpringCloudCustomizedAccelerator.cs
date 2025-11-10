@@ -6,64 +6,57 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for git_repository in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : TerraformBlock
+public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : ITerraformBlock
 {
     /// <summary>
     /// The branch attribute.
     /// </summary>
-    public TerraformProperty<string>? Branch
-    {
-        set => SetProperty("branch", value);
-    }
+    [TerraformPropertyName("branch")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Branch { get; set; }
 
     /// <summary>
     /// The ca_certificate_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CaCertificateId
-    {
-        set => SetProperty("ca_certificate_id", value);
-    }
+    [TerraformPropertyName("ca_certificate_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CaCertificateId { get; set; }
 
     /// <summary>
     /// The commit attribute.
     /// </summary>
-    public TerraformProperty<string>? Commit
-    {
-        set => SetProperty("commit", value);
-    }
+    [TerraformPropertyName("commit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Commit { get; set; }
 
     /// <summary>
     /// The git_tag attribute.
     /// </summary>
-    public TerraformProperty<string>? GitTag
-    {
-        set => SetProperty("git_tag", value);
-    }
+    [TerraformPropertyName("git_tag")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GitTag { get; set; }
 
     /// <summary>
     /// The interval_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? IntervalInSeconds
-    {
-        set => SetProperty("interval_in_seconds", value);
-    }
+    [TerraformPropertyName("interval_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? IntervalInSeconds { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
-    {
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
-    public required TerraformProperty<string> Url
-    {
-        set => SetProperty("url", value);
-    }
+    [TerraformPropertyName("url")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Url { get; set; }
 
 }
 
@@ -71,39 +64,35 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlock
+public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -115,94 +104,65 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
 {
     public AzurermSpringCloudCustomizedAccelerator(string name) : base("azurerm_spring_cloud_customized_accelerator", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("accelerator_tags");
-        SetOutput("accelerator_type");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("icon_url");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("spring_cloud_accelerator_id");
     }
 
     /// <summary>
     /// The accelerator_tags attribute.
     /// </summary>
-    public List<TerraformProperty<string>> AcceleratorTags
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("accelerator_tags");
-        set => SetProperty("accelerator_tags", value);
-    }
+    [TerraformPropertyName("accelerator_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AcceleratorTags { get; set; }
 
     /// <summary>
     /// The accelerator_type attribute.
     /// </summary>
-    public TerraformProperty<string> AcceleratorType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("accelerator_type");
-        set => SetProperty("accelerator_type", value);
-    }
+    [TerraformPropertyName("accelerator_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AcceleratorType { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The icon_url attribute.
     /// </summary>
-    public TerraformProperty<string> IconUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("icon_url");
-        set => SetProperty("icon_url", value);
-    }
+    [TerraformPropertyName("icon_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IconUrl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The spring_cloud_accelerator_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAcceleratorId is required")]
-    public required TerraformProperty<string> SpringCloudAcceleratorId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_accelerator_id");
-        set => SetProperty("spring_cloud_accelerator_id", value);
-    }
+    [TerraformPropertyName("spring_cloud_accelerator_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SpringCloudAcceleratorId { get; set; }
 
     /// <summary>
     /// Block for git_repository.
@@ -211,18 +171,14 @@ public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GitRepository is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GitRepository block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitRepository block(s) allowed")]
-    public List<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock>? GitRepository
-    {
-        set => SetProperty("git_repository", value);
-    }
+    [TerraformPropertyName("git_repository")]
+    public TerraformList<TerraformBlock<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock>>? GitRepository { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

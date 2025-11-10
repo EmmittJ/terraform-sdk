@@ -9,86 +9,84 @@ public class AwsBedrockFoundationModelDataSource : TerraformDataSource
 {
     public AwsBedrockFoundationModelDataSource(string name) : base("aws_bedrock_foundation_model", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("customizations_supported");
-        SetOutput("id");
-        SetOutput("inference_types_supported");
-        SetOutput("input_modalities");
-        SetOutput("model_arn");
-        SetOutput("model_name");
-        SetOutput("output_modalities");
-        SetOutput("provider_name");
-        SetOutput("response_streaming_supported");
-        SetOutput("model_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The model_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelId is required")]
-    public required TerraformProperty<string> ModelId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("model_id");
-        set => SetProperty("model_id", value);
-    }
+    [TerraformPropertyName("model_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ModelId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The customizations_supported attribute.
     /// </summary>
-    public TerraformExpression CustomizationsSupported => this["customizations_supported"];
+    [TerraformPropertyName("customizations_supported")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> CustomizationsSupported => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "customizations_supported");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The inference_types_supported attribute.
     /// </summary>
-    public TerraformExpression InferenceTypesSupported => this["inference_types_supported"];
+    [TerraformPropertyName("inference_types_supported")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> InferenceTypesSupported => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "inference_types_supported");
 
     /// <summary>
     /// The input_modalities attribute.
     /// </summary>
-    public TerraformExpression InputModalities => this["input_modalities"];
+    [TerraformPropertyName("input_modalities")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> InputModalities => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "input_modalities");
 
     /// <summary>
     /// The model_arn attribute.
     /// </summary>
-    public TerraformExpression ModelArn => this["model_arn"];
+    [TerraformPropertyName("model_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ModelArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "model_arn");
 
     /// <summary>
     /// The model_name attribute.
     /// </summary>
-    public TerraformExpression ModelName => this["model_name"];
+    [TerraformPropertyName("model_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ModelName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "model_name");
 
     /// <summary>
     /// The output_modalities attribute.
     /// </summary>
-    public TerraformExpression OutputModalities => this["output_modalities"];
+    [TerraformPropertyName("output_modalities")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> OutputModalities => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "output_modalities");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    public TerraformExpression ProviderName => this["provider_name"];
+    [TerraformPropertyName("provider_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProviderName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "provider_name");
 
     /// <summary>
     /// The response_streaming_supported attribute.
     /// </summary>
-    public TerraformExpression ResponseStreamingSupported => this["response_streaming_supported"];
+    [TerraformPropertyName("response_streaming_supported")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ResponseStreamingSupported => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "response_streaming_supported");
 
 }

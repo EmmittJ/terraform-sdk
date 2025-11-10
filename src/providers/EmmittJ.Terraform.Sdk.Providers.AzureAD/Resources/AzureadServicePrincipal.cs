@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for feature_tags in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadServicePrincipalFeatureTagsBlock : TerraformBlock
+public class AzureadServicePrincipalFeatureTagsBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether this service principal represents a custom SAML application
     /// </summary>
-    public TerraformProperty<bool>? CustomSingleSignOn
-    {
-        set => SetProperty("custom_single_sign_on", value);
-    }
+    [TerraformPropertyName("custom_single_sign_on")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CustomSingleSignOn { get; set; }
 
     /// <summary>
     /// Whether this service principal represents an Enterprise Application
     /// </summary>
-    public TerraformProperty<bool>? Enterprise
-    {
-        set => SetProperty("enterprise", value);
-    }
+    [TerraformPropertyName("enterprise")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enterprise { get; set; }
 
     /// <summary>
     /// Whether this service principal represents a gallery application
     /// </summary>
-    public TerraformProperty<bool>? Gallery
-    {
-        set => SetProperty("gallery", value);
-    }
+    [TerraformPropertyName("gallery")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Gallery { get; set; }
 
     /// <summary>
     /// Whether this app is invisible to users in My Apps and Office 365 Launcher
     /// </summary>
-    public TerraformProperty<bool>? Hide
-    {
-        set => SetProperty("hide", value);
-    }
+    [TerraformPropertyName("hide")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Hide { get; set; }
 
 }
 
@@ -47,39 +43,35 @@ public class AzureadServicePrincipalFeatureTagsBlock : TerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AzureadServicePrincipalFeaturesBlock : TerraformBlock
+public class AzureadServicePrincipalFeaturesBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether this service principal represents a custom SAML application
     /// </summary>
-    public TerraformProperty<bool>? CustomSingleSignOnApp
-    {
-        set => SetProperty("custom_single_sign_on_app", value);
-    }
+    [TerraformPropertyName("custom_single_sign_on_app")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CustomSingleSignOnApp { get; set; }
 
     /// <summary>
     /// Whether this service principal represents an Enterprise Application
     /// </summary>
-    public TerraformProperty<bool>? EnterpriseApplication
-    {
-        set => SetProperty("enterprise_application", value);
-    }
+    [TerraformPropertyName("enterprise_application")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnterpriseApplication { get; set; }
 
     /// <summary>
     /// Whether this service principal represents a gallery application
     /// </summary>
-    public TerraformProperty<bool>? GalleryApplication
-    {
-        set => SetProperty("gallery_application", value);
-    }
+    [TerraformPropertyName("gallery_application")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? GalleryApplication { get; set; }
 
     /// <summary>
     /// Whether this app is visible to users in My Apps and Office 365 Launcher
     /// </summary>
-    public TerraformProperty<bool>? VisibleToUsers
-    {
-        set => SetProperty("visible_to_users", value);
-    }
+    [TerraformPropertyName("visible_to_users")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? VisibleToUsers { get; set; }
 
 }
 
@@ -87,15 +79,14 @@ public class AzureadServicePrincipalFeaturesBlock : TerraformBlock
 /// Block type for saml_single_sign_on in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadServicePrincipalSamlSingleSignOnBlock : TerraformBlock
+public class AzureadServicePrincipalSamlSingleSignOnBlock : ITerraformBlock
 {
     /// <summary>
     /// The relative URI the service provider would redirect to after completion of the single sign-on flow
     /// </summary>
-    public TerraformProperty<string>? RelayState
-    {
-        set => SetProperty("relay_state", value);
-    }
+    [TerraformPropertyName("relay_state")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RelayState { get; set; }
 
 }
 
@@ -103,39 +94,35 @@ public class AzureadServicePrincipalSamlSingleSignOnBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadServicePrincipalTimeoutsBlock : TerraformBlock
+public class AzureadServicePrincipalTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -147,264 +134,226 @@ public class AzureadServicePrincipal : TerraformResource
 {
     public AzureadServicePrincipal(string name) : base("azuread_service_principal", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("app_role_ids");
-        SetOutput("app_roles");
-        SetOutput("application_tenant_id");
-        SetOutput("display_name");
-        SetOutput("homepage_url");
-        SetOutput("logout_url");
-        SetOutput("oauth2_permission_scope_ids");
-        SetOutput("oauth2_permission_scopes");
-        SetOutput("object_id");
-        SetOutput("redirect_uris");
-        SetOutput("saml_metadata_url");
-        SetOutput("service_principal_names");
-        SetOutput("sign_in_audience");
-        SetOutput("type");
-        SetOutput("account_enabled");
-        SetOutput("alternative_names");
-        SetOutput("app_role_assignment_required");
-        SetOutput("client_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("login_url");
-        SetOutput("notes");
-        SetOutput("notification_email_addresses");
-        SetOutput("owners");
-        SetOutput("preferred_single_sign_on_mode");
-        SetOutput("tags");
-        SetOutput("use_existing");
     }
 
     /// <summary>
     /// Whether or not the service principal account is enabled
     /// </summary>
-    public TerraformProperty<bool> AccountEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("account_enabled");
-        set => SetProperty("account_enabled", value);
-    }
+    [TerraformPropertyName("account_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AccountEnabled { get; set; }
 
     /// <summary>
     /// A list of alternative names, used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities
     /// </summary>
-    public HashSet<TerraformProperty<string>> AlternativeNames
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("alternative_names");
-        set => SetProperty("alternative_names", value);
-    }
+    [TerraformPropertyName("alternative_names")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AlternativeNames { get; set; }
 
     /// <summary>
     /// Whether this service principal requires an app role assignment to a user or group before Azure AD will issue a user or access token to the application
     /// </summary>
-    public TerraformProperty<bool> AppRoleAssignmentRequired
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("app_role_assignment_required");
-        set => SetProperty("app_role_assignment_required", value);
-    }
+    [TerraformPropertyName("app_role_assignment_required")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AppRoleAssignmentRequired { get; set; }
 
     /// <summary>
     /// The client ID of the application for which to create a service principal
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
-    public required TerraformProperty<string> ClientId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_id");
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientId { get; set; }
 
     /// <summary>
     /// Description of the service principal provided for internal end-users
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The URL where the service provider redirects the user to Azure AD to authenticate. Azure AD uses the URL to launch the application from Microsoft 365 or the Azure AD My Apps. When blank, Azure AD performs IdP-initiated sign-on for applications configured with SAML-based single sign-on
     /// </summary>
-    public TerraformProperty<string> LoginUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("login_url");
-        set => SetProperty("login_url", value);
-    }
+    [TerraformPropertyName("login_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LoginUrl { get; set; }
 
     /// <summary>
     /// Free text field to capture information about the service principal, typically used for operational purposes
     /// </summary>
-    public TerraformProperty<string> Notes
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("notes");
-        set => SetProperty("notes", value);
-    }
+    [TerraformPropertyName("notes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Notes { get; set; }
 
     /// <summary>
     /// List of email addresses where Azure AD sends a notification when the active certificate is near the expiration date. This is only for the certificates used to sign the SAML token issued for Azure AD Gallery applications
     /// </summary>
-    public HashSet<TerraformProperty<string>> NotificationEmailAddresses
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("notification_email_addresses");
-        set => SetProperty("notification_email_addresses", value);
-    }
+    [TerraformPropertyName("notification_email_addresses")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? NotificationEmailAddresses { get; set; }
 
     /// <summary>
     /// A list of object IDs of principals that will be granted ownership of the service principal
     /// </summary>
-    public HashSet<TerraformProperty<string>> Owners
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("owners");
-        set => SetProperty("owners", value);
-    }
+    [TerraformPropertyName("owners")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Owners { get; set; }
 
     /// <summary>
     /// The single sign-on mode configured for this application. Azure AD uses the preferred single sign-on mode to launch the application from Microsoft 365 or the Azure AD My Apps
     /// </summary>
-    public TerraformProperty<string> PreferredSingleSignOnMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("preferred_single_sign_on_mode");
-        set => SetProperty("preferred_single_sign_on_mode", value);
-    }
+    [TerraformPropertyName("preferred_single_sign_on_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PreferredSingleSignOnMode { get; set; }
 
     /// <summary>
     /// A set of tags to apply to the service principal
     /// </summary>
-    public HashSet<TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// When true, the resource will return an existing service principal instead of failing with an error
     /// </summary>
-    public TerraformProperty<bool> UseExisting
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("use_existing");
-        set => SetProperty("use_existing", value);
-    }
+    [TerraformPropertyName("use_existing")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseExisting { get; set; }
 
     /// <summary>
     /// Block for feature_tags.
     /// Nesting mode: list
     /// </summary>
-    public List<AzureadServicePrincipalFeatureTagsBlock>? FeatureTags
-    {
-        set => SetProperty("feature_tags", value);
-    }
+    [TerraformPropertyName("feature_tags")]
+    public TerraformList<TerraformBlock<AzureadServicePrincipalFeatureTagsBlock>>? FeatureTags { get; set; } = new();
 
     /// <summary>
     /// Block for features.
     /// Nesting mode: list
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    public List<AzureadServicePrincipalFeaturesBlock>? Features
-    {
-        set => SetProperty("features", value);
-    }
+    [TerraformPropertyName("features")]
+    public TerraformList<TerraformBlock<AzureadServicePrincipalFeaturesBlock>>? Features { get; set; } = new();
 
     /// <summary>
     /// Block for saml_single_sign_on.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SamlSingleSignOn block(s) allowed")]
-    public List<AzureadServicePrincipalSamlSingleSignOnBlock>? SamlSingleSignOn
-    {
-        set => SetProperty("saml_single_sign_on", value);
-    }
+    [TerraformPropertyName("saml_single_sign_on")]
+    public TerraformList<TerraformBlock<AzureadServicePrincipalSamlSingleSignOnBlock>>? SamlSingleSignOn { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadServicePrincipalTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadServicePrincipalTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Mapping of app role names to UUIDs
     /// </summary>
-    public TerraformExpression AppRoleIds => this["app_role_ids"];
+    [TerraformPropertyName("app_role_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> AppRoleIds => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "app_role_ids");
 
     /// <summary>
     /// The app_roles attribute.
     /// </summary>
-    public TerraformExpression AppRoles => this["app_roles"];
+    [TerraformPropertyName("app_roles")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AppRoles => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "app_roles");
 
     /// <summary>
     /// The tenant ID where the associated application is registered
     /// </summary>
-    public TerraformExpression ApplicationTenantId => this["application_tenant_id"];
+    [TerraformPropertyName("application_tenant_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ApplicationTenantId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "application_tenant_id");
 
     /// <summary>
     /// The display name of the application associated with this service principal
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// Home page or landing page of the application
     /// </summary>
-    public TerraformExpression HomepageUrl => this["homepage_url"];
+    [TerraformPropertyName("homepage_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HomepageUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "homepage_url");
 
     /// <summary>
     /// The URL that will be used by Microsoft&#39;s authorization service to sign out a user using front-channel, back-channel or SAML logout protocols
     /// </summary>
-    public TerraformExpression LogoutUrl => this["logout_url"];
+    [TerraformPropertyName("logout_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LogoutUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "logout_url");
 
     /// <summary>
     /// Mapping of OAuth2.0 permission scope names to UUIDs
     /// </summary>
-    public TerraformExpression Oauth2PermissionScopeIds => this["oauth2_permission_scope_ids"];
+    [TerraformPropertyName("oauth2_permission_scope_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Oauth2PermissionScopeIds => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "oauth2_permission_scope_ids");
 
     /// <summary>
     /// The oauth2_permission_scopes attribute.
     /// </summary>
-    public TerraformExpression Oauth2PermissionScopes => this["oauth2_permission_scopes"];
+    [TerraformPropertyName("oauth2_permission_scopes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Oauth2PermissionScopes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "oauth2_permission_scopes");
 
     /// <summary>
     /// The object ID of the service principal
     /// </summary>
-    public TerraformExpression ObjectId => this["object_id"];
+    [TerraformPropertyName("object_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ObjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_id");
 
     /// <summary>
     /// The URLs where user tokens are sent for sign-in with the associated application, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent for the associated application
     /// </summary>
-    public TerraformExpression RedirectUris => this["redirect_uris"];
+    [TerraformPropertyName("redirect_uris")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> RedirectUris => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "redirect_uris");
 
     /// <summary>
     /// The URL where the service exposes SAML metadata for federation
     /// </summary>
-    public TerraformExpression SamlMetadataUrl => this["saml_metadata_url"];
+    [TerraformPropertyName("saml_metadata_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SamlMetadataUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "saml_metadata_url");
 
     /// <summary>
     /// A list of identifier URI(s), copied over from the associated application
     /// </summary>
-    public TerraformExpression ServicePrincipalNames => this["service_principal_names"];
+    [TerraformPropertyName("service_principal_names")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ServicePrincipalNames => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "service_principal_names");
 
     /// <summary>
     /// The Microsoft account types that are supported for the associated application
     /// </summary>
-    public TerraformExpression SignInAudience => this["sign_in_audience"];
+    [TerraformPropertyName("sign_in_audience")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SignInAudience => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sign_in_audience");
 
     /// <summary>
     /// Identifies whether the service principal represents an application or a managed identity
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementUserDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermApiManagementUserDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,93 +24,79 @@ public class AzurermApiManagementUserDataSource : TerraformDataSource
 {
     public AzurermApiManagementUserDataSource(string name) : base("azurerm_api_management_user", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("email");
-        SetOutput("first_name");
-        SetOutput("last_name");
-        SetOutput("note");
-        SetOutput("state");
-        SetOutput("api_management_name");
-        SetOutput("id");
-        SetOutput("resource_group_name");
-        SetOutput("user_id");
     }
 
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
-    public required TerraformProperty<string> ApiManagementName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
-        set => SetProperty("api_management_name", value);
-    }
+    [TerraformPropertyName("api_management_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiManagementName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
-    public required TerraformProperty<string> UserId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_id");
-        set => SetProperty("user_id", value);
-    }
+    [TerraformPropertyName("user_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermApiManagementUserDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermApiManagementUserDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformExpression Email => this["email"];
+    [TerraformPropertyName("email")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Email => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "email");
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
-    public TerraformExpression FirstName => this["first_name"];
+    [TerraformPropertyName("first_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FirstName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "first_name");
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
-    public TerraformExpression LastName => this["last_name"];
+    [TerraformPropertyName("last_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_name");
 
     /// <summary>
     /// The note attribute.
     /// </summary>
-    public TerraformExpression Note => this["note"];
+    [TerraformPropertyName("note")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Note => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "note");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
 }

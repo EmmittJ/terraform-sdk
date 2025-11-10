@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageSyncServerEndpointTimeoutsBlock : TerraformBlock
+public class AzurermStorageSyncServerEndpointTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,124 +45,87 @@ public class AzurermStorageSyncServerEndpoint : TerraformResource
 {
     public AzurermStorageSyncServerEndpoint(string name) : base("azurerm_storage_sync_server_endpoint", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cloud_tiering_enabled");
-        SetOutput("id");
-        SetOutput("initial_download_policy");
-        SetOutput("local_cache_mode");
-        SetOutput("name");
-        SetOutput("registered_server_id");
-        SetOutput("server_local_path");
-        SetOutput("storage_sync_group_id");
-        SetOutput("tier_files_older_than_days");
-        SetOutput("volume_free_space_percent");
     }
 
     /// <summary>
     /// The cloud_tiering_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> CloudTieringEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("cloud_tiering_enabled");
-        set => SetProperty("cloud_tiering_enabled", value);
-    }
+    [TerraformPropertyName("cloud_tiering_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CloudTieringEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The initial_download_policy attribute.
     /// </summary>
-    public TerraformProperty<string> InitialDownloadPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("initial_download_policy");
-        set => SetProperty("initial_download_policy", value);
-    }
+    [TerraformPropertyName("initial_download_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InitialDownloadPolicy { get; set; }
 
     /// <summary>
     /// The local_cache_mode attribute.
     /// </summary>
-    public TerraformProperty<string> LocalCacheMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("local_cache_mode");
-        set => SetProperty("local_cache_mode", value);
-    }
+    [TerraformPropertyName("local_cache_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LocalCacheMode { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The registered_server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegisteredServerId is required")]
-    public required TerraformProperty<string> RegisteredServerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("registered_server_id");
-        set => SetProperty("registered_server_id", value);
-    }
+    [TerraformPropertyName("registered_server_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RegisteredServerId { get; set; }
 
     /// <summary>
     /// The server_local_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerLocalPath is required")]
-    public required TerraformProperty<string> ServerLocalPath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("server_local_path");
-        set => SetProperty("server_local_path", value);
-    }
+    [TerraformPropertyName("server_local_path")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServerLocalPath { get; set; }
 
     /// <summary>
     /// The storage_sync_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSyncGroupId is required")]
-    public required TerraformProperty<string> StorageSyncGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_sync_group_id");
-        set => SetProperty("storage_sync_group_id", value);
-    }
+    [TerraformPropertyName("storage_sync_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageSyncGroupId { get; set; }
 
     /// <summary>
     /// The tier_files_older_than_days attribute.
     /// </summary>
-    public TerraformProperty<double> TierFilesOlderThanDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("tier_files_older_than_days");
-        set => SetProperty("tier_files_older_than_days", value);
-    }
+    [TerraformPropertyName("tier_files_older_than_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TierFilesOlderThanDays { get; set; }
 
     /// <summary>
     /// The volume_free_space_percent attribute.
     /// </summary>
-    public TerraformProperty<double> VolumeFreeSpacePercent
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("volume_free_space_percent");
-        set => SetProperty("volume_free_space_percent", value);
-    }
+    [TerraformPropertyName("volume_free_space_percent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? VolumeFreeSpacePercent { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStorageSyncServerEndpointTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStorageSyncServerEndpointTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

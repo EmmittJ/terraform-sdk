@@ -9,146 +9,140 @@ public class AwsBudgetsBudgetDataSource : TerraformDataSource
 {
     public AwsBudgetsBudgetDataSource(string name) : base("aws_budgets_budget", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("auto_adjust_data");
-        SetOutput("billing_view_arn");
-        SetOutput("budget_exceeded");
-        SetOutput("budget_limit");
-        SetOutput("budget_type");
-        SetOutput("calculated_spend");
-        SetOutput("cost_filter");
-        SetOutput("cost_types");
-        SetOutput("notification");
-        SetOutput("planned_limit");
-        SetOutput("time_period_end");
-        SetOutput("time_period_start");
-        SetOutput("time_unit");
-        SetOutput("account_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string> AccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NamePrefix { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The auto_adjust_data attribute.
     /// </summary>
-    public TerraformExpression AutoAdjustData => this["auto_adjust_data"];
+    [TerraformPropertyName("auto_adjust_data")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AutoAdjustData => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "auto_adjust_data");
 
     /// <summary>
     /// The billing_view_arn attribute.
     /// </summary>
-    public TerraformExpression BillingViewArn => this["billing_view_arn"];
+    [TerraformPropertyName("billing_view_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BillingViewArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "billing_view_arn");
 
     /// <summary>
     /// The budget_exceeded attribute.
     /// </summary>
-    public TerraformExpression BudgetExceeded => this["budget_exceeded"];
+    [TerraformPropertyName("budget_exceeded")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> BudgetExceeded => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "budget_exceeded");
 
     /// <summary>
     /// The budget_limit attribute.
     /// </summary>
-    public TerraformExpression BudgetLimit => this["budget_limit"];
+    [TerraformPropertyName("budget_limit")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> BudgetLimit => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "budget_limit");
 
     /// <summary>
     /// The budget_type attribute.
     /// </summary>
-    public TerraformExpression BudgetType => this["budget_type"];
+    [TerraformPropertyName("budget_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BudgetType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "budget_type");
 
     /// <summary>
     /// The calculated_spend attribute.
     /// </summary>
-    public TerraformExpression CalculatedSpend => this["calculated_spend"];
+    [TerraformPropertyName("calculated_spend")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> CalculatedSpend => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "calculated_spend");
 
     /// <summary>
     /// The cost_filter attribute.
     /// </summary>
-    public TerraformExpression CostFilter => this["cost_filter"];
+    [TerraformPropertyName("cost_filter")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> CostFilter => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "cost_filter");
 
     /// <summary>
     /// The cost_types attribute.
     /// </summary>
-    public TerraformExpression CostTypes => this["cost_types"];
+    [TerraformPropertyName("cost_types")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> CostTypes => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cost_types");
 
     /// <summary>
     /// The notification attribute.
     /// </summary>
-    public TerraformExpression Notification => this["notification"];
+    [TerraformPropertyName("notification")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Notification => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "notification");
 
     /// <summary>
     /// The planned_limit attribute.
     /// </summary>
-    public TerraformExpression PlannedLimit => this["planned_limit"];
+    [TerraformPropertyName("planned_limit")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> PlannedLimit => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "planned_limit");
 
     /// <summary>
     /// The time_period_end attribute.
     /// </summary>
-    public TerraformExpression TimePeriodEnd => this["time_period_end"];
+    [TerraformPropertyName("time_period_end")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TimePeriodEnd => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_period_end");
 
     /// <summary>
     /// The time_period_start attribute.
     /// </summary>
-    public TerraformExpression TimePeriodStart => this["time_period_start"];
+    [TerraformPropertyName("time_period_start")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TimePeriodStart => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_period_start");
 
     /// <summary>
     /// The time_unit attribute.
     /// </summary>
-    public TerraformExpression TimeUnit => this["time_unit"];
+    [TerraformPropertyName("time_unit")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TimeUnit => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_unit");
 
 }

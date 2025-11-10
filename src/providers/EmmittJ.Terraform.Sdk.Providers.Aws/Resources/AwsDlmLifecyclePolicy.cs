@@ -6,87 +6,77 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for policy_details in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
+public class AwsDlmLifecyclePolicyPolicyDetailsBlock : ITerraformBlock
 {
     /// <summary>
     /// The copy_tags attribute.
     /// </summary>
-    public TerraformProperty<bool>? CopyTags
-    {
-        set => SetProperty("copy_tags", value);
-    }
+    [TerraformPropertyName("copy_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CopyTags { get; set; }
 
     /// <summary>
     /// The create_interval attribute.
     /// </summary>
-    public TerraformProperty<double>? CreateInterval
-    {
-        set => SetProperty("create_interval", value);
-    }
+    [TerraformPropertyName("create_interval")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CreateInterval { get; set; }
 
     /// <summary>
     /// The extend_deletion attribute.
     /// </summary>
-    public TerraformProperty<bool>? ExtendDeletion
-    {
-        set => SetProperty("extend_deletion", value);
-    }
+    [TerraformPropertyName("extend_deletion")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExtendDeletion { get; set; }
 
     /// <summary>
     /// The policy_language attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyLanguage
-    {
-        set => SetProperty("policy_language", value);
-    }
+    [TerraformPropertyName("policy_language")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PolicyLanguage { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "policy_language");
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyType
-    {
-        set => SetProperty("policy_type", value);
-    }
+    [TerraformPropertyName("policy_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PolicyType { get; set; }
 
     /// <summary>
     /// The resource_locations attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ResourceLocations
-    {
-        set => SetProperty("resource_locations", value);
-    }
+    [TerraformPropertyName("resource_locations")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> ResourceLocations { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "resource_locations");
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceType
-    {
-        set => SetProperty("resource_type", value);
-    }
+    [TerraformPropertyName("resource_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceType { get; set; }
 
     /// <summary>
     /// The resource_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ResourceTypes
-    {
-        set => SetProperty("resource_types", value);
-    }
+    [TerraformPropertyName("resource_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ResourceTypes { get; set; }
 
     /// <summary>
     /// The retain_interval attribute.
     /// </summary>
-    public TerraformProperty<double>? RetainInterval
-    {
-        set => SetProperty("retain_interval", value);
-    }
+    [TerraformPropertyName("retain_interval")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RetainInterval { get; set; }
 
     /// <summary>
     /// The target_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TargetTags
-    {
-        set => SetProperty("target_tags", value);
-    }
+    [TerraformPropertyName("target_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? TargetTags { get; set; }
 
 }
 
@@ -98,95 +88,65 @@ public class AwsDlmLifecyclePolicy : TerraformResource
 {
     public AwsDlmLifecyclePolicy(string name) : base("aws_dlm_lifecycle_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("default_policy");
-        SetOutput("description");
-        SetOutput("execution_role_arn");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("state");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The default_policy attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_policy");
-        set => SetProperty("default_policy", value);
-    }
+    [TerraformPropertyName("default_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultPolicy { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
-    public required TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Description { get; set; }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
-    public required TerraformProperty<string> ExecutionRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
-        set => SetProperty("execution_role_arn", value);
-    }
+    [TerraformPropertyName("execution_role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string> State
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("state");
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? State { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for policy_details.
@@ -195,14 +155,14 @@ public class AwsDlmLifecyclePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDetails is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PolicyDetails block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PolicyDetails block(s) allowed")]
-    public List<AwsDlmLifecyclePolicyPolicyDetailsBlock>? PolicyDetails
-    {
-        set => SetProperty("policy_details", value);
-    }
+    [TerraformPropertyName("policy_details")]
+    public TerraformList<TerraformBlock<AwsDlmLifecyclePolicyPolicyDetailsBlock>>? PolicyDetails { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

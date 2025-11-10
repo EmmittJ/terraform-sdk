@@ -9,140 +9,133 @@ public class AwsApiGatewayDomainNameDataSource : TerraformDataSource
 {
     public AwsApiGatewayDomainNameDataSource(string name) : base("aws_api_gateway_domain_name", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("certificate_arn");
-        SetOutput("certificate_name");
-        SetOutput("certificate_upload_date");
-        SetOutput("cloudfront_domain_name");
-        SetOutput("cloudfront_zone_id");
-        SetOutput("endpoint_configuration");
-        SetOutput("policy");
-        SetOutput("regional_certificate_arn");
-        SetOutput("regional_certificate_name");
-        SetOutput("regional_domain_name");
-        SetOutput("regional_zone_id");
-        SetOutput("security_policy");
-        SetOutput("domain_name");
-        SetOutput("domain_name_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    public required TerraformProperty<string> DomainName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
 
     /// <summary>
     /// The domain_name_id attribute.
     /// </summary>
-    public TerraformProperty<string> DomainNameId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_name_id");
-        set => SetProperty("domain_name_id", value);
-    }
+    [TerraformPropertyName("domain_name_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DomainNameId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_name_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    public TerraformExpression CertificateArn => this["certificate_arn"];
+    [TerraformPropertyName("certificate_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CertificateArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_arn");
 
     /// <summary>
     /// The certificate_name attribute.
     /// </summary>
-    public TerraformExpression CertificateName => this["certificate_name"];
+    [TerraformPropertyName("certificate_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CertificateName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_name");
 
     /// <summary>
     /// The certificate_upload_date attribute.
     /// </summary>
-    public TerraformExpression CertificateUploadDate => this["certificate_upload_date"];
+    [TerraformPropertyName("certificate_upload_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CertificateUploadDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "certificate_upload_date");
 
     /// <summary>
     /// The cloudfront_domain_name attribute.
     /// </summary>
-    public TerraformExpression CloudfrontDomainName => this["cloudfront_domain_name"];
+    [TerraformPropertyName("cloudfront_domain_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CloudfrontDomainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cloudfront_domain_name");
 
     /// <summary>
     /// The cloudfront_zone_id attribute.
     /// </summary>
-    public TerraformExpression CloudfrontZoneId => this["cloudfront_zone_id"];
+    [TerraformPropertyName("cloudfront_zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CloudfrontZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cloudfront_zone_id");
 
     /// <summary>
     /// The endpoint_configuration attribute.
     /// </summary>
-    public TerraformExpression EndpointConfiguration => this["endpoint_configuration"];
+    [TerraformPropertyName("endpoint_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> EndpointConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "endpoint_configuration");
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformExpression Policy => this["policy"];
+    [TerraformPropertyName("policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Policy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy");
 
     /// <summary>
     /// The regional_certificate_arn attribute.
     /// </summary>
-    public TerraformExpression RegionalCertificateArn => this["regional_certificate_arn"];
+    [TerraformPropertyName("regional_certificate_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RegionalCertificateArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "regional_certificate_arn");
 
     /// <summary>
     /// The regional_certificate_name attribute.
     /// </summary>
-    public TerraformExpression RegionalCertificateName => this["regional_certificate_name"];
+    [TerraformPropertyName("regional_certificate_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RegionalCertificateName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "regional_certificate_name");
 
     /// <summary>
     /// The regional_domain_name attribute.
     /// </summary>
-    public TerraformExpression RegionalDomainName => this["regional_domain_name"];
+    [TerraformPropertyName("regional_domain_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RegionalDomainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "regional_domain_name");
 
     /// <summary>
     /// The regional_zone_id attribute.
     /// </summary>
-    public TerraformExpression RegionalZoneId => this["regional_zone_id"];
+    [TerraformPropertyName("regional_zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RegionalZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "regional_zone_id");
 
     /// <summary>
     /// The security_policy attribute.
     /// </summary>
-    public TerraformExpression SecurityPolicy => this["security_policy"];
+    [TerraformPropertyName("security_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecurityPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "security_policy");
 
 }

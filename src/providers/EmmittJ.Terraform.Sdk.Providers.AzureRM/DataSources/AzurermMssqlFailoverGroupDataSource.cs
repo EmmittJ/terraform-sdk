@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMssqlFailoverGroupDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermMssqlFailoverGroupDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,82 +24,71 @@ public class AzurermMssqlFailoverGroupDataSource : TerraformDataSource
 {
     public AzurermMssqlFailoverGroupDataSource(string name) : base("azurerm_mssql_failover_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("databases");
-        SetOutput("partner_server");
-        SetOutput("read_write_endpoint_failover_policy");
-        SetOutput("readonly_endpoint_failover_policy_enabled");
-        SetOutput("tags");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("server_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    public required TerraformProperty<string> ServerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("server_id");
-        set => SetProperty("server_id", value);
-    }
+    [TerraformPropertyName("server_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServerId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMssqlFailoverGroupDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMssqlFailoverGroupDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The databases attribute.
     /// </summary>
-    public TerraformExpression Databases => this["databases"];
+    [TerraformPropertyName("databases")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Databases => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "databases");
 
     /// <summary>
     /// The partner_server attribute.
     /// </summary>
-    public TerraformExpression PartnerServer => this["partner_server"];
+    [TerraformPropertyName("partner_server")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PartnerServer => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "partner_server");
 
     /// <summary>
     /// The read_write_endpoint_failover_policy attribute.
     /// </summary>
-    public TerraformExpression ReadWriteEndpointFailoverPolicy => this["read_write_endpoint_failover_policy"];
+    [TerraformPropertyName("read_write_endpoint_failover_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ReadWriteEndpointFailoverPolicy => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "read_write_endpoint_failover_policy");
 
     /// <summary>
     /// The readonly_endpoint_failover_policy_enabled attribute.
     /// </summary>
-    public TerraformExpression ReadonlyEndpointFailoverPolicyEnabled => this["readonly_endpoint_failover_policy_enabled"];
+    [TerraformPropertyName("readonly_endpoint_failover_policy_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ReadonlyEndpointFailoverPolicyEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "readonly_endpoint_failover_policy_enabled");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
 }

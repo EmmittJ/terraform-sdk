@@ -9,94 +9,84 @@ public class AwsVpclatticeServiceNetworkDataSource : TerraformDataSource
 {
     public AwsVpclatticeServiceNetworkDataSource(string name) : base("aws_vpclattice_service_network", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("auth_type");
-        SetOutput("created_at");
-        SetOutput("last_updated_at");
-        SetOutput("name");
-        SetOutput("number_of_associated_services");
-        SetOutput("number_of_associated_vpcs");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("service_network_identifier");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The service_network_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNetworkIdentifier is required")]
-    public required TerraformProperty<string> ServiceNetworkIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_network_identifier");
-        set => SetProperty("service_network_identifier", value);
-    }
+    [TerraformPropertyName("service_network_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceNetworkIdentifier { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The auth_type attribute.
     /// </summary>
-    public TerraformExpression AuthType => this["auth_type"];
+    [TerraformPropertyName("auth_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AuthType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "auth_type");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The last_updated_at attribute.
     /// </summary>
-    public TerraformExpression LastUpdatedAt => this["last_updated_at"];
+    [TerraformPropertyName("last_updated_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastUpdatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_updated_at");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The number_of_associated_services attribute.
     /// </summary>
-    public TerraformExpression NumberOfAssociatedServices => this["number_of_associated_services"];
+    [TerraformPropertyName("number_of_associated_services")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NumberOfAssociatedServices => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "number_of_associated_services");
 
     /// <summary>
     /// The number_of_associated_vpcs attribute.
     /// </summary>
-    public TerraformExpression NumberOfAssociatedVpcs => this["number_of_associated_vpcs"];
+    [TerraformPropertyName("number_of_associated_vpcs")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NumberOfAssociatedVpcs => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "number_of_associated_vpcs");
 
 }

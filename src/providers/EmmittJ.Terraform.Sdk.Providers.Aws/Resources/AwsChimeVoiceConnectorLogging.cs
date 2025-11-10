@@ -9,62 +9,42 @@ public class AwsChimeVoiceConnectorLogging : TerraformResource
 {
     public AwsChimeVoiceConnectorLogging(string name) : base("aws_chime_voice_connector_logging", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("enable_media_metric_logs");
-        SetOutput("enable_sip_logs");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("voice_connector_id");
     }
 
     /// <summary>
     /// The enable_media_metric_logs attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableMediaMetricLogs
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_media_metric_logs");
-        set => SetProperty("enable_media_metric_logs", value);
-    }
+    [TerraformPropertyName("enable_media_metric_logs")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableMediaMetricLogs { get; set; }
 
     /// <summary>
     /// The enable_sip_logs attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableSipLogs
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_sip_logs");
-        set => SetProperty("enable_sip_logs", value);
-    }
+    [TerraformPropertyName("enable_sip_logs")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableSipLogs { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The voice_connector_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
-    public required TerraformProperty<string> VoiceConnectorId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("voice_connector_id");
-        set => SetProperty("voice_connector_id", value);
-    }
+    [TerraformPropertyName("voice_connector_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VoiceConnectorId { get; set; }
 
 }

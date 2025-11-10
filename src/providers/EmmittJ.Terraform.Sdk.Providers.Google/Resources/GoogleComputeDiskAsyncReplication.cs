@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for secondary_disk in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : TerraformBlock
+public class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : ITerraformBlock
 {
     /// <summary>
     /// Secondary disk for asynchronous replication.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
-    public required TerraformProperty<string> Disk
-    {
-        set => SetProperty("disk", value);
-    }
+    [TerraformPropertyName("disk")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Disk { get; set; }
 
     /// <summary>
     /// Output-only. Status of replication on the secondary disk.
     /// </summary>
-    public TerraformProperty<string>? State
-    {
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>("", "state");
 
 }
 
@@ -31,23 +29,21 @@ public class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeDiskAsyncReplicationTimeoutsBlock : TerraformBlock
+public class GoogleComputeDiskAsyncReplicationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -59,33 +55,22 @@ public class GoogleComputeDiskAsyncReplication : TerraformResource
 {
     public GoogleComputeDiskAsyncReplication(string name) : base("google_compute_disk_async_replication", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("primary_disk");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Primary disk for asynchronous replication.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryDisk is required")]
-    public required TerraformProperty<string> PrimaryDisk
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("primary_disk");
-        set => SetProperty("primary_disk", value);
-    }
+    [TerraformPropertyName("primary_disk")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrimaryDisk { get; set; }
 
     /// <summary>
     /// Block for secondary_disk.
@@ -94,18 +79,14 @@ public class GoogleComputeDiskAsyncReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecondaryDisk is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecondaryDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecondaryDisk block(s) allowed")]
-    public List<GoogleComputeDiskAsyncReplicationSecondaryDiskBlock>? SecondaryDisk
-    {
-        set => SetProperty("secondary_disk", value);
-    }
+    [TerraformPropertyName("secondary_disk")]
+    public TerraformList<TerraformBlock<GoogleComputeDiskAsyncReplicationSecondaryDiskBlock>>? SecondaryDisk { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeDiskAsyncReplicationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeDiskAsyncReplicationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

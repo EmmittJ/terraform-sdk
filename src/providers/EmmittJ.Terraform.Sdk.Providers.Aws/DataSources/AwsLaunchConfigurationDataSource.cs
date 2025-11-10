@@ -9,138 +9,140 @@ public class AwsLaunchConfigurationDataSource : TerraformDataSource
 {
     public AwsLaunchConfigurationDataSource(string name) : base("aws_launch_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("associate_public_ip_address");
-        SetOutput("ebs_block_device");
-        SetOutput("ebs_optimized");
-        SetOutput("enable_monitoring");
-        SetOutput("ephemeral_block_device");
-        SetOutput("iam_instance_profile");
-        SetOutput("image_id");
-        SetOutput("instance_type");
-        SetOutput("key_name");
-        SetOutput("metadata_options");
-        SetOutput("placement_tenancy");
-        SetOutput("root_block_device");
-        SetOutput("security_groups");
-        SetOutput("spot_price");
-        SetOutput("user_data");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The associate_public_ip_address attribute.
     /// </summary>
-    public TerraformExpression AssociatePublicIpAddress => this["associate_public_ip_address"];
+    [TerraformPropertyName("associate_public_ip_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AssociatePublicIpAddress => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "associate_public_ip_address");
 
     /// <summary>
     /// The ebs_block_device attribute.
     /// </summary>
-    public TerraformExpression EbsBlockDevice => this["ebs_block_device"];
+    [TerraformPropertyName("ebs_block_device")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> EbsBlockDevice => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "ebs_block_device");
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public TerraformExpression EbsOptimized => this["ebs_optimized"];
+    [TerraformPropertyName("ebs_optimized")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EbsOptimized => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "ebs_optimized");
 
     /// <summary>
     /// The enable_monitoring attribute.
     /// </summary>
-    public TerraformExpression EnableMonitoring => this["enable_monitoring"];
+    [TerraformPropertyName("enable_monitoring")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableMonitoring => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_monitoring");
 
     /// <summary>
     /// The ephemeral_block_device attribute.
     /// </summary>
-    public TerraformExpression EphemeralBlockDevice => this["ephemeral_block_device"];
+    [TerraformPropertyName("ephemeral_block_device")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> EphemeralBlockDevice => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "ephemeral_block_device");
 
     /// <summary>
     /// The iam_instance_profile attribute.
     /// </summary>
-    public TerraformExpression IamInstanceProfile => this["iam_instance_profile"];
+    [TerraformPropertyName("iam_instance_profile")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IamInstanceProfile => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "iam_instance_profile");
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
-    public TerraformExpression ImageId => this["image_id"];
+    [TerraformPropertyName("image_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ImageId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_id");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformExpression InstanceType => this["instance_type"];
+    [TerraformPropertyName("instance_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InstanceType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "instance_type");
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformExpression KeyName => this["key_name"];
+    [TerraformPropertyName("key_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_name");
 
     /// <summary>
     /// The metadata_options attribute.
     /// </summary>
-    public TerraformExpression MetadataOptions => this["metadata_options"];
+    [TerraformPropertyName("metadata_options")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MetadataOptions => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "metadata_options");
 
     /// <summary>
     /// The placement_tenancy attribute.
     /// </summary>
-    public TerraformExpression PlacementTenancy => this["placement_tenancy"];
+    [TerraformPropertyName("placement_tenancy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PlacementTenancy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "placement_tenancy");
 
     /// <summary>
     /// The root_block_device attribute.
     /// </summary>
-    public TerraformExpression RootBlockDevice => this["root_block_device"];
+    [TerraformPropertyName("root_block_device")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RootBlockDevice => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "root_block_device");
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformExpression SecurityGroups => this["security_groups"];
+    [TerraformPropertyName("security_groups")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SecurityGroups => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "security_groups");
 
     /// <summary>
     /// The spot_price attribute.
     /// </summary>
-    public TerraformExpression SpotPrice => this["spot_price"];
+    [TerraformPropertyName("spot_price")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SpotPrice => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "spot_price");
 
     /// <summary>
     /// The user_data attribute.
     /// </summary>
-    public TerraformExpression UserData => this["user_data"];
+    [TerraformPropertyName("user_data")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserData => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_data");
 
 }

@@ -6,47 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoint_details in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTransferServerEndpointDetailsBlock : TerraformBlock
+public class AwsTransferServerEndpointDetailsBlock : ITerraformBlock
 {
     /// <summary>
     /// The address_allocation_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AddressAllocationIds
-    {
-        set => SetProperty("address_allocation_ids", value);
-    }
+    [TerraformPropertyName("address_allocation_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AddressAllocationIds { get; set; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
-    {
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SecurityGroupIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "security_group_ids");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
-    {
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcEndpointId
-    {
-        set => SetProperty("vpc_endpoint_id", value);
-    }
+    [TerraformPropertyName("vpc_endpoint_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VpcEndpointId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "vpc_endpoint_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
-    {
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VpcId { get; set; }
 
 }
 
@@ -54,39 +49,35 @@ public class AwsTransferServerEndpointDetailsBlock : TerraformBlock
 /// Block type for protocol_details in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTransferServerProtocolDetailsBlock : TerraformBlock
+public class AwsTransferServerProtocolDetailsBlock : ITerraformBlock
 {
     /// <summary>
     /// The as2_transports attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? As2Transports
-    {
-        set => SetProperty("as2_transports", value);
-    }
+    [TerraformPropertyName("as2_transports")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> As2Transports { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "as2_transports");
 
     /// <summary>
     /// The passive_ip attribute.
     /// </summary>
-    public TerraformProperty<string>? PassiveIp
-    {
-        set => SetProperty("passive_ip", value);
-    }
+    [TerraformPropertyName("passive_ip")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PassiveIp { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "passive_ip");
 
     /// <summary>
     /// The set_stat_option attribute.
     /// </summary>
-    public TerraformProperty<string>? SetStatOption
-    {
-        set => SetProperty("set_stat_option", value);
-    }
+    [TerraformPropertyName("set_stat_option")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SetStatOption { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "set_stat_option");
 
     /// <summary>
     /// The tls_session_resumption_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? TlsSessionResumptionMode
-    {
-        set => SetProperty("tls_session_resumption_mode", value);
-    }
+    [TerraformPropertyName("tls_session_resumption_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TlsSessionResumptionMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "tls_session_resumption_mode");
 
 }
 
@@ -94,15 +85,14 @@ public class AwsTransferServerProtocolDetailsBlock : TerraformBlock
 /// Block type for s3_storage_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTransferServerS3StorageOptionsBlock : TerraformBlock
+public class AwsTransferServerS3StorageOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The directory_listing_optimization attribute.
     /// </summary>
-    public TerraformProperty<string>? DirectoryListingOptimization
-    {
-        set => SetProperty("directory_listing_optimization", value);
-    }
+    [TerraformPropertyName("directory_listing_optimization")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DirectoryListingOptimization { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "directory_listing_optimization");
 
 }
 
@@ -110,7 +100,7 @@ public class AwsTransferServerS3StorageOptionsBlock : TerraformBlock
 /// Block type for workflow_details in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTransferServerWorkflowDetailsBlock : TerraformBlock
+public class AwsTransferServerWorkflowDetailsBlock : ITerraformBlock
 {
 }
 
@@ -122,279 +112,206 @@ public class AwsTransferServer : TerraformResource
 {
     public AwsTransferServer(string name) : base("aws_transfer_server", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("endpoint");
-        SetOutput("host_key_fingerprint");
-        SetOutput("certificate");
-        SetOutput("directory_id");
-        SetOutput("domain");
-        SetOutput("endpoint_type");
-        SetOutput("force_destroy");
-        SetOutput("function");
-        SetOutput("host_key");
-        SetOutput("id");
-        SetOutput("identity_provider_type");
-        SetOutput("invocation_role");
-        SetOutput("logging_role");
-        SetOutput("post_authentication_login_banner");
-        SetOutput("pre_authentication_login_banner");
-        SetOutput("protocols");
-        SetOutput("region");
-        SetOutput("security_policy_name");
-        SetOutput("sftp_authentication_methods");
-        SetOutput("structured_log_destinations");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("url");
     }
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    public TerraformProperty<string> Certificate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate");
-        set => SetProperty("certificate", value);
-    }
+    [TerraformPropertyName("certificate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Certificate { get; set; }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public TerraformProperty<string> DirectoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
-        set => SetProperty("directory_id", value);
-    }
+    [TerraformPropertyName("directory_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DirectoryId { get; set; }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string> Domain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain");
-        set => SetProperty("domain", value);
-    }
+    [TerraformPropertyName("domain")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Domain { get; set; }
 
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
-    public TerraformProperty<string> EndpointType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_type");
-        set => SetProperty("endpoint_type", value);
-    }
+    [TerraformPropertyName("endpoint_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndpointType { get; set; }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
-        set => SetProperty("force_destroy", value);
-    }
+    [TerraformPropertyName("force_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The function attribute.
     /// </summary>
-    public TerraformProperty<string> Function
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("function");
-        set => SetProperty("function", value);
-    }
+    [TerraformPropertyName("function")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Function { get; set; }
 
     /// <summary>
     /// The host_key attribute.
     /// </summary>
-    public TerraformProperty<string> HostKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("host_key");
-        set => SetProperty("host_key", value);
-    }
+    [TerraformPropertyName("host_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HostKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The identity_provider_type attribute.
     /// </summary>
-    public TerraformProperty<string> IdentityProviderType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_provider_type");
-        set => SetProperty("identity_provider_type", value);
-    }
+    [TerraformPropertyName("identity_provider_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IdentityProviderType { get; set; }
 
     /// <summary>
     /// The invocation_role attribute.
     /// </summary>
-    public TerraformProperty<string> InvocationRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("invocation_role");
-        set => SetProperty("invocation_role", value);
-    }
+    [TerraformPropertyName("invocation_role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InvocationRole { get; set; }
 
     /// <summary>
     /// The logging_role attribute.
     /// </summary>
-    public TerraformProperty<string> LoggingRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("logging_role");
-        set => SetProperty("logging_role", value);
-    }
+    [TerraformPropertyName("logging_role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LoggingRole { get; set; }
 
     /// <summary>
     /// The post_authentication_login_banner attribute.
     /// </summary>
-    public TerraformProperty<string> PostAuthenticationLoginBanner
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("post_authentication_login_banner");
-        set => SetProperty("post_authentication_login_banner", value);
-    }
+    [TerraformPropertyName("post_authentication_login_banner")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PostAuthenticationLoginBanner { get; set; }
 
     /// <summary>
     /// The pre_authentication_login_banner attribute.
     /// </summary>
-    public TerraformProperty<string> PreAuthenticationLoginBanner
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pre_authentication_login_banner");
-        set => SetProperty("pre_authentication_login_banner", value);
-    }
+    [TerraformPropertyName("pre_authentication_login_banner")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PreAuthenticationLoginBanner { get; set; }
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Protocols
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("protocols");
-        set => SetProperty("protocols", value);
-    }
+    [TerraformPropertyName("protocols")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Protocols { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "protocols");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The security_policy_name attribute.
     /// </summary>
-    public TerraformProperty<string> SecurityPolicyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_policy_name");
-        set => SetProperty("security_policy_name", value);
-    }
+    [TerraformPropertyName("security_policy_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecurityPolicyName { get; set; }
 
     /// <summary>
     /// The sftp_authentication_methods attribute.
     /// </summary>
-    public TerraformProperty<string> SftpAuthenticationMethods
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sftp_authentication_methods");
-        set => SetProperty("sftp_authentication_methods", value);
-    }
+    [TerraformPropertyName("sftp_authentication_methods")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SftpAuthenticationMethods { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sftp_authentication_methods");
 
     /// <summary>
     /// This is a set of arns of destinations that will receive structured logs from the transfer server
     /// </summary>
-    public HashSet<TerraformProperty<string>> StructuredLogDestinations
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("structured_log_destinations");
-        set => SetProperty("structured_log_destinations", value);
-    }
+    [TerraformPropertyName("structured_log_destinations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? StructuredLogDestinations { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformProperty<string> Url
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("url");
-        set => SetProperty("url", value);
-    }
+    [TerraformPropertyName("url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Url { get; set; }
 
     /// <summary>
     /// Block for endpoint_details.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointDetails block(s) allowed")]
-    public List<AwsTransferServerEndpointDetailsBlock>? EndpointDetails
-    {
-        set => SetProperty("endpoint_details", value);
-    }
+    [TerraformPropertyName("endpoint_details")]
+    public TerraformList<TerraformBlock<AwsTransferServerEndpointDetailsBlock>>? EndpointDetails { get; set; } = new();
 
     /// <summary>
     /// Block for protocol_details.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProtocolDetails block(s) allowed")]
-    public List<AwsTransferServerProtocolDetailsBlock>? ProtocolDetails
-    {
-        set => SetProperty("protocol_details", value);
-    }
+    [TerraformPropertyName("protocol_details")]
+    public TerraformList<TerraformBlock<AwsTransferServerProtocolDetailsBlock>>? ProtocolDetails { get; set; } = new();
 
     /// <summary>
     /// Block for s3_storage_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3StorageOptions block(s) allowed")]
-    public List<AwsTransferServerS3StorageOptionsBlock>? S3StorageOptions
-    {
-        set => SetProperty("s3_storage_options", value);
-    }
+    [TerraformPropertyName("s3_storage_options")]
+    public TerraformList<TerraformBlock<AwsTransferServerS3StorageOptionsBlock>>? S3StorageOptions { get; set; } = new();
 
     /// <summary>
     /// Block for workflow_details.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkflowDetails block(s) allowed")]
-    public List<AwsTransferServerWorkflowDetailsBlock>? WorkflowDetails
-    {
-        set => SetProperty("workflow_details", value);
-    }
+    [TerraformPropertyName("workflow_details")]
+    public TerraformList<TerraformBlock<AwsTransferServerWorkflowDetailsBlock>>? WorkflowDetails { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The host_key_fingerprint attribute.
     /// </summary>
-    public TerraformExpression HostKeyFingerprint => this["host_key_fingerprint"];
+    [TerraformPropertyName("host_key_fingerprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostKeyFingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "host_key_fingerprint");
 
 }

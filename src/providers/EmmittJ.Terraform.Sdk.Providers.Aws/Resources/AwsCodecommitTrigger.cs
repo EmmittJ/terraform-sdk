@@ -6,50 +6,45 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for trigger in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCodecommitTriggerTriggerBlock : TerraformBlock
+public class AwsCodecommitTriggerTriggerBlock : ITerraformBlock
 {
     /// <summary>
     /// The branches attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Branches
-    {
-        set => SetProperty("branches", value);
-    }
+    [TerraformPropertyName("branches")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Branches { get; set; }
 
     /// <summary>
     /// The custom_data attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomData
-    {
-        set => SetProperty("custom_data", value);
-    }
+    [TerraformPropertyName("custom_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomData { get; set; }
 
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
-    public required TerraformProperty<string> DestinationArn
-    {
-        set => SetProperty("destination_arn", value);
-    }
+    [TerraformPropertyName("destination_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DestinationArn { get; set; }
 
     /// <summary>
     /// The events attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
-    public List<TerraformProperty<string>>? Events
-    {
-        set => SetProperty("events", value);
-    }
+    [TerraformPropertyName("events")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Events { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -61,44 +56,29 @@ public class AwsCodecommitTrigger : TerraformResource
 {
     public AwsCodecommitTrigger(string name) : base("aws_codecommit_trigger", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("configuration_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("repository_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
-    public required TerraformProperty<string> RepositoryName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("repository_name");
-        set => SetProperty("repository_name", value);
-    }
+    [TerraformPropertyName("repository_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RepositoryName { get; set; }
 
     /// <summary>
     /// Block for trigger.
@@ -107,14 +87,14 @@ public class AwsCodecommitTrigger : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Trigger is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Trigger block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 Trigger block(s) allowed")]
-    public HashSet<AwsCodecommitTriggerTriggerBlock>? Trigger
-    {
-        set => SetProperty("trigger", value);
-    }
+    [TerraformPropertyName("trigger")]
+    public TerraformSet<TerraformBlock<AwsCodecommitTriggerTriggerBlock>>? Trigger { get; set; } = new();
 
     /// <summary>
     /// The configuration_id attribute.
     /// </summary>
-    public TerraformExpression ConfigurationId => this["configuration_id"];
+    [TerraformPropertyName("configuration_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConfigurationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "configuration_id");
 
 }

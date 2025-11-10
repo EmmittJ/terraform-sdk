@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketInventoryDestinationBlock : TerraformBlock
+public class AwsS3BucketInventoryDestinationBlock : ITerraformBlock
 {
 }
 
@@ -14,15 +14,14 @@ public class AwsS3BucketInventoryDestinationBlock : TerraformBlock
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketInventoryFilterBlock : TerraformBlock
+public class AwsS3BucketInventoryFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? Prefix
-    {
-        set => SetProperty("prefix", value);
-    }
+    [TerraformPropertyName("prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Prefix { get; set; }
 
 }
 
@@ -30,16 +29,15 @@ public class AwsS3BucketInventoryFilterBlock : TerraformBlock
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketInventoryScheduleBlock : TerraformBlock
+public class AwsS3BucketInventoryScheduleBlock : ITerraformBlock
 {
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
-    public required TerraformProperty<string> Frequency
-    {
-        set => SetProperty("frequency", value);
-    }
+    [TerraformPropertyName("frequency")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Frequency { get; set; }
 
 }
 
@@ -51,85 +49,59 @@ public class AwsS3BucketInventory : TerraformResource
 {
     public AwsS3BucketInventory(string name) : base("aws_s3_bucket_inventory", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bucket");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("included_object_versions");
-        SetOutput("name");
-        SetOutput("optional_fields");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The included_object_versions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludedObjectVersions is required")]
-    public required TerraformProperty<string> IncludedObjectVersions
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("included_object_versions");
-        set => SetProperty("included_object_versions", value);
-    }
+    [TerraformPropertyName("included_object_versions")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IncludedObjectVersions { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The optional_fields attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> OptionalFields
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("optional_fields");
-        set => SetProperty("optional_fields", value);
-    }
+    [TerraformPropertyName("optional_fields")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? OptionalFields { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for destination.
@@ -138,20 +110,16 @@ public class AwsS3BucketInventory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
-    public List<AwsS3BucketInventoryDestinationBlock>? Destination
-    {
-        set => SetProperty("destination", value);
-    }
+    [TerraformPropertyName("destination")]
+    public TerraformList<TerraformBlock<AwsS3BucketInventoryDestinationBlock>>? Destination { get; set; } = new();
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
-    public List<AwsS3BucketInventoryFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformList<TerraformBlock<AwsS3BucketInventoryFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
@@ -160,9 +128,7 @@ public class AwsS3BucketInventory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    public List<AwsS3BucketInventoryScheduleBlock>? Schedule
-    {
-        set => SetProperty("schedule", value);
-    }
+    [TerraformPropertyName("schedule")]
+    public TerraformList<TerraformBlock<AwsS3BucketInventoryScheduleBlock>>? Schedule { get; set; } = new();
 
 }

@@ -9,49 +9,36 @@ public class AwsOrganizationsPoliciesForTargetDataSource : TerraformDataSource
 {
     public AwsOrganizationsPoliciesForTargetDataSource(string name) : base("aws_organizations_policies_for_target", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("ids");
-        SetOutput("filter");
-        SetOutput("id");
-        SetOutput("target_id");
     }
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
-    public required TerraformProperty<string> Filter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filter");
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
-    public required TerraformProperty<string> TargetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_id");
-        set => SetProperty("target_id", value);
-    }
+    [TerraformPropertyName("target_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetId { get; set; }
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
-    public TerraformExpression Ids => this["ids"];
+    [TerraformPropertyName("ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Ids => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "ids");
 
 }

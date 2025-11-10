@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for partition_index in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGluePartitionIndexPartitionIndexBlock : TerraformBlock
+public class AwsGluePartitionIndexPartitionIndexBlock : ITerraformBlock
 {
     /// <summary>
     /// The index_name attribute.
     /// </summary>
-    public TerraformProperty<string>? IndexName
-    {
-        set => SetProperty("index_name", value);
-    }
+    [TerraformPropertyName("index_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IndexName { get; set; }
 
     /// <summary>
     /// The index_status attribute.
     /// </summary>
-    public TerraformProperty<string>? IndexStatus
-    {
-        set => SetProperty("index_status", value);
-    }
+    [TerraformPropertyName("index_status")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IndexStatus => new TerraformReferenceProperty<TerraformProperty<string>>("", "index_status");
 
     /// <summary>
     /// The keys attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Keys
-    {
-        set => SetProperty("keys", value);
-    }
+    [TerraformPropertyName("keys")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Keys { get; set; }
 
 }
 
@@ -38,23 +35,21 @@ public class AwsGluePartitionIndexPartitionIndexBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsGluePartitionIndexTimeoutsBlock : TerraformBlock
+public class AwsGluePartitionIndexTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -66,64 +61,44 @@ public class AwsGluePartitionIndex : TerraformResource
 {
     public AwsGluePartitionIndex(string name) : base("aws_glue_partition_index", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("catalog_id");
-        SetOutput("database_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("table_name");
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string> CatalogId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("catalog_id");
-        set => SetProperty("catalog_id", value);
-    }
+    [TerraformPropertyName("catalog_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CatalogId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "catalog_id");
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    public required TerraformProperty<string> DatabaseName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_name");
-        set => SetProperty("database_name", value);
-    }
+    [TerraformPropertyName("database_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
-    public required TerraformProperty<string> TableName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
-        set => SetProperty("table_name", value);
-    }
+    [TerraformPropertyName("table_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TableName { get; set; }
 
     /// <summary>
     /// Block for partition_index.
@@ -132,18 +107,14 @@ public class AwsGluePartitionIndex : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionIndex is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PartitionIndex block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PartitionIndex block(s) allowed")]
-    public List<AwsGluePartitionIndexPartitionIndexBlock>? PartitionIndex
-    {
-        set => SetProperty("partition_index", value);
-    }
+    [TerraformPropertyName("partition_index")]
+    public TerraformList<TerraformBlock<AwsGluePartitionIndexPartitionIndexBlock>>? PartitionIndex { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsGluePartitionIndexTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsGluePartitionIndexTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

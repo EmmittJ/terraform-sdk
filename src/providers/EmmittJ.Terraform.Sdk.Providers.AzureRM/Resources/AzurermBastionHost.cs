@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBastionHostIpConfigurationBlock : TerraformBlock
+public class AzurermBastionHostIpConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
-    public required TerraformProperty<string> PublicIpAddressId
-    {
-        set => SetProperty("public_ip_address_id", value);
-    }
+    [TerraformPropertyName("public_ip_address_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PublicIpAddressId { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
 }
 
@@ -41,39 +38,35 @@ public class AzurermBastionHostIpConfigurationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBastionHostTimeoutsBlock : TerraformBlock
+public class AzurermBastionHostTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -85,199 +78,143 @@ public class AzurermBastionHost : TerraformResource
 {
     public AzurermBastionHost(string name) : base("azurerm_bastion_host", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("dns_name");
-        SetOutput("copy_paste_enabled");
-        SetOutput("file_copy_enabled");
-        SetOutput("id");
-        SetOutput("ip_connect_enabled");
-        SetOutput("kerberos_enabled");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("scale_units");
-        SetOutput("session_recording_enabled");
-        SetOutput("shareable_link_enabled");
-        SetOutput("sku");
-        SetOutput("tags");
-        SetOutput("tunneling_enabled");
-        SetOutput("virtual_network_id");
-        SetOutput("zones");
     }
 
     /// <summary>
     /// The copy_paste_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> CopyPasteEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("copy_paste_enabled");
-        set => SetProperty("copy_paste_enabled", value);
-    }
+    [TerraformPropertyName("copy_paste_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CopyPasteEnabled { get; set; }
 
     /// <summary>
     /// The file_copy_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> FileCopyEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("file_copy_enabled");
-        set => SetProperty("file_copy_enabled", value);
-    }
+    [TerraformPropertyName("file_copy_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? FileCopyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ip_connect_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> IpConnectEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ip_connect_enabled");
-        set => SetProperty("ip_connect_enabled", value);
-    }
+    [TerraformPropertyName("ip_connect_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IpConnectEnabled { get; set; }
 
     /// <summary>
     /// The kerberos_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> KerberosEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("kerberos_enabled");
-        set => SetProperty("kerberos_enabled", value);
-    }
+    [TerraformPropertyName("kerberos_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? KerberosEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The scale_units attribute.
     /// </summary>
-    public TerraformProperty<double> ScaleUnits
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("scale_units");
-        set => SetProperty("scale_units", value);
-    }
+    [TerraformPropertyName("scale_units")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ScaleUnits { get; set; }
 
     /// <summary>
     /// The session_recording_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> SessionRecordingEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("session_recording_enabled");
-        set => SetProperty("session_recording_enabled", value);
-    }
+    [TerraformPropertyName("session_recording_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SessionRecordingEnabled { get; set; }
 
     /// <summary>
     /// The shareable_link_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ShareableLinkEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("shareable_link_enabled");
-        set => SetProperty("shareable_link_enabled", value);
-    }
+    [TerraformPropertyName("shareable_link_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ShareableLinkEnabled { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string> Sku
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku");
-        set => SetProperty("sku", value);
-    }
+    [TerraformPropertyName("sku")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tunneling_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> TunnelingEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("tunneling_enabled");
-        set => SetProperty("tunneling_enabled", value);
-    }
+    [TerraformPropertyName("tunneling_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TunnelingEnabled { get; set; }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    public TerraformProperty<string> VirtualNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_id");
-        set => SetProperty("virtual_network_id", value);
-    }
+    [TerraformPropertyName("virtual_network_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VirtualNetworkId { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Zones
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
-        set => SetProperty("zones", value);
-    }
+    [TerraformPropertyName("zones")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Zones { get; set; }
 
     /// <summary>
     /// Block for ip_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpConfiguration block(s) allowed")]
-    public List<AzurermBastionHostIpConfigurationBlock>? IpConfiguration
-    {
-        set => SetProperty("ip_configuration", value);
-    }
+    [TerraformPropertyName("ip_configuration")]
+    public TerraformList<TerraformBlock<AzurermBastionHostIpConfigurationBlock>>? IpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermBastionHostTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermBastionHostTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformExpression DnsName => this["dns_name"];
+    [TerraformPropertyName("dns_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
 
 }

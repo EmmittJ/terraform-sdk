@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for sharing_environment_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryAnalyticsHubDataExchangeSharingEnvironmentConfigBlock : TerraformBlock
+public class GoogleBigqueryAnalyticsHubDataExchangeSharingEnvironmentConfigBlock : ITerraformBlock
 {
 }
 
@@ -14,31 +14,28 @@ public class GoogleBigqueryAnalyticsHubDataExchangeSharingEnvironmentConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock : TerraformBlock
+public class GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -50,156 +47,116 @@ public class GoogleBigqueryAnalyticsHubDataExchange : TerraformResource
 {
     public GoogleBigqueryAnalyticsHubDataExchange(string name) : base("google_bigquery_analytics_hub_data_exchange", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("listing_count");
-        SetOutput("name");
-        SetOutput("data_exchange_id");
-        SetOutput("description");
-        SetOutput("discovery_type");
-        SetOutput("display_name");
-        SetOutput("documentation");
-        SetOutput("icon");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("log_linked_dataset_query_user_email");
-        SetOutput("primary_contact");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
-    public required TerraformProperty<string> DataExchangeId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_exchange_id");
-        set => SetProperty("data_exchange_id", value);
-    }
+    [TerraformPropertyName("data_exchange_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataExchangeId { get; set; }
 
     /// <summary>
     /// Description of the data exchange.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// Type of discovery on the discovery page for all the listings under this exchange. Cannot be set for a Data Clean Room. Updating this field also updates (overwrites) the discoveryType field for all the listings under this exchange. Possible values: [&amp;quot;DISCOVERY_TYPE_PRIVATE&amp;quot;, &amp;quot;DISCOVERY_TYPE_PUBLIC&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> DiscoveryType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("discovery_type");
-        set => SetProperty("discovery_type", value);
-    }
+    [TerraformPropertyName("discovery_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DiscoveryType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "discovery_type");
 
     /// <summary>
     /// Human-readable display name of the data exchange. The display name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), and must not start or end with spaces.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// Documentation describing the data exchange.
     /// </summary>
-    public TerraformProperty<string> Documentation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("documentation");
-        set => SetProperty("documentation", value);
-    }
+    [TerraformPropertyName("documentation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Documentation { get; set; }
 
     /// <summary>
     /// Base64 encoded image representing the data exchange.
     /// </summary>
-    public TerraformProperty<string> Icon
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("icon");
-        set => SetProperty("icon", value);
-    }
+    [TerraformPropertyName("icon")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Icon { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the location this data exchange.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// If true, subscriber email logging is enabled and all queries on the linked dataset will log the email address of the querying user. Once enabled, this setting cannot be turned off.
     /// </summary>
-    public TerraformProperty<bool> LogLinkedDatasetQueryUserEmail
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("log_linked_dataset_query_user_email");
-        set => SetProperty("log_linked_dataset_query_user_email", value);
-    }
+    [TerraformPropertyName("log_linked_dataset_query_user_email")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LogLinkedDatasetQueryUserEmail { get; set; }
 
     /// <summary>
     /// Email or URL of the primary point of contact of the data exchange.
     /// </summary>
-    public TerraformProperty<string> PrimaryContact
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("primary_contact");
-        set => SetProperty("primary_contact", value);
-    }
+    [TerraformPropertyName("primary_contact")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrimaryContact { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for sharing_environment_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SharingEnvironmentConfig block(s) allowed")]
-    public List<GoogleBigqueryAnalyticsHubDataExchangeSharingEnvironmentConfigBlock>? SharingEnvironmentConfig
-    {
-        set => SetProperty("sharing_environment_config", value);
-    }
+    [TerraformPropertyName("sharing_environment_config")]
+    public TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubDataExchangeSharingEnvironmentConfigBlock>>? SharingEnvironmentConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Number of listings contained in the data exchange.
     /// </summary>
-    public TerraformExpression ListingCount => this["listing_count"];
+    [TerraformPropertyName("listing_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ListingCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "listing_count");
 
     /// <summary>
     /// The resource name of the data exchange, for example:
     /// &amp;quot;projects/myproject/locations/US/dataExchanges/123&amp;quot;
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

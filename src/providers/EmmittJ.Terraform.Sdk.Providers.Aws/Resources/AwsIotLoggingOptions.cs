@@ -9,63 +9,43 @@ public class AwsIotLoggingOptions : TerraformResource
 {
     public AwsIotLoggingOptions(string name) : base("aws_iot_logging_options", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("default_log_level");
-        SetOutput("disable_all_logs");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("role_arn");
     }
 
     /// <summary>
     /// The default_log_level attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLogLevel is required")]
-    public required TerraformProperty<string> DefaultLogLevel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_log_level");
-        set => SetProperty("default_log_level", value);
-    }
+    [TerraformPropertyName("default_log_level")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DefaultLogLevel { get; set; }
 
     /// <summary>
     /// The disable_all_logs attribute.
     /// </summary>
-    public TerraformProperty<bool> DisableAllLogs
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("disable_all_logs");
-        set => SetProperty("disable_all_logs", value);
-    }
+    [TerraformPropertyName("disable_all_logs")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DisableAllLogs { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
 }

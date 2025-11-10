@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock : TerraformBlock
+public class GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,52 +38,36 @@ public class GoogleApigeeEnvironmentAddonsConfig : TerraformResource
 {
     public GoogleApigeeEnvironmentAddonsConfig(string name) : base("google_apigee_environment_addons_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("analytics_enabled");
-        SetOutput("env_id");
-        SetOutput("id");
     }
 
     /// <summary>
     /// Flag to enable/disable Analytics.
     /// </summary>
-    public TerraformProperty<bool> AnalyticsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("analytics_enabled");
-        set => SetProperty("analytics_enabled", value);
-    }
+    [TerraformPropertyName("analytics_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AnalyticsEnabled { get; set; }
 
     /// <summary>
     /// The Apigee environment group associated with the Apigee environment,
     /// in the format &#39;organizations/{{org_name}}/environments/{{env_name}}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
-    public required TerraformProperty<string> EnvId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("env_id");
-        set => SetProperty("env_id", value);
-    }
+    [TerraformPropertyName("env_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EnvId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

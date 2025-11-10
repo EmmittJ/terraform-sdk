@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for alternate_identifier in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIdentitystoreUserDataSourceAlternateIdentifierBlock : TerraformBlock
+public class AwsIdentitystoreUserDataSourceAlternateIdentifierBlock : ITerraformBlock
 {
 }
 
@@ -18,146 +18,141 @@ public class AwsIdentitystoreUserDataSource : TerraformDataSource
 {
     public AwsIdentitystoreUserDataSource(string name) : base("aws_identitystore_user", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("addresses");
-        SetOutput("display_name");
-        SetOutput("emails");
-        SetOutput("external_ids");
-        SetOutput("locale");
-        SetOutput("name");
-        SetOutput("nickname");
-        SetOutput("phone_numbers");
-        SetOutput("preferred_language");
-        SetOutput("profile_url");
-        SetOutput("timezone");
-        SetOutput("title");
-        SetOutput("user_name");
-        SetOutput("user_type");
-        SetOutput("id");
-        SetOutput("identity_store_id");
-        SetOutput("region");
-        SetOutput("user_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The identity_store_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
-    public required TerraformProperty<string> IdentityStoreId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_store_id");
-        set => SetProperty("identity_store_id", value);
-    }
+    [TerraformPropertyName("identity_store_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IdentityStoreId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    public TerraformProperty<string> UserId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_id");
-        set => SetProperty("user_id", value);
-    }
+    [TerraformPropertyName("user_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> UserId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_id");
 
     /// <summary>
     /// Block for alternate_identifier.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlternateIdentifier block(s) allowed")]
-    public List<AwsIdentitystoreUserDataSourceAlternateIdentifierBlock>? AlternateIdentifier
-    {
-        set => SetProperty("alternate_identifier", value);
-    }
+    [TerraformPropertyName("alternate_identifier")]
+    public TerraformList<TerraformBlock<AwsIdentitystoreUserDataSourceAlternateIdentifierBlock>>? AlternateIdentifier { get; set; } = new();
 
     /// <summary>
     /// The addresses attribute.
     /// </summary>
-    public TerraformExpression Addresses => this["addresses"];
+    [TerraformPropertyName("addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Addresses => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "addresses");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The emails attribute.
     /// </summary>
-    public TerraformExpression Emails => this["emails"];
+    [TerraformPropertyName("emails")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Emails => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "emails");
 
     /// <summary>
     /// The external_ids attribute.
     /// </summary>
-    public TerraformExpression ExternalIds => this["external_ids"];
+    [TerraformPropertyName("external_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ExternalIds => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "external_ids");
 
     /// <summary>
     /// The locale attribute.
     /// </summary>
-    public TerraformExpression Locale => this["locale"];
+    [TerraformPropertyName("locale")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Locale => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "locale");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Name => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "name");
 
     /// <summary>
     /// The nickname attribute.
     /// </summary>
-    public TerraformExpression Nickname => this["nickname"];
+    [TerraformPropertyName("nickname")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Nickname => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "nickname");
 
     /// <summary>
     /// The phone_numbers attribute.
     /// </summary>
-    public TerraformExpression PhoneNumbers => this["phone_numbers"];
+    [TerraformPropertyName("phone_numbers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PhoneNumbers => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "phone_numbers");
 
     /// <summary>
     /// The preferred_language attribute.
     /// </summary>
-    public TerraformExpression PreferredLanguage => this["preferred_language"];
+    [TerraformPropertyName("preferred_language")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PreferredLanguage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_language");
 
     /// <summary>
     /// The profile_url attribute.
     /// </summary>
-    public TerraformExpression ProfileUrl => this["profile_url"];
+    [TerraformPropertyName("profile_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProfileUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "profile_url");
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    public TerraformExpression Timezone => this["timezone"];
+    [TerraformPropertyName("timezone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Timezone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "timezone");
 
     /// <summary>
     /// The title attribute.
     /// </summary>
-    public TerraformExpression Title => this["title"];
+    [TerraformPropertyName("title")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Title => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "title");
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformExpression UserName => this["user_name"];
+    [TerraformPropertyName("user_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_name");
 
     /// <summary>
     /// The user_type attribute.
     /// </summary>
-    public TerraformExpression UserType => this["user_type"];
+    [TerraformPropertyName("user_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_type");
 
 }

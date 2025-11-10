@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementApiTagDescriptionTimeoutsBlock : TerraformBlock
+public class AzurermApiManagementApiTagDescriptionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,71 +45,49 @@ public class AzurermApiManagementApiTagDescription : TerraformResource
 {
     public AzurermApiManagementApiTagDescription(string name) : base("azurerm_api_management_api_tag_description", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("api_tag_id");
-        SetOutput("description");
-        SetOutput("external_documentation_description");
-        SetOutput("external_documentation_url");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The api_tag_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiTagId is required")]
-    public required TerraformProperty<string> ApiTagId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_tag_id");
-        set => SetProperty("api_tag_id", value);
-    }
+    [TerraformPropertyName("api_tag_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiTagId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The external_documentation_description attribute.
     /// </summary>
-    public TerraformProperty<string> ExternalDocumentationDescription
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("external_documentation_description");
-        set => SetProperty("external_documentation_description", value);
-    }
+    [TerraformPropertyName("external_documentation_description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExternalDocumentationDescription { get; set; }
 
     /// <summary>
     /// The external_documentation_url attribute.
     /// </summary>
-    public TerraformProperty<string> ExternalDocumentationUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("external_documentation_url");
-        set => SetProperty("external_documentation_url", value);
-    }
+    [TerraformPropertyName("external_documentation_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExternalDocumentationUrl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermApiManagementApiTagDescriptionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermApiManagementApiTagDescriptionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -9,55 +9,48 @@ public class GoogleProjectAncestryDataSource : TerraformDataSource
 {
     public GoogleProjectAncestryDataSource(string name) : base("google_project_ancestry", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("ancestors");
-        SetOutput("org_id");
-        SetOutput("parent_id");
-        SetOutput("parent_type");
-        SetOutput("id");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The ancestors attribute.
     /// </summary>
-    public TerraformExpression Ancestors => this["ancestors"];
+    [TerraformPropertyName("ancestors")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Ancestors => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ancestors");
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
-    public TerraformExpression OrgId => this["org_id"];
+    [TerraformPropertyName("org_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OrgId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "org_id");
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
-    public TerraformExpression ParentId => this["parent_id"];
+    [TerraformPropertyName("parent_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ParentId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parent_id");
 
     /// <summary>
     /// The parent_type attribute.
     /// </summary>
-    public TerraformExpression ParentType => this["parent_type"];
+    [TerraformPropertyName("parent_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ParentType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parent_type");
 
 }

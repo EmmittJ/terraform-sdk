@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for delete_after_duration in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeReservationDeleteAfterDurationBlock : TerraformBlock
+public class GoogleComputeReservationDeleteAfterDurationBlock : ITerraformBlock
 {
     /// <summary>
     /// Number of nanoseconds for the auto-delete duration.
     /// </summary>
-    public TerraformProperty<double>? Nanos
-    {
-        set => SetProperty("nanos", value);
-    }
+    [TerraformPropertyName("nanos")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Nanos { get; set; }
 
     /// <summary>
     /// Number of seconds for the auto-delete duration.
     /// </summary>
-    public TerraformProperty<string>? Seconds
-    {
-        set => SetProperty("seconds", value);
-    }
+    [TerraformPropertyName("seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Seconds { get; set; }
 
 }
 
@@ -30,15 +28,14 @@ public class GoogleComputeReservationDeleteAfterDurationBlock : TerraformBlock
 /// Block type for reservation_sharing_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeReservationReservationSharingPolicyBlock : TerraformBlock
+public class GoogleComputeReservationReservationSharingPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// Sharing config for all Google Cloud services. Possible values: [&amp;quot;ALLOW_ALL&amp;quot;, &amp;quot;DISALLOW_ALL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ServiceShareType
-    {
-        set => SetProperty("service_share_type", value);
-    }
+    [TerraformPropertyName("service_share_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ServiceShareType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "service_share_type");
 
 }
 
@@ -46,15 +43,14 @@ public class GoogleComputeReservationReservationSharingPolicyBlock : TerraformBl
 /// Block type for share_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeReservationShareSettingsBlock : TerraformBlock
+public class GoogleComputeReservationShareSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// Type of sharing for this shared-reservation Possible values: [&amp;quot;LOCAL&amp;quot;, &amp;quot;SPECIFIC_PROJECTS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ShareType
-    {
-        set => SetProperty("share_type", value);
-    }
+    [TerraformPropertyName("share_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ShareType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "share_type");
 
 }
 
@@ -62,33 +58,30 @@ public class GoogleComputeReservationShareSettingsBlock : TerraformBlock
 /// Block type for specific_reservation in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeReservationSpecificReservationBlock : TerraformBlock
+public class GoogleComputeReservationSpecificReservationBlock : ITerraformBlock
 {
     /// <summary>
     /// The number of resources that are allocated.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
-    public required TerraformProperty<double> Count
-    {
-        set => SetProperty("count", value);
-    }
+    [TerraformPropertyName("count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Count { get; set; }
 
     /// <summary>
     /// How many instances are in use.
     /// </summary>
-    public TerraformProperty<double>? InUseCount
-    {
-        set => SetProperty("in_use_count", value);
-    }
+    [TerraformPropertyName("in_use_count")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> InUseCount => new TerraformReferenceProperty<TerraformProperty<double>>("", "in_use_count");
 
     /// <summary>
     /// Specifies the instance template to create the reservation. If you use this field, you must exclude the
     /// instanceProperties field.
     /// </summary>
-    public TerraformProperty<string>? SourceInstanceTemplate
-    {
-        set => SetProperty("source_instance_template", value);
-    }
+    [TerraformPropertyName("source_instance_template")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceInstanceTemplate { get; set; }
 
 }
 
@@ -96,31 +89,28 @@ public class GoogleComputeReservationSpecificReservationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeReservationTimeoutsBlock : TerraformBlock
+public class GoogleComputeReservationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -132,51 +122,29 @@ public class GoogleComputeReservation : TerraformResource
 {
     public GoogleComputeReservation(string name) : base("google_compute_reservation", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("commitment");
-        SetOutput("creation_timestamp");
-        SetOutput("self_link");
-        SetOutput("status");
-        SetOutput("delete_at_time");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("specific_reservation_required");
-        SetOutput("zone");
     }
 
     /// <summary>
     /// Absolute time in future when the reservation will be auto-deleted by Compute Engine. Timestamp is represented in RFC3339 text format.
     /// Cannot be used with delete_after_duration.
     /// </summary>
-    public TerraformProperty<string> DeleteAtTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("delete_at_time");
-        set => SetProperty("delete_at_time", value);
-    }
+    [TerraformPropertyName("delete_at_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DeleteAtTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delete_at_time");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -188,71 +156,57 @@ public class GoogleComputeReservation : TerraformResource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// When set to true, only VMs that target this reservation by name can
     /// consume this reservation. Otherwise, it can be consumed by VMs with
     /// affinity for any reservation. Defaults to false.
     /// </summary>
-    public TerraformProperty<bool> SpecificReservationRequired
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("specific_reservation_required");
-        set => SetProperty("specific_reservation_required", value);
-    }
+    [TerraformPropertyName("specific_reservation_required")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SpecificReservationRequired { get; set; }
 
     /// <summary>
     /// The zone where the reservation is made.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
-    public required TerraformProperty<string> Zone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("zone");
-        set => SetProperty("zone", value);
-    }
+    [TerraformPropertyName("zone")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Zone { get; set; }
 
     /// <summary>
     /// Block for delete_after_duration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeleteAfterDuration block(s) allowed")]
-    public List<GoogleComputeReservationDeleteAfterDurationBlock>? DeleteAfterDuration
-    {
-        set => SetProperty("delete_after_duration", value);
-    }
+    [TerraformPropertyName("delete_after_duration")]
+    public TerraformList<TerraformBlock<GoogleComputeReservationDeleteAfterDurationBlock>>? DeleteAfterDuration { get; set; } = new();
 
     /// <summary>
     /// Block for reservation_sharing_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationSharingPolicy block(s) allowed")]
-    public List<GoogleComputeReservationReservationSharingPolicyBlock>? ReservationSharingPolicy
-    {
-        set => SetProperty("reservation_sharing_policy", value);
-    }
+    [TerraformPropertyName("reservation_sharing_policy")]
+    public TerraformList<TerraformBlock<GoogleComputeReservationReservationSharingPolicyBlock>>? ReservationSharingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for share_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShareSettings block(s) allowed")]
-    public List<GoogleComputeReservationShareSettingsBlock>? ShareSettings
-    {
-        set => SetProperty("share_settings", value);
-    }
+    [TerraformPropertyName("share_settings")]
+    public TerraformList<TerraformBlock<GoogleComputeReservationShareSettingsBlock>>? ShareSettings { get; set; } = new();
 
     /// <summary>
     /// Block for specific_reservation.
@@ -261,39 +215,43 @@ public class GoogleComputeReservation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpecificReservation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SpecificReservation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpecificReservation block(s) allowed")]
-    public List<GoogleComputeReservationSpecificReservationBlock>? SpecificReservation
-    {
-        set => SetProperty("specific_reservation", value);
-    }
+    [TerraformPropertyName("specific_reservation")]
+    public TerraformList<TerraformBlock<GoogleComputeReservationSpecificReservationBlock>>? SpecificReservation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeReservationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeReservationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Full or partial URL to a parent commitment. This field displays for
     /// reservations that are tied to a commitment.
     /// </summary>
-    public TerraformExpression Commitment => this["commitment"];
+    [TerraformPropertyName("commitment")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Commitment => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "commitment");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreationTimestamp => this["creation_timestamp"];
+    [TerraformPropertyName("creation_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
     /// <summary>
     /// The status of the reservation.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

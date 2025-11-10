@@ -9,48 +9,35 @@ public class GoogleParameterManagerParametersDataSource : TerraformDataSource
 {
     public GoogleParameterManagerParametersDataSource(string name) : base("google_parameter_manager_parameters", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("parameters");
-        SetOutput("filter");
-        SetOutput("id");
-        SetOutput("project");
     }
 
     /// <summary>
     /// Filter string, adhering to the rules in List-operation filtering. List only parameters matching the filter. 
     /// If filter is empty, all parameters are listed.
     /// </summary>
-    public TerraformProperty<string> Filter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filter");
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformExpression Parameters => this["parameters"];
+    [TerraformPropertyName("parameters")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Parameters => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "parameters");
 
 }

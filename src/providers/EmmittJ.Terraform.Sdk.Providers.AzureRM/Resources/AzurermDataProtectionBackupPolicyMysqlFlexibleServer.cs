@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for default_retention_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock : TerraformBlock
+public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock : ITerraformBlock
 {
 }
 
@@ -14,25 +14,23 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentio
 /// Block type for retention_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock : TerraformBlock
+public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    public required TerraformProperty<double> Priority
-    {
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
 
 }
 
@@ -40,31 +38,28 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock : TerraformBlock
+public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -76,65 +71,45 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
 {
     public AzurermDataProtectionBackupPolicyMysqlFlexibleServer(string name) : base("azurerm_data_protection_backup_policy_mysql_flexible_server", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("backup_repeating_time_intervals");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("time_zone");
-        SetOutput("vault_id");
     }
 
     /// <summary>
     /// The backup_repeating_time_intervals attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRepeatingTimeIntervals is required")]
-    public List<TerraformProperty<string>> BackupRepeatingTimeIntervals
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("backup_repeating_time_intervals");
-        set => SetProperty("backup_repeating_time_intervals", value);
-    }
+    [TerraformPropertyName("backup_repeating_time_intervals")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? BackupRepeatingTimeIntervals { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string> TimeZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
-        set => SetProperty("time_zone", value);
-    }
+    [TerraformPropertyName("time_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TimeZone { get; set; }
 
     /// <summary>
     /// The vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
-    public required TerraformProperty<string> VaultId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vault_id");
-        set => SetProperty("vault_id", value);
-    }
+    [TerraformPropertyName("vault_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VaultId { get; set; }
 
     /// <summary>
     /// Block for default_retention_rule.
@@ -143,27 +118,21 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRetentionRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultRetentionRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRetentionRule block(s) allowed")]
-    public List<AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock>? DefaultRetentionRule
-    {
-        set => SetProperty("default_retention_rule", value);
-    }
+    [TerraformPropertyName("default_retention_rule")]
+    public TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock>>? DefaultRetentionRule { get; set; } = new();
 
     /// <summary>
     /// Block for retention_rule.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock>? RetentionRule
-    {
-        set => SetProperty("retention_rule", value);
-    }
+    [TerraformPropertyName("retention_rule")]
+    public TerraformList<TerraformBlock<AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock>>? RetentionRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

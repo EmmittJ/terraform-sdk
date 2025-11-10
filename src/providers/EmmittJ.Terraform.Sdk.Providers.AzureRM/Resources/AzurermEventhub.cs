@@ -6,49 +6,44 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for capture_description in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
+public class AzurermEventhubCaptureDescriptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The encoding attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encoding is required")]
-    public required TerraformProperty<string> Encoding
-    {
-        set => SetProperty("encoding", value);
-    }
+    [TerraformPropertyName("encoding")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Encoding { get; set; }
 
     /// <summary>
     /// The interval_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? IntervalInSeconds
-    {
-        set => SetProperty("interval_in_seconds", value);
-    }
+    [TerraformPropertyName("interval_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? IntervalInSeconds { get; set; }
 
     /// <summary>
     /// The size_limit_in_bytes attribute.
     /// </summary>
-    public TerraformProperty<double>? SizeLimitInBytes
-    {
-        set => SetProperty("size_limit_in_bytes", value);
-    }
+    [TerraformPropertyName("size_limit_in_bytes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SizeLimitInBytes { get; set; }
 
     /// <summary>
     /// The skip_empty_archives attribute.
     /// </summary>
-    public TerraformProperty<bool>? SkipEmptyArchives
-    {
-        set => SetProperty("skip_empty_archives", value);
-    }
+    [TerraformPropertyName("skip_empty_archives")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipEmptyArchives { get; set; }
 
 }
 
@@ -56,32 +51,29 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
 /// Block type for retention_description in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermEventhubRetentionDescriptionBlock : TerraformBlock
+public class AzurermEventhubRetentionDescriptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The cleanup_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CleanupPolicy is required")]
-    public required TerraformProperty<string> CleanupPolicy
-    {
-        set => SetProperty("cleanup_policy", value);
-    }
+    [TerraformPropertyName("cleanup_policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CleanupPolicy { get; set; }
 
     /// <summary>
     /// The retention_time_in_hours attribute.
     /// </summary>
-    public TerraformProperty<double>? RetentionTimeInHours
-    {
-        set => SetProperty("retention_time_in_hours", value);
-    }
+    [TerraformPropertyName("retention_time_in_hours")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RetentionTimeInHours { get; set; }
 
     /// <summary>
     /// The tombstone_retention_time_in_hours attribute.
     /// </summary>
-    public TerraformProperty<double>? TombstoneRetentionTimeInHours
-    {
-        set => SetProperty("tombstone_retention_time_in_hours", value);
-    }
+    [TerraformPropertyName("tombstone_retention_time_in_hours")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TombstoneRetentionTimeInHours { get; set; }
 
 }
 
@@ -89,39 +81,35 @@ public class AzurermEventhubRetentionDescriptionBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermEventhubTimeoutsBlock : TerraformBlock
+public class AzurermEventhubTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -133,130 +121,96 @@ public class AzurermEventhub : TerraformResource
 {
     public AzurermEventhub(string name) : base("azurerm_eventhub", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("partition_ids");
-        SetOutput("id");
-        SetOutput("message_retention");
-        SetOutput("name");
-        SetOutput("namespace_id");
-        SetOutput("namespace_name");
-        SetOutput("partition_count");
-        SetOutput("resource_group_name");
-        SetOutput("status");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The message_retention attribute.
     /// </summary>
-    public TerraformProperty<double> MessageRetention
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("message_retention");
-        set => SetProperty("message_retention", value);
-    }
+    [TerraformPropertyName("message_retention")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MessageRetention { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "message_retention");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformProperty<string> NamespaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace_id");
-        set => SetProperty("namespace_id", value);
-    }
+    [TerraformPropertyName("namespace_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamespaceId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "namespace_id");
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> NamespaceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
-        set => SetProperty("namespace_name", value);
-    }
+    [TerraformPropertyName("namespace_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamespaceName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "namespace_name");
 
     /// <summary>
     /// The partition_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionCount is required")]
-    public required TerraformProperty<double> PartitionCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("partition_count");
-        set => SetProperty("partition_count", value);
-    }
+    [TerraformPropertyName("partition_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> PartitionCount { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_group_name");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
     /// <summary>
     /// Block for capture_description.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CaptureDescription block(s) allowed")]
-    public List<AzurermEventhubCaptureDescriptionBlock>? CaptureDescription
-    {
-        set => SetProperty("capture_description", value);
-    }
+    [TerraformPropertyName("capture_description")]
+    public TerraformList<TerraformBlock<AzurermEventhubCaptureDescriptionBlock>>? CaptureDescription { get; set; } = new();
 
     /// <summary>
     /// Block for retention_description.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionDescription block(s) allowed")]
-    public List<AzurermEventhubRetentionDescriptionBlock>? RetentionDescription
-    {
-        set => SetProperty("retention_description", value);
-    }
+    [TerraformPropertyName("retention_description")]
+    public TerraformList<TerraformBlock<AzurermEventhubRetentionDescriptionBlock>>? RetentionDescription { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermEventhubTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermEventhubTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The partition_ids attribute.
     /// </summary>
-    public TerraformExpression PartitionIds => this["partition_ids"];
+    [TerraformPropertyName("partition_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> PartitionIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "partition_ids");
 
 }

@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for delivery_address in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsmcontactsContactChannelDeliveryAddressBlock : TerraformBlock
+public class AwsSsmcontactsContactChannelDeliveryAddressBlock : ITerraformBlock
 {
     /// <summary>
     /// The simple_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SimpleAddress is required")]
-    public required TerraformProperty<string> SimpleAddress
-    {
-        set => SetProperty("simple_address", value);
-    }
+    [TerraformPropertyName("simple_address")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SimpleAddress { get; set; }
 
 }
 
@@ -27,67 +26,45 @@ public class AwsSsmcontactsContactChannel : TerraformResource
 {
     public AwsSsmcontactsContactChannel(string name) : base("aws_ssmcontacts_contact_channel", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("activation_status");
-        SetOutput("arn");
-        SetOutput("contact_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The contact_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactId is required")]
-    public required TerraformProperty<string> ContactId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("contact_id");
-        set => SetProperty("contact_id", value);
-    }
+    [TerraformPropertyName("contact_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContactId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// Block for delivery_address.
@@ -96,19 +73,21 @@ public class AwsSsmcontactsContactChannel : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryAddress is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DeliveryAddress block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryAddress block(s) allowed")]
-    public List<AwsSsmcontactsContactChannelDeliveryAddressBlock>? DeliveryAddress
-    {
-        set => SetProperty("delivery_address", value);
-    }
+    [TerraformPropertyName("delivery_address")]
+    public TerraformList<TerraformBlock<AwsSsmcontactsContactChannelDeliveryAddressBlock>>? DeliveryAddress { get; set; } = new();
 
     /// <summary>
     /// The activation_status attribute.
     /// </summary>
-    public TerraformExpression ActivationStatus => this["activation_status"];
+    [TerraformPropertyName("activation_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ActivationStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "activation_status");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

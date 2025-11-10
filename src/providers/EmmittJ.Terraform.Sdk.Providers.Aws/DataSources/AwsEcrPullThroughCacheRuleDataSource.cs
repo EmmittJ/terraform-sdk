@@ -9,72 +9,63 @@ public class AwsEcrPullThroughCacheRuleDataSource : TerraformDataSource
 {
     public AwsEcrPullThroughCacheRuleDataSource(string name) : base("aws_ecr_pull_through_cache_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("credential_arn");
-        SetOutput("custom_role_arn");
-        SetOutput("registry_id");
-        SetOutput("upstream_registry_url");
-        SetOutput("upstream_repository_prefix");
-        SetOutput("ecr_repository_prefix");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The ecr_repository_prefix attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EcrRepositoryPrefix is required")]
-    public required TerraformProperty<string> EcrRepositoryPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ecr_repository_prefix");
-        set => SetProperty("ecr_repository_prefix", value);
-    }
+    [TerraformPropertyName("ecr_repository_prefix")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EcrRepositoryPrefix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The credential_arn attribute.
     /// </summary>
-    public TerraformExpression CredentialArn => this["credential_arn"];
+    [TerraformPropertyName("credential_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CredentialArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "credential_arn");
 
     /// <summary>
     /// The custom_role_arn attribute.
     /// </summary>
-    public TerraformExpression CustomRoleArn => this["custom_role_arn"];
+    [TerraformPropertyName("custom_role_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CustomRoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "custom_role_arn");
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
-    public TerraformExpression RegistryId => this["registry_id"];
+    [TerraformPropertyName("registry_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RegistryId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registry_id");
 
     /// <summary>
     /// The upstream_registry_url attribute.
     /// </summary>
-    public TerraformExpression UpstreamRegistryUrl => this["upstream_registry_url"];
+    [TerraformPropertyName("upstream_registry_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpstreamRegistryUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "upstream_registry_url");
 
     /// <summary>
     /// The upstream_repository_prefix attribute.
     /// </summary>
-    public TerraformExpression UpstreamRepositoryPrefix => this["upstream_repository_prefix"];
+    [TerraformPropertyName("upstream_repository_prefix")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpstreamRepositoryPrefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "upstream_repository_prefix");
 
 }

@@ -9,85 +9,78 @@ public class AwsOrganizationsDelegatedAdministrator : TerraformResource
 {
     public AwsOrganizationsDelegatedAdministrator(string name) : base("aws_organizations_delegated_administrator", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("delegation_enabled_date");
-        SetOutput("email");
-        SetOutput("joined_method");
-        SetOutput("joined_timestamp");
-        SetOutput("name");
-        SetOutput("status");
-        SetOutput("account_id");
-        SetOutput("id");
-        SetOutput("service_principal");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
-    public required TerraformProperty<string> AccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The service_principal attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipal is required")]
-    public required TerraformProperty<string> ServicePrincipal
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_principal");
-        set => SetProperty("service_principal", value);
-    }
+    [TerraformPropertyName("service_principal")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServicePrincipal { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The delegation_enabled_date attribute.
     /// </summary>
-    public TerraformExpression DelegationEnabledDate => this["delegation_enabled_date"];
+    [TerraformPropertyName("delegation_enabled_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DelegationEnabledDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delegation_enabled_date");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformExpression Email => this["email"];
+    [TerraformPropertyName("email")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Email => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "email");
 
     /// <summary>
     /// The joined_method attribute.
     /// </summary>
-    public TerraformExpression JoinedMethod => this["joined_method"];
+    [TerraformPropertyName("joined_method")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> JoinedMethod => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "joined_method");
 
     /// <summary>
     /// The joined_timestamp attribute.
     /// </summary>
-    public TerraformExpression JoinedTimestamp => this["joined_timestamp"];
+    [TerraformPropertyName("joined_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> JoinedTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "joined_timestamp");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

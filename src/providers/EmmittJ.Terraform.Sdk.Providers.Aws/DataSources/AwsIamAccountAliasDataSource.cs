@@ -9,27 +9,20 @@ public class AwsIamAccountAliasDataSource : TerraformDataSource
 {
     public AwsIamAccountAliasDataSource(string name) : base("aws_iam_account_alias", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account_alias");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The account_alias attribute.
     /// </summary>
-    public TerraformExpression AccountAlias => this["account_alias"];
+    [TerraformPropertyName("account_alias")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AccountAlias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_alias");
 
 }

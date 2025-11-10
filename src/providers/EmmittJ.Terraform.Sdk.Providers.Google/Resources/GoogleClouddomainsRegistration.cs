@@ -6,17 +6,16 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for contact_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleClouddomainsRegistrationContactSettingsBlock : TerraformBlock
+public class GoogleClouddomainsRegistrationContactSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// Required. Privacy setting for the contacts associated with the Registration.
     /// Values are PUBLIC_CONTACT_DATA, PRIVATE_CONTACT_DATA, and REDACTED_CONTACT_DATA
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Privacy is required")]
-    public required TerraformProperty<string> Privacy
-    {
-        set => SetProperty("privacy", value);
-    }
+    [TerraformPropertyName("privacy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Privacy { get; set; }
 
 }
 
@@ -24,7 +23,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlock : TerraformBlock
 /// Block type for dns_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleClouddomainsRegistrationDnsSettingsBlock : TerraformBlock
+public class GoogleClouddomainsRegistrationDnsSettingsBlock : ITerraformBlock
 {
 }
 
@@ -32,7 +31,7 @@ public class GoogleClouddomainsRegistrationDnsSettingsBlock : TerraformBlock
 /// Block type for management_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBlock
+public class GoogleClouddomainsRegistrationManagementSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The desired renewal method for this Registration. The actual renewalMethod is automatically updated to reflect this choice.
@@ -44,10 +43,9 @@ public class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBl
     /// problems with the billing account or reported domain abuse. In such cases, check the issues field on the Registration. After
     /// the problem is resolved, the renewalMethod is automatically updated to preferredRenewalMethod in a few hours.
     /// </summary>
-    public TerraformProperty<string>? PreferredRenewalMethod
-    {
-        set => SetProperty("preferred_renewal_method", value);
-    }
+    [TerraformPropertyName("preferred_renewal_method")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PreferredRenewalMethod { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "preferred_renewal_method");
 
     /// <summary>
     /// Output only. The actual renewal method for this Registration. When preferredRenewalMethod is set to AUTOMATIC_RENEWAL,
@@ -55,18 +53,16 @@ public class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBl
     /// or reported domain abuse. In such cases, check the issues field on the Registration. After the problem is resolved, the
     /// renewalMethod is automatically updated to preferredRenewalMethod in a few hours.
     /// </summary>
-    public TerraformProperty<string>? RenewalMethod
-    {
-        set => SetProperty("renewal_method", value);
-    }
+    [TerraformPropertyName("renewal_method")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RenewalMethod => new TerraformReferenceProperty<TerraformProperty<string>>("", "renewal_method");
 
     /// <summary>
     /// Controls whether the domain can be transferred to another registrar. Values are UNLOCKED or LOCKED.
     /// </summary>
-    public TerraformProperty<string>? TransferLockState
-    {
-        set => SetProperty("transfer_lock_state", value);
-    }
+    [TerraformPropertyName("transfer_lock_state")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TransferLockState { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "transfer_lock_state");
 
 }
 
@@ -74,31 +70,28 @@ public class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleClouddomainsRegistrationTimeoutsBlock : TerraformBlock
+public class GoogleClouddomainsRegistrationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -106,23 +99,21 @@ public class GoogleClouddomainsRegistrationTimeoutsBlock : TerraformBlock
 /// Block type for yearly_price in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleClouddomainsRegistrationYearlyPriceBlock : TerraformBlock
+public class GoogleClouddomainsRegistrationYearlyPriceBlock : ITerraformBlock
 {
     /// <summary>
     /// The three-letter currency code defined in ISO 4217.
     /// </summary>
-    public TerraformProperty<string>? CurrencyCode
-    {
-        set => SetProperty("currency_code", value);
-    }
+    [TerraformPropertyName("currency_code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CurrencyCode { get; set; }
 
     /// <summary>
     /// The whole units of the amount. For example if currencyCode is &amp;quot;USD&amp;quot;, then 1 unit is one US dollar.
     /// </summary>
-    public TerraformProperty<string>? Units
-    {
-        set => SetProperty("units", value);
-    }
+    [TerraformPropertyName("units")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Units { get; set; }
 
 }
 
@@ -134,65 +125,36 @@ public class GoogleClouddomainsRegistration : TerraformResource
 {
     public GoogleClouddomainsRegistration(string name) : base("google_clouddomains_registration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("expire_time");
-        SetOutput("issues");
-        SetOutput("name");
-        SetOutput("register_failure_reason");
-        SetOutput("state");
-        SetOutput("supported_privacy");
-        SetOutput("terraform_labels");
-        SetOutput("contact_notices");
-        SetOutput("domain_name");
-        SetOutput("domain_notices");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The list of contact notices that the caller acknowledges. Possible value is PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT
     /// </summary>
-    public List<TerraformProperty<string>> ContactNotices
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("contact_notices");
-        set => SetProperty("contact_notices", value);
-    }
+    [TerraformPropertyName("contact_notices")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ContactNotices { get; set; }
 
     /// <summary>
     /// Required. The domain name. Unicode domain names must be expressed in Punycode format.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    public required TerraformProperty<string> DomainName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
 
     /// <summary>
     /// The list of domain notices that you acknowledge. Possible value is HSTS_PRELOADED
     /// </summary>
-    public List<TerraformProperty<string>> DomainNotices
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("domain_notices");
-        set => SetProperty("domain_notices", value);
-    }
+    [TerraformPropertyName("domain_notices")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? DomainNotices { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Set of labels associated with the Registration.
@@ -200,30 +162,24 @@ public class GoogleClouddomainsRegistration : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for contact_settings.
@@ -232,39 +188,31 @@ public class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContactSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContactSettings block(s) allowed")]
-    public List<GoogleClouddomainsRegistrationContactSettingsBlock>? ContactSettings
-    {
-        set => SetProperty("contact_settings", value);
-    }
+    [TerraformPropertyName("contact_settings")]
+    public TerraformList<TerraformBlock<GoogleClouddomainsRegistrationContactSettingsBlock>>? ContactSettings { get; set; } = new();
 
     /// <summary>
     /// Block for dns_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsSettings block(s) allowed")]
-    public List<GoogleClouddomainsRegistrationDnsSettingsBlock>? DnsSettings
-    {
-        set => SetProperty("dns_settings", value);
-    }
+    [TerraformPropertyName("dns_settings")]
+    public TerraformList<TerraformBlock<GoogleClouddomainsRegistrationDnsSettingsBlock>>? DnsSettings { get; set; } = new();
 
     /// <summary>
     /// Block for management_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementSettings block(s) allowed")]
-    public List<GoogleClouddomainsRegistrationManagementSettingsBlock>? ManagementSettings
-    {
-        set => SetProperty("management_settings", value);
-    }
+    [TerraformPropertyName("management_settings")]
+    public TerraformList<TerraformBlock<GoogleClouddomainsRegistrationManagementSettingsBlock>>? ManagementSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleClouddomainsRegistrationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleClouddomainsRegistrationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for yearly_price.
@@ -273,55 +221,71 @@ public class GoogleClouddomainsRegistration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "YearlyPrice is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 YearlyPrice block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 YearlyPrice block(s) allowed")]
-    public List<GoogleClouddomainsRegistrationYearlyPriceBlock>? YearlyPrice
-    {
-        set => SetProperty("yearly_price", value);
-    }
+    [TerraformPropertyName("yearly_price")]
+    public TerraformList<TerraformBlock<GoogleClouddomainsRegistrationYearlyPriceBlock>>? YearlyPrice { get; set; } = new();
 
     /// <summary>
     /// Output only. Time at which the automation was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Output only. Time at which the automation was updated.
     /// </summary>
-    public TerraformExpression ExpireTime => this["expire_time"];
+    [TerraformPropertyName("expire_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpireTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expire_time");
 
     /// <summary>
     /// Output only. The set of issues with the Registration that require attention.
     /// </summary>
-    public TerraformExpression Issues => this["issues"];
+    [TerraformPropertyName("issues")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Issues => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "issues");
 
     /// <summary>
     /// Output only. Name of the Registration resource, in the format projects/*/locations/*/registrations/&amp;lt;domain_name&amp;gt;.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Output only. The reason the domain registration failed. Only set for domains in REGISTRATION_FAILED state.
     /// </summary>
-    public TerraformExpression RegisterFailureReason => this["register_failure_reason"];
+    [TerraformPropertyName("register_failure_reason")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RegisterFailureReason => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "register_failure_reason");
 
     /// <summary>
     /// Output only. The current state of the Registration.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// Output only. Set of options for the contactSettings.privacy field that this Registration supports.
     /// </summary>
-    public TerraformExpression SupportedPrivacy => this["supported_privacy"];
+    [TerraformPropertyName("supported_privacy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SupportedPrivacy => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "supported_privacy");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

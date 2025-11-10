@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementGatewayHostNameConfigurationTimeoutsBlock : TerraformBlock
+public class AzurermApiManagementGatewayHostNameConfigurationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,125 +45,88 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
 {
     public AzurermApiManagementGatewayHostNameConfiguration(string name) : base("azurerm_api_management_gateway_host_name_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("api_management_id");
-        SetOutput("certificate_id");
-        SetOutput("gateway_name");
-        SetOutput("host_name");
-        SetOutput("http2_enabled");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("request_client_certificate_enabled");
-        SetOutput("tls10_enabled");
-        SetOutput("tls11_enabled");
     }
 
     /// <summary>
     /// The api_management_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
-    public required TerraformProperty<string> ApiManagementId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_management_id");
-        set => SetProperty("api_management_id", value);
-    }
+    [TerraformPropertyName("api_management_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiManagementId { get; set; }
 
     /// <summary>
     /// The certificate_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
-    public required TerraformProperty<string> CertificateId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate_id");
-        set => SetProperty("certificate_id", value);
-    }
+    [TerraformPropertyName("certificate_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CertificateId { get; set; }
 
     /// <summary>
     /// The gateway_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
-    public required TerraformProperty<string> GatewayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gateway_name");
-        set => SetProperty("gateway_name", value);
-    }
+    [TerraformPropertyName("gateway_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GatewayName { get; set; }
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    public required TerraformProperty<string> HostName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("host_name");
-        set => SetProperty("host_name", value);
-    }
+    [TerraformPropertyName("host_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HostName { get; set; }
 
     /// <summary>
     /// The http2_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Http2Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("http2_enabled");
-        set => SetProperty("http2_enabled", value);
-    }
+    [TerraformPropertyName("http2_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Http2Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The request_client_certificate_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> RequestClientCertificateEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("request_client_certificate_enabled");
-        set => SetProperty("request_client_certificate_enabled", value);
-    }
+    [TerraformPropertyName("request_client_certificate_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequestClientCertificateEnabled { get; set; }
 
     /// <summary>
     /// The tls10_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Tls10Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("tls10_enabled");
-        set => SetProperty("tls10_enabled", value);
-    }
+    [TerraformPropertyName("tls10_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Tls10Enabled { get; set; }
 
     /// <summary>
     /// The tls11_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Tls11Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("tls11_enabled");
-        set => SetProperty("tls11_enabled", value);
-    }
+    [TerraformPropertyName("tls11_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Tls11Enabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermApiManagementGatewayHostNameConfigurationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermApiManagementGatewayHostNameConfigurationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

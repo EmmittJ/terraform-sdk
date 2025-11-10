@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSubnetDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermSubnetDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,111 +24,100 @@ public class AzurermSubnetDataSource : TerraformDataSource
 {
     public AzurermSubnetDataSource(string name) : base("azurerm_subnet", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("address_prefix");
-        SetOutput("address_prefixes");
-        SetOutput("default_outbound_access_enabled");
-        SetOutput("network_security_group_id");
-        SetOutput("private_endpoint_network_policies");
-        SetOutput("private_link_service_network_policies_enabled");
-        SetOutput("route_table_id");
-        SetOutput("service_endpoints");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("virtual_network_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The virtual_network_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkName is required")]
-    public required TerraformProperty<string> VirtualNetworkName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_name");
-        set => SetProperty("virtual_network_name", value);
-    }
+    [TerraformPropertyName("virtual_network_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualNetworkName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSubnetDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSubnetDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The address_prefix attribute.
     /// </summary>
-    public TerraformExpression AddressPrefix => this["address_prefix"];
+    [TerraformPropertyName("address_prefix")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AddressPrefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "address_prefix");
 
     /// <summary>
     /// The address_prefixes attribute.
     /// </summary>
-    public TerraformExpression AddressPrefixes => this["address_prefixes"];
+    [TerraformPropertyName("address_prefixes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AddressPrefixes => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "address_prefixes");
 
     /// <summary>
     /// The default_outbound_access_enabled attribute.
     /// </summary>
-    public TerraformExpression DefaultOutboundAccessEnabled => this["default_outbound_access_enabled"];
+    [TerraformPropertyName("default_outbound_access_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DefaultOutboundAccessEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "default_outbound_access_enabled");
 
     /// <summary>
     /// The network_security_group_id attribute.
     /// </summary>
-    public TerraformExpression NetworkSecurityGroupId => this["network_security_group_id"];
+    [TerraformPropertyName("network_security_group_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NetworkSecurityGroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_security_group_id");
 
     /// <summary>
     /// The private_endpoint_network_policies attribute.
     /// </summary>
-    public TerraformExpression PrivateEndpointNetworkPolicies => this["private_endpoint_network_policies"];
+    [TerraformPropertyName("private_endpoint_network_policies")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateEndpointNetworkPolicies => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_endpoint_network_policies");
 
     /// <summary>
     /// The private_link_service_network_policies_enabled attribute.
     /// </summary>
-    public TerraformExpression PrivateLinkServiceNetworkPoliciesEnabled => this["private_link_service_network_policies_enabled"];
+    [TerraformPropertyName("private_link_service_network_policies_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PrivateLinkServiceNetworkPoliciesEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "private_link_service_network_policies_enabled");
 
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
-    public TerraformExpression RouteTableId => this["route_table_id"];
+    [TerraformPropertyName("route_table_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RouteTableId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "route_table_id");
 
     /// <summary>
     /// The service_endpoints attribute.
     /// </summary>
-    public TerraformExpression ServiceEndpoints => this["service_endpoints"];
+    [TerraformPropertyName("service_endpoints")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ServiceEndpoints => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "service_endpoints");
 
 }

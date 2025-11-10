@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for approval_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock : TerraformBlock
+public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether an approval is required
     /// </summary>
-    public TerraformProperty<bool>? ApprovalRequired
-    {
-        set => SetProperty("approval_required", value);
-    }
+    [TerraformPropertyName("approval_required")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ApprovalRequired { get; set; }
 
     /// <summary>
     /// Whether an approval is required to grant extension. Same approval settings used to approve initial access will apply
     /// </summary>
-    public TerraformProperty<bool>? ApprovalRequiredForExtension
-    {
-        set => SetProperty("approval_required_for_extension", value);
-    }
+    [TerraformPropertyName("approval_required_for_extension")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ApprovalRequiredForExtension { get; set; }
 
     /// <summary>
     /// Whether requestor are required to provide a justification to request an access package. Justification is visible to other approvers and the requestor
     /// </summary>
-    public TerraformProperty<bool>? RequestorJustificationRequired
-    {
-        set => SetProperty("requestor_justification_required", value);
-    }
+    [TerraformPropertyName("requestor_justification_required")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequestorJustificationRequired { get; set; }
 
 }
 
@@ -38,71 +35,63 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock : Terrafo
 /// Block type for assignment_review_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock : TerraformBlock
+public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether to show Show reviewer decision helpers. If enabled, system recommendations based on users&#39; access information will be shown to the reviewers. The reviewer will be recommended to approve the review if the user has signed-in at least once during the last 30 days. The reviewer will be recommended to deny the review if the user has not signed-in during the last 30 days
     /// </summary>
-    public TerraformProperty<bool>? AccessRecommendationEnabled
-    {
-        set => SetProperty("access_recommendation_enabled", value);
-    }
+    [TerraformPropertyName("access_recommendation_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AccessRecommendationEnabled { get; set; }
 
     /// <summary>
     /// What actions the system takes if reviewers don&#39;t respond in time
     /// </summary>
-    public TerraformProperty<string>? AccessReviewTimeoutBehavior
-    {
-        set => SetProperty("access_review_timeout_behavior", value);
-    }
+    [TerraformPropertyName("access_review_timeout_behavior")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AccessReviewTimeoutBehavior { get; set; }
 
     /// <summary>
     /// Whether a reviewer need provide a justification for their decision. Justification is visible to other reviewers and the requestor
     /// </summary>
-    public TerraformProperty<bool>? ApproverJustificationRequired
-    {
-        set => SetProperty("approver_justification_required", value);
-    }
+    [TerraformPropertyName("approver_justification_required")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ApproverJustificationRequired { get; set; }
 
     /// <summary>
     /// How many days each occurrence of the access review series will run
     /// </summary>
-    public TerraformProperty<double>? DurationInDays
-    {
-        set => SetProperty("duration_in_days", value);
-    }
+    [TerraformPropertyName("duration_in_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DurationInDays { get; set; }
 
     /// <summary>
     /// Whether to enable assignment review
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// This will determine how often the access review campaign runs
     /// </summary>
-    public TerraformProperty<string>? ReviewFrequency
-    {
-        set => SetProperty("review_frequency", value);
-    }
+    [TerraformPropertyName("review_frequency")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ReviewFrequency { get; set; }
 
     /// <summary>
     /// Self review or specific reviewers
     /// </summary>
-    public TerraformProperty<string>? ReviewType
-    {
-        set => SetProperty("review_type", value);
-    }
+    [TerraformPropertyName("review_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ReviewType { get; set; }
 
     /// <summary>
     /// This is the date the access review campaign will start on, formatted as an RFC3339 date string in UTC(e.g. 2018-01-01T01:02:03Z), default is now. Once an access review has been created, you cannot update its start date
     /// </summary>
-    public TerraformProperty<string>? StartingOn
-    {
-        set => SetProperty("starting_on", value);
-    }
+    [TerraformPropertyName("starting_on")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StartingOn { get; set; }
 
 }
 
@@ -110,23 +99,21 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
 /// Block type for question in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadAccessPackageAssignmentPolicyQuestionBlock : TerraformBlock
+public class AzureadAccessPackageAssignmentPolicyQuestionBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether this question is required
     /// </summary>
-    public TerraformProperty<bool>? Required
-    {
-        set => SetProperty("required", value);
-    }
+    [TerraformPropertyName("required")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Required { get; set; }
 
     /// <summary>
     /// The sequence number of this question
     /// </summary>
-    public TerraformProperty<double>? Sequence
-    {
-        set => SetProperty("sequence", value);
-    }
+    [TerraformPropertyName("sequence")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Sequence { get; set; }
 
 }
 
@@ -134,23 +121,21 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlock : TerraformBlock
 /// Block type for requestor_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock : TerraformBlock
+public class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether to accept requests now, when disabled, no new requests can be made using this policy
     /// </summary>
-    public TerraformProperty<bool>? RequestsAccepted
-    {
-        set => SetProperty("requests_accepted", value);
-    }
+    [TerraformPropertyName("requests_accepted")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequestsAccepted { get; set; }
 
     /// <summary>
     /// Specify the scopes of the requestors
     /// </summary>
-    public TerraformProperty<string>? ScopeType
-    {
-        set => SetProperty("scope_type", value);
-    }
+    [TerraformPropertyName("scope_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ScopeType { get; set; }
 
 }
 
@@ -158,39 +143,35 @@ public class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadAccessPackageAssignmentPolicyTimeoutsBlock : TerraformBlock
+public class AzureadAccessPackageAssignmentPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -202,132 +183,96 @@ public class AzureadAccessPackageAssignmentPolicy : TerraformResource
 {
     public AzureadAccessPackageAssignmentPolicy(string name) : base("azuread_access_package_assignment_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_package_id");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("duration_in_days");
-        SetOutput("expiration_date");
-        SetOutput("extension_enabled");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The ID of the access package that will contain the policy
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPackageId is required")]
-    public required TerraformProperty<string> AccessPackageId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_package_id");
-        set => SetProperty("access_package_id", value);
-    }
+    [TerraformPropertyName("access_package_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccessPackageId { get; set; }
 
     /// <summary>
     /// The description of the policy
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
-    public required TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Description { get; set; }
 
     /// <summary>
     /// The display name of the policy
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// How many days this assignment is valid for
     /// </summary>
-    public TerraformProperty<double> DurationInDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("duration_in_days");
-        set => SetProperty("duration_in_days", value);
-    }
+    [TerraformPropertyName("duration_in_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DurationInDays { get; set; }
 
     /// <summary>
     /// The date that this assignment expires, formatted as an RFC3339 date string in UTC (e.g. 2018-01-01T01:02:03Z)
     /// </summary>
-    public TerraformProperty<string> ExpirationDate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("expiration_date");
-        set => SetProperty("expiration_date", value);
-    }
+    [TerraformPropertyName("expiration_date")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExpirationDate { get; set; }
 
     /// <summary>
     /// When enabled, users will be able to request extension of their access to this package before their access expires
     /// </summary>
-    public TerraformProperty<bool> ExtensionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("extension_enabled");
-        set => SetProperty("extension_enabled", value);
-    }
+    [TerraformPropertyName("extension_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExtensionEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for approval_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApprovalSettings block(s) allowed")]
-    public List<AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock>? ApprovalSettings
-    {
-        set => SetProperty("approval_settings", value);
-    }
+    [TerraformPropertyName("approval_settings")]
+    public TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock>>? ApprovalSettings { get; set; } = new();
 
     /// <summary>
     /// Block for assignment_review_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssignmentReviewSettings block(s) allowed")]
-    public List<AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock>? AssignmentReviewSettings
-    {
-        set => SetProperty("assignment_review_settings", value);
-    }
+    [TerraformPropertyName("assignment_review_settings")]
+    public TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock>>? AssignmentReviewSettings { get; set; } = new();
 
     /// <summary>
     /// Block for question.
     /// Nesting mode: list
     /// </summary>
-    public List<AzureadAccessPackageAssignmentPolicyQuestionBlock>? Question
-    {
-        set => SetProperty("question", value);
-    }
+    [TerraformPropertyName("question")]
+    public TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyQuestionBlock>>? Question { get; set; } = new();
 
     /// <summary>
     /// Block for requestor_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequestorSettings block(s) allowed")]
-    public List<AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock>? RequestorSettings
-    {
-        set => SetProperty("requestor_settings", value);
-    }
+    [TerraformPropertyName("requestor_settings")]
+    public TerraformList<TerraformBlock<AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock>>? RequestorSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadAccessPackageAssignmentPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadAccessPackageAssignmentPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

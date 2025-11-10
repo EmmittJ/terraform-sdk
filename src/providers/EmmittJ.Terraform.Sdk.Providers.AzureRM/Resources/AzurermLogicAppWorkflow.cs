@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for access_control in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLogicAppWorkflowAccessControlBlock : TerraformBlock
+public class AzurermLogicAppWorkflowAccessControlBlock : ITerraformBlock
 {
 }
 
@@ -14,40 +14,36 @@ public class AzurermLogicAppWorkflowAccessControlBlock : TerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLogicAppWorkflowIdentityBlock : TerraformBlock
+public class AzurermLogicAppWorkflowIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -55,39 +51,35 @@ public class AzurermLogicAppWorkflowIdentityBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlock
+public class AzurermLogicAppWorkflowTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -99,193 +91,151 @@ public class AzurermLogicAppWorkflow : TerraformResource
 {
     public AzurermLogicAppWorkflow(string name) : base("azurerm_logic_app_workflow", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_endpoint");
-        SetOutput("connector_endpoint_ip_addresses");
-        SetOutput("connector_outbound_ip_addresses");
-        SetOutput("workflow_endpoint_ip_addresses");
-        SetOutput("workflow_outbound_ip_addresses");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("integration_service_environment_id");
-        SetOutput("location");
-        SetOutput("logic_app_integration_account_id");
-        SetOutput("name");
-        SetOutput("parameters");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
-        SetOutput("workflow_parameters");
-        SetOutput("workflow_schema");
-        SetOutput("workflow_version");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The integration_service_environment_id attribute.
     /// </summary>
-    public TerraformProperty<string> IntegrationServiceEnvironmentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("integration_service_environment_id");
-        set => SetProperty("integration_service_environment_id", value);
-    }
+    [TerraformPropertyName("integration_service_environment_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IntegrationServiceEnvironmentId { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The logic_app_integration_account_id attribute.
     /// </summary>
-    public TerraformProperty<string> LogicAppIntegrationAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("logic_app_integration_account_id");
-        set => SetProperty("logic_app_integration_account_id", value);
-    }
+    [TerraformPropertyName("logic_app_integration_account_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LogicAppIntegrationAccountId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Parameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The workflow_parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> WorkflowParameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("workflow_parameters");
-        set => SetProperty("workflow_parameters", value);
-    }
+    [TerraformPropertyName("workflow_parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? WorkflowParameters { get; set; }
 
     /// <summary>
     /// The workflow_schema attribute.
     /// </summary>
-    public TerraformProperty<string> WorkflowSchema
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workflow_schema");
-        set => SetProperty("workflow_schema", value);
-    }
+    [TerraformPropertyName("workflow_schema")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WorkflowSchema { get; set; }
 
     /// <summary>
     /// The workflow_version attribute.
     /// </summary>
-    public TerraformProperty<string> WorkflowVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workflow_version");
-        set => SetProperty("workflow_version", value);
-    }
+    [TerraformPropertyName("workflow_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WorkflowVersion { get; set; }
 
     /// <summary>
     /// Block for access_control.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessControl block(s) allowed")]
-    public List<AzurermLogicAppWorkflowAccessControlBlock>? AccessControl
-    {
-        set => SetProperty("access_control", value);
-    }
+    [TerraformPropertyName("access_control")]
+    public TerraformList<TerraformBlock<AzurermLogicAppWorkflowAccessControlBlock>>? AccessControl { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermLogicAppWorkflowIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermLogicAppWorkflowIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLogicAppWorkflowTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLogicAppWorkflowTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The access_endpoint attribute.
     /// </summary>
-    public TerraformExpression AccessEndpoint => this["access_endpoint"];
+    [TerraformPropertyName("access_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AccessEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_endpoint");
 
     /// <summary>
     /// The connector_endpoint_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression ConnectorEndpointIpAddresses => this["connector_endpoint_ip_addresses"];
+    [TerraformPropertyName("connector_endpoint_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ConnectorEndpointIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "connector_endpoint_ip_addresses");
 
     /// <summary>
     /// The connector_outbound_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression ConnectorOutboundIpAddresses => this["connector_outbound_ip_addresses"];
+    [TerraformPropertyName("connector_outbound_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ConnectorOutboundIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "connector_outbound_ip_addresses");
 
     /// <summary>
     /// The workflow_endpoint_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression WorkflowEndpointIpAddresses => this["workflow_endpoint_ip_addresses"];
+    [TerraformPropertyName("workflow_endpoint_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> WorkflowEndpointIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "workflow_endpoint_ip_addresses");
 
     /// <summary>
     /// The workflow_outbound_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression WorkflowOutboundIpAddresses => this["workflow_outbound_ip_addresses"];
+    [TerraformPropertyName("workflow_outbound_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> WorkflowOutboundIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "workflow_outbound_ip_addresses");
 
 }

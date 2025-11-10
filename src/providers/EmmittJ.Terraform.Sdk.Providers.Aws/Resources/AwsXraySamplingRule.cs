@@ -9,187 +9,135 @@ public class AwsXraySamplingRule : TerraformResource
 {
     public AwsXraySamplingRule(string name) : base("aws_xray_sampling_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("attributes");
-        SetOutput("fixed_rate");
-        SetOutput("host");
-        SetOutput("http_method");
-        SetOutput("id");
-        SetOutput("priority");
-        SetOutput("region");
-        SetOutput("reservoir_size");
-        SetOutput("resource_arn");
-        SetOutput("rule_name");
-        SetOutput("service_name");
-        SetOutput("service_type");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("url_path");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Attributes
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("attributes");
-        set => SetProperty("attributes", value);
-    }
+    [TerraformPropertyName("attributes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Attributes { get; set; }
 
     /// <summary>
     /// The fixed_rate attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FixedRate is required")]
-    public required TerraformProperty<double> FixedRate
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("fixed_rate");
-        set => SetProperty("fixed_rate", value);
-    }
+    [TerraformPropertyName("fixed_rate")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> FixedRate { get; set; }
 
     /// <summary>
     /// The host attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
-    public required TerraformProperty<string> Host
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("host");
-        set => SetProperty("host", value);
-    }
+    [TerraformPropertyName("host")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Host { get; set; }
 
     /// <summary>
     /// The http_method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
-    public required TerraformProperty<string> HttpMethod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("http_method");
-        set => SetProperty("http_method", value);
-    }
+    [TerraformPropertyName("http_method")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HttpMethod { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    public required TerraformProperty<double> Priority
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("priority");
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The reservoir_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservoirSize is required")]
-    public required TerraformProperty<double> ReservoirSize
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("reservoir_size");
-        set => SetProperty("reservoir_size", value);
-    }
+    [TerraformPropertyName("reservoir_size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ReservoirSize { get; set; }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
-    public required TerraformProperty<string> ResourceArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_arn");
-        set => SetProperty("resource_arn", value);
-    }
+    [TerraformPropertyName("resource_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceArn { get; set; }
 
     /// <summary>
     /// The rule_name attribute.
     /// </summary>
-    public TerraformProperty<string> RuleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rule_name");
-        set => SetProperty("rule_name", value);
-    }
+    [TerraformPropertyName("rule_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RuleName { get; set; }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
-    public required TerraformProperty<string> ServiceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_name");
-        set => SetProperty("service_name", value);
-    }
+    [TerraformPropertyName("service_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceName { get; set; }
 
     /// <summary>
     /// The service_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceType is required")]
-    public required TerraformProperty<string> ServiceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_type");
-        set => SetProperty("service_type", value);
-    }
+    [TerraformPropertyName("service_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The url_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlPath is required")]
-    public required TerraformProperty<string> UrlPath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("url_path");
-        set => SetProperty("url_path", value);
-    }
+    [TerraformPropertyName("url_path")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UrlPath { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<double> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Version { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for boost_action in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlock
+public class GoogleDiscoveryEngineControlBoostActionBlock : ITerraformBlock
 {
     /// <summary>
     /// The data store to boost.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
-    public required TerraformProperty<string> DataStore
-    {
-        set => SetProperty("data_store", value);
-    }
+    [TerraformPropertyName("data_store")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataStore { get; set; }
 
     /// <summary>
     /// The filter to apply to the search results.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
-    public required TerraformProperty<string> Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Filter { get; set; }
 
     /// <summary>
     /// The fixed boost value to apply to the search results. Positive values will increase the relevance of the results, while negative values will decrease the relevance. The value must be between -100 and 100.
     /// </summary>
-    public TerraformProperty<double>? FixedBoost
-    {
-        set => SetProperty("fixed_boost", value);
-    }
+    [TerraformPropertyName("fixed_boost")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? FixedBoost { get; set; }
 
 }
 
@@ -40,15 +37,14 @@ public class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlock
 /// Block type for conditions in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineControlConditionsBlock : TerraformBlock
+public class GoogleDiscoveryEngineControlConditionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The regular expression that the query must match for this condition to be met.
     /// </summary>
-    public TerraformProperty<string>? QueryRegex
-    {
-        set => SetProperty("query_regex", value);
-    }
+    [TerraformPropertyName("query_regex")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? QueryRegex { get; set; }
 
 }
 
@@ -56,25 +52,23 @@ public class GoogleDiscoveryEngineControlConditionsBlock : TerraformBlock
 /// Block type for filter_action in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBlock
+public class GoogleDiscoveryEngineControlFilterActionBlock : ITerraformBlock
 {
     /// <summary>
     /// The data store to filter.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
-    public required TerraformProperty<string> DataStore
-    {
-        set => SetProperty("data_store", value);
-    }
+    [TerraformPropertyName("data_store")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataStore { get; set; }
 
     /// <summary>
     /// The filter to apply to the search results.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
-    public required TerraformProperty<string> Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Filter { get; set; }
 
 }
 
@@ -82,16 +76,15 @@ public class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBlock
 /// Block type for promote_action in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineControlPromoteActionBlock : TerraformBlock
+public class GoogleDiscoveryEngineControlPromoteActionBlock : ITerraformBlock
 {
     /// <summary>
     /// The data store to promote.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
-    public required TerraformProperty<string> DataStore
-    {
-        set => SetProperty("data_store", value);
-    }
+    [TerraformPropertyName("data_store")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataStore { get; set; }
 
 }
 
@@ -99,16 +92,15 @@ public class GoogleDiscoveryEngineControlPromoteActionBlock : TerraformBlock
 /// Block type for redirect_action in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineControlRedirectActionBlock : TerraformBlock
+public class GoogleDiscoveryEngineControlRedirectActionBlock : ITerraformBlock
 {
     /// <summary>
     /// The URI to redirect to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUri is required")]
-    public required TerraformProperty<string> RedirectUri
-    {
-        set => SetProperty("redirect_uri", value);
-    }
+    [TerraformPropertyName("redirect_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RedirectUri { get; set; }
 
 }
 
@@ -116,15 +108,14 @@ public class GoogleDiscoveryEngineControlRedirectActionBlock : TerraformBlock
 /// Block type for synonyms_action in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineControlSynonymsActionBlock : TerraformBlock
+public class GoogleDiscoveryEngineControlSynonymsActionBlock : ITerraformBlock
 {
     /// <summary>
     /// The synonyms to apply to the search results.
     /// </summary>
-    public List<TerraformProperty<string>>? Synonyms
-    {
-        set => SetProperty("synonyms", value);
-    }
+    [TerraformPropertyName("synonyms")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Synonyms { get; set; }
 
 }
 
@@ -132,31 +123,28 @@ public class GoogleDiscoveryEngineControlSynonymsActionBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDiscoveryEngineControlTimeoutsBlock : TerraformBlock
+public class GoogleDiscoveryEngineControlTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -168,178 +156,131 @@ public class GoogleDiscoveryEngineControl : TerraformResource
 {
     public GoogleDiscoveryEngineControl(string name) : base("google_discovery_engine_control", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("collection_id");
-        SetOutput("control_id");
-        SetOutput("display_name");
-        SetOutput("engine_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("solution_type");
-        SetOutput("use_cases");
     }
 
     /// <summary>
     /// The collection ID. Currently only accepts &amp;quot;default_collection&amp;quot;.
     /// </summary>
-    public TerraformProperty<string> CollectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("collection_id");
-        set => SetProperty("collection_id", value);
-    }
+    [TerraformPropertyName("collection_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CollectionId { get; set; }
 
     /// <summary>
     /// The unique id of the control.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlId is required")]
-    public required TerraformProperty<string> ControlId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("control_id");
-        set => SetProperty("control_id", value);
-    }
+    [TerraformPropertyName("control_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ControlId { get; set; }
 
     /// <summary>
     /// The display name of the control. This field must be a UTF-8 encoded
     /// string with a length limit of 128 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The engine to add the control to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
-    public required TerraformProperty<string> EngineId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine_id");
-        set => SetProperty("engine_id", value);
-    }
+    [TerraformPropertyName("engine_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EngineId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The solution type that the control belongs to. Possible values: [&amp;quot;SOLUTION_TYPE_RECOMMENDATION&amp;quot;, &amp;quot;SOLUTION_TYPE_SEARCH&amp;quot;, &amp;quot;SOLUTION_TYPE_CHAT&amp;quot;, &amp;quot;SOLUTION_TYPE_GENERATIVE_CHAT&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SolutionType is required")]
-    public required TerraformProperty<string> SolutionType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("solution_type");
-        set => SetProperty("solution_type", value);
-    }
+    [TerraformPropertyName("solution_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SolutionType { get; set; }
 
     /// <summary>
     /// The use cases that the control is used for. Possible values: [&amp;quot;SEARCH_USE_CASE_SEARCH&amp;quot;, &amp;quot;SEARCH_USE_CASE_BROWSE&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>> UseCases
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("use_cases");
-        set => SetProperty("use_cases", value);
-    }
+    [TerraformPropertyName("use_cases")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? UseCases { get; set; }
 
     /// <summary>
     /// Block for boost_action.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BoostAction block(s) allowed")]
-    public List<GoogleDiscoveryEngineControlBoostActionBlock>? BoostAction
-    {
-        set => SetProperty("boost_action", value);
-    }
+    [TerraformPropertyName("boost_action")]
+    public TerraformList<TerraformBlock<GoogleDiscoveryEngineControlBoostActionBlock>>? BoostAction { get; set; } = new();
 
     /// <summary>
     /// Block for conditions.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleDiscoveryEngineControlConditionsBlock>? Conditions
-    {
-        set => SetProperty("conditions", value);
-    }
+    [TerraformPropertyName("conditions")]
+    public TerraformList<TerraformBlock<GoogleDiscoveryEngineControlConditionsBlock>>? Conditions { get; set; } = new();
 
     /// <summary>
     /// Block for filter_action.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAction block(s) allowed")]
-    public List<GoogleDiscoveryEngineControlFilterActionBlock>? FilterAction
-    {
-        set => SetProperty("filter_action", value);
-    }
+    [TerraformPropertyName("filter_action")]
+    public TerraformList<TerraformBlock<GoogleDiscoveryEngineControlFilterActionBlock>>? FilterAction { get; set; } = new();
 
     /// <summary>
     /// Block for promote_action.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PromoteAction block(s) allowed")]
-    public List<GoogleDiscoveryEngineControlPromoteActionBlock>? PromoteAction
-    {
-        set => SetProperty("promote_action", value);
-    }
+    [TerraformPropertyName("promote_action")]
+    public TerraformList<TerraformBlock<GoogleDiscoveryEngineControlPromoteActionBlock>>? PromoteAction { get; set; } = new();
 
     /// <summary>
     /// Block for redirect_action.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedirectAction block(s) allowed")]
-    public List<GoogleDiscoveryEngineControlRedirectActionBlock>? RedirectAction
-    {
-        set => SetProperty("redirect_action", value);
-    }
+    [TerraformPropertyName("redirect_action")]
+    public TerraformList<TerraformBlock<GoogleDiscoveryEngineControlRedirectActionBlock>>? RedirectAction { get; set; } = new();
 
     /// <summary>
     /// Block for synonyms_action.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SynonymsAction block(s) allowed")]
-    public List<GoogleDiscoveryEngineControlSynonymsActionBlock>? SynonymsAction
-    {
-        set => SetProperty("synonyms_action", value);
-    }
+    [TerraformPropertyName("synonyms_action")]
+    public TerraformList<TerraformBlock<GoogleDiscoveryEngineControlSynonymsActionBlock>>? SynonymsAction { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDiscoveryEngineControlTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDiscoveryEngineControlTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique full resource name of the control. Values are of the format
@@ -347,6 +288,8 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     /// This field must be a UTF-8 encoded string with a length limit of 1024
     /// characters.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

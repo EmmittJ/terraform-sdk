@@ -9,37 +9,27 @@ public class AwsOrganizationsDelegatedAdministratorsDataSource : TerraformDataSo
 {
     public AwsOrganizationsDelegatedAdministratorsDataSource(string name) : base("aws_organizations_delegated_administrators", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("delegated_administrators");
-        SetOutput("id");
-        SetOutput("service_principal");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The service_principal attribute.
     /// </summary>
-    public TerraformProperty<string> ServicePrincipal
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_principal");
-        set => SetProperty("service_principal", value);
-    }
+    [TerraformPropertyName("service_principal")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServicePrincipal { get; set; }
 
     /// <summary>
     /// The delegated_administrators attribute.
     /// </summary>
-    public TerraformExpression DelegatedAdministrators => this["delegated_administrators"];
+    [TerraformPropertyName("delegated_administrators")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> DelegatedAdministrators => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "delegated_administrators");
 
 }

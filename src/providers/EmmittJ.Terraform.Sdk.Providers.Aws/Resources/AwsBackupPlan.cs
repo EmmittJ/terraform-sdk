@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for advanced_backup_setting in .
 /// Nesting mode: set
 /// </summary>
-public class AwsBackupPlanAdvancedBackupSettingBlock : TerraformBlock
+public class AwsBackupPlanAdvancedBackupSettingBlock : ITerraformBlock
 {
     /// <summary>
     /// The backup_options attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupOptions is required")]
-    public Dictionary<string, TerraformProperty<string>>? BackupOptions
-    {
-        set => SetProperty("backup_options", value);
-    }
+    [TerraformPropertyName("backup_options")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? BackupOptions { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
-    public required TerraformProperty<string> ResourceType
-    {
-        set => SetProperty("resource_type", value);
-    }
+    [TerraformPropertyName("resource_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceType { get; set; }
 
 }
 
@@ -32,73 +30,65 @@ public class AwsBackupPlanAdvancedBackupSettingBlock : TerraformBlock
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public class AwsBackupPlanRuleBlock : TerraformBlock
+public class AwsBackupPlanRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The completion_window attribute.
     /// </summary>
-    public TerraformProperty<double>? CompletionWindow
-    {
-        set => SetProperty("completion_window", value);
-    }
+    [TerraformPropertyName("completion_window")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CompletionWindow { get; set; }
 
     /// <summary>
     /// The enable_continuous_backup attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableContinuousBackup
-    {
-        set => SetProperty("enable_continuous_backup", value);
-    }
+    [TerraformPropertyName("enable_continuous_backup")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableContinuousBackup { get; set; }
 
     /// <summary>
     /// The recovery_point_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? RecoveryPointTags
-    {
-        set => SetProperty("recovery_point_tags", value);
-    }
+    [TerraformPropertyName("recovery_point_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? RecoveryPointTags { get; set; }
 
     /// <summary>
     /// The rule_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
-    public required TerraformProperty<string> RuleName
-    {
-        set => SetProperty("rule_name", value);
-    }
+    [TerraformPropertyName("rule_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RuleName { get; set; }
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
-    public TerraformProperty<string>? Schedule
-    {
-        set => SetProperty("schedule", value);
-    }
+    [TerraformPropertyName("schedule")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Schedule { get; set; }
 
     /// <summary>
     /// The schedule_expression_timezone attribute.
     /// </summary>
-    public TerraformProperty<string>? ScheduleExpressionTimezone
-    {
-        set => SetProperty("schedule_expression_timezone", value);
-    }
+    [TerraformPropertyName("schedule_expression_timezone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ScheduleExpressionTimezone { get; set; }
 
     /// <summary>
     /// The start_window attribute.
     /// </summary>
-    public TerraformProperty<double>? StartWindow
-    {
-        set => SetProperty("start_window", value);
-    }
+    [TerraformPropertyName("start_window")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? StartWindow { get; set; }
 
     /// <summary>
     /// The target_vault_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVaultName is required")]
-    public required TerraformProperty<string> TargetVaultName
-    {
-        set => SetProperty("target_vault_name", value);
-    }
+    [TerraformPropertyName("target_vault_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetVaultName { get; set; }
 
 }
 
@@ -110,74 +100,50 @@ public class AwsBackupPlan : TerraformResource
 {
     public AwsBackupPlan(string name) : base("aws_backup_plan", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("version");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for advanced_backup_setting.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsBackupPlanAdvancedBackupSettingBlock>? AdvancedBackupSetting
-    {
-        set => SetProperty("advanced_backup_setting", value);
-    }
+    [TerraformPropertyName("advanced_backup_setting")]
+    public TerraformSet<TerraformBlock<AwsBackupPlanAdvancedBackupSettingBlock>>? AdvancedBackupSetting { get; set; } = new();
 
     /// <summary>
     /// Block for rule.
@@ -185,19 +151,21 @@ public class AwsBackupPlan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
-    public HashSet<AwsBackupPlanRuleBlock>? Rule
-    {
-        set => SetProperty("rule", value);
-    }
+    [TerraformPropertyName("rule")]
+    public TerraformSet<TerraformBlock<AwsBackupPlanRuleBlock>>? Rule { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformExpression Version => this["version"];
+    [TerraformPropertyName("version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
 }

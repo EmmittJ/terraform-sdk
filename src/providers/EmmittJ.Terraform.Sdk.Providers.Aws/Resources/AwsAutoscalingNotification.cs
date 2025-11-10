@@ -9,64 +9,44 @@ public class AwsAutoscalingNotification : TerraformResource
 {
     public AwsAutoscalingNotification(string name) : base("aws_autoscaling_notification", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("group_names");
-        SetOutput("id");
-        SetOutput("notifications");
-        SetOutput("region");
-        SetOutput("topic_arn");
     }
 
     /// <summary>
     /// The group_names attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupNames is required")]
-    public HashSet<TerraformProperty<string>> GroupNames
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("group_names");
-        set => SetProperty("group_names", value);
-    }
+    [TerraformPropertyName("group_names")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? GroupNames { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The notifications attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notifications is required")]
-    public HashSet<TerraformProperty<string>> Notifications
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("notifications");
-        set => SetProperty("notifications", value);
-    }
+    [TerraformPropertyName("notifications")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Notifications { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The topic_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
-    public required TerraformProperty<string> TopicArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("topic_arn");
-        set => SetProperty("topic_arn", value);
-    }
+    [TerraformPropertyName("topic_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TopicArn { get; set; }
 
 }

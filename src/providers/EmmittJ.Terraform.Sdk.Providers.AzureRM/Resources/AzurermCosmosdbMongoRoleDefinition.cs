@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for privilege in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock : TerraformBlock
+public class AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock : ITerraformBlock
 {
     /// <summary>
     /// The actions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
-    public List<TerraformProperty<string>>? Actions
-    {
-        set => SetProperty("actions", value);
-    }
+    [TerraformPropertyName("actions")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Actions { get; set; }
 
 }
 
@@ -23,39 +22,35 @@ public class AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock : TerraformBlock
+public class AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -66,71 +61,50 @@ public class AzurermCosmosdbMongoRoleDefinition : TerraformResource
 {
     public AzurermCosmosdbMongoRoleDefinition(string name) : base("azurerm_cosmosdb_mongo_role_definition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cosmos_mongo_database_id");
-        SetOutput("id");
-        SetOutput("inherited_role_names");
-        SetOutput("role_name");
     }
 
     /// <summary>
     /// The cosmos_mongo_database_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosMongoDatabaseId is required")]
-    public required TerraformProperty<string> CosmosMongoDatabaseId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cosmos_mongo_database_id");
-        set => SetProperty("cosmos_mongo_database_id", value);
-    }
+    [TerraformPropertyName("cosmos_mongo_database_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CosmosMongoDatabaseId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The inherited_role_names attribute.
     /// </summary>
-    public List<TerraformProperty<string>> InheritedRoleNames
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("inherited_role_names");
-        set => SetProperty("inherited_role_names", value);
-    }
+    [TerraformPropertyName("inherited_role_names")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? InheritedRoleNames { get; set; }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
-    public required TerraformProperty<string> RoleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_name");
-        set => SetProperty("role_name", value);
-    }
+    [TerraformPropertyName("role_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleName { get; set; }
 
     /// <summary>
     /// Block for privilege.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock>? Privilege
-    {
-        set => SetProperty("privilege", value);
-    }
+    [TerraformPropertyName("privilege")]
+    public TerraformList<TerraformBlock<AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock>>? Privilege { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

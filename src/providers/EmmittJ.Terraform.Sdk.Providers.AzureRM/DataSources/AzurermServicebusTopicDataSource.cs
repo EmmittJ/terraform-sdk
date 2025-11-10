@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermServicebusTopicDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermServicebusTopicDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,151 +24,142 @@ public class AzurermServicebusTopicDataSource : TerraformDataSource
 {
     public AzurermServicebusTopicDataSource(string name) : base("azurerm_servicebus_topic", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("auto_delete_on_idle");
-        SetOutput("batched_operations_enabled");
-        SetOutput("default_message_ttl");
-        SetOutput("duplicate_detection_history_time_window");
-        SetOutput("enable_batched_operations");
-        SetOutput("enable_express");
-        SetOutput("enable_partitioning");
-        SetOutput("express_enabled");
-        SetOutput("max_size_in_megabytes");
-        SetOutput("partitioning_enabled");
-        SetOutput("requires_duplicate_detection");
-        SetOutput("status");
-        SetOutput("support_ordering");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("namespace_id");
-        SetOutput("namespace_name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformProperty<string> NamespaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace_id");
-        set => SetProperty("namespace_id", value);
-    }
+    [TerraformPropertyName("namespace_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NamespaceId { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> NamespaceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
-        set => SetProperty("namespace_name", value);
-    }
+    [TerraformPropertyName("namespace_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NamespaceName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermServicebusTopicDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermServicebusTopicDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The auto_delete_on_idle attribute.
     /// </summary>
-    public TerraformExpression AutoDeleteOnIdle => this["auto_delete_on_idle"];
+    [TerraformPropertyName("auto_delete_on_idle")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AutoDeleteOnIdle => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "auto_delete_on_idle");
 
     /// <summary>
     /// The batched_operations_enabled attribute.
     /// </summary>
-    public TerraformExpression BatchedOperationsEnabled => this["batched_operations_enabled"];
+    [TerraformPropertyName("batched_operations_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> BatchedOperationsEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "batched_operations_enabled");
 
     /// <summary>
     /// The default_message_ttl attribute.
     /// </summary>
-    public TerraformExpression DefaultMessageTtl => this["default_message_ttl"];
+    [TerraformPropertyName("default_message_ttl")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultMessageTtl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_message_ttl");
 
     /// <summary>
     /// The duplicate_detection_history_time_window attribute.
     /// </summary>
-    public TerraformExpression DuplicateDetectionHistoryTimeWindow => this["duplicate_detection_history_time_window"];
+    [TerraformPropertyName("duplicate_detection_history_time_window")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DuplicateDetectionHistoryTimeWindow => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "duplicate_detection_history_time_window");
 
     /// <summary>
     /// The enable_batched_operations attribute.
     /// </summary>
-    public TerraformExpression EnableBatchedOperations => this["enable_batched_operations"];
+    [TerraformPropertyName("enable_batched_operations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableBatchedOperations => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_batched_operations");
 
     /// <summary>
     /// The enable_express attribute.
     /// </summary>
-    public TerraformExpression EnableExpress => this["enable_express"];
+    [TerraformPropertyName("enable_express")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableExpress => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_express");
 
     /// <summary>
     /// The enable_partitioning attribute.
     /// </summary>
-    public TerraformExpression EnablePartitioning => this["enable_partitioning"];
+    [TerraformPropertyName("enable_partitioning")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnablePartitioning => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_partitioning");
 
     /// <summary>
     /// The express_enabled attribute.
     /// </summary>
-    public TerraformExpression ExpressEnabled => this["express_enabled"];
+    [TerraformPropertyName("express_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ExpressEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "express_enabled");
 
     /// <summary>
     /// The max_size_in_megabytes attribute.
     /// </summary>
-    public TerraformExpression MaxSizeInMegabytes => this["max_size_in_megabytes"];
+    [TerraformPropertyName("max_size_in_megabytes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxSizeInMegabytes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_size_in_megabytes");
 
     /// <summary>
     /// The partitioning_enabled attribute.
     /// </summary>
-    public TerraformExpression PartitioningEnabled => this["partitioning_enabled"];
+    [TerraformPropertyName("partitioning_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PartitioningEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "partitioning_enabled");
 
     /// <summary>
     /// The requires_duplicate_detection attribute.
     /// </summary>
-    public TerraformExpression RequiresDuplicateDetection => this["requires_duplicate_detection"];
+    [TerraformPropertyName("requires_duplicate_detection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> RequiresDuplicateDetection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "requires_duplicate_detection");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The support_ordering attribute.
     /// </summary>
-    public TerraformExpression SupportOrdering => this["support_ordering"];
+    [TerraformPropertyName("support_ordering")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> SupportOrdering => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "support_ordering");
 
 }

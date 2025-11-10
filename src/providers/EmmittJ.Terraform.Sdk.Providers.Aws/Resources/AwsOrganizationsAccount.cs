@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsOrganizationsAccountTimeoutsBlock : TerraformBlock
+public class AwsOrganizationsAccountTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,158 +38,127 @@ public class AwsOrganizationsAccount : TerraformResource
 {
     public AwsOrganizationsAccount(string name) : base("aws_organizations_account", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("govcloud_id");
-        SetOutput("joined_method");
-        SetOutput("joined_timestamp");
-        SetOutput("state");
-        SetOutput("status");
-        SetOutput("close_on_deletion");
-        SetOutput("create_govcloud");
-        SetOutput("email");
-        SetOutput("iam_user_access_to_billing");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("parent_id");
-        SetOutput("role_name");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The close_on_deletion attribute.
     /// </summary>
-    public TerraformProperty<bool> CloseOnDeletion
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("close_on_deletion");
-        set => SetProperty("close_on_deletion", value);
-    }
+    [TerraformPropertyName("close_on_deletion")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CloseOnDeletion { get; set; }
 
     /// <summary>
     /// The create_govcloud attribute.
     /// </summary>
-    public TerraformProperty<bool> CreateGovcloud
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("create_govcloud");
-        set => SetProperty("create_govcloud", value);
-    }
+    [TerraformPropertyName("create_govcloud")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CreateGovcloud { get; set; }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    public required TerraformProperty<string> Email
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("email");
-        set => SetProperty("email", value);
-    }
+    [TerraformPropertyName("email")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Email { get; set; }
 
     /// <summary>
     /// The iam_user_access_to_billing attribute.
     /// </summary>
-    public TerraformProperty<string> IamUserAccessToBilling
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam_user_access_to_billing");
-        set => SetProperty("iam_user_access_to_billing", value);
-    }
+    [TerraformPropertyName("iam_user_access_to_billing")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IamUserAccessToBilling { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
-    public TerraformProperty<string> ParentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent_id");
-        set => SetProperty("parent_id", value);
-    }
+    [TerraformPropertyName("parent_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ParentId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parent_id");
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public TerraformProperty<string> RoleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_name");
-        set => SetProperty("role_name", value);
-    }
+    [TerraformPropertyName("role_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsOrganizationsAccountTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsOrganizationsAccountTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The govcloud_id attribute.
     /// </summary>
-    public TerraformExpression GovcloudId => this["govcloud_id"];
+    [TerraformPropertyName("govcloud_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GovcloudId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "govcloud_id");
 
     /// <summary>
     /// The joined_method attribute.
     /// </summary>
-    public TerraformExpression JoinedMethod => this["joined_method"];
+    [TerraformPropertyName("joined_method")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> JoinedMethod => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "joined_method");
 
     /// <summary>
     /// The joined_timestamp attribute.
     /// </summary>
-    public TerraformExpression JoinedTimestamp => this["joined_timestamp"];
+    [TerraformPropertyName("joined_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> JoinedTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "joined_timestamp");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

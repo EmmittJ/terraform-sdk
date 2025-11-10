@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for request in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementApiOperationRequestBlock : TerraformBlock
+public class AzurermApiManagementApiOperationRequestBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
 }
 
@@ -22,24 +21,22 @@ public class AzurermApiManagementApiOperationRequestBlock : TerraformBlock
 /// Block type for response in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementApiOperationResponseBlock : TerraformBlock
+public class AzurermApiManagementApiOperationResponseBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The status_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
-    public required TerraformProperty<double> StatusCode
-    {
-        set => SetProperty("status_code", value);
-    }
+    [TerraformPropertyName("status_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> StatusCode { get; set; }
 
 }
 
@@ -47,74 +44,66 @@ public class AzurermApiManagementApiOperationResponseBlock : TerraformBlock
 /// Block type for template_parameter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformBlock
+public class AzurermApiManagementApiOperationTemplateParameterBlock : ITerraformBlock
 {
     /// <summary>
     /// The default_value attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultValue
-    {
-        set => SetProperty("default_value", value);
-    }
+    [TerraformPropertyName("default_value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultValue { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The required attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
-    public required TerraformProperty<bool> Required
-    {
-        set => SetProperty("required", value);
-    }
+    [TerraformPropertyName("required")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Required { get; set; }
 
     /// <summary>
     /// The schema_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SchemaId
-    {
-        set => SetProperty("schema_id", value);
-    }
+    [TerraformPropertyName("schema_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SchemaId { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// The type_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TypeName
-    {
-        set => SetProperty("type_name", value);
-    }
+    [TerraformPropertyName("type_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TypeName { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -122,39 +111,35 @@ public class AzurermApiManagementApiOperationTemplateParameterBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementApiOperationTimeoutsBlock : TerraformBlock
+public class AzurermApiManagementApiOperationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -166,145 +151,105 @@ public class AzurermApiManagementApiOperation : TerraformResource
 {
     public AzurermApiManagementApiOperation(string name) : base("azurerm_api_management_api_operation", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("api_management_name");
-        SetOutput("api_name");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("method");
-        SetOutput("operation_id");
-        SetOutput("resource_group_name");
-        SetOutput("url_template");
     }
 
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
-    public required TerraformProperty<string> ApiManagementName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_management_name");
-        set => SetProperty("api_management_name", value);
-    }
+    [TerraformPropertyName("api_management_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiManagementName { get; set; }
 
     /// <summary>
     /// The api_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiName is required")]
-    public required TerraformProperty<string> ApiName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_name");
-        set => SetProperty("api_name", value);
-    }
+    [TerraformPropertyName("api_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiName { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
-    public required TerraformProperty<string> Method
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("method");
-        set => SetProperty("method", value);
-    }
+    [TerraformPropertyName("method")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Method { get; set; }
 
     /// <summary>
     /// The operation_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperationId is required")]
-    public required TerraformProperty<string> OperationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("operation_id");
-        set => SetProperty("operation_id", value);
-    }
+    [TerraformPropertyName("operation_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OperationId { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The url_template attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlTemplate is required")]
-    public required TerraformProperty<string> UrlTemplate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("url_template");
-        set => SetProperty("url_template", value);
-    }
+    [TerraformPropertyName("url_template")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UrlTemplate { get; set; }
 
     /// <summary>
     /// Block for request.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Request block(s) allowed")]
-    public List<AzurermApiManagementApiOperationRequestBlock>? Request
-    {
-        set => SetProperty("request", value);
-    }
+    [TerraformPropertyName("request")]
+    public TerraformList<TerraformBlock<AzurermApiManagementApiOperationRequestBlock>>? Request { get; set; } = new();
 
     /// <summary>
     /// Block for response.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermApiManagementApiOperationResponseBlock>? Response
-    {
-        set => SetProperty("response", value);
-    }
+    [TerraformPropertyName("response")]
+    public TerraformList<TerraformBlock<AzurermApiManagementApiOperationResponseBlock>>? Response { get; set; } = new();
 
     /// <summary>
     /// Block for template_parameter.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermApiManagementApiOperationTemplateParameterBlock>? TemplateParameter
-    {
-        set => SetProperty("template_parameter", value);
-    }
+    [TerraformPropertyName("template_parameter")]
+    public TerraformList<TerraformBlock<AzurermApiManagementApiOperationTemplateParameterBlock>>? TemplateParameter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermApiManagementApiOperationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermApiManagementApiOperationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

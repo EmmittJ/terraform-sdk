@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_logs in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock : TerraformBlock
+public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock : ITerraformBlock
 {
     /// <summary>
     /// The include_trust_context attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeTrustContext
-    {
-        set => SetProperty("include_trust_context", value);
-    }
+    [TerraformPropertyName("include_trust_context")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> IncludeTrustContext { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "include_trust_context");
 
     /// <summary>
     /// The log_version attribute.
     /// </summary>
-    public TerraformProperty<string>? LogVersion
-    {
-        set => SetProperty("log_version", value);
-    }
+    [TerraformPropertyName("log_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LogVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "log_version");
 
 }
 
@@ -34,43 +32,29 @@ public class AwsVerifiedaccessInstanceLoggingConfiguration : TerraformResource
 {
     public AwsVerifiedaccessInstanceLoggingConfiguration(string name) : base("aws_verifiedaccess_instance_logging_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("verifiedaccess_instance_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The verifiedaccess_instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedaccessInstanceId is required")]
-    public required TerraformProperty<string> VerifiedaccessInstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("verifiedaccess_instance_id");
-        set => SetProperty("verifiedaccess_instance_id", value);
-    }
+    [TerraformPropertyName("verifiedaccess_instance_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VerifiedaccessInstanceId { get; set; }
 
     /// <summary>
     /// Block for access_logs.
@@ -79,9 +63,7 @@ public class AwsVerifiedaccessInstanceLoggingConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessLogs is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AccessLogs block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogs block(s) allowed")]
-    public List<AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock>? AccessLogs
-    {
-        set => SetProperty("access_logs", value);
-    }
+    [TerraformPropertyName("access_logs")]
+    public TerraformList<TerraformBlock<AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock>>? AccessLogs { get; set; } = new();
 
 }

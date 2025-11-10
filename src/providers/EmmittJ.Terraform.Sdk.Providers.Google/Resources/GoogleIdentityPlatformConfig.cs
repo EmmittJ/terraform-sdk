@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for blocking_functions in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIdentityPlatformConfigBlockingFunctionsBlock : TerraformBlock
+public class GoogleIdentityPlatformConfigBlockingFunctionsBlock : ITerraformBlock
 {
 }
 
@@ -14,23 +14,21 @@ public class GoogleIdentityPlatformConfigBlockingFunctionsBlock : TerraformBlock
 /// Block type for client in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIdentityPlatformConfigClientBlock : TerraformBlock
+public class GoogleIdentityPlatformConfigClientBlock : ITerraformBlock
 {
     /// <summary>
     /// API key that can be used when making requests for this project.
     /// </summary>
-    public TerraformProperty<string>? ApiKey
-    {
-        set => SetProperty("api_key", value);
-    }
+    [TerraformPropertyName("api_key")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ApiKey => new TerraformReferenceProperty<TerraformProperty<string>>("", "api_key");
 
     /// <summary>
     /// Firebase subdomain.
     /// </summary>
-    public TerraformProperty<string>? FirebaseSubdomain
-    {
-        set => SetProperty("firebase_subdomain", value);
-    }
+    [TerraformPropertyName("firebase_subdomain")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FirebaseSubdomain => new TerraformReferenceProperty<TerraformProperty<string>>("", "firebase_subdomain");
 
 }
 
@@ -38,23 +36,21 @@ public class GoogleIdentityPlatformConfigClientBlock : TerraformBlock
 /// Block type for mfa in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIdentityPlatformConfigMfaBlock : TerraformBlock
+public class GoogleIdentityPlatformConfigMfaBlock : ITerraformBlock
 {
     /// <summary>
     /// A list of usable second factors for this project. Possible values: [&amp;quot;PHONE_SMS&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>>? EnabledProviders
-    {
-        set => SetProperty("enabled_providers", value);
-    }
+    [TerraformPropertyName("enabled_providers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? EnabledProviders { get; set; }
 
     /// <summary>
     /// Whether MultiFactor Authentication has been enabled for this project. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;ENABLED&amp;quot;, &amp;quot;MANDATORY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? State
-    {
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> State { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "state");
 
 }
 
@@ -62,7 +58,7 @@ public class GoogleIdentityPlatformConfigMfaBlock : TerraformBlock
 /// Block type for monitoring in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIdentityPlatformConfigMonitoringBlock : TerraformBlock
+public class GoogleIdentityPlatformConfigMonitoringBlock : ITerraformBlock
 {
 }
 
@@ -70,25 +66,23 @@ public class GoogleIdentityPlatformConfigMonitoringBlock : TerraformBlock
 /// Block type for multi_tenant in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIdentityPlatformConfigMultiTenantBlock : TerraformBlock
+public class GoogleIdentityPlatformConfigMultiTenantBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether this project can have tenants or not.
     /// </summary>
-    public TerraformProperty<bool>? AllowTenants
-    {
-        set => SetProperty("allow_tenants", value);
-    }
+    [TerraformPropertyName("allow_tenants")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowTenants { get; set; }
 
     /// <summary>
     /// The default cloud parent org or folder that the tenant project should be created under.
     /// The parent resource name should be in the format of &amp;quot;/&amp;quot;, such as &amp;quot;folders/123&amp;quot; or &amp;quot;organizations/456&amp;quot;.
     /// If the value is not set, the tenant will be created under the same organization or folder as the agent project.
     /// </summary>
-    public TerraformProperty<string>? DefaultTenantLocation
-    {
-        set => SetProperty("default_tenant_location", value);
-    }
+    [TerraformPropertyName("default_tenant_location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultTenantLocation { get; set; }
 
 }
 
@@ -96,7 +90,7 @@ public class GoogleIdentityPlatformConfigMultiTenantBlock : TerraformBlock
 /// Block type for quota in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIdentityPlatformConfigQuotaBlock : TerraformBlock
+public class GoogleIdentityPlatformConfigQuotaBlock : ITerraformBlock
 {
 }
 
@@ -104,23 +98,21 @@ public class GoogleIdentityPlatformConfigQuotaBlock : TerraformBlock
 /// Block type for sign_in in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIdentityPlatformConfigSignInBlock : TerraformBlock
+public class GoogleIdentityPlatformConfigSignInBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether to allow more than one account to have the same email.
     /// </summary>
-    public TerraformProperty<bool>? AllowDuplicateEmails
-    {
-        set => SetProperty("allow_duplicate_emails", value);
-    }
+    [TerraformPropertyName("allow_duplicate_emails")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowDuplicateEmails { get; set; }
 
     /// <summary>
     /// Output only. Hash config information.
     /// </summary>
-    public List<TerraformProperty<object>>? HashConfig
-    {
-        set => SetProperty("hash_config", value);
-    }
+    [TerraformPropertyName("hash_config")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> HashConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>("", "hash_config");
 
 }
 
@@ -128,7 +120,7 @@ public class GoogleIdentityPlatformConfigSignInBlock : TerraformBlock
 /// Block type for sms_region_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIdentityPlatformConfigSmsRegionConfigBlock : TerraformBlock
+public class GoogleIdentityPlatformConfigSmsRegionConfigBlock : ITerraformBlock
 {
 }
 
@@ -136,31 +128,28 @@ public class GoogleIdentityPlatformConfigSmsRegionConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIdentityPlatformConfigTimeoutsBlock : TerraformBlock
+public class GoogleIdentityPlatformConfigTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -172,146 +161,112 @@ public class GoogleIdentityPlatformConfig : TerraformResource
 {
     public GoogleIdentityPlatformConfig(string name) : base("google_identity_platform_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("authorized_domains");
-        SetOutput("autodelete_anonymous_users");
-        SetOutput("id");
-        SetOutput("project");
     }
 
     /// <summary>
     /// List of domains authorized for OAuth redirects.
     /// </summary>
-    public List<TerraformProperty<string>> AuthorizedDomains
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("authorized_domains");
-        set => SetProperty("authorized_domains", value);
-    }
+    [TerraformPropertyName("authorized_domains")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> AuthorizedDomains { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "authorized_domains");
 
     /// <summary>
     /// Whether anonymous users will be auto-deleted after a period of 30 days
     /// </summary>
-    public TerraformProperty<bool> AutodeleteAnonymousUsers
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("autodelete_anonymous_users");
-        set => SetProperty("autodelete_anonymous_users", value);
-    }
+    [TerraformPropertyName("autodelete_anonymous_users")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutodeleteAnonymousUsers { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for blocking_functions.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlockingFunctions block(s) allowed")]
-    public List<GoogleIdentityPlatformConfigBlockingFunctionsBlock>? BlockingFunctions
-    {
-        set => SetProperty("blocking_functions", value);
-    }
+    [TerraformPropertyName("blocking_functions")]
+    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigBlockingFunctionsBlock>>? BlockingFunctions { get; set; } = new();
 
     /// <summary>
     /// Block for client.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Client block(s) allowed")]
-    public List<GoogleIdentityPlatformConfigClientBlock>? Client
-    {
-        set => SetProperty("client", value);
-    }
+    [TerraformPropertyName("client")]
+    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigClientBlock>>? Client { get; set; } = new();
 
     /// <summary>
     /// Block for mfa.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Mfa block(s) allowed")]
-    public List<GoogleIdentityPlatformConfigMfaBlock>? Mfa
-    {
-        set => SetProperty("mfa", value);
-    }
+    [TerraformPropertyName("mfa")]
+    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigMfaBlock>>? Mfa { get; set; } = new();
 
     /// <summary>
     /// Block for monitoring.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitoring block(s) allowed")]
-    public List<GoogleIdentityPlatformConfigMonitoringBlock>? Monitoring
-    {
-        set => SetProperty("monitoring", value);
-    }
+    [TerraformPropertyName("monitoring")]
+    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigMonitoringBlock>>? Monitoring { get; set; } = new();
 
     /// <summary>
     /// Block for multi_tenant.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MultiTenant block(s) allowed")]
-    public List<GoogleIdentityPlatformConfigMultiTenantBlock>? MultiTenant
-    {
-        set => SetProperty("multi_tenant", value);
-    }
+    [TerraformPropertyName("multi_tenant")]
+    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigMultiTenantBlock>>? MultiTenant { get; set; } = new();
 
     /// <summary>
     /// Block for quota.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
-    public List<GoogleIdentityPlatformConfigQuotaBlock>? Quota
-    {
-        set => SetProperty("quota", value);
-    }
+    [TerraformPropertyName("quota")]
+    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigQuotaBlock>>? Quota { get; set; } = new();
 
     /// <summary>
     /// Block for sign_in.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignIn block(s) allowed")]
-    public List<GoogleIdentityPlatformConfigSignInBlock>? SignIn
-    {
-        set => SetProperty("sign_in", value);
-    }
+    [TerraformPropertyName("sign_in")]
+    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigSignInBlock>>? SignIn { get; set; } = new();
 
     /// <summary>
     /// Block for sms_region_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SmsRegionConfig block(s) allowed")]
-    public List<GoogleIdentityPlatformConfigSmsRegionConfigBlock>? SmsRegionConfig
-    {
-        set => SetProperty("sms_region_config", value);
-    }
+    [TerraformPropertyName("sms_region_config")]
+    public TerraformList<TerraformBlock<GoogleIdentityPlatformConfigSmsRegionConfigBlock>>? SmsRegionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleIdentityPlatformConfigTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleIdentityPlatformConfigTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The name of the Config resource
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

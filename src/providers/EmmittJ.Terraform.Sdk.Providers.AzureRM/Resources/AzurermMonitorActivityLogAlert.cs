@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorActivityLogAlertActionBlock : TerraformBlock
+public class AzurermMonitorActivityLogAlertActionBlock : ITerraformBlock
 {
     /// <summary>
     /// The action_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupId is required")]
-    public required TerraformProperty<string> ActionGroupId
-    {
-        set => SetProperty("action_group_id", value);
-    }
+    [TerraformPropertyName("action_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ActionGroupId { get; set; }
 
     /// <summary>
     /// The webhook_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? WebhookProperties
-    {
-        set => SetProperty("webhook_properties", value);
-    }
+    [TerraformPropertyName("webhook_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? WebhookProperties { get; set; }
 
 }
 
@@ -31,168 +29,148 @@ public class AzurermMonitorActivityLogAlertActionBlock : TerraformBlock
 /// Block type for criteria in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
+public class AzurermMonitorActivityLogAlertCriteriaBlock : ITerraformBlock
 {
     /// <summary>
     /// The caller attribute.
     /// </summary>
-    public TerraformProperty<string>? Caller
-    {
-        set => SetProperty("caller", value);
-    }
+    [TerraformPropertyName("caller")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Caller { get; set; }
 
     /// <summary>
     /// The category attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
-    public required TerraformProperty<string> Category
-    {
-        set => SetProperty("category", value);
-    }
+    [TerraformPropertyName("category")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Category { get; set; }
 
     /// <summary>
     /// The level attribute.
     /// </summary>
-    public TerraformProperty<string>? Level
-    {
-        set => SetProperty("level", value);
-    }
+    [TerraformPropertyName("level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Level { get; set; }
 
     /// <summary>
     /// The levels attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Levels
-    {
-        set => SetProperty("levels", value);
-    }
+    [TerraformPropertyName("levels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Levels { get; set; }
 
     /// <summary>
     /// The operation_name attribute.
     /// </summary>
-    public TerraformProperty<string>? OperationName
-    {
-        set => SetProperty("operation_name", value);
-    }
+    [TerraformPropertyName("operation_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OperationName { get; set; }
 
     /// <summary>
     /// The recommendation_category attribute.
     /// </summary>
-    public TerraformProperty<string>? RecommendationCategory
-    {
-        set => SetProperty("recommendation_category", value);
-    }
+    [TerraformPropertyName("recommendation_category")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RecommendationCategory { get; set; }
 
     /// <summary>
     /// The recommendation_impact attribute.
     /// </summary>
-    public TerraformProperty<string>? RecommendationImpact
-    {
-        set => SetProperty("recommendation_impact", value);
-    }
+    [TerraformPropertyName("recommendation_impact")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RecommendationImpact { get; set; }
 
     /// <summary>
     /// The recommendation_type attribute.
     /// </summary>
-    public TerraformProperty<string>? RecommendationType
-    {
-        set => SetProperty("recommendation_type", value);
-    }
+    [TerraformPropertyName("recommendation_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RecommendationType { get; set; }
 
     /// <summary>
     /// The resource_group attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroup
-    {
-        set => SetProperty("resource_group", value);
-    }
+    [TerraformPropertyName("resource_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceGroup { get; set; }
 
     /// <summary>
     /// The resource_groups attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ResourceGroups
-    {
-        set => SetProperty("resource_groups", value);
-    }
+    [TerraformPropertyName("resource_groups")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ResourceGroups { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceId
-    {
-        set => SetProperty("resource_id", value);
-    }
+    [TerraformPropertyName("resource_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceId { get; set; }
 
     /// <summary>
     /// The resource_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ResourceIds
-    {
-        set => SetProperty("resource_ids", value);
-    }
+    [TerraformPropertyName("resource_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ResourceIds { get; set; }
 
     /// <summary>
     /// The resource_provider attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceProvider
-    {
-        set => SetProperty("resource_provider", value);
-    }
+    [TerraformPropertyName("resource_provider")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceProvider { get; set; }
 
     /// <summary>
     /// The resource_providers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ResourceProviders
-    {
-        set => SetProperty("resource_providers", value);
-    }
+    [TerraformPropertyName("resource_providers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ResourceProviders { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceType
-    {
-        set => SetProperty("resource_type", value);
-    }
+    [TerraformPropertyName("resource_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceType { get; set; }
 
     /// <summary>
     /// The resource_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ResourceTypes
-    {
-        set => SetProperty("resource_types", value);
-    }
+    [TerraformPropertyName("resource_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ResourceTypes { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
     /// <summary>
     /// The statuses attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Statuses
-    {
-        set => SetProperty("statuses", value);
-    }
+    [TerraformPropertyName("statuses")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Statuses { get; set; }
 
     /// <summary>
     /// The sub_status attribute.
     /// </summary>
-    public TerraformProperty<string>? SubStatus
-    {
-        set => SetProperty("sub_status", value);
-    }
+    [TerraformPropertyName("sub_status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SubStatus { get; set; }
 
     /// <summary>
     /// The sub_statuses attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SubStatuses
-    {
-        set => SetProperty("sub_statuses", value);
-    }
+    [TerraformPropertyName("sub_statuses")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SubStatuses { get; set; }
 
 }
 
@@ -200,39 +178,35 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
+public class AzurermMonitorActivityLogAlertTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -244,105 +218,74 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
 {
     public AzurermMonitorActivityLogAlert(string name) : base("azurerm_monitor_activity_log_alert", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("scopes");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    public HashSet<TerraformProperty<string>> Scopes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("scopes");
-        set => SetProperty("scopes", value);
-    }
+    [TerraformPropertyName("scopes")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Scopes { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for action.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermMonitorActivityLogAlertActionBlock>? Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    public TerraformList<TerraformBlock<AzurermMonitorActivityLogAlertActionBlock>>? Action { get; set; } = new();
 
     /// <summary>
     /// Block for criteria.
@@ -351,18 +294,14 @@ public class AzurermMonitorActivityLogAlert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Criteria block(s) allowed")]
-    public List<AzurermMonitorActivityLogAlertCriteriaBlock>? Criteria
-    {
-        set => SetProperty("criteria", value);
-    }
+    [TerraformPropertyName("criteria")]
+    public TerraformList<TerraformBlock<AzurermMonitorActivityLogAlertCriteriaBlock>>? Criteria { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMonitorActivityLogAlertTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMonitorActivityLogAlertTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

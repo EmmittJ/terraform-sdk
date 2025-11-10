@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for config_server_git_setting in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudServiceConfigServerGitSettingBlock : TerraformBlock
+public class AzurermSpringCloudServiceConfigServerGitSettingBlock : ITerraformBlock
 {
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformProperty<string>? Label
-    {
-        set => SetProperty("label", value);
-    }
+    [TerraformPropertyName("label")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Label { get; set; }
 
     /// <summary>
     /// The search_paths attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SearchPaths
-    {
-        set => SetProperty("search_paths", value);
-    }
+    [TerraformPropertyName("search_paths")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SearchPaths { get; set; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    public required TerraformProperty<string> Uri
-    {
-        set => SetProperty("uri", value);
-    }
+    [TerraformPropertyName("uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Uri { get; set; }
 
 }
 
@@ -39,43 +36,39 @@ public class AzurermSpringCloudServiceConfigServerGitSettingBlock : TerraformBlo
 /// Block type for container_registry in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudServiceContainerRegistryBlock : TerraformBlock
+public class AzurermSpringCloudServiceContainerRegistryBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    public required TerraformProperty<string> Password
-    {
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
 
     /// <summary>
     /// The server attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
-    public required TerraformProperty<string> Server
-    {
-        set => SetProperty("server", value);
-    }
+    [TerraformPropertyName("server")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Server { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    public required TerraformProperty<string> Username
-    {
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
 
 }
 
@@ -83,15 +76,14 @@ public class AzurermSpringCloudServiceContainerRegistryBlock : TerraformBlock
 /// Block type for default_build_service in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudServiceDefaultBuildServiceBlock : TerraformBlock
+public class AzurermSpringCloudServiceDefaultBuildServiceBlock : ITerraformBlock
 {
     /// <summary>
     /// The container_registry_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerRegistryName
-    {
-        set => SetProperty("container_registry_name", value);
-    }
+    [TerraformPropertyName("container_registry_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContainerRegistryName { get; set; }
 
 }
 
@@ -99,34 +91,31 @@ public class AzurermSpringCloudServiceDefaultBuildServiceBlock : TerraformBlock
 /// Block type for marketplace in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudServiceMarketplaceBlock : TerraformBlock
+public class AzurermSpringCloudServiceMarketplaceBlock : ITerraformBlock
 {
     /// <summary>
     /// The plan attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
-    public required TerraformProperty<string> Plan
-    {
-        set => SetProperty("plan", value);
-    }
+    [TerraformPropertyName("plan")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Plan { get; set; }
 
     /// <summary>
     /// The product attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
-    public required TerraformProperty<string> Product
-    {
-        set => SetProperty("product", value);
-    }
+    [TerraformPropertyName("product")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Product { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    public required TerraformProperty<string> Publisher
-    {
-        set => SetProperty("publisher", value);
-    }
+    [TerraformPropertyName("publisher")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
 
 }
 
@@ -134,66 +123,59 @@ public class AzurermSpringCloudServiceMarketplaceBlock : TerraformBlock
 /// Block type for network in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudServiceNetworkBlock : TerraformBlock
+public class AzurermSpringCloudServiceNetworkBlock : ITerraformBlock
 {
     /// <summary>
     /// The app_network_resource_group attribute.
     /// </summary>
-    public TerraformProperty<string>? AppNetworkResourceGroup
-    {
-        set => SetProperty("app_network_resource_group", value);
-    }
+    [TerraformPropertyName("app_network_resource_group")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AppNetworkResourceGroup { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "app_network_resource_group");
 
     /// <summary>
     /// The app_subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppSubnetId is required")]
-    public required TerraformProperty<string> AppSubnetId
-    {
-        set => SetProperty("app_subnet_id", value);
-    }
+    [TerraformPropertyName("app_subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppSubnetId { get; set; }
 
     /// <summary>
     /// The cidr_ranges attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrRanges is required")]
-    public List<TerraformProperty<string>>? CidrRanges
-    {
-        set => SetProperty("cidr_ranges", value);
-    }
+    [TerraformPropertyName("cidr_ranges")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? CidrRanges { get; set; }
 
     /// <summary>
     /// The outbound_type attribute.
     /// </summary>
-    public TerraformProperty<string>? OutboundType
-    {
-        set => SetProperty("outbound_type", value);
-    }
+    [TerraformPropertyName("outbound_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OutboundType { get; set; }
 
     /// <summary>
     /// The read_timeout_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? ReadTimeoutSeconds
-    {
-        set => SetProperty("read_timeout_seconds", value);
-    }
+    [TerraformPropertyName("read_timeout_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ReadTimeoutSeconds { get; set; }
 
     /// <summary>
     /// The service_runtime_network_resource_group attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceRuntimeNetworkResourceGroup
-    {
-        set => SetProperty("service_runtime_network_resource_group", value);
-    }
+    [TerraformPropertyName("service_runtime_network_resource_group")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ServiceRuntimeNetworkResourceGroup { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "service_runtime_network_resource_group");
 
     /// <summary>
     /// The service_runtime_subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRuntimeSubnetId is required")]
-    public required TerraformProperty<string> ServiceRuntimeSubnetId
-    {
-        set => SetProperty("service_runtime_subnet_id", value);
-    }
+    [TerraformPropertyName("service_runtime_subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceRuntimeSubnetId { get; set; }
 
 }
 
@@ -201,39 +183,35 @@ public class AzurermSpringCloudServiceNetworkBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudServiceTimeoutsBlock : TerraformBlock
+public class AzurermSpringCloudServiceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -241,23 +219,21 @@ public class AzurermSpringCloudServiceTimeoutsBlock : TerraformBlock
 /// Block type for trace in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudServiceTraceBlock : TerraformBlock
+public class AzurermSpringCloudServiceTraceBlock : ITerraformBlock
 {
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionString
-    {
-        set => SetProperty("connection_string", value);
-    }
+    [TerraformPropertyName("connection_string")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConnectionString { get; set; }
 
     /// <summary>
     /// The sample_rate attribute.
     /// </summary>
-    public TerraformProperty<double>? SampleRate
-    {
-        set => SetProperty("sample_rate", value);
-    }
+    [TerraformPropertyName("sample_rate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SampleRate { get; set; }
 
 }
 
@@ -269,220 +245,168 @@ public class AzurermSpringCloudService : TerraformResource
 {
     public AzurermSpringCloudService(string name) : base("azurerm_spring_cloud_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("outbound_public_ip_addresses");
-        SetOutput("required_network_traffic_rules");
-        SetOutput("service_registry_id");
-        SetOutput("build_agent_pool_size");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("log_stream_public_endpoint_enabled");
-        SetOutput("managed_environment_id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("service_registry_enabled");
-        SetOutput("sku_name");
-        SetOutput("sku_tier");
-        SetOutput("tags");
-        SetOutput("zone_redundant");
     }
 
     /// <summary>
     /// The build_agent_pool_size attribute.
     /// </summary>
-    public TerraformProperty<string> BuildAgentPoolSize
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("build_agent_pool_size");
-        set => SetProperty("build_agent_pool_size", value);
-    }
+    [TerraformPropertyName("build_agent_pool_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BuildAgentPoolSize { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The log_stream_public_endpoint_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LogStreamPublicEndpointEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("log_stream_public_endpoint_enabled");
-        set => SetProperty("log_stream_public_endpoint_enabled", value);
-    }
+    [TerraformPropertyName("log_stream_public_endpoint_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LogStreamPublicEndpointEnabled { get; set; }
 
     /// <summary>
     /// The managed_environment_id attribute.
     /// </summary>
-    public TerraformProperty<string> ManagedEnvironmentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_environment_id");
-        set => SetProperty("managed_environment_id", value);
-    }
+    [TerraformPropertyName("managed_environment_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManagedEnvironmentId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The service_registry_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ServiceRegistryEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("service_registry_enabled");
-        set => SetProperty("service_registry_enabled", value);
-    }
+    [TerraformPropertyName("service_registry_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ServiceRegistryEnabled { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformProperty<string> SkuName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
-        set => SetProperty("sku_name", value);
-    }
+    [TerraformPropertyName("sku_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SkuName { get; set; }
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
-    public TerraformProperty<string> SkuTier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_tier");
-        set => SetProperty("sku_tier", value);
-    }
+    [TerraformPropertyName("sku_tier")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SkuTier { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku_tier");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
-    public TerraformProperty<bool> ZoneRedundant
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("zone_redundant");
-        set => SetProperty("zone_redundant", value);
-    }
+    [TerraformPropertyName("zone_redundant")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ZoneRedundant { get; set; }
 
     /// <summary>
     /// Block for config_server_git_setting.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfigServerGitSetting block(s) allowed")]
-    public List<AzurermSpringCloudServiceConfigServerGitSettingBlock>? ConfigServerGitSetting
-    {
-        set => SetProperty("config_server_git_setting", value);
-    }
+    [TerraformPropertyName("config_server_git_setting")]
+    public TerraformList<TerraformBlock<AzurermSpringCloudServiceConfigServerGitSettingBlock>>? ConfigServerGitSetting { get; set; } = new();
 
     /// <summary>
     /// Block for container_registry.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSpringCloudServiceContainerRegistryBlock>? ContainerRegistry
-    {
-        set => SetProperty("container_registry", value);
-    }
+    [TerraformPropertyName("container_registry")]
+    public TerraformList<TerraformBlock<AzurermSpringCloudServiceContainerRegistryBlock>>? ContainerRegistry { get; set; } = new();
 
     /// <summary>
     /// Block for default_build_service.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultBuildService block(s) allowed")]
-    public List<AzurermSpringCloudServiceDefaultBuildServiceBlock>? DefaultBuildService
-    {
-        set => SetProperty("default_build_service", value);
-    }
+    [TerraformPropertyName("default_build_service")]
+    public TerraformList<TerraformBlock<AzurermSpringCloudServiceDefaultBuildServiceBlock>>? DefaultBuildService { get; set; } = new();
 
     /// <summary>
     /// Block for marketplace.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Marketplace block(s) allowed")]
-    public List<AzurermSpringCloudServiceMarketplaceBlock>? Marketplace
-    {
-        set => SetProperty("marketplace", value);
-    }
+    [TerraformPropertyName("marketplace")]
+    public TerraformList<TerraformBlock<AzurermSpringCloudServiceMarketplaceBlock>>? Marketplace { get; set; } = new();
 
     /// <summary>
     /// Block for network.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
-    public List<AzurermSpringCloudServiceNetworkBlock>? Network
-    {
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    public TerraformList<TerraformBlock<AzurermSpringCloudServiceNetworkBlock>>? Network { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSpringCloudServiceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSpringCloudServiceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for trace.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Trace block(s) allowed")]
-    public List<AzurermSpringCloudServiceTraceBlock>? Trace
-    {
-        set => SetProperty("trace", value);
-    }
+    [TerraformPropertyName("trace")]
+    public TerraformList<TerraformBlock<AzurermSpringCloudServiceTraceBlock>>? Trace { get; set; } = new();
 
     /// <summary>
     /// The outbound_public_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression OutboundPublicIpAddresses => this["outbound_public_ip_addresses"];
+    [TerraformPropertyName("outbound_public_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> OutboundPublicIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "outbound_public_ip_addresses");
 
     /// <summary>
     /// The required_network_traffic_rules attribute.
     /// </summary>
-    public TerraformExpression RequiredNetworkTrafficRules => this["required_network_traffic_rules"];
+    [TerraformPropertyName("required_network_traffic_rules")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RequiredNetworkTrafficRules => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "required_network_traffic_rules");
 
     /// <summary>
     /// The service_registry_id attribute.
     /// </summary>
-    public TerraformExpression ServiceRegistryId => this["service_registry_id"];
+    [TerraformPropertyName("service_registry_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceRegistryId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_registry_id");
 
 }

@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeApiTimeoutsBlock : TerraformBlock
+public class GoogleApigeeApiTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,97 +38,79 @@ public class GoogleApigeeApi : TerraformResource
 {
     public GoogleApigeeApi(string name) : base("google_apigee_api", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("latest_revision_id");
-        SetOutput("md5hash");
-        SetOutput("meta_data");
-        SetOutput("revision");
-        SetOutput("config_bundle");
-        SetOutput("detect_md5hash");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("org_id");
     }
 
     /// <summary>
     /// Path to the config zip bundle
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigBundle is required")]
-    public required TerraformProperty<string> ConfigBundle
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("config_bundle");
-        set => SetProperty("config_bundle", value);
-    }
+    [TerraformPropertyName("config_bundle")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConfigBundle { get; set; }
 
     /// <summary>
     /// A hash of local config bundle in string, user needs to use a Terraform Hash function of their choice. A change in hash will trigger an update.
     /// </summary>
-    public TerraformProperty<string> DetectMd5hash
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("detect_md5hash");
-        set => SetProperty("detect_md5hash", value);
-    }
+    [TerraformPropertyName("detect_md5hash")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DetectMd5hash { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Name of the API proxy. This field only accepts the following characters: A-Za-z0-9._-.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The Apigee Organization name associated with the Apigee instance.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    public required TerraformProperty<string> OrgId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
-        set => SetProperty("org_id", value);
-    }
+    [TerraformPropertyName("org_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeApiTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeApiTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The id of the most recently created revision for this API proxy.
     /// </summary>
-    public TerraformExpression LatestRevisionId => this["latest_revision_id"];
+    [TerraformPropertyName("latest_revision_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LatestRevisionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "latest_revision_id");
 
     /// <summary>
     /// Base 64 MD5 hash of the uploaded config bundle.
     /// </summary>
-    public TerraformExpression Md5hash => this["md5hash"];
+    [TerraformPropertyName("md5hash")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Md5hash => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "md5hash");
 
     /// <summary>
     /// Metadata describing the API proxy.
     /// </summary>
-    public TerraformExpression MetaData => this["meta_data"];
+    [TerraformPropertyName("meta_data")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MetaData => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "meta_data");
 
     /// <summary>
     /// A list of revisions of this API proxy.
     /// </summary>
-    public TerraformExpression Revision => this["revision"];
+    [TerraformPropertyName("revision")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Revision => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "revision");
 
 }

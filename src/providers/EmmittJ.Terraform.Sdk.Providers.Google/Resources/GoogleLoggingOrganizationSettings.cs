@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleLoggingOrganizationSettingsTimeoutsBlock : TerraformBlock
+public class GoogleLoggingOrganizationSettingsTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,89 +38,70 @@ public class GoogleLoggingOrganizationSettings : TerraformResource
 {
     public GoogleLoggingOrganizationSettings(string name) : base("google_logging_organization_settings", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("kms_service_account_id");
-        SetOutput("logging_service_account_id");
-        SetOutput("name");
-        SetOutput("disable_default_sink");
-        SetOutput("id");
-        SetOutput("kms_key_name");
-        SetOutput("organization");
-        SetOutput("storage_location");
     }
 
     /// <summary>
     /// If set to true, the _Default sink in newly created projects and folders will created in a disabled state. This can be used to automatically disable log storage if there is already an aggregated sink configured in the hierarchy. The _Default sink can be re-enabled manually if needed.
     /// </summary>
-    public TerraformProperty<bool> DisableDefaultSink
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("disable_default_sink");
-        set => SetProperty("disable_default_sink", value);
-    }
+    [TerraformPropertyName("disable_default_sink")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> DisableDefaultSink { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "disable_default_sink");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
     /// </summary>
-    public TerraformProperty<string> KmsKeyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
-        set => SetProperty("kms_key_name", value);
-    }
+    [TerraformPropertyName("kms_key_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KmsKeyName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_name");
 
     /// <summary>
     /// The organization for which to retrieve or configure settings.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
-    public required TerraformProperty<string> Organization
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("organization");
-        set => SetProperty("organization", value);
-    }
+    [TerraformPropertyName("organization")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Organization { get; set; }
 
     /// <summary>
     /// The storage location that Cloud Logging will use to create new resources when a location is needed but not explicitly provided.
     /// </summary>
-    public TerraformProperty<string> StorageLocation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_location");
-        set => SetProperty("storage_location", value);
-    }
+    [TerraformPropertyName("storage_location")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StorageLocation { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_location");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleLoggingOrganizationSettingsTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleLoggingOrganizationSettingsTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The service account that will be used by the Log Router to access your Cloud KMS key.
     /// </summary>
-    public TerraformExpression KmsServiceAccountId => this["kms_service_account_id"];
+    [TerraformPropertyName("kms_service_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsServiceAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_service_account_id");
 
     /// <summary>
     /// The service account for the given container. Sinks use this service account as their writerIdentity if no custom service account is provided.
     /// </summary>
-    public TerraformExpression LoggingServiceAccountId => this["logging_service_account_id"];
+    [TerraformPropertyName("logging_service_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LoggingServiceAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "logging_service_account_id");
 
     /// <summary>
     /// The resource name of the settings.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

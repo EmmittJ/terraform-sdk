@@ -6,61 +6,55 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for rules in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
+public class AzurermStorageBlobInventoryPolicyRulesBlock : ITerraformBlock
 {
     /// <summary>
     /// The format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
-    public required TerraformProperty<string> Format
-    {
-        set => SetProperty("format", value);
-    }
+    [TerraformPropertyName("format")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Format { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
-    public required TerraformProperty<string> Schedule
-    {
-        set => SetProperty("schedule", value);
-    }
+    [TerraformPropertyName("schedule")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Schedule { get; set; }
 
     /// <summary>
     /// The schema_fields attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaFields is required")]
-    public List<TerraformProperty<string>>? SchemaFields
-    {
-        set => SetProperty("schema_fields", value);
-    }
+    [TerraformPropertyName("schema_fields")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? SchemaFields { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
-    public required TerraformProperty<string> Scope
-    {
-        set => SetProperty("scope", value);
-    }
+    [TerraformPropertyName("scope")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Scope { get; set; }
 
     /// <summary>
     /// The storage_container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
-    public required TerraformProperty<string> StorageContainerName
-    {
-        set => SetProperty("storage_container_name", value);
-    }
+    [TerraformPropertyName("storage_container_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageContainerName { get; set; }
 
 }
 
@@ -68,39 +62,35 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
+public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -112,33 +102,22 @@ public class AzurermStorageBlobInventoryPolicy : TerraformResource
 {
     public AzurermStorageBlobInventoryPolicy(string name) : base("azurerm_storage_blob_inventory_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("storage_account_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    public required TerraformProperty<string> StorageAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
-        set => SetProperty("storage_account_id", value);
-    }
+    [TerraformPropertyName("storage_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for rules.
@@ -146,18 +125,14 @@ public class AzurermStorageBlobInventoryPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
-    public HashSet<AzurermStorageBlobInventoryPolicyRulesBlock>? Rules
-    {
-        set => SetProperty("rules", value);
-    }
+    [TerraformPropertyName("rules")]
+    public TerraformSet<TerraformBlock<AzurermStorageBlobInventoryPolicyRulesBlock>>? Rules { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStorageBlobInventoryPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStorageBlobInventoryPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

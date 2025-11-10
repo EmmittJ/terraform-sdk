@@ -9,100 +9,91 @@ public class AwsLambdaFunctionUrlDataSource : TerraformDataSource
 {
     public AwsLambdaFunctionUrlDataSource(string name) : base("aws_lambda_function_url", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("authorization_type");
-        SetOutput("cors");
-        SetOutput("creation_time");
-        SetOutput("function_arn");
-        SetOutput("function_url");
-        SetOutput("invoke_mode");
-        SetOutput("last_modified_time");
-        SetOutput("url_id");
-        SetOutput("function_name");
-        SetOutput("id");
-        SetOutput("qualifier");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The function_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
-    public required TerraformProperty<string> FunctionName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
-        set => SetProperty("function_name", value);
-    }
+    [TerraformPropertyName("function_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FunctionName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public TerraformProperty<string> Qualifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("qualifier");
-        set => SetProperty("qualifier", value);
-    }
+    [TerraformPropertyName("qualifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Qualifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The authorization_type attribute.
     /// </summary>
-    public TerraformExpression AuthorizationType => this["authorization_type"];
+    [TerraformPropertyName("authorization_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AuthorizationType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "authorization_type");
 
     /// <summary>
     /// The cors attribute.
     /// </summary>
-    public TerraformExpression Cors => this["cors"];
+    [TerraformPropertyName("cors")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Cors => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cors");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    public TerraformExpression CreationTime => this["creation_time"];
+    [TerraformPropertyName("creation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
 
     /// <summary>
     /// The function_arn attribute.
     /// </summary>
-    public TerraformExpression FunctionArn => this["function_arn"];
+    [TerraformPropertyName("function_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FunctionArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "function_arn");
 
     /// <summary>
     /// The function_url attribute.
     /// </summary>
-    public TerraformExpression FunctionUrl => this["function_url"];
+    [TerraformPropertyName("function_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FunctionUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "function_url");
 
     /// <summary>
     /// The invoke_mode attribute.
     /// </summary>
-    public TerraformExpression InvokeMode => this["invoke_mode"];
+    [TerraformPropertyName("invoke_mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InvokeMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "invoke_mode");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
-    public TerraformExpression LastModifiedTime => this["last_modified_time"];
+    [TerraformPropertyName("last_modified_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_time");
 
     /// <summary>
     /// The url_id attribute.
     /// </summary>
-    public TerraformExpression UrlId => this["url_id"];
+    [TerraformPropertyName("url_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UrlId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "url_id");
 
 }

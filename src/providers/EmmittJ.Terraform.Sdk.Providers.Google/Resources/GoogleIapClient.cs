@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIapClientTimeoutsBlock : TerraformBlock
+public class GoogleIapClientTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -34,16 +32,6 @@ public class GoogleIapClient : TerraformResource
 {
     public GoogleIapClient(string name) : base("google_iap_client", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("client_id");
-        SetOutput("secret");
-        SetOutput("brand");
-        SetOutput("display_name");
-        SetOutput("id");
     }
 
     /// <summary>
@@ -52,48 +40,44 @@ public class GoogleIapClient : TerraformResource
     /// &#39;projects/{project_number}/brands/{brand_id}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Brand is required")]
-    public required TerraformProperty<string> Brand
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("brand");
-        set => SetProperty("brand", value);
-    }
+    [TerraformPropertyName("brand")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Brand { get; set; }
 
     /// <summary>
     /// Human-friendly name given to the OAuth client.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleIapClientTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleIapClientTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Unique identifier of the OAuth client.
     /// </summary>
-    public TerraformExpression ClientId => this["client_id"];
+    [TerraformPropertyName("client_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClientId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "client_id");
 
     /// <summary>
     /// Output only. Client secret of the OAuth client.
     /// </summary>
-    public TerraformExpression Secret => this["secret"];
+    [TerraformPropertyName("secret")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Secret => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secret");
 
 }

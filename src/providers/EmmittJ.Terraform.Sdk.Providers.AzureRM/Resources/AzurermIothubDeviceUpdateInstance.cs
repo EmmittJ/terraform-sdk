@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for diagnostic_storage_account in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : TerraformBlock
+public class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : ITerraformBlock
 {
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
-    public required TerraformProperty<string> ConnectionString
-    {
-        set => SetProperty("connection_string", value);
-    }
+    [TerraformPropertyName("connection_string")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConnectionString { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
 }
 
@@ -32,39 +30,35 @@ public class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
+public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -76,93 +70,66 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
 {
     public AzurermIothubDeviceUpdateInstance(string name) : base("azurerm_iothub_device_update_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("device_update_account_id");
-        SetOutput("diagnostic_enabled");
-        SetOutput("id");
-        SetOutput("iothub_id");
-        SetOutput("name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The device_update_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceUpdateAccountId is required")]
-    public required TerraformProperty<string> DeviceUpdateAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("device_update_account_id");
-        set => SetProperty("device_update_account_id", value);
-    }
+    [TerraformPropertyName("device_update_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DeviceUpdateAccountId { get; set; }
 
     /// <summary>
     /// The diagnostic_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> DiagnosticEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("diagnostic_enabled");
-        set => SetProperty("diagnostic_enabled", value);
-    }
+    [TerraformPropertyName("diagnostic_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DiagnosticEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The iothub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
-    public required TerraformProperty<string> IothubId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iothub_id");
-        set => SetProperty("iothub_id", value);
-    }
+    [TerraformPropertyName("iothub_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IothubId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for diagnostic_storage_account.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiagnosticStorageAccount block(s) allowed")]
-    public List<AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock>? DiagnosticStorageAccount
-    {
-        set => SetProperty("diagnostic_storage_account", value);
-    }
+    [TerraformPropertyName("diagnostic_storage_account")]
+    public TerraformList<TerraformBlock<AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock>>? DiagnosticStorageAccount { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermIothubDeviceUpdateInstanceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermIothubDeviceUpdateInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

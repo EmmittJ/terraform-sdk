@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermTrafficManagerProfileDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermTrafficManagerProfileDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,102 +24,85 @@ public class AzurermTrafficManagerProfileDataSource : TerraformDataSource
 {
     public AzurermTrafficManagerProfileDataSource(string name) : base("azurerm_traffic_manager_profile", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("dns_config");
-        SetOutput("fqdn");
-        SetOutput("monitor_config");
-        SetOutput("profile_status");
-        SetOutput("traffic_routing_method");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
-        SetOutput("traffic_view_enabled");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The traffic_view_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> TrafficViewEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("traffic_view_enabled");
-        set => SetProperty("traffic_view_enabled", value);
-    }
+    [TerraformPropertyName("traffic_view_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TrafficViewEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermTrafficManagerProfileDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermTrafficManagerProfileDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The dns_config attribute.
     /// </summary>
-    public TerraformExpression DnsConfig => this["dns_config"];
+    [TerraformPropertyName("dns_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DnsConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "dns_config");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    public TerraformExpression Fqdn => this["fqdn"];
+    [TerraformPropertyName("fqdn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fqdn");
 
     /// <summary>
     /// The monitor_config attribute.
     /// </summary>
-    public TerraformExpression MonitorConfig => this["monitor_config"];
+    [TerraformPropertyName("monitor_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MonitorConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "monitor_config");
 
     /// <summary>
     /// The profile_status attribute.
     /// </summary>
-    public TerraformExpression ProfileStatus => this["profile_status"];
+    [TerraformPropertyName("profile_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProfileStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "profile_status");
 
     /// <summary>
     /// The traffic_routing_method attribute.
     /// </summary>
-    public TerraformExpression TrafficRoutingMethod => this["traffic_routing_method"];
+    [TerraformPropertyName("traffic_routing_method")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TrafficRoutingMethod => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "traffic_routing_method");
 
 }

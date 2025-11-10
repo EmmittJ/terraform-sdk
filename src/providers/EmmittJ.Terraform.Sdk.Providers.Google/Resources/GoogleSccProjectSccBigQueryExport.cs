@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSccProjectSccBigQueryExportTimeoutsBlock : TerraformBlock
+public class GoogleSccProjectSccBigQueryExportTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,53 +38,31 @@ public class GoogleSccProjectSccBigQueryExport : TerraformResource
 {
     public GoogleSccProjectSccBigQueryExport(string name) : base("google_scc_project_scc_big_query_export", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("most_recent_editor");
-        SetOutput("name");
-        SetOutput("principal");
-        SetOutput("update_time");
-        SetOutput("big_query_export_id");
-        SetOutput("dataset");
-        SetOutput("description");
-        SetOutput("filter");
-        SetOutput("id");
-        SetOutput("project");
     }
 
     /// <summary>
     /// This must be unique within the organization.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
-    public required TerraformProperty<string> BigQueryExportId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("big_query_export_id");
-        set => SetProperty("big_query_export_id", value);
-    }
+    [TerraformPropertyName("big_query_export_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BigQueryExportId { get; set; }
 
     /// <summary>
     /// The dataset to write findings&#39; updates to.
     /// Its format is &amp;quot;projects/[projectId]/datasets/[bigquery_dataset_id]&amp;quot;.
     /// BigQuery Dataset unique ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_).
     /// </summary>
-    public TerraformProperty<string> Dataset
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dataset");
-        set => SetProperty("dataset", value);
-    }
+    [TerraformPropertyName("dataset")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Dataset { get; set; }
 
     /// <summary>
     /// The description of the notification config (max of 1024 characters).
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// Expression that defines the filter to apply across create/update
@@ -116,69 +91,71 @@ public class GoogleSccProjectSccBigQueryExport : TerraformResource
     /// [Filtering notifications](https://cloud.google.com/security-command-center/docs/how-to-api-filter-notifications)
     /// for information on how to write a filter.
     /// </summary>
-    public TerraformProperty<string> Filter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filter");
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleSccProjectSccBigQueryExportTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleSccProjectSccBigQueryExportTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time at which the BigQuery export was created. This field is set by the server and will be ignored if provided on export on creation.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Email address of the user who last edited the BigQuery export.
     /// This field is set by the server and will be ignored if provided on export creation or update.
     /// </summary>
-    public TerraformExpression MostRecentEditor => this["most_recent_editor"];
+    [TerraformPropertyName("most_recent_editor")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MostRecentEditor => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "most_recent_editor");
 
     /// <summary>
     /// The resource name of this export, in the format
     /// &#39;projects/{{project}}/bigQueryExports/{{big_query_export_id}}&#39;.
     /// This field is provided in responses, and is ignored when provided in create requests.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The service account that needs permission to create table and upload data to the BigQuery dataset.
     /// </summary>
-    public TerraformExpression Principal => this["principal"];
+    [TerraformPropertyName("principal")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Principal => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "principal");
 
     /// <summary>
     /// The most recent time at which the BigQuery export was updated. This field is set by the server and will be ignored if provided on export creation or update.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

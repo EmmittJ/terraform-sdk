@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppfabricIngestionDestinationDestinationConfigurationBlock : TerraformBlock
+public class AwsAppfabricIngestionDestinationDestinationConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsAppfabricIngestionDestinationDestinationConfigurationBlock : Ter
 /// Block type for processing_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppfabricIngestionDestinationProcessingConfigurationBlock : TerraformBlock
+public class AwsAppfabricIngestionDestinationProcessingConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -22,31 +22,28 @@ public class AwsAppfabricIngestionDestinationProcessingConfigurationBlock : Terr
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsAppfabricIngestionDestinationTimeoutsBlock : TerraformBlock
+public class AwsAppfabricIngestionDestinationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -57,98 +54,78 @@ public class AwsAppfabricIngestionDestination : TerraformResource
 {
     public AwsAppfabricIngestionDestination(string name) : base("aws_appfabric_ingestion_destination", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("tags_all");
-        SetOutput("app_bundle_arn");
-        SetOutput("ingestion_arn");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The app_bundle_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
-    public required TerraformProperty<string> AppBundleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_bundle_arn");
-        set => SetProperty("app_bundle_arn", value);
-    }
+    [TerraformPropertyName("app_bundle_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppBundleArn { get; set; }
 
     /// <summary>
     /// The ingestion_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionArn is required")]
-    public required TerraformProperty<string> IngestionArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ingestion_arn");
-        set => SetProperty("ingestion_arn", value);
-    }
+    [TerraformPropertyName("ingestion_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IngestionArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for destination_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsAppfabricIngestionDestinationDestinationConfigurationBlock>? DestinationConfiguration
-    {
-        set => SetProperty("destination_configuration", value);
-    }
+    [TerraformPropertyName("destination_configuration")]
+    public TerraformList<TerraformBlock<AwsAppfabricIngestionDestinationDestinationConfigurationBlock>>? DestinationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for processing_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsAppfabricIngestionDestinationProcessingConfigurationBlock>? ProcessingConfiguration
-    {
-        set => SetProperty("processing_configuration", value);
-    }
+    [TerraformPropertyName("processing_configuration")]
+    public TerraformList<TerraformBlock<AwsAppfabricIngestionDestinationProcessingConfigurationBlock>>? ProcessingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsAppfabricIngestionDestinationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsAppfabricIngestionDestinationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

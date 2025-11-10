@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEcrRegistryScanningConfigurationRuleBlock : TerraformBlock
+public class AwsEcrRegistryScanningConfigurationRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The scan_frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanFrequency is required")]
-    public required TerraformProperty<string> ScanFrequency
-    {
-        set => SetProperty("scan_frequency", value);
-    }
+    [TerraformPropertyName("scan_frequency")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScanFrequency { get; set; }
 
 }
 
@@ -27,58 +26,43 @@ public class AwsEcrRegistryScanningConfiguration : TerraformResource
 {
     public AwsEcrRegistryScanningConfiguration(string name) : base("aws_ecr_registry_scanning_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("registry_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("scan_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The scan_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanType is required")]
-    public required TerraformProperty<string> ScanType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("scan_type");
-        set => SetProperty("scan_type", value);
-    }
+    [TerraformPropertyName("scan_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScanType { get; set; }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Rule block(s) allowed")]
-    public HashSet<AwsEcrRegistryScanningConfigurationRuleBlock>? Rule
-    {
-        set => SetProperty("rule", value);
-    }
+    [TerraformPropertyName("rule")]
+    public TerraformSet<TerraformBlock<AwsEcrRegistryScanningConfigurationRuleBlock>>? Rule { get; set; } = new();
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
-    public TerraformExpression RegistryId => this["registry_id"];
+    [TerraformPropertyName("registry_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RegistryId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registry_id");
 
 }

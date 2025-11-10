@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSnapshotDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermSnapshotDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,106 +24,99 @@ public class AzurermSnapshotDataSource : TerraformDataSource
 {
     public AzurermSnapshotDataSource(string name) : base("azurerm_snapshot", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_option");
-        SetOutput("disk_size_gb");
-        SetOutput("encryption_settings");
-        SetOutput("os_type");
-        SetOutput("source_resource_id");
-        SetOutput("source_uri");
-        SetOutput("storage_account_id");
-        SetOutput("time_created");
-        SetOutput("trusted_launch_enabled");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSnapshotDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSnapshotDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The creation_option attribute.
     /// </summary>
-    public TerraformExpression CreationOption => this["creation_option"];
+    [TerraformPropertyName("creation_option")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationOption => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_option");
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformExpression DiskSizeGb => this["disk_size_gb"];
+    [TerraformPropertyName("disk_size_gb")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DiskSizeGb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "disk_size_gb");
 
     /// <summary>
     /// The encryption_settings attribute.
     /// </summary>
-    public TerraformExpression EncryptionSettings => this["encryption_settings"];
+    [TerraformPropertyName("encryption_settings")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> EncryptionSettings => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "encryption_settings");
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
-    public TerraformExpression OsType => this["os_type"];
+    [TerraformPropertyName("os_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OsType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "os_type");
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
-    public TerraformExpression SourceResourceId => this["source_resource_id"];
+    [TerraformPropertyName("source_resource_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_resource_id");
 
     /// <summary>
     /// The source_uri attribute.
     /// </summary>
-    public TerraformExpression SourceUri => this["source_uri"];
+    [TerraformPropertyName("source_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_uri");
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformExpression StorageAccountId => this["storage_account_id"];
+    [TerraformPropertyName("storage_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StorageAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_account_id");
 
     /// <summary>
     /// The time_created attribute.
     /// </summary>
-    public TerraformExpression TimeCreated => this["time_created"];
+    [TerraformPropertyName("time_created")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TimeCreated => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_created");
 
     /// <summary>
     /// The trusted_launch_enabled attribute.
     /// </summary>
-    public TerraformExpression TrustedLaunchEnabled => this["trusted_launch_enabled"];
+    [TerraformPropertyName("trusted_launch_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> TrustedLaunchEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "trusted_launch_enabled");
 
 }

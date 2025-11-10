@@ -9,209 +9,195 @@ public class AwsDbSnapshotDataSource : TerraformDataSource
 {
     public AwsDbSnapshotDataSource(string name) : base("aws_db_snapshot", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("allocated_storage");
-        SetOutput("availability_zone");
-        SetOutput("db_snapshot_arn");
-        SetOutput("encrypted");
-        SetOutput("engine");
-        SetOutput("engine_version");
-        SetOutput("iops");
-        SetOutput("kms_key_id");
-        SetOutput("license_model");
-        SetOutput("option_group_name");
-        SetOutput("original_snapshot_create_time");
-        SetOutput("port");
-        SetOutput("snapshot_create_time");
-        SetOutput("source_db_snapshot_identifier");
-        SetOutput("source_region");
-        SetOutput("status");
-        SetOutput("storage_type");
-        SetOutput("vpc_id");
-        SetOutput("db_instance_identifier");
-        SetOutput("db_snapshot_identifier");
-        SetOutput("id");
-        SetOutput("include_public");
-        SetOutput("include_shared");
-        SetOutput("most_recent");
-        SetOutput("region");
-        SetOutput("snapshot_type");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The db_instance_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> DbInstanceIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_instance_identifier");
-        set => SetProperty("db_instance_identifier", value);
-    }
+    [TerraformPropertyName("db_instance_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DbInstanceIdentifier { get; set; }
 
     /// <summary>
     /// The db_snapshot_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> DbSnapshotIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_snapshot_identifier");
-        set => SetProperty("db_snapshot_identifier", value);
-    }
+    [TerraformPropertyName("db_snapshot_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DbSnapshotIdentifier { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The include_public attribute.
     /// </summary>
-    public TerraformProperty<bool> IncludePublic
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("include_public");
-        set => SetProperty("include_public", value);
-    }
+    [TerraformPropertyName("include_public")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludePublic { get; set; }
 
     /// <summary>
     /// The include_shared attribute.
     /// </summary>
-    public TerraformProperty<bool> IncludeShared
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("include_shared");
-        set => SetProperty("include_shared", value);
-    }
+    [TerraformPropertyName("include_shared")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeShared { get; set; }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformProperty<bool> MostRecent
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("most_recent");
-        set => SetProperty("most_recent", value);
-    }
+    [TerraformPropertyName("most_recent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MostRecent { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The snapshot_type attribute.
     /// </summary>
-    public TerraformProperty<string> SnapshotType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_type");
-        set => SetProperty("snapshot_type", value);
-    }
+    [TerraformPropertyName("snapshot_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SnapshotType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The allocated_storage attribute.
     /// </summary>
-    public TerraformExpression AllocatedStorage => this["allocated_storage"];
+    [TerraformPropertyName("allocated_storage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AllocatedStorage => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "allocated_storage");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformExpression AvailabilityZone => this["availability_zone"];
+    [TerraformPropertyName("availability_zone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone");
 
     /// <summary>
     /// The db_snapshot_arn attribute.
     /// </summary>
-    public TerraformExpression DbSnapshotArn => this["db_snapshot_arn"];
+    [TerraformPropertyName("db_snapshot_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DbSnapshotArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "db_snapshot_arn");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformExpression Encrypted => this["encrypted"];
+    [TerraformPropertyName("encrypted")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Encrypted => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "encrypted");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformExpression Engine => this["engine"];
+    [TerraformPropertyName("engine")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Engine => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformExpression EngineVersion => this["engine_version"];
+    [TerraformPropertyName("engine_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EngineVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformExpression Iops => this["iops"];
+    [TerraformPropertyName("iops")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Iops => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "iops");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformExpression KmsKeyId => this["kms_key_id"];
+    [TerraformPropertyName("kms_key_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsKeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_id");
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
-    public TerraformExpression LicenseModel => this["license_model"];
+    [TerraformPropertyName("license_model")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LicenseModel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "license_model");
 
     /// <summary>
     /// The option_group_name attribute.
     /// </summary>
-    public TerraformExpression OptionGroupName => this["option_group_name"];
+    [TerraformPropertyName("option_group_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OptionGroupName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "option_group_name");
 
     /// <summary>
     /// The original_snapshot_create_time attribute.
     /// </summary>
-    public TerraformExpression OriginalSnapshotCreateTime => this["original_snapshot_create_time"];
+    [TerraformPropertyName("original_snapshot_create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OriginalSnapshotCreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "original_snapshot_create_time");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformExpression Port => this["port"];
+    [TerraformPropertyName("port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Port => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "port");
 
     /// <summary>
     /// The snapshot_create_time attribute.
     /// </summary>
-    public TerraformExpression SnapshotCreateTime => this["snapshot_create_time"];
+    [TerraformPropertyName("snapshot_create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SnapshotCreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "snapshot_create_time");
 
     /// <summary>
     /// The source_db_snapshot_identifier attribute.
     /// </summary>
-    public TerraformExpression SourceDbSnapshotIdentifier => this["source_db_snapshot_identifier"];
+    [TerraformPropertyName("source_db_snapshot_identifier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceDbSnapshotIdentifier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_db_snapshot_identifier");
 
     /// <summary>
     /// The source_region attribute.
     /// </summary>
-    public TerraformExpression SourceRegion => this["source_region"];
+    [TerraformPropertyName("source_region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceRegion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_region");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformExpression StorageType => this["storage_type"];
+    [TerraformPropertyName("storage_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StorageType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_type");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformExpression VpcId => this["vpc_id"];
+    [TerraformPropertyName("vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
 }

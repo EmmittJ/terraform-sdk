@@ -9,196 +9,165 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
 {
     public AwsStoragegatewayStoredIscsiVolume(string name) : base("aws_storagegateway_stored_iscsi_volume", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("chap_enabled");
-        SetOutput("lun_number");
-        SetOutput("network_interface_port");
-        SetOutput("target_arn");
-        SetOutput("volume_attachment_status");
-        SetOutput("volume_id");
-        SetOutput("volume_size_in_bytes");
-        SetOutput("volume_status");
-        SetOutput("volume_type");
-        SetOutput("disk_id");
-        SetOutput("gateway_arn");
-        SetOutput("id");
-        SetOutput("kms_encrypted");
-        SetOutput("kms_key");
-        SetOutput("network_interface_id");
-        SetOutput("preserve_existing_data");
-        SetOutput("region");
-        SetOutput("snapshot_id");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("target_name");
     }
 
     /// <summary>
     /// The disk_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskId is required")]
-    public required TerraformProperty<string> DiskId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("disk_id");
-        set => SetProperty("disk_id", value);
-    }
+    [TerraformPropertyName("disk_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DiskId { get; set; }
 
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
-    public required TerraformProperty<string> GatewayArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gateway_arn");
-        set => SetProperty("gateway_arn", value);
-    }
+    [TerraformPropertyName("gateway_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GatewayArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kms_encrypted attribute.
     /// </summary>
-    public TerraformProperty<bool> KmsEncrypted
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("kms_encrypted");
-        set => SetProperty("kms_encrypted", value);
-    }
+    [TerraformPropertyName("kms_encrypted")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? KmsEncrypted { get; set; }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key");
-        set => SetProperty("kms_key", value);
-    }
+    [TerraformPropertyName("kms_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKey { get; set; }
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
-    public required TerraformProperty<string> NetworkInterfaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_interface_id");
-        set => SetProperty("network_interface_id", value);
-    }
+    [TerraformPropertyName("network_interface_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NetworkInterfaceId { get; set; }
 
     /// <summary>
     /// The preserve_existing_data attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreserveExistingData is required")]
-    public required TerraformProperty<bool> PreserveExistingData
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("preserve_existing_data");
-        set => SetProperty("preserve_existing_data", value);
-    }
+    [TerraformPropertyName("preserve_existing_data")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> PreserveExistingData { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
-    public TerraformProperty<string> SnapshotId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("snapshot_id");
-        set => SetProperty("snapshot_id", value);
-    }
+    [TerraformPropertyName("snapshot_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SnapshotId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The target_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
-    public required TerraformProperty<string> TargetName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_name");
-        set => SetProperty("target_name", value);
-    }
+    [TerraformPropertyName("target_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The chap_enabled attribute.
     /// </summary>
-    public TerraformExpression ChapEnabled => this["chap_enabled"];
+    [TerraformPropertyName("chap_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ChapEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "chap_enabled");
 
     /// <summary>
     /// The lun_number attribute.
     /// </summary>
-    public TerraformExpression LunNumber => this["lun_number"];
+    [TerraformPropertyName("lun_number")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> LunNumber => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "lun_number");
 
     /// <summary>
     /// The network_interface_port attribute.
     /// </summary>
-    public TerraformExpression NetworkInterfacePort => this["network_interface_port"];
+    [TerraformPropertyName("network_interface_port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> NetworkInterfacePort => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "network_interface_port");
 
     /// <summary>
     /// The target_arn attribute.
     /// </summary>
-    public TerraformExpression TargetArn => this["target_arn"];
+    [TerraformPropertyName("target_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TargetArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "target_arn");
 
     /// <summary>
     /// The volume_attachment_status attribute.
     /// </summary>
-    public TerraformExpression VolumeAttachmentStatus => this["volume_attachment_status"];
+    [TerraformPropertyName("volume_attachment_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VolumeAttachmentStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "volume_attachment_status");
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
-    public TerraformExpression VolumeId => this["volume_id"];
+    [TerraformPropertyName("volume_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VolumeId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "volume_id");
 
     /// <summary>
     /// The volume_size_in_bytes attribute.
     /// </summary>
-    public TerraformExpression VolumeSizeInBytes => this["volume_size_in_bytes"];
+    [TerraformPropertyName("volume_size_in_bytes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> VolumeSizeInBytes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "volume_size_in_bytes");
 
     /// <summary>
     /// The volume_status attribute.
     /// </summary>
-    public TerraformExpression VolumeStatus => this["volume_status"];
+    [TerraformPropertyName("volume_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VolumeStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "volume_status");
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformExpression VolumeType => this["volume_type"];
+    [TerraformPropertyName("volume_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VolumeType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "volume_type");
 
 }

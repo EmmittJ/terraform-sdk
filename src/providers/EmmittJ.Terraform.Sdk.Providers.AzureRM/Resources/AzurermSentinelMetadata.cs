@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for author in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelMetadataAuthorBlock : TerraformBlock
+public class AzurermSentinelMetadataAuthorBlock : ITerraformBlock
 {
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformProperty<string>? Email
-    {
-        set => SetProperty("email", value);
-    }
+    [TerraformPropertyName("email")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Email { get; set; }
 
     /// <summary>
     /// The link attribute.
     /// </summary>
-    public TerraformProperty<string>? Link
-    {
-        set => SetProperty("link", value);
-    }
+    [TerraformPropertyName("link")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Link { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
 }
 
@@ -38,23 +35,21 @@ public class AzurermSentinelMetadataAuthorBlock : TerraformBlock
 /// Block type for category in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelMetadataCategoryBlock : TerraformBlock
+public class AzurermSentinelMetadataCategoryBlock : ITerraformBlock
 {
     /// <summary>
     /// The domains attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Domains
-    {
-        set => SetProperty("domains", value);
-    }
+    [TerraformPropertyName("domains")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Domains { get; set; }
 
     /// <summary>
     /// The verticals attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Verticals
-    {
-        set => SetProperty("verticals", value);
-    }
+    [TerraformPropertyName("verticals")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Verticals { get; set; }
 
 }
 
@@ -62,32 +57,29 @@ public class AzurermSentinelMetadataCategoryBlock : TerraformBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelMetadataSourceBlock : TerraformBlock
+public class AzurermSentinelMetadataSourceBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Id { get; set; }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
-    public required TerraformProperty<string> Kind
-    {
-        set => SetProperty("kind", value);
-    }
+    [TerraformPropertyName("kind")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Kind { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
 }
 
@@ -95,40 +87,36 @@ public class AzurermSentinelMetadataSourceBlock : TerraformBlock
 /// Block type for support in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelMetadataSupportBlock : TerraformBlock
+public class AzurermSentinelMetadataSupportBlock : ITerraformBlock
 {
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformProperty<string>? Email
-    {
-        set => SetProperty("email", value);
-    }
+    [TerraformPropertyName("email")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Email { get; set; }
 
     /// <summary>
     /// The link attribute.
     /// </summary>
-    public TerraformProperty<string>? Link
-    {
-        set => SetProperty("link", value);
-    }
+    [TerraformPropertyName("link")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Link { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
-    public required TerraformProperty<string> Tier
-    {
-        set => SetProperty("tier", value);
-    }
+    [TerraformPropertyName("tier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Tier { get; set; }
 
 }
 
@@ -136,39 +124,35 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
+public class AzurermSentinelMetadataTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -180,245 +164,176 @@ public class AzurermSentinelMetadata : TerraformResource
 {
     public AzurermSentinelMetadata(string name) : base("azurerm_sentinel_metadata", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("content_id");
-        SetOutput("content_schema_version");
-        SetOutput("custom_version");
-        SetOutput("dependency");
-        SetOutput("first_publish_date");
-        SetOutput("icon_id");
-        SetOutput("id");
-        SetOutput("kind");
-        SetOutput("last_publish_date");
-        SetOutput("name");
-        SetOutput("parent_id");
-        SetOutput("preview_images");
-        SetOutput("preview_images_dark");
-        SetOutput("providers");
-        SetOutput("threat_analysis_tactics");
-        SetOutput("threat_analysis_techniques");
-        SetOutput("version");
-        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The content_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentId is required")]
-    public required TerraformProperty<string> ContentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content_id");
-        set => SetProperty("content_id", value);
-    }
+    [TerraformPropertyName("content_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContentId { get; set; }
 
     /// <summary>
     /// The content_schema_version attribute.
     /// </summary>
-    public TerraformProperty<string> ContentSchemaVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content_schema_version");
-        set => SetProperty("content_schema_version", value);
-    }
+    [TerraformPropertyName("content_schema_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContentSchemaVersion { get; set; }
 
     /// <summary>
     /// The custom_version attribute.
     /// </summary>
-    public TerraformProperty<string> CustomVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("custom_version");
-        set => SetProperty("custom_version", value);
-    }
+    [TerraformPropertyName("custom_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomVersion { get; set; }
 
     /// <summary>
     /// The dependency attribute.
     /// </summary>
-    public TerraformProperty<string> Dependency
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dependency");
-        set => SetProperty("dependency", value);
-    }
+    [TerraformPropertyName("dependency")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Dependency { get; set; }
 
     /// <summary>
     /// The first_publish_date attribute.
     /// </summary>
-    public TerraformProperty<string> FirstPublishDate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("first_publish_date");
-        set => SetProperty("first_publish_date", value);
-    }
+    [TerraformPropertyName("first_publish_date")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FirstPublishDate { get; set; }
 
     /// <summary>
     /// The icon_id attribute.
     /// </summary>
-    public TerraformProperty<string> IconId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("icon_id");
-        set => SetProperty("icon_id", value);
-    }
+    [TerraformPropertyName("icon_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IconId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
-    public required TerraformProperty<string> Kind
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kind");
-        set => SetProperty("kind", value);
-    }
+    [TerraformPropertyName("kind")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Kind { get; set; }
 
     /// <summary>
     /// The last_publish_date attribute.
     /// </summary>
-    public TerraformProperty<string> LastPublishDate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("last_publish_date");
-        set => SetProperty("last_publish_date", value);
-    }
+    [TerraformPropertyName("last_publish_date")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LastPublishDate { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
-    public required TerraformProperty<string> ParentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent_id");
-        set => SetProperty("parent_id", value);
-    }
+    [TerraformPropertyName("parent_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ParentId { get; set; }
 
     /// <summary>
     /// The preview_images attribute.
     /// </summary>
-    public List<TerraformProperty<string>> PreviewImages
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("preview_images");
-        set => SetProperty("preview_images", value);
-    }
+    [TerraformPropertyName("preview_images")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? PreviewImages { get; set; }
 
     /// <summary>
     /// The preview_images_dark attribute.
     /// </summary>
-    public List<TerraformProperty<string>> PreviewImagesDark
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("preview_images_dark");
-        set => SetProperty("preview_images_dark", value);
-    }
+    [TerraformPropertyName("preview_images_dark")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? PreviewImagesDark { get; set; }
 
     /// <summary>
     /// The providers attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Providers
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("providers");
-        set => SetProperty("providers", value);
-    }
+    [TerraformPropertyName("providers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Providers { get; set; }
 
     /// <summary>
     /// The threat_analysis_tactics attribute.
     /// </summary>
-    public List<TerraformProperty<string>> ThreatAnalysisTactics
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("threat_analysis_tactics");
-        set => SetProperty("threat_analysis_tactics", value);
-    }
+    [TerraformPropertyName("threat_analysis_tactics")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ThreatAnalysisTactics { get; set; }
 
     /// <summary>
     /// The threat_analysis_techniques attribute.
     /// </summary>
-    public List<TerraformProperty<string>> ThreatAnalysisTechniques
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("threat_analysis_techniques");
-        set => SetProperty("threat_analysis_techniques", value);
-    }
+    [TerraformPropertyName("threat_analysis_techniques")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ThreatAnalysisTechniques { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    public required TerraformProperty<string> WorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
-        set => SetProperty("workspace_id", value);
-    }
+    [TerraformPropertyName("workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for author.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Author block(s) allowed")]
-    public List<AzurermSentinelMetadataAuthorBlock>? Author
-    {
-        set => SetProperty("author", value);
-    }
+    [TerraformPropertyName("author")]
+    public TerraformList<TerraformBlock<AzurermSentinelMetadataAuthorBlock>>? Author { get; set; } = new();
 
     /// <summary>
     /// Block for category.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Category block(s) allowed")]
-    public List<AzurermSentinelMetadataCategoryBlock>? Category
-    {
-        set => SetProperty("category", value);
-    }
+    [TerraformPropertyName("category")]
+    public TerraformList<TerraformBlock<AzurermSentinelMetadataCategoryBlock>>? Category { get; set; } = new();
 
     /// <summary>
     /// Block for source.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    public List<AzurermSentinelMetadataSourceBlock>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    public TerraformList<TerraformBlock<AzurermSentinelMetadataSourceBlock>>? Source { get; set; } = new();
 
     /// <summary>
     /// Block for support.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Support block(s) allowed")]
-    public List<AzurermSentinelMetadataSupportBlock>? Support
-    {
-        set => SetProperty("support", value);
-    }
+    [TerraformPropertyName("support")]
+    public TerraformList<TerraformBlock<AzurermSentinelMetadataSupportBlock>>? Support { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSentinelMetadataTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSentinelMetadataTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

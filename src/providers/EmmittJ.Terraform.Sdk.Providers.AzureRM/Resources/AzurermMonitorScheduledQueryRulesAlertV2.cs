@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorScheduledQueryRulesAlertV2ActionBlock : TerraformBlock
+public class AzurermMonitorScheduledQueryRulesAlertV2ActionBlock : ITerraformBlock
 {
     /// <summary>
     /// The action_groups attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ActionGroups
-    {
-        set => SetProperty("action_groups", value);
-    }
+    [TerraformPropertyName("action_groups")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ActionGroups { get; set; }
 
     /// <summary>
     /// The custom_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? CustomProperties
-    {
-        set => SetProperty("custom_properties", value);
-    }
+    [TerraformPropertyName("custom_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? CustomProperties { get; set; }
 
 }
 
@@ -30,59 +28,53 @@ public class AzurermMonitorScheduledQueryRulesAlertV2ActionBlock : TerraformBloc
 /// Block type for criteria in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock : TerraformBlock
+public class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock : ITerraformBlock
 {
     /// <summary>
     /// The metric_measure_column attribute.
     /// </summary>
-    public TerraformProperty<string>? MetricMeasureColumn
-    {
-        set => SetProperty("metric_measure_column", value);
-    }
+    [TerraformPropertyName("metric_measure_column")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MetricMeasureColumn { get; set; }
 
     /// <summary>
     /// The operator attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operator is required")]
-    public required TerraformProperty<string> Operator
-    {
-        set => SetProperty("operator", value);
-    }
+    [TerraformPropertyName("operator")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Operator { get; set; }
 
     /// <summary>
     /// The query attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
-    public required TerraformProperty<string> Query
-    {
-        set => SetProperty("query", value);
-    }
+    [TerraformPropertyName("query")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Query { get; set; }
 
     /// <summary>
     /// The resource_id_column attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceIdColumn
-    {
-        set => SetProperty("resource_id_column", value);
-    }
+    [TerraformPropertyName("resource_id_column")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceIdColumn { get; set; }
 
     /// <summary>
     /// The threshold attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
-    public required TerraformProperty<double> Threshold
-    {
-        set => SetProperty("threshold", value);
-    }
+    [TerraformPropertyName("threshold")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Threshold { get; set; }
 
     /// <summary>
     /// The time_aggregation_method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeAggregationMethod is required")]
-    public required TerraformProperty<string> TimeAggregationMethod
-    {
-        set => SetProperty("time_aggregation_method", value);
-    }
+    [TerraformPropertyName("time_aggregation_method")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TimeAggregationMethod { get; set; }
 
 }
 
@@ -90,40 +82,36 @@ public class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock : TerraformBl
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock : TerraformBlock
+public class AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -131,39 +119,35 @@ public class AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock : TerraformBlock
+public class AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -175,212 +159,148 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
 {
     public AzurermMonitorScheduledQueryRulesAlertV2(string name) : base("azurerm_monitor_scheduled_query_rules_alert_v2", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("created_with_api_version");
-        SetOutput("is_a_legacy_log_analytics_rule");
-        SetOutput("is_workspace_alerts_storage_configured");
-        SetOutput("auto_mitigation_enabled");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("enabled");
-        SetOutput("evaluation_frequency");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("mute_actions_after_alert_duration");
-        SetOutput("name");
-        SetOutput("query_time_range_override");
-        SetOutput("resource_group_name");
-        SetOutput("scopes");
-        SetOutput("severity");
-        SetOutput("skip_query_validation");
-        SetOutput("tags");
-        SetOutput("target_resource_types");
-        SetOutput("window_duration");
-        SetOutput("workspace_alerts_storage_enabled");
     }
 
     /// <summary>
     /// The auto_mitigation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoMitigationEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_mitigation_enabled");
-        set => SetProperty("auto_mitigation_enabled", value);
-    }
+    [TerraformPropertyName("auto_mitigation_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoMitigationEnabled { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The evaluation_frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationFrequency is required")]
-    public required TerraformProperty<string> EvaluationFrequency
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("evaluation_frequency");
-        set => SetProperty("evaluation_frequency", value);
-    }
+    [TerraformPropertyName("evaluation_frequency")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EvaluationFrequency { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The mute_actions_after_alert_duration attribute.
     /// </summary>
-    public TerraformProperty<string> MuteActionsAfterAlertDuration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mute_actions_after_alert_duration");
-        set => SetProperty("mute_actions_after_alert_duration", value);
-    }
+    [TerraformPropertyName("mute_actions_after_alert_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MuteActionsAfterAlertDuration { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The query_time_range_override attribute.
     /// </summary>
-    public TerraformProperty<string> QueryTimeRangeOverride
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("query_time_range_override");
-        set => SetProperty("query_time_range_override", value);
-    }
+    [TerraformPropertyName("query_time_range_override")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? QueryTimeRangeOverride { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    public List<TerraformProperty<string>> Scopes
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("scopes");
-        set => SetProperty("scopes", value);
-    }
+    [TerraformPropertyName("scopes")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Scopes { get; set; }
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
-    public required TerraformProperty<double> Severity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("severity");
-        set => SetProperty("severity", value);
-    }
+    [TerraformPropertyName("severity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Severity { get; set; }
 
     /// <summary>
     /// The skip_query_validation attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipQueryValidation
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_query_validation");
-        set => SetProperty("skip_query_validation", value);
-    }
+    [TerraformPropertyName("skip_query_validation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipQueryValidation { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The target_resource_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>> TargetResourceTypes
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("target_resource_types");
-        set => SetProperty("target_resource_types", value);
-    }
+    [TerraformPropertyName("target_resource_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? TargetResourceTypes { get; set; }
 
     /// <summary>
     /// The window_duration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WindowDuration is required")]
-    public required TerraformProperty<string> WindowDuration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("window_duration");
-        set => SetProperty("window_duration", value);
-    }
+    [TerraformPropertyName("window_duration")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WindowDuration { get; set; }
 
     /// <summary>
     /// The workspace_alerts_storage_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> WorkspaceAlertsStorageEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("workspace_alerts_storage_enabled");
-        set => SetProperty("workspace_alerts_storage_enabled", value);
-    }
+    [TerraformPropertyName("workspace_alerts_storage_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WorkspaceAlertsStorageEnabled { get; set; }
 
     /// <summary>
     /// Block for action.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
-    public List<AzurermMonitorScheduledQueryRulesAlertV2ActionBlock>? Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    public TerraformList<TerraformBlock<AzurermMonitorScheduledQueryRulesAlertV2ActionBlock>>? Action { get; set; } = new();
 
     /// <summary>
     /// Block for criteria.
@@ -388,43 +308,43 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
-    public List<AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock>? Criteria
-    {
-        set => SetProperty("criteria", value);
-    }
+    [TerraformPropertyName("criteria")]
+    public TerraformList<TerraformBlock<AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock>>? Criteria { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The created_with_api_version attribute.
     /// </summary>
-    public TerraformExpression CreatedWithApiVersion => this["created_with_api_version"];
+    [TerraformPropertyName("created_with_api_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedWithApiVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_with_api_version");
 
     /// <summary>
     /// The is_a_legacy_log_analytics_rule attribute.
     /// </summary>
-    public TerraformExpression IsALegacyLogAnalyticsRule => this["is_a_legacy_log_analytics_rule"];
+    [TerraformPropertyName("is_a_legacy_log_analytics_rule")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> IsALegacyLogAnalyticsRule => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "is_a_legacy_log_analytics_rule");
 
     /// <summary>
     /// The is_workspace_alerts_storage_configured attribute.
     /// </summary>
-    public TerraformExpression IsWorkspaceAlertsStorageConfigured => this["is_workspace_alerts_storage_configured"];
+    [TerraformPropertyName("is_workspace_alerts_storage_configured")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> IsWorkspaceAlertsStorageConfigured => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "is_workspace_alerts_storage_configured");
 
 }

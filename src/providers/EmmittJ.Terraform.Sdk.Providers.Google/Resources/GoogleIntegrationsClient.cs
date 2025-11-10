@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cloud_kms_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
+public class GoogleIntegrationsClientCloudKmsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// A Cloud KMS key is a named object containing one or more key versions, along
@@ -14,10 +14,9 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     /// specific location.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// Each version of a key contains key material used for encryption or signing.
@@ -25,19 +24,17 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     /// or verify a signature, you must use the same key version that was used to
     /// encrypt or sign the data.
     /// </summary>
-    public TerraformProperty<string>? KeyVersion
-    {
-        set => SetProperty("key_version", value);
-    }
+    [TerraformPropertyName("key_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyVersion { get; set; }
 
     /// <summary>
     /// Location name of the key ring, e.g. &amp;quot;us-west1&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsLocation is required")]
-    public required TerraformProperty<string> KmsLocation
-    {
-        set => SetProperty("kms_location", value);
-    }
+    [TerraformPropertyName("kms_location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KmsLocation { get; set; }
 
     /// <summary>
     /// The Google Cloud project id of the project where the kms key stored. If empty,
@@ -45,10 +42,9 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     /// with CMEK, otherwise, the kms key is stored in the tenant project and
     /// encrypted with GMEK.
     /// </summary>
-    public TerraformProperty<string>? KmsProjectId
-    {
-        set => SetProperty("kms_project_id", value);
-    }
+    [TerraformPropertyName("kms_project_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsProjectId { get; set; }
 
     /// <summary>
     /// A key ring organizes keys in a specific Google Cloud location and allows you to
@@ -56,10 +52,9 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     /// unique across a Google Cloud project, but must be unique within a given location.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsRing is required")]
-    public required TerraformProperty<string> KmsRing
-    {
-        set => SetProperty("kms_ring", value);
-    }
+    [TerraformPropertyName("kms_ring")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KmsRing { get; set; }
 
 }
 
@@ -67,23 +62,21 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIntegrationsClientTimeoutsBlock : TerraformBlock
+public class GoogleIntegrationsClientTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -95,82 +88,58 @@ public class GoogleIntegrationsClient : TerraformResource
 {
     public GoogleIntegrationsClient(string name) : base("google_integrations_client", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_sample_integrations");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("run_as_service_account");
     }
 
     /// <summary>
     /// Indicates if sample integrations should be created along with provisioning.
     /// </summary>
-    public TerraformProperty<bool> CreateSampleIntegrations
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("create_sample_integrations");
-        set => SetProperty("create_sample_integrations", value);
-    }
+    [TerraformPropertyName("create_sample_integrations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CreateSampleIntegrations { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Location in which client needs to be provisioned.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// User input run-as service account, if empty, will bring up a new default service account.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> RunAsServiceAccount
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("run_as_service_account");
-        set => SetProperty("run_as_service_account", value);
-    }
+    [TerraformPropertyName("run_as_service_account")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RunAsServiceAccount { get; set; }
 
     /// <summary>
     /// Block for cloud_kms_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudKmsConfig block(s) allowed")]
-    public List<GoogleIntegrationsClientCloudKmsConfigBlock>? CloudKmsConfig
-    {
-        set => SetProperty("cloud_kms_config", value);
-    }
+    [TerraformPropertyName("cloud_kms_config")]
+    public TerraformList<TerraformBlock<GoogleIntegrationsClientCloudKmsConfigBlock>>? CloudKmsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleIntegrationsClientTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleIntegrationsClientTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

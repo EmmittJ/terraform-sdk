@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLbOutboundRuleDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermLbOutboundRuleDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,94 +24,85 @@ public class AzurermLbOutboundRuleDataSource : TerraformDataSource
 {
     public AzurermLbOutboundRuleDataSource(string name) : base("azurerm_lb_outbound_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("allocated_outbound_ports");
-        SetOutput("backend_address_pool_id");
-        SetOutput("enable_tcp_reset");
-        SetOutput("frontend_ip_configuration");
-        SetOutput("idle_timeout_in_minutes");
-        SetOutput("protocol");
-        SetOutput("tcp_reset_enabled");
-        SetOutput("id");
-        SetOutput("loadbalancer_id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The loadbalancer_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
-    public required TerraformProperty<string> LoadbalancerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("loadbalancer_id");
-        set => SetProperty("loadbalancer_id", value);
-    }
+    [TerraformPropertyName("loadbalancer_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LoadbalancerId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLbOutboundRuleDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLbOutboundRuleDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The allocated_outbound_ports attribute.
     /// </summary>
-    public TerraformExpression AllocatedOutboundPorts => this["allocated_outbound_ports"];
+    [TerraformPropertyName("allocated_outbound_ports")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AllocatedOutboundPorts => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "allocated_outbound_ports");
 
     /// <summary>
     /// The backend_address_pool_id attribute.
     /// </summary>
-    public TerraformExpression BackendAddressPoolId => this["backend_address_pool_id"];
+    [TerraformPropertyName("backend_address_pool_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BackendAddressPoolId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backend_address_pool_id");
 
     /// <summary>
     /// The enable_tcp_reset attribute.
     /// </summary>
-    public TerraformExpression EnableTcpReset => this["enable_tcp_reset"];
+    [TerraformPropertyName("enable_tcp_reset")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableTcpReset => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_tcp_reset");
 
     /// <summary>
     /// The frontend_ip_configuration attribute.
     /// </summary>
-    public TerraformExpression FrontendIpConfiguration => this["frontend_ip_configuration"];
+    [TerraformPropertyName("frontend_ip_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> FrontendIpConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "frontend_ip_configuration");
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformExpression IdleTimeoutInMinutes => this["idle_timeout_in_minutes"];
+    [TerraformPropertyName("idle_timeout_in_minutes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> IdleTimeoutInMinutes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "idle_timeout_in_minutes");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformExpression Protocol => this["protocol"];
+    [TerraformPropertyName("protocol")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Protocol => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protocol");
 
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
-    public TerraformExpression TcpResetEnabled => this["tcp_reset_enabled"];
+    [TerraformPropertyName("tcp_reset_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> TcpResetEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "tcp_reset_enabled");
 
 }

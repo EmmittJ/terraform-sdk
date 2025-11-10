@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerAppEnvironmentCertificateTimeoutsBlock : TerraformBlock
+public class AzurermContainerAppEnvironmentCertificateTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,114 +45,94 @@ public class AzurermContainerAppEnvironmentCertificate : TerraformResource
 {
     public AzurermContainerAppEnvironmentCertificate(string name) : base("azurerm_container_app_environment_certificate", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("expiration_date");
-        SetOutput("issue_date");
-        SetOutput("issuer");
-        SetOutput("subject_name");
-        SetOutput("thumbprint");
-        SetOutput("certificate_blob_base64");
-        SetOutput("certificate_password");
-        SetOutput("container_app_environment_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The Certificate Private Key as a base64 encoded PFX or PEM.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBlobBase64 is required")]
-    public required TerraformProperty<string> CertificateBlobBase64
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate_blob_base64");
-        set => SetProperty("certificate_blob_base64", value);
-    }
+    [TerraformPropertyName("certificate_blob_base64")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CertificateBlobBase64 { get; set; }
 
     /// <summary>
     /// The password for the Certificate.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificatePassword is required")]
-    public required TerraformProperty<string> CertificatePassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate_password");
-        set => SetProperty("certificate_password", value);
-    }
+    [TerraformPropertyName("certificate_password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CertificatePassword { get; set; }
 
     /// <summary>
     /// The Container App Managed Environment ID to configure this Certificate on.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
-    public required TerraformProperty<string> ContainerAppEnvironmentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_app_environment_id");
-        set => SetProperty("container_app_environment_id", value);
-    }
+    [TerraformPropertyName("container_app_environment_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContainerAppEnvironmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the Container Apps Environment Certificate.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermContainerAppEnvironmentCertificateTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermContainerAppEnvironmentCertificateTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The expiration date for the Certificate.
     /// </summary>
-    public TerraformExpression ExpirationDate => this["expiration_date"];
+    [TerraformPropertyName("expiration_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpirationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_date");
 
     /// <summary>
     /// The date of issue for the Certificate.
     /// </summary>
-    public TerraformExpression IssueDate => this["issue_date"];
+    [TerraformPropertyName("issue_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IssueDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "issue_date");
 
     /// <summary>
     /// The Certificate Issuer.
     /// </summary>
-    public TerraformExpression Issuer => this["issuer"];
+    [TerraformPropertyName("issuer")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Issuer => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "issuer");
 
     /// <summary>
     /// The Subject Name for the Certificate.
     /// </summary>
-    public TerraformExpression SubjectName => this["subject_name"];
+    [TerraformPropertyName("subject_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SubjectName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subject_name");
 
     /// <summary>
     /// The Thumbprint of the Certificate.
     /// </summary>
-    public TerraformExpression Thumbprint => this["thumbprint"];
+    [TerraformPropertyName("thumbprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Thumbprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "thumbprint");
 
 }

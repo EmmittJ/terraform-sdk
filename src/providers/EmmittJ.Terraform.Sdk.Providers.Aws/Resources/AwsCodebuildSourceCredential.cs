@@ -9,80 +9,58 @@ public class AwsCodebuildSourceCredential : TerraformResource
 {
     public AwsCodebuildSourceCredential(string name) : base("aws_codebuild_source_credential", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("auth_type");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("server_type");
-        SetOutput("token");
-        SetOutput("user_name");
     }
 
     /// <summary>
     /// The auth_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
-    public required TerraformProperty<string> AuthType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("auth_type");
-        set => SetProperty("auth_type", value);
-    }
+    [TerraformPropertyName("auth_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The server_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerType is required")]
-    public required TerraformProperty<string> ServerType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("server_type");
-        set => SetProperty("server_type", value);
-    }
+    [TerraformPropertyName("server_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServerType { get; set; }
 
     /// <summary>
     /// The token attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
-    public required TerraformProperty<string> Token
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("token");
-        set => SetProperty("token", value);
-    }
+    [TerraformPropertyName("token")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Token { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformProperty<string> UserName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
-        set => SetProperty("user_name", value);
-    }
+    [TerraformPropertyName("user_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

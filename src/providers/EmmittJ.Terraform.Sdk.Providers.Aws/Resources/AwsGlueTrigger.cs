@@ -6,47 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for actions in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueTriggerActionsBlock : TerraformBlock
+public class AwsGlueTriggerActionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The arguments attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Arguments
-    {
-        set => SetProperty("arguments", value);
-    }
+    [TerraformPropertyName("arguments")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Arguments { get; set; }
 
     /// <summary>
     /// The crawler_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CrawlerName
-    {
-        set => SetProperty("crawler_name", value);
-    }
+    [TerraformPropertyName("crawler_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CrawlerName { get; set; }
 
     /// <summary>
     /// The job_name attribute.
     /// </summary>
-    public TerraformProperty<string>? JobName
-    {
-        set => SetProperty("job_name", value);
-    }
+    [TerraformPropertyName("job_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? JobName { get; set; }
 
     /// <summary>
     /// The security_configuration attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityConfiguration
-    {
-        set => SetProperty("security_configuration", value);
-    }
+    [TerraformPropertyName("security_configuration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecurityConfiguration { get; set; }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? Timeout
-    {
-        set => SetProperty("timeout", value);
-    }
+    [TerraformPropertyName("timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Timeout { get; set; }
 
 }
 
@@ -54,24 +49,22 @@ public class AwsGlueTriggerActionsBlock : TerraformBlock
 /// Block type for event_batching_condition in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueTriggerEventBatchingConditionBlock : TerraformBlock
+public class AwsGlueTriggerEventBatchingConditionBlock : ITerraformBlock
 {
     /// <summary>
     /// The batch_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchSize is required")]
-    public required TerraformProperty<double> BatchSize
-    {
-        set => SetProperty("batch_size", value);
-    }
+    [TerraformPropertyName("batch_size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> BatchSize { get; set; }
 
     /// <summary>
     /// The batch_window attribute.
     /// </summary>
-    public TerraformProperty<double>? BatchWindow
-    {
-        set => SetProperty("batch_window", value);
-    }
+    [TerraformPropertyName("batch_window")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BatchWindow { get; set; }
 
 }
 
@@ -79,15 +72,14 @@ public class AwsGlueTriggerEventBatchingConditionBlock : TerraformBlock
 /// Block type for predicate in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueTriggerPredicateBlock : TerraformBlock
+public class AwsGlueTriggerPredicateBlock : ITerraformBlock
 {
     /// <summary>
     /// The logical attribute.
     /// </summary>
-    public TerraformProperty<string>? Logical
-    {
-        set => SetProperty("logical", value);
-    }
+    [TerraformPropertyName("logical")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Logical { get; set; }
 
 }
 
@@ -95,31 +87,28 @@ public class AwsGlueTriggerPredicateBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsGlueTriggerTimeoutsBlock : TerraformBlock
+public class AwsGlueTriggerTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -131,126 +120,86 @@ public class AwsGlueTrigger : TerraformResource
 {
     public AwsGlueTrigger(string name) : base("aws_glue_trigger", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("state");
-        SetOutput("description");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("schedule");
-        SetOutput("start_on_creation");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("type");
-        SetOutput("workflow_name");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
-    public TerraformProperty<string> Schedule
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("schedule");
-        set => SetProperty("schedule", value);
-    }
+    [TerraformPropertyName("schedule")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Schedule { get; set; }
 
     /// <summary>
     /// The start_on_creation attribute.
     /// </summary>
-    public TerraformProperty<bool> StartOnCreation
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("start_on_creation");
-        set => SetProperty("start_on_creation", value);
-    }
+    [TerraformPropertyName("start_on_creation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StartOnCreation { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// The workflow_name attribute.
     /// </summary>
-    public TerraformProperty<string> WorkflowName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workflow_name");
-        set => SetProperty("workflow_name", value);
-    }
+    [TerraformPropertyName("workflow_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WorkflowName { get; set; }
 
     /// <summary>
     /// Block for actions.
@@ -258,47 +207,43 @@ public class AwsGlueTrigger : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Actions block(s) required")]
-    public List<AwsGlueTriggerActionsBlock>? Actions
-    {
-        set => SetProperty("actions", value);
-    }
+    [TerraformPropertyName("actions")]
+    public TerraformList<TerraformBlock<AwsGlueTriggerActionsBlock>>? Actions { get; set; } = new();
 
     /// <summary>
     /// Block for event_batching_condition.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsGlueTriggerEventBatchingConditionBlock>? EventBatchingCondition
-    {
-        set => SetProperty("event_batching_condition", value);
-    }
+    [TerraformPropertyName("event_batching_condition")]
+    public TerraformList<TerraformBlock<AwsGlueTriggerEventBatchingConditionBlock>>? EventBatchingCondition { get; set; } = new();
 
     /// <summary>
     /// Block for predicate.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Predicate block(s) allowed")]
-    public List<AwsGlueTriggerPredicateBlock>? Predicate
-    {
-        set => SetProperty("predicate", value);
-    }
+    [TerraformPropertyName("predicate")]
+    public TerraformList<TerraformBlock<AwsGlueTriggerPredicateBlock>>? Predicate { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsGlueTriggerTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsGlueTriggerTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
 }

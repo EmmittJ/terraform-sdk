@@ -9,129 +9,92 @@ public class AwsApiGatewayAuthorizer : TerraformResource
 {
     public AwsApiGatewayAuthorizer(string name) : base("aws_api_gateway_authorizer", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("authorizer_credentials");
-        SetOutput("authorizer_result_ttl_in_seconds");
-        SetOutput("authorizer_uri");
-        SetOutput("id");
-        SetOutput("identity_source");
-        SetOutput("identity_validation_expression");
-        SetOutput("name");
-        SetOutput("provider_arns");
-        SetOutput("region");
-        SetOutput("rest_api_id");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The authorizer_credentials attribute.
     /// </summary>
-    public TerraformProperty<string> AuthorizerCredentials
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authorizer_credentials");
-        set => SetProperty("authorizer_credentials", value);
-    }
+    [TerraformPropertyName("authorizer_credentials")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthorizerCredentials { get; set; }
 
     /// <summary>
     /// The authorizer_result_ttl_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> AuthorizerResultTtlInSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("authorizer_result_ttl_in_seconds");
-        set => SetProperty("authorizer_result_ttl_in_seconds", value);
-    }
+    [TerraformPropertyName("authorizer_result_ttl_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AuthorizerResultTtlInSeconds { get; set; }
 
     /// <summary>
     /// The authorizer_uri attribute.
     /// </summary>
-    public TerraformProperty<string> AuthorizerUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authorizer_uri");
-        set => SetProperty("authorizer_uri", value);
-    }
+    [TerraformPropertyName("authorizer_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthorizerUri { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The identity_source attribute.
     /// </summary>
-    public TerraformProperty<string> IdentitySource
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_source");
-        set => SetProperty("identity_source", value);
-    }
+    [TerraformPropertyName("identity_source")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IdentitySource { get; set; }
 
     /// <summary>
     /// The identity_validation_expression attribute.
     /// </summary>
-    public TerraformProperty<string> IdentityValidationExpression
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_validation_expression");
-        set => SetProperty("identity_validation_expression", value);
-    }
+    [TerraformPropertyName("identity_validation_expression")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IdentityValidationExpression { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The provider_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ProviderArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("provider_arns");
-        set => SetProperty("provider_arns", value);
-    }
+    [TerraformPropertyName("provider_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ProviderArns { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
-    public required TerraformProperty<string> RestApiId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rest_api_id");
-        set => SetProperty("rest_api_id", value);
-    }
+    [TerraformPropertyName("rest_api_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RestApiId { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

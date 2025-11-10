@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for recurrence in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsmcontactsRotationRecurrenceBlock : TerraformBlock
+public class AwsSsmcontactsRotationRecurrenceBlock : ITerraformBlock
 {
     /// <summary>
     /// The number_of_on_calls attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfOnCalls is required")]
-    public required TerraformProperty<double> NumberOfOnCalls
-    {
-        set => SetProperty("number_of_on_calls", value);
-    }
+    [TerraformPropertyName("number_of_on_calls")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> NumberOfOnCalls { get; set; }
 
     /// <summary>
     /// The recurrence_multiplier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrenceMultiplier is required")]
-    public required TerraformProperty<double> RecurrenceMultiplier
-    {
-        set => SetProperty("recurrence_multiplier", value);
-    }
+    [TerraformPropertyName("recurrence_multiplier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> RecurrenceMultiplier { get; set; }
 
 }
 
@@ -35,101 +33,79 @@ public class AwsSsmcontactsRotation : TerraformResource
 {
     public AwsSsmcontactsRotation(string name) : base("aws_ssmcontacts_rotation", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("tags_all");
-        SetOutput("contact_ids");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("start_time");
-        SetOutput("tags");
-        SetOutput("time_zone_id");
     }
 
     /// <summary>
     /// The contact_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactIds is required")]
-    public List<TerraformProperty<string>> ContactIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("contact_ids");
-        set => SetProperty("contact_ids", value);
-    }
+    [TerraformPropertyName("contact_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? ContactIds { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformProperty<string> StartTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("start_time");
-        set => SetProperty("start_time", value);
-    }
+    [TerraformPropertyName("start_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StartTime { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The time_zone_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZoneId is required")]
-    public required TerraformProperty<string> TimeZoneId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_zone_id");
-        set => SetProperty("time_zone_id", value);
-    }
+    [TerraformPropertyName("time_zone_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TimeZoneId { get; set; }
 
     /// <summary>
     /// Block for recurrence.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsSsmcontactsRotationRecurrenceBlock>? Recurrence
-    {
-        set => SetProperty("recurrence", value);
-    }
+    [TerraformPropertyName("recurrence")]
+    public TerraformList<TerraformBlock<AwsSsmcontactsRotationRecurrenceBlock>>? Recurrence { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

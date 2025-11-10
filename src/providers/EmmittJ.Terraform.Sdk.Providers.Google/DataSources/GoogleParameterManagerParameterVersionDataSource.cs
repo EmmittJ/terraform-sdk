@@ -9,89 +9,78 @@ public class GoogleParameterManagerParameterVersionDataSource : TerraformDataSou
 {
     public GoogleParameterManagerParameterVersionDataSource(string name) : base("google_parameter_manager_parameter_version", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("disabled");
-        SetOutput("kms_key_version");
-        SetOutput("name");
-        SetOutput("parameter_data");
-        SetOutput("update_time");
-        SetOutput("id");
-        SetOutput("parameter");
-        SetOutput("parameter_version_id");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The parameter attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
-    public required TerraformProperty<string> Parameter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parameter");
-        set => SetProperty("parameter", value);
-    }
+    [TerraformPropertyName("parameter")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Parameter { get; set; }
 
     /// <summary>
     /// The parameter_version_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterVersionId is required")]
-    public required TerraformProperty<string> ParameterVersionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parameter_version_id");
-        set => SetProperty("parameter_version_id", value);
-    }
+    [TerraformPropertyName("parameter_version_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ParameterVersionId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    public TerraformExpression Disabled => this["disabled"];
+    [TerraformPropertyName("disabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Disabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "disabled");
 
     /// <summary>
     /// The kms_key_version attribute.
     /// </summary>
-    public TerraformExpression KmsKeyVersion => this["kms_key_version"];
+    [TerraformPropertyName("kms_key_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsKeyVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_version");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The parameter_data attribute.
     /// </summary>
-    public TerraformExpression ParameterData => this["parameter_data"];
+    [TerraformPropertyName("parameter_data")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ParameterData => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parameter_data");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

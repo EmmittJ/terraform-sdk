@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermRedisCacheDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermRedisCacheDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,178 +24,183 @@ public class AzurermRedisCacheDataSource : TerraformDataSource
 {
     public AzurermRedisCacheDataSource(string name) : base("azurerm_redis_cache", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_keys_authentication_enabled");
-        SetOutput("capacity");
-        SetOutput("family");
-        SetOutput("hostname");
-        SetOutput("location");
-        SetOutput("minimum_tls_version");
-        SetOutput("non_ssl_port_enabled");
-        SetOutput("patch_schedule");
-        SetOutput("port");
-        SetOutput("primary_access_key");
-        SetOutput("primary_connection_string");
-        SetOutput("private_static_ip_address");
-        SetOutput("redis_configuration");
-        SetOutput("secondary_access_key");
-        SetOutput("secondary_connection_string");
-        SetOutput("shard_count");
-        SetOutput("sku_name");
-        SetOutput("ssl_port");
-        SetOutput("subnet_id");
-        SetOutput("tags");
-        SetOutput("zones");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermRedisCacheDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermRedisCacheDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The access_keys_authentication_enabled attribute.
     /// </summary>
-    public TerraformExpression AccessKeysAuthenticationEnabled => this["access_keys_authentication_enabled"];
+    [TerraformPropertyName("access_keys_authentication_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AccessKeysAuthenticationEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "access_keys_authentication_enabled");
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformExpression Capacity => this["capacity"];
+    [TerraformPropertyName("capacity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Capacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "capacity");
 
     /// <summary>
     /// The family attribute.
     /// </summary>
-    public TerraformExpression Family => this["family"];
+    [TerraformPropertyName("family")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Family => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "family");
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
-    public TerraformExpression Hostname => this["hostname"];
+    [TerraformPropertyName("hostname")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Hostname => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hostname");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
-    public TerraformExpression MinimumTlsVersion => this["minimum_tls_version"];
+    [TerraformPropertyName("minimum_tls_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MinimumTlsVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "minimum_tls_version");
 
     /// <summary>
     /// The non_ssl_port_enabled attribute.
     /// </summary>
-    public TerraformExpression NonSslPortEnabled => this["non_ssl_port_enabled"];
+    [TerraformPropertyName("non_ssl_port_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> NonSslPortEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "non_ssl_port_enabled");
 
     /// <summary>
     /// The patch_schedule attribute.
     /// </summary>
-    public TerraformExpression PatchSchedule => this["patch_schedule"];
+    [TerraformPropertyName("patch_schedule")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PatchSchedule => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "patch_schedule");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformExpression Port => this["port"];
+    [TerraformPropertyName("port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Port => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "port");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
-    public TerraformExpression PrimaryAccessKey => this["primary_access_key"];
+    [TerraformPropertyName("primary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_access_key");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
-    public TerraformExpression PrimaryConnectionString => this["primary_connection_string"];
+    [TerraformPropertyName("primary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_connection_string");
 
     /// <summary>
     /// The private_static_ip_address attribute.
     /// </summary>
-    public TerraformExpression PrivateStaticIpAddress => this["private_static_ip_address"];
+    [TerraformPropertyName("private_static_ip_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateStaticIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_static_ip_address");
 
     /// <summary>
     /// The redis_configuration attribute.
     /// </summary>
-    public TerraformExpression RedisConfiguration => this["redis_configuration"];
+    [TerraformPropertyName("redis_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RedisConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "redis_configuration");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
-    public TerraformExpression SecondaryAccessKey => this["secondary_access_key"];
+    [TerraformPropertyName("secondary_access_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryAccessKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_access_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
-    public TerraformExpression SecondaryConnectionString => this["secondary_connection_string"];
+    [TerraformPropertyName("secondary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_connection_string");
 
     /// <summary>
     /// The shard_count attribute.
     /// </summary>
-    public TerraformExpression ShardCount => this["shard_count"];
+    [TerraformPropertyName("shard_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ShardCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "shard_count");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformExpression SkuName => this["sku_name"];
+    [TerraformPropertyName("sku_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SkuName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku_name");
 
     /// <summary>
     /// The ssl_port attribute.
     /// </summary>
-    public TerraformExpression SslPort => this["ssl_port"];
+    [TerraformPropertyName("ssl_port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SslPort => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ssl_port");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformExpression SubnetId => this["subnet_id"];
+    [TerraformPropertyName("subnet_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SubnetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subnet_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public TerraformExpression Zones => this["zones"];
+    [TerraformPropertyName("zones")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Zones => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "zones");
 
 }

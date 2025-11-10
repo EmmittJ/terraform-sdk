@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationTemplateDataSourceTimeoutsBlock : TerraformBlock
+public class AzureadApplicationTemplateDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,86 +24,76 @@ public class AzureadApplicationTemplateDataSource : TerraformDataSource
 {
     public AzureadApplicationTemplateDataSource(string name) : base("azuread_application_template", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("categories");
-        SetOutput("homepage_url");
-        SetOutput("logo_url");
-        SetOutput("publisher");
-        SetOutput("supported_provisioning_types");
-        SetOutput("supported_single_sign_on_modes");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("template_id");
     }
 
     /// <summary>
     /// The display name for the application template
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The application template&#39;s ID
     /// </summary>
-    public TerraformProperty<string> TemplateId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("template_id");
-        set => SetProperty("template_id", value);
-    }
+    [TerraformPropertyName("template_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TemplateId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "template_id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadApplicationTemplateDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadApplicationTemplateDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// List of categories for this templated application
     /// </summary>
-    public TerraformExpression Categories => this["categories"];
+    [TerraformPropertyName("categories")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Categories => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "categories");
 
     /// <summary>
     /// Home page URL of the templated application
     /// </summary>
-    public TerraformExpression HomepageUrl => this["homepage_url"];
+    [TerraformPropertyName("homepage_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HomepageUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "homepage_url");
 
     /// <summary>
     /// URL to retrieve the logo for this templated application
     /// </summary>
-    public TerraformExpression LogoUrl => this["logo_url"];
+    [TerraformPropertyName("logo_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LogoUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "logo_url");
 
     /// <summary>
     /// Name of the publisher for this templated application
     /// </summary>
-    public TerraformExpression Publisher => this["publisher"];
+    [TerraformPropertyName("publisher")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Publisher => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "publisher");
 
     /// <summary>
     /// The provisioning modes supported by this templated application
     /// </summary>
-    public TerraformExpression SupportedProvisioningTypes => this["supported_provisioning_types"];
+    [TerraformPropertyName("supported_provisioning_types")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SupportedProvisioningTypes => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "supported_provisioning_types");
 
     /// <summary>
     /// The single sign on modes supported by this templated application
     /// </summary>
-    public TerraformExpression SupportedSingleSignOnModes => this["supported_single_sign_on_modes"];
+    [TerraformPropertyName("supported_single_sign_on_modes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SupportedSingleSignOnModes => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "supported_single_sign_on_modes");
 
 }

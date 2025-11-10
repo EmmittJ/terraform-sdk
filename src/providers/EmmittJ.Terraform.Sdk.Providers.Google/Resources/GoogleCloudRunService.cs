@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
+public class GoogleCloudRunServiceMetadataBlock : ITerraformBlock
 {
     /// <summary>
     /// Annotations is a key value map stored with a resource that
@@ -37,34 +37,30 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
-    {
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? EffectiveAnnotations
-    {
-        set => SetProperty("effective_annotations", value);
-    }
+    [TerraformPropertyName("effective_annotations")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? EffectiveLabels
-    {
-        set => SetProperty("effective_labels", value);
-    }
+    [TerraformPropertyName("effective_labels")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "effective_labels");
 
     /// <summary>
     /// A sequence number representing a specific generation of the desired state.
     /// </summary>
-    public TerraformProperty<double>? Generation
-    {
-        set => SetProperty("generation", value);
-    }
+    [TerraformPropertyName("generation")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Generation => new TerraformReferenceProperty<TerraformProperty<double>>("", "generation");
 
     /// <summary>
     /// Map of string keys and values that can be used to organize and categorize
@@ -74,19 +70,17 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
-    {
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// In Cloud Run the namespace must be equal to either the
     /// project ID or project number.
     /// </summary>
-    public TerraformProperty<string>? Namespace
-    {
-        set => SetProperty("namespace", value);
-    }
+    [TerraformPropertyName("namespace")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Namespace { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "namespace");
 
     /// <summary>
     /// An opaque value that represents the internal version of this object that
@@ -95,36 +89,32 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
     /// resource or set of resources. They may only be valid for a
     /// particular resource or set of resources.
     /// </summary>
-    public TerraformProperty<string>? ResourceVersion
-    {
-        set => SetProperty("resource_version", value);
-    }
+    [TerraformPropertyName("resource_version")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceVersion => new TerraformReferenceProperty<TerraformProperty<string>>("", "resource_version");
 
     /// <summary>
     /// SelfLink is a URL representing this object.
     /// </summary>
-    public TerraformProperty<string>? SelfLink
-    {
-        set => SetProperty("self_link", value);
-    }
+    [TerraformPropertyName("self_link")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>("", "self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? TerraformLabels
-    {
-        set => SetProperty("terraform_labels", value);
-    }
+    [TerraformPropertyName("terraform_labels")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>("", "terraform_labels");
 
     /// <summary>
     /// UID is a unique id generated by the server on successful creation of a resource and is not
     /// allowed to change on PUT operations.
     /// </summary>
-    public TerraformProperty<string>? Uid
-    {
-        set => SetProperty("uid", value);
-    }
+    [TerraformPropertyName("uid")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>("", "uid");
 
 }
 
@@ -132,7 +122,7 @@ public class GoogleCloudRunServiceMetadataBlock : TerraformBlock
 /// Block type for template in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunServiceTemplateBlock : TerraformBlock
+public class GoogleCloudRunServiceTemplateBlock : ITerraformBlock
 {
 }
 
@@ -140,31 +130,28 @@ public class GoogleCloudRunServiceTemplateBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCloudRunServiceTimeoutsBlock : TerraformBlock
+public class GoogleCloudRunServiceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -172,7 +159,7 @@ public class GoogleCloudRunServiceTimeoutsBlock : TerraformBlock
 /// Block type for traffic in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunServiceTrafficBlock : TerraformBlock
+public class GoogleCloudRunServiceTrafficBlock : ITerraformBlock
 {
     /// <summary>
     /// LatestRevision may be optionally provided to indicate that the latest ready
@@ -180,45 +167,40 @@ public class GoogleCloudRunServiceTrafficBlock : TerraformBlock
     /// provided LatestRevision must be true if RevisionName is empty; it must be
     /// false when RevisionName is non-empty.
     /// </summary>
-    public TerraformProperty<bool>? LatestRevision
-    {
-        set => SetProperty("latest_revision", value);
-    }
+    [TerraformPropertyName("latest_revision")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LatestRevision { get; set; }
 
     /// <summary>
     /// Percent specifies percent of the traffic to this Revision or Configuration.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percent is required")]
-    public required TerraformProperty<double> Percent
-    {
-        set => SetProperty("percent", value);
-    }
+    [TerraformPropertyName("percent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Percent { get; set; }
 
     /// <summary>
     /// RevisionName of a specific revision to which to send this portion of traffic.
     /// </summary>
-    public TerraformProperty<string>? RevisionName
-    {
-        set => SetProperty("revision_name", value);
-    }
+    [TerraformPropertyName("revision_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RevisionName { get; set; }
 
     /// <summary>
     /// Tag is optionally used to expose a dedicated url for referencing this target exclusively.
     /// </summary>
-    public TerraformProperty<string>? Tag
-    {
-        set => SetProperty("tag", value);
-    }
+    [TerraformPropertyName("tag")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Tag { get; set; }
 
     /// <summary>
     /// URL displays the URL for accessing tagged traffic targets. URL is displayed in status,
     /// and is disallowed on spec. URL must contain a scheme (e.g. http://) and a hostname,
     /// but may not contain anything else (e.g. basic auth, url path, etc.)
     /// </summary>
-    public TerraformProperty<string>? Url
-    {
-        set => SetProperty("url", value);
-    }
+    [TerraformPropertyName("url")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>("", "url");
 
 }
 
@@ -230,17 +212,6 @@ public class GoogleCloudRunService : TerraformResource
 {
     public GoogleCloudRunService(string name) : base("google_cloud_run_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("status");
-        SetOutput("autogenerate_revision_name");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -250,30 +221,24 @@ public class GoogleCloudRunService : TerraformResource
     /// (For legacy support, if &#39;template.metadata.name&#39; is unset in state while
     /// this field is set to false, the revision name will still autogenerate.)
     /// </summary>
-    public TerraformProperty<bool> AutogenerateRevisionName
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("autogenerate_revision_name");
-        set => SetProperty("autogenerate_revision_name", value);
-    }
+    [TerraformPropertyName("autogenerate_revision_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutogenerateRevisionName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location of the cloud run instance. eg us-central1
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// Name must be unique within a Google Cloud project and region.
@@ -282,62 +247,52 @@ public class GoogleCloudRunService : TerraformResource
     /// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for metadata.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
-    public List<GoogleCloudRunServiceMetadataBlock>? Metadata
-    {
-        set => SetProperty("metadata", value);
-    }
+    [TerraformPropertyName("metadata")]
+    public TerraformList<TerraformBlock<GoogleCloudRunServiceMetadataBlock>>? Metadata { get; set; } = new();
 
     /// <summary>
     /// Block for template.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
-    public List<GoogleCloudRunServiceTemplateBlock>? Template
-    {
-        set => SetProperty("template", value);
-    }
+    [TerraformPropertyName("template")]
+    public TerraformList<TerraformBlock<GoogleCloudRunServiceTemplateBlock>>? Template { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleCloudRunServiceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleCloudRunServiceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for traffic.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleCloudRunServiceTrafficBlock>? Traffic
-    {
-        set => SetProperty("traffic", value);
-    }
+    [TerraformPropertyName("traffic")]
+    public TerraformList<TerraformBlock<GoogleCloudRunServiceTrafficBlock>>? Traffic { get; set; } = new();
 
     /// <summary>
     /// The current status of the Service.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Status => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "status");
 
 }

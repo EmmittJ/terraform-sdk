@@ -9,90 +9,70 @@ public class AwsRedshiftDataShareConsumerAssociation : TerraformResource
 {
     public AwsRedshiftDataShareConsumerAssociation(string name) : base("aws_redshift_data_share_consumer_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("managed_by");
-        SetOutput("producer_arn");
-        SetOutput("allow_writes");
-        SetOutput("associate_entire_account");
-        SetOutput("consumer_arn");
-        SetOutput("consumer_region");
-        SetOutput("data_share_arn");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The allow_writes attribute.
     /// </summary>
-    public TerraformProperty<bool> AllowWrites
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_writes");
-        set => SetProperty("allow_writes", value);
-    }
+    [TerraformPropertyName("allow_writes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowWrites { get; set; }
 
     /// <summary>
     /// The associate_entire_account attribute.
     /// </summary>
-    public TerraformProperty<bool> AssociateEntireAccount
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("associate_entire_account");
-        set => SetProperty("associate_entire_account", value);
-    }
+    [TerraformPropertyName("associate_entire_account")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AssociateEntireAccount { get; set; }
 
     /// <summary>
     /// The consumer_arn attribute.
     /// </summary>
-    public TerraformProperty<string> ConsumerArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("consumer_arn");
-        set => SetProperty("consumer_arn", value);
-    }
+    [TerraformPropertyName("consumer_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConsumerArn { get; set; }
 
     /// <summary>
     /// The consumer_region attribute.
     /// </summary>
-    public TerraformProperty<string> ConsumerRegion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("consumer_region");
-        set => SetProperty("consumer_region", value);
-    }
+    [TerraformPropertyName("consumer_region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConsumerRegion { get; set; }
 
     /// <summary>
     /// The data_share_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareArn is required")]
-    public required TerraformProperty<string> DataShareArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_share_arn");
-        set => SetProperty("data_share_arn", value);
-    }
+    [TerraformPropertyName("data_share_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataShareArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The managed_by attribute.
     /// </summary>
-    public TerraformExpression ManagedBy => this["managed_by"];
+    [TerraformPropertyName("managed_by")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ManagedBy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "managed_by");
 
     /// <summary>
     /// The producer_arn attribute.
     /// </summary>
-    public TerraformExpression ProducerArn => this["producer_arn"];
+    [TerraformPropertyName("producer_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProducerArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "producer_arn");
 
 }

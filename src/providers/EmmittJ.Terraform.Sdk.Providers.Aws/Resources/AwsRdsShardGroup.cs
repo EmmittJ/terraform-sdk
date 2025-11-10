@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRdsShardGroupTimeoutsBlock : TerraformBlock
+public class AwsRdsShardGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,127 +38,100 @@ public class AwsRdsShardGroup : TerraformResource
 {
     public AwsRdsShardGroup(string name) : base("aws_rds_shard_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("db_shard_group_resource_id");
-        SetOutput("endpoint");
-        SetOutput("tags_all");
-        SetOutput("compute_redundancy");
-        SetOutput("db_cluster_identifier");
-        SetOutput("db_shard_group_identifier");
-        SetOutput("max_acu");
-        SetOutput("min_acu");
-        SetOutput("publicly_accessible");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The compute_redundancy attribute.
     /// </summary>
-    public TerraformProperty<double> ComputeRedundancy
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("compute_redundancy");
-        set => SetProperty("compute_redundancy", value);
-    }
+    [TerraformPropertyName("compute_redundancy")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> ComputeRedundancy { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "compute_redundancy");
 
     /// <summary>
     /// The db_cluster_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterIdentifier is required")]
-    public required TerraformProperty<string> DbClusterIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_cluster_identifier");
-        set => SetProperty("db_cluster_identifier", value);
-    }
+    [TerraformPropertyName("db_cluster_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DbClusterIdentifier { get; set; }
 
     /// <summary>
     /// The db_shard_group_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbShardGroupIdentifier is required")]
-    public required TerraformProperty<string> DbShardGroupIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_shard_group_identifier");
-        set => SetProperty("db_shard_group_identifier", value);
-    }
+    [TerraformPropertyName("db_shard_group_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DbShardGroupIdentifier { get; set; }
 
     /// <summary>
     /// The max_acu attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAcu is required")]
-    public required TerraformProperty<double> MaxAcu
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_acu");
-        set => SetProperty("max_acu", value);
-    }
+    [TerraformPropertyName("max_acu")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxAcu { get; set; }
 
     /// <summary>
     /// The min_acu attribute.
     /// </summary>
-    public TerraformProperty<double> MinAcu
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("min_acu");
-        set => SetProperty("min_acu", value);
-    }
+    [TerraformPropertyName("min_acu")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MinAcu { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_acu");
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformProperty<bool> PubliclyAccessible
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("publicly_accessible");
-        set => SetProperty("publicly_accessible", value);
-    }
+    [TerraformPropertyName("publicly_accessible")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> PubliclyAccessible { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "publicly_accessible");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsRdsShardGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsRdsShardGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The db_shard_group_resource_id attribute.
     /// </summary>
-    public TerraformExpression DbShardGroupResourceId => this["db_shard_group_resource_id"];
+    [TerraformPropertyName("db_shard_group_resource_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DbShardGroupResourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "db_shard_group_resource_id");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

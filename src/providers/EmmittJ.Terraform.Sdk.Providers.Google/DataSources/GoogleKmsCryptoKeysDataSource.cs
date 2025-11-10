@@ -9,15 +9,6 @@ public class GoogleKmsCryptoKeysDataSource : TerraformDataSource
 {
     public GoogleKmsCryptoKeysDataSource(string name) : base("google_kms_crypto_keys", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("keys");
-        SetOutput("filter");
-        SetOutput("id");
-        SetOutput("key_ring");
     }
 
     /// <summary>
@@ -31,34 +22,30 @@ public class GoogleKmsCryptoKeysDataSource : TerraformDataSource
     /// 					[See the documentation about using filters](https://cloud.google.com/kms/docs/sorting-and-filtering)
     /// 				
     /// </summary>
-    public TerraformProperty<string> Filter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filter");
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key ring that the keys belongs to. Format: &#39;projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
-    public required TerraformProperty<string> KeyRing
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_ring");
-        set => SetProperty("key_ring", value);
-    }
+    [TerraformPropertyName("key_ring")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyRing { get; set; }
 
     /// <summary>
     /// A list of all the retrieved keys from the provided key ring
     /// </summary>
-    public TerraformExpression Keys => this["keys"];
+    [TerraformPropertyName("keys")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Keys => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "keys");
 
 }

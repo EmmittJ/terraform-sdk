@@ -9,80 +9,58 @@ public class AwsCodeartifactRepositoryEndpointDataSource : TerraformDataSource
 {
     public AwsCodeartifactRepositoryEndpointDataSource(string name) : base("aws_codeartifact_repository_endpoint", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("repository_endpoint");
-        SetOutput("domain");
-        SetOutput("domain_owner");
-        SetOutput("format");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("repository");
     }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
-    public required TerraformProperty<string> Domain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain");
-        set => SetProperty("domain", value);
-    }
+    [TerraformPropertyName("domain")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Domain { get; set; }
 
     /// <summary>
     /// The domain_owner attribute.
     /// </summary>
-    public TerraformProperty<string> DomainOwner
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_owner");
-        set => SetProperty("domain_owner", value);
-    }
+    [TerraformPropertyName("domain_owner")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DomainOwner { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_owner");
 
     /// <summary>
     /// The format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
-    public required TerraformProperty<string> Format
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("format");
-        set => SetProperty("format", value);
-    }
+    [TerraformPropertyName("format")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Format { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The repository attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
-    public required TerraformProperty<string> Repository
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("repository");
-        set => SetProperty("repository", value);
-    }
+    [TerraformPropertyName("repository")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Repository { get; set; }
 
     /// <summary>
     /// The repository_endpoint attribute.
     /// </summary>
-    public TerraformExpression RepositoryEndpoint => this["repository_endpoint"];
+    [TerraformPropertyName("repository_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RepositoryEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "repository_endpoint");
 
 }

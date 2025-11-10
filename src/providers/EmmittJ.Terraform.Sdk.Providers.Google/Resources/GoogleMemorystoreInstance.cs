@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automated_backup_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMemorystoreInstanceAutomatedBackupConfigBlock : TerraformBlock
+public class GoogleMemorystoreInstanceAutomatedBackupConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// How long to keep automated backups before the backups are deleted.
@@ -14,10 +14,9 @@ public class GoogleMemorystoreInstanceAutomatedBackupConfigBlock : TerraformBloc
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;. The default_value is &amp;quot;3024000s&amp;quot;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retention is required")]
-    public required TerraformProperty<string> Retention
-    {
-        set => SetProperty("retention", value);
-    }
+    [TerraformPropertyName("retention")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Retention { get; set; }
 
 }
 
@@ -25,7 +24,7 @@ public class GoogleMemorystoreInstanceAutomatedBackupConfigBlock : TerraformBloc
 /// Block type for cross_instance_replication_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlock : TerraformBlock
+public class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The instance role supports the following values:
@@ -34,26 +33,23 @@ public class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlock : Terr
     /// 3. &#39;PRIMARY&#39;: This instance serves as the replication source for secondary instance that are replicating from it. Any data written to it is automatically replicated to its secondary clusters. It allows both reads and writes.
     /// 4. &#39;SECONDARY&#39;: This instance replicates data from the primary instance. It allows only reads. Possible values: [&amp;quot;INSTANCE_ROLE_UNSPECIFIED&amp;quot;, &amp;quot;NONE&amp;quot;, &amp;quot;PRIMARY&amp;quot;, &amp;quot;SECONDARY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? InstanceRole
-    {
-        set => SetProperty("instance_role", value);
-    }
+    [TerraformPropertyName("instance_role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InstanceRole { get; set; }
 
     /// <summary>
     /// An output only view of all the member instance participating in cross instance replication. This field is populated for all the member clusters irrespective of their cluster role.
     /// </summary>
-    public List<TerraformProperty<object>>? Membership
-    {
-        set => SetProperty("membership", value);
-    }
+    [TerraformPropertyName("membership")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Membership => new TerraformReferenceProperty<List<TerraformProperty<object>>>("", "membership");
 
     /// <summary>
     /// The last time cross instance replication config was updated.
     /// </summary>
-    public TerraformProperty<string>? UpdateTime
-    {
-        set => SetProperty("update_time", value);
-    }
+    [TerraformPropertyName("update_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "update_time");
 
 }
 
@@ -61,26 +57,24 @@ public class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlock : Terr
 /// Block type for desired_auto_created_endpoints in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock : TerraformBlock
+public class GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock : ITerraformBlock
 {
     /// <summary>
     /// Required. The consumer network where the IP address resides, in the form of
     /// projects/{project_id}/global/networks/{network_id}.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
-    public required TerraformProperty<string> Network
-    {
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
 
     /// <summary>
     /// Required. The consumer project_id where the forwarding rule is created from.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
-    public required TerraformProperty<string> ProjectId
-    {
-        set => SetProperty("project_id", value);
-    }
+    [TerraformPropertyName("project_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProjectId { get; set; }
 
 }
 
@@ -89,26 +83,24 @@ public class GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock : Terrafo
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock : TerraformBlock
+public class GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock : ITerraformBlock
 {
     /// <summary>
     /// Required. The consumer network where the IP address resides, in the form of
     /// projects/{project_id}/global/networks/{network_id}.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
-    public required TerraformProperty<string> Network
-    {
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Network { get; set; }
 
     /// <summary>
     /// Required. The consumer project_id where the forwarding rule is created from.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
-    public required TerraformProperty<string> ProjectId
-    {
-        set => SetProperty("project_id", value);
-    }
+    [TerraformPropertyName("project_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProjectId { get; set; }
 
 }
 
@@ -116,17 +108,16 @@ public class GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock : Terraform
 /// Block type for gcs_source in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMemorystoreInstanceGcsSourceBlock : TerraformBlock
+public class GoogleMemorystoreInstanceGcsSourceBlock : ITerraformBlock
 {
     /// <summary>
     /// URIs of the GCS objects to import.
     /// Example: gs://bucket1/object1, gs://bucket2/folder2/object2
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
-    public HashSet<TerraformProperty<string>>? Uris
-    {
-        set => SetProperty("uris", value);
-    }
+    [TerraformPropertyName("uris")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Uris { get; set; }
 
 }
 
@@ -134,27 +125,25 @@ public class GoogleMemorystoreInstanceGcsSourceBlock : TerraformBlock
 /// Block type for maintenance_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMemorystoreInstanceMaintenancePolicyBlock : TerraformBlock
+public class GoogleMemorystoreInstanceMaintenancePolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The time when the policy was created.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond
     /// resolution and up to nine fractional digits.
     /// </summary>
-    public TerraformProperty<string>? CreateTime
-    {
-        set => SetProperty("create_time", value);
-    }
+    [TerraformPropertyName("create_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "create_time");
 
     /// <summary>
     /// The time when the policy was last updated.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond
     /// resolution and up to nine fractional digits.
     /// </summary>
-    public TerraformProperty<string>? UpdateTime
-    {
-        set => SetProperty("update_time", value);
-    }
+    [TerraformPropertyName("update_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "update_time");
 
 }
 
@@ -162,16 +151,15 @@ public class GoogleMemorystoreInstanceMaintenancePolicyBlock : TerraformBlock
 /// Block type for managed_backup_source in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMemorystoreInstanceManagedBackupSourceBlock : TerraformBlock
+public class GoogleMemorystoreInstanceManagedBackupSourceBlock : ITerraformBlock
 {
     /// <summary>
     /// Example: &#39;projects/{project}/locations/{location}/backupCollections/{collection}/backups/{backup}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backup is required")]
-    public required TerraformProperty<string> Backup
-    {
-        set => SetProperty("backup", value);
-    }
+    [TerraformPropertyName("backup")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Backup { get; set; }
 
 }
 
@@ -179,7 +167,7 @@ public class GoogleMemorystoreInstanceManagedBackupSourceBlock : TerraformBlock
 /// Block type for persistence_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMemorystoreInstancePersistenceConfigBlock : TerraformBlock
+public class GoogleMemorystoreInstancePersistenceConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Optional. Current persistence mode. 
@@ -188,10 +176,9 @@ public class GoogleMemorystoreInstancePersistenceConfigBlock : TerraformBlock
     /// RDB
     /// AOF Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;RDB&amp;quot;, &amp;quot;AOF&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Mode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "mode");
 
 }
 
@@ -199,31 +186,28 @@ public class GoogleMemorystoreInstancePersistenceConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleMemorystoreInstanceTimeoutsBlock : TerraformBlock
+public class GoogleMemorystoreInstanceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -231,7 +215,7 @@ public class GoogleMemorystoreInstanceTimeoutsBlock : TerraformBlock
 /// Block type for zone_distribution_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMemorystoreInstanceZoneDistributionConfigBlock : TerraformBlock
+public class GoogleMemorystoreInstanceZoneDistributionConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Optional. Current zone distribution mode. Defaults to MULTI_ZONE. 
@@ -239,19 +223,17 @@ public class GoogleMemorystoreInstanceZoneDistributionConfigBlock : TerraformBlo
     ///  MULTI_ZONE
     /// SINGLE_ZONE Possible values: [&amp;quot;MULTI_ZONE&amp;quot;, &amp;quot;SINGLE_ZONE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Mode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "mode");
 
     /// <summary>
     /// Optional. Defines zone where all resources will be allocated with SINGLE_ZONE mode.
     /// Ignored for MULTI_ZONE mode.
     /// </summary>
-    public TerraformProperty<string>? Zone
-    {
-        set => SetProperty("zone", value);
-    }
+    [TerraformPropertyName("zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Zone { get; set; }
 
 }
 
@@ -263,45 +245,6 @@ public class GoogleMemorystoreInstance : TerraformResource
 {
     public GoogleMemorystoreInstance(string name) : base("google_memorystore_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("available_maintenance_versions");
-        SetOutput("backup_collection");
-        SetOutput("create_time");
-        SetOutput("discovery_endpoints");
-        SetOutput("effective_labels");
-        SetOutput("effective_maintenance_version");
-        SetOutput("endpoints");
-        SetOutput("maintenance_schedule");
-        SetOutput("managed_server_ca");
-        SetOutput("name");
-        SetOutput("node_config");
-        SetOutput("psc_attachment_details");
-        SetOutput("psc_auto_connections");
-        SetOutput("state");
-        SetOutput("state_info");
-        SetOutput("terraform_labels");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("authorization_mode");
-        SetOutput("deletion_protection_enabled");
-        SetOutput("engine_configs");
-        SetOutput("engine_version");
-        SetOutput("id");
-        SetOutput("instance_id");
-        SetOutput("kms_key");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("maintenance_version");
-        SetOutput("mode");
-        SetOutput("node_type");
-        SetOutput("project");
-        SetOutput("replica_count");
-        SetOutput("shard_count");
-        SetOutput("transit_encryption_mode");
     }
 
     /// <summary>
@@ -309,47 +252,37 @@ public class GoogleMemorystoreInstance : TerraformResource
     ///  AUTH_DISABLED
     /// IAM_AUTH
     /// </summary>
-    public TerraformProperty<string> AuthorizationMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authorization_mode");
-        set => SetProperty("authorization_mode", value);
-    }
+    [TerraformPropertyName("authorization_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AuthorizationMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "authorization_mode");
 
     /// <summary>
     /// Optional. If set to true deletion of the instance will fail.
     /// </summary>
-    public TerraformProperty<bool> DeletionProtectionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection_enabled");
-        set => SetProperty("deletion_protection_enabled", value);
-    }
+    [TerraformPropertyName("deletion_protection_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeletionProtectionEnabled { get; set; }
 
     /// <summary>
     /// Optional. User-provided engine configurations for the instance.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> EngineConfigs
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("engine_configs");
-        set => SetProperty("engine_configs", value);
-    }
+    [TerraformPropertyName("engine_configs")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? EngineConfigs { get; set; }
 
     /// <summary>
     /// Optional. Engine version of the instance.
     /// </summary>
-    public TerraformProperty<string> EngineVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("engine_version");
-        set => SetProperty("engine_version", value);
-    }
+    [TerraformPropertyName("engine_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EngineVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Required. The ID to use for the instance, which will become the final component of
@@ -364,20 +297,16 @@ public class GoogleMemorystoreInstance : TerraformResource
     /// * Must be unique within a location
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
-    public required TerraformProperty<string> InstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
-        set => SetProperty("instance_id", value);
-    }
+    [TerraformPropertyName("instance_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
 
     /// <summary>
     /// The KMS key used to encrypt the at-rest data of the cluster
     /// </summary>
-    public TerraformProperty<string> KmsKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key");
-        set => SetProperty("kms_key", value);
-    }
+    [TerraformPropertyName("kms_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKey { get; set; }
 
     /// <summary>
     /// Optional. Labels to represent user-provided metadata. 
@@ -385,31 +314,25 @@ public class GoogleMemorystoreInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type &#39;memorystore.googleapis.com/CertificateAuthority&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// This field can be used to trigger self service update to indicate the desired maintenance version. The input to this field can be determined by the available_maintenance_versions field.
     /// *Note*: This field can only be specified when updating an existing cluster to a newer version. Downgrades are currently not supported!
     /// </summary>
-    public TerraformProperty<string> MaintenanceVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_version");
-        set => SetProperty("maintenance_version", value);
-    }
+    [TerraformPropertyName("maintenance_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaintenanceVersion { get; set; }
 
     /// <summary>
     /// Optional. cluster or cluster-disabled. 
@@ -417,11 +340,9 @@ public class GoogleMemorystoreInstance : TerraformResource
     ///  CLUSTER
     ///  CLUSTER_DISABLED Possible values: [&amp;quot;CLUSTER&amp;quot;, &amp;quot;CLUSTER_DISABLED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> Mode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mode");
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Mode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mode");
 
     /// <summary>
     /// Optional. Machine type for individual nodes of the instance. 
@@ -431,39 +352,31 @@ public class GoogleMemorystoreInstance : TerraformResource
     /// HIGHMEM_XLARGE
     /// STANDARD_SMALL
     /// </summary>
-    public TerraformProperty<string> NodeType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("node_type");
-        set => SetProperty("node_type", value);
-    }
+    [TerraformPropertyName("node_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NodeType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_type");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Optional. Number of replica nodes per shard. If omitted the default is 0 replicas.
     /// </summary>
-    public TerraformProperty<double> ReplicaCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("replica_count");
-        set => SetProperty("replica_count", value);
-    }
+    [TerraformPropertyName("replica_count")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> ReplicaCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "replica_count");
 
     /// <summary>
     /// Required. Number of shards for the instance.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCount is required")]
-    public required TerraformProperty<double> ShardCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("shard_count");
-        set => SetProperty("shard_count", value);
-    }
+    [TerraformPropertyName("shard_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ShardCount { get; set; }
 
     /// <summary>
     /// Optional. Immutable. In-transit encryption mode of the instance. 
@@ -471,176 +384,180 @@ public class GoogleMemorystoreInstance : TerraformResource
     ///  TRANSIT_ENCRYPTION_DISABLED
     /// SERVER_AUTHENTICATION
     /// </summary>
-    public TerraformProperty<string> TransitEncryptionMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("transit_encryption_mode");
-        set => SetProperty("transit_encryption_mode", value);
-    }
+    [TerraformPropertyName("transit_encryption_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TransitEncryptionMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "transit_encryption_mode");
 
     /// <summary>
     /// Block for automated_backup_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedBackupConfig block(s) allowed")]
-    public List<GoogleMemorystoreInstanceAutomatedBackupConfigBlock>? AutomatedBackupConfig
-    {
-        set => SetProperty("automated_backup_config", value);
-    }
+    [TerraformPropertyName("automated_backup_config")]
+    public TerraformList<TerraformBlock<GoogleMemorystoreInstanceAutomatedBackupConfigBlock>>? AutomatedBackupConfig { get; set; } = new();
 
     /// <summary>
     /// Block for cross_instance_replication_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CrossInstanceReplicationConfig block(s) allowed")]
-    public List<GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlock>? CrossInstanceReplicationConfig
-    {
-        set => SetProperty("cross_instance_replication_config", value);
-    }
+    [TerraformPropertyName("cross_instance_replication_config")]
+    public TerraformList<TerraformBlock<GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlock>>? CrossInstanceReplicationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for desired_auto_created_endpoints.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock>? DesiredAutoCreatedEndpoints
-    {
-        set => SetProperty("desired_auto_created_endpoints", value);
-    }
+    [TerraformPropertyName("desired_auto_created_endpoints")]
+    public TerraformList<TerraformBlock<GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock>>? DesiredAutoCreatedEndpoints { get; set; } = new();
 
     /// <summary>
     /// Block for desired_psc_auto_connections.
     /// Nesting mode: list
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    public List<GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock>? DesiredPscAutoConnections
-    {
-        set => SetProperty("desired_psc_auto_connections", value);
-    }
+    [TerraformPropertyName("desired_psc_auto_connections")]
+    public TerraformList<TerraformBlock<GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock>>? DesiredPscAutoConnections { get; set; } = new();
 
     /// <summary>
     /// Block for gcs_source.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsSource block(s) allowed")]
-    public List<GoogleMemorystoreInstanceGcsSourceBlock>? GcsSource
-    {
-        set => SetProperty("gcs_source", value);
-    }
+    [TerraformPropertyName("gcs_source")]
+    public TerraformList<TerraformBlock<GoogleMemorystoreInstanceGcsSourceBlock>>? GcsSource { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
-    public List<GoogleMemorystoreInstanceMaintenancePolicyBlock>? MaintenancePolicy
-    {
-        set => SetProperty("maintenance_policy", value);
-    }
+    [TerraformPropertyName("maintenance_policy")]
+    public TerraformList<TerraformBlock<GoogleMemorystoreInstanceMaintenancePolicyBlock>>? MaintenancePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for managed_backup_source.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedBackupSource block(s) allowed")]
-    public List<GoogleMemorystoreInstanceManagedBackupSourceBlock>? ManagedBackupSource
-    {
-        set => SetProperty("managed_backup_source", value);
-    }
+    [TerraformPropertyName("managed_backup_source")]
+    public TerraformList<TerraformBlock<GoogleMemorystoreInstanceManagedBackupSourceBlock>>? ManagedBackupSource { get; set; } = new();
 
     /// <summary>
     /// Block for persistence_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistenceConfig block(s) allowed")]
-    public List<GoogleMemorystoreInstancePersistenceConfigBlock>? PersistenceConfig
-    {
-        set => SetProperty("persistence_config", value);
-    }
+    [TerraformPropertyName("persistence_config")]
+    public TerraformList<TerraformBlock<GoogleMemorystoreInstancePersistenceConfigBlock>>? PersistenceConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleMemorystoreInstanceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleMemorystoreInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for zone_distribution_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZoneDistributionConfig block(s) allowed")]
-    public List<GoogleMemorystoreInstanceZoneDistributionConfigBlock>? ZoneDistributionConfig
-    {
-        set => SetProperty("zone_distribution_config", value);
-    }
+    [TerraformPropertyName("zone_distribution_config")]
+    public TerraformList<TerraformBlock<GoogleMemorystoreInstanceZoneDistributionConfigBlock>>? ZoneDistributionConfig { get; set; } = new();
 
     /// <summary>
     /// This field is used to determine the available maintenance versions for the self service update.
     /// </summary>
-    public TerraformExpression AvailableMaintenanceVersions => this["available_maintenance_versions"];
+    [TerraformPropertyName("available_maintenance_versions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AvailableMaintenanceVersions => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "available_maintenance_versions");
 
     /// <summary>
     /// The backup collection full resource name.
     /// Example: projects/{project}/locations/{location}/backupCollections/{collection}
     /// </summary>
-    public TerraformExpression BackupCollection => this["backup_collection"];
+    [TerraformPropertyName("backup_collection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BackupCollection => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backup_collection");
 
     /// <summary>
     /// Output only. Creation timestamp of the instance.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Deprecated. Output only. Endpoints clients can connect to the instance through.
     /// </summary>
-    public TerraformExpression DiscoveryEndpoints => this["discovery_endpoints"];
+    [TerraformPropertyName("discovery_endpoints")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DiscoveryEndpoints => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "discovery_endpoints");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// This field represents the actual maintenance version of the cluster.
     /// </summary>
-    public TerraformExpression EffectiveMaintenanceVersion => this["effective_maintenance_version"];
+    [TerraformPropertyName("effective_maintenance_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EffectiveMaintenanceVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "effective_maintenance_version");
 
     /// <summary>
     /// Endpoints for the instance.
     /// </summary>
-    public TerraformExpression Endpoints => this["endpoints"];
+    [TerraformPropertyName("endpoints")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Endpoints => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "endpoints");
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
-    public TerraformExpression MaintenanceSchedule => this["maintenance_schedule"];
+    [TerraformPropertyName("maintenance_schedule")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MaintenanceSchedule => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maintenance_schedule");
 
     /// <summary>
     /// Instance&#39;s Certificate Authority. This field will only be populated if instance&#39;s transit_encryption_mode is SERVER_AUTHENTICATION
     /// </summary>
-    public TerraformExpression ManagedServerCa => this["managed_server_ca"];
+    [TerraformPropertyName("managed_server_ca")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ManagedServerCa => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "managed_server_ca");
 
     /// <summary>
     /// Identifier. Unique name of the instance.
     /// Format: projects/{project}/locations/{location}/instances/{instance}
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Represents configuration for nodes of the instance.
     /// </summary>
-    public TerraformExpression NodeConfig => this["node_config"];
+    [TerraformPropertyName("node_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> NodeConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "node_config");
 
     /// <summary>
     /// Configuration of a service attachment of the cluster, for creating PSC connections.
     /// </summary>
-    public TerraformExpression PscAttachmentDetails => this["psc_attachment_details"];
+    [TerraformPropertyName("psc_attachment_details")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PscAttachmentDetails => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "psc_attachment_details");
 
     /// <summary>
     /// Output only. User inputs and resource details of the auto-created PSC connections.
     /// </summary>
-    public TerraformExpression PscAutoConnections => this["psc_auto_connections"];
+    [TerraformPropertyName("psc_auto_connections")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PscAutoConnections => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "psc_auto_connections");
 
     /// <summary>
     /// Output only. Current state of the instance. 
@@ -650,27 +567,37 @@ public class GoogleMemorystoreInstance : TerraformResource
     /// UPDATING
     /// DELETING
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// Additional information about the state of the instance.
     /// </summary>
-    public TerraformExpression StateInfo => this["state_info"];
+    [TerraformPropertyName("state_info")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> StateInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "state_info");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Output only. System assigned, unique identifier for the instance.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// Output only. Latest update timestamp of the instance.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

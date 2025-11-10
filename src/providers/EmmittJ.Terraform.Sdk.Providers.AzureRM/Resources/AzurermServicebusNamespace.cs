@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServicebusNamespaceCustomerManagedKeyBlock : TerraformBlock
+public class AzurermServicebusNamespaceCustomerManagedKeyBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityId is required")]
-    public required TerraformProperty<string> IdentityId
-    {
-        set => SetProperty("identity_id", value);
-    }
+    [TerraformPropertyName("identity_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IdentityId { get; set; }
 
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? InfrastructureEncryptionEnabled
-    {
-        set => SetProperty("infrastructure_encryption_enabled", value);
-    }
+    [TerraformPropertyName("infrastructure_encryption_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InfrastructureEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
-    public required TerraformProperty<string> KeyVaultKeyId
-    {
-        set => SetProperty("key_vault_key_id", value);
-    }
+    [TerraformPropertyName("key_vault_key_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyVaultKeyId { get; set; }
 
 }
 
@@ -40,40 +37,36 @@ public class AzurermServicebusNamespaceCustomerManagedKeyBlock : TerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServicebusNamespaceIdentityBlock : TerraformBlock
+public class AzurermServicebusNamespaceIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -81,39 +74,35 @@ public class AzurermServicebusNamespaceIdentityBlock : TerraformBlock
 /// Block type for network_rule_set in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBlock
+public class AzurermServicebusNamespaceNetworkRuleSetBlock : ITerraformBlock
 {
     /// <summary>
     /// The default_action attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultAction
-    {
-        set => SetProperty("default_action", value);
-    }
+    [TerraformPropertyName("default_action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultAction { get; set; }
 
     /// <summary>
     /// The ip_rules attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IpRules
-    {
-        set => SetProperty("ip_rules", value);
-    }
+    [TerraformPropertyName("ip_rules")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IpRules { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
-    {
-        set => SetProperty("public_network_access_enabled", value);
-    }
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The trusted_services_allowed attribute.
     /// </summary>
-    public TerraformProperty<bool>? TrustedServicesAllowed
-    {
-        set => SetProperty("trusted_services_allowed", value);
-    }
+    [TerraformPropertyName("trusted_services_allowed")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TrustedServicesAllowed { get; set; }
 
 }
 
@@ -121,39 +110,35 @@ public class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlock
+public class AzurermServicebusNamespaceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -165,194 +150,153 @@ public class AzurermServicebusNamespace : TerraformResource
 {
     public AzurermServicebusNamespace(string name) : base("azurerm_servicebus_namespace", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("default_primary_connection_string");
-        SetOutput("default_primary_key");
-        SetOutput("default_secondary_connection_string");
-        SetOutput("default_secondary_key");
-        SetOutput("endpoint");
-        SetOutput("capacity");
-        SetOutput("id");
-        SetOutput("local_auth_enabled");
-        SetOutput("location");
-        SetOutput("minimum_tls_version");
-        SetOutput("name");
-        SetOutput("premium_messaging_partitions");
-        SetOutput("public_network_access_enabled");
-        SetOutput("resource_group_name");
-        SetOutput("sku");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformProperty<double> Capacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("capacity");
-        set => SetProperty("capacity", value);
-    }
+    [TerraformPropertyName("capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Capacity { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LocalAuthEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("local_auth_enabled");
-        set => SetProperty("local_auth_enabled", value);
-    }
+    [TerraformPropertyName("local_auth_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LocalAuthEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
-    public TerraformProperty<string> MinimumTlsVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("minimum_tls_version");
-        set => SetProperty("minimum_tls_version", value);
-    }
+    [TerraformPropertyName("minimum_tls_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MinimumTlsVersion { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The premium_messaging_partitions attribute.
     /// </summary>
-    public TerraformProperty<double> PremiumMessagingPartitions
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("premium_messaging_partitions");
-        set => SetProperty("premium_messaging_partitions", value);
-    }
+    [TerraformPropertyName("premium_messaging_partitions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? PremiumMessagingPartitions { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PublicNetworkAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
-        set => SetProperty("public_network_access_enabled", value);
-    }
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    public required TerraformProperty<string> Sku
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku");
-        set => SetProperty("sku", value);
-    }
+    [TerraformPropertyName("sku")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for customer_managed_key.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    public List<AzurermServicebusNamespaceCustomerManagedKeyBlock>? CustomerManagedKey
-    {
-        set => SetProperty("customer_managed_key", value);
-    }
+    [TerraformPropertyName("customer_managed_key")]
+    public TerraformList<TerraformBlock<AzurermServicebusNamespaceCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermServicebusNamespaceIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermServicebusNamespaceIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for network_rule_set.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkRuleSet block(s) allowed")]
-    public List<AzurermServicebusNamespaceNetworkRuleSetBlock>? NetworkRuleSet
-    {
-        set => SetProperty("network_rule_set", value);
-    }
+    [TerraformPropertyName("network_rule_set")]
+    public TerraformList<TerraformBlock<AzurermServicebusNamespaceNetworkRuleSetBlock>>? NetworkRuleSet { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermServicebusNamespaceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermServicebusNamespaceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The default_primary_connection_string attribute.
     /// </summary>
-    public TerraformExpression DefaultPrimaryConnectionString => this["default_primary_connection_string"];
+    [TerraformPropertyName("default_primary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultPrimaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_primary_connection_string");
 
     /// <summary>
     /// The default_primary_key attribute.
     /// </summary>
-    public TerraformExpression DefaultPrimaryKey => this["default_primary_key"];
+    [TerraformPropertyName("default_primary_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultPrimaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_primary_key");
 
     /// <summary>
     /// The default_secondary_connection_string attribute.
     /// </summary>
-    public TerraformExpression DefaultSecondaryConnectionString => this["default_secondary_connection_string"];
+    [TerraformPropertyName("default_secondary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultSecondaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_secondary_connection_string");
 
     /// <summary>
     /// The default_secondary_key attribute.
     /// </summary>
-    public TerraformExpression DefaultSecondaryKey => this["default_secondary_key"];
+    [TerraformPropertyName("default_secondary_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultSecondaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_secondary_key");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
 }

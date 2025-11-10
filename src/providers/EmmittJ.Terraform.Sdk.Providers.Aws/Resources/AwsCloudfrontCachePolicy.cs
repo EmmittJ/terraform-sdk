@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameters_in_cache_key_and_forwarded_to_origin in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock : TerraformBlock
+public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock : ITerraformBlock
 {
     /// <summary>
     /// The enable_accept_encoding_brotli attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableAcceptEncodingBrotli
-    {
-        set => SetProperty("enable_accept_encoding_brotli", value);
-    }
+    [TerraformPropertyName("enable_accept_encoding_brotli")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableAcceptEncodingBrotli { get; set; }
 
     /// <summary>
     /// The enable_accept_encoding_gzip attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableAcceptEncodingGzip
-    {
-        set => SetProperty("enable_accept_encoding_gzip", value);
-    }
+    [TerraformPropertyName("enable_accept_encoding_gzip")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableAcceptEncodingGzip { get; set; }
 
 }
 
@@ -34,75 +32,50 @@ public class AwsCloudfrontCachePolicy : TerraformResource
 {
     public AwsCloudfrontCachePolicy(string name) : base("aws_cloudfront_cache_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("etag");
-        SetOutput("comment");
-        SetOutput("default_ttl");
-        SetOutput("id");
-        SetOutput("max_ttl");
-        SetOutput("min_ttl");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformProperty<string> Comment
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("comment");
-        set => SetProperty("comment", value);
-    }
+    [TerraformPropertyName("comment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Comment { get; set; }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformProperty<double> DefaultTtl
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("default_ttl");
-        set => SetProperty("default_ttl", value);
-    }
+    [TerraformPropertyName("default_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DefaultTtl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
-    public TerraformProperty<double> MaxTtl
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_ttl");
-        set => SetProperty("max_ttl", value);
-    }
+    [TerraformPropertyName("max_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxTtl { get; set; }
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
-    public TerraformProperty<double> MinTtl
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("min_ttl");
-        set => SetProperty("min_ttl", value);
-    }
+    [TerraformPropertyName("min_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinTtl { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for parameters_in_cache_key_and_forwarded_to_origin.
@@ -111,19 +84,21 @@ public class AwsCloudfrontCachePolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParametersInCacheKeyAndForwardedToOrigin is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ParametersInCacheKeyAndForwardedToOrigin block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParametersInCacheKeyAndForwardedToOrigin block(s) allowed")]
-    public List<AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock>? ParametersInCacheKeyAndForwardedToOrigin
-    {
-        set => SetProperty("parameters_in_cache_key_and_forwarded_to_origin", value);
-    }
+    [TerraformPropertyName("parameters_in_cache_key_and_forwarded_to_origin")]
+    public TerraformList<TerraformBlock<AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock>>? ParametersInCacheKeyAndForwardedToOrigin { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
 }

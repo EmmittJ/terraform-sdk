@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_log_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApigatewayv2StageAccessLogSettingsBlock : TerraformBlock
+public class AwsApigatewayv2StageAccessLogSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
-    public required TerraformProperty<string> DestinationArn
-    {
-        set => SetProperty("destination_arn", value);
-    }
+    [TerraformPropertyName("destination_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DestinationArn { get; set; }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
-    public required TerraformProperty<string> Format
-    {
-        set => SetProperty("format", value);
-    }
+    [TerraformPropertyName("format")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Format { get; set; }
 
 }
 
@@ -32,47 +30,42 @@ public class AwsApigatewayv2StageAccessLogSettingsBlock : TerraformBlock
 /// Block type for default_route_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApigatewayv2StageDefaultRouteSettingsBlock : TerraformBlock
+public class AwsApigatewayv2StageDefaultRouteSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The data_trace_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DataTraceEnabled
-    {
-        set => SetProperty("data_trace_enabled", value);
-    }
+    [TerraformPropertyName("data_trace_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DataTraceEnabled { get; set; }
 
     /// <summary>
     /// The detailed_metrics_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DetailedMetricsEnabled
-    {
-        set => SetProperty("detailed_metrics_enabled", value);
-    }
+    [TerraformPropertyName("detailed_metrics_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DetailedMetricsEnabled { get; set; }
 
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    public TerraformProperty<string>? LoggingLevel
-    {
-        set => SetProperty("logging_level", value);
-    }
+    [TerraformPropertyName("logging_level")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LoggingLevel { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "logging_level");
 
     /// <summary>
     /// The throttling_burst_limit attribute.
     /// </summary>
-    public TerraformProperty<double>? ThrottlingBurstLimit
-    {
-        set => SetProperty("throttling_burst_limit", value);
-    }
+    [TerraformPropertyName("throttling_burst_limit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ThrottlingBurstLimit { get; set; }
 
     /// <summary>
     /// The throttling_rate_limit attribute.
     /// </summary>
-    public TerraformProperty<double>? ThrottlingRateLimit
-    {
-        set => SetProperty("throttling_rate_limit", value);
-    }
+    [TerraformPropertyName("throttling_rate_limit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ThrottlingRateLimit { get; set; }
 
 }
 
@@ -80,56 +73,50 @@ public class AwsApigatewayv2StageDefaultRouteSettingsBlock : TerraformBlock
 /// Block type for route_settings in .
 /// Nesting mode: set
 /// </summary>
-public class AwsApigatewayv2StageRouteSettingsBlock : TerraformBlock
+public class AwsApigatewayv2StageRouteSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The data_trace_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DataTraceEnabled
-    {
-        set => SetProperty("data_trace_enabled", value);
-    }
+    [TerraformPropertyName("data_trace_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DataTraceEnabled { get; set; }
 
     /// <summary>
     /// The detailed_metrics_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DetailedMetricsEnabled
-    {
-        set => SetProperty("detailed_metrics_enabled", value);
-    }
+    [TerraformPropertyName("detailed_metrics_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DetailedMetricsEnabled { get; set; }
 
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    public TerraformProperty<string>? LoggingLevel
-    {
-        set => SetProperty("logging_level", value);
-    }
+    [TerraformPropertyName("logging_level")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LoggingLevel { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "logging_level");
 
     /// <summary>
     /// The route_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteKey is required")]
-    public required TerraformProperty<string> RouteKey
-    {
-        set => SetProperty("route_key", value);
-    }
+    [TerraformPropertyName("route_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RouteKey { get; set; }
 
     /// <summary>
     /// The throttling_burst_limit attribute.
     /// </summary>
-    public TerraformProperty<double>? ThrottlingBurstLimit
-    {
-        set => SetProperty("throttling_burst_limit", value);
-    }
+    [TerraformPropertyName("throttling_burst_limit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ThrottlingBurstLimit { get; set; }
 
     /// <summary>
     /// The throttling_rate_limit attribute.
     /// </summary>
-    public TerraformProperty<double>? ThrottlingRateLimit
-    {
-        set => SetProperty("throttling_rate_limit", value);
-    }
+    [TerraformPropertyName("throttling_rate_limit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ThrottlingRateLimit { get; set; }
 
 }
 
@@ -141,170 +128,129 @@ public class AwsApigatewayv2Stage : TerraformResource
 {
     public AwsApigatewayv2Stage(string name) : base("aws_apigatewayv2_stage", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("execution_arn");
-        SetOutput("invoke_url");
-        SetOutput("api_id");
-        SetOutput("auto_deploy");
-        SetOutput("client_certificate_id");
-        SetOutput("deployment_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("stage_variables");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
-    public required TerraformProperty<string> ApiId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_id");
-        set => SetProperty("api_id", value);
-    }
+    [TerraformPropertyName("api_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiId { get; set; }
 
     /// <summary>
     /// The auto_deploy attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoDeploy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_deploy");
-        set => SetProperty("auto_deploy", value);
-    }
+    [TerraformPropertyName("auto_deploy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoDeploy { get; set; }
 
     /// <summary>
     /// The client_certificate_id attribute.
     /// </summary>
-    public TerraformProperty<string> ClientCertificateId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_certificate_id");
-        set => SetProperty("client_certificate_id", value);
-    }
+    [TerraformPropertyName("client_certificate_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientCertificateId { get; set; }
 
     /// <summary>
     /// The deployment_id attribute.
     /// </summary>
-    public TerraformProperty<string> DeploymentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deployment_id");
-        set => SetProperty("deployment_id", value);
-    }
+    [TerraformPropertyName("deployment_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DeploymentId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deployment_id");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The stage_variables attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> StageVariables
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("stage_variables");
-        set => SetProperty("stage_variables", value);
-    }
+    [TerraformPropertyName("stage_variables")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? StageVariables { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for access_log_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogSettings block(s) allowed")]
-    public List<AwsApigatewayv2StageAccessLogSettingsBlock>? AccessLogSettings
-    {
-        set => SetProperty("access_log_settings", value);
-    }
+    [TerraformPropertyName("access_log_settings")]
+    public TerraformList<TerraformBlock<AwsApigatewayv2StageAccessLogSettingsBlock>>? AccessLogSettings { get; set; } = new();
 
     /// <summary>
     /// Block for default_route_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRouteSettings block(s) allowed")]
-    public List<AwsApigatewayv2StageDefaultRouteSettingsBlock>? DefaultRouteSettings
-    {
-        set => SetProperty("default_route_settings", value);
-    }
+    [TerraformPropertyName("default_route_settings")]
+    public TerraformList<TerraformBlock<AwsApigatewayv2StageDefaultRouteSettingsBlock>>? DefaultRouteSettings { get; set; } = new();
 
     /// <summary>
     /// Block for route_settings.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsApigatewayv2StageRouteSettingsBlock>? RouteSettings
-    {
-        set => SetProperty("route_settings", value);
-    }
+    [TerraformPropertyName("route_settings")]
+    public TerraformSet<TerraformBlock<AwsApigatewayv2StageRouteSettingsBlock>>? RouteSettings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
-    public TerraformExpression ExecutionArn => this["execution_arn"];
+    [TerraformPropertyName("execution_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExecutionArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "execution_arn");
 
     /// <summary>
     /// The invoke_url attribute.
     /// </summary>
-    public TerraformExpression InvokeUrl => this["invoke_url"];
+    [TerraformPropertyName("invoke_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InvokeUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "invoke_url");
 
 }

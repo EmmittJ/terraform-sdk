@@ -6,63 +6,56 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for subject in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformBlock
+public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : ITerraformBlock
 {
     /// <summary>
     /// Common name of the organization. Maximum length is 64 characters.
     /// </summary>
-    public TerraformProperty<string>? CommonName
-    {
-        set => SetProperty("common_name", value);
-    }
+    [TerraformPropertyName("common_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CommonName { get; set; }
 
     /// <summary>
     /// Two-letter country code. Example, IN for India, US for United States of America.
     /// </summary>
-    public TerraformProperty<string>? CountryCode
-    {
-        set => SetProperty("country_code", value);
-    }
+    [TerraformPropertyName("country_code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CountryCode { get; set; }
 
     /// <summary>
     /// Email address. Max 255 characters.
     /// </summary>
-    public TerraformProperty<string>? Email
-    {
-        set => SetProperty("email", value);
-    }
+    [TerraformPropertyName("email")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Email { get; set; }
 
     /// <summary>
     /// City or town name. Maximum length is 128 characters.
     /// </summary>
-    public TerraformProperty<string>? Locality
-    {
-        set => SetProperty("locality", value);
-    }
+    [TerraformPropertyName("locality")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Locality { get; set; }
 
     /// <summary>
     /// Organization name. Maximum length is 64 characters.
     /// </summary>
-    public TerraformProperty<string>? Org
-    {
-        set => SetProperty("org", value);
-    }
+    [TerraformPropertyName("org")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Org { get; set; }
 
     /// <summary>
     /// Organization team name. Maximum length is 64 characters.
     /// </summary>
-    public TerraformProperty<string>? OrgUnit
-    {
-        set => SetProperty("org_unit", value);
-    }
+    [TerraformPropertyName("org_unit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OrgUnit { get; set; }
 
     /// <summary>
     /// State or district name. Maximum length is 128 characters.
     /// </summary>
-    public TerraformProperty<string>? State
-    {
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? State { get; set; }
 
 }
 
@@ -70,15 +63,14 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
 /// Block type for subject_alternative_dns_names in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsNamesBlock : TerraformBlock
+public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsNamesBlock : ITerraformBlock
 {
     /// <summary>
     /// Subject Alternative Name
     /// </summary>
-    public TerraformProperty<string>? SubjectAlternativeName
-    {
-        set => SetProperty("subject_alternative_name", value);
-    }
+    [TerraformPropertyName("subject_alternative_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SubjectAlternativeName { get; set; }
 
 }
 
@@ -86,23 +78,21 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsName
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock : TerraformBlock
+public class GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -114,21 +104,6 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
 {
     public GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : base("google_apigee_keystores_aliases_self_signed_cert", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("certs_info");
-        SetOutput("type");
-        SetOutput("alias");
-        SetOutput("cert_validity_in_days");
-        SetOutput("environment");
-        SetOutput("id");
-        SetOutput("key_size");
-        SetOutput("keystore");
-        SetOutput("org_id");
-        SetOutput("sig_alg");
     }
 
     /// <summary>
@@ -137,78 +112,62 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     /// this parameter or the JSON body.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
-    public required TerraformProperty<string> Alias
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alias");
-        set => SetProperty("alias", value);
-    }
+    [TerraformPropertyName("alias")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Alias { get; set; }
 
     /// <summary>
     /// Validity duration of certificate, in days. Accepts positive non-zero value. Defaults to 365.
     /// </summary>
-    public TerraformProperty<double> CertValidityInDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("cert_validity_in_days");
-        set => SetProperty("cert_validity_in_days", value);
-    }
+    [TerraformPropertyName("cert_validity_in_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CertValidityInDays { get; set; }
 
     /// <summary>
     /// The Apigee environment name
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
-    public required TerraformProperty<string> Environment
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("environment");
-        set => SetProperty("environment", value);
-    }
+    [TerraformPropertyName("environment")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Environment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Key size. Default and maximum value is 2048 bits.
     /// </summary>
-    public TerraformProperty<string> KeySize
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_size");
-        set => SetProperty("key_size", value);
-    }
+    [TerraformPropertyName("key_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeySize { get; set; }
 
     /// <summary>
     /// The Apigee keystore name associated in an Apigee environment
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keystore is required")]
-    public required TerraformProperty<string> Keystore
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("keystore");
-        set => SetProperty("keystore", value);
-    }
+    [TerraformPropertyName("keystore")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Keystore { get; set; }
 
     /// <summary>
     /// The Apigee Organization name associated with the Apigee environment
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    public required TerraformProperty<string> OrgId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
-        set => SetProperty("org_id", value);
-    }
+    [TerraformPropertyName("org_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
 
     /// <summary>
     /// Signature algorithm to generate private key. Valid values are SHA512withRSA, SHA384withRSA, and SHA256withRSA
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigAlg is required")]
-    public required TerraformProperty<string> SigAlg
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sig_alg");
-        set => SetProperty("sig_alg", value);
-    }
+    [TerraformPropertyName("sig_alg")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SigAlg { get; set; }
 
     /// <summary>
     /// Block for subject.
@@ -217,38 +176,36 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subject block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subject block(s) allowed")]
-    public List<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock>? Subject
-    {
-        set => SetProperty("subject", value);
-    }
+    [TerraformPropertyName("subject")]
+    public TerraformList<TerraformBlock<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock>>? Subject { get; set; } = new();
 
     /// <summary>
     /// Block for subject_alternative_dns_names.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubjectAlternativeDnsNames block(s) allowed")]
-    public List<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsNamesBlock>? SubjectAlternativeDnsNames
-    {
-        set => SetProperty("subject_alternative_dns_names", value);
-    }
+    [TerraformPropertyName("subject_alternative_dns_names")]
+    public TerraformList<TerraformBlock<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsNamesBlock>>? SubjectAlternativeDnsNames { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Chain of certificates under this alias.
     /// </summary>
-    public TerraformExpression CertsInfo => this["certs_info"];
+    [TerraformPropertyName("certs_info")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> CertsInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "certs_info");
 
     /// <summary>
     /// Optional.Type of Alias
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
 }

@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsChatbotSlackChannelConfigurationTimeoutsBlock : TerraformBlock
+public class AwsChatbotSlackChannelConfigurationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,148 +38,115 @@ public class AwsChatbotSlackChannelConfiguration : TerraformResource
 {
     public AwsChatbotSlackChannelConfiguration(string name) : base("aws_chatbot_slack_channel_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("chat_configuration_arn");
-        SetOutput("slack_channel_name");
-        SetOutput("slack_team_name");
-        SetOutput("tags_all");
-        SetOutput("configuration_name");
-        SetOutput("guardrail_policy_arns");
-        SetOutput("iam_role_arn");
-        SetOutput("logging_level");
-        SetOutput("region");
-        SetOutput("slack_channel_id");
-        SetOutput("slack_team_id");
-        SetOutput("sns_topic_arns");
-        SetOutput("tags");
-        SetOutput("user_authorization_required");
     }
 
     /// <summary>
     /// The configuration_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationName is required")]
-    public required TerraformProperty<string> ConfigurationName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("configuration_name");
-        set => SetProperty("configuration_name", value);
-    }
+    [TerraformPropertyName("configuration_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConfigurationName { get; set; }
 
     /// <summary>
     /// The guardrail_policy_arns attribute.
     /// </summary>
-    public List<TerraformProperty<string>> GuardrailPolicyArns
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("guardrail_policy_arns");
-        set => SetProperty("guardrail_policy_arns", value);
-    }
+    [TerraformPropertyName("guardrail_policy_arns")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> GuardrailPolicyArns { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "guardrail_policy_arns");
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
-    public required TerraformProperty<string> IamRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
-        set => SetProperty("iam_role_arn", value);
-    }
+    [TerraformPropertyName("iam_role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IamRoleArn { get; set; }
 
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    public TerraformProperty<string> LoggingLevel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("logging_level");
-        set => SetProperty("logging_level", value);
-    }
+    [TerraformPropertyName("logging_level")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LoggingLevel { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "logging_level");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The slack_channel_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlackChannelId is required")]
-    public required TerraformProperty<string> SlackChannelId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("slack_channel_id");
-        set => SetProperty("slack_channel_id", value);
-    }
+    [TerraformPropertyName("slack_channel_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SlackChannelId { get; set; }
 
     /// <summary>
     /// The slack_team_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlackTeamId is required")]
-    public required TerraformProperty<string> SlackTeamId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("slack_team_id");
-        set => SetProperty("slack_team_id", value);
-    }
+    [TerraformPropertyName("slack_team_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SlackTeamId { get; set; }
 
     /// <summary>
     /// The sns_topic_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SnsTopicArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("sns_topic_arns");
-        set => SetProperty("sns_topic_arns", value);
-    }
+    [TerraformPropertyName("sns_topic_arns")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SnsTopicArns { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "sns_topic_arns");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The user_authorization_required attribute.
     /// </summary>
-    public TerraformProperty<bool> UserAuthorizationRequired
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("user_authorization_required");
-        set => SetProperty("user_authorization_required", value);
-    }
+    [TerraformPropertyName("user_authorization_required")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> UserAuthorizationRequired { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "user_authorization_required");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsChatbotSlackChannelConfigurationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsChatbotSlackChannelConfigurationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The chat_configuration_arn attribute.
     /// </summary>
-    public TerraformExpression ChatConfigurationArn => this["chat_configuration_arn"];
+    [TerraformPropertyName("chat_configuration_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ChatConfigurationArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "chat_configuration_arn");
 
     /// <summary>
     /// The slack_channel_name attribute.
     /// </summary>
-    public TerraformExpression SlackChannelName => this["slack_channel_name"];
+    [TerraformPropertyName("slack_channel_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SlackChannelName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "slack_channel_name");
 
     /// <summary>
     /// The slack_team_name attribute.
     /// </summary>
-    public TerraformExpression SlackTeamName => this["slack_team_name"];
+    [TerraformPropertyName("slack_team_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SlackTeamName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "slack_team_name");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

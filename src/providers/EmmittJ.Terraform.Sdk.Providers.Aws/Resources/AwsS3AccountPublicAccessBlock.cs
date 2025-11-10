@@ -9,71 +9,48 @@ public class AwsS3AccountPublicAccessBlock : TerraformResource
 {
     public AwsS3AccountPublicAccessBlock(string name) : base("aws_s3_account_public_access_block", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account_id");
-        SetOutput("block_public_acls");
-        SetOutput("block_public_policy");
-        SetOutput("id");
-        SetOutput("ignore_public_acls");
-        SetOutput("restrict_public_buckets");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string> AccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_id");
 
     /// <summary>
     /// The block_public_acls attribute.
     /// </summary>
-    public TerraformProperty<bool> BlockPublicAcls
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("block_public_acls");
-        set => SetProperty("block_public_acls", value);
-    }
+    [TerraformPropertyName("block_public_acls")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BlockPublicAcls { get; set; }
 
     /// <summary>
     /// The block_public_policy attribute.
     /// </summary>
-    public TerraformProperty<bool> BlockPublicPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("block_public_policy");
-        set => SetProperty("block_public_policy", value);
-    }
+    [TerraformPropertyName("block_public_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BlockPublicPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ignore_public_acls attribute.
     /// </summary>
-    public TerraformProperty<bool> IgnorePublicAcls
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_public_acls");
-        set => SetProperty("ignore_public_acls", value);
-    }
+    [TerraformPropertyName("ignore_public_acls")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IgnorePublicAcls { get; set; }
 
     /// <summary>
     /// The restrict_public_buckets attribute.
     /// </summary>
-    public TerraformProperty<bool> RestrictPublicBuckets
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("restrict_public_buckets");
-        set => SetProperty("restrict_public_buckets", value);
-    }
+    [TerraformPropertyName("restrict_public_buckets")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RestrictPublicBuckets { get; set; }
 
 }

@@ -9,66 +9,56 @@ public class AwsIamSamlProviderDataSource : TerraformDataSource
 {
     public AwsIamSamlProviderDataSource(string name) : base("aws_iam_saml_provider", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_date");
-        SetOutput("name");
-        SetOutput("saml_metadata_document");
-        SetOutput("valid_until");
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    public required TerraformProperty<string> Arn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arn");
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
-    public TerraformExpression CreateDate => this["create_date"];
+    [TerraformPropertyName("create_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_date");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The saml_metadata_document attribute.
     /// </summary>
-    public TerraformExpression SamlMetadataDocument => this["saml_metadata_document"];
+    [TerraformPropertyName("saml_metadata_document")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SamlMetadataDocument => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "saml_metadata_document");
 
     /// <summary>
     /// The valid_until attribute.
     /// </summary>
-    public TerraformExpression ValidUntil => this["valid_until"];
+    [TerraformPropertyName("valid_until")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ValidUntil => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "valid_until");
 
 }

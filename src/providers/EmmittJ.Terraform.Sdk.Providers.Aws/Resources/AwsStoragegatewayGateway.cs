@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for maintenance_start_time in .
 /// Nesting mode: list
 /// </summary>
-public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlock
+public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : ITerraformBlock
 {
     /// <summary>
     /// The day_of_month attribute.
     /// </summary>
-    public TerraformProperty<string>? DayOfMonth
-    {
-        set => SetProperty("day_of_month", value);
-    }
+    [TerraformPropertyName("day_of_month")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DayOfMonth { get; set; }
 
     /// <summary>
     /// The day_of_week attribute.
     /// </summary>
-    public TerraformProperty<string>? DayOfWeek
-    {
-        set => SetProperty("day_of_week", value);
-    }
+    [TerraformPropertyName("day_of_week")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DayOfWeek { get; set; }
 
     /// <summary>
     /// The hour_of_day attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
-    public required TerraformProperty<double> HourOfDay
-    {
-        set => SetProperty("hour_of_day", value);
-    }
+    [TerraformPropertyName("hour_of_day")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> HourOfDay { get; set; }
 
     /// <summary>
     /// The minute_of_hour attribute.
     /// </summary>
-    public TerraformProperty<double>? MinuteOfHour
-    {
-        set => SetProperty("minute_of_hour", value);
-    }
+    [TerraformPropertyName("minute_of_hour")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinuteOfHour { get; set; }
 
 }
 
@@ -47,66 +43,59 @@ public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlock
 /// Block type for smb_active_directory_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : TerraformBlock
+public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The active_directory_status attribute.
     /// </summary>
-    public TerraformProperty<string>? ActiveDirectoryStatus
-    {
-        set => SetProperty("active_directory_status", value);
-    }
+    [TerraformPropertyName("active_directory_status")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ActiveDirectoryStatus => new TerraformReferenceProperty<TerraformProperty<string>>("", "active_directory_status");
 
     /// <summary>
     /// The domain_controllers attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DomainControllers
-    {
-        set => SetProperty("domain_controllers", value);
-    }
+    [TerraformPropertyName("domain_controllers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DomainControllers { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    public required TerraformProperty<string> DomainName
-    {
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
 
     /// <summary>
     /// The organizational_unit attribute.
     /// </summary>
-    public TerraformProperty<string>? OrganizationalUnit
-    {
-        set => SetProperty("organizational_unit", value);
-    }
+    [TerraformPropertyName("organizational_unit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OrganizationalUnit { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    public required TerraformProperty<string> Password
-    {
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? TimeoutInSeconds
-    {
-        set => SetProperty("timeout_in_seconds", value);
-    }
+    [TerraformPropertyName("timeout_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    public required TerraformProperty<string> Username
-    {
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
 
 }
 
@@ -114,15 +103,14 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsStoragegatewayGatewayTimeoutsBlock : TerraformBlock
+public class AwsStoragegatewayGatewayTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
 }
 
@@ -134,258 +122,199 @@ public class AwsStoragegatewayGateway : TerraformResource
 {
     public AwsStoragegatewayGateway(string name) : base("aws_storagegateway_gateway", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("ec2_instance_id");
-        SetOutput("endpoint_type");
-        SetOutput("gateway_id");
-        SetOutput("gateway_network_interface");
-        SetOutput("host_environment");
-        SetOutput("activation_key");
-        SetOutput("average_download_rate_limit_in_bits_per_sec");
-        SetOutput("average_upload_rate_limit_in_bits_per_sec");
-        SetOutput("cloudwatch_log_group_arn");
-        SetOutput("gateway_ip_address");
-        SetOutput("gateway_name");
-        SetOutput("gateway_timezone");
-        SetOutput("gateway_type");
-        SetOutput("gateway_vpc_endpoint");
-        SetOutput("id");
-        SetOutput("medium_changer_type");
-        SetOutput("region");
-        SetOutput("smb_file_share_visibility");
-        SetOutput("smb_guest_password");
-        SetOutput("smb_security_strategy");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("tape_drive_type");
     }
 
     /// <summary>
     /// The activation_key attribute.
     /// </summary>
-    public TerraformProperty<string> ActivationKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("activation_key");
-        set => SetProperty("activation_key", value);
-    }
+    [TerraformPropertyName("activation_key")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ActivationKey { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "activation_key");
 
     /// <summary>
     /// The average_download_rate_limit_in_bits_per_sec attribute.
     /// </summary>
-    public TerraformProperty<double> AverageDownloadRateLimitInBitsPerSec
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("average_download_rate_limit_in_bits_per_sec");
-        set => SetProperty("average_download_rate_limit_in_bits_per_sec", value);
-    }
+    [TerraformPropertyName("average_download_rate_limit_in_bits_per_sec")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AverageDownloadRateLimitInBitsPerSec { get; set; }
 
     /// <summary>
     /// The average_upload_rate_limit_in_bits_per_sec attribute.
     /// </summary>
-    public TerraformProperty<double> AverageUploadRateLimitInBitsPerSec
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("average_upload_rate_limit_in_bits_per_sec");
-        set => SetProperty("average_upload_rate_limit_in_bits_per_sec", value);
-    }
+    [TerraformPropertyName("average_upload_rate_limit_in_bits_per_sec")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AverageUploadRateLimitInBitsPerSec { get; set; }
 
     /// <summary>
     /// The cloudwatch_log_group_arn attribute.
     /// </summary>
-    public TerraformProperty<string> CloudwatchLogGroupArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloudwatch_log_group_arn");
-        set => SetProperty("cloudwatch_log_group_arn", value);
-    }
+    [TerraformPropertyName("cloudwatch_log_group_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CloudwatchLogGroupArn { get; set; }
 
     /// <summary>
     /// The gateway_ip_address attribute.
     /// </summary>
-    public TerraformProperty<string> GatewayIpAddress
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gateway_ip_address");
-        set => SetProperty("gateway_ip_address", value);
-    }
+    [TerraformPropertyName("gateway_ip_address")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> GatewayIpAddress { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gateway_ip_address");
 
     /// <summary>
     /// The gateway_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
-    public required TerraformProperty<string> GatewayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gateway_name");
-        set => SetProperty("gateway_name", value);
-    }
+    [TerraformPropertyName("gateway_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GatewayName { get; set; }
 
     /// <summary>
     /// The gateway_timezone attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayTimezone is required")]
-    public required TerraformProperty<string> GatewayTimezone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gateway_timezone");
-        set => SetProperty("gateway_timezone", value);
-    }
+    [TerraformPropertyName("gateway_timezone")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GatewayTimezone { get; set; }
 
     /// <summary>
     /// The gateway_type attribute.
     /// </summary>
-    public TerraformProperty<string> GatewayType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gateway_type");
-        set => SetProperty("gateway_type", value);
-    }
+    [TerraformPropertyName("gateway_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GatewayType { get; set; }
 
     /// <summary>
     /// The gateway_vpc_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string> GatewayVpcEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gateway_vpc_endpoint");
-        set => SetProperty("gateway_vpc_endpoint", value);
-    }
+    [TerraformPropertyName("gateway_vpc_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GatewayVpcEndpoint { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The medium_changer_type attribute.
     /// </summary>
-    public TerraformProperty<string> MediumChangerType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("medium_changer_type");
-        set => SetProperty("medium_changer_type", value);
-    }
+    [TerraformPropertyName("medium_changer_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MediumChangerType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The smb_file_share_visibility attribute.
     /// </summary>
-    public TerraformProperty<bool> SmbFileShareVisibility
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("smb_file_share_visibility");
-        set => SetProperty("smb_file_share_visibility", value);
-    }
+    [TerraformPropertyName("smb_file_share_visibility")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SmbFileShareVisibility { get; set; }
 
     /// <summary>
     /// The smb_guest_password attribute.
     /// </summary>
-    public TerraformProperty<string> SmbGuestPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("smb_guest_password");
-        set => SetProperty("smb_guest_password", value);
-    }
+    [TerraformPropertyName("smb_guest_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SmbGuestPassword { get; set; }
 
     /// <summary>
     /// The smb_security_strategy attribute.
     /// </summary>
-    public TerraformProperty<string> SmbSecurityStrategy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("smb_security_strategy");
-        set => SetProperty("smb_security_strategy", value);
-    }
+    [TerraformPropertyName("smb_security_strategy")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SmbSecurityStrategy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "smb_security_strategy");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The tape_drive_type attribute.
     /// </summary>
-    public TerraformProperty<string> TapeDriveType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tape_drive_type");
-        set => SetProperty("tape_drive_type", value);
-    }
+    [TerraformPropertyName("tape_drive_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TapeDriveType { get; set; }
 
     /// <summary>
     /// Block for maintenance_start_time.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceStartTime block(s) allowed")]
-    public List<AwsStoragegatewayGatewayMaintenanceStartTimeBlock>? MaintenanceStartTime
-    {
-        set => SetProperty("maintenance_start_time", value);
-    }
+    [TerraformPropertyName("maintenance_start_time")]
+    public TerraformList<TerraformBlock<AwsStoragegatewayGatewayMaintenanceStartTimeBlock>>? MaintenanceStartTime { get; set; } = new();
 
     /// <summary>
     /// Block for smb_active_directory_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SmbActiveDirectorySettings block(s) allowed")]
-    public List<AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock>? SmbActiveDirectorySettings
-    {
-        set => SetProperty("smb_active_directory_settings", value);
-    }
+    [TerraformPropertyName("smb_active_directory_settings")]
+    public TerraformList<TerraformBlock<AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock>>? SmbActiveDirectorySettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsStoragegatewayGatewayTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsStoragegatewayGatewayTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The ec2_instance_id attribute.
     /// </summary>
-    public TerraformExpression Ec2InstanceId => this["ec2_instance_id"];
+    [TerraformPropertyName("ec2_instance_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Ec2InstanceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ec2_instance_id");
 
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
-    public TerraformExpression EndpointType => this["endpoint_type"];
+    [TerraformPropertyName("endpoint_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EndpointType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_type");
 
     /// <summary>
     /// The gateway_id attribute.
     /// </summary>
-    public TerraformExpression GatewayId => this["gateway_id"];
+    [TerraformPropertyName("gateway_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GatewayId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gateway_id");
 
     /// <summary>
     /// The gateway_network_interface attribute.
     /// </summary>
-    public TerraformExpression GatewayNetworkInterface => this["gateway_network_interface"];
+    [TerraformPropertyName("gateway_network_interface")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> GatewayNetworkInterface => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "gateway_network_interface");
 
     /// <summary>
     /// The host_environment attribute.
     /// </summary>
-    public TerraformExpression HostEnvironment => this["host_environment"];
+    [TerraformPropertyName("host_environment")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostEnvironment => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "host_environment");
 
 }

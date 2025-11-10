@@ -6,41 +6,37 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for private_link in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
+public class AzurermCdnFrontdoorOriginPrivateLinkBlock : ITerraformBlock
 {
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The private_link_target_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkTargetId is required")]
-    public required TerraformProperty<string> PrivateLinkTargetId
-    {
-        set => SetProperty("private_link_target_id", value);
-    }
+    [TerraformPropertyName("private_link_target_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrivateLinkTargetId { get; set; }
 
     /// <summary>
     /// The request_message attribute.
     /// </summary>
-    public TerraformProperty<string>? RequestMessage
-    {
-        set => SetProperty("request_message", value);
-    }
+    [TerraformPropertyName("request_message")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RequestMessage { get; set; }
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetType
-    {
-        set => SetProperty("target_type", value);
-    }
+    [TerraformPropertyName("target_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetType { get; set; }
 
 }
 
@@ -48,39 +44,35 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlock
+public class AzurermCdnFrontdoorOriginTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -92,144 +84,102 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
 {
     public AzurermCdnFrontdoorOrigin(string name) : base("azurerm_cdn_frontdoor_origin", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cdn_frontdoor_origin_group_id");
-        SetOutput("certificate_name_check_enabled");
-        SetOutput("enabled");
-        SetOutput("host_name");
-        SetOutput("http_port");
-        SetOutput("https_port");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("origin_host_header");
-        SetOutput("priority");
-        SetOutput("weight");
     }
 
     /// <summary>
     /// The cdn_frontdoor_origin_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorOriginGroupId is required")]
-    public required TerraformProperty<string> CdnFrontdoorOriginGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cdn_frontdoor_origin_group_id");
-        set => SetProperty("cdn_frontdoor_origin_group_id", value);
-    }
+    [TerraformPropertyName("cdn_frontdoor_origin_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CdnFrontdoorOriginGroupId { get; set; }
 
     /// <summary>
     /// The certificate_name_check_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateNameCheckEnabled is required")]
-    public required TerraformProperty<bool> CertificateNameCheckEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("certificate_name_check_enabled");
-        set => SetProperty("certificate_name_check_enabled", value);
-    }
+    [TerraformPropertyName("certificate_name_check_enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> CertificateNameCheckEnabled { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    public required TerraformProperty<string> HostName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("host_name");
-        set => SetProperty("host_name", value);
-    }
+    [TerraformPropertyName("host_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HostName { get; set; }
 
     /// <summary>
     /// The http_port attribute.
     /// </summary>
-    public TerraformProperty<double> HttpPort
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("http_port");
-        set => SetProperty("http_port", value);
-    }
+    [TerraformPropertyName("http_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? HttpPort { get; set; }
 
     /// <summary>
     /// The https_port attribute.
     /// </summary>
-    public TerraformProperty<double> HttpsPort
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("https_port");
-        set => SetProperty("https_port", value);
-    }
+    [TerraformPropertyName("https_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? HttpsPort { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The origin_host_header attribute.
     /// </summary>
-    public TerraformProperty<string> OriginHostHeader
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("origin_host_header");
-        set => SetProperty("origin_host_header", value);
-    }
+    [TerraformPropertyName("origin_host_header")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OriginHostHeader { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double> Priority
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("priority");
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Priority { get; set; }
 
     /// <summary>
     /// The weight attribute.
     /// </summary>
-    public TerraformProperty<double> Weight
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("weight");
-        set => SetProperty("weight", value);
-    }
+    [TerraformPropertyName("weight")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Weight { get; set; }
 
     /// <summary>
     /// Block for private_link.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLink block(s) allowed")]
-    public List<AzurermCdnFrontdoorOriginPrivateLinkBlock>? PrivateLink
-    {
-        set => SetProperty("private_link", value);
-    }
+    [TerraformPropertyName("private_link")]
+    public TerraformList<TerraformBlock<AzurermCdnFrontdoorOriginPrivateLinkBlock>>? PrivateLink { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCdnFrontdoorOriginTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCdnFrontdoorOriginTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

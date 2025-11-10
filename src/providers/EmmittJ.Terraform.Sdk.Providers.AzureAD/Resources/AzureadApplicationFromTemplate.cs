@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationFromTemplateTimeoutsBlock : TerraformBlock
+public class AzureadApplicationFromTemplateTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,76 +45,64 @@ public class AzureadApplicationFromTemplate : TerraformResource
 {
     public AzureadApplicationFromTemplate(string name) : base("azuread_application_from_template", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("application_id");
-        SetOutput("application_object_id");
-        SetOutput("service_principal_id");
-        SetOutput("service_principal_object_id");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("template_id");
     }
 
     /// <summary>
     /// The display name for the application
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The UUID of the template to instantiate for this application
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
-    public required TerraformProperty<string> TemplateId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("template_id");
-        set => SetProperty("template_id", value);
-    }
+    [TerraformPropertyName("template_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TemplateId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadApplicationFromTemplateTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadApplicationFromTemplateTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource ID for this application
     /// </summary>
-    public TerraformExpression ApplicationId => this["application_id"];
+    [TerraformPropertyName("application_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ApplicationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "application_id");
 
     /// <summary>
     /// The object ID for this application
     /// </summary>
-    public TerraformExpression ApplicationObjectId => this["application_object_id"];
+    [TerraformPropertyName("application_object_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ApplicationObjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "application_object_id");
 
     /// <summary>
     /// The resource ID for this service principal
     /// </summary>
-    public TerraformExpression ServicePrincipalId => this["service_principal_id"];
+    [TerraformPropertyName("service_principal_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServicePrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_principal_id");
 
     /// <summary>
     /// The object ID for this service principal
     /// </summary>
-    public TerraformExpression ServicePrincipalObjectId => this["service_principal_object_id"];
+    [TerraformPropertyName("service_principal_object_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServicePrincipalObjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_principal_object_id");
 
 }

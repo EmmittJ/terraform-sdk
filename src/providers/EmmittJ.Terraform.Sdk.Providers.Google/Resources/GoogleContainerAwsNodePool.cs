@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscaling in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAwsNodePoolAutoscalingBlock : TerraformBlock
+public class GoogleContainerAwsNodePoolAutoscalingBlock : ITerraformBlock
 {
     /// <summary>
     /// Maximum number of nodes in the NodePool. Must be &amp;gt;= min_node_count.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
-    public required TerraformProperty<double> MaxNodeCount
-    {
-        set => SetProperty("max_node_count", value);
-    }
+    [TerraformPropertyName("max_node_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxNodeCount { get; set; }
 
     /// <summary>
     /// Minimum number of nodes in the NodePool. Must be &amp;gt;= 1 and &amp;lt;= max_node_count.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
-    public required TerraformProperty<double> MinNodeCount
-    {
-        set => SetProperty("min_node_count", value);
-    }
+    [TerraformPropertyName("min_node_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MinNodeCount { get; set; }
 
 }
 
@@ -32,48 +30,43 @@ public class GoogleContainerAwsNodePoolAutoscalingBlock : TerraformBlock
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAwsNodePoolConfigBlock : TerraformBlock
+public class GoogleContainerAwsNodePoolConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The name of the AWS IAM role assigned to nodes in the pool.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamInstanceProfile is required")]
-    public required TerraformProperty<string> IamInstanceProfile
-    {
-        set => SetProperty("iam_instance_profile", value);
-    }
+    [TerraformPropertyName("iam_instance_profile")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IamInstanceProfile { get; set; }
 
     /// <summary>
     /// Optional. The AWS instance type. When unspecified, it defaults to `m5.large`.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
-    {
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> InstanceType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "instance_type");
 
     /// <summary>
     /// Optional. The initial labels assigned to nodes of this node pool. An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
-    {
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Optional. The IDs of additional security groups to add to nodes in this pool. The manager will automatically create security groups with minimum rules needed for a functioning cluster.
     /// </summary>
-    public List<TerraformProperty<string>>? SecurityGroupIds
-    {
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// Optional. Key/value metadata to assign to each underlying AWS resource. Specify at most 50 pairs containing alphanumerics, spaces, and symbols (.+-=_:@/). Keys can be up to 127 Unicode characters. Values can be up to 255 Unicode characters.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
-    {
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
 }
 
@@ -81,39 +74,35 @@ public class GoogleContainerAwsNodePoolConfigBlock : TerraformBlock
 /// Block type for kubelet_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAwsNodePoolKubeletConfigBlock : TerraformBlock
+public class GoogleContainerAwsNodePoolKubeletConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether or not to enable CPU CFS quota. Defaults to true.
     /// </summary>
-    public TerraformProperty<bool>? CpuCfsQuota
-    {
-        set => SetProperty("cpu_cfs_quota", value);
-    }
+    [TerraformPropertyName("cpu_cfs_quota")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> CpuCfsQuota { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "cpu_cfs_quota");
 
     /// <summary>
     /// Optional. The CPU CFS quota period to use for the node. Defaults to &amp;quot;100ms&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? CpuCfsQuotaPeriod
-    {
-        set => SetProperty("cpu_cfs_quota_period", value);
-    }
+    [TerraformPropertyName("cpu_cfs_quota_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CpuCfsQuotaPeriod { get; set; }
 
     /// <summary>
     /// The CpuManagerPolicy to use for the node. Defaults to &amp;quot;none&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? CpuManagerPolicy
-    {
-        set => SetProperty("cpu_manager_policy", value);
-    }
+    [TerraformPropertyName("cpu_manager_policy")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CpuManagerPolicy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "cpu_manager_policy");
 
     /// <summary>
     /// Optional. The maximum number of PIDs in each pod running on the node. The limit scales automatically based on underlying machine size if left unset.
     /// </summary>
-    public TerraformProperty<double>? PodPidsLimit
-    {
-        set => SetProperty("pod_pids_limit", value);
-    }
+    [TerraformPropertyName("pod_pids_limit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? PodPidsLimit { get; set; }
 
 }
 
@@ -121,15 +110,14 @@ public class GoogleContainerAwsNodePoolKubeletConfigBlock : TerraformBlock
 /// Block type for management in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAwsNodePoolManagementBlock : TerraformBlock
+public class GoogleContainerAwsNodePoolManagementBlock : ITerraformBlock
 {
     /// <summary>
     /// Optional. Whether or not the nodes will be automatically repaired.
     /// </summary>
-    public TerraformProperty<bool>? AutoRepair
-    {
-        set => SetProperty("auto_repair", value);
-    }
+    [TerraformPropertyName("auto_repair")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> AutoRepair { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "auto_repair");
 
 }
 
@@ -137,16 +125,15 @@ public class GoogleContainerAwsNodePoolManagementBlock : TerraformBlock
 /// Block type for max_pods_constraint in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAwsNodePoolMaxPodsConstraintBlock : TerraformBlock
+public class GoogleContainerAwsNodePoolMaxPodsConstraintBlock : ITerraformBlock
 {
     /// <summary>
     /// The maximum number of pods to schedule on a single node.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPodsPerNode is required")]
-    public required TerraformProperty<double> MaxPodsPerNode
-    {
-        set => SetProperty("max_pods_per_node", value);
-    }
+    [TerraformPropertyName("max_pods_per_node")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxPodsPerNode { get; set; }
 
 }
 
@@ -154,31 +141,28 @@ public class GoogleContainerAwsNodePoolMaxPodsConstraintBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleContainerAwsNodePoolTimeoutsBlock : TerraformBlock
+public class GoogleContainerAwsNodePoolTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -186,7 +170,7 @@ public class GoogleContainerAwsNodePoolTimeoutsBlock : TerraformBlock
 /// Block type for update_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAwsNodePoolUpdateSettingsBlock : TerraformBlock
+public class GoogleContainerAwsNodePoolUpdateSettingsBlock : ITerraformBlock
 {
 }
 
@@ -198,26 +182,6 @@ public class GoogleContainerAwsNodePool : TerraformResource
 {
     public GoogleContainerAwsNodePool(string name) : base("google_container_aws_node_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_annotations");
-        SetOutput("etag");
-        SetOutput("reconciling");
-        SetOutput("state");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("annotations");
-        SetOutput("cluster");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("subnet_id");
-        SetOutput("version");
     }
 
     /// <summary>
@@ -226,79 +190,63 @@ public class GoogleContainerAwsNodePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// The awsCluster for the resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
-    public required TerraformProperty<string> Cluster
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster");
-        set => SetProperty("cluster", value);
-    }
+    [TerraformPropertyName("cluster")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Cluster { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location for the resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name of this resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The subnet where the node pool node run.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
     /// <summary>
     /// The Kubernetes version to run on this node pool (e.g. `1.19.10-gke.1000`). You can list all supported versions on a given Google Cloud region by calling GetAwsServerConfig.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
     /// <summary>
     /// Block for autoscaling.
@@ -307,10 +255,8 @@ public class GoogleContainerAwsNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Autoscaling is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Autoscaling block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoscaling block(s) allowed")]
-    public List<GoogleContainerAwsNodePoolAutoscalingBlock>? Autoscaling
-    {
-        set => SetProperty("autoscaling", value);
-    }
+    [TerraformPropertyName("autoscaling")]
+    public TerraformList<TerraformBlock<GoogleContainerAwsNodePoolAutoscalingBlock>>? Autoscaling { get; set; } = new();
 
     /// <summary>
     /// Block for config.
@@ -319,30 +265,24 @@ public class GoogleContainerAwsNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
-    public List<GoogleContainerAwsNodePoolConfigBlock>? Config
-    {
-        set => SetProperty("config", value);
-    }
+    [TerraformPropertyName("config")]
+    public TerraformList<TerraformBlock<GoogleContainerAwsNodePoolConfigBlock>>? Config { get; set; } = new();
 
     /// <summary>
     /// Block for kubelet_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KubeletConfig block(s) allowed")]
-    public List<GoogleContainerAwsNodePoolKubeletConfigBlock>? KubeletConfig
-    {
-        set => SetProperty("kubelet_config", value);
-    }
+    [TerraformPropertyName("kubelet_config")]
+    public TerraformList<TerraformBlock<GoogleContainerAwsNodePoolKubeletConfigBlock>>? KubeletConfig { get; set; } = new();
 
     /// <summary>
     /// Block for management.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Management block(s) allowed")]
-    public List<GoogleContainerAwsNodePoolManagementBlock>? Management
-    {
-        set => SetProperty("management", value);
-    }
+    [TerraformPropertyName("management")]
+    public TerraformList<TerraformBlock<GoogleContainerAwsNodePoolManagementBlock>>? Management { get; set; } = new();
 
     /// <summary>
     /// Block for max_pods_constraint.
@@ -351,63 +291,71 @@ public class GoogleContainerAwsNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPodsConstraint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MaxPodsConstraint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaxPodsConstraint block(s) allowed")]
-    public List<GoogleContainerAwsNodePoolMaxPodsConstraintBlock>? MaxPodsConstraint
-    {
-        set => SetProperty("max_pods_constraint", value);
-    }
+    [TerraformPropertyName("max_pods_constraint")]
+    public TerraformList<TerraformBlock<GoogleContainerAwsNodePoolMaxPodsConstraintBlock>>? MaxPodsConstraint { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleContainerAwsNodePoolTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleContainerAwsNodePoolTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for update_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpdateSettings block(s) allowed")]
-    public List<GoogleContainerAwsNodePoolUpdateSettingsBlock>? UpdateSettings
-    {
-        set => SetProperty("update_settings", value);
-    }
+    [TerraformPropertyName("update_settings")]
+    public TerraformList<TerraformBlock<GoogleContainerAwsNodePoolUpdateSettingsBlock>>? UpdateSettings { get; set; } = new();
 
     /// <summary>
     /// Output only. The time at which this node pool was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+    [TerraformPropertyName("effective_annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
 
     /// <summary>
     /// Allows clients to perform consistent read-modify-writes through optimistic concurrency control. May be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// Output only. If set, there are currently changes in flight to the node pool.
     /// </summary>
-    public TerraformExpression Reconciling => this["reconciling"];
+    [TerraformPropertyName("reconciling")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
 
     /// <summary>
     /// Output only. The lifecycle state of the node pool. Possible values: STATE_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR, DEGRADED
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// Output only. A globally unique identifier for the node pool.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// Output only. The time at which this node pool was last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

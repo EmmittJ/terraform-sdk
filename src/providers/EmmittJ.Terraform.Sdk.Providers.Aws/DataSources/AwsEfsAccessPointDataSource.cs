@@ -9,88 +9,77 @@ public class AwsEfsAccessPointDataSource : TerraformDataSource
 {
     public AwsEfsAccessPointDataSource(string name) : base("aws_efs_access_point", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("file_system_arn");
-        SetOutput("file_system_id");
-        SetOutput("owner_id");
-        SetOutput("posix_user");
-        SetOutput("root_directory");
-        SetOutput("access_point_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The access_point_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPointId is required")]
-    public required TerraformProperty<string> AccessPointId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_point_id");
-        set => SetProperty("access_point_id", value);
-    }
+    [TerraformPropertyName("access_point_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccessPointId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The file_system_arn attribute.
     /// </summary>
-    public TerraformExpression FileSystemArn => this["file_system_arn"];
+    [TerraformPropertyName("file_system_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FileSystemArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "file_system_arn");
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformExpression FileSystemId => this["file_system_id"];
+    [TerraformPropertyName("file_system_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FileSystemId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "file_system_id");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformExpression OwnerId => this["owner_id"];
+    [TerraformPropertyName("owner_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
 
     /// <summary>
     /// The posix_user attribute.
     /// </summary>
-    public TerraformExpression PosixUser => this["posix_user"];
+    [TerraformPropertyName("posix_user")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PosixUser => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "posix_user");
 
     /// <summary>
     /// The root_directory attribute.
     /// </summary>
-    public TerraformExpression RootDirectory => this["root_directory"];
+    [TerraformPropertyName("root_directory")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RootDirectory => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "root_directory");
 
 }

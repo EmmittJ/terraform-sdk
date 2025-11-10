@@ -9,87 +9,71 @@ public class GoogleParameterManagerRegionalParameterVersionRenderDataSource : Te
 {
     public GoogleParameterManagerRegionalParameterVersionRenderDataSource(string name) : base("google_parameter_manager_regional_parameter_version_render", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("disabled");
-        SetOutput("name");
-        SetOutput("parameter_data");
-        SetOutput("rendered_parameter_data");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("parameter");
-        SetOutput("parameter_version_id");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Location { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The parameter attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
-    public required TerraformProperty<string> Parameter
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parameter");
-        set => SetProperty("parameter", value);
-    }
+    [TerraformPropertyName("parameter")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Parameter { get; set; }
 
     /// <summary>
     /// The parameter_version_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterVersionId is required")]
-    public required TerraformProperty<string> ParameterVersionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parameter_version_id");
-        set => SetProperty("parameter_version_id", value);
-    }
+    [TerraformPropertyName("parameter_version_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ParameterVersionId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    public TerraformExpression Disabled => this["disabled"];
+    [TerraformPropertyName("disabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Disabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "disabled");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The parameter_data attribute.
     /// </summary>
-    public TerraformExpression ParameterData => this["parameter_data"];
+    [TerraformPropertyName("parameter_data")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ParameterData => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parameter_data");
 
     /// <summary>
     /// The rendered_parameter_data attribute.
     /// </summary>
-    public TerraformExpression RenderedParameterData => this["rendered_parameter_data"];
+    [TerraformPropertyName("rendered_parameter_data")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RenderedParameterData => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "rendered_parameter_data");
 
 }

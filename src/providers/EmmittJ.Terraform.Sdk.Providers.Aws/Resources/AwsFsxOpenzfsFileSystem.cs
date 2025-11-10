@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for disk_iops_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock : TerraformBlock
+public class AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformProperty<double>? Iops
-    {
-        set => SetProperty("iops", value);
-    }
+    [TerraformPropertyName("iops")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Iops { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "iops");
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string>? Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
 
 }
 
@@ -30,39 +28,35 @@ public class AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock : TerraformBlock
 /// Block type for root_volume_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock : TerraformBlock
+public class AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The copy_tags_to_snapshots attribute.
     /// </summary>
-    public TerraformProperty<bool>? CopyTagsToSnapshots
-    {
-        set => SetProperty("copy_tags_to_snapshots", value);
-    }
+    [TerraformPropertyName("copy_tags_to_snapshots")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CopyTagsToSnapshots { get; set; }
 
     /// <summary>
     /// The data_compression_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DataCompressionType
-    {
-        set => SetProperty("data_compression_type", value);
-    }
+    [TerraformPropertyName("data_compression_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DataCompressionType { get; set; }
 
     /// <summary>
     /// The read_only attribute.
     /// </summary>
-    public TerraformProperty<bool>? ReadOnly
-    {
-        set => SetProperty("read_only", value);
-    }
+    [TerraformPropertyName("read_only")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> ReadOnly { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "read_only");
 
     /// <summary>
     /// The record_size_kib attribute.
     /// </summary>
-    public TerraformProperty<double>? RecordSizeKib
-    {
-        set => SetProperty("record_size_kib", value);
-    }
+    [TerraformPropertyName("record_size_kib")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RecordSizeKib { get; set; }
 
 }
 
@@ -70,31 +64,28 @@ public class AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsFsxOpenzfsFileSystemTimeoutsBlock : TerraformBlock
+public class AwsFsxOpenzfsFileSystemTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -106,315 +97,242 @@ public class AwsFsxOpenzfsFileSystem : TerraformResource
 {
     public AwsFsxOpenzfsFileSystem(string name) : base("aws_fsx_openzfs_file_system", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("dns_name");
-        SetOutput("endpoint_ip_address");
-        SetOutput("network_interface_ids");
-        SetOutput("owner_id");
-        SetOutput("root_volume_id");
-        SetOutput("vpc_id");
-        SetOutput("automatic_backup_retention_days");
-        SetOutput("backup_id");
-        SetOutput("copy_tags_to_backups");
-        SetOutput("copy_tags_to_volumes");
-        SetOutput("daily_automatic_backup_start_time");
-        SetOutput("delete_options");
-        SetOutput("deployment_type");
-        SetOutput("endpoint_ip_address_range");
-        SetOutput("final_backup_tags");
-        SetOutput("id");
-        SetOutput("kms_key_id");
-        SetOutput("preferred_subnet_id");
-        SetOutput("region");
-        SetOutput("route_table_ids");
-        SetOutput("security_group_ids");
-        SetOutput("skip_final_backup");
-        SetOutput("storage_capacity");
-        SetOutput("storage_type");
-        SetOutput("subnet_ids");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("throughput_capacity");
-        SetOutput("weekly_maintenance_start_time");
     }
 
     /// <summary>
     /// The automatic_backup_retention_days attribute.
     /// </summary>
-    public TerraformProperty<double> AutomaticBackupRetentionDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("automatic_backup_retention_days");
-        set => SetProperty("automatic_backup_retention_days", value);
-    }
+    [TerraformPropertyName("automatic_backup_retention_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AutomaticBackupRetentionDays { get; set; }
 
     /// <summary>
     /// The backup_id attribute.
     /// </summary>
-    public TerraformProperty<string> BackupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backup_id");
-        set => SetProperty("backup_id", value);
-    }
+    [TerraformPropertyName("backup_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BackupId { get; set; }
 
     /// <summary>
     /// The copy_tags_to_backups attribute.
     /// </summary>
-    public TerraformProperty<bool> CopyTagsToBackups
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("copy_tags_to_backups");
-        set => SetProperty("copy_tags_to_backups", value);
-    }
+    [TerraformPropertyName("copy_tags_to_backups")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CopyTagsToBackups { get; set; }
 
     /// <summary>
     /// The copy_tags_to_volumes attribute.
     /// </summary>
-    public TerraformProperty<bool> CopyTagsToVolumes
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("copy_tags_to_volumes");
-        set => SetProperty("copy_tags_to_volumes", value);
-    }
+    [TerraformPropertyName("copy_tags_to_volumes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CopyTagsToVolumes { get; set; }
 
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
-    public TerraformProperty<string> DailyAutomaticBackupStartTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("daily_automatic_backup_start_time");
-        set => SetProperty("daily_automatic_backup_start_time", value);
-    }
+    [TerraformPropertyName("daily_automatic_backup_start_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DailyAutomaticBackupStartTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "daily_automatic_backup_start_time");
 
     /// <summary>
     /// The delete_options attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> DeleteOptions
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("delete_options");
-        set => SetProperty("delete_options", value);
-    }
+    [TerraformPropertyName("delete_options")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DeleteOptions { get; set; }
 
     /// <summary>
     /// The deployment_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
-    public required TerraformProperty<string> DeploymentType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deployment_type");
-        set => SetProperty("deployment_type", value);
-    }
+    [TerraformPropertyName("deployment_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DeploymentType { get; set; }
 
     /// <summary>
     /// The endpoint_ip_address_range attribute.
     /// </summary>
-    public TerraformProperty<string> EndpointIpAddressRange
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_ip_address_range");
-        set => SetProperty("endpoint_ip_address_range", value);
-    }
+    [TerraformPropertyName("endpoint_ip_address_range")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EndpointIpAddressRange { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_ip_address_range");
 
     /// <summary>
     /// The final_backup_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> FinalBackupTags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("final_backup_tags");
-        set => SetProperty("final_backup_tags", value);
-    }
+    [TerraformPropertyName("final_backup_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? FinalBackupTags { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_id");
 
     /// <summary>
     /// The preferred_subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string> PreferredSubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("preferred_subnet_id");
-        set => SetProperty("preferred_subnet_id", value);
-    }
+    [TerraformPropertyName("preferred_subnet_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PreferredSubnetId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> RouteTableIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("route_table_ids");
-        set => SetProperty("route_table_ids", value);
-    }
+    [TerraformPropertyName("route_table_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> RouteTableIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "route_table_ids");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The skip_final_backup attribute.
     /// </summary>
-    public TerraformProperty<bool> SkipFinalBackup
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_final_backup");
-        set => SetProperty("skip_final_backup", value);
-    }
+    [TerraformPropertyName("skip_final_backup")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipFinalBackup { get; set; }
 
     /// <summary>
     /// The storage_capacity attribute.
     /// </summary>
-    public TerraformProperty<double> StorageCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("storage_capacity");
-        set => SetProperty("storage_capacity", value);
-    }
+    [TerraformPropertyName("storage_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? StorageCapacity { get; set; }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformProperty<string> StorageType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_type");
-        set => SetProperty("storage_type", value);
-    }
+    [TerraformPropertyName("storage_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageType { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public List<TerraformProperty<string>> SubnetIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("subnet_ids");
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? SubnetIds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The throughput_capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThroughputCapacity is required")]
-    public required TerraformProperty<double> ThroughputCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("throughput_capacity");
-        set => SetProperty("throughput_capacity", value);
-    }
+    [TerraformPropertyName("throughput_capacity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ThroughputCapacity { get; set; }
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
-    public TerraformProperty<string> WeeklyMaintenanceStartTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("weekly_maintenance_start_time");
-        set => SetProperty("weekly_maintenance_start_time", value);
-    }
+    [TerraformPropertyName("weekly_maintenance_start_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> WeeklyMaintenanceStartTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "weekly_maintenance_start_time");
 
     /// <summary>
     /// Block for disk_iops_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskIopsConfiguration block(s) allowed")]
-    public List<AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock>? DiskIopsConfiguration
-    {
-        set => SetProperty("disk_iops_configuration", value);
-    }
+    [TerraformPropertyName("disk_iops_configuration")]
+    public TerraformList<TerraformBlock<AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock>>? DiskIopsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for root_volume_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootVolumeConfiguration block(s) allowed")]
-    public List<AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock>? RootVolumeConfiguration
-    {
-        set => SetProperty("root_volume_configuration", value);
-    }
+    [TerraformPropertyName("root_volume_configuration")]
+    public TerraformList<TerraformBlock<AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock>>? RootVolumeConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsFsxOpenzfsFileSystemTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsFsxOpenzfsFileSystemTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformExpression DnsName => this["dns_name"];
+    [TerraformPropertyName("dns_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
 
     /// <summary>
     /// The endpoint_ip_address attribute.
     /// </summary>
-    public TerraformExpression EndpointIpAddress => this["endpoint_ip_address"];
+    [TerraformPropertyName("endpoint_ip_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EndpointIpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_ip_address");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
-    public TerraformExpression NetworkInterfaceIds => this["network_interface_ids"];
+    [TerraformPropertyName("network_interface_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> NetworkInterfaceIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "network_interface_ids");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformExpression OwnerId => this["owner_id"];
+    [TerraformPropertyName("owner_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
 
     /// <summary>
     /// The root_volume_id attribute.
     /// </summary>
-    public TerraformExpression RootVolumeId => this["root_volume_id"];
+    [TerraformPropertyName("root_volume_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RootVolumeId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "root_volume_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformExpression VpcId => this["vpc_id"];
+    [TerraformPropertyName("vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorScheduledQueryRulesAlertDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermMonitorScheduledQueryRulesAlertDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,136 +24,134 @@ public class AzurermMonitorScheduledQueryRulesAlertDataSource : TerraformDataSou
 {
     public AzurermMonitorScheduledQueryRulesAlertDataSource(string name) : base("azurerm_monitor_scheduled_query_rules_alert", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("action");
-        SetOutput("authorized_resource_ids");
-        SetOutput("data_source_id");
-        SetOutput("description");
-        SetOutput("enabled");
-        SetOutput("frequency");
-        SetOutput("location");
-        SetOutput("query");
-        SetOutput("query_type");
-        SetOutput("severity");
-        SetOutput("tags");
-        SetOutput("throttling");
-        SetOutput("time_window");
-        SetOutput("trigger");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMonitorScheduledQueryRulesAlertDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMonitorScheduledQueryRulesAlertDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformExpression Action => this["action"];
+    [TerraformPropertyName("action")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Action => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "action");
 
     /// <summary>
     /// The authorized_resource_ids attribute.
     /// </summary>
-    public TerraformExpression AuthorizedResourceIds => this["authorized_resource_ids"];
+    [TerraformPropertyName("authorized_resource_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AuthorizedResourceIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "authorized_resource_ids");
 
     /// <summary>
     /// The data_source_id attribute.
     /// </summary>
-    public TerraformExpression DataSourceId => this["data_source_id"];
+    [TerraformPropertyName("data_source_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DataSourceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "data_source_id");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformExpression Enabled => this["enabled"];
+    [TerraformPropertyName("enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Enabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enabled");
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    public TerraformExpression Frequency => this["frequency"];
+    [TerraformPropertyName("frequency")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Frequency => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "frequency");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The query attribute.
     /// </summary>
-    public TerraformExpression Query => this["query"];
+    [TerraformPropertyName("query")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Query => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "query");
 
     /// <summary>
     /// The query_type attribute.
     /// </summary>
-    public TerraformExpression QueryType => this["query_type"];
+    [TerraformPropertyName("query_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> QueryType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "query_type");
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
-    public TerraformExpression Severity => this["severity"];
+    [TerraformPropertyName("severity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Severity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "severity");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The throttling attribute.
     /// </summary>
-    public TerraformExpression Throttling => this["throttling"];
+    [TerraformPropertyName("throttling")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Throttling => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "throttling");
 
     /// <summary>
     /// The time_window attribute.
     /// </summary>
-    public TerraformExpression TimeWindow => this["time_window"];
+    [TerraformPropertyName("time_window")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TimeWindow => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "time_window");
 
     /// <summary>
     /// The trigger attribute.
     /// </summary>
-    public TerraformExpression Trigger => this["trigger"];
+    [TerraformPropertyName("trigger")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Trigger => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "trigger");
 
 }

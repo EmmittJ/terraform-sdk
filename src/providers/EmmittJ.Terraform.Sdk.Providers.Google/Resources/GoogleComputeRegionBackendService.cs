@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backend in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
+public class GoogleComputeRegionBackendServiceBackendBlock : ITerraformBlock
 {
     /// <summary>
     /// Specifies the balancing mode for this backend.
@@ -14,10 +14,9 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
     /// See the [Backend Services Overview](https://cloud.google.com/load-balancing/docs/backend-service#balancing-mode)
     /// for an explanation of load balancing modes. Default value: &amp;quot;UTILIZATION&amp;quot; Possible values: [&amp;quot;UTILIZATION&amp;quot;, &amp;quot;RATE&amp;quot;, &amp;quot;CONNECTION&amp;quot;, &amp;quot;CUSTOM_METRICS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? BalancingMode
-    {
-        set => SetProperty("balancing_mode", value);
-    }
+    [TerraformPropertyName("balancing_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BalancingMode { get; set; }
 
     /// <summary>
     /// A multiplier applied to the group&#39;s maximum servicing capacity
@@ -31,28 +30,25 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
     /// A setting of 0 means the group is completely drained, offering
     /// 0% of its available Capacity. Valid range is [0.0,1.0].
     /// </summary>
-    public TerraformProperty<double>? CapacityScaler
-    {
-        set => SetProperty("capacity_scaler", value);
-    }
+    [TerraformPropertyName("capacity_scaler")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CapacityScaler { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// Provide this property when you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// This field designates whether this is a failover backend. More
     /// than one failover backend can be configured for a given RegionBackendService.
     /// </summary>
-    public TerraformProperty<bool>? Failover
-    {
-        set => SetProperty("failover", value);
-    }
+    [TerraformPropertyName("failover")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> Failover { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "failover");
 
     /// <summary>
     /// The fully-qualified URL of an Instance Group or Network Endpoint
@@ -77,10 +73,9 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
     /// partial URL.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
-    public required TerraformProperty<string> Group
-    {
-        set => SetProperty("group", value);
-    }
+    [TerraformPropertyName("group")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Group { get; set; }
 
     /// <summary>
     /// The max number of simultaneous connections for the group. Can
@@ -91,10 +86,9 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
     /// of maxConnectionsPerInstance or maxConnectionsPerEndpoint,
     /// as appropriate for group type, must be set.
     /// </summary>
-    public TerraformProperty<double>? MaxConnections
-    {
-        set => SetProperty("max_connections", value);
-    }
+    [TerraformPropertyName("max_connections")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxConnections { get; set; }
 
     /// <summary>
     /// The max number of simultaneous connections that a single backend
@@ -106,10 +100,9 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
     /// CONNECTION mode, either maxConnections or
     /// maxConnectionsPerEndpoint must be set.
     /// </summary>
-    public TerraformProperty<double>? MaxConnectionsPerEndpoint
-    {
-        set => SetProperty("max_connections_per_endpoint", value);
-    }
+    [TerraformPropertyName("max_connections_per_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxConnectionsPerEndpoint { get; set; }
 
     /// <summary>
     /// The max number of simultaneous connections that a single
@@ -121,10 +114,9 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
     /// For CONNECTION mode, either maxConnections or
     /// maxConnectionsPerInstance must be set.
     /// </summary>
-    public TerraformProperty<double>? MaxConnectionsPerInstance
-    {
-        set => SetProperty("max_connections_per_instance", value);
-    }
+    [TerraformPropertyName("max_connections_per_instance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxConnectionsPerInstance { get; set; }
 
     /// <summary>
     /// The max requests per second (RPS) of the group. Cannot be set
@@ -135,10 +127,9 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
     /// of maxRatePerInstance or maxRatePerEndpoint, as appropriate for
     /// group type, must be set.
     /// </summary>
-    public TerraformProperty<double>? MaxRate
-    {
-        set => SetProperty("max_rate", value);
-    }
+    [TerraformPropertyName("max_rate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxRate { get; set; }
 
     /// <summary>
     /// The max requests per second (RPS) that a single backend network
@@ -147,10 +138,9 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
     /// either maxRate or maxRatePerEndpoint must be set. Cannot be set
     /// for INTERNAL backend services.
     /// </summary>
-    public TerraformProperty<double>? MaxRatePerEndpoint
-    {
-        set => SetProperty("max_rate_per_endpoint", value);
-    }
+    [TerraformPropertyName("max_rate_per_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxRatePerEndpoint { get; set; }
 
     /// <summary>
     /// The max requests per second (RPS) that a single backend
@@ -159,20 +149,18 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
     /// either maxRate or maxRatePerInstance must be set. Cannot be set
     /// for INTERNAL backend services.
     /// </summary>
-    public TerraformProperty<double>? MaxRatePerInstance
-    {
-        set => SetProperty("max_rate_per_instance", value);
-    }
+    [TerraformPropertyName("max_rate_per_instance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxRatePerInstance { get; set; }
 
     /// <summary>
     /// Used when balancingMode is UTILIZATION. This ratio defines the
     /// CPU utilization target for the group. Valid range is [0.0, 1.0].
     /// Cannot be set for INTERNAL backend services.
     /// </summary>
-    public TerraformProperty<double>? MaxUtilization
-    {
-        set => SetProperty("max_utilization", value);
-    }
+    [TerraformPropertyName("max_utilization")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxUtilization { get; set; }
 
 }
 
@@ -180,57 +168,51 @@ public class GoogleComputeRegionBackendServiceBackendBlock : TerraformBlock
 /// Block type for cdn_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionBackendServiceCdnPolicyBlock : TerraformBlock
+public class GoogleComputeRegionBackendServiceCdnPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// Specifies the cache setting for all responses from this backend.
     /// The possible values are: USE_ORIGIN_HEADERS, FORCE_CACHE_ALL and CACHE_ALL_STATIC Possible values: [&amp;quot;USE_ORIGIN_HEADERS&amp;quot;, &amp;quot;FORCE_CACHE_ALL&amp;quot;, &amp;quot;CACHE_ALL_STATIC&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? CacheMode
-    {
-        set => SetProperty("cache_mode", value);
-    }
+    [TerraformPropertyName("cache_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CacheMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "cache_mode");
 
     /// <summary>
     /// Specifies the maximum allowed TTL for cached content served by this origin.
     /// </summary>
-    public TerraformProperty<double>? ClientTtl
-    {
-        set => SetProperty("client_ttl", value);
-    }
+    [TerraformPropertyName("client_ttl")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> ClientTtl { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "client_ttl");
 
     /// <summary>
     /// Specifies the default TTL for cached content served by this origin for responses
     /// that do not have an existing valid TTL (max-age or s-max-age).
     /// </summary>
-    public TerraformProperty<double>? DefaultTtl
-    {
-        set => SetProperty("default_ttl", value);
-    }
+    [TerraformPropertyName("default_ttl")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DefaultTtl { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "default_ttl");
 
     /// <summary>
     /// Specifies the maximum allowed TTL for cached content served by this origin.
     /// </summary>
-    public TerraformProperty<double>? MaxTtl
-    {
-        set => SetProperty("max_ttl", value);
-    }
+    [TerraformPropertyName("max_ttl")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxTtl { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "max_ttl");
 
     /// <summary>
     /// Negative caching allows per-status code TTLs to be set, in order to apply fine-grained caching for common errors or redirects.
     /// </summary>
-    public TerraformProperty<bool>? NegativeCaching
-    {
-        set => SetProperty("negative_caching", value);
-    }
+    [TerraformPropertyName("negative_caching")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> NegativeCaching { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "negative_caching");
 
     /// <summary>
     /// Serve existing content from the cache (if available) when revalidating content with the origin, or when an error is encountered when refreshing the cache.
     /// </summary>
-    public TerraformProperty<double>? ServeWhileStale
-    {
-        set => SetProperty("serve_while_stale", value);
-    }
+    [TerraformPropertyName("serve_while_stale")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> ServeWhileStale { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "serve_while_stale");
 
     /// <summary>
     /// Maximum number of seconds the response to a signed URL request
@@ -244,10 +226,9 @@ public class GoogleComputeRegionBackendServiceCdnPolicyBlock : TerraformBlock
     /// existing Cache-Control header. The actual headers served in
     /// responses will not be altered.
     /// </summary>
-    public TerraformProperty<double>? SignedUrlCacheMaxAgeSec
-    {
-        set => SetProperty("signed_url_cache_max_age_sec", value);
-    }
+    [TerraformPropertyName("signed_url_cache_max_age_sec")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SignedUrlCacheMaxAgeSec { get; set; }
 
 }
 
@@ -255,34 +236,31 @@ public class GoogleComputeRegionBackendServiceCdnPolicyBlock : TerraformBlock
 /// Block type for circuit_breakers in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionBackendServiceCircuitBreakersBlock : TerraformBlock
+public class GoogleComputeRegionBackendServiceCircuitBreakersBlock : ITerraformBlock
 {
     /// <summary>
     /// The maximum number of connections to the backend cluster.
     /// Defaults to 1024.
     /// </summary>
-    public TerraformProperty<double>? MaxConnections
-    {
-        set => SetProperty("max_connections", value);
-    }
+    [TerraformPropertyName("max_connections")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxConnections { get; set; }
 
     /// <summary>
     /// The maximum number of pending requests to the backend cluster.
     /// Defaults to 1024.
     /// </summary>
-    public TerraformProperty<double>? MaxPendingRequests
-    {
-        set => SetProperty("max_pending_requests", value);
-    }
+    [TerraformPropertyName("max_pending_requests")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxPendingRequests { get; set; }
 
     /// <summary>
     /// The maximum number of parallel requests to the backend cluster.
     /// Defaults to 1024.
     /// </summary>
-    public TerraformProperty<double>? MaxRequests
-    {
-        set => SetProperty("max_requests", value);
-    }
+    [TerraformPropertyName("max_requests")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxRequests { get; set; }
 
     /// <summary>
     /// Maximum requests for a single backend connection. This parameter
@@ -290,19 +268,17 @@ public class GoogleComputeRegionBackendServiceCircuitBreakersBlock : TerraformBl
     /// not specified, there is no limit. Setting this parameter to 1
     /// will effectively disable keep alive.
     /// </summary>
-    public TerraformProperty<double>? MaxRequestsPerConnection
-    {
-        set => SetProperty("max_requests_per_connection", value);
-    }
+    [TerraformPropertyName("max_requests_per_connection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxRequestsPerConnection { get; set; }
 
     /// <summary>
     /// The maximum number of parallel retries to the backend cluster.
     /// Defaults to 3.
     /// </summary>
-    public TerraformProperty<double>? MaxRetries
-    {
-        set => SetProperty("max_retries", value);
-    }
+    [TerraformPropertyName("max_retries")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxRetries { get; set; }
 
 }
 
@@ -310,16 +286,15 @@ public class GoogleComputeRegionBackendServiceCircuitBreakersBlock : TerraformBl
 /// Block type for consistent_hash in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionBackendServiceConsistentHashBlock : TerraformBlock
+public class GoogleComputeRegionBackendServiceConsistentHashBlock : ITerraformBlock
 {
     /// <summary>
     /// The hash based on the value of the specified header field.
     /// This field is applicable if the sessionAffinity is set to HEADER_FIELD.
     /// </summary>
-    public TerraformProperty<string>? HttpHeaderName
-    {
-        set => SetProperty("http_header_name", value);
-    }
+    [TerraformPropertyName("http_header_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HttpHeaderName { get; set; }
 
     /// <summary>
     /// The minimum number of virtual nodes to use for the hash ring.
@@ -329,10 +304,9 @@ public class GoogleComputeRegionBackendServiceConsistentHashBlock : TerraformBlo
     /// virtual node.
     /// Defaults to 1024.
     /// </summary>
-    public TerraformProperty<double>? MinimumRingSize
-    {
-        set => SetProperty("minimum_ring_size", value);
-    }
+    [TerraformPropertyName("minimum_ring_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinimumRingSize { get; set; }
 
 }
 
@@ -340,16 +314,15 @@ public class GoogleComputeRegionBackendServiceConsistentHashBlock : TerraformBlo
 /// Block type for custom_metrics in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionBackendServiceCustomMetricsBlock : TerraformBlock
+public class GoogleComputeRegionBackendServiceCustomMetricsBlock : ITerraformBlock
 {
     /// <summary>
     /// If true, the metric data is not used for load balancing.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DryRun is required")]
-    public required TerraformProperty<bool> DryRun
-    {
-        set => SetProperty("dry_run", value);
-    }
+    [TerraformPropertyName("dry_run")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> DryRun { get; set; }
 
     /// <summary>
     /// Name of a custom utilization signal. The name must be 1-64 characters
@@ -363,10 +336,9 @@ public class GoogleComputeRegionBackendServiceCustomMetricsBlock : TerraformBloc
     /// &amp;lt;code&amp;gt;INTERNAL_MANAGED&amp;lt;/code&amp;gt; &amp;lt;code&amp;gt;INTERNAL_SELF_MANAGED&amp;lt;/code&amp;gt;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -374,7 +346,7 @@ public class GoogleComputeRegionBackendServiceCustomMetricsBlock : TerraformBloc
 /// Block type for failover_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionBackendServiceFailoverPolicyBlock : TerraformBlock
+public class GoogleComputeRegionBackendServiceFailoverPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// On failover or failback, this field indicates whether connection drain
@@ -386,10 +358,9 @@ public class GoogleComputeRegionBackendServiceFailoverPolicyBlock : TerraformBlo
     /// This can be set to true only if the protocol is TCP.
     /// The default is false.
     /// </summary>
-    public TerraformProperty<bool>? DisableConnectionDrainOnFailover
-    {
-        set => SetProperty("disable_connection_drain_on_failover", value);
-    }
+    [TerraformPropertyName("disable_connection_drain_on_failover")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> DisableConnectionDrainOnFailover { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "disable_connection_drain_on_failover");
 
     /// <summary>
     /// This option is used only when no healthy VMs are detected in the primary
@@ -397,10 +368,9 @@ public class GoogleComputeRegionBackendServiceFailoverPolicyBlock : TerraformBlo
     /// set to false, new connections are sent across all VMs in the primary group.
     /// The default is false.
     /// </summary>
-    public TerraformProperty<bool>? DropTrafficIfUnhealthy
-    {
-        set => SetProperty("drop_traffic_if_unhealthy", value);
-    }
+    [TerraformPropertyName("drop_traffic_if_unhealthy")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> DropTrafficIfUnhealthy { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "drop_traffic_if_unhealthy");
 
     /// <summary>
     /// The value of the field must be in [0, 1]. If the ratio of the healthy
@@ -412,10 +382,9 @@ public class GoogleComputeRegionBackendServiceFailoverPolicyBlock : TerraformBlo
     /// VMs with the best effort, or to all VMs when no VM is healthy.
     /// This field is only used with l4 load balancing.
     /// </summary>
-    public TerraformProperty<double>? FailoverRatio
-    {
-        set => SetProperty("failover_ratio", value);
-    }
+    [TerraformPropertyName("failover_ratio")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? FailoverRatio { get; set; }
 
 }
 
@@ -423,7 +392,7 @@ public class GoogleComputeRegionBackendServiceFailoverPolicyBlock : TerraformBlo
 /// Block type for ha_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionBackendServiceHaPolicyBlock : TerraformBlock
+public class GoogleComputeRegionBackendServiceHaPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// Specifies whether fast IP move is enabled, and if so, the mechanism to achieve it.
@@ -441,10 +410,9 @@ public class GoogleComputeRegionBackendServiceHaPolicyBlock : TerraformBlock
     ///              forwarding rule IP address with that VM, and both new and in-flight packets
     ///              are quickly delivered to that VM. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;GARP_RA&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? FastIpMove
-    {
-        set => SetProperty("fast_ip_move", value);
-    }
+    [TerraformPropertyName("fast_ip_move")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FastIpMove { get; set; }
 
 }
 
@@ -452,40 +420,36 @@ public class GoogleComputeRegionBackendServiceHaPolicyBlock : TerraformBlock
 /// Block type for iap in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionBackendServiceIapBlock : TerraformBlock
+public class GoogleComputeRegionBackendServiceIapBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether the serving infrastructure will authenticate and authorize all incoming requests.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// OAuth2 Client ID for IAP
     /// </summary>
-    public TerraformProperty<string>? Oauth2ClientId
-    {
-        set => SetProperty("oauth2_client_id", value);
-    }
+    [TerraformPropertyName("oauth2_client_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Oauth2ClientId { get; set; }
 
     /// <summary>
     /// OAuth2 Client Secret for IAP
     /// </summary>
-    public TerraformProperty<string>? Oauth2ClientSecret
-    {
-        set => SetProperty("oauth2_client_secret", value);
-    }
+    [TerraformPropertyName("oauth2_client_secret")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Oauth2ClientSecret { get; set; }
 
     /// <summary>
     /// OAuth2 Client Secret SHA-256 for IAP
     /// </summary>
-    public TerraformProperty<string>? Oauth2ClientSecretSha256
-    {
-        set => SetProperty("oauth2_client_secret_sha256", value);
-    }
+    [TerraformPropertyName("oauth2_client_secret_sha256")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Oauth2ClientSecretSha256 => new TerraformReferenceProperty<TerraformProperty<string>>("", "oauth2_client_secret_sha256");
 
 }
 
@@ -493,32 +457,29 @@ public class GoogleComputeRegionBackendServiceIapBlock : TerraformBlock
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionBackendServiceLogConfigBlock : TerraformBlock
+public class GoogleComputeRegionBackendServiceLogConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether to enable logging for the load balancer traffic served by this backend service.
     /// </summary>
-    public TerraformProperty<bool>? Enable
-    {
-        set => SetProperty("enable", value);
-    }
+    [TerraformPropertyName("enable")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enable { get; set; }
 
     /// <summary>
     /// Specifies the fields to include in logging. This field can only be specified if logging is enabled for this backend service.
     /// </summary>
-    public List<TerraformProperty<string>>? OptionalFields
-    {
-        set => SetProperty("optional_fields", value);
-    }
+    [TerraformPropertyName("optional_fields")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> OptionalFields { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "optional_fields");
 
     /// <summary>
     /// Specifies the optional logging mode for the load balancer traffic.
     /// Supported values: INCLUDE_ALL_OPTIONAL, EXCLUDE_ALL_OPTIONAL, CUSTOM. Possible values: [&amp;quot;INCLUDE_ALL_OPTIONAL&amp;quot;, &amp;quot;EXCLUDE_ALL_OPTIONAL&amp;quot;, &amp;quot;CUSTOM&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? OptionalMode
-    {
-        set => SetProperty("optional_mode", value);
-    }
+    [TerraformPropertyName("optional_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> OptionalMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "optional_mode");
 
     /// <summary>
     /// This field can only be specified if logging is enabled for this backend service. The value of
@@ -526,10 +487,9 @@ public class GoogleComputeRegionBackendServiceLogConfigBlock : TerraformBlock
     /// where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported.
     /// The default value is 1.0.
     /// </summary>
-    public TerraformProperty<double>? SampleRate
-    {
-        set => SetProperty("sample_rate", value);
-    }
+    [TerraformPropertyName("sample_rate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SampleRate { get; set; }
 
 }
 
@@ -537,66 +497,60 @@ public class GoogleComputeRegionBackendServiceLogConfigBlock : TerraformBlock
 /// Block type for outlier_detection in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionBackendServiceOutlierDetectionBlock : TerraformBlock
+public class GoogleComputeRegionBackendServiceOutlierDetectionBlock : ITerraformBlock
 {
     /// <summary>
     /// Number of errors before a host is ejected from the connection pool. When the
     /// backend host is accessed over HTTP, a 5xx return code qualifies as an error.
     /// Defaults to 5.
     /// </summary>
-    public TerraformProperty<double>? ConsecutiveErrors
-    {
-        set => SetProperty("consecutive_errors", value);
-    }
+    [TerraformPropertyName("consecutive_errors")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ConsecutiveErrors { get; set; }
 
     /// <summary>
     /// The number of consecutive gateway failures (502, 503, 504 status or connection
     /// errors that are mapped to one of those status codes) before a consecutive
     /// gateway failure ejection occurs. Defaults to 5.
     /// </summary>
-    public TerraformProperty<double>? ConsecutiveGatewayFailure
-    {
-        set => SetProperty("consecutive_gateway_failure", value);
-    }
+    [TerraformPropertyName("consecutive_gateway_failure")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ConsecutiveGatewayFailure { get; set; }
 
     /// <summary>
     /// The percentage chance that a host will be actually ejected when an outlier
     /// status is detected through consecutive 5xx. This setting can be used to disable
     /// ejection or to ramp it up slowly. Defaults to 100.
     /// </summary>
-    public TerraformProperty<double>? EnforcingConsecutiveErrors
-    {
-        set => SetProperty("enforcing_consecutive_errors", value);
-    }
+    [TerraformPropertyName("enforcing_consecutive_errors")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? EnforcingConsecutiveErrors { get; set; }
 
     /// <summary>
     /// The percentage chance that a host will be actually ejected when an outlier
     /// status is detected through consecutive gateway failures. This setting can be
     /// used to disable ejection or to ramp it up slowly. Defaults to 0.
     /// </summary>
-    public TerraformProperty<double>? EnforcingConsecutiveGatewayFailure
-    {
-        set => SetProperty("enforcing_consecutive_gateway_failure", value);
-    }
+    [TerraformPropertyName("enforcing_consecutive_gateway_failure")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? EnforcingConsecutiveGatewayFailure { get; set; }
 
     /// <summary>
     /// The percentage chance that a host will be actually ejected when an outlier
     /// status is detected through success rate statistics. This setting can be used to
     /// disable ejection or to ramp it up slowly. Defaults to 100.
     /// </summary>
-    public TerraformProperty<double>? EnforcingSuccessRate
-    {
-        set => SetProperty("enforcing_success_rate", value);
-    }
+    [TerraformPropertyName("enforcing_success_rate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? EnforcingSuccessRate { get; set; }
 
     /// <summary>
     /// Maximum percentage of hosts in the load balancing pool for the backend service
     /// that can be ejected. Defaults to 10%.
     /// </summary>
-    public TerraformProperty<double>? MaxEjectionPercent
-    {
-        set => SetProperty("max_ejection_percent", value);
-    }
+    [TerraformPropertyName("max_ejection_percent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxEjectionPercent { get; set; }
 
     /// <summary>
     /// The number of hosts in a cluster that must have enough request volume to detect
@@ -604,10 +558,9 @@ public class GoogleComputeRegionBackendServiceOutlierDetectionBlock : TerraformB
     /// detection via success rate statistics is not performed for any host in the
     /// cluster. Defaults to 5.
     /// </summary>
-    public TerraformProperty<double>? SuccessRateMinimumHosts
-    {
-        set => SetProperty("success_rate_minimum_hosts", value);
-    }
+    [TerraformPropertyName("success_rate_minimum_hosts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SuccessRateMinimumHosts { get; set; }
 
     /// <summary>
     /// The minimum number of total requests that must be collected in one interval (as
@@ -616,10 +569,9 @@ public class GoogleComputeRegionBackendServiceOutlierDetectionBlock : TerraformB
     /// detection via success rate statistics is not performed for that host. Defaults
     /// to 100.
     /// </summary>
-    public TerraformProperty<double>? SuccessRateRequestVolume
-    {
-        set => SetProperty("success_rate_request_volume", value);
-    }
+    [TerraformPropertyName("success_rate_request_volume")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SuccessRateRequestVolume { get; set; }
 
     /// <summary>
     /// This factor is used to determine the ejection threshold for success rate outlier
@@ -629,10 +581,9 @@ public class GoogleComputeRegionBackendServiceOutlierDetectionBlock : TerraformB
     /// by a thousand to get a double. That is, if the desired factor is 1.9, the
     /// runtime value should be 1900. Defaults to 1900.
     /// </summary>
-    public TerraformProperty<double>? SuccessRateStdevFactor
-    {
-        set => SetProperty("success_rate_stdev_factor", value);
-    }
+    [TerraformPropertyName("success_rate_stdev_factor")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SuccessRateStdevFactor { get; set; }
 
 }
 
@@ -640,17 +591,16 @@ public class GoogleComputeRegionBackendServiceOutlierDetectionBlock : TerraformB
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionBackendServiceParamsBlock : TerraformBlock
+public class GoogleComputeRegionBackendServiceParamsBlock : ITerraformBlock
 {
     /// <summary>
     /// Resource manager tags to be bound to the region backend service. Tag keys and values have the
     /// same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id},
     /// and values are in the format tagValues/456.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
-    {
-        set => SetProperty("resource_manager_tags", value);
-    }
+    [TerraformPropertyName("resource_manager_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ResourceManagerTags { get; set; }
 
 }
 
@@ -658,23 +608,21 @@ public class GoogleComputeRegionBackendServiceParamsBlock : TerraformBlock
 /// Block type for strong_session_affinity_cookie in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionBackendServiceStrongSessionAffinityCookieBlock : TerraformBlock
+public class GoogleComputeRegionBackendServiceStrongSessionAffinityCookieBlock : ITerraformBlock
 {
     /// <summary>
     /// Name of the cookie.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// Path to set for the cookie.
     /// </summary>
-    public TerraformProperty<string>? Path
-    {
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
 
 }
 
@@ -682,31 +630,28 @@ public class GoogleComputeRegionBackendServiceStrongSessionAffinityCookieBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRegionBackendServiceTimeoutsBlock : TerraformBlock
+public class GoogleComputeRegionBackendServiceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -718,33 +663,6 @@ public class GoogleComputeRegionBackendService : TerraformResource
 {
     public GoogleComputeRegionBackendService(string name) : base("google_compute_region_backend_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_timestamp");
-        SetOutput("fingerprint");
-        SetOutput("generated_id");
-        SetOutput("self_link");
-        SetOutput("affinity_cookie_ttl_sec");
-        SetOutput("connection_draining_timeout_sec");
-        SetOutput("description");
-        SetOutput("enable_cdn");
-        SetOutput("health_checks");
-        SetOutput("id");
-        SetOutput("ip_address_selection_policy");
-        SetOutput("load_balancing_scheme");
-        SetOutput("locality_lb_policy");
-        SetOutput("name");
-        SetOutput("network");
-        SetOutput("port_name");
-        SetOutput("project");
-        SetOutput("protocol");
-        SetOutput("region");
-        SetOutput("security_policy");
-        SetOutput("session_affinity");
-        SetOutput("timeout_sec");
     }
 
     /// <summary>
@@ -755,39 +673,31 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// 
     /// When the load balancing scheme is INTERNAL, this field is not used.
     /// </summary>
-    public TerraformProperty<double> AffinityCookieTtlSec
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("affinity_cookie_ttl_sec");
-        set => SetProperty("affinity_cookie_ttl_sec", value);
-    }
+    [TerraformPropertyName("affinity_cookie_ttl_sec")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AffinityCookieTtlSec { get; set; }
 
     /// <summary>
     /// Time for which instance will be drained (not accept new
     /// connections, but still work to finish started).
     /// </summary>
-    public TerraformProperty<double> ConnectionDrainingTimeoutSec
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("connection_draining_timeout_sec");
-        set => SetProperty("connection_draining_timeout_sec", value);
-    }
+    [TerraformPropertyName("connection_draining_timeout_sec")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ConnectionDrainingTimeoutSec { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// If true, enable Cloud CDN for this RegionBackendService.
     /// </summary>
-    public TerraformProperty<bool> EnableCdn
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_cdn");
-        set => SetProperty("enable_cdn", value);
-    }
+    [TerraformPropertyName("enable_cdn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableCdn { get; set; }
 
     /// <summary>
     /// The set of URLs to HealthCheck resources for health checking
@@ -797,29 +707,23 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// A health check must be specified unless the backend service uses an internet
     /// or serverless NEG as a backend.
     /// </summary>
-    public HashSet<TerraformProperty<string>> HealthChecks
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("health_checks");
-        set => SetProperty("health_checks", value);
-    }
+    [TerraformPropertyName("health_checks")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? HealthChecks { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Specifies preference of traffic to the backend (from the proxy and from the client for proxyless gRPC). Possible values: [&amp;quot;IPV4_ONLY&amp;quot;, &amp;quot;PREFER_IPV6&amp;quot;, &amp;quot;IPV6_ONLY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> IpAddressSelectionPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ip_address_selection_policy");
-        set => SetProperty("ip_address_selection_policy", value);
-    }
+    [TerraformPropertyName("ip_address_selection_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IpAddressSelectionPolicy { get; set; }
 
     /// <summary>
     /// Indicates what kind of load balancing this regional backend service
@@ -827,11 +731,9 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// balancing cannot be used with the other(s). For more information, refer to
     /// [Choosing a load balancer](https://cloud.google.com/load-balancing/docs/backend-service). Default value: &amp;quot;INTERNAL&amp;quot; Possible values: [&amp;quot;EXTERNAL&amp;quot;, &amp;quot;EXTERNAL_MANAGED&amp;quot;, &amp;quot;INTERNAL&amp;quot;, &amp;quot;INTERNAL_MANAGED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> LoadBalancingScheme
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("load_balancing_scheme");
-        set => SetProperty("load_balancing_scheme", value);
-    }
+    [TerraformPropertyName("load_balancing_scheme")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LoadBalancingScheme { get; set; }
 
     /// <summary>
     /// The load balancing algorithm used within the scope of the locality.
@@ -898,11 +800,9 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// by a URL map that is bound to target gRPC proxy that has validate_for_proxyless
     /// field set to true. Possible values: [&amp;quot;ROUND_ROBIN&amp;quot;, &amp;quot;LEAST_REQUEST&amp;quot;, &amp;quot;RING_HASH&amp;quot;, &amp;quot;RANDOM&amp;quot;, &amp;quot;ORIGINAL_DESTINATION&amp;quot;, &amp;quot;MAGLEV&amp;quot;, &amp;quot;WEIGHTED_MAGLEV&amp;quot;, &amp;quot;WEIGHTED_ROUND_ROBIN&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> LocalityLbPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("locality_lb_policy");
-        set => SetProperty("locality_lb_policy", value);
-    }
+    [TerraformPropertyName("locality_lb_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LocalityLbPolicy { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -914,11 +814,9 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The URL of the network to which this backend service belongs.
@@ -926,11 +824,9 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// This field can only be specified when the load balancing scheme is set to INTERNAL, or when the load balancing scheme is set to EXTERNAL and haPolicy fastIpMove is enabled.
     /// Changes to this field force recreation of the resource.
     /// </summary>
-    public TerraformProperty<string> Network
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network");
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Network { get; set; }
 
     /// <summary>
     /// A named port on a backend instance group representing the port for
@@ -941,20 +837,16 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// default of &amp;quot;http&amp;quot; if not given.
     /// Must be omitted when the loadBalancingScheme is INTERNAL (Internal TCP/UDP Load Balancing).
     /// </summary>
-    public TerraformProperty<string> PortName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("port_name");
-        set => SetProperty("port_name", value);
-    }
+    [TerraformPropertyName("port_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PortName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "port_name");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The protocol this BackendService uses to communicate with backends.
@@ -962,40 +854,32 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// or GRPC. Refer to the documentation for the load balancers or for Traffic Director
     /// for more information. Possible values: [&amp;quot;HTTP&amp;quot;, &amp;quot;HTTPS&amp;quot;, &amp;quot;HTTP2&amp;quot;, &amp;quot;TCP&amp;quot;, &amp;quot;SSL&amp;quot;, &amp;quot;UDP&amp;quot;, &amp;quot;GRPC&amp;quot;, &amp;quot;UNSPECIFIED&amp;quot;, &amp;quot;H2C&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> Protocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Protocol { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protocol");
 
     /// <summary>
     /// The Region in which the created backend service should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The security policy associated with this backend service.
     /// </summary>
-    public TerraformProperty<string> SecurityPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_policy");
-        set => SetProperty("security_policy", value);
-    }
+    [TerraformPropertyName("security_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecurityPolicy { get; set; }
 
     /// <summary>
     /// Type of session affinity to use. The default is NONE. Session affinity is
     /// not applicable if the protocol is UDP. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;CLIENT_IP&amp;quot;, &amp;quot;CLIENT_IP_PORT_PROTO&amp;quot;, &amp;quot;CLIENT_IP_PROTO&amp;quot;, &amp;quot;GENERATED_COOKIE&amp;quot;, &amp;quot;HEADER_FIELD&amp;quot;, &amp;quot;HTTP_COOKIE&amp;quot;, &amp;quot;CLIENT_IP_NO_DESTINATION&amp;quot;, &amp;quot;STRONG_COOKIE_AFFINITY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> SessionAffinity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("session_affinity");
-        set => SetProperty("session_affinity", value);
-    }
+    [TerraformPropertyName("session_affinity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SessionAffinity { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "session_affinity");
 
     /// <summary>
     /// The backend service timeout has a different meaning depending on the type of load balancer.
@@ -1003,158 +887,138 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// The default is 30 seconds.
     /// The full range of timeout values allowed goes from 1 through 2,147,483,647 seconds.
     /// </summary>
-    public TerraformProperty<double> TimeoutSec
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("timeout_sec");
-        set => SetProperty("timeout_sec", value);
-    }
+    [TerraformPropertyName("timeout_sec")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> TimeoutSec { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "timeout_sec");
 
     /// <summary>
     /// Block for backend.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<GoogleComputeRegionBackendServiceBackendBlock>? Backend
-    {
-        set => SetProperty("backend", value);
-    }
+    [TerraformPropertyName("backend")]
+    public TerraformSet<TerraformBlock<GoogleComputeRegionBackendServiceBackendBlock>>? Backend { get; set; } = new();
 
     /// <summary>
     /// Block for cdn_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CdnPolicy block(s) allowed")]
-    public List<GoogleComputeRegionBackendServiceCdnPolicyBlock>? CdnPolicy
-    {
-        set => SetProperty("cdn_policy", value);
-    }
+    [TerraformPropertyName("cdn_policy")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionBackendServiceCdnPolicyBlock>>? CdnPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for circuit_breakers.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CircuitBreakers block(s) allowed")]
-    public List<GoogleComputeRegionBackendServiceCircuitBreakersBlock>? CircuitBreakers
-    {
-        set => SetProperty("circuit_breakers", value);
-    }
+    [TerraformPropertyName("circuit_breakers")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionBackendServiceCircuitBreakersBlock>>? CircuitBreakers { get; set; } = new();
 
     /// <summary>
     /// Block for consistent_hash.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConsistentHash block(s) allowed")]
-    public List<GoogleComputeRegionBackendServiceConsistentHashBlock>? ConsistentHash
-    {
-        set => SetProperty("consistent_hash", value);
-    }
+    [TerraformPropertyName("consistent_hash")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionBackendServiceConsistentHashBlock>>? ConsistentHash { get; set; } = new();
 
     /// <summary>
     /// Block for custom_metrics.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleComputeRegionBackendServiceCustomMetricsBlock>? CustomMetrics
-    {
-        set => SetProperty("custom_metrics", value);
-    }
+    [TerraformPropertyName("custom_metrics")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionBackendServiceCustomMetricsBlock>>? CustomMetrics { get; set; } = new();
 
     /// <summary>
     /// Block for failover_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FailoverPolicy block(s) allowed")]
-    public List<GoogleComputeRegionBackendServiceFailoverPolicyBlock>? FailoverPolicy
-    {
-        set => SetProperty("failover_policy", value);
-    }
+    [TerraformPropertyName("failover_policy")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionBackendServiceFailoverPolicyBlock>>? FailoverPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for ha_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HaPolicy block(s) allowed")]
-    public List<GoogleComputeRegionBackendServiceHaPolicyBlock>? HaPolicy
-    {
-        set => SetProperty("ha_policy", value);
-    }
+    [TerraformPropertyName("ha_policy")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionBackendServiceHaPolicyBlock>>? HaPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for iap.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Iap block(s) allowed")]
-    public List<GoogleComputeRegionBackendServiceIapBlock>? Iap
-    {
-        set => SetProperty("iap", value);
-    }
+    [TerraformPropertyName("iap")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionBackendServiceIapBlock>>? Iap { get; set; } = new();
 
     /// <summary>
     /// Block for log_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
-    public List<GoogleComputeRegionBackendServiceLogConfigBlock>? LogConfig
-    {
-        set => SetProperty("log_config", value);
-    }
+    [TerraformPropertyName("log_config")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionBackendServiceLogConfigBlock>>? LogConfig { get; set; } = new();
 
     /// <summary>
     /// Block for outlier_detection.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutlierDetection block(s) allowed")]
-    public List<GoogleComputeRegionBackendServiceOutlierDetectionBlock>? OutlierDetection
-    {
-        set => SetProperty("outlier_detection", value);
-    }
+    [TerraformPropertyName("outlier_detection")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionBackendServiceOutlierDetectionBlock>>? OutlierDetection { get; set; } = new();
 
     /// <summary>
     /// Block for params.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
-    public List<GoogleComputeRegionBackendServiceParamsBlock>? Params
-    {
-        set => SetProperty("params", value);
-    }
+    [TerraformPropertyName("params")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionBackendServiceParamsBlock>>? Params { get; set; } = new();
 
     /// <summary>
     /// Block for strong_session_affinity_cookie.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StrongSessionAffinityCookie block(s) allowed")]
-    public List<GoogleComputeRegionBackendServiceStrongSessionAffinityCookieBlock>? StrongSessionAffinityCookie
-    {
-        set => SetProperty("strong_session_affinity_cookie", value);
-    }
+    [TerraformPropertyName("strong_session_affinity_cookie")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionBackendServiceStrongSessionAffinityCookieBlock>>? StrongSessionAffinityCookie { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeRegionBackendServiceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeRegionBackendServiceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreationTimestamp => this["creation_timestamp"];
+    [TerraformPropertyName("creation_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this
     /// object. This field is used in optimistic locking.
     /// </summary>
-    public TerraformExpression Fingerprint => this["fingerprint"];
+    [TerraformPropertyName("fingerprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
-    public TerraformExpression GeneratedId => this["generated_id"];
+    [TerraformPropertyName("generated_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> GeneratedId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "generated_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
 }

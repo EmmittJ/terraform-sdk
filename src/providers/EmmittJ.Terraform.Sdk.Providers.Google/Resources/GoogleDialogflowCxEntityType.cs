@@ -6,26 +6,24 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for entities in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxEntityTypeEntitiesBlock : TerraformBlock
+public class GoogleDialogflowCxEntityTypeEntitiesBlock : ITerraformBlock
 {
     /// <summary>
     /// A collection of value synonyms. For example, if the entity type is vegetable, and value is scallions, a synonym could be green onions.
     /// For KIND_LIST entity types: This collection must contain exactly one synonym equal to value.
     /// </summary>
-    public List<TerraformProperty<string>>? Synonyms
-    {
-        set => SetProperty("synonyms", value);
-    }
+    [TerraformPropertyName("synonyms")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Synonyms { get; set; }
 
     /// <summary>
     /// The primary value associated with this entity entry. For example, if the entity type is vegetable, the value could be scallions.
     /// For KIND_MAP entity types: A canonical value to be used in place of synonyms.
     /// For KIND_LIST entity types: A string that can contain references to other entity types (with or without aliases).
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -33,15 +31,14 @@ public class GoogleDialogflowCxEntityTypeEntitiesBlock : TerraformBlock
 /// Block type for excluded_phrases in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxEntityTypeExcludedPhrasesBlock : TerraformBlock
+public class GoogleDialogflowCxEntityTypeExcludedPhrasesBlock : ITerraformBlock
 {
     /// <summary>
     /// The word or phrase to be excluded.
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -49,31 +46,28 @@ public class GoogleDialogflowCxEntityTypeExcludedPhrasesBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowCxEntityTypeTimeoutsBlock : TerraformBlock
+public class GoogleDialogflowCxEntityTypeTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -85,20 +79,6 @@ public class GoogleDialogflowCxEntityType : TerraformResource
 {
     public GoogleDialogflowCxEntityType(string name) : base("google_dialogflow_cx_entity_type", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("auto_expansion_mode");
-        SetOutput("display_name");
-        SetOutput("enable_fuzzy_extraction");
-        SetOutput("id");
-        SetOutput("kind");
-        SetOutput("language_code");
-        SetOutput("parent");
-        SetOutput("redact");
     }
 
     /// <summary>
@@ -106,39 +86,31 @@ public class GoogleDialogflowCxEntityType : TerraformResource
     /// * AUTO_EXPANSION_MODE_UNSPECIFIED: Auto expansion disabled for the entity.
     /// * AUTO_EXPANSION_MODE_DEFAULT: Allows an agent to recognize values that have not been explicitly listed in the entity. Possible values: [&amp;quot;AUTO_EXPANSION_MODE_DEFAULT&amp;quot;, &amp;quot;AUTO_EXPANSION_MODE_UNSPECIFIED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> AutoExpansionMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("auto_expansion_mode");
-        set => SetProperty("auto_expansion_mode", value);
-    }
+    [TerraformPropertyName("auto_expansion_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AutoExpansionMode { get; set; }
 
     /// <summary>
     /// The human-readable name of the entity type, unique within the agent.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// Enables fuzzy entity extraction during classification.
     /// </summary>
-    public TerraformProperty<bool> EnableFuzzyExtraction
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_fuzzy_extraction");
-        set => SetProperty("enable_fuzzy_extraction", value);
-    }
+    [TerraformPropertyName("enable_fuzzy_extraction")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableFuzzyExtraction { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Indicates whether the entity type can be automatically expanded.
@@ -147,11 +119,9 @@ public class GoogleDialogflowCxEntityType : TerraformResource
     /// * KIND_REGEXP: Regexp entity types allow to specify regular expressions in entries values. Possible values: [&amp;quot;KIND_MAP&amp;quot;, &amp;quot;KIND_LIST&amp;quot;, &amp;quot;KIND_REGEXP&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
-    public required TerraformProperty<string> Kind
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kind");
-        set => SetProperty("kind", value);
-    }
+    [TerraformPropertyName("kind")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Kind { get; set; }
 
     /// <summary>
     /// The language of the following fields in entityType:
@@ -160,30 +130,24 @@ public class GoogleDialogflowCxEntityType : TerraformResource
     /// EntityType.excluded_phrases.value
     /// If not specified, the agent&#39;s default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
     /// </summary>
-    public TerraformProperty<string> LanguageCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
-        set => SetProperty("language_code", value);
-    }
+    [TerraformPropertyName("language_code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LanguageCode { get; set; }
 
     /// <summary>
     /// The agent to create a entity type for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Parent { get; set; }
 
     /// <summary>
     /// Indicates whether parameters of the entity type should be redacted in log. If redaction is enabled, page parameters and intent parameters referring to the entity type will be replaced by parameter name when logging.
     /// </summary>
-    public TerraformProperty<bool> Redact
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("redact");
-        set => SetProperty("redact", value);
-    }
+    [TerraformPropertyName("redact")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Redact { get; set; }
 
     /// <summary>
     /// Block for entities.
@@ -191,33 +155,29 @@ public class GoogleDialogflowCxEntityType : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entities is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Entities block(s) required")]
-    public List<GoogleDialogflowCxEntityTypeEntitiesBlock>? Entities
-    {
-        set => SetProperty("entities", value);
-    }
+    [TerraformPropertyName("entities")]
+    public TerraformList<TerraformBlock<GoogleDialogflowCxEntityTypeEntitiesBlock>>? Entities { get; set; } = new();
 
     /// <summary>
     /// Block for excluded_phrases.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleDialogflowCxEntityTypeExcludedPhrasesBlock>? ExcludedPhrases
-    {
-        set => SetProperty("excluded_phrases", value);
-    }
+    [TerraformPropertyName("excluded_phrases")]
+    public TerraformList<TerraformBlock<GoogleDialogflowCxEntityTypeExcludedPhrasesBlock>>? ExcludedPhrases { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDialogflowCxEntityTypeTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDialogflowCxEntityTypeTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the entity type.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/entityTypes/&amp;lt;Entity Type ID&amp;gt;.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

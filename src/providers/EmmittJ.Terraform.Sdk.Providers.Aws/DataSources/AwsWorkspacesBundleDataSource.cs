@@ -9,85 +9,69 @@ public class AwsWorkspacesBundleDataSource : TerraformDataSource
 {
     public AwsWorkspacesBundleDataSource(string name) : base("aws_workspaces_bundle", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("compute_type");
-        SetOutput("description");
-        SetOutput("root_storage");
-        SetOutput("user_storage");
-        SetOutput("bundle_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("owner");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The bundle_id attribute.
     /// </summary>
-    public TerraformProperty<string> BundleId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bundle_id");
-        set => SetProperty("bundle_id", value);
-    }
+    [TerraformPropertyName("bundle_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BundleId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformProperty<string> Owner
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("owner");
-        set => SetProperty("owner", value);
-    }
+    [TerraformPropertyName("owner")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Owner { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
-    public TerraformExpression ComputeType => this["compute_type"];
+    [TerraformPropertyName("compute_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ComputeType => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "compute_type");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The root_storage attribute.
     /// </summary>
-    public TerraformExpression RootStorage => this["root_storage"];
+    [TerraformPropertyName("root_storage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RootStorage => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "root_storage");
 
     /// <summary>
     /// The user_storage attribute.
     /// </summary>
-    public TerraformExpression UserStorage => this["user_storage"];
+    [TerraformPropertyName("user_storage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> UserStorage => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "user_storage");
 
 }

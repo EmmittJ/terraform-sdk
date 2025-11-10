@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for excludes in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDatasyncTaskExcludesBlock : TerraformBlock
+public class AwsDatasyncTaskExcludesBlock : ITerraformBlock
 {
     /// <summary>
     /// The filter_type attribute.
     /// </summary>
-    public TerraformProperty<string>? FilterType
-    {
-        set => SetProperty("filter_type", value);
-    }
+    [TerraformPropertyName("filter_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FilterType { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -30,23 +28,21 @@ public class AwsDatasyncTaskExcludesBlock : TerraformBlock
 /// Block type for includes in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDatasyncTaskIncludesBlock : TerraformBlock
+public class AwsDatasyncTaskIncludesBlock : ITerraformBlock
 {
     /// <summary>
     /// The filter_type attribute.
     /// </summary>
-    public TerraformProperty<string>? FilterType
-    {
-        set => SetProperty("filter_type", value);
-    }
+    [TerraformPropertyName("filter_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FilterType { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -54,127 +50,112 @@ public class AwsDatasyncTaskIncludesBlock : TerraformBlock
 /// Block type for options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDatasyncTaskOptionsBlock : TerraformBlock
+public class AwsDatasyncTaskOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The atime attribute.
     /// </summary>
-    public TerraformProperty<string>? Atime
-    {
-        set => SetProperty("atime", value);
-    }
+    [TerraformPropertyName("atime")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Atime { get; set; }
 
     /// <summary>
     /// The bytes_per_second attribute.
     /// </summary>
-    public TerraformProperty<double>? BytesPerSecond
-    {
-        set => SetProperty("bytes_per_second", value);
-    }
+    [TerraformPropertyName("bytes_per_second")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BytesPerSecond { get; set; }
 
     /// <summary>
     /// The gid attribute.
     /// </summary>
-    public TerraformProperty<string>? Gid
-    {
-        set => SetProperty("gid", value);
-    }
+    [TerraformPropertyName("gid")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Gid { get; set; }
 
     /// <summary>
     /// The log_level attribute.
     /// </summary>
-    public TerraformProperty<string>? LogLevel
-    {
-        set => SetProperty("log_level", value);
-    }
+    [TerraformPropertyName("log_level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LogLevel { get; set; }
 
     /// <summary>
     /// The mtime attribute.
     /// </summary>
-    public TerraformProperty<string>? Mtime
-    {
-        set => SetProperty("mtime", value);
-    }
+    [TerraformPropertyName("mtime")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Mtime { get; set; }
 
     /// <summary>
     /// The object_tags attribute.
     /// </summary>
-    public TerraformProperty<string>? ObjectTags
-    {
-        set => SetProperty("object_tags", value);
-    }
+    [TerraformPropertyName("object_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ObjectTags { get; set; }
 
     /// <summary>
     /// The overwrite_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? OverwriteMode
-    {
-        set => SetProperty("overwrite_mode", value);
-    }
+    [TerraformPropertyName("overwrite_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OverwriteMode { get; set; }
 
     /// <summary>
     /// The posix_permissions attribute.
     /// </summary>
-    public TerraformProperty<string>? PosixPermissions
-    {
-        set => SetProperty("posix_permissions", value);
-    }
+    [TerraformPropertyName("posix_permissions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PosixPermissions { get; set; }
 
     /// <summary>
     /// The preserve_deleted_files attribute.
     /// </summary>
-    public TerraformProperty<string>? PreserveDeletedFiles
-    {
-        set => SetProperty("preserve_deleted_files", value);
-    }
+    [TerraformPropertyName("preserve_deleted_files")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PreserveDeletedFiles { get; set; }
 
     /// <summary>
     /// The preserve_devices attribute.
     /// </summary>
-    public TerraformProperty<string>? PreserveDevices
-    {
-        set => SetProperty("preserve_devices", value);
-    }
+    [TerraformPropertyName("preserve_devices")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PreserveDevices { get; set; }
 
     /// <summary>
     /// The security_descriptor_copy_flags attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityDescriptorCopyFlags
-    {
-        set => SetProperty("security_descriptor_copy_flags", value);
-    }
+    [TerraformPropertyName("security_descriptor_copy_flags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SecurityDescriptorCopyFlags { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "security_descriptor_copy_flags");
 
     /// <summary>
     /// The task_queueing attribute.
     /// </summary>
-    public TerraformProperty<string>? TaskQueueing
-    {
-        set => SetProperty("task_queueing", value);
-    }
+    [TerraformPropertyName("task_queueing")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TaskQueueing { get; set; }
 
     /// <summary>
     /// The transfer_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? TransferMode
-    {
-        set => SetProperty("transfer_mode", value);
-    }
+    [TerraformPropertyName("transfer_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TransferMode { get; set; }
 
     /// <summary>
     /// The uid attribute.
     /// </summary>
-    public TerraformProperty<string>? Uid
-    {
-        set => SetProperty("uid", value);
-    }
+    [TerraformPropertyName("uid")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Uid { get; set; }
 
     /// <summary>
     /// The verify_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? VerifyMode
-    {
-        set => SetProperty("verify_mode", value);
-    }
+    [TerraformPropertyName("verify_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VerifyMode { get; set; }
 
 }
 
@@ -182,16 +163,15 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDatasyncTaskScheduleBlock : TerraformBlock
+public class AwsDatasyncTaskScheduleBlock : ITerraformBlock
 {
     /// <summary>
     /// The schedule_expression attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
-    public required TerraformProperty<string> ScheduleExpression
-    {
-        set => SetProperty("schedule_expression", value);
-    }
+    [TerraformPropertyName("schedule_expression")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScheduleExpression { get; set; }
 
 }
 
@@ -199,31 +179,28 @@ public class AwsDatasyncTaskScheduleBlock : TerraformBlock
 /// Block type for task_report_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDatasyncTaskTaskReportConfigBlock : TerraformBlock
+public class AwsDatasyncTaskTaskReportConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The output_type attribute.
     /// </summary>
-    public TerraformProperty<string>? OutputType
-    {
-        set => SetProperty("output_type", value);
-    }
+    [TerraformPropertyName("output_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OutputType { get; set; }
 
     /// <summary>
     /// The report_level attribute.
     /// </summary>
-    public TerraformProperty<string>? ReportLevel
-    {
-        set => SetProperty("report_level", value);
-    }
+    [TerraformPropertyName("report_level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ReportLevel { get; set; }
 
     /// <summary>
     /// The s3_object_versioning attribute.
     /// </summary>
-    public TerraformProperty<string>? S3ObjectVersioning
-    {
-        set => SetProperty("s3_object_versioning", value);
-    }
+    [TerraformPropertyName("s3_object_versioning")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? S3ObjectVersioning { get; set; }
 
 }
 
@@ -231,15 +208,14 @@ public class AwsDatasyncTaskTaskReportConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDatasyncTaskTimeoutsBlock : TerraformBlock
+public class AwsDatasyncTaskTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
 }
 
@@ -251,168 +227,125 @@ public class AwsDatasyncTask : TerraformResource
 {
     public AwsDatasyncTask(string name) : base("aws_datasync_task", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("cloudwatch_log_group_arn");
-        SetOutput("destination_location_arn");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("source_location_arn");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("task_mode");
     }
 
     /// <summary>
     /// The cloudwatch_log_group_arn attribute.
     /// </summary>
-    public TerraformProperty<string> CloudwatchLogGroupArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloudwatch_log_group_arn");
-        set => SetProperty("cloudwatch_log_group_arn", value);
-    }
+    [TerraformPropertyName("cloudwatch_log_group_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CloudwatchLogGroupArn { get; set; }
 
     /// <summary>
     /// The destination_location_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationLocationArn is required")]
-    public required TerraformProperty<string> DestinationLocationArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_location_arn");
-        set => SetProperty("destination_location_arn", value);
-    }
+    [TerraformPropertyName("destination_location_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DestinationLocationArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The source_location_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceLocationArn is required")]
-    public required TerraformProperty<string> SourceLocationArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_location_arn");
-        set => SetProperty("source_location_arn", value);
-    }
+    [TerraformPropertyName("source_location_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceLocationArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The task_mode attribute.
     /// </summary>
-    public TerraformProperty<string> TaskMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("task_mode");
-        set => SetProperty("task_mode", value);
-    }
+    [TerraformPropertyName("task_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TaskMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "task_mode");
 
     /// <summary>
     /// Block for excludes.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Excludes block(s) allowed")]
-    public List<AwsDatasyncTaskExcludesBlock>? Excludes
-    {
-        set => SetProperty("excludes", value);
-    }
+    [TerraformPropertyName("excludes")]
+    public TerraformList<TerraformBlock<AwsDatasyncTaskExcludesBlock>>? Excludes { get; set; } = new();
 
     /// <summary>
     /// Block for includes.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Includes block(s) allowed")]
-    public List<AwsDatasyncTaskIncludesBlock>? Includes
-    {
-        set => SetProperty("includes", value);
-    }
+    [TerraformPropertyName("includes")]
+    public TerraformList<TerraformBlock<AwsDatasyncTaskIncludesBlock>>? Includes { get; set; } = new();
 
     /// <summary>
     /// Block for options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
-    public List<AwsDatasyncTaskOptionsBlock>? Options
-    {
-        set => SetProperty("options", value);
-    }
+    [TerraformPropertyName("options")]
+    public TerraformList<TerraformBlock<AwsDatasyncTaskOptionsBlock>>? Options { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    public List<AwsDatasyncTaskScheduleBlock>? Schedule
-    {
-        set => SetProperty("schedule", value);
-    }
+    [TerraformPropertyName("schedule")]
+    public TerraformList<TerraformBlock<AwsDatasyncTaskScheduleBlock>>? Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for task_report_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TaskReportConfig block(s) allowed")]
-    public List<AwsDatasyncTaskTaskReportConfigBlock>? TaskReportConfig
-    {
-        set => SetProperty("task_report_config", value);
-    }
+    [TerraformPropertyName("task_report_config")]
+    public TerraformList<TerraformBlock<AwsDatasyncTaskTaskReportConfigBlock>>? TaskReportConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDatasyncTaskTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDatasyncTaskTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDevCenterProjectEnvironmentTypeIdentityBlock : TerraformBlock
+public class AzurermDevCenterProjectEnvironmentTypeIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -47,39 +43,35 @@ public class AzurermDevCenterProjectEnvironmentTypeIdentityBlock : TerraformBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : TerraformBlock
+public class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -87,25 +79,23 @@ public class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : TerraformBloc
 /// Block type for user_role_assignment in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock : TerraformBlock
+public class AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock : ITerraformBlock
 {
     /// <summary>
     /// The roles attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
-    public HashSet<TerraformProperty<string>>? Roles
-    {
-        set => SetProperty("roles", value);
-    }
+    [TerraformPropertyName("roles")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Roles { get; set; }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
-    public required TerraformProperty<string> UserId
-    {
-        set => SetProperty("user_id", value);
-    }
+    [TerraformPropertyName("user_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserId { get; set; }
 
 }
 
@@ -117,86 +107,60 @@ public class AzurermDevCenterProjectEnvironmentType : TerraformResource
 {
     public AzurermDevCenterProjectEnvironmentType(string name) : base("azurerm_dev_center_project_environment_type", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creator_role_assignment_roles");
-        SetOutput("deployment_target_id");
-        SetOutput("dev_center_project_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The creator_role_assignment_roles attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> CreatorRoleAssignmentRoles
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("creator_role_assignment_roles");
-        set => SetProperty("creator_role_assignment_roles", value);
-    }
+    [TerraformPropertyName("creator_role_assignment_roles")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? CreatorRoleAssignmentRoles { get; set; }
 
     /// <summary>
     /// The deployment_target_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentTargetId is required")]
-    public required TerraformProperty<string> DeploymentTargetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deployment_target_id");
-        set => SetProperty("deployment_target_id", value);
-    }
+    [TerraformPropertyName("deployment_target_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DeploymentTargetId { get; set; }
 
     /// <summary>
     /// The dev_center_project_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
-    public required TerraformProperty<string> DevCenterProjectId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dev_center_project_id");
-        set => SetProperty("dev_center_project_id", value);
-    }
+    [TerraformPropertyName("dev_center_project_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DevCenterProjectId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
@@ -205,27 +169,21 @@ public class AzurermDevCenterProjectEnvironmentType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermDevCenterProjectEnvironmentTypeIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermDevCenterProjectEnvironmentTypeIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_role_assignment.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock>? UserRoleAssignment
-    {
-        set => SetProperty("user_role_assignment", value);
-    }
+    [TerraformPropertyName("user_role_assignment")]
+    public TerraformSet<TerraformBlock<AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock>>? UserRoleAssignment { get; set; } = new();
 
 }

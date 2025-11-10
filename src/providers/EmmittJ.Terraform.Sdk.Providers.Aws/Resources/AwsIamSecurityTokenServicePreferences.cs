@@ -9,32 +9,21 @@ public class AwsIamSecurityTokenServicePreferences : TerraformResource
 {
     public AwsIamSecurityTokenServicePreferences(string name) : base("aws_iam_security_token_service_preferences", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("global_endpoint_token_version");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The global_endpoint_token_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalEndpointTokenVersion is required")]
-    public required TerraformProperty<string> GlobalEndpointTokenVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("global_endpoint_token_version");
-        set => SetProperty("global_endpoint_token_version", value);
-    }
+    [TerraformPropertyName("global_endpoint_token_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GlobalEndpointTokenVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

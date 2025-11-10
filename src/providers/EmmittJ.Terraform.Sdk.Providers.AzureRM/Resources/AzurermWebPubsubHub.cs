@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for event_handler in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWebPubsubHubEventHandlerBlock : TerraformBlock
+public class AzurermWebPubsubHubEventHandlerBlock : ITerraformBlock
 {
     /// <summary>
     /// The system_events attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SystemEvents
-    {
-        set => SetProperty("system_events", value);
-    }
+    [TerraformPropertyName("system_events")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SystemEvents { get; set; }
 
     /// <summary>
     /// The url_template attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlTemplate is required")]
-    public required TerraformProperty<string> UrlTemplate
-    {
-        set => SetProperty("url_template", value);
-    }
+    [TerraformPropertyName("url_template")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UrlTemplate { get; set; }
 
     /// <summary>
     /// The user_event_pattern attribute.
     /// </summary>
-    public TerraformProperty<string>? UserEventPattern
-    {
-        set => SetProperty("user_event_pattern", value);
-    }
+    [TerraformPropertyName("user_event_pattern")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserEventPattern { get; set; }
 
 }
 
@@ -39,41 +36,37 @@ public class AzurermWebPubsubHubEventHandlerBlock : TerraformBlock
 /// Block type for event_listener in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
+public class AzurermWebPubsubHubEventListenerBlock : ITerraformBlock
 {
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
-    public required TerraformProperty<string> EventhubName
-    {
-        set => SetProperty("eventhub_name", value);
-    }
+    [TerraformPropertyName("eventhub_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventhubName { get; set; }
 
     /// <summary>
     /// The eventhub_namespace_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceName is required")]
-    public required TerraformProperty<string> EventhubNamespaceName
-    {
-        set => SetProperty("eventhub_namespace_name", value);
-    }
+    [TerraformPropertyName("eventhub_namespace_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventhubNamespaceName { get; set; }
 
     /// <summary>
     /// The system_event_name_filter attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SystemEventNameFilter
-    {
-        set => SetProperty("system_event_name_filter", value);
-    }
+    [TerraformPropertyName("system_event_name_filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SystemEventNameFilter { get; set; }
 
     /// <summary>
     /// The user_event_name_filter attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? UserEventNameFilter
-    {
-        set => SetProperty("user_event_name_filter", value);
-    }
+    [TerraformPropertyName("user_event_name_filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? UserEventNameFilter { get; set; }
 
 }
 
@@ -81,39 +74,35 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermWebPubsubHubTimeoutsBlock : TerraformBlock
+public class AzurermWebPubsubHubTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -124,80 +113,57 @@ public class AzurermWebPubsubHub : TerraformResource
 {
     public AzurermWebPubsubHub(string name) : base("azurerm_web_pubsub_hub", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("anonymous_connections_enabled");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("web_pubsub_id");
     }
 
     /// <summary>
     /// The anonymous_connections_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AnonymousConnectionsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("anonymous_connections_enabled");
-        set => SetProperty("anonymous_connections_enabled", value);
-    }
+    [TerraformPropertyName("anonymous_connections_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AnonymousConnectionsEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The web_pubsub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
-    public required TerraformProperty<string> WebPubsubId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("web_pubsub_id");
-        set => SetProperty("web_pubsub_id", value);
-    }
+    [TerraformPropertyName("web_pubsub_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WebPubsubId { get; set; }
 
     /// <summary>
     /// Block for event_handler.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermWebPubsubHubEventHandlerBlock>? EventHandler
-    {
-        set => SetProperty("event_handler", value);
-    }
+    [TerraformPropertyName("event_handler")]
+    public TerraformList<TerraformBlock<AzurermWebPubsubHubEventHandlerBlock>>? EventHandler { get; set; } = new();
 
     /// <summary>
     /// Block for event_listener.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermWebPubsubHubEventListenerBlock>? EventListener
-    {
-        set => SetProperty("event_listener", value);
-    }
+    [TerraformPropertyName("event_listener")]
+    public TerraformList<TerraformBlock<AzurermWebPubsubHubEventListenerBlock>>? EventListener { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermWebPubsubHubTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermWebPubsubHubTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for monitoring_subscription in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock : TerraformBlock
+public class AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock : ITerraformBlock
 {
 }
 
@@ -18,33 +18,22 @@ public class AwsCloudfrontMonitoringSubscription : TerraformResource
 {
     public AwsCloudfrontMonitoringSubscription(string name) : base("aws_cloudfront_monitoring_subscription", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("distribution_id");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The distribution_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DistributionId is required")]
-    public required TerraformProperty<string> DistributionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("distribution_id");
-        set => SetProperty("distribution_id", value);
-    }
+    [TerraformPropertyName("distribution_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DistributionId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for monitoring_subscription.
@@ -53,9 +42,7 @@ public class AwsCloudfrontMonitoringSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitoringSubscription is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MonitoringSubscription block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringSubscription block(s) allowed")]
-    public List<AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock>? MonitoringSubscription
-    {
-        set => SetProperty("monitoring_subscription", value);
-    }
+    [TerraformPropertyName("monitoring_subscription")]
+    public TerraformList<TerraformBlock<AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock>>? MonitoringSubscription { get; set; } = new();
 
 }

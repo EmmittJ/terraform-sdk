@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for endpoint_matcher in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock : TerraformBlock
+public class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock : ITerraformBlock
 {
 }
 
@@ -14,31 +14,28 @@ public class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkServicesEndpointPolicyTimeoutsBlock : TerraformBlock
+public class GoogleNetworkServicesEndpointPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -46,16 +43,15 @@ public class GoogleNetworkServicesEndpointPolicyTimeoutsBlock : TerraformBlock
 /// Block type for traffic_port_selector in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock : TerraformBlock
+public class GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock : ITerraformBlock
 {
     /// <summary>
     /// List of ports. Can be port numbers or port range (example, [80-90] specifies all ports from 80 to 90, including 80 and 90) or named ports or * to specify all ports. If the list is empty, all ports are selected.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ports is required")]
-    public List<TerraformProperty<string>>? Ports
-    {
-        set => SetProperty("ports", value);
-    }
+    [TerraformPropertyName("ports")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Ports { get; set; }
 
 }
 
@@ -67,61 +63,35 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
 {
     public GoogleNetworkServicesEndpointPolicy(string name) : base("google_network_services_endpoint_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("authorization_policy");
-        SetOutput("client_tls_policy");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("server_tls_policy");
-        SetOutput("type");
     }
 
     /// <summary>
     /// This field specifies the URL of AuthorizationPolicy resource that applies authorization policies to the inbound traffic at the matched endpoints.
     /// </summary>
-    public TerraformProperty<string> AuthorizationPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authorization_policy");
-        set => SetProperty("authorization_policy", value);
-    }
+    [TerraformPropertyName("authorization_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthorizationPolicy { get; set; }
 
     /// <summary>
     /// A URL referring to a ClientTlsPolicy resource. ClientTlsPolicy can be set to specify the authentication for traffic from the proxy to the actual endpoints.
     /// </summary>
-    public TerraformProperty<string> ClientTlsPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_tls_policy");
-        set => SetProperty("client_tls_policy", value);
-    }
+    [TerraformPropertyName("client_tls_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientTlsPolicy { get; set; }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Set of label tags associated with the TcpRoute resource.
@@ -129,49 +99,39 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Name of the EndpointPolicy resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// A URL referring to ServerTlsPolicy resource. ServerTlsPolicy is used to determine the authentication policy to be applied to terminate the inbound traffic at the identified backends.
     /// </summary>
-    public TerraformProperty<string> ServerTlsPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("server_tls_policy");
-        set => SetProperty("server_tls_policy", value);
-    }
+    [TerraformPropertyName("server_tls_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServerTlsPolicy { get; set; }
 
     /// <summary>
     /// The type of endpoint policy. This is primarily used to validate the configuration. Possible values: [&amp;quot;SIDECAR_PROXY&amp;quot;, &amp;quot;GRPC_SERVER&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// Block for endpoint_matcher.
@@ -180,49 +140,51 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointMatcher is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EndpointMatcher block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointMatcher block(s) allowed")]
-    public List<GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock>? EndpointMatcher
-    {
-        set => SetProperty("endpoint_matcher", value);
-    }
+    [TerraformPropertyName("endpoint_matcher")]
+    public TerraformList<TerraformBlock<GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock>>? EndpointMatcher { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleNetworkServicesEndpointPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleNetworkServicesEndpointPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for traffic_port_selector.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficPortSelector block(s) allowed")]
-    public List<GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock>? TrafficPortSelector
-    {
-        set => SetProperty("traffic_port_selector", value);
-    }
+    [TerraformPropertyName("traffic_port_selector")]
+    public TerraformList<TerraformBlock<GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock>>? TrafficPortSelector { get; set; } = new();
 
     /// <summary>
     /// Time the TcpRoute was created in UTC.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Time the TcpRoute was updated in UTC.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

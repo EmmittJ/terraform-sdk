@@ -9,49 +9,36 @@ public class AwsIdentitystoreGroupMembershipsDataSource : TerraformDataSource
 {
     public AwsIdentitystoreGroupMembershipsDataSource(string name) : base("aws_identitystore_group_memberships", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("group_memberships");
-        SetOutput("group_id");
-        SetOutput("identity_store_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
-    public required TerraformProperty<string> GroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("group_id");
-        set => SetProperty("group_id", value);
-    }
+    [TerraformPropertyName("group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GroupId { get; set; }
 
     /// <summary>
     /// The identity_store_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
-    public required TerraformProperty<string> IdentityStoreId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_store_id");
-        set => SetProperty("identity_store_id", value);
-    }
+    [TerraformPropertyName("identity_store_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IdentityStoreId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The group_memberships attribute.
     /// </summary>
-    public TerraformExpression GroupMemberships => this["group_memberships"];
+    [TerraformPropertyName("group_memberships")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> GroupMemberships => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "group_memberships");
 
 }

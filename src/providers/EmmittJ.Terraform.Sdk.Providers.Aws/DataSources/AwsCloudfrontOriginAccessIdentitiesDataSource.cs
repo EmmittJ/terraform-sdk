@@ -9,49 +9,41 @@ public class AwsCloudfrontOriginAccessIdentitiesDataSource : TerraformDataSource
 {
     public AwsCloudfrontOriginAccessIdentitiesDataSource(string name) : base("aws_cloudfront_origin_access_identities", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("iam_arns");
-        SetOutput("ids");
-        SetOutput("s3_canonical_user_ids");
-        SetOutput("comments");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The comments attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Comments
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("comments");
-        set => SetProperty("comments", value);
-    }
+    [TerraformPropertyName("comments")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Comments { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The iam_arns attribute.
     /// </summary>
-    public TerraformExpression IamArns => this["iam_arns"];
+    [TerraformPropertyName("iam_arns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> IamArns => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "iam_arns");
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
-    public TerraformExpression Ids => this["ids"];
+    [TerraformPropertyName("ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Ids => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "ids");
 
     /// <summary>
     /// The s3_canonical_user_ids attribute.
     /// </summary>
-    public TerraformExpression S3CanonicalUserIds => this["s3_canonical_user_ids"];
+    [TerraformPropertyName("s3_canonical_user_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> S3CanonicalUserIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "s3_canonical_user_ids");
 
 }

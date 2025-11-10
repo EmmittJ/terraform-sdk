@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attributes in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock : TerraformBlock
+public class AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock : ITerraformBlock
 {
     /// <summary>
     /// The flow_logs_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? FlowLogsEnabled
-    {
-        set => SetProperty("flow_logs_enabled", value);
-    }
+    [TerraformPropertyName("flow_logs_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? FlowLogsEnabled { get; set; }
 
     /// <summary>
     /// The flow_logs_s3_bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? FlowLogsS3Bucket
-    {
-        set => SetProperty("flow_logs_s3_bucket", value);
-    }
+    [TerraformPropertyName("flow_logs_s3_bucket")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FlowLogsS3Bucket { get; set; }
 
     /// <summary>
     /// The flow_logs_s3_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? FlowLogsS3Prefix
-    {
-        set => SetProperty("flow_logs_s3_prefix", value);
-    }
+    [TerraformPropertyName("flow_logs_s3_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FlowLogsS3Prefix { get; set; }
 
 }
 
@@ -38,23 +35,21 @@ public class AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock : TerraformBlock
+public class AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -66,125 +61,99 @@ public class AwsGlobalacceleratorCustomRoutingAccelerator : TerraformResource
 {
     public AwsGlobalacceleratorCustomRoutingAccelerator(string name) : base("aws_globalaccelerator_custom_routing_accelerator", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("dns_name");
-        SetOutput("hosted_zone_id");
-        SetOutput("ip_sets");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("ip_address_type");
-        SetOutput("ip_addresses");
-        SetOutput("name");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformProperty<string> IpAddressType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ip_address_type");
-        set => SetProperty("ip_address_type", value);
-    }
+    [TerraformPropertyName("ip_address_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IpAddressType { get; set; }
 
     /// <summary>
     /// The ip_addresses attribute.
     /// </summary>
-    public List<TerraformProperty<string>> IpAddresses
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("ip_addresses");
-        set => SetProperty("ip_addresses", value);
-    }
+    [TerraformPropertyName("ip_addresses")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? IpAddresses { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for attributes.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attributes block(s) allowed")]
-    public List<AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock>? Attributes
-    {
-        set => SetProperty("attributes", value);
-    }
+    [TerraformPropertyName("attributes")]
+    public TerraformList<TerraformBlock<AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock>>? Attributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformExpression DnsName => this["dns_name"];
+    [TerraformPropertyName("dns_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    public TerraformExpression HostedZoneId => this["hosted_zone_id"];
+    [TerraformPropertyName("hosted_zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostedZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hosted_zone_id");
 
     /// <summary>
     /// The ip_sets attribute.
     /// </summary>
-    public TerraformExpression IpSets => this["ip_sets"];
+    [TerraformPropertyName("ip_sets")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> IpSets => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ip_sets");
 
 }

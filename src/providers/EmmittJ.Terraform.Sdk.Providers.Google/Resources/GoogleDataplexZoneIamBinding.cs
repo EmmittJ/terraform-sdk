@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataplexZoneIamBindingConditionBlock : TerraformBlock
+public class GoogleDataplexZoneIamBindingConditionBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The expression attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
-    public required TerraformProperty<string> Expression
-    {
-        set => SetProperty("expression", value);
-    }
+    [TerraformPropertyName("expression")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Expression { get; set; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
-    public required TerraformProperty<string> Title
-    {
-        set => SetProperty("title", value);
-    }
+    [TerraformPropertyName("title")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Title { get; set; }
 
 }
 
@@ -44,101 +41,74 @@ public class GoogleDataplexZoneIamBinding : TerraformResource
 {
     public GoogleDataplexZoneIamBinding(string name) : base("google_dataplex_zone_iam_binding", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("etag");
-        SetOutput("dataplex_zone");
-        SetOutput("id");
-        SetOutput("lake");
-        SetOutput("location");
-        SetOutput("members");
-        SetOutput("project");
-        SetOutput("role");
     }
 
     /// <summary>
     /// The dataplex_zone attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataplexZone is required")]
-    public required TerraformProperty<string> DataplexZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dataplex_zone");
-        set => SetProperty("dataplex_zone", value);
-    }
+    [TerraformPropertyName("dataplex_zone")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataplexZone { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The lake attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
-    public required TerraformProperty<string> Lake
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("lake");
-        set => SetProperty("lake", value);
-    }
+    [TerraformPropertyName("lake")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Lake { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Location { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The members attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
-    public HashSet<TerraformProperty<string>> Members
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("members");
-        set => SetProperty("members", value);
-    }
+    [TerraformPropertyName("members")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Members { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
-    public required TerraformProperty<string> Role
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role");
-        set => SetProperty("role", value);
-    }
+    [TerraformPropertyName("role")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Role { get; set; }
 
     /// <summary>
     /// Block for condition.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
-    public List<GoogleDataplexZoneIamBindingConditionBlock>? Condition
-    {
-        set => SetProperty("condition", value);
-    }
+    [TerraformPropertyName("condition")]
+    public TerraformList<TerraformBlock<GoogleDataplexZoneIamBindingConditionBlock>>? Condition { get; set; } = new();
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
 }

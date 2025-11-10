@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualHubDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermVirtualHubDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,94 +24,85 @@ public class AzurermVirtualHubDataSource : TerraformDataSource
 {
     public AzurermVirtualHubDataSource(string name) : base("azurerm_virtual_hub", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("address_prefix");
-        SetOutput("default_route_table_id");
-        SetOutput("location");
-        SetOutput("tags");
-        SetOutput("virtual_router_asn");
-        SetOutput("virtual_router_ips");
-        SetOutput("virtual_wan_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVirtualHubDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVirtualHubDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The address_prefix attribute.
     /// </summary>
-    public TerraformExpression AddressPrefix => this["address_prefix"];
+    [TerraformPropertyName("address_prefix")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AddressPrefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "address_prefix");
 
     /// <summary>
     /// The default_route_table_id attribute.
     /// </summary>
-    public TerraformExpression DefaultRouteTableId => this["default_route_table_id"];
+    [TerraformPropertyName("default_route_table_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultRouteTableId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_route_table_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The virtual_router_asn attribute.
     /// </summary>
-    public TerraformExpression VirtualRouterAsn => this["virtual_router_asn"];
+    [TerraformPropertyName("virtual_router_asn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> VirtualRouterAsn => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "virtual_router_asn");
 
     /// <summary>
     /// The virtual_router_ips attribute.
     /// </summary>
-    public TerraformExpression VirtualRouterIps => this["virtual_router_ips"];
+    [TerraformPropertyName("virtual_router_ips")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> VirtualRouterIps => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "virtual_router_ips");
 
     /// <summary>
     /// The virtual_wan_id attribute.
     /// </summary>
-    public TerraformExpression VirtualWanId => this["virtual_wan_id"];
+    [TerraformPropertyName("virtual_wan_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VirtualWanId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "virtual_wan_id");
 
 }

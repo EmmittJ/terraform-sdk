@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMysqlFlexibleServerDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermMysqlFlexibleServerDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,160 +24,162 @@ public class AzurermMysqlFlexibleServerDataSource : TerraformDataSource
 {
     public AzurermMysqlFlexibleServerDataSource(string name) : base("azurerm_mysql_flexible_server", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("administrator_login");
-        SetOutput("backup_retention_days");
-        SetOutput("delegated_subnet_id");
-        SetOutput("fqdn");
-        SetOutput("geo_redundant_backup_enabled");
-        SetOutput("high_availability");
-        SetOutput("location");
-        SetOutput("maintenance_window");
-        SetOutput("private_dns_zone_id");
-        SetOutput("public_network_access_enabled");
-        SetOutput("replica_capacity");
-        SetOutput("replication_role");
-        SetOutput("restore_point_in_time");
-        SetOutput("sku_name");
-        SetOutput("storage");
-        SetOutput("tags");
-        SetOutput("version");
-        SetOutput("zone");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMysqlFlexibleServerDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMysqlFlexibleServerDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The administrator_login attribute.
     /// </summary>
-    public TerraformExpression AdministratorLogin => this["administrator_login"];
+    [TerraformPropertyName("administrator_login")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AdministratorLogin => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "administrator_login");
 
     /// <summary>
     /// The backup_retention_days attribute.
     /// </summary>
-    public TerraformExpression BackupRetentionDays => this["backup_retention_days"];
+    [TerraformPropertyName("backup_retention_days")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> BackupRetentionDays => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "backup_retention_days");
 
     /// <summary>
     /// The delegated_subnet_id attribute.
     /// </summary>
-    public TerraformExpression DelegatedSubnetId => this["delegated_subnet_id"];
+    [TerraformPropertyName("delegated_subnet_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DelegatedSubnetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delegated_subnet_id");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    public TerraformExpression Fqdn => this["fqdn"];
+    [TerraformPropertyName("fqdn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fqdn");
 
     /// <summary>
     /// The geo_redundant_backup_enabled attribute.
     /// </summary>
-    public TerraformExpression GeoRedundantBackupEnabled => this["geo_redundant_backup_enabled"];
+    [TerraformPropertyName("geo_redundant_backup_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> GeoRedundantBackupEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "geo_redundant_backup_enabled");
 
     /// <summary>
     /// The high_availability attribute.
     /// </summary>
-    public TerraformExpression HighAvailability => this["high_availability"];
+    [TerraformPropertyName("high_availability")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> HighAvailability => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "high_availability");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformExpression MaintenanceWindow => this["maintenance_window"];
+    [TerraformPropertyName("maintenance_window")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MaintenanceWindow => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maintenance_window");
 
     /// <summary>
     /// The private_dns_zone_id attribute.
     /// </summary>
-    public TerraformExpression PrivateDnsZoneId => this["private_dns_zone_id"];
+    [TerraformPropertyName("private_dns_zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateDnsZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_dns_zone_id");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformExpression PublicNetworkAccessEnabled => this["public_network_access_enabled"];
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PublicNetworkAccessEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "public_network_access_enabled");
 
     /// <summary>
     /// The replica_capacity attribute.
     /// </summary>
-    public TerraformExpression ReplicaCapacity => this["replica_capacity"];
+    [TerraformPropertyName("replica_capacity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ReplicaCapacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "replica_capacity");
 
     /// <summary>
     /// The replication_role attribute.
     /// </summary>
-    public TerraformExpression ReplicationRole => this["replication_role"];
+    [TerraformPropertyName("replication_role")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ReplicationRole => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "replication_role");
 
     /// <summary>
     /// The restore_point_in_time attribute.
     /// </summary>
-    public TerraformExpression RestorePointInTime => this["restore_point_in_time"];
+    [TerraformPropertyName("restore_point_in_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RestorePointInTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "restore_point_in_time");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformExpression SkuName => this["sku_name"];
+    [TerraformPropertyName("sku_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SkuName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku_name");
 
     /// <summary>
     /// The storage attribute.
     /// </summary>
-    public TerraformExpression Storage => this["storage"];
+    [TerraformPropertyName("storage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Storage => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "storage");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformExpression Version => this["version"];
+    [TerraformPropertyName("version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    public TerraformExpression Zone => this["zone"];
+    [TerraformPropertyName("zone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Zone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone");
 
 }

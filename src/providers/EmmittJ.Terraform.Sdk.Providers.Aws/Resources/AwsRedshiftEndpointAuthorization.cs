@@ -9,97 +9,78 @@ public class AwsRedshiftEndpointAuthorization : TerraformResource
 {
     public AwsRedshiftEndpointAuthorization(string name) : base("aws_redshift_endpoint_authorization", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("allowed_all_vpcs");
-        SetOutput("endpoint_count");
-        SetOutput("grantee");
-        SetOutput("grantor");
-        SetOutput("account");
-        SetOutput("cluster_identifier");
-        SetOutput("force_delete");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("vpc_ids");
     }
 
     /// <summary>
     /// The account attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Account is required")]
-    public required TerraformProperty<string> Account
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account");
-        set => SetProperty("account", value);
-    }
+    [TerraformPropertyName("account")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Account { get; set; }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
-    public required TerraformProperty<string> ClusterIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
-        set => SetProperty("cluster_identifier", value);
-    }
+    [TerraformPropertyName("cluster_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterIdentifier { get; set; }
 
     /// <summary>
     /// The force_delete attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceDelete
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_delete");
-        set => SetProperty("force_delete", value);
-    }
+    [TerraformPropertyName("force_delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceDelete { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The vpc_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> VpcIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("vpc_ids");
-        set => SetProperty("vpc_ids", value);
-    }
+    [TerraformPropertyName("vpc_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? VpcIds { get; set; }
 
     /// <summary>
     /// The allowed_all_vpcs attribute.
     /// </summary>
-    public TerraformExpression AllowedAllVpcs => this["allowed_all_vpcs"];
+    [TerraformPropertyName("allowed_all_vpcs")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AllowedAllVpcs => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "allowed_all_vpcs");
 
     /// <summary>
     /// The endpoint_count attribute.
     /// </summary>
-    public TerraformExpression EndpointCount => this["endpoint_count"];
+    [TerraformPropertyName("endpoint_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> EndpointCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "endpoint_count");
 
     /// <summary>
     /// The grantee attribute.
     /// </summary>
-    public TerraformExpression Grantee => this["grantee"];
+    [TerraformPropertyName("grantee")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Grantee => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "grantee");
 
     /// <summary>
     /// The grantor attribute.
     /// </summary>
-    public TerraformExpression Grantor => this["grantor"];
+    [TerraformPropertyName("grantor")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Grantor => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "grantor");
 
 }

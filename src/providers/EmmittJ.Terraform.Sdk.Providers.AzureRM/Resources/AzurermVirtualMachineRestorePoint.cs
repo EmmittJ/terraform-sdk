@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualMachineRestorePointTimeoutsBlock : TerraformBlock
+public class AzurermVirtualMachineRestorePointTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,72 +38,50 @@ public class AzurermVirtualMachineRestorePoint : TerraformResource
 {
     public AzurermVirtualMachineRestorePoint(string name) : base("azurerm_virtual_machine_restore_point", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("crash_consistency_mode_enabled");
-        SetOutput("excluded_disks");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("virtual_machine_restore_point_collection_id");
     }
 
     /// <summary>
     /// The crash_consistency_mode_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> CrashConsistencyModeEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("crash_consistency_mode_enabled");
-        set => SetProperty("crash_consistency_mode_enabled", value);
-    }
+    [TerraformPropertyName("crash_consistency_mode_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CrashConsistencyModeEnabled { get; set; }
 
     /// <summary>
     /// The excluded_disks attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ExcludedDisks
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("excluded_disks");
-        set => SetProperty("excluded_disks", value);
-    }
+    [TerraformPropertyName("excluded_disks")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ExcludedDisks { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The virtual_machine_restore_point_collection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineRestorePointCollectionId is required")]
-    public required TerraformProperty<string> VirtualMachineRestorePointCollectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_restore_point_collection_id");
-        set => SetProperty("virtual_machine_restore_point_collection_id", value);
-    }
+    [TerraformPropertyName("virtual_machine_restore_point_collection_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualMachineRestorePointCollectionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVirtualMachineRestorePointTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVirtualMachineRestorePointTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

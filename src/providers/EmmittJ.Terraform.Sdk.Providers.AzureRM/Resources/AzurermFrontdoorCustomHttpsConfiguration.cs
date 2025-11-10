@@ -6,63 +6,56 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_https_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock : TerraformBlock
+public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The azure_key_vault_certificate_secret_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AzureKeyVaultCertificateSecretName
-    {
-        set => SetProperty("azure_key_vault_certificate_secret_name", value);
-    }
+    [TerraformPropertyName("azure_key_vault_certificate_secret_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AzureKeyVaultCertificateSecretName { get; set; }
 
     /// <summary>
     /// The azure_key_vault_certificate_secret_version attribute.
     /// </summary>
-    public TerraformProperty<string>? AzureKeyVaultCertificateSecretVersion
-    {
-        set => SetProperty("azure_key_vault_certificate_secret_version", value);
-    }
+    [TerraformPropertyName("azure_key_vault_certificate_secret_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AzureKeyVaultCertificateSecretVersion { get; set; }
 
     /// <summary>
     /// The azure_key_vault_certificate_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AzureKeyVaultCertificateVaultId
-    {
-        set => SetProperty("azure_key_vault_certificate_vault_id", value);
-    }
+    [TerraformPropertyName("azure_key_vault_certificate_vault_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AzureKeyVaultCertificateVaultId { get; set; }
 
     /// <summary>
     /// The certificate_source attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateSource
-    {
-        set => SetProperty("certificate_source", value);
-    }
+    [TerraformPropertyName("certificate_source")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CertificateSource { get; set; }
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
-    public TerraformProperty<string>? MinimumTlsVersion
-    {
-        set => SetProperty("minimum_tls_version", value);
-    }
+    [TerraformPropertyName("minimum_tls_version")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MinimumTlsVersion => new TerraformReferenceProperty<TerraformProperty<string>>("", "minimum_tls_version");
 
     /// <summary>
     /// The provisioning_state attribute.
     /// </summary>
-    public TerraformProperty<string>? ProvisioningState
-    {
-        set => SetProperty("provisioning_state", value);
-    }
+    [TerraformPropertyName("provisioning_state")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProvisioningState => new TerraformReferenceProperty<TerraformProperty<string>>("", "provisioning_state");
 
     /// <summary>
     /// The provisioning_substate attribute.
     /// </summary>
-    public TerraformProperty<string>? ProvisioningSubstate
-    {
-        set => SetProperty("provisioning_substate", value);
-    }
+    [TerraformPropertyName("provisioning_substate")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProvisioningSubstate => new TerraformReferenceProperty<TerraformProperty<string>>("", "provisioning_substate");
 
 }
 
@@ -70,39 +63,35 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : TerraformBlock
+public class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -114,62 +103,44 @@ public class AzurermFrontdoorCustomHttpsConfiguration : TerraformResource
 {
     public AzurermFrontdoorCustomHttpsConfiguration(string name) : base("azurerm_frontdoor_custom_https_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("custom_https_provisioning_enabled");
-        SetOutput("frontend_endpoint_id");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The custom_https_provisioning_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomHttpsProvisioningEnabled is required")]
-    public required TerraformProperty<bool> CustomHttpsProvisioningEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("custom_https_provisioning_enabled");
-        set => SetProperty("custom_https_provisioning_enabled", value);
-    }
+    [TerraformPropertyName("custom_https_provisioning_enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> CustomHttpsProvisioningEnabled { get; set; }
 
     /// <summary>
     /// The frontend_endpoint_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpointId is required")]
-    public required TerraformProperty<string> FrontendEndpointId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("frontend_endpoint_id");
-        set => SetProperty("frontend_endpoint_id", value);
-    }
+    [TerraformPropertyName("frontend_endpoint_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FrontendEndpointId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for custom_https_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomHttpsConfiguration block(s) allowed")]
-    public List<AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock>? CustomHttpsConfiguration
-    {
-        set => SetProperty("custom_https_configuration", value);
-    }
+    [TerraformPropertyName("custom_https_configuration")]
+    public TerraformList<TerraformBlock<AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock>>? CustomHttpsConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataflowJobTimeoutsBlock : TerraformBlock
+public class GoogleDataflowJobTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -25,264 +24,199 @@ public class GoogleDataflowJob : TerraformResource
 {
     public GoogleDataflowJob(string name) : base("google_dataflow_job", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("effective_labels");
-        SetOutput("job_id");
-        SetOutput("state");
-        SetOutput("terraform_labels");
-        SetOutput("type");
-        SetOutput("additional_experiments");
-        SetOutput("enable_streaming_engine");
-        SetOutput("id");
-        SetOutput("ip_configuration");
-        SetOutput("kms_key_name");
-        SetOutput("labels");
-        SetOutput("machine_type");
-        SetOutput("max_workers");
-        SetOutput("name");
-        SetOutput("network");
-        SetOutput("on_delete");
-        SetOutput("parameters");
-        SetOutput("project");
-        SetOutput("region");
-        SetOutput("service_account_email");
-        SetOutput("skip_wait_on_job_termination");
-        SetOutput("subnetwork");
-        SetOutput("temp_gcs_location");
-        SetOutput("template_gcs_path");
-        SetOutput("transform_name_mapping");
-        SetOutput("zone");
     }
 
     /// <summary>
     /// List of experiments that should be used by the job. An example value is [&amp;quot;enable_stackdriver_agent_metrics&amp;quot;].
     /// </summary>
-    public HashSet<TerraformProperty<string>> AdditionalExperiments
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("additional_experiments");
-        set => SetProperty("additional_experiments", value);
-    }
+    [TerraformPropertyName("additional_experiments")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AdditionalExperiments { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "additional_experiments");
 
     /// <summary>
     /// Indicates if the job should use the streaming engine feature.
     /// </summary>
-    public TerraformProperty<bool> EnableStreamingEngine
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_streaming_engine");
-        set => SetProperty("enable_streaming_engine", value);
-    }
+    [TerraformPropertyName("enable_streaming_engine")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableStreamingEngine { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The configuration for VM IPs. Options are &amp;quot;WORKER_IP_PUBLIC&amp;quot; or &amp;quot;WORKER_IP_PRIVATE&amp;quot;.
     /// </summary>
-    public TerraformProperty<string> IpConfiguration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ip_configuration");
-        set => SetProperty("ip_configuration", value);
-    }
+    [TerraformPropertyName("ip_configuration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IpConfiguration { get; set; }
 
     /// <summary>
     /// The name for the Cloud KMS key for the job. Key format is: projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY
     /// </summary>
-    public TerraformProperty<string> KmsKeyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
-        set => SetProperty("kms_key_name", value);
-    }
+    [TerraformPropertyName("kms_key_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyName { get; set; }
 
     /// <summary>
     /// User labels to be specified for the job. Keys and values should follow the restrictions specified in the labeling restrictions page. NOTE: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The machine type to use for the job.
     /// </summary>
-    public TerraformProperty<string> MachineType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("machine_type");
-        set => SetProperty("machine_type", value);
-    }
+    [TerraformPropertyName("machine_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MachineType { get; set; }
 
     /// <summary>
     /// The number of workers permitted to work on the job. More workers may improve processing speed at additional cost.
     /// </summary>
-    public TerraformProperty<double> MaxWorkers
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_workers");
-        set => SetProperty("max_workers", value);
-    }
+    [TerraformPropertyName("max_workers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxWorkers { get; set; }
 
     /// <summary>
     /// A unique name for the resource, required by Dataflow.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The network to which VMs will be assigned. If it is not provided, &amp;quot;default&amp;quot; will be used.
     /// </summary>
-    public TerraformProperty<string> Network
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network");
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Network { get; set; }
 
     /// <summary>
     /// One of &amp;quot;drain&amp;quot; or &amp;quot;cancel&amp;quot;. Specifies behavior of deletion during terraform destroy.
     /// </summary>
-    public TerraformProperty<string> OnDelete
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("on_delete");
-        set => SetProperty("on_delete", value);
-    }
+    [TerraformPropertyName("on_delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OnDelete { get; set; }
 
     /// <summary>
     /// Key/Value pairs to be passed to the Dataflow job (as used in the template).
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Parameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// The project in which the resource belongs.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The region in which the created job should run.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
     /// <summary>
     /// The Service Account email used to create the job.
     /// </summary>
-    public TerraformProperty<string> ServiceAccountEmail
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_account_email");
-        set => SetProperty("service_account_email", value);
-    }
+    [TerraformPropertyName("service_account_email")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServiceAccountEmail { get; set; }
 
     /// <summary>
     /// If true, treat DRAINING and CANCELLING as terminal job states and do not wait for further changes before removing from terraform state and moving on. WARNING: this will lead to job name conflicts if you do not ensure that the job names are different, e.g. by embedding a release ID or by using a random_id.
     /// </summary>
-    public TerraformProperty<bool> SkipWaitOnJobTermination
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_wait_on_job_termination");
-        set => SetProperty("skip_wait_on_job_termination", value);
-    }
+    [TerraformPropertyName("skip_wait_on_job_termination")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipWaitOnJobTermination { get; set; }
 
     /// <summary>
     /// The subnetwork to which VMs will be assigned. Should be of the form &amp;quot;regions/REGION/subnetworks/SUBNETWORK&amp;quot;.
     /// </summary>
-    public TerraformProperty<string> Subnetwork
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnetwork");
-        set => SetProperty("subnetwork", value);
-    }
+    [TerraformPropertyName("subnetwork")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Subnetwork { get; set; }
 
     /// <summary>
     /// A writeable location on Google Cloud Storage for the Dataflow job to dump its temporary data.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TempGcsLocation is required")]
-    public required TerraformProperty<string> TempGcsLocation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("temp_gcs_location");
-        set => SetProperty("temp_gcs_location", value);
-    }
+    [TerraformPropertyName("temp_gcs_location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TempGcsLocation { get; set; }
 
     /// <summary>
     /// The Google Cloud Storage path to the Dataflow job template.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateGcsPath is required")]
-    public required TerraformProperty<string> TemplateGcsPath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("template_gcs_path");
-        set => SetProperty("template_gcs_path", value);
-    }
+    [TerraformPropertyName("template_gcs_path")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TemplateGcsPath { get; set; }
 
     /// <summary>
     /// Only applicable when updating a pipeline. Map of transform name prefixes of the job to be replaced with the corresponding name prefixes of the new job.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TransformNameMapping
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("transform_name_mapping");
-        set => SetProperty("transform_name_mapping", value);
-    }
+    [TerraformPropertyName("transform_name_mapping")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? TransformNameMapping { get; set; }
 
     /// <summary>
     /// The zone in which the created job should run. If it is not provided, the provider zone is used.
     /// </summary>
-    public TerraformProperty<string> Zone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("zone");
-        set => SetProperty("zone", value);
-    }
+    [TerraformPropertyName("zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Zone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDataflowJobTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDataflowJobTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The unique ID of this job.
     /// </summary>
-    public TerraformExpression JobId => this["job_id"];
+    [TerraformPropertyName("job_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> JobId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "job_id");
 
     /// <summary>
     /// The current state of the resource, selected from the JobState enum.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// The type of this job, selected from the JobType enum.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
 }

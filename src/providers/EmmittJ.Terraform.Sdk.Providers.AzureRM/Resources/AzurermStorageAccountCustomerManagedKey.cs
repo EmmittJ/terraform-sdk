@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageAccountCustomerManagedKeyTimeoutsBlock : TerraformBlock
+public class AzurermStorageAccountCustomerManagedKeyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,112 +45,78 @@ public class AzurermStorageAccountCustomerManagedKey : TerraformResource
 {
     public AzurermStorageAccountCustomerManagedKey(string name) : base("azurerm_storage_account_customer_managed_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("federated_identity_client_id");
-        SetOutput("id");
-        SetOutput("key_name");
-        SetOutput("key_vault_id");
-        SetOutput("key_vault_uri");
-        SetOutput("key_version");
-        SetOutput("managed_hsm_key_id");
-        SetOutput("storage_account_id");
-        SetOutput("user_assigned_identity_id");
     }
 
     /// <summary>
     /// The federated_identity_client_id attribute.
     /// </summary>
-    public TerraformProperty<string> FederatedIdentityClientId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("federated_identity_client_id");
-        set => SetProperty("federated_identity_client_id", value);
-    }
+    [TerraformPropertyName("federated_identity_client_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FederatedIdentityClientId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyName is required")]
-    public required TerraformProperty<string> KeyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_name");
-        set => SetProperty("key_name", value);
-    }
+    [TerraformPropertyName("key_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyName { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string> KeyVaultId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
-        set => SetProperty("key_vault_id", value);
-    }
+    [TerraformPropertyName("key_vault_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyVaultId { get; set; }
 
     /// <summary>
     /// The key_vault_uri attribute.
     /// </summary>
-    public TerraformProperty<string> KeyVaultUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_uri");
-        set => SetProperty("key_vault_uri", value);
-    }
+    [TerraformPropertyName("key_vault_uri")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KeyVaultUri { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_vault_uri");
 
     /// <summary>
     /// The key_version attribute.
     /// </summary>
-    public TerraformProperty<string> KeyVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_version");
-        set => SetProperty("key_version", value);
-    }
+    [TerraformPropertyName("key_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyVersion { get; set; }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> ManagedHsmKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_hsm_key_id");
-        set => SetProperty("managed_hsm_key_id", value);
-    }
+    [TerraformPropertyName("managed_hsm_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManagedHsmKeyId { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    public required TerraformProperty<string> StorageAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
-        set => SetProperty("storage_account_id", value);
-    }
+    [TerraformPropertyName("storage_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountId { get; set; }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
-    public TerraformProperty<string> UserAssignedIdentityId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_assigned_identity_id");
-        set => SetProperty("user_assigned_identity_id", value);
-    }
+    [TerraformPropertyName("user_assigned_identity_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserAssignedIdentityId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStorageAccountCustomerManagedKeyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStorageAccountCustomerManagedKeyTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

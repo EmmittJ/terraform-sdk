@@ -6,55 +6,49 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for agent_version_summaries in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock : TerraformBlock
+public class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock : ITerraformBlock
 {
     /// <summary>
     /// The agent_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentName
-    {
-        set => SetProperty("agent_name", value);
-    }
+    [TerraformPropertyName("agent_name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AgentName => new TerraformReferenceProperty<TerraformProperty<string>>("", "agent_name");
 
     /// <summary>
     /// The agent_status attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentStatus
-    {
-        set => SetProperty("agent_status", value);
-    }
+    [TerraformPropertyName("agent_status")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AgentStatus => new TerraformReferenceProperty<TerraformProperty<string>>("", "agent_status");
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentVersion
-    {
-        set => SetProperty("agent_version", value);
-    }
+    [TerraformPropertyName("agent_version")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AgentVersion => new TerraformReferenceProperty<TerraformProperty<string>>("", "agent_version");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformProperty<string>? CreatedAt
-    {
-        set => SetProperty("created_at", value);
-    }
+    [TerraformPropertyName("created_at")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>("", "created_at");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>("", "description");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
-    public TerraformProperty<string>? UpdatedAt
-    {
-        set => SetProperty("updated_at", value);
-    }
+    [TerraformPropertyName("updated_at")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdatedAt => new TerraformReferenceProperty<TerraformProperty<string>>("", "updated_at");
 
 }
 
@@ -65,41 +59,28 @@ public class AwsBedrockagentAgentVersionsDataSource : TerraformDataSource
 {
     public AwsBedrockagentAgentVersionsDataSource(string name) : base("aws_bedrockagent_agent_versions", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("agent_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The agent_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
-    public required TerraformProperty<string> AgentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("agent_id");
-        set => SetProperty("agent_id", value);
-    }
+    [TerraformPropertyName("agent_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AgentId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for agent_version_summaries.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock>? AgentVersionSummaries
-    {
-        set => SetProperty("agent_version_summaries", value);
-    }
+    [TerraformPropertyName("agent_version_summaries")]
+    public TerraformList<TerraformBlock<AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock>>? AgentVersionSummaries { get; set; } = new();
 
 }

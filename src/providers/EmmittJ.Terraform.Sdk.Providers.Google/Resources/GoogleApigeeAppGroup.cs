@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attributes in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeAppGroupAttributesBlock : TerraformBlock
+public class GoogleApigeeAppGroupAttributesBlock : ITerraformBlock
 {
     /// <summary>
     /// Key of the attribute
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// Value of the attribute
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -30,31 +28,28 @@ public class GoogleApigeeAppGroupAttributesBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeAppGroupTimeoutsBlock : TerraformBlock
+public class GoogleApigeeAppGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -65,126 +60,100 @@ public class GoogleApigeeAppGroup : TerraformResource
 {
     public GoogleApigeeAppGroup(string name) : base("google_apigee_app_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("app_group_id");
-        SetOutput("created_at");
-        SetOutput("last_modified_at");
-        SetOutput("organization");
-        SetOutput("channel_id");
-        SetOutput("channel_uri");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("org_id");
-        SetOutput("status");
     }
 
     /// <summary>
     /// Channel identifier identifies the owner maintaining this grouping.
     /// </summary>
-    public TerraformProperty<string> ChannelId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("channel_id");
-        set => SetProperty("channel_id", value);
-    }
+    [TerraformPropertyName("channel_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ChannelId { get; set; }
 
     /// <summary>
     /// A reference to the associated storefront/marketplace.
     /// </summary>
-    public TerraformProperty<string> ChannelUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("channel_uri");
-        set => SetProperty("channel_uri", value);
-    }
+    [TerraformPropertyName("channel_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ChannelUri { get; set; }
 
     /// <summary>
     /// App group name displayed in the UI
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Name of the AppGroup. Characters you can use in the name are restricted to: A-Z0-9._-$ %.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee app group,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    public required TerraformProperty<string> OrgId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
-        set => SetProperty("org_id", value);
-    }
+    [TerraformPropertyName("org_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
 
     /// <summary>
     /// Valid values are active or inactive. Note that the status of the AppGroup should be updated via UpdateAppGroupRequest by setting the action as active or inactive. Possible values: [&amp;quot;active&amp;quot;, &amp;quot;inactive&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
     /// <summary>
     /// Block for attributes.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleApigeeAppGroupAttributesBlock>? Attributes
-    {
-        set => SetProperty("attributes", value);
-    }
+    [TerraformPropertyName("attributes")]
+    public TerraformList<TerraformBlock<GoogleApigeeAppGroupAttributesBlock>>? Attributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeAppGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeAppGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Internal identifier that cannot be edited
     /// </summary>
-    public TerraformExpression AppGroupId => this["app_group_id"];
+    [TerraformPropertyName("app_group_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AppGroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "app_group_id");
 
     /// <summary>
     /// Created time as milliseconds since epoch.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// Modified time as milliseconds since epoch.
     /// </summary>
-    public TerraformExpression LastModifiedAt => this["last_modified_at"];
+    [TerraformPropertyName("last_modified_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_at");
 
     /// <summary>
     /// App group name displayed in the UI
     /// </summary>
-    public TerraformExpression Organization => this["organization"];
+    [TerraformPropertyName("organization")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Organization => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "organization");
 
 }

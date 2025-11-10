@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for log_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlock
+public class AzurermDynatraceTagRulesLogRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The send_activity_logs_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SendActivityLogsEnabled
-    {
-        set => SetProperty("send_activity_logs_enabled", value);
-    }
+    [TerraformPropertyName("send_activity_logs_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SendActivityLogsEnabled { get; set; }
 
     /// <summary>
     /// The send_azure_active_directory_logs_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SendAzureActiveDirectoryLogsEnabled
-    {
-        set => SetProperty("send_azure_active_directory_logs_enabled", value);
-    }
+    [TerraformPropertyName("send_azure_active_directory_logs_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SendAzureActiveDirectoryLogsEnabled { get; set; }
 
     /// <summary>
     /// The send_subscription_logs_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SendSubscriptionLogsEnabled
-    {
-        set => SetProperty("send_subscription_logs_enabled", value);
-    }
+    [TerraformPropertyName("send_subscription_logs_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SendSubscriptionLogsEnabled { get; set; }
 
 }
 
@@ -38,15 +35,14 @@ public class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlock
 /// Block type for metric_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDynatraceTagRulesMetricRuleBlock : TerraformBlock
+public class AzurermDynatraceTagRulesMetricRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The sending_metrics_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SendingMetricsEnabled
-    {
-        set => SetProperty("sending_metrics_enabled", value);
-    }
+    [TerraformPropertyName("sending_metrics_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SendingMetricsEnabled { get; set; }
 
 }
 
@@ -54,39 +50,35 @@ public class AzurermDynatraceTagRulesMetricRuleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
+public class AzurermDynatraceTagRulesTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -98,72 +90,52 @@ public class AzurermDynatraceTagRules : TerraformResource
 {
     public AzurermDynatraceTagRules(string name) : base("azurerm_dynatrace_tag_rules", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("monitor_id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The monitor_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorId is required")]
-    public required TerraformProperty<string> MonitorId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("monitor_id");
-        set => SetProperty("monitor_id", value);
-    }
+    [TerraformPropertyName("monitor_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MonitorId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for log_rule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogRule block(s) allowed")]
-    public List<AzurermDynatraceTagRulesLogRuleBlock>? LogRule
-    {
-        set => SetProperty("log_rule", value);
-    }
+    [TerraformPropertyName("log_rule")]
+    public TerraformList<TerraformBlock<AzurermDynatraceTagRulesLogRuleBlock>>? LogRule { get; set; } = new();
 
     /// <summary>
     /// Block for metric_rule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricRule block(s) allowed")]
-    public List<AzurermDynatraceTagRulesMetricRuleBlock>? MetricRule
-    {
-        set => SetProperty("metric_rule", value);
-    }
+    [TerraformPropertyName("metric_rule")]
+    public TerraformList<TerraformBlock<AzurermDynatraceTagRulesMetricRuleBlock>>? MetricRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDynatraceTagRulesTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDynatraceTagRulesTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

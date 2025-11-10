@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for staging_distribution_dns_names in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesBlock : TerraformBlock
+public class AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesBlock : ITerraformBlock
 {
     /// <summary>
     /// The items attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Items
-    {
-        set => SetProperty("items", value);
-    }
+    [TerraformPropertyName("items")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Items { get; set; }
 
     /// <summary>
     /// The quantity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Quantity is required")]
-    public required TerraformProperty<double> Quantity
-    {
-        set => SetProperty("quantity", value);
-    }
+    [TerraformPropertyName("quantity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Quantity { get; set; }
 
 }
 
@@ -31,16 +29,15 @@ public class AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesB
 /// Block type for traffic_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock : TerraformBlock
+public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -51,64 +48,56 @@ public class AwsCloudfrontContinuousDeploymentPolicy : TerraformResource
 {
     public AwsCloudfrontContinuousDeploymentPolicy(string name) : base("aws_cloudfront_continuous_deployment_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("etag");
-        SetOutput("id");
-        SetOutput("last_modified_time");
-        SetOutput("enabled");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// Block for staging_distribution_dns_names.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesBlock>? StagingDistributionDnsNames
-    {
-        set => SetProperty("staging_distribution_dns_names", value);
-    }
+    [TerraformPropertyName("staging_distribution_dns_names")]
+    public TerraformList<TerraformBlock<AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesBlock>>? StagingDistributionDnsNames { get; set; } = new();
 
     /// <summary>
     /// Block for traffic_config.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock>? TrafficConfig
-    {
-        set => SetProperty("traffic_config", value);
-    }
+    [TerraformPropertyName("traffic_config")]
+    public TerraformList<TerraformBlock<AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock>>? TrafficConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
-    public TerraformExpression LastModifiedTime => this["last_modified_time"];
+    [TerraformPropertyName("last_modified_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_time");
 
 }

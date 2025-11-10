@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for ai_platform_floor_setting in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock : TerraformBlock
+public class GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock : ITerraformBlock
 {
     /// <summary>
     /// If true, log Model Armor filter results to Cloud Logging.
     /// </summary>
-    public TerraformProperty<bool>? EnableCloudLogging
-    {
-        set => SetProperty("enable_cloud_logging", value);
-    }
+    [TerraformPropertyName("enable_cloud_logging")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableCloudLogging { get; set; }
 
     /// <summary>
     /// If true, Model Armor filters will be run in inspect and block mode.
     /// Requests that trip Model Armor filters will be blocked.
     /// </summary>
-    public TerraformProperty<bool>? InspectAndBlock
-    {
-        set => SetProperty("inspect_and_block", value);
-    }
+    [TerraformPropertyName("inspect_and_block")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InspectAndBlock { get; set; }
 
     /// <summary>
     /// If true, Model Armor filters will be run in inspect only mode. No action
     /// will be taken on the request.
     /// </summary>
-    public TerraformProperty<bool>? InspectOnly
-    {
-        set => SetProperty("inspect_only", value);
-    }
+    [TerraformPropertyName("inspect_only")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InspectOnly { get; set; }
 
 }
 
@@ -40,7 +37,7 @@ public class GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock : Terraform
 /// Block type for filter_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleModelArmorFloorsettingFilterConfigBlock : TerraformBlock
+public class GoogleModelArmorFloorsettingFilterConfigBlock : ITerraformBlock
 {
 }
 
@@ -48,7 +45,7 @@ public class GoogleModelArmorFloorsettingFilterConfigBlock : TerraformBlock
 /// Block type for floor_setting_metadata in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleModelArmorFloorsettingFloorSettingMetadataBlock : TerraformBlock
+public class GoogleModelArmorFloorsettingFloorSettingMetadataBlock : ITerraformBlock
 {
 }
 
@@ -56,31 +53,28 @@ public class GoogleModelArmorFloorsettingFloorSettingMetadataBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleModelArmorFloorsettingTimeoutsBlock : TerraformBlock
+public class GoogleModelArmorFloorsettingTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -92,57 +86,36 @@ public class GoogleModelArmorFloorsetting : TerraformResource
 {
     public GoogleModelArmorFloorsetting(string name) : base("google_model_armor_floorsetting", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("name");
-        SetOutput("update_time");
-        SetOutput("enable_floor_setting_enforcement");
-        SetOutput("id");
-        SetOutput("integrated_services");
-        SetOutput("location");
-        SetOutput("parent");
     }
 
     /// <summary>
     /// Floor Settings enforcement status.
     /// </summary>
-    public TerraformProperty<bool> EnableFloorSettingEnforcement
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_floor_setting_enforcement");
-        set => SetProperty("enable_floor_setting_enforcement", value);
-    }
+    [TerraformPropertyName("enable_floor_setting_enforcement")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableFloorSettingEnforcement { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// List of integrated services for which the floor setting is applicable.
     /// </summary>
-    public List<TerraformProperty<string>> IntegratedServices
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("integrated_services");
-        set => SetProperty("integrated_services", value);
-    }
+    [TerraformPropertyName("integrated_services")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? IntegratedServices { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// Will be any one of these:
@@ -152,21 +125,17 @@ public class GoogleModelArmorFloorsetting : TerraformResource
     /// * &#39;organizations/{organizationId}&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    public required TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
 
     /// <summary>
     /// Block for ai_platform_floor_setting.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AiPlatformFloorSetting block(s) allowed")]
-    public List<GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock>? AiPlatformFloorSetting
-    {
-        set => SetProperty("ai_platform_floor_setting", value);
-    }
+    [TerraformPropertyName("ai_platform_floor_setting")]
+    public TerraformList<TerraformBlock<GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock>>? AiPlatformFloorSetting { get; set; } = new();
 
     /// <summary>
     /// Block for filter_config.
@@ -175,43 +144,43 @@ public class GoogleModelArmorFloorsetting : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FilterConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterConfig block(s) allowed")]
-    public List<GoogleModelArmorFloorsettingFilterConfigBlock>? FilterConfig
-    {
-        set => SetProperty("filter_config", value);
-    }
+    [TerraformPropertyName("filter_config")]
+    public TerraformList<TerraformBlock<GoogleModelArmorFloorsettingFilterConfigBlock>>? FilterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for floor_setting_metadata.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FloorSettingMetadata block(s) allowed")]
-    public List<GoogleModelArmorFloorsettingFloorSettingMetadataBlock>? FloorSettingMetadata
-    {
-        set => SetProperty("floor_setting_metadata", value);
-    }
+    [TerraformPropertyName("floor_setting_metadata")]
+    public TerraformList<TerraformBlock<GoogleModelArmorFloorsettingFloorSettingMetadataBlock>>? FloorSettingMetadata { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleModelArmorFloorsettingTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleModelArmorFloorsettingTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// [Output only] Create timestamp
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Identifier. The resource name.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// [Output only] Update timestamp
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

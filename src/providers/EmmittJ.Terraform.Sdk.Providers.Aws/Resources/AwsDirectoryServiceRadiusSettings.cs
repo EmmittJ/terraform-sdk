@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDirectoryServiceRadiusSettingsTimeoutsBlock : TerraformBlock
+public class AwsDirectoryServiceRadiusSettingsTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -33,138 +31,98 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
 {
     public AwsDirectoryServiceRadiusSettings(string name) : base("aws_directory_service_radius_settings", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("authentication_protocol");
-        SetOutput("directory_id");
-        SetOutput("display_label");
-        SetOutput("id");
-        SetOutput("radius_port");
-        SetOutput("radius_retries");
-        SetOutput("radius_servers");
-        SetOutput("radius_timeout");
-        SetOutput("region");
-        SetOutput("shared_secret");
-        SetOutput("use_same_username");
     }
 
     /// <summary>
     /// The authentication_protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationProtocol is required")]
-    public required TerraformProperty<string> AuthenticationProtocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_protocol");
-        set => SetProperty("authentication_protocol", value);
-    }
+    [TerraformPropertyName("authentication_protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthenticationProtocol { get; set; }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
-    public required TerraformProperty<string> DirectoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
-        set => SetProperty("directory_id", value);
-    }
+    [TerraformPropertyName("directory_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DirectoryId { get; set; }
 
     /// <summary>
     /// The display_label attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayLabel is required")]
-    public required TerraformProperty<string> DisplayLabel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_label");
-        set => SetProperty("display_label", value);
-    }
+    [TerraformPropertyName("display_label")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayLabel { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The radius_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusPort is required")]
-    public required TerraformProperty<double> RadiusPort
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("radius_port");
-        set => SetProperty("radius_port", value);
-    }
+    [TerraformPropertyName("radius_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> RadiusPort { get; set; }
 
     /// <summary>
     /// The radius_retries attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusRetries is required")]
-    public required TerraformProperty<double> RadiusRetries
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("radius_retries");
-        set => SetProperty("radius_retries", value);
-    }
+    [TerraformPropertyName("radius_retries")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> RadiusRetries { get; set; }
 
     /// <summary>
     /// The radius_servers attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusServers is required")]
-    public HashSet<TerraformProperty<string>> RadiusServers
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("radius_servers");
-        set => SetProperty("radius_servers", value);
-    }
+    [TerraformPropertyName("radius_servers")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? RadiusServers { get; set; }
 
     /// <summary>
     /// The radius_timeout attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusTimeout is required")]
-    public required TerraformProperty<double> RadiusTimeout
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("radius_timeout");
-        set => SetProperty("radius_timeout", value);
-    }
+    [TerraformPropertyName("radius_timeout")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> RadiusTimeout { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The shared_secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedSecret is required")]
-    public required TerraformProperty<string> SharedSecret
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("shared_secret");
-        set => SetProperty("shared_secret", value);
-    }
+    [TerraformPropertyName("shared_secret")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SharedSecret { get; set; }
 
     /// <summary>
     /// The use_same_username attribute.
     /// </summary>
-    public TerraformProperty<bool> UseSameUsername
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("use_same_username");
-        set => SetProperty("use_same_username", value);
-    }
+    [TerraformPropertyName("use_same_username")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseSameUsername { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDirectoryServiceRadiusSettingsTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDirectoryServiceRadiusSettingsTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

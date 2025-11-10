@@ -9,86 +9,70 @@ public class AwsEc2TransitGatewayPeeringAttachmentAccepter : TerraformResource
 {
     public AwsEc2TransitGatewayPeeringAttachmentAccepter(string name) : base("aws_ec2_transit_gateway_peering_attachment_accepter", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("peer_account_id");
-        SetOutput("peer_region");
-        SetOutput("peer_transit_gateway_id");
-        SetOutput("transit_gateway_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("transit_gateway_attachment_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayAttachmentId is required")]
-    public required TerraformProperty<string> TransitGatewayAttachmentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_attachment_id");
-        set => SetProperty("transit_gateway_attachment_id", value);
-    }
+    [TerraformPropertyName("transit_gateway_attachment_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TransitGatewayAttachmentId { get; set; }
 
     /// <summary>
     /// The peer_account_id attribute.
     /// </summary>
-    public TerraformExpression PeerAccountId => this["peer_account_id"];
+    [TerraformPropertyName("peer_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PeerAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_account_id");
 
     /// <summary>
     /// The peer_region attribute.
     /// </summary>
-    public TerraformExpression PeerRegion => this["peer_region"];
+    [TerraformPropertyName("peer_region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PeerRegion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_region");
 
     /// <summary>
     /// The peer_transit_gateway_id attribute.
     /// </summary>
-    public TerraformExpression PeerTransitGatewayId => this["peer_transit_gateway_id"];
+    [TerraformPropertyName("peer_transit_gateway_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PeerTransitGatewayId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peer_transit_gateway_id");
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformExpression TransitGatewayId => this["transit_gateway_id"];
+    [TerraformPropertyName("transit_gateway_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TransitGatewayId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "transit_gateway_id");
 
 }

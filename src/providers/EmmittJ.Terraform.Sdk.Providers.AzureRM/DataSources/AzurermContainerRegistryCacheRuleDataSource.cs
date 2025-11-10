@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,70 +24,57 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
 {
     public AzurermContainerRegistryCacheRuleDataSource(string name) : base("azurerm_container_registry_cache_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("credential_set_id");
-        SetOutput("source_repo");
-        SetOutput("target_repo");
-        SetOutput("container_registry_id");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
-    public required TerraformProperty<string> ContainerRegistryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_registry_id");
-        set => SetProperty("container_registry_id", value);
-    }
+    [TerraformPropertyName("container_registry_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContainerRegistryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The credential_set_id attribute.
     /// </summary>
-    public TerraformExpression CredentialSetId => this["credential_set_id"];
+    [TerraformPropertyName("credential_set_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CredentialSetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "credential_set_id");
 
     /// <summary>
     /// The source_repo attribute.
     /// </summary>
-    public TerraformExpression SourceRepo => this["source_repo"];
+    [TerraformPropertyName("source_repo")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceRepo => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_repo");
 
     /// <summary>
     /// The target_repo attribute.
     /// </summary>
-    public TerraformExpression TargetRepo => this["target_repo"];
+    [TerraformPropertyName("target_repo")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TargetRepo => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "target_repo");
 
 }

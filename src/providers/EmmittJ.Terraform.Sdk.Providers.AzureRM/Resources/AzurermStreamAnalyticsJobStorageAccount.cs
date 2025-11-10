@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock : TerraformBlock
+public class AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,73 +45,51 @@ public class AzurermStreamAnalyticsJobStorageAccount : TerraformResource
 {
     public AzurermStreamAnalyticsJobStorageAccount(string name) : base("azurerm_stream_analytics_job_storage_account", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("authentication_mode");
-        SetOutput("id");
-        SetOutput("storage_account_key");
-        SetOutput("storage_account_name");
-        SetOutput("stream_analytics_job_id");
     }
 
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationMode is required")]
-    public required TerraformProperty<string> AuthenticationMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_mode");
-        set => SetProperty("authentication_mode", value);
-    }
+    [TerraformPropertyName("authentication_mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthenticationMode { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The storage_account_key attribute.
     /// </summary>
-    public TerraformProperty<string> StorageAccountKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_key");
-        set => SetProperty("storage_account_key", value);
-    }
+    [TerraformPropertyName("storage_account_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageAccountKey { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
-    public required TerraformProperty<string> StorageAccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_name");
-        set => SetProperty("storage_account_name", value);
-    }
+    [TerraformPropertyName("storage_account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountName { get; set; }
 
     /// <summary>
     /// The stream_analytics_job_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
-    public required TerraformProperty<string> StreamAnalyticsJobId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_id");
-        set => SetProperty("stream_analytics_job_id", value);
-    }
+    [TerraformPropertyName("stream_analytics_job_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StreamAnalyticsJobId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

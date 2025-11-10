@@ -9,170 +9,121 @@ public class AwsSnsPlatformApplication : TerraformResource
 {
     public AwsSnsPlatformApplication(string name) : base("aws_sns_platform_application", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("apple_platform_bundle_id");
-        SetOutput("apple_platform_team_id");
-        SetOutput("event_delivery_failure_topic_arn");
-        SetOutput("event_endpoint_created_topic_arn");
-        SetOutput("event_endpoint_deleted_topic_arn");
-        SetOutput("event_endpoint_updated_topic_arn");
-        SetOutput("failure_feedback_role_arn");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("platform");
-        SetOutput("platform_credential");
-        SetOutput("platform_principal");
-        SetOutput("region");
-        SetOutput("success_feedback_role_arn");
-        SetOutput("success_feedback_sample_rate");
     }
 
     /// <summary>
     /// The apple_platform_bundle_id attribute.
     /// </summary>
-    public TerraformProperty<string> ApplePlatformBundleId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("apple_platform_bundle_id");
-        set => SetProperty("apple_platform_bundle_id", value);
-    }
+    [TerraformPropertyName("apple_platform_bundle_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ApplePlatformBundleId { get; set; }
 
     /// <summary>
     /// The apple_platform_team_id attribute.
     /// </summary>
-    public TerraformProperty<string> ApplePlatformTeamId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("apple_platform_team_id");
-        set => SetProperty("apple_platform_team_id", value);
-    }
+    [TerraformPropertyName("apple_platform_team_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ApplePlatformTeamId { get; set; }
 
     /// <summary>
     /// The event_delivery_failure_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string> EventDeliveryFailureTopicArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("event_delivery_failure_topic_arn");
-        set => SetProperty("event_delivery_failure_topic_arn", value);
-    }
+    [TerraformPropertyName("event_delivery_failure_topic_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EventDeliveryFailureTopicArn { get; set; }
 
     /// <summary>
     /// The event_endpoint_created_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string> EventEndpointCreatedTopicArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("event_endpoint_created_topic_arn");
-        set => SetProperty("event_endpoint_created_topic_arn", value);
-    }
+    [TerraformPropertyName("event_endpoint_created_topic_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EventEndpointCreatedTopicArn { get; set; }
 
     /// <summary>
     /// The event_endpoint_deleted_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string> EventEndpointDeletedTopicArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("event_endpoint_deleted_topic_arn");
-        set => SetProperty("event_endpoint_deleted_topic_arn", value);
-    }
+    [TerraformPropertyName("event_endpoint_deleted_topic_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EventEndpointDeletedTopicArn { get; set; }
 
     /// <summary>
     /// The event_endpoint_updated_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string> EventEndpointUpdatedTopicArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("event_endpoint_updated_topic_arn");
-        set => SetProperty("event_endpoint_updated_topic_arn", value);
-    }
+    [TerraformPropertyName("event_endpoint_updated_topic_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EventEndpointUpdatedTopicArn { get; set; }
 
     /// <summary>
     /// The failure_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> FailureFeedbackRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("failure_feedback_role_arn");
-        set => SetProperty("failure_feedback_role_arn", value);
-    }
+    [TerraformPropertyName("failure_feedback_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FailureFeedbackRoleArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Platform is required")]
-    public required TerraformProperty<string> Platform
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("platform");
-        set => SetProperty("platform", value);
-    }
+    [TerraformPropertyName("platform")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Platform { get; set; }
 
     /// <summary>
     /// The platform_credential attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformCredential is required")]
-    public required TerraformProperty<string> PlatformCredential
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("platform_credential");
-        set => SetProperty("platform_credential", value);
-    }
+    [TerraformPropertyName("platform_credential")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PlatformCredential { get; set; }
 
     /// <summary>
     /// The platform_principal attribute.
     /// </summary>
-    public TerraformProperty<string> PlatformPrincipal
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("platform_principal");
-        set => SetProperty("platform_principal", value);
-    }
+    [TerraformPropertyName("platform_principal")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PlatformPrincipal { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The success_feedback_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> SuccessFeedbackRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("success_feedback_role_arn");
-        set => SetProperty("success_feedback_role_arn", value);
-    }
+    [TerraformPropertyName("success_feedback_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SuccessFeedbackRoleArn { get; set; }
 
     /// <summary>
     /// The success_feedback_sample_rate attribute.
     /// </summary>
-    public TerraformProperty<string> SuccessFeedbackSampleRate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("success_feedback_sample_rate");
-        set => SetProperty("success_feedback_sample_rate", value);
-    }
+    [TerraformPropertyName("success_feedback_sample_rate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SuccessFeedbackSampleRate { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

@@ -9,119 +9,104 @@ public class AwsRoute53ZoneDataSource : TerraformDataSource
 {
     public AwsRoute53ZoneDataSource(string name) : base("aws_route53_zone", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("caller_reference");
-        SetOutput("comment");
-        SetOutput("linked_service_description");
-        SetOutput("linked_service_principal");
-        SetOutput("name_servers");
-        SetOutput("primary_name_server");
-        SetOutput("resource_record_set_count");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("private_zone");
-        SetOutput("tags");
-        SetOutput("vpc_id");
-        SetOutput("zone_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The private_zone attribute.
     /// </summary>
-    public TerraformProperty<bool> PrivateZone
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("private_zone");
-        set => SetProperty("private_zone", value);
-    }
+    [TerraformPropertyName("private_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PrivateZone { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string> VpcId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_id");
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VpcId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformProperty<string> ZoneId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("zone_id");
-        set => SetProperty("zone_id", value);
-    }
+    [TerraformPropertyName("zone_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ZoneId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
-    public TerraformExpression CallerReference => this["caller_reference"];
+    [TerraformPropertyName("caller_reference")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CallerReference => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "caller_reference");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformExpression Comment => this["comment"];
+    [TerraformPropertyName("comment")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Comment => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "comment");
 
     /// <summary>
     /// The linked_service_description attribute.
     /// </summary>
-    public TerraformExpression LinkedServiceDescription => this["linked_service_description"];
+    [TerraformPropertyName("linked_service_description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LinkedServiceDescription => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "linked_service_description");
 
     /// <summary>
     /// The linked_service_principal attribute.
     /// </summary>
-    public TerraformExpression LinkedServicePrincipal => this["linked_service_principal"];
+    [TerraformPropertyName("linked_service_principal")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LinkedServicePrincipal => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "linked_service_principal");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
-    public TerraformExpression NameServers => this["name_servers"];
+    [TerraformPropertyName("name_servers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> NameServers => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "name_servers");
 
     /// <summary>
     /// The primary_name_server attribute.
     /// </summary>
-    public TerraformExpression PrimaryNameServer => this["primary_name_server"];
+    [TerraformPropertyName("primary_name_server")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryNameServer => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_name_server");
 
     /// <summary>
     /// The resource_record_set_count attribute.
     /// </summary>
-    public TerraformExpression ResourceRecordSetCount => this["resource_record_set_count"];
+    [TerraformPropertyName("resource_record_set_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ResourceRecordSetCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "resource_record_set_count");
 
 }

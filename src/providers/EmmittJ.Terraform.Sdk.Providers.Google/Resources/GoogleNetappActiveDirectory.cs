@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetappActiveDirectoryTimeoutsBlock : TerraformBlock
+public class GoogleNetappActiveDirectoryTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,131 +38,79 @@ public class GoogleNetappActiveDirectory : TerraformResource
 {
     public GoogleNetappActiveDirectory(string name) : base("google_netapp_active_directory", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("state");
-        SetOutput("state_details");
-        SetOutput("terraform_labels");
-        SetOutput("administrators");
-        SetOutput("aes_encryption");
-        SetOutput("backup_operators");
-        SetOutput("description");
-        SetOutput("dns");
-        SetOutput("domain");
-        SetOutput("encrypt_dc_connections");
-        SetOutput("id");
-        SetOutput("kdc_hostname");
-        SetOutput("kdc_ip");
-        SetOutput("labels");
-        SetOutput("ldap_signing");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("net_bios_prefix");
-        SetOutput("nfs_users_with_ldap");
-        SetOutput("organizational_unit");
-        SetOutput("password");
-        SetOutput("project");
-        SetOutput("security_operators");
-        SetOutput("site");
-        SetOutput("username");
     }
 
     /// <summary>
     /// Domain user accounts to be added to the local Administrators group of the SMB service. Comma-separated list of domain users or groups. The Domain Admin group is automatically added when the service joins your domain as a hidden group.
     /// </summary>
-    public List<TerraformProperty<string>> Administrators
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("administrators");
-        set => SetProperty("administrators", value);
-    }
+    [TerraformPropertyName("administrators")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Administrators { get; set; }
 
     /// <summary>
     /// Enables AES-128 and AES-256 encryption for Kerberos-based communication with Active Directory.
     /// </summary>
-    public TerraformProperty<bool> AesEncryption
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("aes_encryption");
-        set => SetProperty("aes_encryption", value);
-    }
+    [TerraformPropertyName("aes_encryption")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AesEncryption { get; set; }
 
     /// <summary>
     /// Domain user/group accounts to be added to the Backup Operators group of the SMB service. The Backup Operators group allows members to backup and restore files regardless of whether they have read or write access to the files. Comma-separated list.
     /// </summary>
-    public List<TerraformProperty<string>> BackupOperators
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("backup_operators");
-        set => SetProperty("backup_operators", value);
-    }
+    [TerraformPropertyName("backup_operators")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? BackupOperators { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// Comma separated list of DNS server IP addresses for the Active Directory domain.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dns is required")]
-    public required TerraformProperty<string> Dns
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dns");
-        set => SetProperty("dns", value);
-    }
+    [TerraformPropertyName("dns")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Dns { get; set; }
 
     /// <summary>
     /// Fully qualified domain name for the Active Directory domain.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
-    public required TerraformProperty<string> Domain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain");
-        set => SetProperty("domain", value);
-    }
+    [TerraformPropertyName("domain")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Domain { get; set; }
 
     /// <summary>
     /// If enabled, traffic between the SMB server to Domain Controller (DC) will be encrypted.
     /// </summary>
-    public TerraformProperty<bool> EncryptDcConnections
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("encrypt_dc_connections");
-        set => SetProperty("encrypt_dc_connections", value);
-    }
+    [TerraformPropertyName("encrypt_dc_connections")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EncryptDcConnections { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Hostname of the Active Directory server used as Kerberos Key Distribution Center. Only required for volumes using kerberized NFSv4.1
     /// </summary>
-    public TerraformProperty<string> KdcHostname
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kdc_hostname");
-        set => SetProperty("kdc_hostname", value);
-    }
+    [TerraformPropertyName("kdc_hostname")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KdcHostname { get; set; }
 
     /// <summary>
     /// IP address of the Active Directory server used as Kerberos Key Distribution Center.
     /// </summary>
-    public TerraformProperty<string> KdcIp
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kdc_ip");
-        set => SetProperty("kdc_ip", value);
-    }
+    [TerraformPropertyName("kdc_ip")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KdcIp { get; set; }
 
     /// <summary>
     /// Labels as key value pairs. Example: &#39;{ &amp;quot;owner&amp;quot;: &amp;quot;Bob&amp;quot;, &amp;quot;department&amp;quot;: &amp;quot;finance&amp;quot;, &amp;quot;purpose&amp;quot;: &amp;quot;testing&amp;quot; }&#39;.
@@ -174,40 +119,32 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Specifies whether or not the LDAP traffic needs to be signed.
     /// </summary>
-    public TerraformProperty<bool> LdapSigning
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ldap_signing");
-        set => SetProperty("ldap_signing", value);
-    }
+    [TerraformPropertyName("ldap_signing")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LdapSigning { get; set; }
 
     /// <summary>
     /// Name of the region for the policy to apply to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The resource name of the Active Directory pool. Needs to be unique per location.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// NetBIOS name prefix of the server to be created.
@@ -215,113 +152,105 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// &#39;\\NetBIOS_PREFIX-ABCD.DOMAIN_NAME\SHARE_NAME&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetBiosPrefix is required")]
-    public required TerraformProperty<string> NetBiosPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("net_bios_prefix");
-        set => SetProperty("net_bios_prefix", value);
-    }
+    [TerraformPropertyName("net_bios_prefix")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NetBiosPrefix { get; set; }
 
     /// <summary>
     /// Local UNIX users on clients without valid user information in Active Directory are blocked from access to LDAP enabled volumes.
     /// This option can be used to temporarily switch such volumes to AUTH_SYS authentication (user ID + 1-16 groups).
     /// </summary>
-    public TerraformProperty<bool> NfsUsersWithLdap
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("nfs_users_with_ldap");
-        set => SetProperty("nfs_users_with_ldap", value);
-    }
+    [TerraformPropertyName("nfs_users_with_ldap")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? NfsUsersWithLdap { get; set; }
 
     /// <summary>
     /// Name of the Organizational Unit where you intend to create the computer account for NetApp Volumes.
     /// Defaults to &#39;CN=Computers&#39; if left empty.
     /// </summary>
-    public TerraformProperty<string> OrganizationalUnit
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("organizational_unit");
-        set => SetProperty("organizational_unit", value);
-    }
+    [TerraformPropertyName("organizational_unit")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> OrganizationalUnit { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "organizational_unit");
 
     /// <summary>
     /// Password for specified username. Note - Manual changes done to the password will not be detected. Terraform will not re-apply the password, unless you use a new password in Terraform.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    public required TerraformProperty<string> Password
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("password");
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Domain accounts that require elevated privileges such as &#39;SeSecurityPrivilege&#39; to manage security logs. Comma-separated list.
     /// </summary>
-    public List<TerraformProperty<string>> SecurityOperators
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("security_operators");
-        set => SetProperty("security_operators", value);
-    }
+    [TerraformPropertyName("security_operators")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SecurityOperators { get; set; }
 
     /// <summary>
     /// Specifies an Active Directory site to manage domain controller selection.
     /// Use when Active Directory domain controllers in multiple regions are configured. Defaults to &#39;Default-First-Site-Name&#39; if left empty.
     /// </summary>
-    public TerraformProperty<string> Site
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("site");
-        set => SetProperty("site", value);
-    }
+    [TerraformPropertyName("site")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Site { get; set; }
 
     /// <summary>
     /// Username for the Active Directory account with permissions to create the compute account within the specified organizational unit.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    public required TerraformProperty<string> Username
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("username");
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleNetappActiveDirectoryTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleNetappActiveDirectoryTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Create time of the active directory. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The state of the Active Directory policy (not the Active Directory itself).
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The state details of the Active Directory.
     /// </summary>
-    public TerraformExpression StateDetails => this["state_details"];
+    [TerraformPropertyName("state_details")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StateDetails => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state_details");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

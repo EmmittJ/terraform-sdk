@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadAccessPackageCatalogDataSourceTimeoutsBlock : TerraformBlock
+public class AzureadAccessPackageCatalogDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,68 +24,55 @@ public class AzureadAccessPackageCatalogDataSource : TerraformDataSource
 {
     public AzureadAccessPackageCatalogDataSource(string name) : base("azuread_access_package_catalog", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("externally_visible");
-        SetOutput("published");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("object_id");
     }
 
     /// <summary>
     /// The display name of the access package catalog
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID of this access package catalog
     /// </summary>
-    public TerraformProperty<string> ObjectId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("object_id");
-        set => SetProperty("object_id", value);
-    }
+    [TerraformPropertyName("object_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ObjectId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadAccessPackageCatalogDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadAccessPackageCatalogDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The description of the access package catalog
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// Whether the access packages in this catalog can be requested by users outside the tenant
     /// </summary>
-    public TerraformExpression ExternallyVisible => this["externally_visible"];
+    [TerraformPropertyName("externally_visible")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ExternallyVisible => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "externally_visible");
 
     /// <summary>
     /// Whether the access packages in this catalog are available for management
     /// </summary>
-    public TerraformExpression Published => this["published"];
+    [TerraformPropertyName("published")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Published => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "published");
 
 }

@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for disk_consistency_group_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock : TerraformBlock
+public class GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// Enable disk consistency on the resource policy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
 }
 
@@ -23,16 +22,15 @@ public class GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock : Terraf
 /// Block type for group_placement_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : TerraformBlock
+public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The number of availability domains instances will be spread across. If two instances are in different
     /// availability domain, they will not be put in the same low latency network
     /// </summary>
-    public TerraformProperty<double>? AvailabilityDomainCount
-    {
-        set => SetProperty("availability_domain_count", value);
-    }
+    [TerraformPropertyName("availability_domain_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AvailabilityDomainCount { get; set; }
 
     /// <summary>
     /// Collocation specifies whether to place VMs inside the same availability domain on the same low-latency network.
@@ -40,28 +38,25 @@ public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : TerraformBlo
     /// with a COLLOCATED policy, then exactly &#39;vm_count&#39; instances must be created at the same time with the resource policy
     /// attached. Possible values: [&amp;quot;COLLOCATED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Collocation
-    {
-        set => SetProperty("collocation", value);
-    }
+    [TerraformPropertyName("collocation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Collocation { get; set; }
 
     /// <summary>
     /// Specifies the shape of the GPU slice, in slice based GPU families eg. A4X.
     /// </summary>
-    public TerraformProperty<string>? GpuTopology
-    {
-        set => SetProperty("gpu_topology", value);
-    }
+    [TerraformPropertyName("gpu_topology")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GpuTopology { get; set; }
 
     /// <summary>
     /// Number of VMs in this placement group. Google does not recommend that you use this field
     /// unless you use a compact policy and you want your policy to work only if it contains this
     /// exact number of VMs.
     /// </summary>
-    public TerraformProperty<double>? VmCount
-    {
-        set => SetProperty("vm_count", value);
-    }
+    [TerraformPropertyName("vm_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? VmCount { get; set; }
 
 }
 
@@ -69,33 +64,30 @@ public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : TerraformBlo
 /// Block type for instance_schedule_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock : TerraformBlock
+public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The expiration time of the schedule. The timestamp is an RFC3339 string.
     /// </summary>
-    public TerraformProperty<string>? ExpirationTime
-    {
-        set => SetProperty("expiration_time", value);
-    }
+    [TerraformPropertyName("expiration_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExpirationTime { get; set; }
 
     /// <summary>
     /// The start time of the schedule. The timestamp is an RFC3339 string.
     /// </summary>
-    public TerraformProperty<string>? StartTime
-    {
-        set => SetProperty("start_time", value);
-    }
+    [TerraformPropertyName("start_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StartTime { get; set; }
 
     /// <summary>
     /// Specifies the time zone to be used in interpreting the schedule. The value of this field must be a time zone name
     /// from the tz database: http://en.wikipedia.org/wiki/Tz_database.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
-    public required TerraformProperty<string> TimeZone
-    {
-        set => SetProperty("time_zone", value);
-    }
+    [TerraformPropertyName("time_zone")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TimeZone { get; set; }
 
 }
 
@@ -103,7 +95,7 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock : TerraformB
 /// Block type for snapshot_schedule_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlock : TerraformBlock
+public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlock : ITerraformBlock
 {
 }
 
@@ -111,31 +103,28 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeResourcePolicyTimeoutsBlock : TerraformBlock
+public class GoogleComputeResourcePolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -143,34 +132,31 @@ public class GoogleComputeResourcePolicyTimeoutsBlock : TerraformBlock
 /// Block type for workload_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeResourcePolicyWorkloadPolicyBlock : TerraformBlock
+public class GoogleComputeResourcePolicyWorkloadPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The accelerator topology. This field can be set only when the workload policy type is HIGH_THROUGHPUT
     /// and cannot be set if max topology distance is set.
     /// </summary>
-    public TerraformProperty<string>? AcceleratorTopology
-    {
-        set => SetProperty("accelerator_topology", value);
-    }
+    [TerraformPropertyName("accelerator_topology")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AcceleratorTopology { get; set; }
 
     /// <summary>
     /// The maximum topology distance. This field can be set only when the workload policy type is HIGH_THROUGHPUT
     /// and cannot be set if accelerator topology is set. Possible values: [&amp;quot;BLOCK&amp;quot;, &amp;quot;CLUSTER&amp;quot;, &amp;quot;SUBBLOCK&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? MaxTopologyDistance
-    {
-        set => SetProperty("max_topology_distance", value);
-    }
+    [TerraformPropertyName("max_topology_distance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaxTopologyDistance { get; set; }
 
     /// <summary>
     /// The type of workload policy. Possible values: [&amp;quot;HIGH_AVAILABILITY&amp;quot;, &amp;quot;HIGH_THROUGHPUT&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -182,36 +168,21 @@ public class GoogleComputeResourcePolicy : TerraformResource
 {
     public GoogleComputeResourcePolicy(string name) : base("google_compute_resource_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("self_link");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the resource, provided by the client when initially creating
@@ -223,92 +194,76 @@ public class GoogleComputeResourcePolicy : TerraformResource
     /// which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Region where resource policy resides.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for disk_consistency_group_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskConsistencyGroupPolicy block(s) allowed")]
-    public List<GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock>? DiskConsistencyGroupPolicy
-    {
-        set => SetProperty("disk_consistency_group_policy", value);
-    }
+    [TerraformPropertyName("disk_consistency_group_policy")]
+    public TerraformList<TerraformBlock<GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock>>? DiskConsistencyGroupPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for group_placement_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GroupPlacementPolicy block(s) allowed")]
-    public List<GoogleComputeResourcePolicyGroupPlacementPolicyBlock>? GroupPlacementPolicy
-    {
-        set => SetProperty("group_placement_policy", value);
-    }
+    [TerraformPropertyName("group_placement_policy")]
+    public TerraformList<TerraformBlock<GoogleComputeResourcePolicyGroupPlacementPolicyBlock>>? GroupPlacementPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for instance_schedule_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceSchedulePolicy block(s) allowed")]
-    public List<GoogleComputeResourcePolicyInstanceSchedulePolicyBlock>? InstanceSchedulePolicy
-    {
-        set => SetProperty("instance_schedule_policy", value);
-    }
+    [TerraformPropertyName("instance_schedule_policy")]
+    public TerraformList<TerraformBlock<GoogleComputeResourcePolicyInstanceSchedulePolicyBlock>>? InstanceSchedulePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for snapshot_schedule_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotSchedulePolicy block(s) allowed")]
-    public List<GoogleComputeResourcePolicySnapshotSchedulePolicyBlock>? SnapshotSchedulePolicy
-    {
-        set => SetProperty("snapshot_schedule_policy", value);
-    }
+    [TerraformPropertyName("snapshot_schedule_policy")]
+    public TerraformList<TerraformBlock<GoogleComputeResourcePolicySnapshotSchedulePolicyBlock>>? SnapshotSchedulePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeResourcePolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeResourcePolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for workload_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkloadPolicy block(s) allowed")]
-    public List<GoogleComputeResourcePolicyWorkloadPolicyBlock>? WorkloadPolicy
-    {
-        set => SetProperty("workload_policy", value);
-    }
+    [TerraformPropertyName("workload_policy")]
+    public TerraformList<TerraformBlock<GoogleComputeResourcePolicyWorkloadPolicyBlock>>? WorkloadPolicy { get; set; } = new();
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
 }

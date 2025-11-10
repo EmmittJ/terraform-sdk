@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attribute in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDynamodbTableAttributeBlock : TerraformBlock
+public class AwsDynamodbTableAttributeBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -32,66 +30,59 @@ public class AwsDynamodbTableAttributeBlock : TerraformBlock
 /// Block type for global_secondary_index in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
+public class AwsDynamodbTableGlobalSecondaryIndexBlock : ITerraformBlock
 {
     /// <summary>
     /// The hash_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKey is required")]
-    public required TerraformProperty<string> HashKey
-    {
-        set => SetProperty("hash_key", value);
-    }
+    [TerraformPropertyName("hash_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HashKey { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The non_key_attributes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? NonKeyAttributes
-    {
-        set => SetProperty("non_key_attributes", value);
-    }
+    [TerraformPropertyName("non_key_attributes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? NonKeyAttributes { get; set; }
 
     /// <summary>
     /// The projection_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectionType is required")]
-    public required TerraformProperty<string> ProjectionType
-    {
-        set => SetProperty("projection_type", value);
-    }
+    [TerraformPropertyName("projection_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProjectionType { get; set; }
 
     /// <summary>
     /// The range_key attribute.
     /// </summary>
-    public TerraformProperty<string>? RangeKey
-    {
-        set => SetProperty("range_key", value);
-    }
+    [TerraformPropertyName("range_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RangeKey { get; set; }
 
     /// <summary>
     /// The read_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? ReadCapacity
-    {
-        set => SetProperty("read_capacity", value);
-    }
+    [TerraformPropertyName("read_capacity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> ReadCapacity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "read_capacity");
 
     /// <summary>
     /// The write_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? WriteCapacity
-    {
-        set => SetProperty("write_capacity", value);
-    }
+    [TerraformPropertyName("write_capacity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> WriteCapacity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "write_capacity");
 
 }
 
@@ -99,24 +90,22 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
 /// Block type for import_table in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDynamodbTableImportTableBlock : TerraformBlock
+public class AwsDynamodbTableImportTableBlock : ITerraformBlock
 {
     /// <summary>
     /// The input_compression_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InputCompressionType
-    {
-        set => SetProperty("input_compression_type", value);
-    }
+    [TerraformPropertyName("input_compression_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InputCompressionType { get; set; }
 
     /// <summary>
     /// The input_format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputFormat is required")]
-    public required TerraformProperty<string> InputFormat
-    {
-        set => SetProperty("input_format", value);
-    }
+    [TerraformPropertyName("input_format")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InputFormat { get; set; }
 
 }
 
@@ -124,42 +113,38 @@ public class AwsDynamodbTableImportTableBlock : TerraformBlock
 /// Block type for local_secondary_index in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlock
+public class AwsDynamodbTableLocalSecondaryIndexBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The non_key_attributes attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? NonKeyAttributes
-    {
-        set => SetProperty("non_key_attributes", value);
-    }
+    [TerraformPropertyName("non_key_attributes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? NonKeyAttributes { get; set; }
 
     /// <summary>
     /// The projection_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectionType is required")]
-    public required TerraformProperty<string> ProjectionType
-    {
-        set => SetProperty("projection_type", value);
-    }
+    [TerraformPropertyName("projection_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProjectionType { get; set; }
 
     /// <summary>
     /// The range_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeKey is required")]
-    public required TerraformProperty<string> RangeKey
-    {
-        set => SetProperty("range_key", value);
-    }
+    [TerraformPropertyName("range_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RangeKey { get; set; }
 
 }
 
@@ -167,23 +152,21 @@ public class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlock
 /// Block type for on_demand_throughput in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDynamodbTableOnDemandThroughputBlock : TerraformBlock
+public class AwsDynamodbTableOnDemandThroughputBlock : ITerraformBlock
 {
     /// <summary>
     /// The max_read_request_units attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxReadRequestUnits
-    {
-        set => SetProperty("max_read_request_units", value);
-    }
+    [TerraformPropertyName("max_read_request_units")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxReadRequestUnits { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "max_read_request_units");
 
     /// <summary>
     /// The max_write_request_units attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxWriteRequestUnits
-    {
-        set => SetProperty("max_write_request_units", value);
-    }
+    [TerraformPropertyName("max_write_request_units")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxWriteRequestUnits { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "max_write_request_units");
 
 }
 
@@ -191,24 +174,22 @@ public class AwsDynamodbTableOnDemandThroughputBlock : TerraformBlock
 /// Block type for point_in_time_recovery in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDynamodbTablePointInTimeRecoveryBlock : TerraformBlock
+public class AwsDynamodbTablePointInTimeRecoveryBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The recovery_period_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? RecoveryPeriodInDays
-    {
-        set => SetProperty("recovery_period_in_days", value);
-    }
+    [TerraformPropertyName("recovery_period_in_days")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> RecoveryPeriodInDays { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "recovery_period_in_days");
 
 }
 
@@ -216,80 +197,71 @@ public class AwsDynamodbTablePointInTimeRecoveryBlock : TerraformBlock
 /// Block type for replica in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDynamodbTableReplicaBlock : TerraformBlock
+public class AwsDynamodbTableReplicaBlock : ITerraformBlock
 {
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
-    {
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>("", "arn");
 
     /// <summary>
     /// The consistency_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? ConsistencyMode
-    {
-        set => SetProperty("consistency_mode", value);
-    }
+    [TerraformPropertyName("consistency_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConsistencyMode { get; set; }
 
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DeletionProtectionEnabled
-    {
-        set => SetProperty("deletion_protection_enabled", value);
-    }
+    [TerraformPropertyName("deletion_protection_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtectionEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "deletion_protection_enabled");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
-    {
-        set => SetProperty("kms_key_arn", value);
-    }
+    [TerraformPropertyName("kms_key_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KmsKeyArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key_arn");
 
     /// <summary>
     /// The point_in_time_recovery attribute.
     /// </summary>
-    public TerraformProperty<bool>? PointInTimeRecovery
-    {
-        set => SetProperty("point_in_time_recovery", value);
-    }
+    [TerraformPropertyName("point_in_time_recovery")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PointInTimeRecovery { get; set; }
 
     /// <summary>
     /// The propagate_tags attribute.
     /// </summary>
-    public TerraformProperty<bool>? PropagateTags
-    {
-        set => SetProperty("propagate_tags", value);
-    }
+    [TerraformPropertyName("propagate_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PropagateTags { get; set; }
 
     /// <summary>
     /// The region_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
-    public required TerraformProperty<string> RegionName
-    {
-        set => SetProperty("region_name", value);
-    }
+    [TerraformPropertyName("region_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RegionName { get; set; }
 
     /// <summary>
     /// The stream_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? StreamArn
-    {
-        set => SetProperty("stream_arn", value);
-    }
+    [TerraformPropertyName("stream_arn")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StreamArn => new TerraformReferenceProperty<TerraformProperty<string>>("", "stream_arn");
 
     /// <summary>
     /// The stream_label attribute.
     /// </summary>
-    public TerraformProperty<string>? StreamLabel
-    {
-        set => SetProperty("stream_label", value);
-    }
+    [TerraformPropertyName("stream_label")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StreamLabel => new TerraformReferenceProperty<TerraformProperty<string>>("", "stream_label");
 
 }
 
@@ -297,24 +269,22 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
 /// Block type for server_side_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDynamodbTableServerSideEncryptionBlock : TerraformBlock
+public class AwsDynamodbTableServerSideEncryptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
-    {
-        set => SetProperty("kms_key_arn", value);
-    }
+    [TerraformPropertyName("kms_key_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KmsKeyArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key_arn");
 
 }
 
@@ -322,31 +292,28 @@ public class AwsDynamodbTableServerSideEncryptionBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDynamodbTableTimeoutsBlock : TerraformBlock
+public class AwsDynamodbTableTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -354,23 +321,21 @@ public class AwsDynamodbTableTimeoutsBlock : TerraformBlock
 /// Block type for ttl in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDynamodbTableTtlBlock : TerraformBlock
+public class AwsDynamodbTableTtlBlock : ITerraformBlock
 {
     /// <summary>
     /// The attribute_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AttributeName
-    {
-        set => SetProperty("attribute_name", value);
-    }
+    [TerraformPropertyName("attribute_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AttributeName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
 }
 
@@ -378,23 +343,21 @@ public class AwsDynamodbTableTtlBlock : TerraformBlock
 /// Block type for warm_throughput in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDynamodbTableWarmThroughputBlock : TerraformBlock
+public class AwsDynamodbTableWarmThroughputBlock : ITerraformBlock
 {
     /// <summary>
     /// The read_units_per_second attribute.
     /// </summary>
-    public TerraformProperty<double>? ReadUnitsPerSecond
-    {
-        set => SetProperty("read_units_per_second", value);
-    }
+    [TerraformPropertyName("read_units_per_second")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> ReadUnitsPerSecond { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "read_units_per_second");
 
     /// <summary>
     /// The write_units_per_second attribute.
     /// </summary>
-    public TerraformProperty<double>? WriteUnitsPerSecond
-    {
-        set => SetProperty("write_units_per_second", value);
-    }
+    [TerraformPropertyName("write_units_per_second")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> WriteUnitsPerSecond { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "write_units_per_second");
 
 }
 
@@ -406,315 +369,237 @@ public class AwsDynamodbTable : TerraformResource
 {
     public AwsDynamodbTable(string name) : base("aws_dynamodb_table", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("stream_arn");
-        SetOutput("stream_label");
-        SetOutput("billing_mode");
-        SetOutput("deletion_protection_enabled");
-        SetOutput("hash_key");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("range_key");
-        SetOutput("read_capacity");
-        SetOutput("region");
-        SetOutput("restore_date_time");
-        SetOutput("restore_source_name");
-        SetOutput("restore_source_table_arn");
-        SetOutput("restore_to_latest_time");
-        SetOutput("stream_enabled");
-        SetOutput("stream_view_type");
-        SetOutput("table_class");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("write_capacity");
     }
 
     /// <summary>
     /// The billing_mode attribute.
     /// </summary>
-    public TerraformProperty<string> BillingMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("billing_mode");
-        set => SetProperty("billing_mode", value);
-    }
+    [TerraformPropertyName("billing_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BillingMode { get; set; }
 
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> DeletionProtectionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection_enabled");
-        set => SetProperty("deletion_protection_enabled", value);
-    }
+    [TerraformPropertyName("deletion_protection_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeletionProtectionEnabled { get; set; }
 
     /// <summary>
     /// The hash_key attribute.
     /// </summary>
-    public TerraformProperty<string> HashKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("hash_key");
-        set => SetProperty("hash_key", value);
-    }
+    [TerraformPropertyName("hash_key")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> HashKey { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hash_key");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The range_key attribute.
     /// </summary>
-    public TerraformProperty<string> RangeKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("range_key");
-        set => SetProperty("range_key", value);
-    }
+    [TerraformPropertyName("range_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RangeKey { get; set; }
 
     /// <summary>
     /// The read_capacity attribute.
     /// </summary>
-    public TerraformProperty<double> ReadCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("read_capacity");
-        set => SetProperty("read_capacity", value);
-    }
+    [TerraformPropertyName("read_capacity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> ReadCapacity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "read_capacity");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The restore_date_time attribute.
     /// </summary>
-    public TerraformProperty<string> RestoreDateTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("restore_date_time");
-        set => SetProperty("restore_date_time", value);
-    }
+    [TerraformPropertyName("restore_date_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RestoreDateTime { get; set; }
 
     /// <summary>
     /// The restore_source_name attribute.
     /// </summary>
-    public TerraformProperty<string> RestoreSourceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("restore_source_name");
-        set => SetProperty("restore_source_name", value);
-    }
+    [TerraformPropertyName("restore_source_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RestoreSourceName { get; set; }
 
     /// <summary>
     /// The restore_source_table_arn attribute.
     /// </summary>
-    public TerraformProperty<string> RestoreSourceTableArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("restore_source_table_arn");
-        set => SetProperty("restore_source_table_arn", value);
-    }
+    [TerraformPropertyName("restore_source_table_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RestoreSourceTableArn { get; set; }
 
     /// <summary>
     /// The restore_to_latest_time attribute.
     /// </summary>
-    public TerraformProperty<bool> RestoreToLatestTime
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("restore_to_latest_time");
-        set => SetProperty("restore_to_latest_time", value);
-    }
+    [TerraformPropertyName("restore_to_latest_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RestoreToLatestTime { get; set; }
 
     /// <summary>
     /// The stream_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> StreamEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("stream_enabled");
-        set => SetProperty("stream_enabled", value);
-    }
+    [TerraformPropertyName("stream_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StreamEnabled { get; set; }
 
     /// <summary>
     /// The stream_view_type attribute.
     /// </summary>
-    public TerraformProperty<string> StreamViewType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("stream_view_type");
-        set => SetProperty("stream_view_type", value);
-    }
+    [TerraformPropertyName("stream_view_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StreamViewType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "stream_view_type");
 
     /// <summary>
     /// The table_class attribute.
     /// </summary>
-    public TerraformProperty<string> TableClass
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_class");
-        set => SetProperty("table_class", value);
-    }
+    [TerraformPropertyName("table_class")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TableClass { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The write_capacity attribute.
     /// </summary>
-    public TerraformProperty<double> WriteCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("write_capacity");
-        set => SetProperty("write_capacity", value);
-    }
+    [TerraformPropertyName("write_capacity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> WriteCapacity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "write_capacity");
 
     /// <summary>
     /// Block for attribute.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsDynamodbTableAttributeBlock>? Attribute
-    {
-        set => SetProperty("attribute", value);
-    }
+    [TerraformPropertyName("attribute")]
+    public TerraformSet<TerraformBlock<AwsDynamodbTableAttributeBlock>>? Attribute { get; set; } = new();
 
     /// <summary>
     /// Block for global_secondary_index.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsDynamodbTableGlobalSecondaryIndexBlock>? GlobalSecondaryIndex
-    {
-        set => SetProperty("global_secondary_index", value);
-    }
+    [TerraformPropertyName("global_secondary_index")]
+    public TerraformSet<TerraformBlock<AwsDynamodbTableGlobalSecondaryIndexBlock>>? GlobalSecondaryIndex { get; set; } = new();
 
     /// <summary>
     /// Block for import_table.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImportTable block(s) allowed")]
-    public List<AwsDynamodbTableImportTableBlock>? ImportTable
-    {
-        set => SetProperty("import_table", value);
-    }
+    [TerraformPropertyName("import_table")]
+    public TerraformList<TerraformBlock<AwsDynamodbTableImportTableBlock>>? ImportTable { get; set; } = new();
 
     /// <summary>
     /// Block for local_secondary_index.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsDynamodbTableLocalSecondaryIndexBlock>? LocalSecondaryIndex
-    {
-        set => SetProperty("local_secondary_index", value);
-    }
+    [TerraformPropertyName("local_secondary_index")]
+    public TerraformSet<TerraformBlock<AwsDynamodbTableLocalSecondaryIndexBlock>>? LocalSecondaryIndex { get; set; } = new();
 
     /// <summary>
     /// Block for on_demand_throughput.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnDemandThroughput block(s) allowed")]
-    public List<AwsDynamodbTableOnDemandThroughputBlock>? OnDemandThroughput
-    {
-        set => SetProperty("on_demand_throughput", value);
-    }
+    [TerraformPropertyName("on_demand_throughput")]
+    public TerraformList<TerraformBlock<AwsDynamodbTableOnDemandThroughputBlock>>? OnDemandThroughput { get; set; } = new();
 
     /// <summary>
     /// Block for point_in_time_recovery.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRecovery block(s) allowed")]
-    public List<AwsDynamodbTablePointInTimeRecoveryBlock>? PointInTimeRecovery
-    {
-        set => SetProperty("point_in_time_recovery", value);
-    }
+    [TerraformPropertyName("point_in_time_recovery")]
+    public TerraformList<TerraformBlock<AwsDynamodbTablePointInTimeRecoveryBlock>>? PointInTimeRecovery { get; set; } = new();
 
     /// <summary>
     /// Block for replica.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsDynamodbTableReplicaBlock>? Replica
-    {
-        set => SetProperty("replica", value);
-    }
+    [TerraformPropertyName("replica")]
+    public TerraformSet<TerraformBlock<AwsDynamodbTableReplicaBlock>>? Replica { get; set; } = new();
 
     /// <summary>
     /// Block for server_side_encryption.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
-    public List<AwsDynamodbTableServerSideEncryptionBlock>? ServerSideEncryption
-    {
-        set => SetProperty("server_side_encryption", value);
-    }
+    [TerraformPropertyName("server_side_encryption")]
+    public TerraformList<TerraformBlock<AwsDynamodbTableServerSideEncryptionBlock>>? ServerSideEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDynamodbTableTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDynamodbTableTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for ttl.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ttl block(s) allowed")]
-    public List<AwsDynamodbTableTtlBlock>? Ttl
-    {
-        set => SetProperty("ttl", value);
-    }
+    [TerraformPropertyName("ttl")]
+    public TerraformList<TerraformBlock<AwsDynamodbTableTtlBlock>>? Ttl { get; set; } = new();
 
     /// <summary>
     /// Block for warm_throughput.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WarmThroughput block(s) allowed")]
-    public List<AwsDynamodbTableWarmThroughputBlock>? WarmThroughput
-    {
-        set => SetProperty("warm_throughput", value);
-    }
+    [TerraformPropertyName("warm_throughput")]
+    public TerraformList<TerraformBlock<AwsDynamodbTableWarmThroughputBlock>>? WarmThroughput { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The stream_arn attribute.
     /// </summary>
-    public TerraformExpression StreamArn => this["stream_arn"];
+    [TerraformPropertyName("stream_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StreamArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "stream_arn");
 
     /// <summary>
     /// The stream_label attribute.
     /// </summary>
-    public TerraformExpression StreamLabel => this["stream_label"];
+    [TerraformPropertyName("stream_label")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StreamLabel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "stream_label");
 
 }

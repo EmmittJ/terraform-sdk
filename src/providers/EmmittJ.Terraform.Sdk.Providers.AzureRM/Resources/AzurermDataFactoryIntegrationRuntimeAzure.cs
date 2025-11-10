@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryIntegrationRuntimeAzureTimeoutsBlock : TerraformBlock
+public class AzurermDataFactoryIntegrationRuntimeAzureTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,123 +45,86 @@ public class AzurermDataFactoryIntegrationRuntimeAzure : TerraformResource
 {
     public AzurermDataFactoryIntegrationRuntimeAzure(string name) : base("azurerm_data_factory_integration_runtime_azure", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cleanup_enabled");
-        SetOutput("compute_type");
-        SetOutput("core_count");
-        SetOutput("data_factory_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("time_to_live_min");
-        SetOutput("virtual_network_enabled");
     }
 
     /// <summary>
     /// The cleanup_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> CleanupEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("cleanup_enabled");
-        set => SetProperty("cleanup_enabled", value);
-    }
+    [TerraformPropertyName("cleanup_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CleanupEnabled { get; set; }
 
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
-    public TerraformProperty<string> ComputeType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("compute_type");
-        set => SetProperty("compute_type", value);
-    }
+    [TerraformPropertyName("compute_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ComputeType { get; set; }
 
     /// <summary>
     /// The core_count attribute.
     /// </summary>
-    public TerraformProperty<double> CoreCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("core_count");
-        set => SetProperty("core_count", value);
-    }
+    [TerraformPropertyName("core_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CoreCount { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    public required TerraformProperty<string> DataFactoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
-        set => SetProperty("data_factory_id", value);
-    }
+    [TerraformPropertyName("data_factory_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The time_to_live_min attribute.
     /// </summary>
-    public TerraformProperty<double> TimeToLiveMin
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("time_to_live_min");
-        set => SetProperty("time_to_live_min", value);
-    }
+    [TerraformPropertyName("time_to_live_min")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TimeToLiveMin { get; set; }
 
     /// <summary>
     /// The virtual_network_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> VirtualNetworkEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("virtual_network_enabled");
-        set => SetProperty("virtual_network_enabled", value);
-    }
+    [TerraformPropertyName("virtual_network_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? VirtualNetworkEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDataFactoryIntegrationRuntimeAzureTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDataFactoryIntegrationRuntimeAzureTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

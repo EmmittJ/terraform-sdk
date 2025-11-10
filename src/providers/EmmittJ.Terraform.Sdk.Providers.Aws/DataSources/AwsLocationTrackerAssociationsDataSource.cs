@@ -9,48 +9,35 @@ public class AwsLocationTrackerAssociationsDataSource : TerraformDataSource
 {
     public AwsLocationTrackerAssociationsDataSource(string name) : base("aws_location_tracker_associations", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("consumer_arns");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tracker_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tracker_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrackerName is required")]
-    public required TerraformProperty<string> TrackerName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tracker_name");
-        set => SetProperty("tracker_name", value);
-    }
+    [TerraformPropertyName("tracker_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TrackerName { get; set; }
 
     /// <summary>
     /// The consumer_arns attribute.
     /// </summary>
-    public TerraformExpression ConsumerArns => this["consumer_arns"];
+    [TerraformPropertyName("consumer_arns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> ConsumerArns => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "consumer_arns");
 
 }

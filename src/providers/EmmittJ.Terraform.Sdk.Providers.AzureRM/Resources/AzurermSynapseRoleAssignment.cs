@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlock
+public class AzurermSynapseRoleAssignmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,82 +38,57 @@ public class AzurermSynapseRoleAssignment : TerraformResource
 {
     public AzurermSynapseRoleAssignment(string name) : base("azurerm_synapse_role_assignment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("principal_id");
-        SetOutput("principal_type");
-        SetOutput("role_name");
-        SetOutput("synapse_spark_pool_id");
-        SetOutput("synapse_workspace_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    public required TerraformProperty<string> PrincipalId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrincipalId { get; set; }
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    public TerraformProperty<string> PrincipalType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal_type");
-        set => SetProperty("principal_type", value);
-    }
+    [TerraformPropertyName("principal_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrincipalType { get; set; }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
-    public required TerraformProperty<string> RoleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_name");
-        set => SetProperty("role_name", value);
-    }
+    [TerraformPropertyName("role_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleName { get; set; }
 
     /// <summary>
     /// The synapse_spark_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string> SynapseSparkPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("synapse_spark_pool_id");
-        set => SetProperty("synapse_spark_pool_id", value);
-    }
+    [TerraformPropertyName("synapse_spark_pool_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SynapseSparkPoolId { get; set; }
 
     /// <summary>
     /// The synapse_workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string> SynapseWorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("synapse_workspace_id");
-        set => SetProperty("synapse_workspace_id", value);
-    }
+    [TerraformPropertyName("synapse_workspace_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SynapseWorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSynapseRoleAssignmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSynapseRoleAssignmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

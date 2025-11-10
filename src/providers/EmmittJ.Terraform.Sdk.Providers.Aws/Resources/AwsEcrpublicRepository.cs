@@ -6,55 +6,49 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for catalog_data in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcrpublicRepositoryCatalogDataBlock : TerraformBlock
+public class AwsEcrpublicRepositoryCatalogDataBlock : ITerraformBlock
 {
     /// <summary>
     /// The about_text attribute.
     /// </summary>
-    public TerraformProperty<string>? AboutText
-    {
-        set => SetProperty("about_text", value);
-    }
+    [TerraformPropertyName("about_text")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AboutText { get; set; }
 
     /// <summary>
     /// The architectures attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Architectures
-    {
-        set => SetProperty("architectures", value);
-    }
+    [TerraformPropertyName("architectures")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Architectures { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The logo_image_blob attribute.
     /// </summary>
-    public TerraformProperty<string>? LogoImageBlob
-    {
-        set => SetProperty("logo_image_blob", value);
-    }
+    [TerraformPropertyName("logo_image_blob")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LogoImageBlob { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "logo_image_blob");
 
     /// <summary>
     /// The operating_systems attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? OperatingSystems
-    {
-        set => SetProperty("operating_systems", value);
-    }
+    [TerraformPropertyName("operating_systems")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? OperatingSystems { get; set; }
 
     /// <summary>
     /// The usage_text attribute.
     /// </summary>
-    public TerraformProperty<string>? UsageText
-    {
-        set => SetProperty("usage_text", value);
-    }
+    [TerraformPropertyName("usage_text")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UsageText { get; set; }
 
 }
 
@@ -62,15 +56,14 @@ public class AwsEcrpublicRepositoryCatalogDataBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEcrpublicRepositoryTimeoutsBlock : TerraformBlock
+public class AwsEcrpublicRepositoryTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -82,109 +75,85 @@ public class AwsEcrpublicRepository : TerraformResource
 {
     public AwsEcrpublicRepository(string name) : base("aws_ecrpublic_repository", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("registry_id");
-        SetOutput("repository_uri");
-        SetOutput("force_destroy");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("repository_name");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
-        set => SetProperty("force_destroy", value);
-    }
+    [TerraformPropertyName("force_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
-    public required TerraformProperty<string> RepositoryName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("repository_name");
-        set => SetProperty("repository_name", value);
-    }
+    [TerraformPropertyName("repository_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RepositoryName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for catalog_data.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogData block(s) allowed")]
-    public List<AwsEcrpublicRepositoryCatalogDataBlock>? CatalogData
-    {
-        set => SetProperty("catalog_data", value);
-    }
+    [TerraformPropertyName("catalog_data")]
+    public TerraformList<TerraformBlock<AwsEcrpublicRepositoryCatalogDataBlock>>? CatalogData { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEcrpublicRepositoryTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEcrpublicRepositoryTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
-    public TerraformExpression RegistryId => this["registry_id"];
+    [TerraformPropertyName("registry_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RegistryId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registry_id");
 
     /// <summary>
     /// The repository_uri attribute.
     /// </summary>
-    public TerraformExpression RepositoryUri => this["repository_uri"];
+    [TerraformPropertyName("repository_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RepositoryUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "repository_uri");
 
 }

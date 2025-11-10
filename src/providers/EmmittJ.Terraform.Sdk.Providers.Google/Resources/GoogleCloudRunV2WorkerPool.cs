@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for binary_authorization in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock : TerraformBlock
+public class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock : ITerraformBlock
 {
     /// <summary>
     /// If present, indicates to use Breakglass using this justification. If useDefault is False, then it must be empty. For more information on breakglass, see https://cloud.google.com/binary-authorization/docs/using-breakglass
     /// </summary>
-    public TerraformProperty<string>? BreakglassJustification
-    {
-        set => SetProperty("breakglass_justification", value);
-    }
+    [TerraformPropertyName("breakglass_justification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BreakglassJustification { get; set; }
 
     /// <summary>
     /// The path to a binary authorization policy. Format: projects/{project}/platforms/cloudRun/{policy-name}
     /// </summary>
-    public TerraformProperty<string>? Policy
-    {
-        set => SetProperty("policy", value);
-    }
+    [TerraformPropertyName("policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Policy { get; set; }
 
     /// <summary>
     /// If True, indicates to use the default project&#39;s binary authorization policy. If False, binary authorization will be disabled.
     /// </summary>
-    public TerraformProperty<bool>? UseDefault
-    {
-        set => SetProperty("use_default", value);
-    }
+    [TerraformPropertyName("use_default")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UseDefault { get; set; }
 
 }
 
@@ -38,31 +35,28 @@ public class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock : TerraformBlock
 /// Block type for instance_splits in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock : TerraformBlock
+public class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock : ITerraformBlock
 {
     /// <summary>
     /// Specifies percent of the instance split to this Revision. This defaults to zero if unspecified.
     /// </summary>
-    public TerraformProperty<double>? Percent
-    {
-        set => SetProperty("percent", value);
-    }
+    [TerraformPropertyName("percent")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Percent { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "percent");
 
     /// <summary>
     /// Revision to which to assign this portion of instances, if split allocation is by revision.
     /// </summary>
-    public TerraformProperty<string>? Revision
-    {
-        set => SetProperty("revision", value);
-    }
+    [TerraformPropertyName("revision")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Revision { get; set; }
 
     /// <summary>
     /// The allocation type for this instance split. Possible values: [&amp;quot;INSTANCE_SPLIT_ALLOCATION_TYPE_LATEST&amp;quot;, &amp;quot;INSTANCE_SPLIT_ALLOCATION_TYPE_REVISION&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -70,39 +64,35 @@ public class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock : TerraformBlock
 /// Block type for scaling in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlock
+public class GoogleCloudRunV2WorkerPoolScalingBlock : ITerraformBlock
 {
     /// <summary>
     /// The total number of instances in manual scaling mode.
     /// </summary>
-    public TerraformProperty<double>? ManualInstanceCount
-    {
-        set => SetProperty("manual_instance_count", value);
-    }
+    [TerraformPropertyName("manual_instance_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ManualInstanceCount { get; set; }
 
     /// <summary>
     /// The maximum count of instances distributed among revisions based on the specified instance split percentages.
     /// </summary>
-    public TerraformProperty<double>? MaxInstanceCount
-    {
-        set => SetProperty("max_instance_count", value);
-    }
+    [TerraformPropertyName("max_instance_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxInstanceCount { get; set; }
 
     /// <summary>
     /// The minimum count of instances distributed among revisions based on the specified instance split percentages.
     /// </summary>
-    public TerraformProperty<double>? MinInstanceCount
-    {
-        set => SetProperty("min_instance_count", value);
-    }
+    [TerraformPropertyName("min_instance_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinInstanceCount { get; set; }
 
     /// <summary>
     /// The scaling mode for the worker pool. It defaults to MANUAL. Possible values: [&amp;quot;AUTOMATIC&amp;quot;, &amp;quot;MANUAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ScalingMode
-    {
-        set => SetProperty("scaling_mode", value);
-    }
+    [TerraformPropertyName("scaling_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ScalingMode { get; set; }
 
 }
 
@@ -110,7 +100,7 @@ public class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlock
 /// Block type for template in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
+public class GoogleCloudRunV2WorkerPoolTemplateBlock : ITerraformBlock
 {
     /// <summary>
     /// Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects.
@@ -120,44 +110,39 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// 
     /// This field follows Kubernetes annotations&#39; namespacing, limits, and rules.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Annotations
-    {
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// A reference to a customer managed encryption key (CMEK) to use to encrypt this container image. For more information, go to https://cloud.google.com/run/docs/securing/using-cmek
     /// </summary>
-    public TerraformProperty<string>? EncryptionKey
-    {
-        set => SetProperty("encryption_key", value);
-    }
+    [TerraformPropertyName("encryption_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EncryptionKey { get; set; }
 
     /// <summary>
     /// The action to take if the encryption key is revoked. Possible values: [&amp;quot;PREVENT_NEW&amp;quot;, &amp;quot;SHUTDOWN&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? EncryptionKeyRevocationAction
-    {
-        set => SetProperty("encryption_key_revocation_action", value);
-    }
+    [TerraformPropertyName("encryption_key_revocation_action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EncryptionKeyRevocationAction { get; set; }
 
     /// <summary>
     /// If encryptionKeyRevocationAction is SHUTDOWN, the duration before shutting down all instances. The minimum increment is 1 hour.
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? EncryptionKeyShutdownDuration
-    {
-        set => SetProperty("encryption_key_shutdown_duration", value);
-    }
+    [TerraformPropertyName("encryption_key_shutdown_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EncryptionKeyShutdownDuration { get; set; }
 
     /// <summary>
     /// True if GPU zonal redundancy is disabled on this revision.
     /// </summary>
-    public TerraformProperty<bool>? GpuZonalRedundancyDisabled
-    {
-        set => SetProperty("gpu_zonal_redundancy_disabled", value);
-    }
+    [TerraformPropertyName("gpu_zonal_redundancy_disabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? GpuZonalRedundancyDisabled { get; set; }
 
     /// <summary>
     /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google&#39;s billing system, so they can be used to filter, or break down billing charges by team, component, environment, state, etc.
@@ -166,26 +151,23 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// Cloud Run API v2 does not support labels with &#39;run.googleapis.com&#39;, &#39;cloud.googleapis.com&#39;, &#39;serving.knative.dev&#39;, or &#39;autoscaling.knative.dev&#39; namespaces, and they will be rejected.
     /// All system labels in v1 now have a corresponding field in v2 WorkerPoolRevisionTemplate.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Labels
-    {
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The unique name for the revision. If this field is omitted, it will be automatically generated based on the WorkerPool name.
     /// </summary>
-    public TerraformProperty<string>? Revision
-    {
-        set => SetProperty("revision", value);
-    }
+    [TerraformPropertyName("revision")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Revision { get; set; }
 
     /// <summary>
     /// Email address of the IAM service account associated with the revision of the WorkerPool. The service account represents the identity of the running revision, and determines what permissions the revision has. If not provided, the revision will use the project&#39;s default service account.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccount
-    {
-        set => SetProperty("service_account", value);
-    }
+    [TerraformPropertyName("service_account")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ServiceAccount { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "service_account");
 
 }
 
@@ -193,31 +175,28 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCloudRunV2WorkerPoolTimeoutsBlock : TerraformBlock
+public class GoogleCloudRunV2WorkerPoolTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -229,42 +208,6 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
 {
     public GoogleCloudRunV2WorkerPool(string name) : base("google_cloud_run_v2_worker_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("conditions");
-        SetOutput("create_time");
-        SetOutput("creator");
-        SetOutput("delete_time");
-        SetOutput("effective_annotations");
-        SetOutput("effective_labels");
-        SetOutput("etag");
-        SetOutput("expire_time");
-        SetOutput("generation");
-        SetOutput("instance_split_statuses");
-        SetOutput("last_modifier");
-        SetOutput("latest_created_revision");
-        SetOutput("latest_ready_revision");
-        SetOutput("observed_generation");
-        SetOutput("reconciling");
-        SetOutput("terminal_condition");
-        SetOutput("terraform_labels");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("annotations");
-        SetOutput("client");
-        SetOutput("client_version");
-        SetOutput("custom_audiences");
-        SetOutput("deletion_protection");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("launch_stage");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -278,39 +221,31 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// Arbitrary identifier for the API client.
     /// </summary>
-    public TerraformProperty<string> Client
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client");
-        set => SetProperty("client", value);
-    }
+    [TerraformPropertyName("client")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Client { get; set; }
 
     /// <summary>
     /// Arbitrary version identifier for the API client.
     /// </summary>
-    public TerraformProperty<string> ClientVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("client_version");
-        set => SetProperty("client_version", value);
-    }
+    [TerraformPropertyName("client_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClientVersion { get; set; }
 
     /// <summary>
     /// One or more custom audiences that you want this worker pool to support. Specify each custom audience as the full URL in a string. The custom audiences are encoded in the token and used to authenticate requests.
     /// For more information, see https://cloud.google.com/run/docs/configuring/custom-audiences.
     /// </summary>
-    public List<TerraformProperty<string>> CustomAudiences
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("custom_audiences");
-        set => SetProperty("custom_audiences", value);
-    }
+    [TerraformPropertyName("custom_audiences")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? CustomAudiences { get; set; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the service. Defaults to true.
@@ -320,29 +255,23 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the WorkerPool will fail.
     /// When the field is set to false, deleting the WorkerPool is allowed.
     /// </summary>
-    public TerraformProperty<bool> DeletionProtection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
-        set => SetProperty("deletion_protection", value);
-    }
+    [TerraformPropertyName("deletion_protection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeletionProtection { get; set; }
 
     /// <summary>
     /// User-provided description of the WorkerPool. This field currently has a 512-character limit.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google&#39;s billing system, so they can be used to filter, or break down billing charges by team, component,
@@ -354,11 +283,9 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The launch stage as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/products#product-launch-stages). Cloud Run supports ALPHA, BETA, and GA.
@@ -366,69 +293,55 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// 
     /// For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values: [&amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> LaunchStage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("launch_stage");
-        set => SetProperty("launch_stage", value);
-    }
+    [TerraformPropertyName("launch_stage")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LaunchStage { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "launch_stage");
 
     /// <summary>
     /// The location of the cloud run worker pool
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// Name of the WorkerPool.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for binary_authorization.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
-    public List<GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock>? BinaryAuthorization
-    {
-        set => SetProperty("binary_authorization", value);
-    }
+    [TerraformPropertyName("binary_authorization")]
+    public TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for instance_splits.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleCloudRunV2WorkerPoolInstanceSplitsBlock>? InstanceSplits
-    {
-        set => SetProperty("instance_splits", value);
-    }
+    [TerraformPropertyName("instance_splits")]
+    public TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolInstanceSplitsBlock>>? InstanceSplits { get; set; } = new();
 
     /// <summary>
     /// Block for scaling.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scaling block(s) allowed")]
-    public List<GoogleCloudRunV2WorkerPoolScalingBlock>? Scaling
-    {
-        set => SetProperty("scaling", value);
-    }
+    [TerraformPropertyName("scaling")]
+    public TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolScalingBlock>>? Scaling { get; set; } = new();
 
     /// <summary>
     /// Block for template.
@@ -437,89 +350,113 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Template is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
-    public List<GoogleCloudRunV2WorkerPoolTemplateBlock>? Template
-    {
-        set => SetProperty("template", value);
-    }
+    [TerraformPropertyName("template")]
+    public TerraformList<TerraformBlock<GoogleCloudRunV2WorkerPoolTemplateBlock>>? Template { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleCloudRunV2WorkerPoolTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleCloudRunV2WorkerPoolTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the WorkerPool does not reach its Serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
-    public TerraformExpression Conditions => this["conditions"];
+    [TerraformPropertyName("conditions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Conditions => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "conditions");
 
     /// <summary>
     /// The creation time.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Email address of the authenticated creator.
     /// </summary>
-    public TerraformExpression Creator => this["creator"];
+    [TerraformPropertyName("creator")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Creator => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creator");
 
     /// <summary>
     /// The deletion time.
     /// </summary>
-    public TerraformExpression DeleteTime => this["delete_time"];
+    [TerraformPropertyName("delete_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeleteTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+    [TerraformPropertyName("effective_annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// For a deleted resource, the time after which it will be permanently deleted.
     /// </summary>
-    public TerraformExpression ExpireTime => this["expire_time"];
+    [TerraformPropertyName("expire_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpireTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expire_time");
 
     /// <summary>
     /// A number that monotonically increases every time the user modifies the desired state. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
-    public TerraformExpression Generation => this["generation"];
+    [TerraformPropertyName("generation")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Generation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "generation");
 
     /// <summary>
     /// Detailed status information for corresponding instance splits. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
-    public TerraformExpression InstanceSplitStatuses => this["instance_split_statuses"];
+    [TerraformPropertyName("instance_split_statuses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> InstanceSplitStatuses => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "instance_split_statuses");
 
     /// <summary>
     /// Email address of the last authenticated modifier.
     /// </summary>
-    public TerraformExpression LastModifier => this["last_modifier"];
+    [TerraformPropertyName("last_modifier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modifier");
 
     /// <summary>
     /// Name of the last created revision. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
-    public TerraformExpression LatestCreatedRevision => this["latest_created_revision"];
+    [TerraformPropertyName("latest_created_revision")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LatestCreatedRevision => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "latest_created_revision");
 
     /// <summary>
     /// Name of the latest revision that is serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
-    public TerraformExpression LatestReadyRevision => this["latest_ready_revision"];
+    [TerraformPropertyName("latest_ready_revision")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LatestReadyRevision => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "latest_ready_revision");
 
     /// <summary>
     /// The generation of this WorkerPool currently serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
-    public TerraformExpression ObservedGeneration => this["observed_generation"];
+    [TerraformPropertyName("observed_generation")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ObservedGeneration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "observed_generation");
 
     /// <summary>
     /// Returns true if the WorkerPool is currently being acted upon by the system to bring it into the desired state.
@@ -530,27 +467,37 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// 
     /// If reconciliation failed, trafficStatuses, observedGeneration, and latestReadyRevision will have the state of the last serving revision, or empty for newly created WorkerPools. Additional information on the failure can be found in terminalCondition and conditions.
     /// </summary>
-    public TerraformExpression Reconciling => this["reconciling"];
+    [TerraformPropertyName("reconciling")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
 
     /// <summary>
     /// The Condition of this WorkerPool, containing its readiness status, and detailed error information in case it did not reach a serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
-    public TerraformExpression TerminalCondition => this["terminal_condition"];
+    [TerraformPropertyName("terminal_condition")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TerminalCondition => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "terminal_condition");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// The last-modified time.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

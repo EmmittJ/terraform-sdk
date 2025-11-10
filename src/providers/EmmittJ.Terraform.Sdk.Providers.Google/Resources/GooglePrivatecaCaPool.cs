@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePrivatecaCaPoolEncryptionSpecBlock : TerraformBlock
+public class GooglePrivatecaCaPoolEncryptionSpecBlock : ITerraformBlock
 {
     /// <summary>
     /// The resource name for an existing Cloud KMS key in the format
     /// &#39;projects/*/locations/*/keyRings/*/cryptoKeys/*&#39;.
     /// </summary>
-    public TerraformProperty<string>? CloudKmsKey
-    {
-        set => SetProperty("cloud_kms_key", value);
-    }
+    [TerraformPropertyName("cloud_kms_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CloudKmsKey { get; set; }
 
 }
 
@@ -23,7 +22,7 @@ public class GooglePrivatecaCaPoolEncryptionSpecBlock : TerraformBlock
 /// Block type for issuance_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePrivatecaCaPoolIssuancePolicyBlock : TerraformBlock
+public class GooglePrivatecaCaPoolIssuancePolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The duration to backdate all certificates issued from this CaPool. If not set, the
@@ -32,19 +31,17 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlock : TerraformBlock
     /// time minus the backdate_duration. The not_after_time will be adjusted to preserve the
     /// requested lifetime. The backdate_duration must be less than or equal to 48 hours.
     /// </summary>
-    public TerraformProperty<string>? BackdateDuration
-    {
-        set => SetProperty("backdate_duration", value);
-    }
+    [TerraformPropertyName("backdate_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BackdateDuration { get; set; }
 
     /// <summary>
     /// The maximum lifetime allowed for issued Certificates. Note that if the issuing CertificateAuthority
     /// expires before a Certificate&#39;s requested maximumLifetime, the effective lifetime will be explicitly truncated to match it.
     /// </summary>
-    public TerraformProperty<string>? MaximumLifetime
-    {
-        set => SetProperty("maximum_lifetime", value);
-    }
+    [TerraformPropertyName("maximum_lifetime")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaximumLifetime { get; set; }
 
 }
 
@@ -52,17 +49,16 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlock : TerraformBlock
 /// Block type for publishing_options in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBlock
+public class GooglePrivatecaCaPoolPublishingOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// Specifies the encoding format of each CertificateAuthority&#39;s CA
     /// certificate and CRLs. If this is omitted, CA certificates and CRLs
     /// will be published in PEM. Possible values: [&amp;quot;PEM&amp;quot;, &amp;quot;DER&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? EncodingFormat
-    {
-        set => SetProperty("encoding_format", value);
-    }
+    [TerraformPropertyName("encoding_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EncodingFormat { get; set; }
 
     /// <summary>
     /// When true, publishes each CertificateAuthority&#39;s CA certificate and includes its URL in the &amp;quot;Authority Information Access&amp;quot;
@@ -70,10 +66,9 @@ public class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBlock
     /// X.509 extension will not be written in issued certificates.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublishCaCert is required")]
-    public required TerraformProperty<bool> PublishCaCert
-    {
-        set => SetProperty("publish_ca_cert", value);
-    }
+    [TerraformPropertyName("publish_ca_cert")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> PublishCaCert { get; set; }
 
     /// <summary>
     /// When true, publishes each CertificateAuthority&#39;s CRL and includes its URL in the &amp;quot;CRL Distribution Points&amp;quot; X.509 extension
@@ -82,10 +77,9 @@ public class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBlock
     /// also rebuilt shortly after a certificate is revoked.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublishCrl is required")]
-    public required TerraformProperty<bool> PublishCrl
-    {
-        set => SetProperty("publish_crl", value);
-    }
+    [TerraformPropertyName("publish_crl")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> PublishCrl { get; set; }
 
 }
 
@@ -93,31 +87,28 @@ public class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GooglePrivatecaCaPoolTimeoutsBlock : TerraformBlock
+public class GooglePrivatecaCaPoolTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -129,29 +120,14 @@ public class GooglePrivatecaCaPool : TerraformResource
 {
     public GooglePrivatecaCaPool(string name) : base("google_privateca_ca_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("effective_labels");
-        SetOutput("terraform_labels");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("tier");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Labels with user-defined metadata.
@@ -163,100 +139,86 @@ public class GooglePrivatecaCaPool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Location of the CaPool. A full list of valid locations can be found by
     /// running &#39;gcloud privateca locations list&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name for this CaPool.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The Tier of this CaPool. Possible values: [&amp;quot;ENTERPRISE&amp;quot;, &amp;quot;DEVOPS&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
-    public required TerraformProperty<string> Tier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tier");
-        set => SetProperty("tier", value);
-    }
+    [TerraformPropertyName("tier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Tier { get; set; }
 
     /// <summary>
     /// Block for encryption_spec.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
-    public List<GooglePrivatecaCaPoolEncryptionSpecBlock>? EncryptionSpec
-    {
-        set => SetProperty("encryption_spec", value);
-    }
+    [TerraformPropertyName("encryption_spec")]
+    public TerraformList<TerraformBlock<GooglePrivatecaCaPoolEncryptionSpecBlock>>? EncryptionSpec { get; set; } = new();
 
     /// <summary>
     /// Block for issuance_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IssuancePolicy block(s) allowed")]
-    public List<GooglePrivatecaCaPoolIssuancePolicyBlock>? IssuancePolicy
-    {
-        set => SetProperty("issuance_policy", value);
-    }
+    [TerraformPropertyName("issuance_policy")]
+    public TerraformList<TerraformBlock<GooglePrivatecaCaPoolIssuancePolicyBlock>>? IssuancePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for publishing_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublishingOptions block(s) allowed")]
-    public List<GooglePrivatecaCaPoolPublishingOptionsBlock>? PublishingOptions
-    {
-        set => SetProperty("publishing_options", value);
-    }
+    [TerraformPropertyName("publishing_options")]
+    public TerraformList<TerraformBlock<GooglePrivatecaCaPoolPublishingOptionsBlock>>? PublishingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GooglePrivatecaCaPoolTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GooglePrivatecaCaPoolTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

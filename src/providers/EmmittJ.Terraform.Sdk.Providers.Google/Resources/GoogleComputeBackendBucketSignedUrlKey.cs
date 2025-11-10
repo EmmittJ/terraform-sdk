@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeBackendBucketSignedUrlKeyTimeoutsBlock : TerraformBlock
+public class GoogleComputeBackendBucketSignedUrlKeyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,74 +31,52 @@ public class GoogleComputeBackendBucketSignedUrlKey : TerraformResource
 {
     public GoogleComputeBackendBucketSignedUrlKey(string name) : base("google_compute_backend_bucket_signed_url_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("backend_bucket");
-        SetOutput("id");
-        SetOutput("key_value");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The backend bucket this signed URL key belongs.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendBucket is required")]
-    public required TerraformProperty<string> BackendBucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backend_bucket");
-        set => SetProperty("backend_bucket", value);
-    }
+    [TerraformPropertyName("backend_bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BackendBucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// 128-bit key value used for signing the URL. The key value must be a
     /// valid RFC 4648 Section 5 base64url encoded string.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValue is required")]
-    public required TerraformProperty<string> KeyValue
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_value");
-        set => SetProperty("key_value", value);
-    }
+    [TerraformPropertyName("key_value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyValue { get; set; }
 
     /// <summary>
     /// Name of the signed URL key.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeBackendBucketSignedUrlKeyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeBackendBucketSignedUrlKeyTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for connected_repositories in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock : TerraformBlock
+public class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock : ITerraformBlock
 {
     /// <summary>
     /// Identifier for the project storing the repository.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectKey is required")]
-    public required TerraformProperty<string> ProjectKey
-    {
-        set => SetProperty("project_key", value);
-    }
+    [TerraformPropertyName("project_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProjectKey { get; set; }
 
     /// <summary>
     /// Identifier for the repository.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoSlug is required")]
-    public required TerraformProperty<string> RepoSlug
-    {
-        set => SetProperty("repo_slug", value);
-    }
+    [TerraformPropertyName("repo_slug")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RepoSlug { get; set; }
 
 }
 
@@ -32,35 +30,32 @@ public class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock : T
 /// Block type for secrets in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudbuildBitbucketServerConfigSecretsBlock : TerraformBlock
+public class GoogleCloudbuildBitbucketServerConfigSecretsBlock : ITerraformBlock
 {
     /// <summary>
     /// The resource name for the admin access token&#39;s secret version.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminAccessTokenVersionName is required")]
-    public required TerraformProperty<string> AdminAccessTokenVersionName
-    {
-        set => SetProperty("admin_access_token_version_name", value);
-    }
+    [TerraformPropertyName("admin_access_token_version_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AdminAccessTokenVersionName { get; set; }
 
     /// <summary>
     /// The resource name for the read access token&#39;s secret version.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadAccessTokenVersionName is required")]
-    public required TerraformProperty<string> ReadAccessTokenVersionName
-    {
-        set => SetProperty("read_access_token_version_name", value);
-    }
+    [TerraformPropertyName("read_access_token_version_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ReadAccessTokenVersionName { get; set; }
 
     /// <summary>
     /// Immutable. The resource name for the webhook secret&#39;s secret version. Once this field has been set, it cannot be changed.
     /// Changing this field will result in deleting/ recreating the resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretVersionName is required")]
-    public required TerraformProperty<string> WebhookSecretVersionName
-    {
-        set => SetProperty("webhook_secret_version_name", value);
-    }
+    [TerraformPropertyName("webhook_secret_version_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WebhookSecretVersionName { get; set; }
 
 }
 
@@ -68,31 +63,28 @@ public class GoogleCloudbuildBitbucketServerConfigSecretsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCloudbuildBitbucketServerConfigTimeoutsBlock : TerraformBlock
+public class GoogleCloudbuildBitbucketServerConfigTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -104,22 +96,6 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
 {
     public GoogleCloudbuildBitbucketServerConfig(string name) : base("google_cloudbuild_bitbucket_server_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("webhook_key");
-        SetOutput("api_key");
-        SetOutput("config_id");
-        SetOutput("host_uri");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("peered_network");
-        SetOutput("project");
-        SetOutput("ssl_ca");
-        SetOutput("username");
     }
 
     /// <summary>
@@ -127,51 +103,41 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     /// Changing this field will result in deleting/ recreating the resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
-    public required TerraformProperty<string> ApiKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_key");
-        set => SetProperty("api_key", value);
-    }
+    [TerraformPropertyName("api_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApiKey { get; set; }
 
     /// <summary>
     /// The ID to use for the BitbucketServerConfig, which will become the final component of the BitbucketServerConfig&#39;s resource name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
-    public required TerraformProperty<string> ConfigId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("config_id");
-        set => SetProperty("config_id", value);
-    }
+    [TerraformPropertyName("config_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConfigId { get; set; }
 
     /// <summary>
     /// Immutable. The URI of the Bitbucket Server host. Once this field has been set, it cannot be changed.
     /// If you need to change it, please create another BitbucketServerConfig.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
-    public required TerraformProperty<string> HostUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("host_uri");
-        set => SetProperty("host_uri", value);
-    }
+    [TerraformPropertyName("host_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HostUri { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location of this bitbucket server config.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The network to be used when reaching out to the Bitbucket Server instance. The VPC network must be enabled for private service connection.
@@ -179,48 +145,38 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     /// no network peering will occur and calls to the Bitbucket Server instance will be made over the public internet. Must be in the format
     /// projects/{project}/global/networks/{network}, where {project} is a project number or id and {network} is the name of a VPC network in the project.
     /// </summary>
-    public TerraformProperty<string> PeeredNetwork
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("peered_network");
-        set => SetProperty("peered_network", value);
-    }
+    [TerraformPropertyName("peered_network")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PeeredNetwork { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// SSL certificate to use for requests to Bitbucket Server. The format should be PEM format but the extension can be one of .pem, .cer, or .crt.
     /// </summary>
-    public TerraformProperty<string> SslCa
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ssl_ca");
-        set => SetProperty("ssl_ca", value);
-    }
+    [TerraformPropertyName("ssl_ca")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SslCa { get; set; }
 
     /// <summary>
     /// Username of the account Cloud Build will use on Bitbucket Server.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    public required TerraformProperty<string> Username
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("username");
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
 
     /// <summary>
     /// Block for connected_repositories.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock>? ConnectedRepositories
-    {
-        set => SetProperty("connected_repositories", value);
-    }
+    [TerraformPropertyName("connected_repositories")]
+    public TerraformSet<TerraformBlock<GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock>>? ConnectedRepositories { get; set; } = new();
 
     /// <summary>
     /// Block for secrets.
@@ -229,28 +185,28 @@ public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secrets is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Secrets block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Secrets block(s) allowed")]
-    public List<GoogleCloudbuildBitbucketServerConfigSecretsBlock>? Secrets
-    {
-        set => SetProperty("secrets", value);
-    }
+    [TerraformPropertyName("secrets")]
+    public TerraformList<TerraformBlock<GoogleCloudbuildBitbucketServerConfigSecretsBlock>>? Secrets { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleCloudbuildBitbucketServerConfigTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleCloudbuildBitbucketServerConfigTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name for the config.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Output only. UUID included in webhook requests. The UUID is used to look up the corresponding config.
     /// </summary>
-    public TerraformExpression WebhookKey => this["webhook_key"];
+    [TerraformPropertyName("webhook_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WebhookKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "webhook_key");
 
 }

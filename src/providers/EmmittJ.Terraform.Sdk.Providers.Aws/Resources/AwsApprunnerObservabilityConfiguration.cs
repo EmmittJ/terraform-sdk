@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for trace_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApprunnerObservabilityConfigurationTraceConfigurationBlock : TerraformBlock
+public class AwsApprunnerObservabilityConfigurationTraceConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The vendor attribute.
     /// </summary>
-    public TerraformProperty<string>? Vendor
-    {
-        set => SetProperty("vendor", value);
-    }
+    [TerraformPropertyName("vendor")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Vendor { get; set; }
 
 }
 
@@ -26,96 +25,78 @@ public class AwsApprunnerObservabilityConfiguration : TerraformResource
 {
     public AwsApprunnerObservabilityConfiguration(string name) : base("aws_apprunner_observability_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("latest");
-        SetOutput("observability_configuration_revision");
-        SetOutput("status");
-        SetOutput("id");
-        SetOutput("observability_configuration_name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The observability_configuration_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObservabilityConfigurationName is required")]
-    public required TerraformProperty<string> ObservabilityConfigurationName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("observability_configuration_name");
-        set => SetProperty("observability_configuration_name", value);
-    }
+    [TerraformPropertyName("observability_configuration_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ObservabilityConfigurationName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for trace_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TraceConfiguration block(s) allowed")]
-    public List<AwsApprunnerObservabilityConfigurationTraceConfigurationBlock>? TraceConfiguration
-    {
-        set => SetProperty("trace_configuration", value);
-    }
+    [TerraformPropertyName("trace_configuration")]
+    public TerraformList<TerraformBlock<AwsApprunnerObservabilityConfigurationTraceConfigurationBlock>>? TraceConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The latest attribute.
     /// </summary>
-    public TerraformExpression Latest => this["latest"];
+    [TerraformPropertyName("latest")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Latest => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "latest");
 
     /// <summary>
     /// The observability_configuration_revision attribute.
     /// </summary>
-    public TerraformExpression ObservabilityConfigurationRevision => this["observability_configuration_revision"];
+    [TerraformPropertyName("observability_configuration_revision")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ObservabilityConfigurationRevision => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "observability_configuration_revision");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

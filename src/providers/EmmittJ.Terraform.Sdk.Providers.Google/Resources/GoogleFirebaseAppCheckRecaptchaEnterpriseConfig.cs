@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirebaseAppCheckRecaptchaEnterpriseConfigTimeoutsBlock : TerraformBlock
+public class GoogleFirebaseAppCheckRecaptchaEnterpriseConfigTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,17 +38,6 @@ public class GoogleFirebaseAppCheckRecaptchaEnterpriseConfig : TerraformResource
 {
     public GoogleFirebaseAppCheckRecaptchaEnterpriseConfig(string name) : base("google_firebase_app_check_recaptcha_enterprise_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("app_id");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("site_key");
-        SetOutput("token_ttl");
     }
 
     /// <summary>
@@ -59,29 +45,23 @@ public class GoogleFirebaseAppCheckRecaptchaEnterpriseConfig : TerraformResource
     /// [Web App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.webApps#WebApp.FIELDS.app_id).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
-    public required TerraformProperty<string> AppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_id");
-        set => SetProperty("app_id", value);
-    }
+    [TerraformPropertyName("app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The score-based site key created in reCAPTCHA Enterprise used to invoke reCAPTCHA and generate the reCAPTCHA tokens for your application.
@@ -89,11 +69,9 @@ public class GoogleFirebaseAppCheckRecaptchaEnterpriseConfig : TerraformResource
     /// **Important**: This is not the siteSecret (as it is in reCAPTCHA v3), but rather your score-based reCAPTCHA Enterprise site key.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteKey is required")]
-    public required TerraformProperty<string> SiteKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("site_key");
-        set => SetProperty("site_key", value);
-    }
+    [TerraformPropertyName("site_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SiteKey { get; set; }
 
     /// <summary>
     /// Specifies the duration for which App Check tokens exchanged from reCAPTCHA Enterprise artifacts will be valid.
@@ -101,24 +79,22 @@ public class GoogleFirebaseAppCheckRecaptchaEnterpriseConfig : TerraformResource
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string> TokenTtl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("token_ttl");
-        set => SetProperty("token_ttl", value);
-    }
+    [TerraformPropertyName("token_ttl")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TokenTtl { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "token_ttl");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleFirebaseAppCheckRecaptchaEnterpriseConfigTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleFirebaseAppCheckRecaptchaEnterpriseConfigTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The relative resource name of the reCAPTCHA Enterprise configuration object
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

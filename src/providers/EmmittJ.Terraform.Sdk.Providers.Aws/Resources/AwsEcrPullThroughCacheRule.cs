@@ -9,89 +9,64 @@ public class AwsEcrPullThroughCacheRule : TerraformResource
 {
     public AwsEcrPullThroughCacheRule(string name) : base("aws_ecr_pull_through_cache_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("registry_id");
-        SetOutput("credential_arn");
-        SetOutput("custom_role_arn");
-        SetOutput("ecr_repository_prefix");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("upstream_registry_url");
-        SetOutput("upstream_repository_prefix");
     }
 
     /// <summary>
     /// The credential_arn attribute.
     /// </summary>
-    public TerraformProperty<string> CredentialArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("credential_arn");
-        set => SetProperty("credential_arn", value);
-    }
+    [TerraformPropertyName("credential_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CredentialArn { get; set; }
 
     /// <summary>
     /// The custom_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> CustomRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("custom_role_arn");
-        set => SetProperty("custom_role_arn", value);
-    }
+    [TerraformPropertyName("custom_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomRoleArn { get; set; }
 
     /// <summary>
     /// The ecr_repository_prefix attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EcrRepositoryPrefix is required")]
-    public required TerraformProperty<string> EcrRepositoryPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ecr_repository_prefix");
-        set => SetProperty("ecr_repository_prefix", value);
-    }
+    [TerraformPropertyName("ecr_repository_prefix")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EcrRepositoryPrefix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The upstream_registry_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpstreamRegistryUrl is required")]
-    public required TerraformProperty<string> UpstreamRegistryUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("upstream_registry_url");
-        set => SetProperty("upstream_registry_url", value);
-    }
+    [TerraformPropertyName("upstream_registry_url")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UpstreamRegistryUrl { get; set; }
 
     /// <summary>
     /// The upstream_repository_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> UpstreamRepositoryPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("upstream_repository_prefix");
-        set => SetProperty("upstream_repository_prefix", value);
-    }
+    [TerraformPropertyName("upstream_repository_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UpstreamRepositoryPrefix { get; set; }
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
-    public TerraformExpression RegistryId => this["registry_id"];
+    [TerraformPropertyName("registry_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RegistryId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registry_id");
 
 }

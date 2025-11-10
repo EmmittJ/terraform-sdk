@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,79 +24,63 @@ public class AzurermKubernetesServiceVersionsDataSource : TerraformDataSource
 {
     public AzurermKubernetesServiceVersionsDataSource(string name) : base("azurerm_kubernetes_service_versions", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("default_version");
-        SetOutput("latest_version");
-        SetOutput("versions");
-        SetOutput("id");
-        SetOutput("include_preview");
-        SetOutput("location");
-        SetOutput("version_prefix");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The include_preview attribute.
     /// </summary>
-    public TerraformProperty<bool> IncludePreview
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("include_preview");
-        set => SetProperty("include_preview", value);
-    }
+    [TerraformPropertyName("include_preview")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludePreview { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The version_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> VersionPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version_prefix");
-        set => SetProperty("version_prefix", value);
-    }
+    [TerraformPropertyName("version_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VersionPrefix { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The default_version attribute.
     /// </summary>
-    public TerraformExpression DefaultVersion => this["default_version"];
+    [TerraformPropertyName("default_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_version");
 
     /// <summary>
     /// The latest_version attribute.
     /// </summary>
-    public TerraformExpression LatestVersion => this["latest_version"];
+    [TerraformPropertyName("latest_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LatestVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "latest_version");
 
     /// <summary>
     /// The versions attribute.
     /// </summary>
-    public TerraformExpression Versions => this["versions"];
+    [TerraformPropertyName("versions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Versions => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "versions");
 
 }

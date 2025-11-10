@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for default_route_action in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionUrlMapDefaultRouteActionBlock : TerraformBlock
+public class GoogleComputeRegionUrlMapDefaultRouteActionBlock : ITerraformBlock
 {
 }
 
@@ -14,16 +14,15 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlock : TerraformBlock
 /// Block type for default_url_redirect in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlock
+public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : ITerraformBlock
 {
     /// <summary>
     /// The host that will be used in the redirect response instead of the one that was
     /// supplied in the request. The value must be between 1 and 255 characters.
     /// </summary>
-    public TerraformProperty<string>? HostRedirect
-    {
-        set => SetProperty("host_redirect", value);
-    }
+    [TerraformPropertyName("host_redirect")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HostRedirect { get; set; }
 
     /// <summary>
     /// If set to true, the URL scheme in the redirected request is set to https. If set to
@@ -31,10 +30,9 @@ public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// request. This must only be set for UrlMaps used in TargetHttpProxys. Setting this
     /// true for TargetHttpsProxy is not permitted. The default is set to false.
     /// </summary>
-    public TerraformProperty<bool>? HttpsRedirect
-    {
-        set => SetProperty("https_redirect", value);
-    }
+    [TerraformPropertyName("https_redirect")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? HttpsRedirect { get; set; }
 
     /// <summary>
     /// The path that will be used in the redirect response instead of the one that was
@@ -43,10 +41,9 @@ public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// original request will be used for the redirect. The value must be between 1 and 1024
     /// characters.
     /// </summary>
-    public TerraformProperty<string>? PathRedirect
-    {
-        set => SetProperty("path_redirect", value);
-    }
+    [TerraformPropertyName("path_redirect")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PathRedirect { get; set; }
 
     /// <summary>
     /// The prefix that replaces the prefixMatch specified in the HttpRouteRuleMatch,
@@ -55,10 +52,9 @@ public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// neither. If neither is supplied, the path of the original request will be used for
     /// the redirect. The value must be between 1 and 1024 characters.
     /// </summary>
-    public TerraformProperty<string>? PrefixRedirect
-    {
-        set => SetProperty("prefix_redirect", value);
-    }
+    [TerraformPropertyName("prefix_redirect")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrefixRedirect { get; set; }
 
     /// <summary>
     /// The HTTP Status code to use for this RedirectAction. Supported values are:
@@ -75,10 +71,9 @@ public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// * PERMANENT_REDIRECT, which corresponds to 308. In this case,
     /// the request method will be retained. Possible values: [&amp;quot;FOUND&amp;quot;, &amp;quot;MOVED_PERMANENTLY_DEFAULT&amp;quot;, &amp;quot;PERMANENT_REDIRECT&amp;quot;, &amp;quot;SEE_OTHER&amp;quot;, &amp;quot;TEMPORARY_REDIRECT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? RedirectResponseCode
-    {
-        set => SetProperty("redirect_response_code", value);
-    }
+    [TerraformPropertyName("redirect_response_code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RedirectResponseCode { get; set; }
 
     /// <summary>
     /// If set to true, any accompanying query portion of the original URL is removed prior
@@ -87,10 +82,9 @@ public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlock
     ///  This field is required to ensure an empty block is not set. The normal default value is false.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StripQuery is required")]
-    public required TerraformProperty<bool> StripQuery
-    {
-        set => SetProperty("strip_query", value);
-    }
+    [TerraformPropertyName("strip_query")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> StripQuery { get; set; }
 
 }
 
@@ -98,23 +92,21 @@ public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlock
 /// Block type for header_action in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionUrlMapHeaderActionBlock : TerraformBlock
+public class GoogleComputeRegionUrlMapHeaderActionBlock : ITerraformBlock
 {
     /// <summary>
     /// A list of header names for headers that need to be removed from the request before forwarding the request to the backendService.
     /// </summary>
-    public List<TerraformProperty<string>>? RequestHeadersToRemove
-    {
-        set => SetProperty("request_headers_to_remove", value);
-    }
+    [TerraformPropertyName("request_headers_to_remove")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? RequestHeadersToRemove { get; set; }
 
     /// <summary>
     /// A list of header names for headers that need to be removed from the response before sending the response back to the client.
     /// </summary>
-    public List<TerraformProperty<string>>? ResponseHeadersToRemove
-    {
-        set => SetProperty("response_headers_to_remove", value);
-    }
+    [TerraformPropertyName("response_headers_to_remove")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ResponseHeadersToRemove { get; set; }
 
 }
 
@@ -122,16 +114,15 @@ public class GoogleComputeRegionUrlMapHeaderActionBlock : TerraformBlock
 /// Block type for host_rule in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleComputeRegionUrlMapHostRuleBlock : TerraformBlock
+public class GoogleComputeRegionUrlMapHostRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// An optional description of this HostRule. Provide this property
     /// when you create the resource.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The list of host patterns to match. They must be valid
@@ -140,20 +131,18 @@ public class GoogleComputeRegionUrlMapHostRuleBlock : TerraformBlock
     /// the pattern by either - or ..
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hosts is required")]
-    public HashSet<TerraformProperty<string>>? Hosts
-    {
-        set => SetProperty("hosts", value);
-    }
+    [TerraformPropertyName("hosts")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Hosts { get; set; }
 
     /// <summary>
     /// The name of the PathMatcher to use to match the path portion of
     /// the URL if the hostRule matches the URL&#39;s host portion.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathMatcher is required")]
-    public required TerraformProperty<string> PathMatcher
-    {
-        set => SetProperty("path_matcher", value);
-    }
+    [TerraformPropertyName("path_matcher")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PathMatcher { get; set; }
 
 }
 
@@ -161,34 +150,31 @@ public class GoogleComputeRegionUrlMapHostRuleBlock : TerraformBlock
 /// Block type for path_matcher in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionUrlMapPathMatcherBlock : TerraformBlock
+public class GoogleComputeRegionUrlMapPathMatcherBlock : ITerraformBlock
 {
     /// <summary>
     /// A reference to a RegionBackendService resource. This will be used if
     /// none of the pathRules defined by this PathMatcher is matched by
     /// the URL&#39;s path portion.
     /// </summary>
-    public TerraformProperty<string>? DefaultService
-    {
-        set => SetProperty("default_service", value);
-    }
+    [TerraformPropertyName("default_service")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultService { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The name to which this PathMatcher is referred by the HostRule.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -196,42 +182,38 @@ public class GoogleComputeRegionUrlMapPathMatcherBlock : TerraformBlock
 /// Block type for test in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionUrlMapTestBlock : TerraformBlock
+public class GoogleComputeRegionUrlMapTestBlock : ITerraformBlock
 {
     /// <summary>
     /// Description of this test case.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// Host portion of the URL.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
-    public required TerraformProperty<string> Host
-    {
-        set => SetProperty("host", value);
-    }
+    [TerraformPropertyName("host")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Host { get; set; }
 
     /// <summary>
     /// Path portion of the URL.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    public required TerraformProperty<string> Path
-    {
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Path { get; set; }
 
     /// <summary>
     /// A reference to expected RegionBackendService resource the given URL should be mapped to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
-    public required TerraformProperty<string> Service
-    {
-        set => SetProperty("service", value);
-    }
+    [TerraformPropertyName("service")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Service { get; set; }
 
 }
 
@@ -239,31 +221,28 @@ public class GoogleComputeRegionUrlMapTestBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRegionUrlMapTimeoutsBlock : TerraformBlock
+public class GoogleComputeRegionUrlMapTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -275,21 +254,6 @@ public class GoogleComputeRegionUrlMap : TerraformResource
 {
     public GoogleComputeRegionUrlMap(string name) : base("google_compute_region_url_map", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_timestamp");
-        SetOutput("fingerprint");
-        SetOutput("map_id");
-        SetOutput("self_link");
-        SetOutput("default_service");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
@@ -301,30 +265,24 @@ public class GoogleComputeRegionUrlMap : TerraformResource
     /// weightedBackendServices, service must not be specified.  Only one of defaultService,
     /// defaultUrlRedirect or defaultRouteAction.weightedBackendService must be set.
     /// </summary>
-    public TerraformProperty<string> DefaultService
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_service");
-        set => SetProperty("default_service", value);
-    }
+    [TerraformPropertyName("default_service")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultService { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -336,116 +294,104 @@ public class GoogleComputeRegionUrlMap : TerraformResource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The Region in which the url map should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for default_route_action.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRouteAction block(s) allowed")]
-    public List<GoogleComputeRegionUrlMapDefaultRouteActionBlock>? DefaultRouteAction
-    {
-        set => SetProperty("default_route_action", value);
-    }
+    [TerraformPropertyName("default_route_action")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionUrlMapDefaultRouteActionBlock>>? DefaultRouteAction { get; set; } = new();
 
     /// <summary>
     /// Block for default_url_redirect.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultUrlRedirect block(s) allowed")]
-    public List<GoogleComputeRegionUrlMapDefaultUrlRedirectBlock>? DefaultUrlRedirect
-    {
-        set => SetProperty("default_url_redirect", value);
-    }
+    [TerraformPropertyName("default_url_redirect")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionUrlMapDefaultUrlRedirectBlock>>? DefaultUrlRedirect { get; set; } = new();
 
     /// <summary>
     /// Block for header_action.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HeaderAction block(s) allowed")]
-    public List<GoogleComputeRegionUrlMapHeaderActionBlock>? HeaderAction
-    {
-        set => SetProperty("header_action", value);
-    }
+    [TerraformPropertyName("header_action")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionUrlMapHeaderActionBlock>>? HeaderAction { get; set; } = new();
 
     /// <summary>
     /// Block for host_rule.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<GoogleComputeRegionUrlMapHostRuleBlock>? HostRule
-    {
-        set => SetProperty("host_rule", value);
-    }
+    [TerraformPropertyName("host_rule")]
+    public TerraformSet<TerraformBlock<GoogleComputeRegionUrlMapHostRuleBlock>>? HostRule { get; set; } = new();
 
     /// <summary>
     /// Block for path_matcher.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleComputeRegionUrlMapPathMatcherBlock>? PathMatcher
-    {
-        set => SetProperty("path_matcher", value);
-    }
+    [TerraformPropertyName("path_matcher")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionUrlMapPathMatcherBlock>>? PathMatcher { get; set; } = new();
 
     /// <summary>
     /// Block for test.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleComputeRegionUrlMapTestBlock>? Test
-    {
-        set => SetProperty("test", value);
-    }
+    [TerraformPropertyName("test")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionUrlMapTestBlock>>? Test { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeRegionUrlMapTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeRegionUrlMapTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreationTimestamp => this["creation_timestamp"];
+    [TerraformPropertyName("creation_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
 
     /// <summary>
     /// Fingerprint of this resource. This field is used internally during
     /// updates of this resource.
     /// </summary>
-    public TerraformExpression Fingerprint => this["fingerprint"];
+    [TerraformPropertyName("fingerprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
-    public TerraformExpression MapId => this["map_id"];
+    [TerraformPropertyName("map_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MapId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "map_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
 }

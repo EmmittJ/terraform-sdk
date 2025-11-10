@@ -9,114 +9,79 @@ public class AwsAutoscalingLifecycleHook : TerraformResource
 {
     public AwsAutoscalingLifecycleHook(string name) : base("aws_autoscaling_lifecycle_hook", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("autoscaling_group_name");
-        SetOutput("default_result");
-        SetOutput("heartbeat_timeout");
-        SetOutput("id");
-        SetOutput("lifecycle_transition");
-        SetOutput("name");
-        SetOutput("notification_metadata");
-        SetOutput("notification_target_arn");
-        SetOutput("region");
-        SetOutput("role_arn");
     }
 
     /// <summary>
     /// The autoscaling_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
-    public required TerraformProperty<string> AutoscalingGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("autoscaling_group_name");
-        set => SetProperty("autoscaling_group_name", value);
-    }
+    [TerraformPropertyName("autoscaling_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AutoscalingGroupName { get; set; }
 
     /// <summary>
     /// The default_result attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultResult
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_result");
-        set => SetProperty("default_result", value);
-    }
+    [TerraformPropertyName("default_result")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DefaultResult { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_result");
 
     /// <summary>
     /// The heartbeat_timeout attribute.
     /// </summary>
-    public TerraformProperty<double> HeartbeatTimeout
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("heartbeat_timeout");
-        set => SetProperty("heartbeat_timeout", value);
-    }
+    [TerraformPropertyName("heartbeat_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? HeartbeatTimeout { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The lifecycle_transition attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LifecycleTransition is required")]
-    public required TerraformProperty<string> LifecycleTransition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("lifecycle_transition");
-        set => SetProperty("lifecycle_transition", value);
-    }
+    [TerraformPropertyName("lifecycle_transition")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LifecycleTransition { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The notification_metadata attribute.
     /// </summary>
-    public TerraformProperty<string> NotificationMetadata
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("notification_metadata");
-        set => SetProperty("notification_metadata", value);
-    }
+    [TerraformPropertyName("notification_metadata")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NotificationMetadata { get; set; }
 
     /// <summary>
     /// The notification_target_arn attribute.
     /// </summary>
-    public TerraformProperty<string> NotificationTargetArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("notification_target_arn");
-        set => SetProperty("notification_target_arn", value);
-    }
+    [TerraformPropertyName("notification_target_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NotificationTargetArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleArn { get; set; }
 
 }

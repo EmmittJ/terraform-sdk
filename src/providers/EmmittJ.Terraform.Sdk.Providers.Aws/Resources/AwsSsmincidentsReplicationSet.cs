@@ -7,40 +7,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Nesting mode: set
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsSsmincidentsReplicationSetRegionBlock : TerraformBlock
+public class AwsSsmincidentsReplicationSetRegionBlock : ITerraformBlock
 {
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
-    {
-        set => SetProperty("kms_key_arn", value);
-    }
+    [TerraformPropertyName("kms_key_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>("", "status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
-    public TerraformProperty<string>? StatusMessage
-    {
-        set => SetProperty("status_message", value);
-    }
+    [TerraformPropertyName("status_message")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StatusMessage => new TerraformReferenceProperty<TerraformProperty<string>>("", "status_message");
 
 }
 
@@ -48,40 +44,36 @@ public class AwsSsmincidentsReplicationSetRegionBlock : TerraformBlock
 /// Block type for regions in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSsmincidentsReplicationSetRegionsBlock : TerraformBlock
+public class AwsSsmincidentsReplicationSetRegionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
-    {
-        set => SetProperty("kms_key_arn", value);
-    }
+    [TerraformPropertyName("kms_key_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>("", "status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
-    public TerraformProperty<string>? StatusMessage
-    {
-        set => SetProperty("status_message", value);
-    }
+    [TerraformPropertyName("status_message")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StatusMessage => new TerraformReferenceProperty<TerraformProperty<string>>("", "status_message");
 
 }
 
@@ -89,31 +81,28 @@ public class AwsSsmincidentsReplicationSetRegionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSsmincidentsReplicationSetTimeoutsBlock : TerraformBlock
+public class AwsSsmincidentsReplicationSetTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -124,99 +113,84 @@ public class AwsSsmincidentsReplicationSet : TerraformResource
 {
     public AwsSsmincidentsReplicationSet(string name) : base("aws_ssmincidents_replication_set", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("created_by");
-        SetOutput("deletion_protected");
-        SetOutput("last_modified_by");
-        SetOutput("status");
-        SetOutput("id");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for region.
     /// Nesting mode: set
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    public HashSet<AwsSsmincidentsReplicationSetRegionBlock>? Region
-    {
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    public TerraformSet<TerraformBlock<AwsSsmincidentsReplicationSetRegionBlock>>? Region { get; set; } = new();
 
     /// <summary>
     /// Block for regions.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsSsmincidentsReplicationSetRegionsBlock>? Regions
-    {
-        set => SetProperty("regions", value);
-    }
+    [TerraformPropertyName("regions")]
+    public TerraformSet<TerraformBlock<AwsSsmincidentsReplicationSetRegionsBlock>>? Regions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsSsmincidentsReplicationSetTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsSsmincidentsReplicationSetTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
-    public TerraformExpression CreatedBy => this["created_by"];
+    [TerraformPropertyName("created_by")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedBy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_by");
 
     /// <summary>
     /// The deletion_protected attribute.
     /// </summary>
-    public TerraformExpression DeletionProtected => this["deletion_protected"];
+    [TerraformPropertyName("deletion_protected")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtected => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protected");
 
     /// <summary>
     /// The last_modified_by attribute.
     /// </summary>
-    public TerraformExpression LastModifiedBy => this["last_modified_by"];
+    [TerraformPropertyName("last_modified_by")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedBy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_by");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

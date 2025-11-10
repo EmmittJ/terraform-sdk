@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitoringTimeoutsBlock : TerraformBlock
+public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitoringTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,112 +45,78 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
 {
     public AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitoring(string name) : base("azurerm_spring_cloud_application_insights_application_performance_monitoring", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("connection_string");
-        SetOutput("globally_enabled");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("role_instance");
-        SetOutput("role_name");
-        SetOutput("sampling_percentage");
-        SetOutput("sampling_requests_per_second");
-        SetOutput("spring_cloud_service_id");
     }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformProperty<string> ConnectionString
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connection_string");
-        set => SetProperty("connection_string", value);
-    }
+    [TerraformPropertyName("connection_string")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConnectionString { get; set; }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> GloballyEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("globally_enabled");
-        set => SetProperty("globally_enabled", value);
-    }
+    [TerraformPropertyName("globally_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? GloballyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The role_instance attribute.
     /// </summary>
-    public TerraformProperty<string> RoleInstance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_instance");
-        set => SetProperty("role_instance", value);
-    }
+    [TerraformPropertyName("role_instance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleInstance { get; set; }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public TerraformProperty<string> RoleName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_name");
-        set => SetProperty("role_name", value);
-    }
+    [TerraformPropertyName("role_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleName { get; set; }
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    public TerraformProperty<double> SamplingPercentage
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("sampling_percentage");
-        set => SetProperty("sampling_percentage", value);
-    }
+    [TerraformPropertyName("sampling_percentage")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SamplingPercentage { get; set; }
 
     /// <summary>
     /// The sampling_requests_per_second attribute.
     /// </summary>
-    public TerraformProperty<double> SamplingRequestsPerSecond
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("sampling_requests_per_second");
-        set => SetProperty("sampling_requests_per_second", value);
-    }
+    [TerraformPropertyName("sampling_requests_per_second")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SamplingRequestsPerSecond { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
-    public required TerraformProperty<string> SpringCloudServiceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_service_id");
-        set => SetProperty("spring_cloud_service_id", value);
-    }
+    [TerraformPropertyName("spring_cloud_service_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitoringTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitoringTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

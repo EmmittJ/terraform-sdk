@@ -6,47 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for compute_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
+public class AwsCodebuildFleetComputeConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The disk attribute.
     /// </summary>
-    public TerraformProperty<double>? Disk
-    {
-        set => SetProperty("disk", value);
-    }
+    [TerraformPropertyName("disk")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Disk { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "disk");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
-    {
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> InstanceType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "instance_type");
 
     /// <summary>
     /// The machine_type attribute.
     /// </summary>
-    public TerraformProperty<string>? MachineType
-    {
-        set => SetProperty("machine_type", value);
-    }
+    [TerraformPropertyName("machine_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MachineType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "machine_type");
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    public TerraformProperty<double>? Memory
-    {
-        set => SetProperty("memory", value);
-    }
+    [TerraformPropertyName("memory")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Memory { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "memory");
 
     /// <summary>
     /// The vcpu attribute.
     /// </summary>
-    public TerraformProperty<double>? Vcpu
-    {
-        set => SetProperty("vcpu", value);
-    }
+    [TerraformPropertyName("vcpu")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Vcpu { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "vcpu");
 
 }
 
@@ -54,31 +49,28 @@ public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
 /// Block type for scaling_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodebuildFleetScalingConfigurationBlock : TerraformBlock
+public class AwsCodebuildFleetScalingConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The desired_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? DesiredCapacity
-    {
-        set => SetProperty("desired_capacity", value);
-    }
+    [TerraformPropertyName("desired_capacity")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DesiredCapacity => new TerraformReferenceProperty<TerraformProperty<double>>("", "desired_capacity");
 
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxCapacity
-    {
-        set => SetProperty("max_capacity", value);
-    }
+    [TerraformPropertyName("max_capacity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxCapacity { get; set; }
 
     /// <summary>
     /// The scaling_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ScalingType
-    {
-        set => SetProperty("scaling_type", value);
-    }
+    [TerraformPropertyName("scaling_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ScalingType { get; set; }
 
 }
 
@@ -86,34 +78,31 @@ public class AwsCodebuildFleetScalingConfigurationBlock : TerraformBlock
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodebuildFleetVpcConfigBlock : TerraformBlock
+public class AwsCodebuildFleetVpcConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
-    {
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
-    public HashSet<TerraformProperty<string>>? Subnets
-    {
-        set => SetProperty("subnets", value);
-    }
+    [TerraformPropertyName("subnets")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Subnets { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    public required TerraformProperty<string> VpcId
-    {
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VpcId { get; set; }
 
 }
 
@@ -125,174 +114,138 @@ public class AwsCodebuildFleet : TerraformResource
 {
     public AwsCodebuildFleet(string name) : base("aws_codebuild_fleet", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("created");
-        SetOutput("id");
-        SetOutput("last_modified");
-        SetOutput("status");
-        SetOutput("base_capacity");
-        SetOutput("compute_type");
-        SetOutput("environment_type");
-        SetOutput("fleet_service_role");
-        SetOutput("image_id");
-        SetOutput("name");
-        SetOutput("overflow_behavior");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The base_capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseCapacity is required")]
-    public required TerraformProperty<double> BaseCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("base_capacity");
-        set => SetProperty("base_capacity", value);
-    }
+    [TerraformPropertyName("base_capacity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> BaseCapacity { get; set; }
 
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeType is required")]
-    public required TerraformProperty<string> ComputeType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("compute_type");
-        set => SetProperty("compute_type", value);
-    }
+    [TerraformPropertyName("compute_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ComputeType { get; set; }
 
     /// <summary>
     /// The environment_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentType is required")]
-    public required TerraformProperty<string> EnvironmentType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("environment_type");
-        set => SetProperty("environment_type", value);
-    }
+    [TerraformPropertyName("environment_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EnvironmentType { get; set; }
 
     /// <summary>
     /// The fleet_service_role attribute.
     /// </summary>
-    public TerraformProperty<string> FleetServiceRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("fleet_service_role");
-        set => SetProperty("fleet_service_role", value);
-    }
+    [TerraformPropertyName("fleet_service_role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FleetServiceRole { get; set; }
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
-    public TerraformProperty<string> ImageId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("image_id");
-        set => SetProperty("image_id", value);
-    }
+    [TerraformPropertyName("image_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ImageId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The overflow_behavior attribute.
     /// </summary>
-    public TerraformProperty<string> OverflowBehavior
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("overflow_behavior");
-        set => SetProperty("overflow_behavior", value);
-    }
+    [TerraformPropertyName("overflow_behavior")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> OverflowBehavior { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "overflow_behavior");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for compute_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeConfiguration block(s) allowed")]
-    public List<AwsCodebuildFleetComputeConfigurationBlock>? ComputeConfiguration
-    {
-        set => SetProperty("compute_configuration", value);
-    }
+    [TerraformPropertyName("compute_configuration")]
+    public TerraformList<TerraformBlock<AwsCodebuildFleetComputeConfigurationBlock>>? ComputeConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for scaling_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfiguration block(s) allowed")]
-    public List<AwsCodebuildFleetScalingConfigurationBlock>? ScalingConfiguration
-    {
-        set => SetProperty("scaling_configuration", value);
-    }
+    [TerraformPropertyName("scaling_configuration")]
+    public TerraformList<TerraformBlock<AwsCodebuildFleetScalingConfigurationBlock>>? ScalingConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsCodebuildFleetVpcConfigBlock>? VpcConfig
-    {
-        set => SetProperty("vpc_config", value);
-    }
+    [TerraformPropertyName("vpc_config")]
+    public TerraformList<TerraformBlock<AwsCodebuildFleetVpcConfigBlock>>? VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The created attribute.
     /// </summary>
-    public TerraformExpression Created => this["created"];
+    [TerraformPropertyName("created")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Created => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
-    public TerraformExpression LastModified => this["last_modified"];
+    [TerraformPropertyName("last_modified")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModified => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Status => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "status");
 
 }

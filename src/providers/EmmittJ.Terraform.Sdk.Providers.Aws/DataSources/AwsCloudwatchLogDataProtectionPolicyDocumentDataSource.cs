@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock : TerraformBlock
+public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -14,24 +14,22 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfiguration
 /// Block type for statement in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock : TerraformBlock
+public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock : ITerraformBlock
 {
     /// <summary>
     /// The data_identifiers attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataIdentifiers is required")]
-    public HashSet<TerraformProperty<string>>? DataIdentifiers
-    {
-        set => SetProperty("data_identifiers", value);
-    }
+    [TerraformPropertyName("data_identifiers")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DataIdentifiers { get; set; }
 
     /// <summary>
     /// The sid attribute.
     /// </summary>
-    public TerraformProperty<string>? Sid
-    {
-        set => SetProperty("sid", value);
-    }
+    [TerraformPropertyName("sid")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Sid { get; set; }
 
 }
 
@@ -43,64 +41,44 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : TerraformD
 {
     public AwsCloudwatchLogDataProtectionPolicyDocumentDataSource(string name) : base("aws_cloudwatch_log_data_protection_policy_document", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("json");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
     /// <summary>
     /// Block for configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
-    public List<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock>? Configuration
-    {
-        set => SetProperty("configuration", value);
-    }
+    [TerraformPropertyName("configuration")]
+    public TerraformList<TerraformBlock<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock>>? Configuration { get; set; } = new();
 
     /// <summary>
     /// Block for statement.
@@ -108,14 +86,14 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : TerraformD
     /// </summary>
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 Statement block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 Statement block(s) allowed")]
-    public List<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock>? Statement
-    {
-        set => SetProperty("statement", value);
-    }
+    [TerraformPropertyName("statement")]
+    public TerraformList<TerraformBlock<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock>>? Statement { get; set; } = new();
 
     /// <summary>
     /// The json attribute.
     /// </summary>
-    public TerraformExpression Json => this["json"];
+    [TerraformPropertyName("json")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Json => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "json");
 
 }

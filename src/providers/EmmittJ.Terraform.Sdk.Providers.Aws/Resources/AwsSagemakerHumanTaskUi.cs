@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ui_template in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerHumanTaskUiUiTemplateBlock : TerraformBlock
+public class AwsSagemakerHumanTaskUiUiTemplateBlock : ITerraformBlock
 {
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformProperty<string>? Content
-    {
-        set => SetProperty("content", value);
-    }
+    [TerraformPropertyName("content")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Content { get; set; }
 
     /// <summary>
     /// The content_sha256 attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentSha256
-    {
-        set => SetProperty("content_sha256", value);
-    }
+    [TerraformPropertyName("content_sha256")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContentSha256 => new TerraformReferenceProperty<TerraformProperty<string>>("", "content_sha256");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformProperty<string>? Url
-    {
-        set => SetProperty("url", value);
-    }
+    [TerraformPropertyName("url")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>("", "url");
 
 }
 
@@ -42,64 +39,43 @@ public class AwsSagemakerHumanTaskUi : TerraformResource
 {
     public AwsSagemakerHumanTaskUi(string name) : base("aws_sagemaker_human_task_ui", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("human_task_ui_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The human_task_ui_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanTaskUiName is required")]
-    public required TerraformProperty<string> HumanTaskUiName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("human_task_ui_name");
-        set => SetProperty("human_task_ui_name", value);
-    }
+    [TerraformPropertyName("human_task_ui_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HumanTaskUiName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for ui_template.
@@ -108,14 +84,14 @@ public class AwsSagemakerHumanTaskUi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UiTemplate is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 UiTemplate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UiTemplate block(s) allowed")]
-    public List<AwsSagemakerHumanTaskUiUiTemplateBlock>? UiTemplate
-    {
-        set => SetProperty("ui_template", value);
-    }
+    [TerraformPropertyName("ui_template")]
+    public TerraformList<TerraformBlock<AwsSagemakerHumanTaskUiUiTemplateBlock>>? UiTemplate { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

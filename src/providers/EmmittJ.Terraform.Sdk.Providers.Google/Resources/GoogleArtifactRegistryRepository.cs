@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cleanup_policies in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock : TerraformBlock
+public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock : ITerraformBlock
 {
     /// <summary>
     /// Policy action. Possible values: [&amp;quot;DELETE&amp;quot;, &amp;quot;KEEP&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Action { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
 }
 
@@ -31,15 +29,14 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock : TerraformBlo
 /// Block type for docker_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleArtifactRegistryRepositoryDockerConfigBlock : TerraformBlock
+public class GoogleArtifactRegistryRepositoryDockerConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The repository which enabled this flag prevents all tags from being modified, moved or deleted. This does not prevent tags from being created.
     /// </summary>
-    public TerraformProperty<bool>? ImmutableTags
-    {
-        set => SetProperty("immutable_tags", value);
-    }
+    [TerraformPropertyName("immutable_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ImmutableTags { get; set; }
 
 }
 
@@ -47,24 +44,22 @@ public class GoogleArtifactRegistryRepositoryDockerConfigBlock : TerraformBlock
 /// Block type for maven_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleArtifactRegistryRepositoryMavenConfigBlock : TerraformBlock
+public class GoogleArtifactRegistryRepositoryMavenConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The repository with this flag will allow publishing the same
     /// snapshot versions.
     /// </summary>
-    public TerraformProperty<bool>? AllowSnapshotOverwrites
-    {
-        set => SetProperty("allow_snapshot_overwrites", value);
-    }
+    [TerraformPropertyName("allow_snapshot_overwrites")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowSnapshotOverwrites { get; set; }
 
     /// <summary>
     /// Version policy defines the versions that the registry will accept. Default value: &amp;quot;VERSION_POLICY_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;VERSION_POLICY_UNSPECIFIED&amp;quot;, &amp;quot;RELEASE&amp;quot;, &amp;quot;SNAPSHOT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? VersionPolicy
-    {
-        set => SetProperty("version_policy", value);
-    }
+    [TerraformPropertyName("version_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VersionPolicy { get; set; }
 
 }
 
@@ -72,24 +67,22 @@ public class GoogleArtifactRegistryRepositoryMavenConfigBlock : TerraformBlock
 /// Block type for remote_repository_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock : TerraformBlock
+public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The description of the remote source.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// If true, the remote repository upstream and upstream credentials will
     /// not be validated.
     /// </summary>
-    public TerraformProperty<bool>? DisableUpstreamValidation
-    {
-        set => SetProperty("disable_upstream_validation", value);
-    }
+    [TerraformPropertyName("disable_upstream_validation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DisableUpstreamValidation { get; set; }
 
 }
 
@@ -97,31 +90,28 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleArtifactRegistryRepositoryTimeoutsBlock : TerraformBlock
+public class GoogleArtifactRegistryRepositoryTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -129,7 +119,7 @@ public class GoogleArtifactRegistryRepositoryTimeoutsBlock : TerraformBlock
 /// Block type for virtual_repository_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock : TerraformBlock
+public class GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock : ITerraformBlock
 {
 }
 
@@ -137,31 +127,28 @@ public class GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock : Terr
 /// Block type for vulnerability_scanning_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock : TerraformBlock
+public class GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// This configures whether vulnerability scanning is automatically performed for artifacts pushed to this repository. Possible values: [&amp;quot;INHERITED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? EnablementConfig
-    {
-        set => SetProperty("enablement_config", value);
-    }
+    [TerraformPropertyName("enablement_config")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EnablementConfig { get; set; }
 
     /// <summary>
     /// This field returns whether scanning is active for this repository.
     /// </summary>
-    public TerraformProperty<string>? EnablementState
-    {
-        set => SetProperty("enablement_state", value);
-    }
+    [TerraformPropertyName("enablement_state")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EnablementState => new TerraformReferenceProperty<TerraformProperty<string>>("", "enablement_state");
 
     /// <summary>
     /// This provides an explanation for the state of scanning on this repository.
     /// </summary>
-    public TerraformProperty<string>? EnablementStateReason
-    {
-        set => SetProperty("enablement_state_reason", value);
-    }
+    [TerraformPropertyName("enablement_state_reason")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EnablementStateReason => new TerraformReferenceProperty<TerraformProperty<string>>("", "enablement_state_reason");
 
 }
 
@@ -173,47 +160,22 @@ public class GoogleArtifactRegistryRepository : TerraformResource
 {
     public GoogleArtifactRegistryRepository(string name) : base("google_artifact_registry_repository", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("name");
-        SetOutput("registry_uri");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("cleanup_policy_dry_run");
-        SetOutput("description");
-        SetOutput("format");
-        SetOutput("id");
-        SetOutput("kms_key_name");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("mode");
-        SetOutput("project");
-        SetOutput("repository_id");
     }
 
     /// <summary>
     /// If true, the cleanup pipeline is prevented from deleting versions in this
     /// repository.
     /// </summary>
-    public TerraformProperty<bool> CleanupPolicyDryRun
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("cleanup_policy_dry_run");
-        set => SetProperty("cleanup_policy_dry_run", value);
-    }
+    [TerraformPropertyName("cleanup_policy_dry_run")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CleanupPolicyDryRun { get; set; }
 
     /// <summary>
     /// The user-provided description of the repository.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The format of packages that are stored in the repository. Supported formats
@@ -222,20 +184,16 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// [alpha user group](https://cloud.google.com/artifact-registry/docs/supported-formats#alpha-access).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
-    public required TerraformProperty<string> Format
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("format");
-        set => SetProperty("format", value);
-    }
+    [TerraformPropertyName("format")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Format { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The Cloud KMS resource name of the customer managed encryption key that’s
@@ -243,11 +201,9 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// &#39;projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key&#39;.
     /// This value may not be changed after the Repository has been created.
     /// </summary>
-    public TerraformProperty<string> KmsKeyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
-        set => SetProperty("kms_key_name", value);
-    }
+    [TerraformPropertyName("kms_key_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyName { get; set; }
 
     /// <summary>
     /// Labels with user-defined metadata.
@@ -260,11 +216,9 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The name of the repository&#39;s location. In addition to specific regions,
@@ -274,139 +228,129 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// [google_artifact_registry_locations](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/artifact_registry_locations)
     /// data source for possible values.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Location { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The mode configures the repository to serve artifacts from different sources. Default value: &amp;quot;STANDARD_REPOSITORY&amp;quot; Possible values: [&amp;quot;STANDARD_REPOSITORY&amp;quot;, &amp;quot;VIRTUAL_REPOSITORY&amp;quot;, &amp;quot;REMOTE_REPOSITORY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> Mode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mode");
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The last part of the repository name, for example:
     /// &amp;quot;repo1&amp;quot;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
-    public required TerraformProperty<string> RepositoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("repository_id");
-        set => SetProperty("repository_id", value);
-    }
+    [TerraformPropertyName("repository_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RepositoryId { get; set; }
 
     /// <summary>
     /// Block for cleanup_policies.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<GoogleArtifactRegistryRepositoryCleanupPoliciesBlock>? CleanupPolicies
-    {
-        set => SetProperty("cleanup_policies", value);
-    }
+    [TerraformPropertyName("cleanup_policies")]
+    public TerraformSet<TerraformBlock<GoogleArtifactRegistryRepositoryCleanupPoliciesBlock>>? CleanupPolicies { get; set; } = new();
 
     /// <summary>
     /// Block for docker_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DockerConfig block(s) allowed")]
-    public List<GoogleArtifactRegistryRepositoryDockerConfigBlock>? DockerConfig
-    {
-        set => SetProperty("docker_config", value);
-    }
+    [TerraformPropertyName("docker_config")]
+    public TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryDockerConfigBlock>>? DockerConfig { get; set; } = new();
 
     /// <summary>
     /// Block for maven_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MavenConfig block(s) allowed")]
-    public List<GoogleArtifactRegistryRepositoryMavenConfigBlock>? MavenConfig
-    {
-        set => SetProperty("maven_config", value);
-    }
+    [TerraformPropertyName("maven_config")]
+    public TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryMavenConfigBlock>>? MavenConfig { get; set; } = new();
 
     /// <summary>
     /// Block for remote_repository_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteRepositoryConfig block(s) allowed")]
-    public List<GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock>? RemoteRepositoryConfig
-    {
-        set => SetProperty("remote_repository_config", value);
-    }
+    [TerraformPropertyName("remote_repository_config")]
+    public TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock>>? RemoteRepositoryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleArtifactRegistryRepositoryTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleArtifactRegistryRepositoryTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for virtual_repository_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualRepositoryConfig block(s) allowed")]
-    public List<GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock>? VirtualRepositoryConfig
-    {
-        set => SetProperty("virtual_repository_config", value);
-    }
+    [TerraformPropertyName("virtual_repository_config")]
+    public TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock>>? VirtualRepositoryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for vulnerability_scanning_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VulnerabilityScanningConfig block(s) allowed")]
-    public List<GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock>? VulnerabilityScanningConfig
-    {
-        set => SetProperty("vulnerability_scanning_config", value);
-    }
+    [TerraformPropertyName("vulnerability_scanning_config")]
+    public TerraformList<TerraformBlock<GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock>>? VulnerabilityScanningConfig { get; set; } = new();
 
     /// <summary>
     /// The time when the repository was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The name of the repository, for example:
     /// &amp;quot;repo1&amp;quot;
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The repository endpoint, for example: us-docker.pkg.dev/my-proj/my-repo.
     /// </summary>
-    public TerraformExpression RegistryUri => this["registry_uri"];
+    [TerraformPropertyName("registry_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RegistryUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "registry_uri");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// The time when the repository was last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

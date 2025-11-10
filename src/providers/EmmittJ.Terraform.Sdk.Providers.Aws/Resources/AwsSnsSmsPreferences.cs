@@ -9,91 +9,62 @@ public class AwsSnsSmsPreferences : TerraformResource
 {
     public AwsSnsSmsPreferences(string name) : base("aws_sns_sms_preferences", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("default_sender_id");
-        SetOutput("default_sms_type");
-        SetOutput("delivery_status_iam_role_arn");
-        SetOutput("delivery_status_success_sampling_rate");
-        SetOutput("id");
-        SetOutput("monthly_spend_limit");
-        SetOutput("region");
-        SetOutput("usage_report_s3_bucket");
     }
 
     /// <summary>
     /// The default_sender_id attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultSenderId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_sender_id");
-        set => SetProperty("default_sender_id", value);
-    }
+    [TerraformPropertyName("default_sender_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultSenderId { get; set; }
 
     /// <summary>
     /// The default_sms_type attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultSmsType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_sms_type");
-        set => SetProperty("default_sms_type", value);
-    }
+    [TerraformPropertyName("default_sms_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultSmsType { get; set; }
 
     /// <summary>
     /// The delivery_status_iam_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> DeliveryStatusIamRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("delivery_status_iam_role_arn");
-        set => SetProperty("delivery_status_iam_role_arn", value);
-    }
+    [TerraformPropertyName("delivery_status_iam_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeliveryStatusIamRoleArn { get; set; }
 
     /// <summary>
     /// The delivery_status_success_sampling_rate attribute.
     /// </summary>
-    public TerraformProperty<string> DeliveryStatusSuccessSamplingRate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("delivery_status_success_sampling_rate");
-        set => SetProperty("delivery_status_success_sampling_rate", value);
-    }
+    [TerraformPropertyName("delivery_status_success_sampling_rate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeliveryStatusSuccessSamplingRate { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The monthly_spend_limit attribute.
     /// </summary>
-    public TerraformProperty<double> MonthlySpendLimit
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("monthly_spend_limit");
-        set => SetProperty("monthly_spend_limit", value);
-    }
+    [TerraformPropertyName("monthly_spend_limit")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MonthlySpendLimit { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "monthly_spend_limit");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The usage_report_s3_bucket attribute.
     /// </summary>
-    public TerraformProperty<string> UsageReportS3Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("usage_report_s3_bucket");
-        set => SetProperty("usage_report_s3_bucket", value);
-    }
+    [TerraformPropertyName("usage_report_s3_bucket")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UsageReportS3Bucket { get; set; }
 
 }

@@ -6,103 +6,91 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_parameters in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
+public class AzurermDatabricksWorkspaceCustomParametersBlock : ITerraformBlock
 {
     /// <summary>
     /// The machine_learning_workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MachineLearningWorkspaceId
-    {
-        set => SetProperty("machine_learning_workspace_id", value);
-    }
+    [TerraformPropertyName("machine_learning_workspace_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MachineLearningWorkspaceId { get; set; }
 
     /// <summary>
     /// The nat_gateway_name attribute.
     /// </summary>
-    public TerraformProperty<string>? NatGatewayName
-    {
-        set => SetProperty("nat_gateway_name", value);
-    }
+    [TerraformPropertyName("nat_gateway_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NatGatewayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "nat_gateway_name");
 
     /// <summary>
     /// The no_public_ip attribute.
     /// </summary>
-    public TerraformProperty<bool>? NoPublicIp
-    {
-        set => SetProperty("no_public_ip", value);
-    }
+    [TerraformPropertyName("no_public_ip")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? NoPublicIp { get; set; }
 
     /// <summary>
     /// The private_subnet_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateSubnetName
-    {
-        set => SetProperty("private_subnet_name", value);
-    }
+    [TerraformPropertyName("private_subnet_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrivateSubnetName { get; set; }
 
     /// <summary>
     /// The private_subnet_network_security_group_association_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateSubnetNetworkSecurityGroupAssociationId
-    {
-        set => SetProperty("private_subnet_network_security_group_association_id", value);
-    }
+    [TerraformPropertyName("private_subnet_network_security_group_association_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrivateSubnetNetworkSecurityGroupAssociationId { get; set; }
 
     /// <summary>
     /// The public_ip_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicIpName
-    {
-        set => SetProperty("public_ip_name", value);
-    }
+    [TerraformPropertyName("public_ip_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PublicIpName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "public_ip_name");
 
     /// <summary>
     /// The public_subnet_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicSubnetName
-    {
-        set => SetProperty("public_subnet_name", value);
-    }
+    [TerraformPropertyName("public_subnet_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PublicSubnetName { get; set; }
 
     /// <summary>
     /// The public_subnet_network_security_group_association_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicSubnetNetworkSecurityGroupAssociationId
-    {
-        set => SetProperty("public_subnet_network_security_group_association_id", value);
-    }
+    [TerraformPropertyName("public_subnet_network_security_group_association_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PublicSubnetNetworkSecurityGroupAssociationId { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountName
-    {
-        set => SetProperty("storage_account_name", value);
-    }
+    [TerraformPropertyName("storage_account_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StorageAccountName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "storage_account_name");
 
     /// <summary>
     /// The storage_account_sku_name attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountSkuName
-    {
-        set => SetProperty("storage_account_sku_name", value);
-    }
+    [TerraformPropertyName("storage_account_sku_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StorageAccountSkuName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "storage_account_sku_name");
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualNetworkId
-    {
-        set => SetProperty("virtual_network_id", value);
-    }
+    [TerraformPropertyName("virtual_network_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VirtualNetworkId { get; set; }
 
     /// <summary>
     /// The vnet_address_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? VnetAddressPrefix
-    {
-        set => SetProperty("vnet_address_prefix", value);
-    }
+    [TerraformPropertyName("vnet_address_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VnetAddressPrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "vnet_address_prefix");
 
 }
 
@@ -110,39 +98,35 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
 /// Block type for enhanced_security_compliance in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : TerraformBlock
+public class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : ITerraformBlock
 {
     /// <summary>
     /// The automatic_cluster_update_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutomaticClusterUpdateEnabled
-    {
-        set => SetProperty("automatic_cluster_update_enabled", value);
-    }
+    [TerraformPropertyName("automatic_cluster_update_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutomaticClusterUpdateEnabled { get; set; }
 
     /// <summary>
     /// The compliance_security_profile_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ComplianceSecurityProfileEnabled
-    {
-        set => SetProperty("compliance_security_profile_enabled", value);
-    }
+    [TerraformPropertyName("compliance_security_profile_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ComplianceSecurityProfileEnabled { get; set; }
 
     /// <summary>
     /// The compliance_security_profile_standards attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ComplianceSecurityProfileStandards
-    {
-        set => SetProperty("compliance_security_profile_standards", value);
-    }
+    [TerraformPropertyName("compliance_security_profile_standards")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ComplianceSecurityProfileStandards { get; set; }
 
     /// <summary>
     /// The enhanced_security_monitoring_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnhancedSecurityMonitoringEnabled
-    {
-        set => SetProperty("enhanced_security_monitoring_enabled", value);
-    }
+    [TerraformPropertyName("enhanced_security_monitoring_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnhancedSecurityMonitoringEnabled { get; set; }
 
 }
 
@@ -150,39 +134,35 @@ public class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDatabricksWorkspaceTimeoutsBlock : TerraformBlock
+public class AzurermDatabricksWorkspaceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -194,270 +174,208 @@ public class AzurermDatabricksWorkspace : TerraformResource
 {
     public AzurermDatabricksWorkspace(string name) : base("azurerm_databricks_workspace", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("disk_encryption_set_id");
-        SetOutput("managed_disk_identity");
-        SetOutput("managed_resource_group_id");
-        SetOutput("storage_account_identity");
-        SetOutput("workspace_id");
-        SetOutput("workspace_url");
-        SetOutput("access_connector_id");
-        SetOutput("customer_managed_key_enabled");
-        SetOutput("default_storage_firewall_enabled");
-        SetOutput("id");
-        SetOutput("infrastructure_encryption_enabled");
-        SetOutput("load_balancer_backend_address_pool_id");
-        SetOutput("location");
-        SetOutput("managed_disk_cmk_key_vault_id");
-        SetOutput("managed_disk_cmk_key_vault_key_id");
-        SetOutput("managed_disk_cmk_rotation_to_latest_version_enabled");
-        SetOutput("managed_resource_group_name");
-        SetOutput("managed_services_cmk_key_vault_id");
-        SetOutput("managed_services_cmk_key_vault_key_id");
-        SetOutput("name");
-        SetOutput("network_security_group_rules_required");
-        SetOutput("public_network_access_enabled");
-        SetOutput("resource_group_name");
-        SetOutput("sku");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The access_connector_id attribute.
     /// </summary>
-    public TerraformProperty<string> AccessConnectorId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_connector_id");
-        set => SetProperty("access_connector_id", value);
-    }
+    [TerraformPropertyName("access_connector_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AccessConnectorId { get; set; }
 
     /// <summary>
     /// The customer_managed_key_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> CustomerManagedKeyEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("customer_managed_key_enabled");
-        set => SetProperty("customer_managed_key_enabled", value);
-    }
+    [TerraformPropertyName("customer_managed_key_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CustomerManagedKeyEnabled { get; set; }
 
     /// <summary>
     /// The default_storage_firewall_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> DefaultStorageFirewallEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("default_storage_firewall_enabled");
-        set => SetProperty("default_storage_firewall_enabled", value);
-    }
+    [TerraformPropertyName("default_storage_firewall_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DefaultStorageFirewallEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> InfrastructureEncryptionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("infrastructure_encryption_enabled");
-        set => SetProperty("infrastructure_encryption_enabled", value);
-    }
+    [TerraformPropertyName("infrastructure_encryption_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InfrastructureEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The load_balancer_backend_address_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string> LoadBalancerBackendAddressPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("load_balancer_backend_address_pool_id");
-        set => SetProperty("load_balancer_backend_address_pool_id", value);
-    }
+    [TerraformPropertyName("load_balancer_backend_address_pool_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LoadBalancerBackendAddressPoolId { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The managed_disk_cmk_key_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string> ManagedDiskCmkKeyVaultId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_disk_cmk_key_vault_id");
-        set => SetProperty("managed_disk_cmk_key_vault_id", value);
-    }
+    [TerraformPropertyName("managed_disk_cmk_key_vault_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManagedDiskCmkKeyVaultId { get; set; }
 
     /// <summary>
     /// The managed_disk_cmk_key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> ManagedDiskCmkKeyVaultKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_disk_cmk_key_vault_key_id");
-        set => SetProperty("managed_disk_cmk_key_vault_key_id", value);
-    }
+    [TerraformPropertyName("managed_disk_cmk_key_vault_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManagedDiskCmkKeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The managed_disk_cmk_rotation_to_latest_version_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ManagedDiskCmkRotationToLatestVersionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("managed_disk_cmk_rotation_to_latest_version_enabled");
-        set => SetProperty("managed_disk_cmk_rotation_to_latest_version_enabled", value);
-    }
+    [TerraformPropertyName("managed_disk_cmk_rotation_to_latest_version_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ManagedDiskCmkRotationToLatestVersionEnabled { get; set; }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string> ManagedResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_resource_group_name");
-        set => SetProperty("managed_resource_group_name", value);
-    }
+    [TerraformPropertyName("managed_resource_group_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ManagedResourceGroupName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "managed_resource_group_name");
 
     /// <summary>
     /// The managed_services_cmk_key_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string> ManagedServicesCmkKeyVaultId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_services_cmk_key_vault_id");
-        set => SetProperty("managed_services_cmk_key_vault_id", value);
-    }
+    [TerraformPropertyName("managed_services_cmk_key_vault_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManagedServicesCmkKeyVaultId { get; set; }
 
     /// <summary>
     /// The managed_services_cmk_key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> ManagedServicesCmkKeyVaultKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_services_cmk_key_vault_key_id");
-        set => SetProperty("managed_services_cmk_key_vault_key_id", value);
-    }
+    [TerraformPropertyName("managed_services_cmk_key_vault_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManagedServicesCmkKeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The network_security_group_rules_required attribute.
     /// </summary>
-    public TerraformProperty<string> NetworkSecurityGroupRulesRequired
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_security_group_rules_required");
-        set => SetProperty("network_security_group_rules_required", value);
-    }
+    [TerraformPropertyName("network_security_group_rules_required")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NetworkSecurityGroupRulesRequired { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PublicNetworkAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
-        set => SetProperty("public_network_access_enabled", value);
-    }
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    public required TerraformProperty<string> Sku
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku");
-        set => SetProperty("sku", value);
-    }
+    [TerraformPropertyName("sku")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for custom_parameters.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomParameters block(s) allowed")]
-    public List<AzurermDatabricksWorkspaceCustomParametersBlock>? CustomParameters
-    {
-        set => SetProperty("custom_parameters", value);
-    }
+    [TerraformPropertyName("custom_parameters")]
+    public TerraformList<TerraformBlock<AzurermDatabricksWorkspaceCustomParametersBlock>>? CustomParameters { get; set; } = new();
 
     /// <summary>
     /// Block for enhanced_security_compliance.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnhancedSecurityCompliance block(s) allowed")]
-    public List<AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock>? EnhancedSecurityCompliance
-    {
-        set => SetProperty("enhanced_security_compliance", value);
-    }
+    [TerraformPropertyName("enhanced_security_compliance")]
+    public TerraformList<TerraformBlock<AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock>>? EnhancedSecurityCompliance { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDatabricksWorkspaceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDatabricksWorkspaceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    public TerraformExpression DiskEncryptionSetId => this["disk_encryption_set_id"];
+    [TerraformPropertyName("disk_encryption_set_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DiskEncryptionSetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "disk_encryption_set_id");
 
     /// <summary>
     /// The managed_disk_identity attribute.
     /// </summary>
-    public TerraformExpression ManagedDiskIdentity => this["managed_disk_identity"];
+    [TerraformPropertyName("managed_disk_identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ManagedDiskIdentity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "managed_disk_identity");
 
     /// <summary>
     /// The managed_resource_group_id attribute.
     /// </summary>
-    public TerraformExpression ManagedResourceGroupId => this["managed_resource_group_id"];
+    [TerraformPropertyName("managed_resource_group_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ManagedResourceGroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "managed_resource_group_id");
 
     /// <summary>
     /// The storage_account_identity attribute.
     /// </summary>
-    public TerraformExpression StorageAccountIdentity => this["storage_account_identity"];
+    [TerraformPropertyName("storage_account_identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> StorageAccountIdentity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "storage_account_identity");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformExpression WorkspaceId => this["workspace_id"];
+    [TerraformPropertyName("workspace_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WorkspaceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workspace_id");
 
     /// <summary>
     /// The workspace_url attribute.
     /// </summary>
-    public TerraformExpression WorkspaceUrl => this["workspace_url"];
+    [TerraformPropertyName("workspace_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WorkspaceUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workspace_url");
 
 }

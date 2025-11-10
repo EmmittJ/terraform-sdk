@@ -9,118 +9,84 @@ public class AwsRolesanywhereProfile : TerraformResource
 {
     public AwsRolesanywhereProfile(string name) : base("aws_rolesanywhere_profile", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("duration_seconds");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("managed_policy_arns");
-        SetOutput("name");
-        SetOutput("require_instance_properties");
-        SetOutput("role_arns");
-        SetOutput("session_policy");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The duration_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> DurationSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("duration_seconds");
-        set => SetProperty("duration_seconds", value);
-    }
+    [TerraformPropertyName("duration_seconds")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DurationSeconds { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "duration_seconds");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The managed_policy_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ManagedPolicyArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("managed_policy_arns");
-        set => SetProperty("managed_policy_arns", value);
-    }
+    [TerraformPropertyName("managed_policy_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ManagedPolicyArns { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The require_instance_properties attribute.
     /// </summary>
-    public TerraformProperty<bool> RequireInstanceProperties
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("require_instance_properties");
-        set => SetProperty("require_instance_properties", value);
-    }
+    [TerraformPropertyName("require_instance_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequireInstanceProperties { get; set; }
 
     /// <summary>
     /// The role_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> RoleArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("role_arns");
-        set => SetProperty("role_arns", value);
-    }
+    [TerraformPropertyName("role_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? RoleArns { get; set; }
 
     /// <summary>
     /// The session_policy attribute.
     /// </summary>
-    public TerraformProperty<string> SessionPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("session_policy");
-        set => SetProperty("session_policy", value);
-    }
+    [TerraformPropertyName("session_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SessionPolicy { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

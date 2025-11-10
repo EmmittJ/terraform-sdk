@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for fallback_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock : TerraformBlock
+public class GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// Display name of the selected prompt.
     /// </summary>
-    public TerraformProperty<string>? SelectedPrompt
-    {
-        set => SetProperty("selected_prompt", value);
-    }
+    [TerraformPropertyName("selected_prompt")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SelectedPrompt { get; set; }
 
 }
 
@@ -22,16 +21,15 @@ public class GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock : Terrafo
 /// Block type for generative_safety_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock : TerraformBlock
+public class GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// Optional. Default phrase match strategy for banned phrases.
     /// See [PhraseMatchStrategy](https://cloud.google.com/dialogflow/cx/docs/reference/rest/v3/GenerativeSettings#phrasematchstrategy) for valid values.
     /// </summary>
-    public TerraformProperty<string>? DefaultBannedPhraseMatchStrategy
-    {
-        set => SetProperty("default_banned_phrase_match_strategy", value);
-    }
+    [TerraformPropertyName("default_banned_phrase_match_strategy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultBannedPhraseMatchStrategy { get; set; }
 
 }
 
@@ -39,55 +37,49 @@ public class GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock :
 /// Block type for knowledge_connector_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock : TerraformBlock
+public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// Name of the virtual agent. Used for LLM prompt. Can be left empty.
     /// </summary>
-    public TerraformProperty<string>? Agent
-    {
-        set => SetProperty("agent", value);
-    }
+    [TerraformPropertyName("agent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Agent { get; set; }
 
     /// <summary>
     /// Identity of the agent, e.g. &amp;quot;virtual agent&amp;quot;, &amp;quot;AI assistant&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? AgentIdentity
-    {
-        set => SetProperty("agent_identity", value);
-    }
+    [TerraformPropertyName("agent_identity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AgentIdentity { get; set; }
 
     /// <summary>
     /// Agent scope, e.g. &amp;quot;Example company website&amp;quot;, &amp;quot;internal Example company website for employees&amp;quot;, &amp;quot;manual of car owner&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? AgentScope
-    {
-        set => SetProperty("agent_scope", value);
-    }
+    [TerraformPropertyName("agent_scope")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AgentScope { get; set; }
 
     /// <summary>
     /// Name of the company, organization or other entity that the agent represents. Used for knowledge connector LLM prompt and for knowledge search.
     /// </summary>
-    public TerraformProperty<string>? Business
-    {
-        set => SetProperty("business", value);
-    }
+    [TerraformPropertyName("business")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Business { get; set; }
 
     /// <summary>
     /// Company description, used for LLM prompt, e.g. &amp;quot;a family company selling freshly roasted coffee beans&amp;quot;.&#39;&#39;
     /// </summary>
-    public TerraformProperty<string>? BusinessDescription
-    {
-        set => SetProperty("business_description", value);
-    }
+    [TerraformPropertyName("business_description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BusinessDescription { get; set; }
 
     /// <summary>
     /// Whether to disable fallback to Data Store search results (in case the LLM couldn&#39;t pick a proper answer). Per default the feature is enabled.
     /// </summary>
-    public TerraformProperty<bool>? DisableDataStoreFallback
-    {
-        set => SetProperty("disable_data_store_fallback", value);
-    }
+    [TerraformPropertyName("disable_data_store_fallback")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DisableDataStoreFallback { get; set; }
 
 }
 
@@ -95,23 +87,21 @@ public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock
 /// Block type for llm_model_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock : TerraformBlock
+public class GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The selected LLM model.
     /// </summary>
-    public TerraformProperty<string>? Model
-    {
-        set => SetProperty("model", value);
-    }
+    [TerraformPropertyName("model")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Model { get; set; }
 
     /// <summary>
     /// The custom prompt to use.
     /// </summary>
-    public TerraformProperty<string>? PromptText
-    {
-        set => SetProperty("prompt_text", value);
-    }
+    [TerraformPropertyName("prompt_text")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PromptText { get; set; }
 
 }
 
@@ -119,31 +109,28 @@ public class GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowCxGenerativeSettingsTimeoutsBlock : TerraformBlock
+public class GoogleDialogflowCxGenerativeSettingsTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -155,99 +142,76 @@ public class GoogleDialogflowCxGenerativeSettings : TerraformResource
 {
     public GoogleDialogflowCxGenerativeSettings(string name) : base("google_dialogflow_cx_generative_settings", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("id");
-        SetOutput("language_code");
-        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Language for this settings.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
-    public required TerraformProperty<string> LanguageCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("language_code");
-        set => SetProperty("language_code", value);
-    }
+    [TerraformPropertyName("language_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LanguageCode { get; set; }
 
     /// <summary>
     /// The agent to create a flow for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Parent { get; set; }
 
     /// <summary>
     /// Block for fallback_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FallbackSettings block(s) allowed")]
-    public List<GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock>? FallbackSettings
-    {
-        set => SetProperty("fallback_settings", value);
-    }
+    [TerraformPropertyName("fallback_settings")]
+    public TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock>>? FallbackSettings { get; set; } = new();
 
     /// <summary>
     /// Block for generative_safety_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenerativeSafetySettings block(s) allowed")]
-    public List<GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock>? GenerativeSafetySettings
-    {
-        set => SetProperty("generative_safety_settings", value);
-    }
+    [TerraformPropertyName("generative_safety_settings")]
+    public TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock>>? GenerativeSafetySettings { get; set; } = new();
 
     /// <summary>
     /// Block for knowledge_connector_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KnowledgeConnectorSettings block(s) allowed")]
-    public List<GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock>? KnowledgeConnectorSettings
-    {
-        set => SetProperty("knowledge_connector_settings", value);
-    }
+    [TerraformPropertyName("knowledge_connector_settings")]
+    public TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock>>? KnowledgeConnectorSettings { get; set; } = new();
 
     /// <summary>
     /// Block for llm_model_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LlmModelSettings block(s) allowed")]
-    public List<GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock>? LlmModelSettings
-    {
-        set => SetProperty("llm_model_settings", value);
-    }
+    [TerraformPropertyName("llm_model_settings")]
+    public TerraformList<TerraformBlock<GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock>>? LlmModelSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDialogflowCxGenerativeSettingsTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDialogflowCxGenerativeSettingsTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique identifier of the generativeSettings.
     /// Format: projects/&amp;lt;ProjectID&amp;gt;/locations/&amp;lt;LocationID&amp;gt;/agents/&amp;lt;AgentID&amp;gt;/generativeSettings.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

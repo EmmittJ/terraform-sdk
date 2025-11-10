@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for link_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOamLinkLinkConfigurationBlock : TerraformBlock
+public class AwsOamLinkLinkConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -14,31 +14,28 @@ public class AwsOamLinkLinkConfigurationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsOamLinkTimeoutsBlock : TerraformBlock
+public class AwsOamLinkTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -50,127 +47,101 @@ public class AwsOamLink : TerraformResource
 {
     public AwsOamLink(string name) : base("aws_oam_link", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("label");
-        SetOutput("link_id");
-        SetOutput("sink_arn");
-        SetOutput("id");
-        SetOutput("label_template");
-        SetOutput("region");
-        SetOutput("resource_types");
-        SetOutput("sink_identifier");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The label_template attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelTemplate is required")]
-    public required TerraformProperty<string> LabelTemplate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("label_template");
-        set => SetProperty("label_template", value);
-    }
+    [TerraformPropertyName("label_template")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LabelTemplate { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource_types attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
-    public HashSet<TerraformProperty<string>> ResourceTypes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("resource_types");
-        set => SetProperty("resource_types", value);
-    }
+    [TerraformPropertyName("resource_types")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ResourceTypes { get; set; }
 
     /// <summary>
     /// The sink_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SinkIdentifier is required")]
-    public required TerraformProperty<string> SinkIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sink_identifier");
-        set => SetProperty("sink_identifier", value);
-    }
+    [TerraformPropertyName("sink_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SinkIdentifier { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for link_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkConfiguration block(s) allowed")]
-    public List<AwsOamLinkLinkConfigurationBlock>? LinkConfiguration
-    {
-        set => SetProperty("link_configuration", value);
-    }
+    [TerraformPropertyName("link_configuration")]
+    public TerraformList<TerraformBlock<AwsOamLinkLinkConfigurationBlock>>? LinkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsOamLinkTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsOamLinkTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformExpression Label => this["label"];
+    [TerraformPropertyName("label")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Label => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "label");
 
     /// <summary>
     /// The link_id attribute.
     /// </summary>
-    public TerraformExpression LinkId => this["link_id"];
+    [TerraformPropertyName("link_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LinkId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "link_id");
 
     /// <summary>
     /// The sink_arn attribute.
     /// </summary>
-    public TerraformExpression SinkArn => this["sink_arn"];
+    [TerraformPropertyName("sink_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SinkArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sink_arn");
 
 }

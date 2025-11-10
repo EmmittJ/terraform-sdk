@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auth_parameters in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchEventConnectionAuthParametersBlock : TerraformBlock
+public class AwsCloudwatchEventConnectionAuthParametersBlock : ITerraformBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlock : TerraformBlock
 /// Block type for invocation_connectivity_parameters in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock : TerraformBlock
+public class AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock : ITerraformBlock
 {
 }
 
@@ -26,76 +26,51 @@ public class AwsCloudwatchEventConnection : TerraformResource
 {
     public AwsCloudwatchEventConnection(string name) : base("aws_cloudwatch_event_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("secret_arn");
-        SetOutput("authorization_type");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("kms_key_identifier");
-        SetOutput("name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The authorization_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationType is required")]
-    public required TerraformProperty<string> AuthorizationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authorization_type");
-        set => SetProperty("authorization_type", value);
-    }
+    [TerraformPropertyName("authorization_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthorizationType { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_identifier");
-        set => SetProperty("kms_key_identifier", value);
-    }
+    [TerraformPropertyName("kms_key_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyIdentifier { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for auth_parameters.
@@ -104,29 +79,29 @@ public class AwsCloudwatchEventConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthParameters is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthParameters block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthParameters block(s) allowed")]
-    public List<AwsCloudwatchEventConnectionAuthParametersBlock>? AuthParameters
-    {
-        set => SetProperty("auth_parameters", value);
-    }
+    [TerraformPropertyName("auth_parameters")]
+    public TerraformList<TerraformBlock<AwsCloudwatchEventConnectionAuthParametersBlock>>? AuthParameters { get; set; } = new();
 
     /// <summary>
     /// Block for invocation_connectivity_parameters.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InvocationConnectivityParameters block(s) allowed")]
-    public List<AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock>? InvocationConnectivityParameters
-    {
-        set => SetProperty("invocation_connectivity_parameters", value);
-    }
+    [TerraformPropertyName("invocation_connectivity_parameters")]
+    public TerraformList<TerraformBlock<AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock>>? InvocationConnectivityParameters { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
-    public TerraformExpression SecretArn => this["secret_arn"];
+    [TerraformPropertyName("secret_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecretArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secret_arn");
 
 }

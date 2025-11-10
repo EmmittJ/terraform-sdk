@@ -9,69 +9,50 @@ public class GoogleServiceAccountAccessTokenDataSource : TerraformDataSource
 {
     public GoogleServiceAccountAccessTokenDataSource(string name) : base("google_service_account_access_token", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_token");
-        SetOutput("delegates");
-        SetOutput("id");
-        SetOutput("lifetime");
-        SetOutput("scopes");
-        SetOutput("target_service_account");
     }
 
     /// <summary>
     /// The delegates attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Delegates
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("delegates");
-        set => SetProperty("delegates", value);
-    }
+    [TerraformPropertyName("delegates")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Delegates { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The lifetime attribute.
     /// </summary>
-    public TerraformProperty<string> Lifetime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("lifetime");
-        set => SetProperty("lifetime", value);
-    }
+    [TerraformPropertyName("lifetime")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Lifetime { get; set; }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    public HashSet<TerraformProperty<string>> Scopes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("scopes");
-        set => SetProperty("scopes", value);
-    }
+    [TerraformPropertyName("scopes")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Scopes { get; set; }
 
     /// <summary>
     /// The target_service_account attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
-    public required TerraformProperty<string> TargetServiceAccount
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_service_account");
-        set => SetProperty("target_service_account", value);
-    }
+    [TerraformPropertyName("target_service_account")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetServiceAccount { get; set; }
 
     /// <summary>
     /// The access_token attribute.
     /// </summary>
-    public TerraformExpression AccessToken => this["access_token"];
+    [TerraformPropertyName("access_token")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AccessToken => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_token");
 
 }

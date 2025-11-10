@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleProjectDefaultServiceAccountsTimeoutsBlock : TerraformBlock
+public class GoogleProjectDefaultServiceAccountsTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,16 +38,6 @@ public class GoogleProjectDefaultServiceAccounts : TerraformResource
 {
     public GoogleProjectDefaultServiceAccounts(string name) : base("google_project_default_service_accounts", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("service_accounts");
-        SetOutput("action");
-        SetOutput("id");
-        SetOutput("project");
-        SetOutput("restore_policy");
     }
 
     /// <summary>
@@ -58,53 +45,45 @@ public class GoogleProjectDefaultServiceAccounts : TerraformResource
     /// 				Note that DEPRIVILEGE action will ignore the REVERT configuration in the restore_policy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("action");
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project ID where service accounts are created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
-    public required TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Project { get; set; }
 
     /// <summary>
     /// The action to be performed in the default service accounts on the resource destroy.
     /// 				Valid values are NONE, REVERT and REVERT_AND_IGNORE_FAILURE. It is applied for any action but in the DEPRIVILEGE.
     /// </summary>
-    public TerraformProperty<string> RestorePolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("restore_policy");
-        set => SetProperty("restore_policy", value);
-    }
+    [TerraformPropertyName("restore_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RestorePolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleProjectDefaultServiceAccountsTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleProjectDefaultServiceAccountsTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The Service Accounts changed by this resource. It is used for revert the action on the destroy.
     /// </summary>
-    public TerraformExpression ServiceAccounts => this["service_accounts"];
+    [TerraformPropertyName("service_accounts")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> ServiceAccounts => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "service_accounts");
 
 }

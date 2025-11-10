@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDigitalTwinsTimeSeriesDatabaseConnectionTimeoutsBlock : TerraformBlock
+public class AzurermDigitalTwinsTimeSeriesDatabaseConnectionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,138 +38,98 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnection : TerraformResource
 {
     public AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name) : base("azurerm_digital_twins_time_series_database_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("digital_twins_id");
-        SetOutput("eventhub_consumer_group_name");
-        SetOutput("eventhub_name");
-        SetOutput("eventhub_namespace_endpoint_uri");
-        SetOutput("eventhub_namespace_id");
-        SetOutput("id");
-        SetOutput("kusto_cluster_id");
-        SetOutput("kusto_cluster_uri");
-        SetOutput("kusto_database_name");
-        SetOutput("kusto_table_name");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The digital_twins_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
-    public required TerraformProperty<string> DigitalTwinsId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("digital_twins_id");
-        set => SetProperty("digital_twins_id", value);
-    }
+    [TerraformPropertyName("digital_twins_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DigitalTwinsId { get; set; }
 
     /// <summary>
     /// The eventhub_consumer_group_name attribute.
     /// </summary>
-    public TerraformProperty<string> EventhubConsumerGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_consumer_group_name");
-        set => SetProperty("eventhub_consumer_group_name", value);
-    }
+    [TerraformPropertyName("eventhub_consumer_group_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EventhubConsumerGroupName { get; set; }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
-    public required TerraformProperty<string> EventhubName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_name");
-        set => SetProperty("eventhub_name", value);
-    }
+    [TerraformPropertyName("eventhub_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventhubName { get; set; }
 
     /// <summary>
     /// The eventhub_namespace_endpoint_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceEndpointUri is required")]
-    public required TerraformProperty<string> EventhubNamespaceEndpointUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_namespace_endpoint_uri");
-        set => SetProperty("eventhub_namespace_endpoint_uri", value);
-    }
+    [TerraformPropertyName("eventhub_namespace_endpoint_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventhubNamespaceEndpointUri { get; set; }
 
     /// <summary>
     /// The eventhub_namespace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceId is required")]
-    public required TerraformProperty<string> EventhubNamespaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_namespace_id");
-        set => SetProperty("eventhub_namespace_id", value);
-    }
+    [TerraformPropertyName("eventhub_namespace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventhubNamespaceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kusto_cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoClusterId is required")]
-    public required TerraformProperty<string> KustoClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kusto_cluster_id");
-        set => SetProperty("kusto_cluster_id", value);
-    }
+    [TerraformPropertyName("kusto_cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KustoClusterId { get; set; }
 
     /// <summary>
     /// The kusto_cluster_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoClusterUri is required")]
-    public required TerraformProperty<string> KustoClusterUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kusto_cluster_uri");
-        set => SetProperty("kusto_cluster_uri", value);
-    }
+    [TerraformPropertyName("kusto_cluster_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KustoClusterUri { get; set; }
 
     /// <summary>
     /// The kusto_database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseName is required")]
-    public required TerraformProperty<string> KustoDatabaseName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kusto_database_name");
-        set => SetProperty("kusto_database_name", value);
-    }
+    [TerraformPropertyName("kusto_database_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KustoDatabaseName { get; set; }
 
     /// <summary>
     /// The kusto_table_name attribute.
     /// </summary>
-    public TerraformProperty<string> KustoTableName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kusto_table_name");
-        set => SetProperty("kusto_table_name", value);
-    }
+    [TerraformPropertyName("kusto_table_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KustoTableName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDigitalTwinsTimeSeriesDatabaseConnectionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDigitalTwinsTimeSeriesDatabaseConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

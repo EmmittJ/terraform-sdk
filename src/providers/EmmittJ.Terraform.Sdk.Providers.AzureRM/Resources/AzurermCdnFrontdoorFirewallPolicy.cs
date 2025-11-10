@@ -6,66 +6,59 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
+public class AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double>? Priority
-    {
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Priority { get; set; }
 
     /// <summary>
     /// The rate_limit_duration_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? RateLimitDurationInMinutes
-    {
-        set => SetProperty("rate_limit_duration_in_minutes", value);
-    }
+    [TerraformPropertyName("rate_limit_duration_in_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RateLimitDurationInMinutes { get; set; }
 
     /// <summary>
     /// The rate_limit_threshold attribute.
     /// </summary>
-    public TerraformProperty<double>? RateLimitThreshold
-    {
-        set => SetProperty("rate_limit_threshold", value);
-    }
+    [TerraformPropertyName("rate_limit_threshold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RateLimitThreshold { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -73,15 +66,14 @@ public class AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
 /// Block type for log_scrubbing in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock : TerraformBlock
+public class AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
 }
 
@@ -89,34 +81,31 @@ public class AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock : TerraformBlock
 /// Block type for managed_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock : TerraformBlock
+public class AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
 }
 
@@ -124,39 +113,35 @@ public class AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCdnFrontdoorFirewallPolicyTimeoutsBlock : TerraformBlock
+public class AzurermCdnFrontdoorFirewallPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -168,190 +153,139 @@ public class AzurermCdnFrontdoorFirewallPolicy : TerraformResource
 {
     public AzurermCdnFrontdoorFirewallPolicy(string name) : base("azurerm_cdn_frontdoor_firewall_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("frontend_endpoint_ids");
-        SetOutput("captcha_cookie_expiration_in_minutes");
-        SetOutput("custom_block_response_body");
-        SetOutput("custom_block_response_status_code");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("js_challenge_cookie_expiration_in_minutes");
-        SetOutput("mode");
-        SetOutput("name");
-        SetOutput("redirect_url");
-        SetOutput("request_body_check_enabled");
-        SetOutput("resource_group_name");
-        SetOutput("sku_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The captcha_cookie_expiration_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double> CaptchaCookieExpirationInMinutes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("captcha_cookie_expiration_in_minutes");
-        set => SetProperty("captcha_cookie_expiration_in_minutes", value);
-    }
+    [TerraformPropertyName("captcha_cookie_expiration_in_minutes")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> CaptchaCookieExpirationInMinutes { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "captcha_cookie_expiration_in_minutes");
 
     /// <summary>
     /// The custom_block_response_body attribute.
     /// </summary>
-    public TerraformProperty<string> CustomBlockResponseBody
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("custom_block_response_body");
-        set => SetProperty("custom_block_response_body", value);
-    }
+    [TerraformPropertyName("custom_block_response_body")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomBlockResponseBody { get; set; }
 
     /// <summary>
     /// The custom_block_response_status_code attribute.
     /// </summary>
-    public TerraformProperty<double> CustomBlockResponseStatusCode
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("custom_block_response_status_code");
-        set => SetProperty("custom_block_response_status_code", value);
-    }
+    [TerraformPropertyName("custom_block_response_status_code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CustomBlockResponseStatusCode { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The js_challenge_cookie_expiration_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double> JsChallengeCookieExpirationInMinutes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("js_challenge_cookie_expiration_in_minutes");
-        set => SetProperty("js_challenge_cookie_expiration_in_minutes", value);
-    }
+    [TerraformPropertyName("js_challenge_cookie_expiration_in_minutes")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> JsChallengeCookieExpirationInMinutes { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "js_challenge_cookie_expiration_in_minutes");
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    public required TerraformProperty<string> Mode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mode");
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Mode { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The redirect_url attribute.
     /// </summary>
-    public TerraformProperty<string> RedirectUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("redirect_url");
-        set => SetProperty("redirect_url", value);
-    }
+    [TerraformPropertyName("redirect_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RedirectUrl { get; set; }
 
     /// <summary>
     /// The request_body_check_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> RequestBodyCheckEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("request_body_check_enabled");
-        set => SetProperty("request_body_check_enabled", value);
-    }
+    [TerraformPropertyName("request_body_check_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequestBodyCheckEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    public required TerraformProperty<string> SkuName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
-        set => SetProperty("sku_name", value);
-    }
+    [TerraformPropertyName("sku_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for custom_rule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 CustomRule block(s) allowed")]
-    public List<AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock>? CustomRule
-    {
-        set => SetProperty("custom_rule", value);
-    }
+    [TerraformPropertyName("custom_rule")]
+    public TerraformList<TerraformBlock<AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock>>? CustomRule { get; set; } = new();
 
     /// <summary>
     /// Block for log_scrubbing.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogScrubbing block(s) allowed")]
-    public List<AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock>? LogScrubbing
-    {
-        set => SetProperty("log_scrubbing", value);
-    }
+    [TerraformPropertyName("log_scrubbing")]
+    public TerraformList<TerraformBlock<AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock>>? LogScrubbing { get; set; } = new();
 
     /// <summary>
     /// Block for managed_rule.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 ManagedRule block(s) allowed")]
-    public List<AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock>? ManagedRule
-    {
-        set => SetProperty("managed_rule", value);
-    }
+    [TerraformPropertyName("managed_rule")]
+    public TerraformList<TerraformBlock<AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock>>? ManagedRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCdnFrontdoorFirewallPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCdnFrontdoorFirewallPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The frontend_endpoint_ids attribute.
     /// </summary>
-    public TerraformExpression FrontendEndpointIds => this["frontend_endpoint_ids"];
+    [TerraformPropertyName("frontend_endpoint_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> FrontendEndpointIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "frontend_endpoint_ids");
 
 }

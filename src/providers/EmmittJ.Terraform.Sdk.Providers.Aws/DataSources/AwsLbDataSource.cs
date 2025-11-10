@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLbDataSourceTimeoutsBlock : TerraformBlock
+public class AwsLbDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,250 +24,258 @@ public class AwsLbDataSource : TerraformDataSource
 {
     public AwsLbDataSource(string name) : base("aws_lb", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_logs");
-        SetOutput("arn_suffix");
-        SetOutput("client_keep_alive");
-        SetOutput("connection_logs");
-        SetOutput("customer_owned_ipv4_pool");
-        SetOutput("desync_mitigation_mode");
-        SetOutput("dns_name");
-        SetOutput("dns_record_client_routing_policy");
-        SetOutput("drop_invalid_header_fields");
-        SetOutput("enable_cross_zone_load_balancing");
-        SetOutput("enable_deletion_protection");
-        SetOutput("enable_http2");
-        SetOutput("enable_tls_version_and_cipher_suite_headers");
-        SetOutput("enable_waf_fail_open");
-        SetOutput("enable_xff_client_port");
-        SetOutput("enable_zonal_shift");
-        SetOutput("enforce_security_group_inbound_rules_on_private_link_traffic");
-        SetOutput("idle_timeout");
-        SetOutput("internal");
-        SetOutput("ip_address_type");
-        SetOutput("ipam_pools");
-        SetOutput("load_balancer_type");
-        SetOutput("preserve_host_header");
-        SetOutput("secondary_ips_auto_assigned_per_subnet");
-        SetOutput("security_groups");
-        SetOutput("subnet_mapping");
-        SetOutput("subnets");
-        SetOutput("vpc_id");
-        SetOutput("xff_header_processing_mode");
-        SetOutput("zone_id");
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string> Arn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arn");
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Arn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsLbDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsLbDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The access_logs attribute.
     /// </summary>
-    public TerraformExpression AccessLogs => this["access_logs"];
+    [TerraformPropertyName("access_logs")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AccessLogs => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "access_logs");
 
     /// <summary>
     /// The arn_suffix attribute.
     /// </summary>
-    public TerraformExpression ArnSuffix => this["arn_suffix"];
+    [TerraformPropertyName("arn_suffix")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ArnSuffix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn_suffix");
 
     /// <summary>
     /// The client_keep_alive attribute.
     /// </summary>
-    public TerraformExpression ClientKeepAlive => this["client_keep_alive"];
+    [TerraformPropertyName("client_keep_alive")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ClientKeepAlive => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "client_keep_alive");
 
     /// <summary>
     /// The connection_logs attribute.
     /// </summary>
-    public TerraformExpression ConnectionLogs => this["connection_logs"];
+    [TerraformPropertyName("connection_logs")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ConnectionLogs => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "connection_logs");
 
     /// <summary>
     /// The customer_owned_ipv4_pool attribute.
     /// </summary>
-    public TerraformExpression CustomerOwnedIpv4Pool => this["customer_owned_ipv4_pool"];
+    [TerraformPropertyName("customer_owned_ipv4_pool")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CustomerOwnedIpv4Pool => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "customer_owned_ipv4_pool");
 
     /// <summary>
     /// The desync_mitigation_mode attribute.
     /// </summary>
-    public TerraformExpression DesyncMitigationMode => this["desync_mitigation_mode"];
+    [TerraformPropertyName("desync_mitigation_mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DesyncMitigationMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "desync_mitigation_mode");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformExpression DnsName => this["dns_name"];
+    [TerraformPropertyName("dns_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
 
     /// <summary>
     /// The dns_record_client_routing_policy attribute.
     /// </summary>
-    public TerraformExpression DnsRecordClientRoutingPolicy => this["dns_record_client_routing_policy"];
+    [TerraformPropertyName("dns_record_client_routing_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsRecordClientRoutingPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_record_client_routing_policy");
 
     /// <summary>
     /// The drop_invalid_header_fields attribute.
     /// </summary>
-    public TerraformExpression DropInvalidHeaderFields => this["drop_invalid_header_fields"];
+    [TerraformPropertyName("drop_invalid_header_fields")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DropInvalidHeaderFields => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "drop_invalid_header_fields");
 
     /// <summary>
     /// The enable_cross_zone_load_balancing attribute.
     /// </summary>
-    public TerraformExpression EnableCrossZoneLoadBalancing => this["enable_cross_zone_load_balancing"];
+    [TerraformPropertyName("enable_cross_zone_load_balancing")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableCrossZoneLoadBalancing => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_cross_zone_load_balancing");
 
     /// <summary>
     /// The enable_deletion_protection attribute.
     /// </summary>
-    public TerraformExpression EnableDeletionProtection => this["enable_deletion_protection"];
+    [TerraformPropertyName("enable_deletion_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableDeletionProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_deletion_protection");
 
     /// <summary>
     /// The enable_http2 attribute.
     /// </summary>
-    public TerraformExpression EnableHttp2 => this["enable_http2"];
+    [TerraformPropertyName("enable_http2")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableHttp2 => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_http2");
 
     /// <summary>
     /// The enable_tls_version_and_cipher_suite_headers attribute.
     /// </summary>
-    public TerraformExpression EnableTlsVersionAndCipherSuiteHeaders => this["enable_tls_version_and_cipher_suite_headers"];
+    [TerraformPropertyName("enable_tls_version_and_cipher_suite_headers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableTlsVersionAndCipherSuiteHeaders => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_tls_version_and_cipher_suite_headers");
 
     /// <summary>
     /// The enable_waf_fail_open attribute.
     /// </summary>
-    public TerraformExpression EnableWafFailOpen => this["enable_waf_fail_open"];
+    [TerraformPropertyName("enable_waf_fail_open")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableWafFailOpen => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_waf_fail_open");
 
     /// <summary>
     /// The enable_xff_client_port attribute.
     /// </summary>
-    public TerraformExpression EnableXffClientPort => this["enable_xff_client_port"];
+    [TerraformPropertyName("enable_xff_client_port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableXffClientPort => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_xff_client_port");
 
     /// <summary>
     /// The enable_zonal_shift attribute.
     /// </summary>
-    public TerraformExpression EnableZonalShift => this["enable_zonal_shift"];
+    [TerraformPropertyName("enable_zonal_shift")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableZonalShift => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_zonal_shift");
 
     /// <summary>
     /// The enforce_security_group_inbound_rules_on_private_link_traffic attribute.
     /// </summary>
-    public TerraformExpression EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic => this["enforce_security_group_inbound_rules_on_private_link_traffic"];
+    [TerraformPropertyName("enforce_security_group_inbound_rules_on_private_link_traffic")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "enforce_security_group_inbound_rules_on_private_link_traffic");
 
     /// <summary>
     /// The idle_timeout attribute.
     /// </summary>
-    public TerraformExpression IdleTimeout => this["idle_timeout"];
+    [TerraformPropertyName("idle_timeout")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> IdleTimeout => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "idle_timeout");
 
     /// <summary>
     /// The internal attribute.
     /// </summary>
-    public TerraformExpression Internal => this["internal"];
+    [TerraformPropertyName("internal")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Internal => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "internal");
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformExpression IpAddressType => this["ip_address_type"];
+    [TerraformPropertyName("ip_address_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpAddressType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address_type");
 
     /// <summary>
     /// The ipam_pools attribute.
     /// </summary>
-    public TerraformExpression IpamPools => this["ipam_pools"];
+    [TerraformPropertyName("ipam_pools")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> IpamPools => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ipam_pools");
 
     /// <summary>
     /// The load_balancer_type attribute.
     /// </summary>
-    public TerraformExpression LoadBalancerType => this["load_balancer_type"];
+    [TerraformPropertyName("load_balancer_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LoadBalancerType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "load_balancer_type");
 
     /// <summary>
     /// The preserve_host_header attribute.
     /// </summary>
-    public TerraformExpression PreserveHostHeader => this["preserve_host_header"];
+    [TerraformPropertyName("preserve_host_header")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PreserveHostHeader => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "preserve_host_header");
 
     /// <summary>
     /// The secondary_ips_auto_assigned_per_subnet attribute.
     /// </summary>
-    public TerraformExpression SecondaryIpsAutoAssignedPerSubnet => this["secondary_ips_auto_assigned_per_subnet"];
+    [TerraformPropertyName("secondary_ips_auto_assigned_per_subnet")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SecondaryIpsAutoAssignedPerSubnet => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "secondary_ips_auto_assigned_per_subnet");
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformExpression SecurityGroups => this["security_groups"];
+    [TerraformPropertyName("security_groups")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SecurityGroups => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "security_groups");
 
     /// <summary>
     /// The subnet_mapping attribute.
     /// </summary>
-    public TerraformExpression SubnetMapping => this["subnet_mapping"];
+    [TerraformPropertyName("subnet_mapping")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> SubnetMapping => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "subnet_mapping");
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    public TerraformExpression Subnets => this["subnets"];
+    [TerraformPropertyName("subnets")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Subnets => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "subnets");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformExpression VpcId => this["vpc_id"];
+    [TerraformPropertyName("vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
     /// <summary>
     /// The xff_header_processing_mode attribute.
     /// </summary>
-    public TerraformExpression XffHeaderProcessingMode => this["xff_header_processing_mode"];
+    [TerraformPropertyName("xff_header_processing_mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> XffHeaderProcessingMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "xff_header_processing_mode");
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformExpression ZoneId => this["zone_id"];
+    [TerraformPropertyName("zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone_id");
 
 }

@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for intent in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeInterconnectGroupIntentBlock : TerraformBlock
+public class GoogleComputeInterconnectGroupIntentBlock : ITerraformBlock
 {
     /// <summary>
     /// The reliability the user intends this group to be capable of, in terms
     /// of the Interconnect product SLAs. Possible values: [&amp;quot;PRODUCTION_NON_CRITICAL&amp;quot;, &amp;quot;PRODUCTION_CRITICAL&amp;quot;, &amp;quot;NO_SLA&amp;quot;, &amp;quot;AVAILABILITY_SLA_UNSPECIFIED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? TopologyCapability
-    {
-        set => SetProperty("topology_capability", value);
-    }
+    [TerraformPropertyName("topology_capability")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TopologyCapability { get; set; }
 
 }
 
@@ -23,24 +22,22 @@ public class GoogleComputeInterconnectGroupIntentBlock : TerraformBlock
 /// Block type for interconnects in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleComputeInterconnectGroupInterconnectsBlock : TerraformBlock
+public class GoogleComputeInterconnectGroupInterconnectsBlock : ITerraformBlock
 {
     /// <summary>
     /// The URL of an Interconnect in this group. All Interconnects in the group are unique.
     /// </summary>
-    public TerraformProperty<string>? Interconnect
-    {
-        set => SetProperty("interconnect", value);
-    }
+    [TerraformPropertyName("interconnect")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Interconnect { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -48,31 +45,28 @@ public class GoogleComputeInterconnectGroupInterconnectsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeInterconnectGroupTimeoutsBlock : TerraformBlock
+public class GoogleComputeInterconnectGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -84,37 +78,21 @@ public class GoogleComputeInterconnectGroup : TerraformResource
 {
     public GoogleComputeInterconnectGroup(string name) : base("google_compute_interconnect_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("configured");
-        SetOutput("creation_timestamp");
-        SetOutput("physical_structure");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is created. The name must be
@@ -124,20 +102,16 @@ public class GoogleComputeInterconnectGroup : TerraformResource
     /// lowercase letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for intent.
@@ -146,28 +120,22 @@ public class GoogleComputeInterconnectGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Intent is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Intent block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Intent block(s) allowed")]
-    public List<GoogleComputeInterconnectGroupIntentBlock>? Intent
-    {
-        set => SetProperty("intent", value);
-    }
+    [TerraformPropertyName("intent")]
+    public TerraformList<TerraformBlock<GoogleComputeInterconnectGroupIntentBlock>>? Intent { get; set; } = new();
 
     /// <summary>
     /// Block for interconnects.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<GoogleComputeInterconnectGroupInterconnectsBlock>? Interconnects
-    {
-        set => SetProperty("interconnects", value);
-    }
+    [TerraformPropertyName("interconnects")]
+    public TerraformSet<TerraformBlock<GoogleComputeInterconnectGroupInterconnectsBlock>>? Interconnects { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeInterconnectGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeInterconnectGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The status of the group as configured. This has the same
@@ -175,17 +143,23 @@ public class GoogleComputeInterconnectGroup : TerraformResource
     /// method, but does not take into account the operational status of each
     /// resource.
     /// </summary>
-    public TerraformExpression Configured => this["configured"];
+    [TerraformPropertyName("configured")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Configured => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "configured");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreationTimestamp => this["creation_timestamp"];
+    [TerraformPropertyName("creation_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
 
     /// <summary>
     /// An analysis of the physical layout of Interconnects in this
     /// group. Every Interconnect in the group is shown once in this structure.
     /// </summary>
-    public TerraformExpression PhysicalStructure => this["physical_structure"];
+    [TerraformPropertyName("physical_structure")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PhysicalStructure => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "physical_structure");
 
 }

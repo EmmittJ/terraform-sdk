@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_active_directory in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricClusterAzureActiveDirectoryBlock : TerraformBlock
+public class AzurermServiceFabricClusterAzureActiveDirectoryBlock : ITerraformBlock
 {
     /// <summary>
     /// The client_application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientApplicationId is required")]
-    public required TerraformProperty<string> ClientApplicationId
-    {
-        set => SetProperty("client_application_id", value);
-    }
+    [TerraformPropertyName("client_application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientApplicationId { get; set; }
 
     /// <summary>
     /// The cluster_application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterApplicationId is required")]
-    public required TerraformProperty<string> ClusterApplicationId
-    {
-        set => SetProperty("cluster_application_id", value);
-    }
+    [TerraformPropertyName("cluster_application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterApplicationId { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
-    public required TerraformProperty<string> TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TenantId { get; set; }
 
 }
 
@@ -41,33 +38,30 @@ public class AzurermServiceFabricClusterAzureActiveDirectoryBlock : TerraformBlo
 /// Block type for certificate in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricClusterCertificateBlock : TerraformBlock
+public class AzurermServiceFabricClusterCertificateBlock : ITerraformBlock
 {
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
-    public required TerraformProperty<string> Thumbprint
-    {
-        set => SetProperty("thumbprint", value);
-    }
+    [TerraformPropertyName("thumbprint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Thumbprint { get; set; }
 
     /// <summary>
     /// The thumbprint_secondary attribute.
     /// </summary>
-    public TerraformProperty<string>? ThumbprintSecondary
-    {
-        set => SetProperty("thumbprint_secondary", value);
-    }
+    [TerraformPropertyName("thumbprint_secondary")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ThumbprintSecondary { get; set; }
 
     /// <summary>
     /// The x509_store_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
-    public required TerraformProperty<string> X509StoreName
-    {
-        set => SetProperty("x509_store_name", value);
-    }
+    [TerraformPropertyName("x509_store_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> X509StoreName { get; set; }
 
 }
 
@@ -75,16 +69,15 @@ public class AzurermServiceFabricClusterCertificateBlock : TerraformBlock
 /// Block type for certificate_common_names in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricClusterCertificateCommonNamesBlock : TerraformBlock
+public class AzurermServiceFabricClusterCertificateCommonNamesBlock : ITerraformBlock
 {
     /// <summary>
     /// The x509_store_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
-    public required TerraformProperty<string> X509StoreName
-    {
-        set => SetProperty("x509_store_name", value);
-    }
+    [TerraformPropertyName("x509_store_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> X509StoreName { get; set; }
 
 }
 
@@ -92,33 +85,30 @@ public class AzurermServiceFabricClusterCertificateCommonNamesBlock : TerraformB
 /// Block type for client_certificate_common_name in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricClusterClientCertificateCommonNameBlock : TerraformBlock
+public class AzurermServiceFabricClusterClientCertificateCommonNameBlock : ITerraformBlock
 {
     /// <summary>
     /// The common_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommonName is required")]
-    public required TerraformProperty<string> CommonName
-    {
-        set => SetProperty("common_name", value);
-    }
+    [TerraformPropertyName("common_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CommonName { get; set; }
 
     /// <summary>
     /// The is_admin attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsAdmin is required")]
-    public required TerraformProperty<bool> IsAdmin
-    {
-        set => SetProperty("is_admin", value);
-    }
+    [TerraformPropertyName("is_admin")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> IsAdmin { get; set; }
 
     /// <summary>
     /// The issuer_thumbprint attribute.
     /// </summary>
-    public TerraformProperty<string>? IssuerThumbprint
-    {
-        set => SetProperty("issuer_thumbprint", value);
-    }
+    [TerraformPropertyName("issuer_thumbprint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IssuerThumbprint { get; set; }
 
 }
 
@@ -126,25 +116,23 @@ public class AzurermServiceFabricClusterClientCertificateCommonNameBlock : Terra
 /// Block type for client_certificate_thumbprint in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricClusterClientCertificateThumbprintBlock : TerraformBlock
+public class AzurermServiceFabricClusterClientCertificateThumbprintBlock : ITerraformBlock
 {
     /// <summary>
     /// The is_admin attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsAdmin is required")]
-    public required TerraformProperty<bool> IsAdmin
-    {
-        set => SetProperty("is_admin", value);
-    }
+    [TerraformPropertyName("is_admin")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> IsAdmin { get; set; }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
-    public required TerraformProperty<string> Thumbprint
-    {
-        set => SetProperty("thumbprint", value);
-    }
+    [TerraformPropertyName("thumbprint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Thumbprint { get; set; }
 
 }
 
@@ -152,52 +140,47 @@ public class AzurermServiceFabricClusterClientCertificateThumbprintBlock : Terra
 /// Block type for diagnostics_config in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
+public class AzurermServiceFabricClusterDiagnosticsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The blob_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobEndpoint is required")]
-    public required TerraformProperty<string> BlobEndpoint
-    {
-        set => SetProperty("blob_endpoint", value);
-    }
+    [TerraformPropertyName("blob_endpoint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BlobEndpoint { get; set; }
 
     /// <summary>
     /// The protected_account_key_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectedAccountKeyName is required")]
-    public required TerraformProperty<string> ProtectedAccountKeyName
-    {
-        set => SetProperty("protected_account_key_name", value);
-    }
+    [TerraformPropertyName("protected_account_key_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProtectedAccountKeyName { get; set; }
 
     /// <summary>
     /// The queue_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueEndpoint is required")]
-    public required TerraformProperty<string> QueueEndpoint
-    {
-        set => SetProperty("queue_endpoint", value);
-    }
+    [TerraformPropertyName("queue_endpoint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> QueueEndpoint { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
-    public required TerraformProperty<string> StorageAccountName
-    {
-        set => SetProperty("storage_account_name", value);
-    }
+    [TerraformPropertyName("storage_account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountName { get; set; }
 
     /// <summary>
     /// The table_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableEndpoint is required")]
-    public required TerraformProperty<string> TableEndpoint
-    {
-        set => SetProperty("table_endpoint", value);
-    }
+    [TerraformPropertyName("table_endpoint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TableEndpoint { get; set; }
 
 }
 
@@ -205,24 +188,22 @@ public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
 /// Block type for fabric_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricClusterFabricSettingsBlock : TerraformBlock
+public class AzurermServiceFabricClusterFabricSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
-    {
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
 }
 
@@ -230,100 +211,89 @@ public class AzurermServiceFabricClusterFabricSettingsBlock : TerraformBlock
 /// Block type for node_type in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
+public class AzurermServiceFabricClusterNodeTypeBlock : ITerraformBlock
 {
     /// <summary>
     /// The capacities attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Capacities
-    {
-        set => SetProperty("capacities", value);
-    }
+    [TerraformPropertyName("capacities")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Capacities { get; set; }
 
     /// <summary>
     /// The client_endpoint_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientEndpointPort is required")]
-    public required TerraformProperty<double> ClientEndpointPort
-    {
-        set => SetProperty("client_endpoint_port", value);
-    }
+    [TerraformPropertyName("client_endpoint_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ClientEndpointPort { get; set; }
 
     /// <summary>
     /// The durability_level attribute.
     /// </summary>
-    public TerraformProperty<string>? DurabilityLevel
-    {
-        set => SetProperty("durability_level", value);
-    }
+    [TerraformPropertyName("durability_level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DurabilityLevel { get; set; }
 
     /// <summary>
     /// The http_endpoint_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpEndpointPort is required")]
-    public required TerraformProperty<double> HttpEndpointPort
-    {
-        set => SetProperty("http_endpoint_port", value);
-    }
+    [TerraformPropertyName("http_endpoint_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> HttpEndpointPort { get; set; }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
-    public required TerraformProperty<double> InstanceCount
-    {
-        set => SetProperty("instance_count", value);
-    }
+    [TerraformPropertyName("instance_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> InstanceCount { get; set; }
 
     /// <summary>
     /// The is_primary attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsPrimary is required")]
-    public required TerraformProperty<bool> IsPrimary
-    {
-        set => SetProperty("is_primary", value);
-    }
+    [TerraformPropertyName("is_primary")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> IsPrimary { get; set; }
 
     /// <summary>
     /// The is_stateless attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsStateless
-    {
-        set => SetProperty("is_stateless", value);
-    }
+    [TerraformPropertyName("is_stateless")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsStateless { get; set; }
 
     /// <summary>
     /// The multiple_availability_zones attribute.
     /// </summary>
-    public TerraformProperty<bool>? MultipleAvailabilityZones
-    {
-        set => SetProperty("multiple_availability_zones", value);
-    }
+    [TerraformPropertyName("multiple_availability_zones")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MultipleAvailabilityZones { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The placement_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? PlacementProperties
-    {
-        set => SetProperty("placement_properties", value);
-    }
+    [TerraformPropertyName("placement_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? PlacementProperties { get; set; }
 
     /// <summary>
     /// The reverse_proxy_endpoint_port attribute.
     /// </summary>
-    public TerraformProperty<double>? ReverseProxyEndpointPort
-    {
-        set => SetProperty("reverse_proxy_endpoint_port", value);
-    }
+    [TerraformPropertyName("reverse_proxy_endpoint_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ReverseProxyEndpointPort { get; set; }
 
 }
 
@@ -331,33 +301,30 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
 /// Block type for reverse_proxy_certificate in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricClusterReverseProxyCertificateBlock : TerraformBlock
+public class AzurermServiceFabricClusterReverseProxyCertificateBlock : ITerraformBlock
 {
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
-    public required TerraformProperty<string> Thumbprint
-    {
-        set => SetProperty("thumbprint", value);
-    }
+    [TerraformPropertyName("thumbprint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Thumbprint { get; set; }
 
     /// <summary>
     /// The thumbprint_secondary attribute.
     /// </summary>
-    public TerraformProperty<string>? ThumbprintSecondary
-    {
-        set => SetProperty("thumbprint_secondary", value);
-    }
+    [TerraformPropertyName("thumbprint_secondary")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ThumbprintSecondary { get; set; }
 
     /// <summary>
     /// The x509_store_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
-    public required TerraformProperty<string> X509StoreName
-    {
-        set => SetProperty("x509_store_name", value);
-    }
+    [TerraformPropertyName("x509_store_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> X509StoreName { get; set; }
 
 }
 
@@ -365,16 +332,15 @@ public class AzurermServiceFabricClusterReverseProxyCertificateBlock : Terraform
 /// Block type for reverse_proxy_certificate_common_names in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock : TerraformBlock
+public class AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock : ITerraformBlock
 {
     /// <summary>
     /// The x509_store_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "X509StoreName is required")]
-    public required TerraformProperty<string> X509StoreName
-    {
-        set => SetProperty("x509_store_name", value);
-    }
+    [TerraformPropertyName("x509_store_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> X509StoreName { get; set; }
 
 }
 
@@ -382,39 +348,35 @@ public class AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermServiceFabricClusterTimeoutsBlock : TerraformBlock
+public class AzurermServiceFabricClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -422,63 +384,56 @@ public class AzurermServiceFabricClusterTimeoutsBlock : TerraformBlock
 /// Block type for upgrade_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBlock
+public class AzurermServiceFabricClusterUpgradePolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The force_restart_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ForceRestartEnabled
-    {
-        set => SetProperty("force_restart_enabled", value);
-    }
+    [TerraformPropertyName("force_restart_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceRestartEnabled { get; set; }
 
     /// <summary>
     /// The health_check_retry_timeout attribute.
     /// </summary>
-    public TerraformProperty<string>? HealthCheckRetryTimeout
-    {
-        set => SetProperty("health_check_retry_timeout", value);
-    }
+    [TerraformPropertyName("health_check_retry_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HealthCheckRetryTimeout { get; set; }
 
     /// <summary>
     /// The health_check_stable_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? HealthCheckStableDuration
-    {
-        set => SetProperty("health_check_stable_duration", value);
-    }
+    [TerraformPropertyName("health_check_stable_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HealthCheckStableDuration { get; set; }
 
     /// <summary>
     /// The health_check_wait_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? HealthCheckWaitDuration
-    {
-        set => SetProperty("health_check_wait_duration", value);
-    }
+    [TerraformPropertyName("health_check_wait_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HealthCheckWaitDuration { get; set; }
 
     /// <summary>
     /// The upgrade_domain_timeout attribute.
     /// </summary>
-    public TerraformProperty<string>? UpgradeDomainTimeout
-    {
-        set => SetProperty("upgrade_domain_timeout", value);
-    }
+    [TerraformPropertyName("upgrade_domain_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UpgradeDomainTimeout { get; set; }
 
     /// <summary>
     /// The upgrade_replica_set_check_timeout attribute.
     /// </summary>
-    public TerraformProperty<string>? UpgradeReplicaSetCheckTimeout
-    {
-        set => SetProperty("upgrade_replica_set_check_timeout", value);
-    }
+    [TerraformPropertyName("upgrade_replica_set_check_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UpgradeReplicaSetCheckTimeout { get; set; }
 
     /// <summary>
     /// The upgrade_timeout attribute.
     /// </summary>
-    public TerraformProperty<string>? UpgradeTimeout
-    {
-        set => SetProperty("upgrade_timeout", value);
-    }
+    [TerraformPropertyName("upgrade_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UpgradeTimeout { get; set; }
 
 }
 
@@ -490,217 +445,158 @@ public class AzurermServiceFabricCluster : TerraformResource
 {
     public AzurermServiceFabricCluster(string name) : base("azurerm_service_fabric_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cluster_endpoint");
-        SetOutput("add_on_features");
-        SetOutput("cluster_code_version");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("management_endpoint");
-        SetOutput("name");
-        SetOutput("reliability_level");
-        SetOutput("resource_group_name");
-        SetOutput("service_fabric_zonal_upgrade_mode");
-        SetOutput("tags");
-        SetOutput("upgrade_mode");
-        SetOutput("vm_image");
-        SetOutput("vmss_zonal_upgrade_mode");
     }
 
     /// <summary>
     /// The add_on_features attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AddOnFeatures
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("add_on_features");
-        set => SetProperty("add_on_features", value);
-    }
+    [TerraformPropertyName("add_on_features")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AddOnFeatures { get; set; }
 
     /// <summary>
     /// The cluster_code_version attribute.
     /// </summary>
-    public TerraformProperty<string> ClusterCodeVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_code_version");
-        set => SetProperty("cluster_code_version", value);
-    }
+    [TerraformPropertyName("cluster_code_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ClusterCodeVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_code_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The management_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementEndpoint is required")]
-    public required TerraformProperty<string> ManagementEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("management_endpoint");
-        set => SetProperty("management_endpoint", value);
-    }
+    [TerraformPropertyName("management_endpoint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ManagementEndpoint { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The reliability_level attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReliabilityLevel is required")]
-    public required TerraformProperty<string> ReliabilityLevel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("reliability_level");
-        set => SetProperty("reliability_level", value);
-    }
+    [TerraformPropertyName("reliability_level")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ReliabilityLevel { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The service_fabric_zonal_upgrade_mode attribute.
     /// </summary>
-    public TerraformProperty<string> ServiceFabricZonalUpgradeMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_fabric_zonal_upgrade_mode");
-        set => SetProperty("service_fabric_zonal_upgrade_mode", value);
-    }
+    [TerraformPropertyName("service_fabric_zonal_upgrade_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServiceFabricZonalUpgradeMode { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The upgrade_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpgradeMode is required")]
-    public required TerraformProperty<string> UpgradeMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("upgrade_mode");
-        set => SetProperty("upgrade_mode", value);
-    }
+    [TerraformPropertyName("upgrade_mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UpgradeMode { get; set; }
 
     /// <summary>
     /// The vm_image attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmImage is required")]
-    public required TerraformProperty<string> VmImage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vm_image");
-        set => SetProperty("vm_image", value);
-    }
+    [TerraformPropertyName("vm_image")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VmImage { get; set; }
 
     /// <summary>
     /// The vmss_zonal_upgrade_mode attribute.
     /// </summary>
-    public TerraformProperty<string> VmssZonalUpgradeMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vmss_zonal_upgrade_mode");
-        set => SetProperty("vmss_zonal_upgrade_mode", value);
-    }
+    [TerraformPropertyName("vmss_zonal_upgrade_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VmssZonalUpgradeMode { get; set; }
 
     /// <summary>
     /// Block for azure_active_directory.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectory block(s) allowed")]
-    public List<AzurermServiceFabricClusterAzureActiveDirectoryBlock>? AzureActiveDirectory
-    {
-        set => SetProperty("azure_active_directory", value);
-    }
+    [TerraformPropertyName("azure_active_directory")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricClusterAzureActiveDirectoryBlock>>? AzureActiveDirectory { get; set; } = new();
 
     /// <summary>
     /// Block for certificate.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Certificate block(s) allowed")]
-    public List<AzurermServiceFabricClusterCertificateBlock>? Certificate
-    {
-        set => SetProperty("certificate", value);
-    }
+    [TerraformPropertyName("certificate")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricClusterCertificateBlock>>? Certificate { get; set; } = new();
 
     /// <summary>
     /// Block for certificate_common_names.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateCommonNames block(s) allowed")]
-    public List<AzurermServiceFabricClusterCertificateCommonNamesBlock>? CertificateCommonNames
-    {
-        set => SetProperty("certificate_common_names", value);
-    }
+    [TerraformPropertyName("certificate_common_names")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricClusterCertificateCommonNamesBlock>>? CertificateCommonNames { get; set; } = new();
 
     /// <summary>
     /// Block for client_certificate_common_name.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermServiceFabricClusterClientCertificateCommonNameBlock>? ClientCertificateCommonName
-    {
-        set => SetProperty("client_certificate_common_name", value);
-    }
+    [TerraformPropertyName("client_certificate_common_name")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricClusterClientCertificateCommonNameBlock>>? ClientCertificateCommonName { get; set; } = new();
 
     /// <summary>
     /// Block for client_certificate_thumbprint.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermServiceFabricClusterClientCertificateThumbprintBlock>? ClientCertificateThumbprint
-    {
-        set => SetProperty("client_certificate_thumbprint", value);
-    }
+    [TerraformPropertyName("client_certificate_thumbprint")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricClusterClientCertificateThumbprintBlock>>? ClientCertificateThumbprint { get; set; } = new();
 
     /// <summary>
     /// Block for diagnostics_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiagnosticsConfig block(s) allowed")]
-    public List<AzurermServiceFabricClusterDiagnosticsConfigBlock>? DiagnosticsConfig
-    {
-        set => SetProperty("diagnostics_config", value);
-    }
+    [TerraformPropertyName("diagnostics_config")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricClusterDiagnosticsConfigBlock>>? DiagnosticsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for fabric_settings.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermServiceFabricClusterFabricSettingsBlock>? FabricSettings
-    {
-        set => SetProperty("fabric_settings", value);
-    }
+    [TerraformPropertyName("fabric_settings")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricClusterFabricSettingsBlock>>? FabricSettings { get; set; } = new();
 
     /// <summary>
     /// Block for node_type.
@@ -708,53 +604,45 @@ public class AzurermServiceFabricCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NodeType block(s) required")]
-    public List<AzurermServiceFabricClusterNodeTypeBlock>? NodeType
-    {
-        set => SetProperty("node_type", value);
-    }
+    [TerraformPropertyName("node_type")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricClusterNodeTypeBlock>>? NodeType { get; set; } = new();
 
     /// <summary>
     /// Block for reverse_proxy_certificate.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseProxyCertificate block(s) allowed")]
-    public List<AzurermServiceFabricClusterReverseProxyCertificateBlock>? ReverseProxyCertificate
-    {
-        set => SetProperty("reverse_proxy_certificate", value);
-    }
+    [TerraformPropertyName("reverse_proxy_certificate")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricClusterReverseProxyCertificateBlock>>? ReverseProxyCertificate { get; set; } = new();
 
     /// <summary>
     /// Block for reverse_proxy_certificate_common_names.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseProxyCertificateCommonNames block(s) allowed")]
-    public List<AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock>? ReverseProxyCertificateCommonNames
-    {
-        set => SetProperty("reverse_proxy_certificate_common_names", value);
-    }
+    [TerraformPropertyName("reverse_proxy_certificate_common_names")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock>>? ReverseProxyCertificateCommonNames { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermServiceFabricClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermServiceFabricClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for upgrade_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradePolicy block(s) allowed")]
-    public List<AzurermServiceFabricClusterUpgradePolicyBlock>? UpgradePolicy
-    {
-        set => SetProperty("upgrade_policy", value);
-    }
+    [TerraformPropertyName("upgrade_policy")]
+    public TerraformList<TerraformBlock<AzurermServiceFabricClusterUpgradePolicyBlock>>? UpgradePolicy { get; set; } = new();
 
     /// <summary>
     /// The cluster_endpoint attribute.
     /// </summary>
-    public TerraformExpression ClusterEndpoint => this["cluster_endpoint"];
+    [TerraformPropertyName("cluster_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClusterEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_endpoint");
 
 }

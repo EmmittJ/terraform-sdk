@@ -9,139 +9,121 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
 {
     public GoogleCloudbuildTriggerDataSource(string name) : base("google_cloudbuild_trigger", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("approval_config");
-        SetOutput("bitbucket_server_trigger_config");
-        SetOutput("build");
-        SetOutput("create_time");
-        SetOutput("description");
-        SetOutput("developer_connect_event_config");
-        SetOutput("disabled");
-        SetOutput("filename");
-        SetOutput("filter");
-        SetOutput("git_file_source");
-        SetOutput("github");
-        SetOutput("ignored_files");
-        SetOutput("include_build_logs");
-        SetOutput("included_files");
-        SetOutput("name");
-        SetOutput("pubsub_config");
-        SetOutput("repository_event_config");
-        SetOutput("service_account");
-        SetOutput("source_to_build");
-        SetOutput("substitutions");
-        SetOutput("tags");
-        SetOutput("trigger_template");
-        SetOutput("webhook_config");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("trigger_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The [Cloud Build location](https://cloud.google.com/build/docs/locations) for the trigger.
     /// If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The unique identifier for the trigger.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerId is required")]
-    public required TerraformProperty<string> TriggerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("trigger_id");
-        set => SetProperty("trigger_id", value);
-    }
+    [TerraformPropertyName("trigger_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TriggerId { get; set; }
 
     /// <summary>
     /// Configuration for manual approval to start a build invocation of this BuildTrigger.
     /// Builds created by this trigger will require approval before they execute.
     /// Any user with a Cloud Build Approver role for the project can approve a build.
     /// </summary>
-    public TerraformExpression ApprovalConfig => this["approval_config"];
+    [TerraformPropertyName("approval_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ApprovalConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "approval_config");
 
     /// <summary>
     /// BitbucketServerTriggerConfig describes the configuration of a trigger that creates a build whenever a Bitbucket Server event is received.
     /// </summary>
-    public TerraformExpression BitbucketServerTriggerConfig => this["bitbucket_server_trigger_config"];
+    [TerraformPropertyName("bitbucket_server_trigger_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> BitbucketServerTriggerConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "bitbucket_server_trigger_config");
 
     /// <summary>
     /// Contents of the build template. Either a filename or build template must be provided.
     /// </summary>
-    public TerraformExpression Build => this["build"];
+    [TerraformPropertyName("build")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Build => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "build");
 
     /// <summary>
     /// Time when the trigger was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Human-readable description of the trigger.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// Configuration for triggers that respond to Developer Connect events.
     /// </summary>
-    public TerraformExpression DeveloperConnectEventConfig => this["developer_connect_event_config"];
+    [TerraformPropertyName("developer_connect_event_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DeveloperConnectEventConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "developer_connect_event_config");
 
     /// <summary>
     /// Whether the trigger is disabled or not. If true, the trigger will never result in a build.
     /// </summary>
-    public TerraformExpression Disabled => this["disabled"];
+    [TerraformPropertyName("disabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Disabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "disabled");
 
     /// <summary>
     /// Path, from the source root, to a file whose contents is used for the template.
     /// Either a filename or build template must be provided. Set this only when using trigger_template or github.
     /// When using Pub/Sub, Webhook or Manual set the file name using git_file_source instead.
     /// </summary>
-    public TerraformExpression Filename => this["filename"];
+    [TerraformPropertyName("filename")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Filename => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "filename");
 
     /// <summary>
     /// A Common Expression Language string. Used only with Pub/Sub and Webhook.
     /// </summary>
-    public TerraformExpression Filter => this["filter"];
+    [TerraformPropertyName("filter")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Filter => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "filter");
 
     /// <summary>
     /// The file source describing the local or remote Build template.
     /// </summary>
-    public TerraformExpression GitFileSource => this["git_file_source"];
+    [TerraformPropertyName("git_file_source")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> GitFileSource => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "git_file_source");
 
     /// <summary>
     /// Describes the configuration of a trigger that creates a build whenever a GitHub event is received.
     /// 
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; or &#39;webhook_config&#39; must be provided.
     /// </summary>
-    public TerraformExpression Github => this["github"];
+    [TerraformPropertyName("github")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Github => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "github");
 
     /// <summary>
     /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
@@ -154,14 +136,18 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// of the ignored_file globs. If the change has no files that are outside
     /// of the ignoredFiles globs, then we do not trigger a build.
     /// </summary>
-    public TerraformExpression IgnoredFiles => this["ignored_files"];
+    [TerraformPropertyName("ignored_files")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> IgnoredFiles => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "ignored_files");
 
     /// <summary>
     /// Build logs will be sent back to GitHub as part of the checkrun
     /// result.  Values can be INCLUDE_BUILD_LOGS_UNSPECIFIED or
     /// INCLUDE_BUILD_LOGS_WITH_STATUS Possible values: [&amp;quot;INCLUDE_BUILD_LOGS_UNSPECIFIED&amp;quot;, &amp;quot;INCLUDE_BUILD_LOGS_WITH_STATUS&amp;quot;]
     /// </summary>
-    public TerraformExpression IncludeBuildLogs => this["include_build_logs"];
+    [TerraformPropertyName("include_build_logs")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IncludeBuildLogs => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "include_build_logs");
 
     /// <summary>
     /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
@@ -176,12 +162,16 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// those files matches a includedFiles glob. If not, then we do not trigger
     /// a build.
     /// </summary>
-    public TerraformExpression IncludedFiles => this["included_files"];
+    [TerraformPropertyName("included_files")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> IncludedFiles => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "included_files");
 
     /// <summary>
     /// Name of the trigger. Must be unique within the project.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// PubsubConfig describes the configuration of a trigger that creates
@@ -189,12 +179,16 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// 
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
-    public TerraformExpression PubsubConfig => this["pubsub_config"];
+    [TerraformPropertyName("pubsub_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PubsubConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "pubsub_config");
 
     /// <summary>
     /// The configuration of a trigger that creates a build whenever an event from Repo API is received.
     /// </summary>
-    public TerraformExpression RepositoryEventConfig => this["repository_event_config"];
+    [TerraformPropertyName("repository_event_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RepositoryEventConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "repository_event_config");
 
     /// <summary>
     /// The service account used for all user-controlled operations including
@@ -205,7 +199,9 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// 
     /// Format: projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_ID_OR_EMAIL}
     /// </summary>
-    public TerraformExpression ServiceAccount => this["service_account"];
+    [TerraformPropertyName("service_account")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceAccount => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_account");
 
     /// <summary>
     /// The repo and ref of the repository from which to build.
@@ -215,17 +211,23 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// 
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
-    public TerraformExpression SourceToBuild => this["source_to_build"];
+    [TerraformPropertyName("source_to_build")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SourceToBuild => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "source_to_build");
 
     /// <summary>
     /// Substitutions data for Build resource.
     /// </summary>
-    public TerraformExpression Substitutions => this["substitutions"];
+    [TerraformPropertyName("substitutions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Substitutions => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "substitutions");
 
     /// <summary>
     /// Tags for annotation of a BuildTrigger
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Tags => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// Template describing the types of source changes to trigger a build.
@@ -236,7 +238,9 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// 
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39;, &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
-    public TerraformExpression TriggerTemplate => this["trigger_template"];
+    [TerraformPropertyName("trigger_template")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TriggerTemplate => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "trigger_template");
 
     /// <summary>
     /// WebhookConfig describes the configuration of a trigger that creates
@@ -244,6 +248,8 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// 
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
-    public TerraformExpression WebhookConfig => this["webhook_config"];
+    [TerraformPropertyName("webhook_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> WebhookConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "webhook_config");
 
 }

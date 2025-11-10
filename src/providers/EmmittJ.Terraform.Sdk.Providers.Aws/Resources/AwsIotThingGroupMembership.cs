@@ -9,63 +9,43 @@ public class AwsIotThingGroupMembership : TerraformResource
 {
     public AwsIotThingGroupMembership(string name) : base("aws_iot_thing_group_membership", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("override_dynamic_group");
-        SetOutput("region");
-        SetOutput("thing_group_name");
-        SetOutput("thing_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The override_dynamic_group attribute.
     /// </summary>
-    public TerraformProperty<bool> OverrideDynamicGroup
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("override_dynamic_group");
-        set => SetProperty("override_dynamic_group", value);
-    }
+    [TerraformPropertyName("override_dynamic_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? OverrideDynamicGroup { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The thing_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingGroupName is required")]
-    public required TerraformProperty<string> ThingGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("thing_group_name");
-        set => SetProperty("thing_group_name", value);
-    }
+    [TerraformPropertyName("thing_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ThingGroupName { get; set; }
 
     /// <summary>
     /// The thing_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingName is required")]
-    public required TerraformProperty<string> ThingName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("thing_name");
-        set => SetProperty("thing_name", value);
-    }
+    [TerraformPropertyName("thing_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ThingName { get; set; }
 
 }

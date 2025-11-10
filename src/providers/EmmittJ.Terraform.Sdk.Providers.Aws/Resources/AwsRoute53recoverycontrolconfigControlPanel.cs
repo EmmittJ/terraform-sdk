@@ -9,87 +9,71 @@ public class AwsRoute53recoverycontrolconfigControlPanel : TerraformResource
 {
     public AwsRoute53recoverycontrolconfigControlPanel(string name) : base("aws_route53recoverycontrolconfig_control_panel", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("default_control_panel");
-        SetOutput("routing_control_count");
-        SetOutput("status");
-        SetOutput("cluster_arn");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The cluster_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
-    public required TerraformProperty<string> ClusterArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_arn");
-        set => SetProperty("cluster_arn", value);
-    }
+    [TerraformPropertyName("cluster_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The default_control_panel attribute.
     /// </summary>
-    public TerraformExpression DefaultControlPanel => this["default_control_panel"];
+    [TerraformPropertyName("default_control_panel")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DefaultControlPanel => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "default_control_panel");
 
     /// <summary>
     /// The routing_control_count attribute.
     /// </summary>
-    public TerraformExpression RoutingControlCount => this["routing_control_count"];
+    [TerraformPropertyName("routing_control_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RoutingControlCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "routing_control_count");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

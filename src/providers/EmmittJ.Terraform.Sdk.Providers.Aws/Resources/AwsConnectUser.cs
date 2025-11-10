@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for identity_info in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConnectUserIdentityInfoBlock : TerraformBlock
+public class AwsConnectUserIdentityInfoBlock : ITerraformBlock
 {
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformProperty<string>? Email
-    {
-        set => SetProperty("email", value);
-    }
+    [TerraformPropertyName("email")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Email { get; set; }
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FirstName
-    {
-        set => SetProperty("first_name", value);
-    }
+    [TerraformPropertyName("first_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FirstName { get; set; }
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LastName
-    {
-        set => SetProperty("last_name", value);
-    }
+    [TerraformPropertyName("last_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LastName { get; set; }
 
     /// <summary>
     /// The secondary_email attribute.
     /// </summary>
-    public TerraformProperty<string>? SecondaryEmail
-    {
-        set => SetProperty("secondary_email", value);
-    }
+    [TerraformPropertyName("secondary_email")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecondaryEmail { get; set; }
 
 }
 
@@ -46,40 +42,36 @@ public class AwsConnectUserIdentityInfoBlock : TerraformBlock
 /// Block type for phone_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConnectUserPhoneConfigBlock : TerraformBlock
+public class AwsConnectUserPhoneConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The after_contact_work_time_limit attribute.
     /// </summary>
-    public TerraformProperty<double>? AfterContactWorkTimeLimit
-    {
-        set => SetProperty("after_contact_work_time_limit", value);
-    }
+    [TerraformPropertyName("after_contact_work_time_limit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AfterContactWorkTimeLimit { get; set; }
 
     /// <summary>
     /// The auto_accept attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoAccept
-    {
-        set => SetProperty("auto_accept", value);
-    }
+    [TerraformPropertyName("auto_accept")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoAccept { get; set; }
 
     /// <summary>
     /// The desk_phone_number attribute.
     /// </summary>
-    public TerraformProperty<string>? DeskPhoneNumber
-    {
-        set => SetProperty("desk_phone_number", value);
-    }
+    [TerraformPropertyName("desk_phone_number")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeskPhoneNumber { get; set; }
 
     /// <summary>
     /// The phone_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneType is required")]
-    public required TerraformProperty<string> PhoneType
-    {
-        set => SetProperty("phone_type", value);
-    }
+    [TerraformPropertyName("phone_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PhoneType { get; set; }
 
 }
 
@@ -91,138 +83,96 @@ public class AwsConnectUser : TerraformResource
 {
     public AwsConnectUser(string name) : base("aws_connect_user", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("user_id");
-        SetOutput("directory_user_id");
-        SetOutput("hierarchy_group_id");
-        SetOutput("id");
-        SetOutput("instance_id");
-        SetOutput("name");
-        SetOutput("password");
-        SetOutput("region");
-        SetOutput("routing_profile_id");
-        SetOutput("security_profile_ids");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The directory_user_id attribute.
     /// </summary>
-    public TerraformProperty<string> DirectoryUserId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("directory_user_id");
-        set => SetProperty("directory_user_id", value);
-    }
+    [TerraformPropertyName("directory_user_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DirectoryUserId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "directory_user_id");
 
     /// <summary>
     /// The hierarchy_group_id attribute.
     /// </summary>
-    public TerraformProperty<string> HierarchyGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("hierarchy_group_id");
-        set => SetProperty("hierarchy_group_id", value);
-    }
+    [TerraformPropertyName("hierarchy_group_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HierarchyGroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
-    public required TerraformProperty<string> InstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
-        set => SetProperty("instance_id", value);
-    }
+    [TerraformPropertyName("instance_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string> Password
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("password");
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Password { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The routing_profile_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingProfileId is required")]
-    public required TerraformProperty<string> RoutingProfileId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("routing_profile_id");
-        set => SetProperty("routing_profile_id", value);
-    }
+    [TerraformPropertyName("routing_profile_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoutingProfileId { get; set; }
 
     /// <summary>
     /// The security_profile_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityProfileIds is required")]
-    public HashSet<TerraformProperty<string>> SecurityProfileIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_profile_ids");
-        set => SetProperty("security_profile_ids", value);
-    }
+    [TerraformPropertyName("security_profile_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityProfileIds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for identity_info.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdentityInfo block(s) allowed")]
-    public List<AwsConnectUserIdentityInfoBlock>? IdentityInfo
-    {
-        set => SetProperty("identity_info", value);
-    }
+    [TerraformPropertyName("identity_info")]
+    public TerraformList<TerraformBlock<AwsConnectUserIdentityInfoBlock>>? IdentityInfo { get; set; } = new();
 
     /// <summary>
     /// Block for phone_config.
@@ -231,19 +181,21 @@ public class AwsConnectUser : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PhoneConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PhoneConfig block(s) allowed")]
-    public List<AwsConnectUserPhoneConfigBlock>? PhoneConfig
-    {
-        set => SetProperty("phone_config", value);
-    }
+    [TerraformPropertyName("phone_config")]
+    public TerraformList<TerraformBlock<AwsConnectUserPhoneConfigBlock>>? PhoneConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    public TerraformExpression UserId => this["user_id"];
+    [TerraformPropertyName("user_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_id");
 
 }

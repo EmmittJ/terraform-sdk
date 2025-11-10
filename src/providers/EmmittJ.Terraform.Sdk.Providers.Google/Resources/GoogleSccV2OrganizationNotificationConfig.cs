@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for streaming_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSccV2OrganizationNotificationConfigStreamingConfigBlock : TerraformBlock
+public class GoogleSccV2OrganizationNotificationConfigStreamingConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Expression that defines the filter to apply across create/update
@@ -36,10 +36,9 @@ public class GoogleSccV2OrganizationNotificationConfigStreamingConfigBlock : Ter
     /// for information on how to write a filter.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
-    public required TerraformProperty<string> Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Filter { get; set; }
 
 }
 
@@ -47,31 +46,28 @@ public class GoogleSccV2OrganizationNotificationConfigStreamingConfigBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSccV2OrganizationNotificationConfigTimeoutsBlock : TerraformBlock
+public class GoogleSccV2OrganizationNotificationConfigTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -83,79 +79,54 @@ public class GoogleSccV2OrganizationNotificationConfig : TerraformResource
 {
     public GoogleSccV2OrganizationNotificationConfig(string name) : base("google_scc_v2_organization_notification_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("service_account");
-        SetOutput("config_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("organization");
-        SetOutput("pubsub_topic");
     }
 
     /// <summary>
     /// This must be unique within the organization.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
-    public required TerraformProperty<string> ConfigId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("config_id");
-        set => SetProperty("config_id", value);
-    }
+    [TerraformPropertyName("config_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConfigId { get; set; }
 
     /// <summary>
     /// The description of the notification config (max of 1024 characters).
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// location Id is provided by organization. If not provided, Use global as default.
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// The organization whose Cloud Security Command Center the Notification
     /// Config lives in.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
-    public required TerraformProperty<string> Organization
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("organization");
-        set => SetProperty("organization", value);
-    }
+    [TerraformPropertyName("organization")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Organization { get; set; }
 
     /// <summary>
     /// The Pub/Sub topic to send notifications to. Its format is
     /// &amp;quot;projects/[project_id]/topics/[topic]&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
-    public required TerraformProperty<string> PubsubTopic
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pubsub_topic");
-        set => SetProperty("pubsub_topic", value);
-    }
+    [TerraformPropertyName("pubsub_topic")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PubsubTopic { get; set; }
 
     /// <summary>
     /// Block for streaming_config.
@@ -164,30 +135,30 @@ public class GoogleSccV2OrganizationNotificationConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamingConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StreamingConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StreamingConfig block(s) allowed")]
-    public List<GoogleSccV2OrganizationNotificationConfigStreamingConfigBlock>? StreamingConfig
-    {
-        set => SetProperty("streaming_config", value);
-    }
+    [TerraformPropertyName("streaming_config")]
+    public TerraformList<TerraformBlock<GoogleSccV2OrganizationNotificationConfigStreamingConfigBlock>>? StreamingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleSccV2OrganizationNotificationConfigTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleSccV2OrganizationNotificationConfigTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of this notification config, in the format
     /// &#39;organizations/{{organization}}/notificationConfigs/{{config_id}}&#39;.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The service account that needs &amp;quot;pubsub.topics.publish&amp;quot; permission to
     /// publish to the Pub/Sub topic.
     /// </summary>
-    public TerraformExpression ServiceAccount => this["service_account"];
+    [TerraformPropertyName("service_account")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceAccount => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_account");
 
 }

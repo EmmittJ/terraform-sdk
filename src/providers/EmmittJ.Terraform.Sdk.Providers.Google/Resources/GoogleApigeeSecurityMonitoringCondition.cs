@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for include_all_resources in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesBlock : TerraformBlock
+public class GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesBlock : ITerraformBlock
 {
 }
 
@@ -14,31 +14,28 @@ public class GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesBlock : T
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeSecurityMonitoringConditionTimeoutsBlock : TerraformBlock
+public class GoogleApigeeSecurityMonitoringConditionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -50,116 +47,97 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
 {
     public GoogleApigeeSecurityMonitoringCondition(string name) : base("google_apigee_security_monitoring_condition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("name");
-        SetOutput("total_deployed_resources");
-        SetOutput("total_monitored_resources");
-        SetOutput("update_time");
-        SetOutput("condition_id");
-        SetOutput("id");
-        SetOutput("org_id");
-        SetOutput("profile");
-        SetOutput("scope");
     }
 
     /// <summary>
     /// Resource ID of the security monitoring condition.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionId is required")]
-    public required TerraformProperty<string> ConditionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("condition_id");
-        set => SetProperty("condition_id", value);
-    }
+    [TerraformPropertyName("condition_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConditionId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee Security Monitoring Condition,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    public required TerraformProperty<string> OrgId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
-        set => SetProperty("org_id", value);
-    }
+    [TerraformPropertyName("org_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
 
     /// <summary>
     /// ID of security profile of the security monitoring condition.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Profile is required")]
-    public required TerraformProperty<string> Profile
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("profile");
-        set => SetProperty("profile", value);
-    }
+    [TerraformPropertyName("profile")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Profile { get; set; }
 
     /// <summary>
     /// ID of security profile of the security monitoring condition.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
-    public required TerraformProperty<string> Scope
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("scope");
-        set => SetProperty("scope", value);
-    }
+    [TerraformPropertyName("scope")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Scope { get; set; }
 
     /// <summary>
     /// Block for include_all_resources.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeAllResources block(s) allowed")]
-    public List<GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesBlock>? IncludeAllResources
-    {
-        set => SetProperty("include_all_resources", value);
-    }
+    [TerraformPropertyName("include_all_resources")]
+    public TerraformList<TerraformBlock<GoogleApigeeSecurityMonitoringConditionIncludeAllResourcesBlock>>? IncludeAllResources { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeSecurityMonitoringConditionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeSecurityMonitoringConditionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp at which this profile was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Name of the security monitoring condition resource,
     /// in the format &#39;organizations/{{org_name}}/securityMonitoringConditions/{{condition_id}}&#39;.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Total number of deployed resources within scope.
     /// </summary>
-    public TerraformExpression TotalDeployedResources => this["total_deployed_resources"];
+    [TerraformPropertyName("total_deployed_resources")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalDeployedResources => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_deployed_resources");
 
     /// <summary>
     /// Total number of monitored resources within this condition.
     /// </summary>
-    public TerraformExpression TotalMonitoredResources => this["total_monitored_resources"];
+    [TerraformPropertyName("total_monitored_resources")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TotalMonitoredResources => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "total_monitored_resources");
 
     /// <summary>
     /// The timestamp at which this profile was most recently updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

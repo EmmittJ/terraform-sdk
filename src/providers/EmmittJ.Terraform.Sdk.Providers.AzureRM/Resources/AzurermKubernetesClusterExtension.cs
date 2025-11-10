@@ -6,50 +6,45 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
+public class AzurermKubernetesClusterExtensionPlanBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The product attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
-    public required TerraformProperty<string> Product
-    {
-        set => SetProperty("product", value);
-    }
+    [TerraformPropertyName("product")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Product { get; set; }
 
     /// <summary>
     /// The promotion_code attribute.
     /// </summary>
-    public TerraformProperty<string>? PromotionCode
-    {
-        set => SetProperty("promotion_code", value);
-    }
+    [TerraformPropertyName("promotion_code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PromotionCode { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    public required TerraformProperty<string> Publisher
-    {
-        set => SetProperty("publisher", value);
-    }
+    [TerraformPropertyName("publisher")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
 }
 
@@ -57,39 +52,35 @@ public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
+public class AzurermKubernetesClusterExtensionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -101,145 +92,108 @@ public class AzurermKubernetesClusterExtension : TerraformResource
 {
     public AzurermKubernetesClusterExtension(string name) : base("azurerm_kubernetes_cluster_extension", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("aks_assigned_identity");
-        SetOutput("current_version");
-        SetOutput("cluster_id");
-        SetOutput("configuration_protected_settings");
-        SetOutput("configuration_settings");
-        SetOutput("extension_type");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("release_namespace");
-        SetOutput("release_train");
-        SetOutput("target_namespace");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    public required TerraformProperty<string> ClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_id");
-        set => SetProperty("cluster_id", value);
-    }
+    [TerraformPropertyName("cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
 
     /// <summary>
     /// The configuration_protected_settings attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> ConfigurationProtectedSettings
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("configuration_protected_settings");
-        set => SetProperty("configuration_protected_settings", value);
-    }
+    [TerraformPropertyName("configuration_protected_settings")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ConfigurationProtectedSettings { get; set; }
 
     /// <summary>
     /// The configuration_settings attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> ConfigurationSettings
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("configuration_settings");
-        set => SetProperty("configuration_settings", value);
-    }
+    [TerraformPropertyName("configuration_settings")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ConfigurationSettings { get; set; }
 
     /// <summary>
     /// The extension_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionType is required")]
-    public required TerraformProperty<string> ExtensionType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("extension_type");
-        set => SetProperty("extension_type", value);
-    }
+    [TerraformPropertyName("extension_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExtensionType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The release_namespace attribute.
     /// </summary>
-    public TerraformProperty<string> ReleaseNamespace
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("release_namespace");
-        set => SetProperty("release_namespace", value);
-    }
+    [TerraformPropertyName("release_namespace")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ReleaseNamespace { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "release_namespace");
 
     /// <summary>
     /// The release_train attribute.
     /// </summary>
-    public TerraformProperty<string> ReleaseTrain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("release_train");
-        set => SetProperty("release_train", value);
-    }
+    [TerraformPropertyName("release_train")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ReleaseTrain { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "release_train");
 
     /// <summary>
     /// The target_namespace attribute.
     /// </summary>
-    public TerraformProperty<string> TargetNamespace
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_namespace");
-        set => SetProperty("target_namespace", value);
-    }
+    [TerraformPropertyName("target_namespace")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TargetNamespace { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "target_namespace");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
     /// <summary>
     /// Block for plan.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public List<AzurermKubernetesClusterExtensionPlanBlock>? Plan
-    {
-        set => SetProperty("plan", value);
-    }
+    [TerraformPropertyName("plan")]
+    public TerraformList<TerraformBlock<AzurermKubernetesClusterExtensionPlanBlock>>? Plan { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermKubernetesClusterExtensionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermKubernetesClusterExtensionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The aks_assigned_identity attribute.
     /// </summary>
-    public TerraformExpression AksAssignedIdentity => this["aks_assigned_identity"];
+    [TerraformPropertyName("aks_assigned_identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AksAssignedIdentity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "aks_assigned_identity");
 
     /// <summary>
     /// The current_version attribute.
     /// </summary>
-    public TerraformExpression CurrentVersion => this["current_version"];
+    [TerraformPropertyName("current_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CurrentVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "current_version");
 
 }

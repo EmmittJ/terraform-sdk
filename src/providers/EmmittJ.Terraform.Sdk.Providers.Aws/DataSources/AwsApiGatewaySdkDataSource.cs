@@ -9,92 +9,72 @@ public class AwsApiGatewaySdkDataSource : TerraformDataSource
 {
     public AwsApiGatewaySdkDataSource(string name) : base("aws_api_gateway_sdk", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("body");
-        SetOutput("content_disposition");
-        SetOutput("content_type");
-        SetOutput("id");
-        SetOutput("parameters");
-        SetOutput("region");
-        SetOutput("rest_api_id");
-        SetOutput("sdk_type");
-        SetOutput("stage_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Parameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
-    public required TerraformProperty<string> RestApiId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rest_api_id");
-        set => SetProperty("rest_api_id", value);
-    }
+    [TerraformPropertyName("rest_api_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RestApiId { get; set; }
 
     /// <summary>
     /// The sdk_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SdkType is required")]
-    public required TerraformProperty<string> SdkType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sdk_type");
-        set => SetProperty("sdk_type", value);
-    }
+    [TerraformPropertyName("sdk_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SdkType { get; set; }
 
     /// <summary>
     /// The stage_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
-    public required TerraformProperty<string> StageName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("stage_name");
-        set => SetProperty("stage_name", value);
-    }
+    [TerraformPropertyName("stage_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StageName { get; set; }
 
     /// <summary>
     /// The body attribute.
     /// </summary>
-    public TerraformExpression Body => this["body"];
+    [TerraformPropertyName("body")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Body => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "body");
 
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
-    public TerraformExpression ContentDisposition => this["content_disposition"];
+    [TerraformPropertyName("content_disposition")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContentDisposition => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content_disposition");
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformExpression ContentType => this["content_type"];
+    [TerraformPropertyName("content_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContentType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content_type");
 
 }

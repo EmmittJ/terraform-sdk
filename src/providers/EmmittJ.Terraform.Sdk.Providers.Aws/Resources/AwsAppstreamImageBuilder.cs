@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_endpoint in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAppstreamImageBuilderAccessEndpointBlock : TerraformBlock
+public class AwsAppstreamImageBuilderAccessEndpointBlock : ITerraformBlock
 {
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
-    public required TerraformProperty<string> EndpointType
-    {
-        set => SetProperty("endpoint_type", value);
-    }
+    [TerraformPropertyName("endpoint_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EndpointType { get; set; }
 
     /// <summary>
     /// The vpce_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpceId
-    {
-        set => SetProperty("vpce_id", value);
-    }
+    [TerraformPropertyName("vpce_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VpceId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "vpce_id");
 
 }
 
@@ -31,23 +29,21 @@ public class AwsAppstreamImageBuilderAccessEndpointBlock : TerraformBlock
 /// Block type for domain_join_info in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppstreamImageBuilderDomainJoinInfoBlock : TerraformBlock
+public class AwsAppstreamImageBuilderDomainJoinInfoBlock : ITerraformBlock
 {
     /// <summary>
     /// The directory_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DirectoryName
-    {
-        set => SetProperty("directory_name", value);
-    }
+    [TerraformPropertyName("directory_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DirectoryName { get; set; }
 
     /// <summary>
     /// The organizational_unit_distinguished_name attribute.
     /// </summary>
-    public TerraformProperty<string>? OrganizationalUnitDistinguishedName
-    {
-        set => SetProperty("organizational_unit_distinguished_name", value);
-    }
+    [TerraformPropertyName("organizational_unit_distinguished_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OrganizationalUnitDistinguishedName { get; set; }
 
 }
 
@@ -55,23 +51,21 @@ public class AwsAppstreamImageBuilderDomainJoinInfoBlock : TerraformBlock
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppstreamImageBuilderVpcConfigBlock : TerraformBlock
+public class AwsAppstreamImageBuilderVpcConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
-    {
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SecurityGroupIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "security_group_ids");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
-    {
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SubnetIds { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "subnet_ids");
 
 }
 
@@ -83,191 +77,144 @@ public class AwsAppstreamImageBuilder : TerraformResource
 {
     public AwsAppstreamImageBuilder(string name) : base("aws_appstream_image_builder", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("created_time");
-        SetOutput("state");
-        SetOutput("appstream_agent_version");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("enable_default_internet_access");
-        SetOutput("iam_role_arn");
-        SetOutput("id");
-        SetOutput("image_arn");
-        SetOutput("image_name");
-        SetOutput("instance_type");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The appstream_agent_version attribute.
     /// </summary>
-    public TerraformProperty<string> AppstreamAgentVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("appstream_agent_version");
-        set => SetProperty("appstream_agent_version", value);
-    }
+    [TerraformPropertyName("appstream_agent_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AppstreamAgentVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "appstream_agent_version");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Description { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The enable_default_internet_access attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableDefaultInternetAccess
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_default_internet_access");
-        set => SetProperty("enable_default_internet_access", value);
-    }
+    [TerraformPropertyName("enable_default_internet_access")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnableDefaultInternetAccess { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_default_internet_access");
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> IamRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam_role_arn");
-        set => SetProperty("iam_role_arn", value);
-    }
+    [TerraformPropertyName("iam_role_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IamRoleArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "iam_role_arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The image_arn attribute.
     /// </summary>
-    public TerraformProperty<string> ImageArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("image_arn");
-        set => SetProperty("image_arn", value);
-    }
+    [TerraformPropertyName("image_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ImageArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_arn");
 
     /// <summary>
     /// The image_name attribute.
     /// </summary>
-    public TerraformProperty<string> ImageName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("image_name");
-        set => SetProperty("image_name", value);
-    }
+    [TerraformPropertyName("image_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ImageName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_name");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    public required TerraformProperty<string> InstanceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_type");
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceType { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for access_endpoint.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 AccessEndpoint block(s) allowed")]
-    public HashSet<AwsAppstreamImageBuilderAccessEndpointBlock>? AccessEndpoint
-    {
-        set => SetProperty("access_endpoint", value);
-    }
+    [TerraformPropertyName("access_endpoint")]
+    public TerraformSet<TerraformBlock<AwsAppstreamImageBuilderAccessEndpointBlock>>? AccessEndpoint { get; set; } = new();
 
     /// <summary>
     /// Block for domain_join_info.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainJoinInfo block(s) allowed")]
-    public List<AwsAppstreamImageBuilderDomainJoinInfoBlock>? DomainJoinInfo
-    {
-        set => SetProperty("domain_join_info", value);
-    }
+    [TerraformPropertyName("domain_join_info")]
+    public TerraformList<TerraformBlock<AwsAppstreamImageBuilderDomainJoinInfoBlock>>? DomainJoinInfo { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
-    public List<AwsAppstreamImageBuilderVpcConfigBlock>? VpcConfig
-    {
-        set => SetProperty("vpc_config", value);
-    }
+    [TerraformPropertyName("vpc_config")]
+    public TerraformList<TerraformBlock<AwsAppstreamImageBuilderVpcConfigBlock>>? VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
-    public TerraformExpression CreatedTime => this["created_time"];
+    [TerraformPropertyName("created_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
 }

@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSpannerInstancePartitionTimeoutsBlock : TerraformBlock
+public class GoogleSpannerInstancePartitionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,20 +38,6 @@ public class GoogleSpannerInstancePartition : TerraformResource
 {
     public GoogleSpannerInstancePartition(string name) : base("google_spanner_instance_partition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("state");
-        SetOutput("config");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("instance");
-        SetOutput("name");
-        SetOutput("node_count");
-        SetOutput("processing_units");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -62,41 +45,33 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// defines the geographic placement and replication of data in this instance partition.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
-    public required TerraformProperty<string> Config
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("config");
-        set => SetProperty("config", value);
-    }
+    [TerraformPropertyName("config")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Config { get; set; }
 
     /// <summary>
     /// The descriptive name for this instance partition as it appears in UIs.
     /// Must be unique per project and between 4 and 30 characters in length.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance to create the instance partition in.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    public required TerraformProperty<string> Instance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance");
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
 
     /// <summary>
     /// A unique identifier for the instance partition, which cannot be changed after
@@ -104,50 +79,40 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// and match the regular expression [a-z][a-z0-9\\-]{0,61}[a-z0-9].
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The number of nodes allocated to this instance partition. One node equals
     /// 1000 processing units. Exactly one of either node_count or processing_units
     /// must be present.
     /// </summary>
-    public TerraformProperty<double> NodeCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("node_count");
-        set => SetProperty("node_count", value);
-    }
+    [TerraformPropertyName("node_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? NodeCount { get; set; }
 
     /// <summary>
     /// The number of processing units allocated to this instance partition.
     /// Exactly one of either node_count or processing_units must be present.
     /// </summary>
-    public TerraformProperty<double> ProcessingUnits
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("processing_units");
-        set => SetProperty("processing_units", value);
-    }
+    [TerraformPropertyName("processing_units")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ProcessingUnits { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleSpannerInstancePartitionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleSpannerInstancePartitionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The current instance partition state. Possible values are:
@@ -155,6 +120,8 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// allocated for the instance partition.
     /// READY: The instance partition has been allocated resources and is ready for use.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
 }

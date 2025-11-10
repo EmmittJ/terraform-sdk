@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for data_collection_options in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : TerraformBlock
+public class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The diagnostics_events_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DiagnosticsEventsEnabled
-    {
-        set => SetProperty("diagnostics_events_enabled", value);
-    }
+    [TerraformPropertyName("diagnostics_events_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> DiagnosticsEventsEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "diagnostics_events_enabled");
 
     /// <summary>
     /// The health_monitoring_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? HealthMonitoringEnabled
-    {
-        set => SetProperty("health_monitoring_enabled", value);
-    }
+    [TerraformPropertyName("health_monitoring_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> HealthMonitoringEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "health_monitoring_enabled");
 
     /// <summary>
     /// The incident_logs_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncidentLogsEnabled
-    {
-        set => SetProperty("incident_logs_enabled", value);
-    }
+    [TerraformPropertyName("incident_logs_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> IncidentLogsEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "incident_logs_enabled");
 
 }
 
@@ -38,23 +35,21 @@ public class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : TerraformBl
 /// Block type for file_system_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOracleCloudVmClusterFileSystemConfigurationBlock : TerraformBlock
+public class AzurermOracleCloudVmClusterFileSystemConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The mount_point attribute.
     /// </summary>
-    public TerraformProperty<string>? MountPoint
-    {
-        set => SetProperty("mount_point", value);
-    }
+    [TerraformPropertyName("mount_point")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MountPoint { get; set; }
 
     /// <summary>
     /// The size_in_gb attribute.
     /// </summary>
-    public TerraformProperty<double>? SizeInGb
-    {
-        set => SetProperty("size_in_gb", value);
-    }
+    [TerraformPropertyName("size_in_gb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SizeInGb { get; set; }
 
 }
 
@@ -62,39 +57,35 @@ public class AzurermOracleCloudVmClusterFileSystemConfigurationBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermOracleCloudVmClusterTimeoutsBlock : TerraformBlock
+public class AzurermOracleCloudVmClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -106,354 +97,258 @@ public class AzurermOracleCloudVmCluster : TerraformResource
 {
     public AzurermOracleCloudVmCluster(string name) : base("azurerm_oracle_cloud_vm_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("hostname_actual");
-        SetOutput("ocid");
-        SetOutput("backup_subnet_cidr");
-        SetOutput("cloud_exadata_infrastructure_id");
-        SetOutput("cluster_name");
-        SetOutput("cpu_core_count");
-        SetOutput("data_storage_percentage");
-        SetOutput("data_storage_size_in_tbs");
-        SetOutput("db_node_storage_size_in_gbs");
-        SetOutput("db_servers");
-        SetOutput("display_name");
-        SetOutput("domain");
-        SetOutput("gi_version");
-        SetOutput("hostname");
-        SetOutput("id");
-        SetOutput("license_model");
-        SetOutput("local_backup_enabled");
-        SetOutput("location");
-        SetOutput("memory_size_in_gbs");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("scan_listener_port_tcp");
-        SetOutput("scan_listener_port_tcp_ssl");
-        SetOutput("sparse_diskgroup_enabled");
-        SetOutput("ssh_public_keys");
-        SetOutput("subnet_id");
-        SetOutput("system_version");
-        SetOutput("tags");
-        SetOutput("time_zone");
-        SetOutput("virtual_network_id");
-        SetOutput("zone_id");
     }
 
     /// <summary>
     /// The backup_subnet_cidr attribute.
     /// </summary>
-    public TerraformProperty<string> BackupSubnetCidr
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backup_subnet_cidr");
-        set => SetProperty("backup_subnet_cidr", value);
-    }
+    [TerraformPropertyName("backup_subnet_cidr")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BackupSubnetCidr { get; set; }
 
     /// <summary>
     /// The cloud_exadata_infrastructure_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
-    public required TerraformProperty<string> CloudExadataInfrastructureId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
-        set => SetProperty("cloud_exadata_infrastructure_id", value);
-    }
+    [TerraformPropertyName("cloud_exadata_infrastructure_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CloudExadataInfrastructureId { get; set; }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformProperty<string> ClusterName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
-        set => SetProperty("cluster_name", value);
-    }
+    [TerraformPropertyName("cluster_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ClusterName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_name");
 
     /// <summary>
     /// The cpu_core_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCount is required")]
-    public required TerraformProperty<double> CpuCoreCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("cpu_core_count");
-        set => SetProperty("cpu_core_count", value);
-    }
+    [TerraformPropertyName("cpu_core_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> CpuCoreCount { get; set; }
 
     /// <summary>
     /// The data_storage_percentage attribute.
     /// </summary>
-    public TerraformProperty<double> DataStoragePercentage
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("data_storage_percentage");
-        set => SetProperty("data_storage_percentage", value);
-    }
+    [TerraformPropertyName("data_storage_percentage")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DataStoragePercentage { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "data_storage_percentage");
 
     /// <summary>
     /// The data_storage_size_in_tbs attribute.
     /// </summary>
-    public TerraformProperty<double> DataStorageSizeInTbs
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("data_storage_size_in_tbs");
-        set => SetProperty("data_storage_size_in_tbs", value);
-    }
+    [TerraformPropertyName("data_storage_size_in_tbs")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DataStorageSizeInTbs { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "data_storage_size_in_tbs");
 
     /// <summary>
     /// The db_node_storage_size_in_gbs attribute.
     /// </summary>
-    public TerraformProperty<double> DbNodeStorageSizeInGbs
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("db_node_storage_size_in_gbs");
-        set => SetProperty("db_node_storage_size_in_gbs", value);
-    }
+    [TerraformPropertyName("db_node_storage_size_in_gbs")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DbNodeStorageSizeInGbs { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "db_node_storage_size_in_gbs");
 
     /// <summary>
     /// The db_servers attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbServers is required")]
-    public List<TerraformProperty<string>> DbServers
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("db_servers");
-        set => SetProperty("db_servers", value);
-    }
+    [TerraformPropertyName("db_servers")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? DbServers { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string> Domain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain");
-        set => SetProperty("domain", value);
-    }
+    [TerraformPropertyName("domain")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Domain { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain");
 
     /// <summary>
     /// The gi_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GiVersion is required")]
-    public required TerraformProperty<string> GiVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gi_version");
-        set => SetProperty("gi_version", value);
-    }
+    [TerraformPropertyName("gi_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GiVersion { get; set; }
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
-    public required TerraformProperty<string> Hostname
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("hostname");
-        set => SetProperty("hostname", value);
-    }
+    [TerraformPropertyName("hostname")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Hostname { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseModel is required")]
-    public required TerraformProperty<string> LicenseModel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("license_model");
-        set => SetProperty("license_model", value);
-    }
+    [TerraformPropertyName("license_model")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LicenseModel { get; set; }
 
     /// <summary>
     /// The local_backup_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LocalBackupEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("local_backup_enabled");
-        set => SetProperty("local_backup_enabled", value);
-    }
+    [TerraformPropertyName("local_backup_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> LocalBackupEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "local_backup_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The memory_size_in_gbs attribute.
     /// </summary>
-    public TerraformProperty<double> MemorySizeInGbs
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("memory_size_in_gbs");
-        set => SetProperty("memory_size_in_gbs", value);
-    }
+    [TerraformPropertyName("memory_size_in_gbs")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MemorySizeInGbs { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "memory_size_in_gbs");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The scan_listener_port_tcp attribute.
     /// </summary>
-    public TerraformProperty<double> ScanListenerPortTcp
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("scan_listener_port_tcp");
-        set => SetProperty("scan_listener_port_tcp", value);
-    }
+    [TerraformPropertyName("scan_listener_port_tcp")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ScanListenerPortTcp { get; set; }
 
     /// <summary>
     /// The scan_listener_port_tcp_ssl attribute.
     /// </summary>
-    public TerraformProperty<double> ScanListenerPortTcpSsl
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("scan_listener_port_tcp_ssl");
-        set => SetProperty("scan_listener_port_tcp_ssl", value);
-    }
+    [TerraformPropertyName("scan_listener_port_tcp_ssl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ScanListenerPortTcpSsl { get; set; }
 
     /// <summary>
     /// The sparse_diskgroup_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> SparseDiskgroupEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("sparse_diskgroup_enabled");
-        set => SetProperty("sparse_diskgroup_enabled", value);
-    }
+    [TerraformPropertyName("sparse_diskgroup_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> SparseDiskgroupEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "sparse_diskgroup_enabled");
 
     /// <summary>
     /// The ssh_public_keys attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKeys is required")]
-    public List<TerraformProperty<string>> SshPublicKeys
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("ssh_public_keys");
-        set => SetProperty("ssh_public_keys", value);
-    }
+    [TerraformPropertyName("ssh_public_keys")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? SshPublicKeys { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
     /// <summary>
     /// The system_version attribute.
     /// </summary>
-    public TerraformProperty<string> SystemVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("system_version");
-        set => SetProperty("system_version", value);
-    }
+    [TerraformPropertyName("system_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SystemVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "system_version");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string> TimeZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
-        set => SetProperty("time_zone", value);
-    }
+    [TerraformPropertyName("time_zone")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TimeZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "time_zone");
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
-    public required TerraformProperty<string> VirtualNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_id");
-        set => SetProperty("virtual_network_id", value);
-    }
+    [TerraformPropertyName("virtual_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualNetworkId { get; set; }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformProperty<string> ZoneId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("zone_id");
-        set => SetProperty("zone_id", value);
-    }
+    [TerraformPropertyName("zone_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ZoneId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "zone_id");
 
     /// <summary>
     /// Block for data_collection_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCollectionOptions block(s) allowed")]
-    public List<AzurermOracleCloudVmClusterDataCollectionOptionsBlock>? DataCollectionOptions
-    {
-        set => SetProperty("data_collection_options", value);
-    }
+    [TerraformPropertyName("data_collection_options")]
+    public TerraformList<TerraformBlock<AzurermOracleCloudVmClusterDataCollectionOptionsBlock>>? DataCollectionOptions { get; set; } = new();
 
     /// <summary>
     /// Block for file_system_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermOracleCloudVmClusterFileSystemConfigurationBlock>? FileSystemConfiguration
-    {
-        set => SetProperty("file_system_configuration", value);
-    }
+    [TerraformPropertyName("file_system_configuration")]
+    public TerraformList<TerraformBlock<AzurermOracleCloudVmClusterFileSystemConfigurationBlock>>? FileSystemConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermOracleCloudVmClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermOracleCloudVmClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The hostname_actual attribute.
     /// </summary>
-    public TerraformExpression HostnameActual => this["hostname_actual"];
+    [TerraformPropertyName("hostname_actual")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostnameActual => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hostname_actual");
 
     /// <summary>
     /// The ocid attribute.
     /// </summary>
-    public TerraformExpression Ocid => this["ocid"];
+    [TerraformPropertyName("ocid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Ocid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ocid");
 
 }

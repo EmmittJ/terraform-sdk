@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageTableEntityTimeoutsBlock : TerraformBlock
+public class AzurermStorageTableEntityTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,74 +45,52 @@ public class AzurermStorageTableEntity : TerraformResource
 {
     public AzurermStorageTableEntity(string name) : base("azurerm_storage_table_entity", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("entity");
-        SetOutput("id");
-        SetOutput("partition_key");
-        SetOutput("row_key");
-        SetOutput("storage_table_id");
     }
 
     /// <summary>
     /// The entity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entity is required")]
-    public Dictionary<string, TerraformProperty<string>> Entity
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("entity");
-        set => SetProperty("entity", value);
-    }
+    [TerraformPropertyName("entity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Entity { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
-    public required TerraformProperty<string> PartitionKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("partition_key");
-        set => SetProperty("partition_key", value);
-    }
+    [TerraformPropertyName("partition_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PartitionKey { get; set; }
 
     /// <summary>
     /// The row_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
-    public required TerraformProperty<string> RowKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("row_key");
-        set => SetProperty("row_key", value);
-    }
+    [TerraformPropertyName("row_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RowKey { get; set; }
 
     /// <summary>
     /// The storage_table_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
-    public required TerraformProperty<string> StorageTableId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_table_id");
-        set => SetProperty("storage_table_id", value);
-    }
+    [TerraformPropertyName("storage_table_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageTableId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStorageTableEntityTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStorageTableEntityTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

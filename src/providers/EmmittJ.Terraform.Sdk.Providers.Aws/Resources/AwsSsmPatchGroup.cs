@@ -9,53 +9,36 @@ public class AwsSsmPatchGroup : TerraformResource
 {
     public AwsSsmPatchGroup(string name) : base("aws_ssm_patch_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("baseline_id");
-        SetOutput("id");
-        SetOutput("patch_group");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The baseline_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaselineId is required")]
-    public required TerraformProperty<string> BaselineId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("baseline_id");
-        set => SetProperty("baseline_id", value);
-    }
+    [TerraformPropertyName("baseline_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BaselineId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The patch_group attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchGroup is required")]
-    public required TerraformProperty<string> PatchGroup
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("patch_group");
-        set => SetProperty("patch_group", value);
-    }
+    [TerraformPropertyName("patch_group")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PatchGroup { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
 }

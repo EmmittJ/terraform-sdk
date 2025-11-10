@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for nfs_exports in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFsxOpenzfsVolumeNfsExportsBlock : TerraformBlock
+public class AwsFsxOpenzfsVolumeNfsExportsBlock : ITerraformBlock
 {
 }
 
@@ -14,25 +14,23 @@ public class AwsFsxOpenzfsVolumeNfsExportsBlock : TerraformBlock
 /// Block type for origin_snapshot in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlock
+public class AwsFsxOpenzfsVolumeOriginSnapshotBlock : ITerraformBlock
 {
     /// <summary>
     /// The copy_strategy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyStrategy is required")]
-    public required TerraformProperty<string> CopyStrategy
-    {
-        set => SetProperty("copy_strategy", value);
-    }
+    [TerraformPropertyName("copy_strategy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CopyStrategy { get; set; }
 
     /// <summary>
     /// The snapshot_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotArn is required")]
-    public required TerraformProperty<string> SnapshotArn
-    {
-        set => SetProperty("snapshot_arn", value);
-    }
+    [TerraformPropertyName("snapshot_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SnapshotArn { get; set; }
 
 }
 
@@ -40,31 +38,28 @@ public class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsFsxOpenzfsVolumeTimeoutsBlock : TerraformBlock
+public class AwsFsxOpenzfsVolumeTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -72,34 +67,31 @@ public class AwsFsxOpenzfsVolumeTimeoutsBlock : TerraformBlock
 /// Block type for user_and_group_quotas in .
 /// Nesting mode: set
 /// </summary>
-public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
+public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<double> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Id { get; set; }
 
     /// <summary>
     /// The storage_capacity_quota_gib attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacityQuotaGib is required")]
-    public required TerraformProperty<double> StorageCapacityQuotaGib
-    {
-        set => SetProperty("storage_capacity_quota_gib", value);
-    }
+    [TerraformPropertyName("storage_capacity_quota_gib")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> StorageCapacityQuotaGib { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -111,197 +103,143 @@ public class AwsFsxOpenzfsVolume : TerraformResource
 {
     public AwsFsxOpenzfsVolume(string name) : base("aws_fsx_openzfs_volume", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("copy_tags_to_snapshots");
-        SetOutput("data_compression_type");
-        SetOutput("delete_volume_options");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("parent_volume_id");
-        SetOutput("read_only");
-        SetOutput("record_size_kib");
-        SetOutput("region");
-        SetOutput("storage_capacity_quota_gib");
-        SetOutput("storage_capacity_reservation_gib");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("volume_type");
     }
 
     /// <summary>
     /// The copy_tags_to_snapshots attribute.
     /// </summary>
-    public TerraformProperty<bool> CopyTagsToSnapshots
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("copy_tags_to_snapshots");
-        set => SetProperty("copy_tags_to_snapshots", value);
-    }
+    [TerraformPropertyName("copy_tags_to_snapshots")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CopyTagsToSnapshots { get; set; }
 
     /// <summary>
     /// The data_compression_type attribute.
     /// </summary>
-    public TerraformProperty<string> DataCompressionType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_compression_type");
-        set => SetProperty("data_compression_type", value);
-    }
+    [TerraformPropertyName("data_compression_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DataCompressionType { get; set; }
 
     /// <summary>
     /// The delete_volume_options attribute.
     /// </summary>
-    public List<TerraformProperty<string>> DeleteVolumeOptions
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("delete_volume_options");
-        set => SetProperty("delete_volume_options", value);
-    }
+    [TerraformPropertyName("delete_volume_options")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? DeleteVolumeOptions { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parent_volume_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentVolumeId is required")]
-    public required TerraformProperty<string> ParentVolumeId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent_volume_id");
-        set => SetProperty("parent_volume_id", value);
-    }
+    [TerraformPropertyName("parent_volume_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ParentVolumeId { get; set; }
 
     /// <summary>
     /// The read_only attribute.
     /// </summary>
-    public TerraformProperty<bool> ReadOnly
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("read_only");
-        set => SetProperty("read_only", value);
-    }
+    [TerraformPropertyName("read_only")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> ReadOnly { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "read_only");
 
     /// <summary>
     /// The record_size_kib attribute.
     /// </summary>
-    public TerraformProperty<double> RecordSizeKib
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("record_size_kib");
-        set => SetProperty("record_size_kib", value);
-    }
+    [TerraformPropertyName("record_size_kib")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RecordSizeKib { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The storage_capacity_quota_gib attribute.
     /// </summary>
-    public TerraformProperty<double> StorageCapacityQuotaGib
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("storage_capacity_quota_gib");
-        set => SetProperty("storage_capacity_quota_gib", value);
-    }
+    [TerraformPropertyName("storage_capacity_quota_gib")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> StorageCapacityQuotaGib { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "storage_capacity_quota_gib");
 
     /// <summary>
     /// The storage_capacity_reservation_gib attribute.
     /// </summary>
-    public TerraformProperty<double> StorageCapacityReservationGib
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("storage_capacity_reservation_gib");
-        set => SetProperty("storage_capacity_reservation_gib", value);
-    }
+    [TerraformPropertyName("storage_capacity_reservation_gib")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> StorageCapacityReservationGib { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "storage_capacity_reservation_gib");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformProperty<string> VolumeType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("volume_type");
-        set => SetProperty("volume_type", value);
-    }
+    [TerraformPropertyName("volume_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VolumeType { get; set; }
 
     /// <summary>
     /// Block for nfs_exports.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NfsExports block(s) allowed")]
-    public List<AwsFsxOpenzfsVolumeNfsExportsBlock>? NfsExports
-    {
-        set => SetProperty("nfs_exports", value);
-    }
+    [TerraformPropertyName("nfs_exports")]
+    public TerraformList<TerraformBlock<AwsFsxOpenzfsVolumeNfsExportsBlock>>? NfsExports { get; set; } = new();
 
     /// <summary>
     /// Block for origin_snapshot.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OriginSnapshot block(s) allowed")]
-    public List<AwsFsxOpenzfsVolumeOriginSnapshotBlock>? OriginSnapshot
-    {
-        set => SetProperty("origin_snapshot", value);
-    }
+    [TerraformPropertyName("origin_snapshot")]
+    public TerraformList<TerraformBlock<AwsFsxOpenzfsVolumeOriginSnapshotBlock>>? OriginSnapshot { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsFsxOpenzfsVolumeTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsFsxOpenzfsVolumeTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_and_group_quotas.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock>? UserAndGroupQuotas
-    {
-        set => SetProperty("user_and_group_quotas", value);
-    }
+    [TerraformPropertyName("user_and_group_quotas")]
+    public TerraformSet<TerraformBlock<AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock>>? UserAndGroupQuotas { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

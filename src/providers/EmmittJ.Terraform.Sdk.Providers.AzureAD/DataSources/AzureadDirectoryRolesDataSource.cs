@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadDirectoryRolesDataSourceTimeoutsBlock : TerraformBlock
+public class AzureadDirectoryRolesDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,48 +24,41 @@ public class AzureadDirectoryRolesDataSource : TerraformDataSource
 {
     public AzureadDirectoryRolesDataSource(string name) : base("azuread_directory_roles", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("object_ids");
-        SetOutput("roles");
-        SetOutput("template_ids");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadDirectoryRolesDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadDirectoryRolesDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The object IDs of the roles
     /// </summary>
-    public TerraformExpression ObjectIds => this["object_ids"];
+    [TerraformPropertyName("object_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ObjectIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "object_ids");
 
     /// <summary>
     /// A list of roles
     /// </summary>
-    public TerraformExpression Roles => this["roles"];
+    [TerraformPropertyName("roles")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Roles => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "roles");
 
     /// <summary>
     /// The template IDs of the roles
     /// </summary>
-    public TerraformExpression TemplateIds => this["template_ids"];
+    [TerraformPropertyName("template_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> TemplateIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "template_ids");
 
 }

@@ -6,47 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for antimalware in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomanageConfigurationAntimalwareBlock : TerraformBlock
+public class AzurermAutomanageConfigurationAntimalwareBlock : ITerraformBlock
 {
     /// <summary>
     /// The real_time_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? RealTimeProtectionEnabled
-    {
-        set => SetProperty("real_time_protection_enabled", value);
-    }
+    [TerraformPropertyName("real_time_protection_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RealTimeProtectionEnabled { get; set; }
 
     /// <summary>
     /// The scheduled_scan_day attribute.
     /// </summary>
-    public TerraformProperty<double>? ScheduledScanDay
-    {
-        set => SetProperty("scheduled_scan_day", value);
-    }
+    [TerraformPropertyName("scheduled_scan_day")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ScheduledScanDay { get; set; }
 
     /// <summary>
     /// The scheduled_scan_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ScheduledScanEnabled
-    {
-        set => SetProperty("scheduled_scan_enabled", value);
-    }
+    [TerraformPropertyName("scheduled_scan_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ScheduledScanEnabled { get; set; }
 
     /// <summary>
     /// The scheduled_scan_time_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? ScheduledScanTimeInMinutes
-    {
-        set => SetProperty("scheduled_scan_time_in_minutes", value);
-    }
+    [TerraformPropertyName("scheduled_scan_time_in_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ScheduledScanTimeInMinutes { get; set; }
 
     /// <summary>
     /// The scheduled_scan_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ScheduledScanType
-    {
-        set => SetProperty("scheduled_scan_type", value);
-    }
+    [TerraformPropertyName("scheduled_scan_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ScheduledScanType { get; set; }
 
 }
 
@@ -54,15 +49,14 @@ public class AzurermAutomanageConfigurationAntimalwareBlock : TerraformBlock
 /// Block type for azure_security_baseline in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomanageConfigurationAzureSecurityBaselineBlock : TerraformBlock
+public class AzurermAutomanageConfigurationAzureSecurityBaselineBlock : ITerraformBlock
 {
     /// <summary>
     /// The assignment_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AssignmentType
-    {
-        set => SetProperty("assignment_type", value);
-    }
+    [TerraformPropertyName("assignment_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AssignmentType { get; set; }
 
 }
 
@@ -70,31 +64,28 @@ public class AzurermAutomanageConfigurationAzureSecurityBaselineBlock : Terrafor
 /// Block type for backup in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomanageConfigurationBackupBlock : TerraformBlock
+public class AzurermAutomanageConfigurationBackupBlock : ITerraformBlock
 {
     /// <summary>
     /// The instant_rp_retention_range_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? InstantRpRetentionRangeInDays
-    {
-        set => SetProperty("instant_rp_retention_range_in_days", value);
-    }
+    [TerraformPropertyName("instant_rp_retention_range_in_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InstantRpRetentionRangeInDays { get; set; }
 
     /// <summary>
     /// The policy_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyName
-    {
-        set => SetProperty("policy_name", value);
-    }
+    [TerraformPropertyName("policy_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PolicyName { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? TimeZone
-    {
-        set => SetProperty("time_zone", value);
-    }
+    [TerraformPropertyName("time_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TimeZone { get; set; }
 
 }
 
@@ -102,39 +93,35 @@ public class AzurermAutomanageConfigurationBackupBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAutomanageConfigurationTimeoutsBlock : TerraformBlock
+public class AzurermAutomanageConfigurationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -146,163 +133,117 @@ public class AzurermAutomanageConfiguration : TerraformResource
 {
     public AzurermAutomanageConfiguration(string name) : base("azurerm_automanage_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("automation_account_enabled");
-        SetOutput("boot_diagnostics_enabled");
-        SetOutput("defender_for_cloud_enabled");
-        SetOutput("guest_configuration_enabled");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("log_analytics_enabled");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("status_change_alert_enabled");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The automation_account_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AutomationAccountEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("automation_account_enabled");
-        set => SetProperty("automation_account_enabled", value);
-    }
+    [TerraformPropertyName("automation_account_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutomationAccountEnabled { get; set; }
 
     /// <summary>
     /// The boot_diagnostics_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> BootDiagnosticsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("boot_diagnostics_enabled");
-        set => SetProperty("boot_diagnostics_enabled", value);
-    }
+    [TerraformPropertyName("boot_diagnostics_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BootDiagnosticsEnabled { get; set; }
 
     /// <summary>
     /// The defender_for_cloud_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> DefenderForCloudEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("defender_for_cloud_enabled");
-        set => SetProperty("defender_for_cloud_enabled", value);
-    }
+    [TerraformPropertyName("defender_for_cloud_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DefenderForCloudEnabled { get; set; }
 
     /// <summary>
     /// The guest_configuration_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> GuestConfigurationEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("guest_configuration_enabled");
-        set => SetProperty("guest_configuration_enabled", value);
-    }
+    [TerraformPropertyName("guest_configuration_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? GuestConfigurationEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The log_analytics_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LogAnalyticsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("log_analytics_enabled");
-        set => SetProperty("log_analytics_enabled", value);
-    }
+    [TerraformPropertyName("log_analytics_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LogAnalyticsEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The status_change_alert_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> StatusChangeAlertEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("status_change_alert_enabled");
-        set => SetProperty("status_change_alert_enabled", value);
-    }
+    [TerraformPropertyName("status_change_alert_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StatusChangeAlertEnabled { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for antimalware.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Antimalware block(s) allowed")]
-    public List<AzurermAutomanageConfigurationAntimalwareBlock>? Antimalware
-    {
-        set => SetProperty("antimalware", value);
-    }
+    [TerraformPropertyName("antimalware")]
+    public TerraformList<TerraformBlock<AzurermAutomanageConfigurationAntimalwareBlock>>? Antimalware { get; set; } = new();
 
     /// <summary>
     /// Block for azure_security_baseline.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureSecurityBaseline block(s) allowed")]
-    public List<AzurermAutomanageConfigurationAzureSecurityBaselineBlock>? AzureSecurityBaseline
-    {
-        set => SetProperty("azure_security_baseline", value);
-    }
+    [TerraformPropertyName("azure_security_baseline")]
+    public TerraformList<TerraformBlock<AzurermAutomanageConfigurationAzureSecurityBaselineBlock>>? AzureSecurityBaseline { get; set; } = new();
 
     /// <summary>
     /// Block for backup.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
-    public List<AzurermAutomanageConfigurationBackupBlock>? Backup
-    {
-        set => SetProperty("backup", value);
-    }
+    [TerraformPropertyName("backup")]
+    public TerraformList<TerraformBlock<AzurermAutomanageConfigurationBackupBlock>>? Backup { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermAutomanageConfigurationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermAutomanageConfigurationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

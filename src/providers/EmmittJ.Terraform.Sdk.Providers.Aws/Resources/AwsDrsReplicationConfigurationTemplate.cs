@@ -6,50 +6,45 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for pit_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : TerraformBlock
+public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
-    public required TerraformProperty<double> Interval
-    {
-        set => SetProperty("interval", value);
-    }
+    [TerraformPropertyName("interval")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Interval { get; set; }
 
     /// <summary>
     /// The retention_duration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDuration is required")]
-    public required TerraformProperty<double> RetentionDuration
-    {
-        set => SetProperty("retention_duration", value);
-    }
+    [TerraformPropertyName("retention_duration")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> RetentionDuration { get; set; }
 
     /// <summary>
     /// The rule_id attribute.
     /// </summary>
-    public TerraformProperty<double>? RuleId
-    {
-        set => SetProperty("rule_id", value);
-    }
+    [TerraformPropertyName("rule_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RuleId { get; set; }
 
     /// <summary>
     /// The units attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Units is required")]
-    public required TerraformProperty<string> Units
-    {
-        set => SetProperty("units", value);
-    }
+    [TerraformPropertyName("units")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Units { get; set; }
 
 }
 
@@ -57,31 +52,28 @@ public class AwsDrsReplicationConfigurationTemplatePitPolicyBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDrsReplicationConfigurationTemplateTimeoutsBlock : TerraformBlock
+public class AwsDrsReplicationConfigurationTemplateTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -92,208 +84,157 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
 {
     public AwsDrsReplicationConfigurationTemplate(string name) : base("aws_drs_replication_configuration_template", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("tags_all");
-        SetOutput("associate_default_security_group");
-        SetOutput("auto_replicate_new_disks");
-        SetOutput("bandwidth_throttling");
-        SetOutput("create_public_ip");
-        SetOutput("data_plane_routing");
-        SetOutput("default_large_staging_disk_type");
-        SetOutput("ebs_encryption");
-        SetOutput("ebs_encryption_key_arn");
-        SetOutput("region");
-        SetOutput("replication_server_instance_type");
-        SetOutput("replication_servers_security_groups_ids");
-        SetOutput("staging_area_subnet_id");
-        SetOutput("staging_area_tags");
-        SetOutput("tags");
-        SetOutput("use_dedicated_replication_server");
     }
 
     /// <summary>
     /// The associate_default_security_group attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociateDefaultSecurityGroup is required")]
-    public required TerraformProperty<bool> AssociateDefaultSecurityGroup
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("associate_default_security_group");
-        set => SetProperty("associate_default_security_group", value);
-    }
+    [TerraformPropertyName("associate_default_security_group")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> AssociateDefaultSecurityGroup { get; set; }
 
     /// <summary>
     /// The auto_replicate_new_disks attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoReplicateNewDisks
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_replicate_new_disks");
-        set => SetProperty("auto_replicate_new_disks", value);
-    }
+    [TerraformPropertyName("auto_replicate_new_disks")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> AutoReplicateNewDisks { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "auto_replicate_new_disks");
 
     /// <summary>
     /// The bandwidth_throttling attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthThrottling is required")]
-    public required TerraformProperty<double> BandwidthThrottling
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("bandwidth_throttling");
-        set => SetProperty("bandwidth_throttling", value);
-    }
+    [TerraformPropertyName("bandwidth_throttling")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> BandwidthThrottling { get; set; }
 
     /// <summary>
     /// The create_public_ip attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreatePublicIp is required")]
-    public required TerraformProperty<bool> CreatePublicIp
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("create_public_ip");
-        set => SetProperty("create_public_ip", value);
-    }
+    [TerraformPropertyName("create_public_ip")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> CreatePublicIp { get; set; }
 
     /// <summary>
     /// The data_plane_routing attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPlaneRouting is required")]
-    public required TerraformProperty<string> DataPlaneRouting
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_plane_routing");
-        set => SetProperty("data_plane_routing", value);
-    }
+    [TerraformPropertyName("data_plane_routing")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataPlaneRouting { get; set; }
 
     /// <summary>
     /// The default_large_staging_disk_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLargeStagingDiskType is required")]
-    public required TerraformProperty<string> DefaultLargeStagingDiskType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_large_staging_disk_type");
-        set => SetProperty("default_large_staging_disk_type", value);
-    }
+    [TerraformPropertyName("default_large_staging_disk_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DefaultLargeStagingDiskType { get; set; }
 
     /// <summary>
     /// The ebs_encryption attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EbsEncryption is required")]
-    public required TerraformProperty<string> EbsEncryption
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ebs_encryption");
-        set => SetProperty("ebs_encryption", value);
-    }
+    [TerraformPropertyName("ebs_encryption")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EbsEncryption { get; set; }
 
     /// <summary>
     /// The ebs_encryption_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string> EbsEncryptionKeyArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ebs_encryption_key_arn");
-        set => SetProperty("ebs_encryption_key_arn", value);
-    }
+    [TerraformPropertyName("ebs_encryption_key_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EbsEncryptionKeyArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The replication_server_instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationServerInstanceType is required")]
-    public required TerraformProperty<string> ReplicationServerInstanceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("replication_server_instance_type");
-        set => SetProperty("replication_server_instance_type", value);
-    }
+    [TerraformPropertyName("replication_server_instance_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ReplicationServerInstanceType { get; set; }
 
     /// <summary>
     /// The replication_servers_security_groups_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationServersSecurityGroupsIds is required")]
-    public List<TerraformProperty<string>> ReplicationServersSecurityGroupsIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("replication_servers_security_groups_ids");
-        set => SetProperty("replication_servers_security_groups_ids", value);
-    }
+    [TerraformPropertyName("replication_servers_security_groups_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? ReplicationServersSecurityGroupsIds { get; set; }
 
     /// <summary>
     /// The staging_area_subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StagingAreaSubnetId is required")]
-    public required TerraformProperty<string> StagingAreaSubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("staging_area_subnet_id");
-        set => SetProperty("staging_area_subnet_id", value);
-    }
+    [TerraformPropertyName("staging_area_subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StagingAreaSubnetId { get; set; }
 
     /// <summary>
     /// The staging_area_tags attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StagingAreaTags is required")]
-    public Dictionary<string, TerraformProperty<string>> StagingAreaTags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("staging_area_tags");
-        set => SetProperty("staging_area_tags", value);
-    }
+    [TerraformPropertyName("staging_area_tags")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? StagingAreaTags { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The use_dedicated_replication_server attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UseDedicatedReplicationServer is required")]
-    public required TerraformProperty<bool> UseDedicatedReplicationServer
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("use_dedicated_replication_server");
-        set => SetProperty("use_dedicated_replication_server", value);
-    }
+    [TerraformPropertyName("use_dedicated_replication_server")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> UseDedicatedReplicationServer { get; set; }
 
     /// <summary>
     /// Block for pit_policy.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsDrsReplicationConfigurationTemplatePitPolicyBlock>? PitPolicy
-    {
-        set => SetProperty("pit_policy", value);
-    }
+    [TerraformPropertyName("pit_policy")]
+    public TerraformList<TerraformBlock<AwsDrsReplicationConfigurationTemplatePitPolicyBlock>>? PitPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDrsReplicationConfigurationTemplateTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDrsReplicationConfigurationTemplateTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

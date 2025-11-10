@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for advanced_security_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElasticsearchDomainAdvancedSecurityOptionsBlock : TerraformBlock
+public class AwsElasticsearchDomainAdvancedSecurityOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The internal_user_database_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? InternalUserDatabaseEnabled
-    {
-        set => SetProperty("internal_user_database_enabled", value);
-    }
+    [TerraformPropertyName("internal_user_database_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InternalUserDatabaseEnabled { get; set; }
 
 }
 
@@ -31,24 +29,22 @@ public class AwsElasticsearchDomainAdvancedSecurityOptionsBlock : TerraformBlock
 /// Block type for auto_tune_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElasticsearchDomainAutoTuneOptionsBlock : TerraformBlock
+public class AwsElasticsearchDomainAutoTuneOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The desired_state attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredState is required")]
-    public required TerraformProperty<string> DesiredState
-    {
-        set => SetProperty("desired_state", value);
-    }
+    [TerraformPropertyName("desired_state")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DesiredState { get; set; }
 
     /// <summary>
     /// The rollback_on_disable attribute.
     /// </summary>
-    public TerraformProperty<string>? RollbackOnDisable
-    {
-        set => SetProperty("rollback_on_disable", value);
-    }
+    [TerraformPropertyName("rollback_on_disable")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> RollbackOnDisable { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "rollback_on_disable");
 
 }
 
@@ -56,79 +52,70 @@ public class AwsElasticsearchDomainAutoTuneOptionsBlock : TerraformBlock
 /// Block type for cluster_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
+public class AwsElasticsearchDomainClusterConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The dedicated_master_count attribute.
     /// </summary>
-    public TerraformProperty<double>? DedicatedMasterCount
-    {
-        set => SetProperty("dedicated_master_count", value);
-    }
+    [TerraformPropertyName("dedicated_master_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DedicatedMasterCount { get; set; }
 
     /// <summary>
     /// The dedicated_master_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? DedicatedMasterEnabled
-    {
-        set => SetProperty("dedicated_master_enabled", value);
-    }
+    [TerraformPropertyName("dedicated_master_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DedicatedMasterEnabled { get; set; }
 
     /// <summary>
     /// The dedicated_master_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DedicatedMasterType
-    {
-        set => SetProperty("dedicated_master_type", value);
-    }
+    [TerraformPropertyName("dedicated_master_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DedicatedMasterType { get; set; }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformProperty<double>? InstanceCount
-    {
-        set => SetProperty("instance_count", value);
-    }
+    [TerraformPropertyName("instance_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InstanceCount { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
-    {
-        set => SetProperty("instance_type", value);
-    }
+    [TerraformPropertyName("instance_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InstanceType { get; set; }
 
     /// <summary>
     /// The warm_count attribute.
     /// </summary>
-    public TerraformProperty<double>? WarmCount
-    {
-        set => SetProperty("warm_count", value);
-    }
+    [TerraformPropertyName("warm_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? WarmCount { get; set; }
 
     /// <summary>
     /// The warm_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? WarmEnabled
-    {
-        set => SetProperty("warm_enabled", value);
-    }
+    [TerraformPropertyName("warm_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WarmEnabled { get; set; }
 
     /// <summary>
     /// The warm_type attribute.
     /// </summary>
-    public TerraformProperty<string>? WarmType
-    {
-        set => SetProperty("warm_type", value);
-    }
+    [TerraformPropertyName("warm_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WarmType { get; set; }
 
     /// <summary>
     /// The zone_awareness_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ZoneAwarenessEnabled
-    {
-        set => SetProperty("zone_awareness_enabled", value);
-    }
+    [TerraformPropertyName("zone_awareness_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ZoneAwarenessEnabled { get; set; }
 
 }
 
@@ -136,42 +123,38 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
 /// Block type for cognito_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlock
+public class AwsElasticsearchDomainCognitoOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The identity_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
-    public required TerraformProperty<string> IdentityPoolId
-    {
-        set => SetProperty("identity_pool_id", value);
-    }
+    [TerraformPropertyName("identity_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IdentityPoolId { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
-    public required TerraformProperty<string> UserPoolId
-    {
-        set => SetProperty("user_pool_id", value);
-    }
+    [TerraformPropertyName("user_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserPoolId { get; set; }
 
 }
 
@@ -179,47 +162,42 @@ public class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlock
 /// Block type for domain_endpoint_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElasticsearchDomainDomainEndpointOptionsBlock : TerraformBlock
+public class AwsElasticsearchDomainDomainEndpointOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The custom_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomEndpoint
-    {
-        set => SetProperty("custom_endpoint", value);
-    }
+    [TerraformPropertyName("custom_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomEndpoint { get; set; }
 
     /// <summary>
     /// The custom_endpoint_certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomEndpointCertificateArn
-    {
-        set => SetProperty("custom_endpoint_certificate_arn", value);
-    }
+    [TerraformPropertyName("custom_endpoint_certificate_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomEndpointCertificateArn { get; set; }
 
     /// <summary>
     /// The custom_endpoint_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CustomEndpointEnabled
-    {
-        set => SetProperty("custom_endpoint_enabled", value);
-    }
+    [TerraformPropertyName("custom_endpoint_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CustomEndpointEnabled { get; set; }
 
     /// <summary>
     /// The enforce_https attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnforceHttps
-    {
-        set => SetProperty("enforce_https", value);
-    }
+    [TerraformPropertyName("enforce_https")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnforceHttps { get; set; }
 
     /// <summary>
     /// The tls_security_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? TlsSecurityPolicy
-    {
-        set => SetProperty("tls_security_policy", value);
-    }
+    [TerraformPropertyName("tls_security_policy")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TlsSecurityPolicy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "tls_security_policy");
 
 }
 
@@ -227,48 +205,43 @@ public class AwsElasticsearchDomainDomainEndpointOptionsBlock : TerraformBlock
 /// Block type for ebs_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlock
+public class AwsElasticsearchDomainEbsOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The ebs_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EbsEnabled is required")]
-    public required TerraformProperty<bool> EbsEnabled
-    {
-        set => SetProperty("ebs_enabled", value);
-    }
+    [TerraformPropertyName("ebs_enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> EbsEnabled { get; set; }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformProperty<double>? Iops
-    {
-        set => SetProperty("iops", value);
-    }
+    [TerraformPropertyName("iops")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Iops { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "iops");
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformProperty<double>? Throughput
-    {
-        set => SetProperty("throughput", value);
-    }
+    [TerraformPropertyName("throughput")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Throughput { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "throughput");
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    public TerraformProperty<double>? VolumeSize
-    {
-        set => SetProperty("volume_size", value);
-    }
+    [TerraformPropertyName("volume_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? VolumeSize { get; set; }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformProperty<string>? VolumeType
-    {
-        set => SetProperty("volume_type", value);
-    }
+    [TerraformPropertyName("volume_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VolumeType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "volume_type");
 
 }
 
@@ -276,24 +249,22 @@ public class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlock
 /// Block type for encrypt_at_rest in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElasticsearchDomainEncryptAtRestBlock : TerraformBlock
+public class AwsElasticsearchDomainEncryptAtRestBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
-    {
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> KmsKeyId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "kms_key_id");
 
 }
 
@@ -301,33 +272,30 @@ public class AwsElasticsearchDomainEncryptAtRestBlock : TerraformBlock
 /// Block type for log_publishing_options in .
 /// Nesting mode: set
 /// </summary>
-public class AwsElasticsearchDomainLogPublishingOptionsBlock : TerraformBlock
+public class AwsElasticsearchDomainLogPublishingOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The cloudwatch_log_group_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogGroupArn is required")]
-    public required TerraformProperty<string> CloudwatchLogGroupArn
-    {
-        set => SetProperty("cloudwatch_log_group_arn", value);
-    }
+    [TerraformPropertyName("cloudwatch_log_group_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CloudwatchLogGroupArn { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The log_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
-    public required TerraformProperty<string> LogType
-    {
-        set => SetProperty("log_type", value);
-    }
+    [TerraformPropertyName("log_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogType { get; set; }
 
 }
 
@@ -335,16 +303,15 @@ public class AwsElasticsearchDomainLogPublishingOptionsBlock : TerraformBlock
 /// Block type for node_to_node_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElasticsearchDomainNodeToNodeEncryptionBlock : TerraformBlock
+public class AwsElasticsearchDomainNodeToNodeEncryptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
 }
 
@@ -352,16 +319,15 @@ public class AwsElasticsearchDomainNodeToNodeEncryptionBlock : TerraformBlock
 /// Block type for snapshot_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElasticsearchDomainSnapshotOptionsBlock : TerraformBlock
+public class AwsElasticsearchDomainSnapshotOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The automated_snapshot_start_hour attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomatedSnapshotStartHour is required")]
-    public required TerraformProperty<double> AutomatedSnapshotStartHour
-    {
-        set => SetProperty("automated_snapshot_start_hour", value);
-    }
+    [TerraformPropertyName("automated_snapshot_start_hour")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> AutomatedSnapshotStartHour { get; set; }
 
 }
 
@@ -369,31 +335,28 @@ public class AwsElasticsearchDomainSnapshotOptionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsElasticsearchDomainTimeoutsBlock : TerraformBlock
+public class AwsElasticsearchDomainTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -401,39 +364,35 @@ public class AwsElasticsearchDomainTimeoutsBlock : TerraformBlock
 /// Block type for vpc_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElasticsearchDomainVpcOptionsBlock : TerraformBlock
+public class AwsElasticsearchDomainVpcOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AvailabilityZones
-    {
-        set => SetProperty("availability_zones", value);
-    }
+    [TerraformPropertyName("availability_zones")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> AvailabilityZones => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "availability_zones");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
-    {
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
-    {
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
-    {
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>("", "vpc_id");
 
 }
 
@@ -445,234 +404,185 @@ public class AwsElasticsearchDomain : TerraformResource
 {
     public AwsElasticsearchDomain(string name) : base("aws_elasticsearch_domain", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("domain_id");
-        SetOutput("endpoint");
-        SetOutput("kibana_endpoint");
-        SetOutput("access_policies");
-        SetOutput("advanced_options");
-        SetOutput("domain_name");
-        SetOutput("elasticsearch_version");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The access_policies attribute.
     /// </summary>
-    public TerraformProperty<string> AccessPolicies
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_policies");
-        set => SetProperty("access_policies", value);
-    }
+    [TerraformPropertyName("access_policies")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AccessPolicies { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_policies");
 
     /// <summary>
     /// The advanced_options attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> AdvancedOptions
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("advanced_options");
-        set => SetProperty("advanced_options", value);
-    }
+    [TerraformPropertyName("advanced_options")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> AdvancedOptions { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "advanced_options");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    public required TerraformProperty<string> DomainName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
 
     /// <summary>
     /// The elasticsearch_version attribute.
     /// </summary>
-    public TerraformProperty<string> ElasticsearchVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("elasticsearch_version");
-        set => SetProperty("elasticsearch_version", value);
-    }
+    [TerraformPropertyName("elasticsearch_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ElasticsearchVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for advanced_security_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSecurityOptions block(s) allowed")]
-    public List<AwsElasticsearchDomainAdvancedSecurityOptionsBlock>? AdvancedSecurityOptions
-    {
-        set => SetProperty("advanced_security_options", value);
-    }
+    [TerraformPropertyName("advanced_security_options")]
+    public TerraformList<TerraformBlock<AwsElasticsearchDomainAdvancedSecurityOptionsBlock>>? AdvancedSecurityOptions { get; set; } = new();
 
     /// <summary>
     /// Block for auto_tune_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoTuneOptions block(s) allowed")]
-    public List<AwsElasticsearchDomainAutoTuneOptionsBlock>? AutoTuneOptions
-    {
-        set => SetProperty("auto_tune_options", value);
-    }
+    [TerraformPropertyName("auto_tune_options")]
+    public TerraformList<TerraformBlock<AwsElasticsearchDomainAutoTuneOptionsBlock>>? AutoTuneOptions { get; set; } = new();
 
     /// <summary>
     /// Block for cluster_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterConfig block(s) allowed")]
-    public List<AwsElasticsearchDomainClusterConfigBlock>? ClusterConfig
-    {
-        set => SetProperty("cluster_config", value);
-    }
+    [TerraformPropertyName("cluster_config")]
+    public TerraformList<TerraformBlock<AwsElasticsearchDomainClusterConfigBlock>>? ClusterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for cognito_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CognitoOptions block(s) allowed")]
-    public List<AwsElasticsearchDomainCognitoOptionsBlock>? CognitoOptions
-    {
-        set => SetProperty("cognito_options", value);
-    }
+    [TerraformPropertyName("cognito_options")]
+    public TerraformList<TerraformBlock<AwsElasticsearchDomainCognitoOptionsBlock>>? CognitoOptions { get; set; } = new();
 
     /// <summary>
     /// Block for domain_endpoint_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainEndpointOptions block(s) allowed")]
-    public List<AwsElasticsearchDomainDomainEndpointOptionsBlock>? DomainEndpointOptions
-    {
-        set => SetProperty("domain_endpoint_options", value);
-    }
+    [TerraformPropertyName("domain_endpoint_options")]
+    public TerraformList<TerraformBlock<AwsElasticsearchDomainDomainEndpointOptionsBlock>>? DomainEndpointOptions { get; set; } = new();
 
     /// <summary>
     /// Block for ebs_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EbsOptions block(s) allowed")]
-    public List<AwsElasticsearchDomainEbsOptionsBlock>? EbsOptions
-    {
-        set => SetProperty("ebs_options", value);
-    }
+    [TerraformPropertyName("ebs_options")]
+    public TerraformList<TerraformBlock<AwsElasticsearchDomainEbsOptionsBlock>>? EbsOptions { get; set; } = new();
 
     /// <summary>
     /// Block for encrypt_at_rest.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptAtRest block(s) allowed")]
-    public List<AwsElasticsearchDomainEncryptAtRestBlock>? EncryptAtRest
-    {
-        set => SetProperty("encrypt_at_rest", value);
-    }
+    [TerraformPropertyName("encrypt_at_rest")]
+    public TerraformList<TerraformBlock<AwsElasticsearchDomainEncryptAtRestBlock>>? EncryptAtRest { get; set; } = new();
 
     /// <summary>
     /// Block for log_publishing_options.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsElasticsearchDomainLogPublishingOptionsBlock>? LogPublishingOptions
-    {
-        set => SetProperty("log_publishing_options", value);
-    }
+    [TerraformPropertyName("log_publishing_options")]
+    public TerraformSet<TerraformBlock<AwsElasticsearchDomainLogPublishingOptionsBlock>>? LogPublishingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for node_to_node_encryption.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeToNodeEncryption block(s) allowed")]
-    public List<AwsElasticsearchDomainNodeToNodeEncryptionBlock>? NodeToNodeEncryption
-    {
-        set => SetProperty("node_to_node_encryption", value);
-    }
+    [TerraformPropertyName("node_to_node_encryption")]
+    public TerraformList<TerraformBlock<AwsElasticsearchDomainNodeToNodeEncryptionBlock>>? NodeToNodeEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for snapshot_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotOptions block(s) allowed")]
-    public List<AwsElasticsearchDomainSnapshotOptionsBlock>? SnapshotOptions
-    {
-        set => SetProperty("snapshot_options", value);
-    }
+    [TerraformPropertyName("snapshot_options")]
+    public TerraformList<TerraformBlock<AwsElasticsearchDomainSnapshotOptionsBlock>>? SnapshotOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsElasticsearchDomainTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsElasticsearchDomainTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcOptions block(s) allowed")]
-    public List<AwsElasticsearchDomainVpcOptionsBlock>? VpcOptions
-    {
-        set => SetProperty("vpc_options", value);
-    }
+    [TerraformPropertyName("vpc_options")]
+    public TerraformList<TerraformBlock<AwsElasticsearchDomainVpcOptionsBlock>>? VpcOptions { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The domain_id attribute.
     /// </summary>
-    public TerraformExpression DomainId => this["domain_id"];
+    [TerraformPropertyName("domain_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DomainId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_id");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// The kibana_endpoint attribute.
     /// </summary>
-    public TerraformExpression KibanaEndpoint => this["kibana_endpoint"];
+    [TerraformPropertyName("kibana_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KibanaEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kibana_endpoint");
 
 }

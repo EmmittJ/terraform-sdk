@@ -6,41 +6,37 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authorization in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermLighthouseDefinitionAuthorizationBlock : TerraformBlock
+public class AzurermLighthouseDefinitionAuthorizationBlock : ITerraformBlock
 {
     /// <summary>
     /// The delegated_role_definition_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DelegatedRoleDefinitionIds
-    {
-        set => SetProperty("delegated_role_definition_ids", value);
-    }
+    [TerraformPropertyName("delegated_role_definition_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DelegatedRoleDefinitionIds { get; set; }
 
     /// <summary>
     /// The principal_display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalDisplayName
-    {
-        set => SetProperty("principal_display_name", value);
-    }
+    [TerraformPropertyName("principal_display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrincipalDisplayName { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    public required TerraformProperty<string> PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrincipalId { get; set; }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
-    public required TerraformProperty<string> RoleDefinitionId
-    {
-        set => SetProperty("role_definition_id", value);
-    }
+    [TerraformPropertyName("role_definition_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleDefinitionId { get; set; }
 
 }
 
@@ -48,33 +44,30 @@ public class AzurermLighthouseDefinitionAuthorizationBlock : TerraformBlock
 /// Block type for eligible_authorization in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermLighthouseDefinitionEligibleAuthorizationBlock : TerraformBlock
+public class AzurermLighthouseDefinitionEligibleAuthorizationBlock : ITerraformBlock
 {
     /// <summary>
     /// The principal_display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalDisplayName
-    {
-        set => SetProperty("principal_display_name", value);
-    }
+    [TerraformPropertyName("principal_display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrincipalDisplayName { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    public required TerraformProperty<string> PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrincipalId { get; set; }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
-    public required TerraformProperty<string> RoleDefinitionId
-    {
-        set => SetProperty("role_definition_id", value);
-    }
+    [TerraformPropertyName("role_definition_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleDefinitionId { get; set; }
 
 }
 
@@ -82,43 +75,39 @@ public class AzurermLighthouseDefinitionEligibleAuthorizationBlock : TerraformBl
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLighthouseDefinitionPlanBlock : TerraformBlock
+public class AzurermLighthouseDefinitionPlanBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The product attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
-    public required TerraformProperty<string> Product
-    {
-        set => SetProperty("product", value);
-    }
+    [TerraformPropertyName("product")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Product { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    public required TerraformProperty<string> Publisher
-    {
-        set => SetProperty("publisher", value);
-    }
+    [TerraformPropertyName("publisher")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
 }
 
@@ -126,39 +115,35 @@ public class AzurermLighthouseDefinitionPlanBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLighthouseDefinitionTimeoutsBlock : TerraformBlock
+public class AzurermLighthouseDefinitionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -170,75 +155,52 @@ public class AzurermLighthouseDefinition : TerraformResource
 {
     public AzurermLighthouseDefinition(string name) : base("azurerm_lighthouse_definition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("lighthouse_definition_id");
-        SetOutput("managing_tenant_id");
-        SetOutput("name");
-        SetOutput("scope");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The lighthouse_definition_id attribute.
     /// </summary>
-    public TerraformProperty<string> LighthouseDefinitionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("lighthouse_definition_id");
-        set => SetProperty("lighthouse_definition_id", value);
-    }
+    [TerraformPropertyName("lighthouse_definition_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LighthouseDefinitionId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "lighthouse_definition_id");
 
     /// <summary>
     /// The managing_tenant_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagingTenantId is required")]
-    public required TerraformProperty<string> ManagingTenantId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managing_tenant_id");
-        set => SetProperty("managing_tenant_id", value);
-    }
+    [TerraformPropertyName("managing_tenant_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ManagingTenantId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
-    public required TerraformProperty<string> Scope
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("scope");
-        set => SetProperty("scope", value);
-    }
+    [TerraformPropertyName("scope")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Scope { get; set; }
 
     /// <summary>
     /// Block for authorization.
@@ -246,37 +208,29 @@ public class AzurermLighthouseDefinition : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authorization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
-    public HashSet<AzurermLighthouseDefinitionAuthorizationBlock>? Authorization
-    {
-        set => SetProperty("authorization", value);
-    }
+    [TerraformPropertyName("authorization")]
+    public TerraformSet<TerraformBlock<AzurermLighthouseDefinitionAuthorizationBlock>>? Authorization { get; set; } = new();
 
     /// <summary>
     /// Block for eligible_authorization.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermLighthouseDefinitionEligibleAuthorizationBlock>? EligibleAuthorization
-    {
-        set => SetProperty("eligible_authorization", value);
-    }
+    [TerraformPropertyName("eligible_authorization")]
+    public TerraformSet<TerraformBlock<AzurermLighthouseDefinitionEligibleAuthorizationBlock>>? EligibleAuthorization { get; set; } = new();
 
     /// <summary>
     /// Block for plan.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public List<AzurermLighthouseDefinitionPlanBlock>? Plan
-    {
-        set => SetProperty("plan", value);
-    }
+    [TerraformPropertyName("plan")]
+    public TerraformList<TerraformBlock<AzurermLighthouseDefinitionPlanBlock>>? Plan { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLighthouseDefinitionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLighthouseDefinitionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

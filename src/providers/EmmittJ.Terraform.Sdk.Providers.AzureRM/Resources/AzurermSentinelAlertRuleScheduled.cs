@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for alert_details_override in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlock : TerraformBlock
+public class AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlock : ITerraformBlock
 {
     /// <summary>
     /// The description_format attribute.
     /// </summary>
-    public TerraformProperty<string>? DescriptionFormat
-    {
-        set => SetProperty("description_format", value);
-    }
+    [TerraformPropertyName("description_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DescriptionFormat { get; set; }
 
     /// <summary>
     /// The display_name_format attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayNameFormat
-    {
-        set => SetProperty("display_name_format", value);
-    }
+    [TerraformPropertyName("display_name_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayNameFormat { get; set; }
 
     /// <summary>
     /// The severity_column_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SeverityColumnName
-    {
-        set => SetProperty("severity_column_name", value);
-    }
+    [TerraformPropertyName("severity_column_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SeverityColumnName { get; set; }
 
     /// <summary>
     /// The tactics_column_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TacticsColumnName
-    {
-        set => SetProperty("tactics_column_name", value);
-    }
+    [TerraformPropertyName("tactics_column_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TacticsColumnName { get; set; }
 
 }
 
@@ -46,16 +42,15 @@ public class AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlock : Terraf
 /// Block type for entity_mapping in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAlertRuleScheduledEntityMappingBlock : TerraformBlock
+public class AzurermSentinelAlertRuleScheduledEntityMappingBlock : ITerraformBlock
 {
     /// <summary>
     /// The entity_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
-    public required TerraformProperty<string> EntityType
-    {
-        set => SetProperty("entity_type", value);
-    }
+    [TerraformPropertyName("entity_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EntityType { get; set; }
 
 }
 
@@ -63,16 +58,15 @@ public class AzurermSentinelAlertRuleScheduledEntityMappingBlock : TerraformBloc
 /// Block type for event_grouping in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAlertRuleScheduledEventGroupingBlock : TerraformBlock
+public class AzurermSentinelAlertRuleScheduledEventGroupingBlock : ITerraformBlock
 {
     /// <summary>
     /// The aggregation_method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AggregationMethod is required")]
-    public required TerraformProperty<string> AggregationMethod
-    {
-        set => SetProperty("aggregation_method", value);
-    }
+    [TerraformPropertyName("aggregation_method")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AggregationMethod { get; set; }
 
 }
 
@@ -80,16 +74,15 @@ public class AzurermSentinelAlertRuleScheduledEventGroupingBlock : TerraformBloc
 /// Block type for incident in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAlertRuleScheduledIncidentBlock : TerraformBlock
+public class AzurermSentinelAlertRuleScheduledIncidentBlock : ITerraformBlock
 {
     /// <summary>
     /// The create_incident_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateIncidentEnabled is required")]
-    public required TerraformProperty<bool> CreateIncidentEnabled
-    {
-        set => SetProperty("create_incident_enabled", value);
-    }
+    [TerraformPropertyName("create_incident_enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> CreateIncidentEnabled { get; set; }
 
 }
 
@@ -97,16 +90,15 @@ public class AzurermSentinelAlertRuleScheduledIncidentBlock : TerraformBlock
 /// Block type for sentinel_entity_mapping in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAlertRuleScheduledSentinelEntityMappingBlock : TerraformBlock
+public class AzurermSentinelAlertRuleScheduledSentinelEntityMappingBlock : ITerraformBlock
 {
     /// <summary>
     /// The column_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
-    public required TerraformProperty<string> ColumnName
-    {
-        set => SetProperty("column_name", value);
-    }
+    [TerraformPropertyName("column_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ColumnName { get; set; }
 
 }
 
@@ -114,39 +106,35 @@ public class AzurermSentinelAlertRuleScheduledSentinelEntityMappingBlock : Terra
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSentinelAlertRuleScheduledTimeoutsBlock : TerraformBlock
+public class AzurermSentinelAlertRuleScheduledTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -158,264 +146,190 @@ public class AzurermSentinelAlertRuleScheduled : TerraformResource
 {
     public AzurermSentinelAlertRuleScheduled(string name) : base("azurerm_sentinel_alert_rule_scheduled", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("alert_rule_template_guid");
-        SetOutput("alert_rule_template_version");
-        SetOutput("custom_details");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("log_analytics_workspace_id");
-        SetOutput("name");
-        SetOutput("query");
-        SetOutput("query_frequency");
-        SetOutput("query_period");
-        SetOutput("severity");
-        SetOutput("suppression_duration");
-        SetOutput("suppression_enabled");
-        SetOutput("tactics");
-        SetOutput("techniques");
-        SetOutput("trigger_operator");
-        SetOutput("trigger_threshold");
     }
 
     /// <summary>
     /// The alert_rule_template_guid attribute.
     /// </summary>
-    public TerraformProperty<string> AlertRuleTemplateGuid
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alert_rule_template_guid");
-        set => SetProperty("alert_rule_template_guid", value);
-    }
+    [TerraformPropertyName("alert_rule_template_guid")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AlertRuleTemplateGuid { get; set; }
 
     /// <summary>
     /// The alert_rule_template_version attribute.
     /// </summary>
-    public TerraformProperty<string> AlertRuleTemplateVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alert_rule_template_version");
-        set => SetProperty("alert_rule_template_version", value);
-    }
+    [TerraformPropertyName("alert_rule_template_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AlertRuleTemplateVersion { get; set; }
 
     /// <summary>
     /// The custom_details attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> CustomDetails
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("custom_details");
-        set => SetProperty("custom_details", value);
-    }
+    [TerraformPropertyName("custom_details")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? CustomDetails { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    public required TerraformProperty<string> LogAnalyticsWorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => SetProperty("log_analytics_workspace_id", value);
-    }
+    [TerraformPropertyName("log_analytics_workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The query attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
-    public required TerraformProperty<string> Query
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("query");
-        set => SetProperty("query", value);
-    }
+    [TerraformPropertyName("query")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Query { get; set; }
 
     /// <summary>
     /// The query_frequency attribute.
     /// </summary>
-    public TerraformProperty<string> QueryFrequency
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("query_frequency");
-        set => SetProperty("query_frequency", value);
-    }
+    [TerraformPropertyName("query_frequency")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? QueryFrequency { get; set; }
 
     /// <summary>
     /// The query_period attribute.
     /// </summary>
-    public TerraformProperty<string> QueryPeriod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("query_period");
-        set => SetProperty("query_period", value);
-    }
+    [TerraformPropertyName("query_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? QueryPeriod { get; set; }
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
-    public required TerraformProperty<string> Severity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("severity");
-        set => SetProperty("severity", value);
-    }
+    [TerraformPropertyName("severity")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Severity { get; set; }
 
     /// <summary>
     /// The suppression_duration attribute.
     /// </summary>
-    public TerraformProperty<string> SuppressionDuration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("suppression_duration");
-        set => SetProperty("suppression_duration", value);
-    }
+    [TerraformPropertyName("suppression_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SuppressionDuration { get; set; }
 
     /// <summary>
     /// The suppression_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> SuppressionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("suppression_enabled");
-        set => SetProperty("suppression_enabled", value);
-    }
+    [TerraformPropertyName("suppression_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SuppressionEnabled { get; set; }
 
     /// <summary>
     /// The tactics attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Tactics
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("tactics");
-        set => SetProperty("tactics", value);
-    }
+    [TerraformPropertyName("tactics")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Tactics { get; set; }
 
     /// <summary>
     /// The techniques attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Techniques
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("techniques");
-        set => SetProperty("techniques", value);
-    }
+    [TerraformPropertyName("techniques")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Techniques { get; set; }
 
     /// <summary>
     /// The trigger_operator attribute.
     /// </summary>
-    public TerraformProperty<string> TriggerOperator
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("trigger_operator");
-        set => SetProperty("trigger_operator", value);
-    }
+    [TerraformPropertyName("trigger_operator")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TriggerOperator { get; set; }
 
     /// <summary>
     /// The trigger_threshold attribute.
     /// </summary>
-    public TerraformProperty<double> TriggerThreshold
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("trigger_threshold");
-        set => SetProperty("trigger_threshold", value);
-    }
+    [TerraformPropertyName("trigger_threshold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TriggerThreshold { get; set; }
 
     /// <summary>
     /// Block for alert_details_override.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlock>? AlertDetailsOverride
-    {
-        set => SetProperty("alert_details_override", value);
-    }
+    [TerraformPropertyName("alert_details_override")]
+    public TerraformList<TerraformBlock<AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlock>>? AlertDetailsOverride { get; set; } = new();
 
     /// <summary>
     /// Block for entity_mapping.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 EntityMapping block(s) allowed")]
-    public List<AzurermSentinelAlertRuleScheduledEntityMappingBlock>? EntityMapping
-    {
-        set => SetProperty("entity_mapping", value);
-    }
+    [TerraformPropertyName("entity_mapping")]
+    public TerraformList<TerraformBlock<AzurermSentinelAlertRuleScheduledEntityMappingBlock>>? EntityMapping { get; set; } = new();
 
     /// <summary>
     /// Block for event_grouping.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventGrouping block(s) allowed")]
-    public List<AzurermSentinelAlertRuleScheduledEventGroupingBlock>? EventGrouping
-    {
-        set => SetProperty("event_grouping", value);
-    }
+    [TerraformPropertyName("event_grouping")]
+    public TerraformList<TerraformBlock<AzurermSentinelAlertRuleScheduledEventGroupingBlock>>? EventGrouping { get; set; } = new();
 
     /// <summary>
     /// Block for incident.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Incident block(s) allowed")]
-    public List<AzurermSentinelAlertRuleScheduledIncidentBlock>? Incident
-    {
-        set => SetProperty("incident", value);
-    }
+    [TerraformPropertyName("incident")]
+    public TerraformList<TerraformBlock<AzurermSentinelAlertRuleScheduledIncidentBlock>>? Incident { get; set; } = new();
 
     /// <summary>
     /// Block for sentinel_entity_mapping.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 SentinelEntityMapping block(s) allowed")]
-    public List<AzurermSentinelAlertRuleScheduledSentinelEntityMappingBlock>? SentinelEntityMapping
-    {
-        set => SetProperty("sentinel_entity_mapping", value);
-    }
+    [TerraformPropertyName("sentinel_entity_mapping")]
+    public TerraformList<TerraformBlock<AzurermSentinelAlertRuleScheduledSentinelEntityMappingBlock>>? SentinelEntityMapping { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSentinelAlertRuleScheduledTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSentinelAlertRuleScheduledTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

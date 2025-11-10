@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBackupDrBackupPlanAssociationTimeoutsBlock : TerraformBlock
+public class GoogleBackupDrBackupPlanAssociationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,24 +38,6 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
 {
     public GoogleBackupDrBackupPlanAssociation(string name) : base("google_backup_dr_backup_plan_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("data_source");
-        SetOutput("last_successful_backup_consistency_time");
-        SetOutput("name");
-        SetOutput("rules_config_info");
-        SetOutput("update_time");
-        SetOutput("backup_plan");
-        SetOutput("backup_plan_association_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("resource");
-        SetOutput("resource_type");
     }
 
     /// <summary>
@@ -68,108 +47,104 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     /// - A Backup Plan configured for &#39;compute.googleapis.com/Disk&#39; can be used to protect both standard Disks and Regional Disks resources.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlan is required")]
-    public required TerraformProperty<string> BackupPlan
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backup_plan");
-        set => SetProperty("backup_plan", value);
-    }
+    [TerraformPropertyName("backup_plan")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BackupPlan { get; set; }
 
     /// <summary>
     /// The id of backupplan association
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanAssociationId is required")]
-    public required TerraformProperty<string> BackupPlanAssociationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backup_plan_association_id");
-        set => SetProperty("backup_plan_association_id", value);
-    }
+    [TerraformPropertyName("backup_plan_association_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BackupPlanAssociationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location for the backupplan association
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The resource for which BPA needs to be created
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
-    public required TerraformProperty<string> Resource
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource");
-        set => SetProperty("resource", value);
-    }
+    [TerraformPropertyName("resource")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Resource { get; set; }
 
     /// <summary>
     /// The resource type of workload on which backupplan is applied.
     /// Examples include, &amp;quot;compute.googleapis.com/Instance&amp;quot;, &amp;quot;compute.googleapis.com/Disk&amp;quot;, and &amp;quot;compute.googleapis.com/RegionDisk&amp;quot;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
-    public required TerraformProperty<string> ResourceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_type");
-        set => SetProperty("resource_type", value);
-    }
+    [TerraformPropertyName("resource_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleBackupDrBackupPlanAssociationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleBackupDrBackupPlanAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when the instance was created
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Resource name of data source which will be used as storage location for backups taken
     /// </summary>
-    public TerraformExpression DataSource => this["data_source"];
+    [TerraformPropertyName("data_source")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DataSource => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "data_source");
 
     /// <summary>
     /// The point in time when the last successful backup was captured from the source
     /// </summary>
-    public TerraformExpression LastSuccessfulBackupConsistencyTime => this["last_successful_backup_consistency_time"];
+    [TerraformPropertyName("last_successful_backup_consistency_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastSuccessfulBackupConsistencyTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_successful_backup_consistency_time");
 
     /// <summary>
     /// The name of backup plan association resource created
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Message for rules config info
     /// </summary>
-    public TerraformExpression RulesConfigInfo => this["rules_config_info"];
+    [TerraformPropertyName("rules_config_info")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RulesConfigInfo => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "rules_config_info");
 
     /// <summary>
     /// The time when the instance was updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

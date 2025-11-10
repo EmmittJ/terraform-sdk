@@ -9,70 +9,51 @@ public class GoogleBigqueryTableIamPolicy : TerraformResource
 {
     public GoogleBigqueryTableIamPolicy(string name) : base("google_bigquery_table_iam_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("etag");
-        SetOutput("dataset_id");
-        SetOutput("id");
-        SetOutput("policy_data");
-        SetOutput("project");
-        SetOutput("table_id");
     }
 
     /// <summary>
     /// The dataset_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
-    public required TerraformProperty<string> DatasetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dataset_id");
-        set => SetProperty("dataset_id", value);
-    }
+    [TerraformPropertyName("dataset_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatasetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
-    public required TerraformProperty<string> PolicyData
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_data");
-        set => SetProperty("policy_data", value);
-    }
+    [TerraformPropertyName("policy_data")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyData { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The table_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
-    public required TerraformProperty<string> TableId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_id");
-        set => SetProperty("table_id", value);
-    }
+    [TerraformPropertyName("table_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TableId { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
 }

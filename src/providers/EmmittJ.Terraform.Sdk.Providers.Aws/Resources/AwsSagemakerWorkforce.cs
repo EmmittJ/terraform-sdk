@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cognito_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerWorkforceCognitoConfigBlock : TerraformBlock
+public class AwsSagemakerWorkforceCognitoConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
-    public required TerraformProperty<string> ClientId
-    {
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientId { get; set; }
 
     /// <summary>
     /// The user_pool attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPool is required")]
-    public required TerraformProperty<string> UserPool
-    {
-        set => SetProperty("user_pool", value);
-    }
+    [TerraformPropertyName("user_pool")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserPool { get; set; }
 
 }
 
@@ -32,95 +30,85 @@ public class AwsSagemakerWorkforceCognitoConfigBlock : TerraformBlock
 /// Block type for oidc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
+public class AwsSagemakerWorkforceOidcConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The authentication_request_extra_params attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? AuthenticationRequestExtraParams
-    {
-        set => SetProperty("authentication_request_extra_params", value);
-    }
+    [TerraformPropertyName("authentication_request_extra_params")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? AuthenticationRequestExtraParams { get; set; }
 
     /// <summary>
     /// The authorization_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
-    public required TerraformProperty<string> AuthorizationEndpoint
-    {
-        set => SetProperty("authorization_endpoint", value);
-    }
+    [TerraformPropertyName("authorization_endpoint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthorizationEndpoint { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
-    public required TerraformProperty<string> ClientId
-    {
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
-    public required TerraformProperty<string> ClientSecret
-    {
-        set => SetProperty("client_secret", value);
-    }
+    [TerraformPropertyName("client_secret")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientSecret { get; set; }
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
-    public required TerraformProperty<string> Issuer
-    {
-        set => SetProperty("issuer", value);
-    }
+    [TerraformPropertyName("issuer")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Issuer { get; set; }
 
     /// <summary>
     /// The jwks_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JwksUri is required")]
-    public required TerraformProperty<string> JwksUri
-    {
-        set => SetProperty("jwks_uri", value);
-    }
+    [TerraformPropertyName("jwks_uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> JwksUri { get; set; }
 
     /// <summary>
     /// The logout_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogoutEndpoint is required")]
-    public required TerraformProperty<string> LogoutEndpoint
-    {
-        set => SetProperty("logout_endpoint", value);
-    }
+    [TerraformPropertyName("logout_endpoint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogoutEndpoint { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
-    {
-        set => SetProperty("scope", value);
-    }
+    [TerraformPropertyName("scope")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Scope { get; set; }
 
     /// <summary>
     /// The token_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
-    public required TerraformProperty<string> TokenEndpoint
-    {
-        set => SetProperty("token_endpoint", value);
-    }
+    [TerraformPropertyName("token_endpoint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TokenEndpoint { get; set; }
 
     /// <summary>
     /// The user_info_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserInfoEndpoint is required")]
-    public required TerraformProperty<string> UserInfoEndpoint
-    {
-        set => SetProperty("user_info_endpoint", value);
-    }
+    [TerraformPropertyName("user_info_endpoint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserInfoEndpoint { get; set; }
 
 }
 
@@ -128,16 +116,15 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
 /// Block type for source_ip_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerWorkforceSourceIpConfigBlock : TerraformBlock
+public class AwsSagemakerWorkforceSourceIpConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The cidrs attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidrs is required")]
-    public HashSet<TerraformProperty<string>>? Cidrs
-    {
-        set => SetProperty("cidrs", value);
-    }
+    [TerraformPropertyName("cidrs")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Cidrs { get; set; }
 
 }
 
@@ -145,39 +132,35 @@ public class AwsSagemakerWorkforceSourceIpConfigBlock : TerraformBlock
 /// Block type for workforce_vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerWorkforceWorkforceVpcConfigBlock : TerraformBlock
+public class AwsSagemakerWorkforceWorkforceVpcConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
-    {
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Subnets
-    {
-        set => SetProperty("subnets", value);
-    }
+    [TerraformPropertyName("subnets")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Subnets { get; set; }
 
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcEndpointId
-    {
-        set => SetProperty("vpc_endpoint_id", value);
-    }
+    [TerraformPropertyName("vpc_endpoint_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcEndpointId => new TerraformReferenceProperty<TerraformProperty<string>>("", "vpc_endpoint_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
-    {
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VpcId { get; set; }
 
 }
 
@@ -189,94 +172,74 @@ public class AwsSagemakerWorkforce : TerraformResource
 {
     public AwsSagemakerWorkforce(string name) : base("aws_sagemaker_workforce", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("subdomain");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("workforce_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The workforce_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforceName is required")]
-    public required TerraformProperty<string> WorkforceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workforce_name");
-        set => SetProperty("workforce_name", value);
-    }
+    [TerraformPropertyName("workforce_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkforceName { get; set; }
 
     /// <summary>
     /// Block for cognito_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CognitoConfig block(s) allowed")]
-    public List<AwsSagemakerWorkforceCognitoConfigBlock>? CognitoConfig
-    {
-        set => SetProperty("cognito_config", value);
-    }
+    [TerraformPropertyName("cognito_config")]
+    public TerraformList<TerraformBlock<AwsSagemakerWorkforceCognitoConfigBlock>>? CognitoConfig { get; set; } = new();
 
     /// <summary>
     /// Block for oidc_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OidcConfig block(s) allowed")]
-    public List<AwsSagemakerWorkforceOidcConfigBlock>? OidcConfig
-    {
-        set => SetProperty("oidc_config", value);
-    }
+    [TerraformPropertyName("oidc_config")]
+    public TerraformList<TerraformBlock<AwsSagemakerWorkforceOidcConfigBlock>>? OidcConfig { get; set; } = new();
 
     /// <summary>
     /// Block for source_ip_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceIpConfig block(s) allowed")]
-    public List<AwsSagemakerWorkforceSourceIpConfigBlock>? SourceIpConfig
-    {
-        set => SetProperty("source_ip_config", value);
-    }
+    [TerraformPropertyName("source_ip_config")]
+    public TerraformList<TerraformBlock<AwsSagemakerWorkforceSourceIpConfigBlock>>? SourceIpConfig { get; set; } = new();
 
     /// <summary>
     /// Block for workforce_vpc_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkforceVpcConfig block(s) allowed")]
-    public List<AwsSagemakerWorkforceWorkforceVpcConfigBlock>? WorkforceVpcConfig
-    {
-        set => SetProperty("workforce_vpc_config", value);
-    }
+    [TerraformPropertyName("workforce_vpc_config")]
+    public TerraformList<TerraformBlock<AwsSagemakerWorkforceWorkforceVpcConfigBlock>>? WorkforceVpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The subdomain attribute.
     /// </summary>
-    public TerraformExpression Subdomain => this["subdomain"];
+    [TerraformPropertyName("subdomain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Subdomain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subdomain");
 
 }

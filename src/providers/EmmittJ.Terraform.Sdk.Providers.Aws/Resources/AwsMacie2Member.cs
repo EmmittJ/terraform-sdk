@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMacie2MemberTimeoutsBlock : TerraformBlock
+public class AwsMacie2MemberTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -33,158 +31,127 @@ public class AwsMacie2Member : TerraformResource
 {
     public AwsMacie2Member(string name) : base("aws_macie2_member", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("administrator_account_id");
-        SetOutput("arn");
-        SetOutput("invited_at");
-        SetOutput("master_account_id");
-        SetOutput("relationship_status");
-        SetOutput("updated_at");
-        SetOutput("account_id");
-        SetOutput("email");
-        SetOutput("id");
-        SetOutput("invitation_disable_email_notification");
-        SetOutput("invitation_message");
-        SetOutput("invite");
-        SetOutput("region");
-        SetOutput("status");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
-    public required TerraformProperty<string> AccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountId { get; set; }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    public required TerraformProperty<string> Email
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("email");
-        set => SetProperty("email", value);
-    }
+    [TerraformPropertyName("email")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Email { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The invitation_disable_email_notification attribute.
     /// </summary>
-    public TerraformProperty<bool> InvitationDisableEmailNotification
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("invitation_disable_email_notification");
-        set => SetProperty("invitation_disable_email_notification", value);
-    }
+    [TerraformPropertyName("invitation_disable_email_notification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InvitationDisableEmailNotification { get; set; }
 
     /// <summary>
     /// The invitation_message attribute.
     /// </summary>
-    public TerraformProperty<string> InvitationMessage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("invitation_message");
-        set => SetProperty("invitation_message", value);
-    }
+    [TerraformPropertyName("invitation_message")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InvitationMessage { get; set; }
 
     /// <summary>
     /// The invite attribute.
     /// </summary>
-    public TerraformProperty<bool> Invite
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("invite");
-        set => SetProperty("invite", value);
-    }
+    [TerraformPropertyName("invite")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> Invite { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "invite");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Status { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsMacie2MemberTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsMacie2MemberTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The administrator_account_id attribute.
     /// </summary>
-    public TerraformExpression AdministratorAccountId => this["administrator_account_id"];
+    [TerraformPropertyName("administrator_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AdministratorAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "administrator_account_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The invited_at attribute.
     /// </summary>
-    public TerraformExpression InvitedAt => this["invited_at"];
+    [TerraformPropertyName("invited_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InvitedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "invited_at");
 
     /// <summary>
     /// The master_account_id attribute.
     /// </summary>
-    public TerraformExpression MasterAccountId => this["master_account_id"];
+    [TerraformPropertyName("master_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MasterAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "master_account_id");
 
     /// <summary>
     /// The relationship_status attribute.
     /// </summary>
-    public TerraformExpression RelationshipStatus => this["relationship_status"];
+    [TerraformPropertyName("relationship_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RelationshipStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "relationship_status");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
-    public TerraformExpression UpdatedAt => this["updated_at"];
+    [TerraformPropertyName("updated_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "updated_at");
 
 }

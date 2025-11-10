@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for advanced_event_selector in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudtrailAdvancedEventSelectorBlock : TerraformBlock
+public class AwsCloudtrailAdvancedEventSelectorBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
 }
 
@@ -22,31 +21,28 @@ public class AwsCloudtrailAdvancedEventSelectorBlock : TerraformBlock
 /// Block type for event_selector in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudtrailEventSelectorBlock : TerraformBlock
+public class AwsCloudtrailEventSelectorBlock : ITerraformBlock
 {
     /// <summary>
     /// The exclude_management_event_sources attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExcludeManagementEventSources
-    {
-        set => SetProperty("exclude_management_event_sources", value);
-    }
+    [TerraformPropertyName("exclude_management_event_sources")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ExcludeManagementEventSources { get; set; }
 
     /// <summary>
     /// The include_management_events attribute.
     /// </summary>
-    public TerraformProperty<bool>? IncludeManagementEvents
-    {
-        set => SetProperty("include_management_events", value);
-    }
+    [TerraformPropertyName("include_management_events")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeManagementEvents { get; set; }
 
     /// <summary>
     /// The read_write_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ReadWriteType
-    {
-        set => SetProperty("read_write_type", value);
-    }
+    [TerraformPropertyName("read_write_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ReadWriteType { get; set; }
 
 }
 
@@ -54,16 +50,15 @@ public class AwsCloudtrailEventSelectorBlock : TerraformBlock
 /// Block type for insight_selector in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCloudtrailInsightSelectorBlock : TerraformBlock
+public class AwsCloudtrailInsightSelectorBlock : ITerraformBlock
 {
     /// <summary>
     /// The insight_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightType is required")]
-    public required TerraformProperty<string> InsightType
-    {
-        set => SetProperty("insight_type", value);
-    }
+    [TerraformPropertyName("insight_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InsightType { get; set; }
 
 }
 
@@ -75,219 +70,163 @@ public class AwsCloudtrail : TerraformResource
 {
     public AwsCloudtrail(string name) : base("aws_cloudtrail", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("home_region");
-        SetOutput("sns_topic_arn");
-        SetOutput("cloud_watch_logs_group_arn");
-        SetOutput("cloud_watch_logs_role_arn");
-        SetOutput("enable_log_file_validation");
-        SetOutput("enable_logging");
-        SetOutput("id");
-        SetOutput("include_global_service_events");
-        SetOutput("is_multi_region_trail");
-        SetOutput("is_organization_trail");
-        SetOutput("kms_key_id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("s3_bucket_name");
-        SetOutput("s3_key_prefix");
-        SetOutput("sns_topic_name");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The cloud_watch_logs_group_arn attribute.
     /// </summary>
-    public TerraformProperty<string> CloudWatchLogsGroupArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_watch_logs_group_arn");
-        set => SetProperty("cloud_watch_logs_group_arn", value);
-    }
+    [TerraformPropertyName("cloud_watch_logs_group_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CloudWatchLogsGroupArn { get; set; }
 
     /// <summary>
     /// The cloud_watch_logs_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> CloudWatchLogsRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_watch_logs_role_arn");
-        set => SetProperty("cloud_watch_logs_role_arn", value);
-    }
+    [TerraformPropertyName("cloud_watch_logs_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CloudWatchLogsRoleArn { get; set; }
 
     /// <summary>
     /// The enable_log_file_validation attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableLogFileValidation
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_log_file_validation");
-        set => SetProperty("enable_log_file_validation", value);
-    }
+    [TerraformPropertyName("enable_log_file_validation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableLogFileValidation { get; set; }
 
     /// <summary>
     /// The enable_logging attribute.
     /// </summary>
-    public TerraformProperty<bool> EnableLogging
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_logging");
-        set => SetProperty("enable_logging", value);
-    }
+    [TerraformPropertyName("enable_logging")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableLogging { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The include_global_service_events attribute.
     /// </summary>
-    public TerraformProperty<bool> IncludeGlobalServiceEvents
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("include_global_service_events");
-        set => SetProperty("include_global_service_events", value);
-    }
+    [TerraformPropertyName("include_global_service_events")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeGlobalServiceEvents { get; set; }
 
     /// <summary>
     /// The is_multi_region_trail attribute.
     /// </summary>
-    public TerraformProperty<bool> IsMultiRegionTrail
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_multi_region_trail");
-        set => SetProperty("is_multi_region_trail", value);
-    }
+    [TerraformPropertyName("is_multi_region_trail")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsMultiRegionTrail { get; set; }
 
     /// <summary>
     /// The is_organization_trail attribute.
     /// </summary>
-    public TerraformProperty<bool> IsOrganizationTrail
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_organization_trail");
-        set => SetProperty("is_organization_trail", value);
-    }
+    [TerraformPropertyName("is_organization_trail")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsOrganizationTrail { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The s3_bucket_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
-    public required TerraformProperty<string> S3BucketName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket_name");
-        set => SetProperty("s3_bucket_name", value);
-    }
+    [TerraformPropertyName("s3_bucket_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> S3BucketName { get; set; }
 
     /// <summary>
     /// The s3_key_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> S3KeyPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_key_prefix");
-        set => SetProperty("s3_key_prefix", value);
-    }
+    [TerraformPropertyName("s3_key_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? S3KeyPrefix { get; set; }
 
     /// <summary>
     /// The sns_topic_name attribute.
     /// </summary>
-    public TerraformProperty<string> SnsTopicName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sns_topic_name");
-        set => SetProperty("sns_topic_name", value);
-    }
+    [TerraformPropertyName("sns_topic_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SnsTopicName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for advanced_event_selector.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsCloudtrailAdvancedEventSelectorBlock>? AdvancedEventSelector
-    {
-        set => SetProperty("advanced_event_selector", value);
-    }
+    [TerraformPropertyName("advanced_event_selector")]
+    public TerraformList<TerraformBlock<AwsCloudtrailAdvancedEventSelectorBlock>>? AdvancedEventSelector { get; set; } = new();
 
     /// <summary>
     /// Block for event_selector.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 EventSelector block(s) allowed")]
-    public List<AwsCloudtrailEventSelectorBlock>? EventSelector
-    {
-        set => SetProperty("event_selector", value);
-    }
+    [TerraformPropertyName("event_selector")]
+    public TerraformList<TerraformBlock<AwsCloudtrailEventSelectorBlock>>? EventSelector { get; set; } = new();
 
     /// <summary>
     /// Block for insight_selector.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsCloudtrailInsightSelectorBlock>? InsightSelector
-    {
-        set => SetProperty("insight_selector", value);
-    }
+    [TerraformPropertyName("insight_selector")]
+    public TerraformSet<TerraformBlock<AwsCloudtrailInsightSelectorBlock>>? InsightSelector { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The home_region attribute.
     /// </summary>
-    public TerraformExpression HomeRegion => this["home_region"];
+    [TerraformPropertyName("home_region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HomeRegion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "home_region");
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
-    public TerraformExpression SnsTopicArn => this["sns_topic_arn"];
+    [TerraformPropertyName("sns_topic_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SnsTopicArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sns_topic_arn");
 
 }

@@ -9,117 +9,83 @@ public class AwsIamAccountPasswordPolicy : TerraformResource
 {
     public AwsIamAccountPasswordPolicy(string name) : base("aws_iam_account_password_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("expire_passwords");
-        SetOutput("allow_users_to_change_password");
-        SetOutput("hard_expiry");
-        SetOutput("id");
-        SetOutput("max_password_age");
-        SetOutput("minimum_password_length");
-        SetOutput("password_reuse_prevention");
-        SetOutput("require_lowercase_characters");
-        SetOutput("require_numbers");
-        SetOutput("require_symbols");
-        SetOutput("require_uppercase_characters");
     }
 
     /// <summary>
     /// The allow_users_to_change_password attribute.
     /// </summary>
-    public TerraformProperty<bool> AllowUsersToChangePassword
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_users_to_change_password");
-        set => SetProperty("allow_users_to_change_password", value);
-    }
+    [TerraformPropertyName("allow_users_to_change_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowUsersToChangePassword { get; set; }
 
     /// <summary>
     /// The hard_expiry attribute.
     /// </summary>
-    public TerraformProperty<bool> HardExpiry
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("hard_expiry");
-        set => SetProperty("hard_expiry", value);
-    }
+    [TerraformPropertyName("hard_expiry")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> HardExpiry { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "hard_expiry");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The max_password_age attribute.
     /// </summary>
-    public TerraformProperty<double> MaxPasswordAge
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_password_age");
-        set => SetProperty("max_password_age", value);
-    }
+    [TerraformPropertyName("max_password_age")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxPasswordAge { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_password_age");
 
     /// <summary>
     /// The minimum_password_length attribute.
     /// </summary>
-    public TerraformProperty<double> MinimumPasswordLength
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("minimum_password_length");
-        set => SetProperty("minimum_password_length", value);
-    }
+    [TerraformPropertyName("minimum_password_length")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinimumPasswordLength { get; set; }
 
     /// <summary>
     /// The password_reuse_prevention attribute.
     /// </summary>
-    public TerraformProperty<double> PasswordReusePrevention
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("password_reuse_prevention");
-        set => SetProperty("password_reuse_prevention", value);
-    }
+    [TerraformPropertyName("password_reuse_prevention")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> PasswordReusePrevention { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "password_reuse_prevention");
 
     /// <summary>
     /// The require_lowercase_characters attribute.
     /// </summary>
-    public TerraformProperty<bool> RequireLowercaseCharacters
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("require_lowercase_characters");
-        set => SetProperty("require_lowercase_characters", value);
-    }
+    [TerraformPropertyName("require_lowercase_characters")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> RequireLowercaseCharacters { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "require_lowercase_characters");
 
     /// <summary>
     /// The require_numbers attribute.
     /// </summary>
-    public TerraformProperty<bool> RequireNumbers
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("require_numbers");
-        set => SetProperty("require_numbers", value);
-    }
+    [TerraformPropertyName("require_numbers")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> RequireNumbers { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "require_numbers");
 
     /// <summary>
     /// The require_symbols attribute.
     /// </summary>
-    public TerraformProperty<bool> RequireSymbols
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("require_symbols");
-        set => SetProperty("require_symbols", value);
-    }
+    [TerraformPropertyName("require_symbols")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> RequireSymbols { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "require_symbols");
 
     /// <summary>
     /// The require_uppercase_characters attribute.
     /// </summary>
-    public TerraformProperty<bool> RequireUppercaseCharacters
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("require_uppercase_characters");
-        set => SetProperty("require_uppercase_characters", value);
-    }
+    [TerraformPropertyName("require_uppercase_characters")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> RequireUppercaseCharacters { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "require_uppercase_characters");
 
     /// <summary>
     /// The expire_passwords attribute.
     /// </summary>
-    public TerraformExpression ExpirePasswords => this["expire_passwords"];
+    [TerraformPropertyName("expire_passwords")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ExpirePasswords => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "expire_passwords");
 
 }

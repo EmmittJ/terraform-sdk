@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for eks_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBatchJobDefinitionEksPropertiesBlock : TerraformBlock
+public class AwsBatchJobDefinitionEksPropertiesBlock : ITerraformBlock
 {
 }
 
@@ -14,15 +14,14 @@ public class AwsBatchJobDefinitionEksPropertiesBlock : TerraformBlock
 /// Block type for retry_strategy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBatchJobDefinitionRetryStrategyBlock : TerraformBlock
+public class AwsBatchJobDefinitionRetryStrategyBlock : ITerraformBlock
 {
     /// <summary>
     /// The attempts attribute.
     /// </summary>
-    public TerraformProperty<double>? Attempts
-    {
-        set => SetProperty("attempts", value);
-    }
+    [TerraformPropertyName("attempts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Attempts { get; set; }
 
 }
 
@@ -30,15 +29,14 @@ public class AwsBatchJobDefinitionRetryStrategyBlock : TerraformBlock
 /// Block type for timeout in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBatchJobDefinitionTimeoutBlock : TerraformBlock
+public class AwsBatchJobDefinitionTimeoutBlock : ITerraformBlock
 {
     /// <summary>
     /// The attempt_duration_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? AttemptDurationSeconds
-    {
-        set => SetProperty("attempt_duration_seconds", value);
-    }
+    [TerraformPropertyName("attempt_duration_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AttemptDurationSeconds { get; set; }
 
 }
 
@@ -50,201 +48,151 @@ public class AwsBatchJobDefinition : TerraformResource
 {
     public AwsBatchJobDefinition(string name) : base("aws_batch_job_definition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("arn_prefix");
-        SetOutput("revision");
-        SetOutput("container_properties");
-        SetOutput("deregister_on_new_revision");
-        SetOutput("ecs_properties");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("node_properties");
-        SetOutput("parameters");
-        SetOutput("platform_capabilities");
-        SetOutput("propagate_tags");
-        SetOutput("region");
-        SetOutput("scheduling_priority");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The container_properties attribute.
     /// </summary>
-    public TerraformProperty<string> ContainerProperties
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_properties");
-        set => SetProperty("container_properties", value);
-    }
+    [TerraformPropertyName("container_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContainerProperties { get; set; }
 
     /// <summary>
     /// The deregister_on_new_revision attribute.
     /// </summary>
-    public TerraformProperty<bool> DeregisterOnNewRevision
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("deregister_on_new_revision");
-        set => SetProperty("deregister_on_new_revision", value);
-    }
+    [TerraformPropertyName("deregister_on_new_revision")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeregisterOnNewRevision { get; set; }
 
     /// <summary>
     /// The ecs_properties attribute.
     /// </summary>
-    public TerraformProperty<string> EcsProperties
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ecs_properties");
-        set => SetProperty("ecs_properties", value);
-    }
+    [TerraformPropertyName("ecs_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EcsProperties { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The node_properties attribute.
     /// </summary>
-    public TerraformProperty<string> NodeProperties
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("node_properties");
-        set => SetProperty("node_properties", value);
-    }
+    [TerraformPropertyName("node_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NodeProperties { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Parameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// The platform_capabilities attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> PlatformCapabilities
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("platform_capabilities");
-        set => SetProperty("platform_capabilities", value);
-    }
+    [TerraformPropertyName("platform_capabilities")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? PlatformCapabilities { get; set; }
 
     /// <summary>
     /// The propagate_tags attribute.
     /// </summary>
-    public TerraformProperty<bool> PropagateTags
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("propagate_tags");
-        set => SetProperty("propagate_tags", value);
-    }
+    [TerraformPropertyName("propagate_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PropagateTags { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The scheduling_priority attribute.
     /// </summary>
-    public TerraformProperty<double> SchedulingPriority
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("scheduling_priority");
-        set => SetProperty("scheduling_priority", value);
-    }
+    [TerraformPropertyName("scheduling_priority")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SchedulingPriority { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// Block for eks_properties.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EksProperties block(s) allowed")]
-    public List<AwsBatchJobDefinitionEksPropertiesBlock>? EksProperties
-    {
-        set => SetProperty("eks_properties", value);
-    }
+    [TerraformPropertyName("eks_properties")]
+    public TerraformList<TerraformBlock<AwsBatchJobDefinitionEksPropertiesBlock>>? EksProperties { get; set; } = new();
 
     /// <summary>
     /// Block for retry_strategy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryStrategy block(s) allowed")]
-    public List<AwsBatchJobDefinitionRetryStrategyBlock>? RetryStrategy
-    {
-        set => SetProperty("retry_strategy", value);
-    }
+    [TerraformPropertyName("retry_strategy")]
+    public TerraformList<TerraformBlock<AwsBatchJobDefinitionRetryStrategyBlock>>? RetryStrategy { get; set; } = new();
 
     /// <summary>
     /// Block for timeout.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Timeout block(s) allowed")]
-    public List<AwsBatchJobDefinitionTimeoutBlock>? Timeout
-    {
-        set => SetProperty("timeout", value);
-    }
+    [TerraformPropertyName("timeout")]
+    public TerraformList<TerraformBlock<AwsBatchJobDefinitionTimeoutBlock>>? Timeout { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The arn_prefix attribute.
     /// </summary>
-    public TerraformExpression ArnPrefix => this["arn_prefix"];
+    [TerraformPropertyName("arn_prefix")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ArnPrefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn_prefix");
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
-    public TerraformExpression Revision => this["revision"];
+    [TerraformPropertyName("revision")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Revision => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "revision");
 
 }

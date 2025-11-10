@@ -9,43 +9,29 @@ public class AwsIamUserGroupMembership : TerraformResource
 {
     public AwsIamUserGroupMembership(string name) : base("aws_iam_user_group_membership", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("groups");
-        SetOutput("id");
-        SetOutput("user");
     }
 
     /// <summary>
     /// The groups attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Groups is required")]
-    public HashSet<TerraformProperty<string>> Groups
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("groups");
-        set => SetProperty("groups", value);
-    }
+    [TerraformPropertyName("groups")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Groups { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The user attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
-    public required TerraformProperty<string> User
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user");
-        set => SetProperty("user", value);
-    }
+    [TerraformPropertyName("user")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> User { get; set; }
 
 }

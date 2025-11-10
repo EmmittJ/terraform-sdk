@@ -6,41 +6,37 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for multi_select_observation in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock : TerraformBlock
+public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>("", "description");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The supported_values attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SupportedValues
-    {
-        set => SetProperty("supported_values", value);
-    }
+    [TerraformPropertyName("supported_values")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SupportedValues => new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "supported_values");
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public List<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -48,40 +44,36 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock
 /// Block type for prioritized_exclude_observation in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock : TerraformBlock
+public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>("", "description");
 
     /// <summary>
     /// The exclude attribute.
     /// </summary>
-    public TerraformProperty<string>? Exclude
-    {
-        set => SetProperty("exclude", value);
-    }
+    [TerraformPropertyName("exclude")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Exclude { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The prioritize attribute.
     /// </summary>
-    public TerraformProperty<string>? Prioritize
-    {
-        set => SetProperty("prioritize", value);
-    }
+    [TerraformPropertyName("prioritize")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Prioritize { get; set; }
 
 }
 
@@ -89,41 +81,37 @@ public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservati
 /// Block type for single_select_observation in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock : TerraformBlock
+public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>("", "description");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The supported_values attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? SupportedValues
-    {
-        set => SetProperty("supported_values", value);
-    }
+    [TerraformPropertyName("supported_values")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SupportedValues => new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "supported_values");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<string> Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
 
 }
 
@@ -131,49 +119,44 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBloc
 /// Block type for threshold_observation in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock : TerraformBlock
+public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>("", "description");
 
     /// <summary>
     /// The max attribute.
     /// </summary>
-    public TerraformProperty<string>? Max
-    {
-        set => SetProperty("max", value);
-    }
+    [TerraformPropertyName("max")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Max => new TerraformReferenceProperty<TerraformProperty<string>>("", "max");
 
     /// <summary>
     /// The min attribute.
     /// </summary>
-    public TerraformProperty<string>? Min
-    {
-        set => SetProperty("min", value);
-    }
+    [TerraformPropertyName("min")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Min => new TerraformReferenceProperty<TerraformProperty<string>>("", "min");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<string> Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
 
 }
 
@@ -181,39 +164,35 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock :
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBlock
+public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -224,181 +203,158 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
 {
     public AzurermSentinelAlertRuleAnomalyDuplicate(string name) : base("azurerm_sentinel_alert_rule_anomaly_duplicate", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("anomaly_settings_version");
-        SetOutput("anomaly_version");
-        SetOutput("description");
-        SetOutput("frequency");
-        SetOutput("is_default_settings");
-        SetOutput("name");
-        SetOutput("required_data_connector");
-        SetOutput("settings_definition_id");
-        SetOutput("tactics");
-        SetOutput("techniques");
-        SetOutput("built_in_rule_id");
-        SetOutput("display_name");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("log_analytics_workspace_id");
-        SetOutput("mode");
     }
 
     /// <summary>
     /// The built_in_rule_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuiltInRuleId is required")]
-    public required TerraformProperty<string> BuiltInRuleId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("built_in_rule_id");
-        set => SetProperty("built_in_rule_id", value);
-    }
+    [TerraformPropertyName("built_in_rule_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BuiltInRuleId { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    public required TerraformProperty<string> LogAnalyticsWorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => SetProperty("log_analytics_workspace_id", value);
-    }
+    [TerraformPropertyName("log_analytics_workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    public required TerraformProperty<string> Mode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mode");
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Mode { get; set; }
 
     /// <summary>
     /// Block for multi_select_observation.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock>? MultiSelectObservation
-    {
-        set => SetProperty("multi_select_observation", value);
-    }
+    [TerraformPropertyName("multi_select_observation")]
+    public TerraformList<TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock>>? MultiSelectObservation { get; set; } = new();
 
     /// <summary>
     /// Block for prioritized_exclude_observation.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock>? PrioritizedExcludeObservation
-    {
-        set => SetProperty("prioritized_exclude_observation", value);
-    }
+    [TerraformPropertyName("prioritized_exclude_observation")]
+    public TerraformList<TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock>>? PrioritizedExcludeObservation { get; set; } = new();
 
     /// <summary>
     /// Block for single_select_observation.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock>? SingleSelectObservation
-    {
-        set => SetProperty("single_select_observation", value);
-    }
+    [TerraformPropertyName("single_select_observation")]
+    public TerraformList<TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock>>? SingleSelectObservation { get; set; } = new();
 
     /// <summary>
     /// Block for threshold_observation.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock>? ThresholdObservation
-    {
-        set => SetProperty("threshold_observation", value);
-    }
+    [TerraformPropertyName("threshold_observation")]
+    public TerraformList<TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock>>? ThresholdObservation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The anomaly_settings_version attribute.
     /// </summary>
-    public TerraformExpression AnomalySettingsVersion => this["anomaly_settings_version"];
+    [TerraformPropertyName("anomaly_settings_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AnomalySettingsVersion => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "anomaly_settings_version");
 
     /// <summary>
     /// The anomaly_version attribute.
     /// </summary>
-    public TerraformExpression AnomalyVersion => this["anomaly_version"];
+    [TerraformPropertyName("anomaly_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AnomalyVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "anomaly_version");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    public TerraformExpression Frequency => this["frequency"];
+    [TerraformPropertyName("frequency")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Frequency => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "frequency");
 
     /// <summary>
     /// The is_default_settings attribute.
     /// </summary>
-    public TerraformExpression IsDefaultSettings => this["is_default_settings"];
+    [TerraformPropertyName("is_default_settings")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> IsDefaultSettings => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "is_default_settings");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The required_data_connector attribute.
     /// </summary>
-    public TerraformExpression RequiredDataConnector => this["required_data_connector"];
+    [TerraformPropertyName("required_data_connector")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RequiredDataConnector => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "required_data_connector");
 
     /// <summary>
     /// The settings_definition_id attribute.
     /// </summary>
-    public TerraformExpression SettingsDefinitionId => this["settings_definition_id"];
+    [TerraformPropertyName("settings_definition_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SettingsDefinitionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "settings_definition_id");
 
     /// <summary>
     /// The tactics attribute.
     /// </summary>
-    public TerraformExpression Tactics => this["tactics"];
+    [TerraformPropertyName("tactics")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Tactics => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "tactics");
 
     /// <summary>
     /// The techniques attribute.
     /// </summary>
-    public TerraformExpression Techniques => this["techniques"];
+    [TerraformPropertyName("techniques")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Techniques => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "techniques");
 
 }

@@ -9,155 +9,113 @@ public class AwsDatasyncLocationObjectStorage : TerraformResource
 {
     public AwsDatasyncLocationObjectStorage(string name) : base("aws_datasync_location_object_storage", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("uri");
-        SetOutput("access_key");
-        SetOutput("agent_arns");
-        SetOutput("bucket_name");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("secret_key");
-        SetOutput("server_certificate");
-        SetOutput("server_hostname");
-        SetOutput("server_port");
-        SetOutput("server_protocol");
-        SetOutput("subdirectory");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The access_key attribute.
     /// </summary>
-    public TerraformProperty<string> AccessKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_key");
-        set => SetProperty("access_key", value);
-    }
+    [TerraformPropertyName("access_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AccessKey { get; set; }
 
     /// <summary>
     /// The agent_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AgentArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("agent_arns");
-        set => SetProperty("agent_arns", value);
-    }
+    [TerraformPropertyName("agent_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AgentArns { get; set; }
 
     /// <summary>
     /// The bucket_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
-    public required TerraformProperty<string> BucketName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket_name");
-        set => SetProperty("bucket_name", value);
-    }
+    [TerraformPropertyName("bucket_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BucketName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The secret_key attribute.
     /// </summary>
-    public TerraformProperty<string> SecretKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("secret_key");
-        set => SetProperty("secret_key", value);
-    }
+    [TerraformPropertyName("secret_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecretKey { get; set; }
 
     /// <summary>
     /// The server_certificate attribute.
     /// </summary>
-    public TerraformProperty<string> ServerCertificate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("server_certificate");
-        set => SetProperty("server_certificate", value);
-    }
+    [TerraformPropertyName("server_certificate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServerCertificate { get; set; }
 
     /// <summary>
     /// The server_hostname attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerHostname is required")]
-    public required TerraformProperty<string> ServerHostname
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("server_hostname");
-        set => SetProperty("server_hostname", value);
-    }
+    [TerraformPropertyName("server_hostname")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServerHostname { get; set; }
 
     /// <summary>
     /// The server_port attribute.
     /// </summary>
-    public TerraformProperty<double> ServerPort
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("server_port");
-        set => SetProperty("server_port", value);
-    }
+    [TerraformPropertyName("server_port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ServerPort { get; set; }
 
     /// <summary>
     /// The server_protocol attribute.
     /// </summary>
-    public TerraformProperty<string> ServerProtocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("server_protocol");
-        set => SetProperty("server_protocol", value);
-    }
+    [TerraformPropertyName("server_protocol")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ServerProtocol { get; set; }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformProperty<string> Subdirectory
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subdirectory");
-        set => SetProperty("subdirectory", value);
-    }
+    [TerraformPropertyName("subdirectory")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Subdirectory { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subdirectory");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformExpression Uri => this["uri"];
+    [TerraformPropertyName("uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uri");
 
 }

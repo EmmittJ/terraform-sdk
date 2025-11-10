@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for limits_per_label_set in .
 /// Nesting mode: list
 /// </summary>
-public class AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock : TerraformBlock
+public class AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock : ITerraformBlock
 {
     /// <summary>
     /// The label_set attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelSet is required")]
-    public Dictionary<string, TerraformProperty<string>>? LabelSet
-    {
-        set => SetProperty("label_set", value);
-    }
+    [TerraformPropertyName("label_set")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? LabelSet { get; set; }
 
 }
 
@@ -23,23 +22,21 @@ public class AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsPrometheusWorkspaceConfigurationTimeoutsBlock : TerraformBlock
+public class AwsPrometheusWorkspaceConfigurationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -50,60 +47,42 @@ public class AwsPrometheusWorkspaceConfiguration : TerraformResource
 {
     public AwsPrometheusWorkspaceConfiguration(string name) : base("aws_prometheus_workspace_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("region");
-        SetOutput("retention_period_in_days");
-        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The retention_period_in_days attribute.
     /// </summary>
-    public TerraformProperty<double> RetentionPeriodInDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("retention_period_in_days");
-        set => SetProperty("retention_period_in_days", value);
-    }
+    [TerraformPropertyName("retention_period_in_days")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> RetentionPeriodInDays { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "retention_period_in_days");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    public required TerraformProperty<string> WorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
-        set => SetProperty("workspace_id", value);
-    }
+    [TerraformPropertyName("workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for limits_per_label_set.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock>? LimitsPerLabelSet
-    {
-        set => SetProperty("limits_per_label_set", value);
-    }
+    [TerraformPropertyName("limits_per_label_set")]
+    public TerraformList<TerraformBlock<AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock>>? LimitsPerLabelSet { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsPrometheusWorkspaceConfigurationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsPrometheusWorkspaceConfigurationTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

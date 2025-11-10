@@ -9,91 +9,76 @@ public class AwsIamPolicyDataSource : TerraformDataSource
 {
     public AwsIamPolicyDataSource(string name) : base("aws_iam_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("attachment_count");
-        SetOutput("description");
-        SetOutput("path");
-        SetOutput("policy");
-        SetOutput("policy_id");
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("path_prefix");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string> Arn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arn");
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Arn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The path_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> PathPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("path_prefix");
-        set => SetProperty("path_prefix", value);
-    }
+    [TerraformPropertyName("path_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PathPrefix { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The attachment_count attribute.
     /// </summary>
-    public TerraformExpression AttachmentCount => this["attachment_count"];
+    [TerraformPropertyName("attachment_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AttachmentCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "attachment_count");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformExpression Path => this["path"];
+    [TerraformPropertyName("path")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Path => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "path");
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformExpression Policy => this["policy"];
+    [TerraformPropertyName("policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Policy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy");
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
-    public TerraformExpression PolicyId => this["policy_id"];
+    [TerraformPropertyName("policy_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PolicyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy_id");
 
 }

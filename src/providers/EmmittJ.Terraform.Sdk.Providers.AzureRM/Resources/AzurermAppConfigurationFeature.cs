@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for targeting_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAppConfigurationFeatureTargetingFilterBlock : TerraformBlock
+public class AzurermAppConfigurationFeatureTargetingFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The default_rollout_percentage attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRolloutPercentage is required")]
-    public required TerraformProperty<double> DefaultRolloutPercentage
-    {
-        set => SetProperty("default_rollout_percentage", value);
-    }
+    [TerraformPropertyName("default_rollout_percentage")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> DefaultRolloutPercentage { get; set; }
 
     /// <summary>
     /// The users attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Users
-    {
-        set => SetProperty("users", value);
-    }
+    [TerraformPropertyName("users")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Users { get; set; }
 
 }
 
@@ -31,39 +29,35 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
+public class AzurermAppConfigurationFeatureTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -71,23 +65,21 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
 /// Block type for timewindow_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAppConfigurationFeatureTimewindowFilterBlock : TerraformBlock
+public class AzurermAppConfigurationFeatureTimewindowFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The end attribute.
     /// </summary>
-    public TerraformProperty<string>? End
-    {
-        set => SetProperty("end", value);
-    }
+    [TerraformPropertyName("end")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? End { get; set; }
 
     /// <summary>
     /// The start attribute.
     /// </summary>
-    public TerraformProperty<string>? Start
-    {
-        set => SetProperty("start", value);
-    }
+    [TerraformPropertyName("start")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Start { get; set; }
 
 }
 
@@ -98,150 +90,106 @@ public class AzurermAppConfigurationFeature : TerraformResource
 {
     public AzurermAppConfigurationFeature(string name) : base("azurerm_app_configuration_feature", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("configuration_store_id");
-        SetOutput("description");
-        SetOutput("enabled");
-        SetOutput("etag");
-        SetOutput("id");
-        SetOutput("key");
-        SetOutput("label");
-        SetOutput("locked");
-        SetOutput("name");
-        SetOutput("percentage_filter_value");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The configuration_store_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
-    public required TerraformProperty<string> ConfigurationStoreId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("configuration_store_id");
-        set => SetProperty("configuration_store_id", value);
-    }
+    [TerraformPropertyName("configuration_store_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConfigurationStoreId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformProperty<string> Etag
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("etag");
-        set => SetProperty("etag", value);
-    }
+    [TerraformPropertyName("etag")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Etag { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformProperty<string> Key
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key");
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Key { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key");
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformProperty<string> Label
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("label");
-        set => SetProperty("label", value);
-    }
+    [TerraformPropertyName("label")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Label { get; set; }
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
-    public TerraformProperty<bool> Locked
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("locked");
-        set => SetProperty("locked", value);
-    }
+    [TerraformPropertyName("locked")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Locked { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The percentage_filter_value attribute.
     /// </summary>
-    public TerraformProperty<double> PercentageFilterValue
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("percentage_filter_value");
-        set => SetProperty("percentage_filter_value", value);
-    }
+    [TerraformPropertyName("percentage_filter_value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? PercentageFilterValue { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for targeting_filter.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermAppConfigurationFeatureTargetingFilterBlock>? TargetingFilter
-    {
-        set => SetProperty("targeting_filter", value);
-    }
+    [TerraformPropertyName("targeting_filter")]
+    public TerraformList<TerraformBlock<AzurermAppConfigurationFeatureTargetingFilterBlock>>? TargetingFilter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermAppConfigurationFeatureTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermAppConfigurationFeatureTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for timewindow_filter.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermAppConfigurationFeatureTimewindowFilterBlock>? TimewindowFilter
-    {
-        set => SetProperty("timewindow_filter", value);
-    }
+    [TerraformPropertyName("timewindow_filter")]
+    public TerraformList<TerraformBlock<AzurermAppConfigurationFeatureTimewindowFilterBlock>>? TimewindowFilter { get; set; } = new();
 
 }

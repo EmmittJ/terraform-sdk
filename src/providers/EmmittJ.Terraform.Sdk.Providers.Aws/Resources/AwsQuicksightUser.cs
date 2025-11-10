@@ -9,126 +9,93 @@ public class AwsQuicksightUser : TerraformResource
 {
     public AwsQuicksightUser(string name) : base("aws_quicksight_user", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("user_invitation_url");
-        SetOutput("aws_account_id");
-        SetOutput("email");
-        SetOutput("iam_arn");
-        SetOutput("id");
-        SetOutput("identity_type");
-        SetOutput("namespace");
-        SetOutput("region");
-        SetOutput("session_name");
-        SetOutput("user_name");
-        SetOutput("user_role");
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string> AwsAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
-        set => SetProperty("aws_account_id", value);
-    }
+    [TerraformPropertyName("aws_account_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AwsAccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_account_id");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    public required TerraformProperty<string> Email
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("email");
-        set => SetProperty("email", value);
-    }
+    [TerraformPropertyName("email")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Email { get; set; }
 
     /// <summary>
     /// The iam_arn attribute.
     /// </summary>
-    public TerraformProperty<string> IamArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam_arn");
-        set => SetProperty("iam_arn", value);
-    }
+    [TerraformPropertyName("iam_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IamArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The identity_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityType is required")]
-    public required TerraformProperty<string> IdentityType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_type");
-        set => SetProperty("identity_type", value);
-    }
+    [TerraformPropertyName("identity_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IdentityType { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformProperty<string> Namespace
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace");
-        set => SetProperty("namespace", value);
-    }
+    [TerraformPropertyName("namespace")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Namespace { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The session_name attribute.
     /// </summary>
-    public TerraformProperty<string> SessionName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("session_name");
-        set => SetProperty("session_name", value);
-    }
+    [TerraformPropertyName("session_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SessionName { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformProperty<string> UserName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
-        set => SetProperty("user_name", value);
-    }
+    [TerraformPropertyName("user_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> UserName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_name");
 
     /// <summary>
     /// The user_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserRole is required")]
-    public required TerraformProperty<string> UserRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_role");
-        set => SetProperty("user_role", value);
-    }
+    [TerraformPropertyName("user_role")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserRole { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The user_invitation_url attribute.
     /// </summary>
-    public TerraformExpression UserInvitationUrl => this["user_invitation_url"];
+    [TerraformPropertyName("user_invitation_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UserInvitationUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "user_invitation_url");
 
 }

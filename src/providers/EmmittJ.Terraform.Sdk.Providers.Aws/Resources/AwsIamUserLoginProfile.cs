@@ -9,80 +9,63 @@ public class AwsIamUserLoginProfile : TerraformResource
 {
     public AwsIamUserLoginProfile(string name) : base("aws_iam_user_login_profile", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("encrypted_password");
-        SetOutput("key_fingerprint");
-        SetOutput("password");
-        SetOutput("id");
-        SetOutput("password_length");
-        SetOutput("password_reset_required");
-        SetOutput("pgp_key");
-        SetOutput("user");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The password_length attribute.
     /// </summary>
-    public TerraformProperty<double> PasswordLength
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("password_length");
-        set => SetProperty("password_length", value);
-    }
+    [TerraformPropertyName("password_length")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? PasswordLength { get; set; }
 
     /// <summary>
     /// The password_reset_required attribute.
     /// </summary>
-    public TerraformProperty<bool> PasswordResetRequired
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("password_reset_required");
-        set => SetProperty("password_reset_required", value);
-    }
+    [TerraformPropertyName("password_reset_required")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> PasswordResetRequired { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "password_reset_required");
 
     /// <summary>
     /// The pgp_key attribute.
     /// </summary>
-    public TerraformProperty<string> PgpKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pgp_key");
-        set => SetProperty("pgp_key", value);
-    }
+    [TerraformPropertyName("pgp_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PgpKey { get; set; }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
-    public required TerraformProperty<string> User
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user");
-        set => SetProperty("user", value);
-    }
+    [TerraformPropertyName("user")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> User { get; set; }
 
     /// <summary>
     /// The encrypted_password attribute.
     /// </summary>
-    public TerraformExpression EncryptedPassword => this["encrypted_password"];
+    [TerraformPropertyName("encrypted_password")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EncryptedPassword => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "encrypted_password");
 
     /// <summary>
     /// The key_fingerprint attribute.
     /// </summary>
-    public TerraformExpression KeyFingerprint => this["key_fingerprint"];
+    [TerraformPropertyName("key_fingerprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyFingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_fingerprint");
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformExpression Password => this["password"];
+    [TerraformPropertyName("password")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Password => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "password");
 
 }

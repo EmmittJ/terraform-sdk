@@ -9,88 +9,77 @@ public class AwsIamAccessKey : TerraformResource
 {
     public AwsIamAccessKey(string name) : base("aws_iam_access_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_date");
-        SetOutput("encrypted_secret");
-        SetOutput("encrypted_ses_smtp_password_v4");
-        SetOutput("key_fingerprint");
-        SetOutput("secret");
-        SetOutput("ses_smtp_password_v4");
-        SetOutput("id");
-        SetOutput("pgp_key");
-        SetOutput("status");
-        SetOutput("user");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The pgp_key attribute.
     /// </summary>
-    public TerraformProperty<string> PgpKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pgp_key");
-        set => SetProperty("pgp_key", value);
-    }
+    [TerraformPropertyName("pgp_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PgpKey { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
-    public required TerraformProperty<string> User
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user");
-        set => SetProperty("user", value);
-    }
+    [TerraformPropertyName("user")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> User { get; set; }
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
-    public TerraformExpression CreateDate => this["create_date"];
+    [TerraformPropertyName("create_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_date");
 
     /// <summary>
     /// The encrypted_secret attribute.
     /// </summary>
-    public TerraformExpression EncryptedSecret => this["encrypted_secret"];
+    [TerraformPropertyName("encrypted_secret")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EncryptedSecret => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "encrypted_secret");
 
     /// <summary>
     /// The encrypted_ses_smtp_password_v4 attribute.
     /// </summary>
-    public TerraformExpression EncryptedSesSmtpPasswordV4 => this["encrypted_ses_smtp_password_v4"];
+    [TerraformPropertyName("encrypted_ses_smtp_password_v4")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EncryptedSesSmtpPasswordV4 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "encrypted_ses_smtp_password_v4");
 
     /// <summary>
     /// The key_fingerprint attribute.
     /// </summary>
-    public TerraformExpression KeyFingerprint => this["key_fingerprint"];
+    [TerraformPropertyName("key_fingerprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyFingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_fingerprint");
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
-    public TerraformExpression Secret => this["secret"];
+    [TerraformPropertyName("secret")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Secret => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secret");
 
     /// <summary>
     /// The ses_smtp_password_v4 attribute.
     /// </summary>
-    public TerraformExpression SesSmtpPasswordV4 => this["ses_smtp_password_v4"];
+    [TerraformPropertyName("ses_smtp_password_v4")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SesSmtpPasswordV4 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ses_smtp_password_v4");
 
 }

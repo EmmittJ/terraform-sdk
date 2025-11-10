@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dns_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsServiceDiscoveryServiceDnsConfigBlock : TerraformBlock
+public class AwsServiceDiscoveryServiceDnsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
-    public required TerraformProperty<string> NamespaceId
-    {
-        set => SetProperty("namespace_id", value);
-    }
+    [TerraformPropertyName("namespace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NamespaceId { get; set; }
 
     /// <summary>
     /// The routing_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? RoutingPolicy
-    {
-        set => SetProperty("routing_policy", value);
-    }
+    [TerraformPropertyName("routing_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoutingPolicy { get; set; }
 
 }
 
@@ -31,31 +29,28 @@ public class AwsServiceDiscoveryServiceDnsConfigBlock : TerraformBlock
 /// Block type for health_check_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsServiceDiscoveryServiceHealthCheckConfigBlock : TerraformBlock
+public class AwsServiceDiscoveryServiceHealthCheckConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The failure_threshold attribute.
     /// </summary>
-    public TerraformProperty<double>? FailureThreshold
-    {
-        set => SetProperty("failure_threshold", value);
-    }
+    [TerraformPropertyName("failure_threshold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? FailureThreshold { get; set; }
 
     /// <summary>
     /// The resource_path attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourcePath
-    {
-        set => SetProperty("resource_path", value);
-    }
+    [TerraformPropertyName("resource_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourcePath { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -63,16 +58,15 @@ public class AwsServiceDiscoveryServiceHealthCheckConfigBlock : TerraformBlock
 /// Block type for health_check_custom_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsServiceDiscoveryServiceHealthCheckCustomConfigBlock : TerraformBlock
+public class AwsServiceDiscoveryServiceHealthCheckCustomConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The failure_threshold attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<double>? FailureThreshold
-    {
-        set => SetProperty("failure_threshold", value);
-    }
+    [TerraformPropertyName("failure_threshold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? FailureThreshold { get; set; }
 
 }
 
@@ -84,138 +78,101 @@ public class AwsServiceDiscoveryService : TerraformResource
 {
     public AwsServiceDiscoveryService(string name) : base("aws_service_discovery_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("description");
-        SetOutput("force_destroy");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("namespace_id");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
-        set => SetProperty("force_destroy", value);
-    }
+    [TerraformPropertyName("force_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformProperty<string> NamespaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace_id");
-        set => SetProperty("namespace_id", value);
-    }
+    [TerraformPropertyName("namespace_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamespaceId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "namespace_id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Type { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
     /// <summary>
     /// Block for dns_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
-    public List<AwsServiceDiscoveryServiceDnsConfigBlock>? DnsConfig
-    {
-        set => SetProperty("dns_config", value);
-    }
+    [TerraformPropertyName("dns_config")]
+    public TerraformList<TerraformBlock<AwsServiceDiscoveryServiceDnsConfigBlock>>? DnsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for health_check_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheckConfig block(s) allowed")]
-    public List<AwsServiceDiscoveryServiceHealthCheckConfigBlock>? HealthCheckConfig
-    {
-        set => SetProperty("health_check_config", value);
-    }
+    [TerraformPropertyName("health_check_config")]
+    public TerraformList<TerraformBlock<AwsServiceDiscoveryServiceHealthCheckConfigBlock>>? HealthCheckConfig { get; set; } = new();
 
     /// <summary>
     /// Block for health_check_custom_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheckCustomConfig block(s) allowed")]
-    public List<AwsServiceDiscoveryServiceHealthCheckCustomConfigBlock>? HealthCheckCustomConfig
-    {
-        set => SetProperty("health_check_custom_config", value);
-    }
+    [TerraformPropertyName("health_check_custom_config")]
+    public TerraformList<TerraformBlock<AwsServiceDiscoveryServiceHealthCheckCustomConfigBlock>>? HealthCheckCustomConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

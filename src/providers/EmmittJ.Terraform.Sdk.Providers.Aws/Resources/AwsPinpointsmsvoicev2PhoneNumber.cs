@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsPinpointsmsvoicev2PhoneNumberTimeoutsBlock : TerraformBlock
+public class AwsPinpointsmsvoicev2PhoneNumberTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,184 +38,143 @@ public class AwsPinpointsmsvoicev2PhoneNumber : TerraformResource
 {
     public AwsPinpointsmsvoicev2PhoneNumber(string name) : base("aws_pinpointsmsvoicev2_phone_number", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("monthly_leasing_price");
-        SetOutput("phone_number");
-        SetOutput("tags_all");
-        SetOutput("deletion_protection_enabled");
-        SetOutput("iso_country_code");
-        SetOutput("message_type");
-        SetOutput("number_capabilities");
-        SetOutput("number_type");
-        SetOutput("opt_out_list_name");
-        SetOutput("region");
-        SetOutput("registration_id");
-        SetOutput("self_managed_opt_outs_enabled");
-        SetOutput("tags");
-        SetOutput("two_way_channel_arn");
-        SetOutput("two_way_channel_enabled");
-        SetOutput("two_way_channel_role");
     }
 
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> DeletionProtectionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection_enabled");
-        set => SetProperty("deletion_protection_enabled", value);
-    }
+    [TerraformPropertyName("deletion_protection_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtectionEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection_enabled");
 
     /// <summary>
     /// The iso_country_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsoCountryCode is required")]
-    public required TerraformProperty<string> IsoCountryCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iso_country_code");
-        set => SetProperty("iso_country_code", value);
-    }
+    [TerraformPropertyName("iso_country_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IsoCountryCode { get; set; }
 
     /// <summary>
     /// The message_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageType is required")]
-    public required TerraformProperty<string> MessageType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("message_type");
-        set => SetProperty("message_type", value);
-    }
+    [TerraformPropertyName("message_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MessageType { get; set; }
 
     /// <summary>
     /// The number_capabilities attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberCapabilities is required")]
-    public HashSet<TerraformProperty<string>> NumberCapabilities
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("number_capabilities");
-        set => SetProperty("number_capabilities", value);
-    }
+    [TerraformPropertyName("number_capabilities")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? NumberCapabilities { get; set; }
 
     /// <summary>
     /// The number_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberType is required")]
-    public required TerraformProperty<string> NumberType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("number_type");
-        set => SetProperty("number_type", value);
-    }
+    [TerraformPropertyName("number_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NumberType { get; set; }
 
     /// <summary>
     /// The opt_out_list_name attribute.
     /// </summary>
-    public TerraformProperty<string> OptOutListName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("opt_out_list_name");
-        set => SetProperty("opt_out_list_name", value);
-    }
+    [TerraformPropertyName("opt_out_list_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> OptOutListName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "opt_out_list_name");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The registration_id attribute.
     /// </summary>
-    public TerraformProperty<string> RegistrationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("registration_id");
-        set => SetProperty("registration_id", value);
-    }
+    [TerraformPropertyName("registration_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RegistrationId { get; set; }
 
     /// <summary>
     /// The self_managed_opt_outs_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> SelfManagedOptOutsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("self_managed_opt_outs_enabled");
-        set => SetProperty("self_managed_opt_outs_enabled", value);
-    }
+    [TerraformPropertyName("self_managed_opt_outs_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> SelfManagedOptOutsEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "self_managed_opt_outs_enabled");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The two_way_channel_arn attribute.
     /// </summary>
-    public TerraformProperty<string> TwoWayChannelArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("two_way_channel_arn");
-        set => SetProperty("two_way_channel_arn", value);
-    }
+    [TerraformPropertyName("two_way_channel_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TwoWayChannelArn { get; set; }
 
     /// <summary>
     /// The two_way_channel_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> TwoWayChannelEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("two_way_channel_enabled");
-        set => SetProperty("two_way_channel_enabled", value);
-    }
+    [TerraformPropertyName("two_way_channel_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> TwoWayChannelEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "two_way_channel_enabled");
 
     /// <summary>
     /// The two_way_channel_role attribute.
     /// </summary>
-    public TerraformProperty<string> TwoWayChannelRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("two_way_channel_role");
-        set => SetProperty("two_way_channel_role", value);
-    }
+    [TerraformPropertyName("two_way_channel_role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TwoWayChannelRole { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsPinpointsmsvoicev2PhoneNumberTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsPinpointsmsvoicev2PhoneNumberTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The monthly_leasing_price attribute.
     /// </summary>
-    public TerraformExpression MonthlyLeasingPrice => this["monthly_leasing_price"];
+    [TerraformPropertyName("monthly_leasing_price")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MonthlyLeasingPrice => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "monthly_leasing_price");
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformExpression PhoneNumber => this["phone_number"];
+    [TerraformPropertyName("phone_number")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PhoneNumber => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "phone_number");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

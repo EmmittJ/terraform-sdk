@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attachments_source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsmDocumentAttachmentsSourceBlock : TerraformBlock
+public class AwsSsmDocumentAttachmentsSourceBlock : ITerraformBlock
 {
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public List<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -44,212 +41,185 @@ public class AwsSsmDocument : TerraformResource
 {
     public AwsSsmDocument(string name) : base("aws_ssm_document", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("created_date");
-        SetOutput("default_version");
-        SetOutput("description");
-        SetOutput("document_version");
-        SetOutput("hash");
-        SetOutput("hash_type");
-        SetOutput("latest_version");
-        SetOutput("owner");
-        SetOutput("parameter");
-        SetOutput("platform_types");
-        SetOutput("schema_version");
-        SetOutput("status");
-        SetOutput("content");
-        SetOutput("document_format");
-        SetOutput("document_type");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("permissions");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("target_type");
-        SetOutput("version_name");
     }
 
     /// <summary>
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    public required TerraformProperty<string> Content
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content");
-        set => SetProperty("content", value);
-    }
+    [TerraformPropertyName("content")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Content { get; set; }
 
     /// <summary>
     /// The document_format attribute.
     /// </summary>
-    public TerraformProperty<string> DocumentFormat
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("document_format");
-        set => SetProperty("document_format", value);
-    }
+    [TerraformPropertyName("document_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DocumentFormat { get; set; }
 
     /// <summary>
     /// The document_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentType is required")]
-    public required TerraformProperty<string> DocumentType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("document_type");
-        set => SetProperty("document_type", value);
-    }
+    [TerraformPropertyName("document_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DocumentType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Permissions
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("permissions");
-        set => SetProperty("permissions", value);
-    }
+    [TerraformPropertyName("permissions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Permissions { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    public TerraformProperty<string> TargetType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_type");
-        set => SetProperty("target_type", value);
-    }
+    [TerraformPropertyName("target_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetType { get; set; }
 
     /// <summary>
     /// The version_name attribute.
     /// </summary>
-    public TerraformProperty<string> VersionName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version_name");
-        set => SetProperty("version_name", value);
-    }
+    [TerraformPropertyName("version_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VersionName { get; set; }
 
     /// <summary>
     /// Block for attachments_source.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 AttachmentsSource block(s) allowed")]
-    public List<AwsSsmDocumentAttachmentsSourceBlock>? AttachmentsSource
-    {
-        set => SetProperty("attachments_source", value);
-    }
+    [TerraformPropertyName("attachments_source")]
+    public TerraformList<TerraformBlock<AwsSsmDocumentAttachmentsSourceBlock>>? AttachmentsSource { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
-    public TerraformExpression CreatedDate => this["created_date"];
+    [TerraformPropertyName("created_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_date");
 
     /// <summary>
     /// The default_version attribute.
     /// </summary>
-    public TerraformExpression DefaultVersion => this["default_version"];
+    [TerraformPropertyName("default_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_version");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The document_version attribute.
     /// </summary>
-    public TerraformExpression DocumentVersion => this["document_version"];
+    [TerraformPropertyName("document_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DocumentVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "document_version");
 
     /// <summary>
     /// The hash attribute.
     /// </summary>
-    public TerraformExpression Hash => this["hash"];
+    [TerraformPropertyName("hash")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Hash => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hash");
 
     /// <summary>
     /// The hash_type attribute.
     /// </summary>
-    public TerraformExpression HashType => this["hash_type"];
+    [TerraformPropertyName("hash_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HashType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hash_type");
 
     /// <summary>
     /// The latest_version attribute.
     /// </summary>
-    public TerraformExpression LatestVersion => this["latest_version"];
+    [TerraformPropertyName("latest_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LatestVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "latest_version");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformExpression Owner => this["owner"];
+    [TerraformPropertyName("owner")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Owner => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner");
 
     /// <summary>
     /// The parameter attribute.
     /// </summary>
-    public TerraformExpression Parameter => this["parameter"];
+    [TerraformPropertyName("parameter")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Parameter => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "parameter");
 
     /// <summary>
     /// The platform_types attribute.
     /// </summary>
-    public TerraformExpression PlatformTypes => this["platform_types"];
+    [TerraformPropertyName("platform_types")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> PlatformTypes => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "platform_types");
 
     /// <summary>
     /// The schema_version attribute.
     /// </summary>
-    public TerraformExpression SchemaVersion => this["schema_version"];
+    [TerraformPropertyName("schema_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SchemaVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "schema_version");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

@@ -6,47 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for hardware in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardwareBlock : TerraformBlock
+public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardwareBlock : ITerraformBlock
 {
     /// <summary>
     /// The cpu_count attribute.
     /// </summary>
-    public TerraformProperty<double>? CpuCount
-    {
-        set => SetProperty("cpu_count", value);
-    }
+    [TerraformPropertyName("cpu_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CpuCount { get; set; }
 
     /// <summary>
     /// The dynamic_memory_max_in_mb attribute.
     /// </summary>
-    public TerraformProperty<double>? DynamicMemoryMaxInMb
-    {
-        set => SetProperty("dynamic_memory_max_in_mb", value);
-    }
+    [TerraformPropertyName("dynamic_memory_max_in_mb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DynamicMemoryMaxInMb { get; set; }
 
     /// <summary>
     /// The dynamic_memory_min_in_mb attribute.
     /// </summary>
-    public TerraformProperty<double>? DynamicMemoryMinInMb
-    {
-        set => SetProperty("dynamic_memory_min_in_mb", value);
-    }
+    [TerraformPropertyName("dynamic_memory_min_in_mb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DynamicMemoryMinInMb { get; set; }
 
     /// <summary>
     /// The limit_cpu_for_migration_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LimitCpuForMigrationEnabled
-    {
-        set => SetProperty("limit_cpu_for_migration_enabled", value);
-    }
+    [TerraformPropertyName("limit_cpu_for_migration_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LimitCpuForMigrationEnabled { get; set; }
 
     /// <summary>
     /// The memory_in_mb attribute.
     /// </summary>
-    public TerraformProperty<double>? MemoryInMb
-    {
-        set => SetProperty("memory_in_mb", value);
-    }
+    [TerraformPropertyName("memory_in_mb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MemoryInMb { get; set; }
 
 }
 
@@ -54,47 +49,42 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardw
 /// Block type for infrastructure in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfrastructureBlock : TerraformBlock
+public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfrastructureBlock : ITerraformBlock
 {
     /// <summary>
     /// The checkpoint_type attribute.
     /// </summary>
-    public TerraformProperty<string>? CheckpointType
-    {
-        set => SetProperty("checkpoint_type", value);
-    }
+    [TerraformPropertyName("checkpoint_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CheckpointType { get; set; }
 
     /// <summary>
     /// The system_center_virtual_machine_manager_cloud_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SystemCenterVirtualMachineManagerCloudId
-    {
-        set => SetProperty("system_center_virtual_machine_manager_cloud_id", value);
-    }
+    [TerraformPropertyName("system_center_virtual_machine_manager_cloud_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SystemCenterVirtualMachineManagerCloudId { get; set; }
 
     /// <summary>
     /// The system_center_virtual_machine_manager_inventory_item_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SystemCenterVirtualMachineManagerInventoryItemId
-    {
-        set => SetProperty("system_center_virtual_machine_manager_inventory_item_id", value);
-    }
+    [TerraformPropertyName("system_center_virtual_machine_manager_inventory_item_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SystemCenterVirtualMachineManagerInventoryItemId { get; set; }
 
     /// <summary>
     /// The system_center_virtual_machine_manager_template_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SystemCenterVirtualMachineManagerTemplateId
-    {
-        set => SetProperty("system_center_virtual_machine_manager_template_id", value);
-    }
+    [TerraformPropertyName("system_center_virtual_machine_manager_template_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SystemCenterVirtualMachineManagerTemplateId { get; set; }
 
     /// <summary>
     /// The system_center_virtual_machine_manager_virtual_machine_server_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SystemCenterVirtualMachineManagerVirtualMachineServerId
-    {
-        set => SetProperty("system_center_virtual_machine_manager_virtual_machine_server_id", value);
-    }
+    [TerraformPropertyName("system_center_virtual_machine_manager_virtual_machine_server_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SystemCenterVirtualMachineManagerVirtualMachineServerId { get; set; }
 
 }
 
@@ -102,48 +92,43 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfra
 /// Block type for network_interface in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceBlock : TerraformBlock
+public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceBlock : ITerraformBlock
 {
     /// <summary>
     /// The ipv4_address_type attribute.
     /// </summary>
-    public TerraformProperty<string>? Ipv4AddressType
-    {
-        set => SetProperty("ipv4_address_type", value);
-    }
+    [TerraformPropertyName("ipv4_address_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Ipv4AddressType { get; set; }
 
     /// <summary>
     /// The ipv6_address_type attribute.
     /// </summary>
-    public TerraformProperty<string>? Ipv6AddressType
-    {
-        set => SetProperty("ipv6_address_type", value);
-    }
+    [TerraformPropertyName("ipv6_address_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Ipv6AddressType { get; set; }
 
     /// <summary>
     /// The mac_address_type attribute.
     /// </summary>
-    public TerraformProperty<string>? MacAddressType
-    {
-        set => SetProperty("mac_address_type", value);
-    }
+    [TerraformPropertyName("mac_address_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MacAddressType { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualNetworkId
-    {
-        set => SetProperty("virtual_network_id", value);
-    }
+    [TerraformPropertyName("virtual_network_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VirtualNetworkId { get; set; }
 
 }
 
@@ -151,23 +136,21 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetwo
 /// Block type for operating_system in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOperatingSystemBlock : TerraformBlock
+public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOperatingSystemBlock : ITerraformBlock
 {
     /// <summary>
     /// The admin_password attribute.
     /// </summary>
-    public TerraformProperty<string>? AdminPassword
-    {
-        set => SetProperty("admin_password", value);
-    }
+    [TerraformPropertyName("admin_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AdminPassword { get; set; }
 
     /// <summary>
     /// The computer_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ComputerName
-    {
-        set => SetProperty("computer_name", value);
-    }
+    [TerraformPropertyName("computer_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ComputerName { get; set; }
 
 }
 
@@ -175,71 +158,63 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOpera
 /// Block type for storage_disk in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStorageDiskBlock : TerraformBlock
+public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStorageDiskBlock : ITerraformBlock
 {
     /// <summary>
     /// The bus attribute.
     /// </summary>
-    public TerraformProperty<double>? Bus
-    {
-        set => SetProperty("bus", value);
-    }
+    [TerraformPropertyName("bus")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Bus { get; set; }
 
     /// <summary>
     /// The bus_type attribute.
     /// </summary>
-    public TerraformProperty<string>? BusType
-    {
-        set => SetProperty("bus_type", value);
-    }
+    [TerraformPropertyName("bus_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BusType { get; set; }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformProperty<double>? DiskSizeGb
-    {
-        set => SetProperty("disk_size_gb", value);
-    }
+    [TerraformPropertyName("disk_size_gb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DiskSizeGb { get; set; }
 
     /// <summary>
     /// The lun attribute.
     /// </summary>
-    public TerraformProperty<double>? Lun
-    {
-        set => SetProperty("lun", value);
-    }
+    [TerraformPropertyName("lun")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Lun { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The storage_qos_policy_name attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageQosPolicyName
-    {
-        set => SetProperty("storage_qos_policy_name", value);
-    }
+    [TerraformPropertyName("storage_qos_policy_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageQosPolicyName { get; set; }
 
     /// <summary>
     /// The template_disk_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateDiskId
-    {
-        set => SetProperty("template_disk_id", value);
-    }
+    [TerraformPropertyName("template_disk_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TemplateDiskId { get; set; }
 
     /// <summary>
     /// The vhd_type attribute.
     /// </summary>
-    public TerraformProperty<string>? VhdType
-    {
-        set => SetProperty("vhd_type", value);
-    }
+    [TerraformPropertyName("vhd_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VhdType { get; set; }
 
 }
 
@@ -247,39 +222,35 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStora
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeoutsBlock : TerraformBlock
+public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -291,64 +262,45 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstance : Te
 {
     public AzurermSystemCenterVirtualMachineManagerVirtualMachineInstance(string name) : base("azurerm_system_center_virtual_machine_manager_virtual_machine_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("custom_location_id");
-        SetOutput("id");
-        SetOutput("scoped_resource_id");
-        SetOutput("system_center_virtual_machine_manager_availability_set_ids");
     }
 
     /// <summary>
     /// The custom_location_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
-    public required TerraformProperty<string> CustomLocationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("custom_location_id");
-        set => SetProperty("custom_location_id", value);
-    }
+    [TerraformPropertyName("custom_location_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CustomLocationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The scoped_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopedResourceId is required")]
-    public required TerraformProperty<string> ScopedResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("scoped_resource_id");
-        set => SetProperty("scoped_resource_id", value);
-    }
+    [TerraformPropertyName("scoped_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScopedResourceId { get; set; }
 
     /// <summary>
     /// The system_center_virtual_machine_manager_availability_set_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>> SystemCenterVirtualMachineManagerAvailabilitySetIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("system_center_virtual_machine_manager_availability_set_ids");
-        set => SetProperty("system_center_virtual_machine_manager_availability_set_ids", value);
-    }
+    [TerraformPropertyName("system_center_virtual_machine_manager_availability_set_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SystemCenterVirtualMachineManagerAvailabilitySetIds { get; set; }
 
     /// <summary>
     /// Block for hardware.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hardware block(s) allowed")]
-    public List<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardwareBlock>? Hardware
-    {
-        set => SetProperty("hardware", value);
-    }
+    [TerraformPropertyName("hardware")]
+    public TerraformList<TerraformBlock<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardwareBlock>>? Hardware { get; set; } = new();
 
     /// <summary>
     /// Block for infrastructure.
@@ -357,46 +309,36 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstance : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Infrastructure is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Infrastructure block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Infrastructure block(s) allowed")]
-    public List<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfrastructureBlock>? Infrastructure
-    {
-        set => SetProperty("infrastructure", value);
-    }
+    [TerraformPropertyName("infrastructure")]
+    public TerraformList<TerraformBlock<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfrastructureBlock>>? Infrastructure { get; set; } = new();
 
     /// <summary>
     /// Block for network_interface.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceBlock>? NetworkInterface
-    {
-        set => SetProperty("network_interface", value);
-    }
+    [TerraformPropertyName("network_interface")]
+    public TerraformList<TerraformBlock<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceBlock>>? NetworkInterface { get; set; } = new();
 
     /// <summary>
     /// Block for operating_system.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OperatingSystem block(s) allowed")]
-    public List<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOperatingSystemBlock>? OperatingSystem
-    {
-        set => SetProperty("operating_system", value);
-    }
+    [TerraformPropertyName("operating_system")]
+    public TerraformList<TerraformBlock<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOperatingSystemBlock>>? OperatingSystem { get; set; } = new();
 
     /// <summary>
     /// Block for storage_disk.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStorageDiskBlock>? StorageDisk
-    {
-        set => SetProperty("storage_disk", value);
-    }
+    [TerraformPropertyName("storage_disk")]
+    public TerraformList<TerraformBlock<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStorageDiskBlock>>? StorageDisk { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

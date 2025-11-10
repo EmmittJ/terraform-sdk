@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for open_api in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudGatewayRouteConfigOpenApiBlock : TerraformBlock
+public class AzurermSpringCloudGatewayRouteConfigOpenApiBlock : ITerraformBlock
 {
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformProperty<string>? Uri
-    {
-        set => SetProperty("uri", value);
-    }
+    [TerraformPropertyName("uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Uri { get; set; }
 
 }
 
@@ -22,80 +21,71 @@ public class AzurermSpringCloudGatewayRouteConfigOpenApiBlock : TerraformBlock
 /// Block type for route in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
+public class AzurermSpringCloudGatewayRouteConfigRouteBlock : ITerraformBlock
 {
     /// <summary>
     /// The classification_tags attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ClassificationTags
-    {
-        set => SetProperty("classification_tags", value);
-    }
+    [TerraformPropertyName("classification_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ClassificationTags { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The filters attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Filters
-    {
-        set => SetProperty("filters", value);
-    }
+    [TerraformPropertyName("filters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Filters { get; set; }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
-    public required TerraformProperty<double> Order
-    {
-        set => SetProperty("order", value);
-    }
+    [TerraformPropertyName("order")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Order { get; set; }
 
     /// <summary>
     /// The predicates attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Predicates
-    {
-        set => SetProperty("predicates", value);
-    }
+    [TerraformPropertyName("predicates")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Predicates { get; set; }
 
     /// <summary>
     /// The sso_validation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SsoValidationEnabled
-    {
-        set => SetProperty("sso_validation_enabled", value);
-    }
+    [TerraformPropertyName("sso_validation_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SsoValidationEnabled { get; set; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
-    public TerraformProperty<string>? Title
-    {
-        set => SetProperty("title", value);
-    }
+    [TerraformPropertyName("title")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Title { get; set; }
 
     /// <summary>
     /// The token_relay attribute.
     /// </summary>
-    public TerraformProperty<bool>? TokenRelay
-    {
-        set => SetProperty("token_relay", value);
-    }
+    [TerraformPropertyName("token_relay")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TokenRelay { get; set; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformProperty<string>? Uri
-    {
-        set => SetProperty("uri", value);
-    }
+    [TerraformPropertyName("uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Uri { get; set; }
 
 }
 
@@ -103,39 +93,35 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
+public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -147,122 +133,87 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
 {
     public AzurermSpringCloudGatewayRouteConfig(string name) : base("azurerm_spring_cloud_gateway_route_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("filters");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("predicates");
-        SetOutput("protocol");
-        SetOutput("spring_cloud_app_id");
-        SetOutput("spring_cloud_gateway_id");
-        SetOutput("sso_validation_enabled");
     }
 
     /// <summary>
     /// The filters attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Filters
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("filters");
-        set => SetProperty("filters", value);
-    }
+    [TerraformPropertyName("filters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Filters { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The predicates attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Predicates
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("predicates");
-        set => SetProperty("predicates", value);
-    }
+    [TerraformPropertyName("predicates")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Predicates { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    public required TerraformProperty<string> Protocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
-    public TerraformProperty<string> SpringCloudAppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_app_id");
-        set => SetProperty("spring_cloud_app_id", value);
-    }
+    [TerraformPropertyName("spring_cloud_app_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SpringCloudAppId { get; set; }
 
     /// <summary>
     /// The spring_cloud_gateway_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudGatewayId is required")]
-    public required TerraformProperty<string> SpringCloudGatewayId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("spring_cloud_gateway_id");
-        set => SetProperty("spring_cloud_gateway_id", value);
-    }
+    [TerraformPropertyName("spring_cloud_gateway_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SpringCloudGatewayId { get; set; }
 
     /// <summary>
     /// The sso_validation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> SsoValidationEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("sso_validation_enabled");
-        set => SetProperty("sso_validation_enabled", value);
-    }
+    [TerraformPropertyName("sso_validation_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SsoValidationEnabled { get; set; }
 
     /// <summary>
     /// Block for open_api.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenApi block(s) allowed")]
-    public List<AzurermSpringCloudGatewayRouteConfigOpenApiBlock>? OpenApi
-    {
-        set => SetProperty("open_api", value);
-    }
+    [TerraformPropertyName("open_api")]
+    public TerraformList<TerraformBlock<AzurermSpringCloudGatewayRouteConfigOpenApiBlock>>? OpenApi { get; set; } = new();
 
     /// <summary>
     /// Block for route.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermSpringCloudGatewayRouteConfigRouteBlock>? Route
-    {
-        set => SetProperty("route", value);
-    }
+    [TerraformPropertyName("route")]
+    public TerraformSet<TerraformBlock<AzurermSpringCloudGatewayRouteConfigRouteBlock>>? Route { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSpringCloudGatewayRouteConfigTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSpringCloudGatewayRouteConfigTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

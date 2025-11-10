@@ -7,26 +7,24 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock : TerraformBlock
+public class AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock : ITerraformBlock
 {
     /// <summary>
     /// The slice_differentiator attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? SliceDifferentiator
-    {
-        set => SetProperty("slice_differentiator", value);
-    }
+    [TerraformPropertyName("slice_differentiator")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SliceDifferentiator { get; set; }
 
     /// <summary>
     /// The slice_service_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SliceServiceType is required")]
     [Obsolete("This property is deprecated.")]
-    public required TerraformProperty<double> SliceServiceType
-    {
-        set => SetProperty("slice_service_type", value);
-    }
+    [TerraformPropertyName("slice_service_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> SliceServiceType { get; set; }
 
 }
 
@@ -34,39 +32,35 @@ public class AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInfor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMobileNetworkSliceTimeoutsBlock : TerraformBlock
+public class AzurermMobileNetworkSliceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -78,95 +72,66 @@ public class AzurermMobileNetworkSlice : TerraformResource
 {
     public AzurermMobileNetworkSlice(string name) : base("azurerm_mobile_network_slice", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("mobile_network_id");
-        SetOutput("name");
-        SetOutput("slice_differentiator");
-        SetOutput("slice_service_type");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The mobile_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
-    public required TerraformProperty<string> MobileNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mobile_network_id");
-        set => SetProperty("mobile_network_id", value);
-    }
+    [TerraformPropertyName("mobile_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MobileNetworkId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The slice_differentiator attribute.
     /// </summary>
-    public TerraformProperty<string> SliceDifferentiator
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("slice_differentiator");
-        set => SetProperty("slice_differentiator", value);
-    }
+    [TerraformPropertyName("slice_differentiator")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SliceDifferentiator { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "slice_differentiator");
 
     /// <summary>
     /// The slice_service_type attribute.
     /// </summary>
-    public TerraformProperty<double> SliceServiceType
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("slice_service_type");
-        set => SetProperty("slice_service_type", value);
-    }
+    [TerraformPropertyName("slice_service_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> SliceServiceType { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "slice_service_type");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for single_network_slice_selection_assistance_information.
@@ -174,18 +139,14 @@ public class AzurermMobileNetworkSlice : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SingleNetworkSliceSelectionAssistanceInformation block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public List<AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock>? SingleNetworkSliceSelectionAssistanceInformation
-    {
-        set => SetProperty("single_network_slice_selection_assistance_information", value);
-    }
+    [TerraformPropertyName("single_network_slice_selection_assistance_information")]
+    public TerraformList<TerraformBlock<AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock>>? SingleNetworkSliceSelectionAssistanceInformation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMobileNetworkSliceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMobileNetworkSliceTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

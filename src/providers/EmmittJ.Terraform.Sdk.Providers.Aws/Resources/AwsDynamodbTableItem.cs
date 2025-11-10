@@ -9,74 +9,51 @@ public class AwsDynamodbTableItem : TerraformResource
 {
     public AwsDynamodbTableItem(string name) : base("aws_dynamodb_table_item", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("hash_key");
-        SetOutput("id");
-        SetOutput("item");
-        SetOutput("range_key");
-        SetOutput("region");
-        SetOutput("table_name");
     }
 
     /// <summary>
     /// The hash_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKey is required")]
-    public required TerraformProperty<string> HashKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("hash_key");
-        set => SetProperty("hash_key", value);
-    }
+    [TerraformPropertyName("hash_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HashKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The item attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Item is required")]
-    public required TerraformProperty<string> Item
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("item");
-        set => SetProperty("item", value);
-    }
+    [TerraformPropertyName("item")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Item { get; set; }
 
     /// <summary>
     /// The range_key attribute.
     /// </summary>
-    public TerraformProperty<string> RangeKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("range_key");
-        set => SetProperty("range_key", value);
-    }
+    [TerraformPropertyName("range_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RangeKey { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
-    public required TerraformProperty<string> TableName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
-        set => SetProperty("table_name", value);
-    }
+    [TerraformPropertyName("table_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TableName { get; set; }
 
 }

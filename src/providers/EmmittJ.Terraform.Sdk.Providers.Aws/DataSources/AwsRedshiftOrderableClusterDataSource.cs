@@ -9,77 +9,55 @@ public class AwsRedshiftOrderableClusterDataSource : TerraformDataSource
 {
     public AwsRedshiftOrderableClusterDataSource(string name) : base("aws_redshift_orderable_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("availability_zones");
-        SetOutput("cluster_type");
-        SetOutput("cluster_version");
-        SetOutput("id");
-        SetOutput("node_type");
-        SetOutput("preferred_node_types");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The cluster_type attribute.
     /// </summary>
-    public TerraformProperty<string> ClusterType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_type");
-        set => SetProperty("cluster_type", value);
-    }
+    [TerraformPropertyName("cluster_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ClusterType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_type");
 
     /// <summary>
     /// The cluster_version attribute.
     /// </summary>
-    public TerraformProperty<string> ClusterVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_version");
-        set => SetProperty("cluster_version", value);
-    }
+    [TerraformPropertyName("cluster_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ClusterVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cluster_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public TerraformProperty<string> NodeType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("node_type");
-        set => SetProperty("node_type", value);
-    }
+    [TerraformPropertyName("node_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NodeType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_type");
 
     /// <summary>
     /// The preferred_node_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>> PreferredNodeTypes
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("preferred_node_types");
-        set => SetProperty("preferred_node_types", value);
-    }
+    [TerraformPropertyName("preferred_node_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? PreferredNodeTypes { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformExpression AvailabilityZones => this["availability_zones"];
+    [TerraformPropertyName("availability_zones")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AvailabilityZones => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "availability_zones");
 
 }

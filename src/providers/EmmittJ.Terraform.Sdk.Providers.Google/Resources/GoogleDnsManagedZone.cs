@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cloud_logging_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDnsManagedZoneCloudLoggingConfigBlock : TerraformBlock
+public class GoogleDnsManagedZoneCloudLoggingConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// If set, enable query logging for this ManagedZone. False by default, making logging opt-in.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableLogging is required")]
-    public required TerraformProperty<bool> EnableLogging
-    {
-        set => SetProperty("enable_logging", value);
-    }
+    [TerraformPropertyName("enable_logging")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> EnableLogging { get; set; }
 
 }
 
@@ -23,32 +22,29 @@ public class GoogleDnsManagedZoneCloudLoggingConfigBlock : TerraformBlock
 /// Block type for dnssec_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDnsManagedZoneDnssecConfigBlock : TerraformBlock
+public class GoogleDnsManagedZoneDnssecConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Identifies what kind of resource this is
     /// </summary>
-    public TerraformProperty<string>? Kind
-    {
-        set => SetProperty("kind", value);
-    }
+    [TerraformPropertyName("kind")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Kind { get; set; }
 
     /// <summary>
     /// Specifies the mechanism used to provide authenticated denial-of-existence responses.
     /// non_existence can only be updated when the state is &#39;off&#39;. Possible values: [&amp;quot;nsec&amp;quot;, &amp;quot;nsec3&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? NonExistence
-    {
-        set => SetProperty("non_existence", value);
-    }
+    [TerraformPropertyName("non_existence")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NonExistence { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "non_existence");
 
     /// <summary>
     /// Specifies whether DNSSEC is enabled, and what mode it is in Possible values: [&amp;quot;off&amp;quot;, &amp;quot;on&amp;quot;, &amp;quot;transfer&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? State
-    {
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? State { get; set; }
 
 }
 
@@ -56,7 +52,7 @@ public class GoogleDnsManagedZoneDnssecConfigBlock : TerraformBlock
 /// Block type for forwarding_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDnsManagedZoneForwardingConfigBlock : TerraformBlock
+public class GoogleDnsManagedZoneForwardingConfigBlock : ITerraformBlock
 {
 }
 
@@ -64,7 +60,7 @@ public class GoogleDnsManagedZoneForwardingConfigBlock : TerraformBlock
 /// Block type for peering_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDnsManagedZonePeeringConfigBlock : TerraformBlock
+public class GoogleDnsManagedZonePeeringConfigBlock : ITerraformBlock
 {
 }
 
@@ -72,7 +68,7 @@ public class GoogleDnsManagedZonePeeringConfigBlock : TerraformBlock
 /// Block type for private_visibility_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDnsManagedZonePrivateVisibilityConfigBlock : TerraformBlock
+public class GoogleDnsManagedZonePrivateVisibilityConfigBlock : ITerraformBlock
 {
 }
 
@@ -80,31 +76,28 @@ public class GoogleDnsManagedZonePrivateVisibilityConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDnsManagedZoneTimeoutsBlock : TerraformBlock
+public class GoogleDnsManagedZoneTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -116,62 +109,36 @@ public class GoogleDnsManagedZone : TerraformResource
 {
     public GoogleDnsManagedZone(string name) : base("google_dns_managed_zone", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_time");
-        SetOutput("effective_labels");
-        SetOutput("managed_zone_id");
-        SetOutput("name_servers");
-        SetOutput("terraform_labels");
-        SetOutput("description");
-        SetOutput("dns_name");
-        SetOutput("force_destroy");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("visibility");
     }
 
     /// <summary>
     /// A textual description field. Defaults to &#39;Managed by Terraform&#39;.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The DNS name of this managed zone, for instance &amp;quot;example.com.&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
-    public required TerraformProperty<string> DnsName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dns_name");
-        set => SetProperty("dns_name", value);
-    }
+    [TerraformPropertyName("dns_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DnsName { get; set; }
 
     /// <summary>
     /// Set this true to delete all records in the zone.
     /// </summary>
-    public TerraformProperty<bool> ForceDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
-        set => SetProperty("force_destroy", value);
-    }
+    [TerraformPropertyName("force_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// A set of key/value label pairs to assign to this ManagedZone.
@@ -180,127 +147,117 @@ public class GoogleDnsManagedZone : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// User assigned name for this resource.
     /// Must be unique within the project.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The zone&#39;s visibility: public zones are exposed to the Internet,
     /// while private zones are visible only to Virtual Private Cloud resources. Default value: &amp;quot;public&amp;quot; Possible values: [&amp;quot;private&amp;quot;, &amp;quot;public&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> Visibility
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("visibility");
-        set => SetProperty("visibility", value);
-    }
+    [TerraformPropertyName("visibility")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Visibility { get; set; }
 
     /// <summary>
     /// Block for cloud_logging_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudLoggingConfig block(s) allowed")]
-    public List<GoogleDnsManagedZoneCloudLoggingConfigBlock>? CloudLoggingConfig
-    {
-        set => SetProperty("cloud_logging_config", value);
-    }
+    [TerraformPropertyName("cloud_logging_config")]
+    public TerraformList<TerraformBlock<GoogleDnsManagedZoneCloudLoggingConfigBlock>>? CloudLoggingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for dnssec_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnssecConfig block(s) allowed")]
-    public List<GoogleDnsManagedZoneDnssecConfigBlock>? DnssecConfig
-    {
-        set => SetProperty("dnssec_config", value);
-    }
+    [TerraformPropertyName("dnssec_config")]
+    public TerraformList<TerraformBlock<GoogleDnsManagedZoneDnssecConfigBlock>>? DnssecConfig { get; set; } = new();
 
     /// <summary>
     /// Block for forwarding_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ForwardingConfig block(s) allowed")]
-    public List<GoogleDnsManagedZoneForwardingConfigBlock>? ForwardingConfig
-    {
-        set => SetProperty("forwarding_config", value);
-    }
+    [TerraformPropertyName("forwarding_config")]
+    public TerraformList<TerraformBlock<GoogleDnsManagedZoneForwardingConfigBlock>>? ForwardingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for peering_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PeeringConfig block(s) allowed")]
-    public List<GoogleDnsManagedZonePeeringConfigBlock>? PeeringConfig
-    {
-        set => SetProperty("peering_config", value);
-    }
+    [TerraformPropertyName("peering_config")]
+    public TerraformList<TerraformBlock<GoogleDnsManagedZonePeeringConfigBlock>>? PeeringConfig { get; set; } = new();
 
     /// <summary>
     /// Block for private_visibility_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateVisibilityConfig block(s) allowed")]
-    public List<GoogleDnsManagedZonePrivateVisibilityConfigBlock>? PrivateVisibilityConfig
-    {
-        set => SetProperty("private_visibility_config", value);
-    }
+    [TerraformPropertyName("private_visibility_config")]
+    public TerraformList<TerraformBlock<GoogleDnsManagedZonePrivateVisibilityConfigBlock>>? PrivateVisibilityConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDnsManagedZoneTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDnsManagedZoneTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time that this resource was created on the server.
     /// This is in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreationTime => this["creation_time"];
+    [TerraformPropertyName("creation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Unique identifier for the resource; defined by the server.
     /// </summary>
-    public TerraformExpression ManagedZoneId => this["managed_zone_id"];
+    [TerraformPropertyName("managed_zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ManagedZoneId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "managed_zone_id");
 
     /// <summary>
     /// Delegate your managed_zone to these virtual name servers;
     /// defined by the server
     /// </summary>
-    public TerraformExpression NameServers => this["name_servers"];
+    [TerraformPropertyName("name_servers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> NameServers => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "name_servers");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

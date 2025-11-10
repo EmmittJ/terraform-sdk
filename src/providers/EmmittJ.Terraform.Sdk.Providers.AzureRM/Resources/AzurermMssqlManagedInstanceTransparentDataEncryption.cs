@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock : TerraformBlock
+public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,71 +45,49 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryption : TerraformRes
 {
     public AzurermMssqlManagedInstanceTransparentDataEncryption(string name) : base("azurerm_mssql_managed_instance_transparent_data_encryption", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("auto_rotation_enabled");
-        SetOutput("id");
-        SetOutput("key_vault_key_id");
-        SetOutput("managed_hsm_key_id");
-        SetOutput("managed_instance_id");
     }
 
     /// <summary>
     /// The auto_rotation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoRotationEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_rotation_enabled");
-        set => SetProperty("auto_rotation_enabled", value);
-    }
+    [TerraformPropertyName("auto_rotation_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoRotationEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> KeyVaultKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_key_id");
-        set => SetProperty("key_vault_key_id", value);
-    }
+    [TerraformPropertyName("key_vault_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> ManagedHsmKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_hsm_key_id");
-        set => SetProperty("managed_hsm_key_id", value);
-    }
+    [TerraformPropertyName("managed_hsm_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManagedHsmKeyId { get; set; }
 
     /// <summary>
     /// The managed_instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
-    public required TerraformProperty<string> ManagedInstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_instance_id");
-        set => SetProperty("managed_instance_id", value);
-    }
+    [TerraformPropertyName("managed_instance_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ManagedInstanceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

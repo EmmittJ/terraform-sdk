@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDigitalTwinsEndpointEventgridTimeoutsBlock : TerraformBlock
+public class AzurermDigitalTwinsEndpointEventgridTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,95 +45,67 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
 {
     public AzurermDigitalTwinsEndpointEventgrid(string name) : base("azurerm_digital_twins_endpoint_eventgrid", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("dead_letter_storage_secret");
-        SetOutput("digital_twins_id");
-        SetOutput("eventgrid_topic_endpoint");
-        SetOutput("eventgrid_topic_primary_access_key");
-        SetOutput("eventgrid_topic_secondary_access_key");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The dead_letter_storage_secret attribute.
     /// </summary>
-    public TerraformProperty<string> DeadLetterStorageSecret
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dead_letter_storage_secret");
-        set => SetProperty("dead_letter_storage_secret", value);
-    }
+    [TerraformPropertyName("dead_letter_storage_secret")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeadLetterStorageSecret { get; set; }
 
     /// <summary>
     /// The digital_twins_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
-    public required TerraformProperty<string> DigitalTwinsId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("digital_twins_id");
-        set => SetProperty("digital_twins_id", value);
-    }
+    [TerraformPropertyName("digital_twins_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DigitalTwinsId { get; set; }
 
     /// <summary>
     /// The eventgrid_topic_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicEndpoint is required")]
-    public required TerraformProperty<string> EventgridTopicEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventgrid_topic_endpoint");
-        set => SetProperty("eventgrid_topic_endpoint", value);
-    }
+    [TerraformPropertyName("eventgrid_topic_endpoint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventgridTopicEndpoint { get; set; }
 
     /// <summary>
     /// The eventgrid_topic_primary_access_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicPrimaryAccessKey is required")]
-    public required TerraformProperty<string> EventgridTopicPrimaryAccessKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventgrid_topic_primary_access_key");
-        set => SetProperty("eventgrid_topic_primary_access_key", value);
-    }
+    [TerraformPropertyName("eventgrid_topic_primary_access_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventgridTopicPrimaryAccessKey { get; set; }
 
     /// <summary>
     /// The eventgrid_topic_secondary_access_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicSecondaryAccessKey is required")]
-    public required TerraformProperty<string> EventgridTopicSecondaryAccessKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventgrid_topic_secondary_access_key");
-        set => SetProperty("eventgrid_topic_secondary_access_key", value);
-    }
+    [TerraformPropertyName("eventgrid_topic_secondary_access_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventgridTopicSecondaryAccessKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDigitalTwinsEndpointEventgridTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDigitalTwinsEndpointEventgridTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

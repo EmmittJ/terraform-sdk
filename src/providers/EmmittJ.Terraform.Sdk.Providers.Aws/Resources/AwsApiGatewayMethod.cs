@@ -9,145 +9,101 @@ public class AwsApiGatewayMethod : TerraformResource
 {
     public AwsApiGatewayMethod(string name) : base("aws_api_gateway_method", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("api_key_required");
-        SetOutput("authorization");
-        SetOutput("authorization_scopes");
-        SetOutput("authorizer_id");
-        SetOutput("http_method");
-        SetOutput("id");
-        SetOutput("operation_name");
-        SetOutput("region");
-        SetOutput("request_models");
-        SetOutput("request_parameters");
-        SetOutput("request_validator_id");
-        SetOutput("resource_id");
-        SetOutput("rest_api_id");
     }
 
     /// <summary>
     /// The api_key_required attribute.
     /// </summary>
-    public TerraformProperty<bool> ApiKeyRequired
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("api_key_required");
-        set => SetProperty("api_key_required", value);
-    }
+    [TerraformPropertyName("api_key_required")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ApiKeyRequired { get; set; }
 
     /// <summary>
     /// The authorization attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authorization is required")]
-    public required TerraformProperty<string> Authorization
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authorization");
-        set => SetProperty("authorization", value);
-    }
+    [TerraformPropertyName("authorization")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Authorization { get; set; }
 
     /// <summary>
     /// The authorization_scopes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AuthorizationScopes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("authorization_scopes");
-        set => SetProperty("authorization_scopes", value);
-    }
+    [TerraformPropertyName("authorization_scopes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AuthorizationScopes { get; set; }
 
     /// <summary>
     /// The authorizer_id attribute.
     /// </summary>
-    public TerraformProperty<string> AuthorizerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authorizer_id");
-        set => SetProperty("authorizer_id", value);
-    }
+    [TerraformPropertyName("authorizer_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthorizerId { get; set; }
 
     /// <summary>
     /// The http_method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
-    public required TerraformProperty<string> HttpMethod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("http_method");
-        set => SetProperty("http_method", value);
-    }
+    [TerraformPropertyName("http_method")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HttpMethod { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The operation_name attribute.
     /// </summary>
-    public TerraformProperty<string> OperationName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("operation_name");
-        set => SetProperty("operation_name", value);
-    }
+    [TerraformPropertyName("operation_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OperationName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The request_models attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> RequestModels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("request_models");
-        set => SetProperty("request_models", value);
-    }
+    [TerraformPropertyName("request_models")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? RequestModels { get; set; }
 
     /// <summary>
     /// The request_parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<bool>> RequestParameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<bool>>>("request_parameters");
-        set => SetProperty("request_parameters", value);
-    }
+    [TerraformPropertyName("request_parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<bool>>>? RequestParameters { get; set; }
 
     /// <summary>
     /// The request_validator_id attribute.
     /// </summary>
-    public TerraformProperty<string> RequestValidatorId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("request_validator_id");
-        set => SetProperty("request_validator_id", value);
-    }
+    [TerraformPropertyName("request_validator_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RequestValidatorId { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
-    public required TerraformProperty<string> ResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_id");
-        set => SetProperty("resource_id", value);
-    }
+    [TerraformPropertyName("resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceId { get; set; }
 
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
-    public required TerraformProperty<string> RestApiId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rest_api_id");
-        set => SetProperty("rest_api_id", value);
-    }
+    [TerraformPropertyName("rest_api_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RestApiId { get; set; }
 
 }

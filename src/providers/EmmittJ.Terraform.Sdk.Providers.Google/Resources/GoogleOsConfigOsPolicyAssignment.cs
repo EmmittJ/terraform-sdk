@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for instance_filter in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock : TerraformBlock
+public class GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// Target all VMs in the project. If true, no other criteria is permitted.
     /// </summary>
-    public TerraformProperty<bool>? All
-    {
-        set => SetProperty("all", value);
-    }
+    [TerraformPropertyName("all")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? All { get; set; }
 
 }
 
@@ -22,23 +21,21 @@ public class GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock : TerraformBloc
 /// Block type for os_policies in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : TerraformBlock
+public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : ITerraformBlock
 {
     /// <summary>
     /// This flag determines the OS policy compliance status when none of the resource groups within the policy are applicable for a VM. Set this value to &#39;true&#39; if the policy needs to be reported as compliant even if the policy has nothing to validate or enforce.
     /// </summary>
-    public TerraformProperty<bool>? AllowNoResourceGroupMatch
-    {
-        set => SetProperty("allow_no_resource_group_match", value);
-    }
+    [TerraformPropertyName("allow_no_resource_group_match")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowNoResourceGroupMatch { get; set; }
 
     /// <summary>
     /// Policy description. Length of the description is limited to 1024 characters.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id of the OS policy with the following restrictions:
@@ -49,19 +46,17 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : TerraformBlock
     /// * Must be unique within the assignment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
     /// <summary>
     /// Policy mode Possible values: [&amp;quot;MODE_UNSPECIFIED&amp;quot;, &amp;quot;VALIDATION&amp;quot;, &amp;quot;ENFORCEMENT&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    public required TerraformProperty<string> Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Mode { get; set; }
 
 }
 
@@ -69,16 +64,15 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : TerraformBlock
 /// Block type for rollout in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOsConfigOsPolicyAssignmentRolloutBlock : TerraformBlock
+public class GoogleOsConfigOsPolicyAssignmentRolloutBlock : ITerraformBlock
 {
     /// <summary>
     /// This determines the minimum duration of time to wait after the configuration changes are applied through the current rollout. A VM continues to count towards the &#39;disruption_budget&#39; at least until this duration of time has passed after configuration changes are applied.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinWaitDuration is required")]
-    public required TerraformProperty<string> MinWaitDuration
-    {
-        set => SetProperty("min_wait_duration", value);
-    }
+    [TerraformPropertyName("min_wait_duration")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MinWaitDuration { get; set; }
 
 }
 
@@ -86,31 +80,28 @@ public class GoogleOsConfigOsPolicyAssignmentRolloutBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleOsConfigOsPolicyAssignmentTimeoutsBlock : TerraformBlock
+public class GoogleOsConfigOsPolicyAssignmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -122,82 +113,51 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
 {
     public GoogleOsConfigOsPolicyAssignment(string name) : base("google_os_config_os_policy_assignment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("baseline");
-        SetOutput("deleted");
-        SetOutput("etag");
-        SetOutput("reconciling");
-        SetOutput("revision_create_time");
-        SetOutput("revision_id");
-        SetOutput("rollout_state");
-        SetOutput("uid");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("skip_await_rollout");
     }
 
     /// <summary>
     /// OS policy assignment description. Length of the description is limited to 1024 characters.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location for the resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// Resource name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Set to true to skip awaiting rollout during resource creation and update.
     /// </summary>
-    public TerraformProperty<bool> SkipAwaitRollout
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("skip_await_rollout");
-        set => SetProperty("skip_await_rollout", value);
-    }
+    [TerraformPropertyName("skip_await_rollout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SkipAwaitRollout { get; set; }
 
     /// <summary>
     /// Block for instance_filter.
@@ -206,10 +166,8 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceFilter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InstanceFilter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceFilter block(s) allowed")]
-    public List<GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock>? InstanceFilter
-    {
-        set => SetProperty("instance_filter", value);
-    }
+    [TerraformPropertyName("instance_filter")]
+    public TerraformList<TerraformBlock<GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock>>? InstanceFilter { get; set; } = new();
 
     /// <summary>
     /// Block for os_policies.
@@ -217,10 +175,8 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsPolicies is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OsPolicies block(s) required")]
-    public List<GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock>? OsPolicies
-    {
-        set => SetProperty("os_policies", value);
-    }
+    [TerraformPropertyName("os_policies")]
+    public TerraformList<TerraformBlock<GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock>>? OsPolicies { get; set; } = new();
 
     /// <summary>
     /// Block for rollout.
@@ -229,61 +185,73 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rollout is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rollout block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rollout block(s) allowed")]
-    public List<GoogleOsConfigOsPolicyAssignmentRolloutBlock>? Rollout
-    {
-        set => SetProperty("rollout", value);
-    }
+    [TerraformPropertyName("rollout")]
+    public TerraformList<TerraformBlock<GoogleOsConfigOsPolicyAssignmentRolloutBlock>>? Rollout { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleOsConfigOsPolicyAssignmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleOsConfigOsPolicyAssignmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Indicates that this revision has been successfully rolled out in this zone and new VMs will be assigned OS policies from this revision.
     /// For a given OS policy assignment, there is only one revision with a value of &#39;true&#39; for this field.
     /// </summary>
-    public TerraformExpression Baseline => this["baseline"];
+    [TerraformPropertyName("baseline")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Baseline => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "baseline");
 
     /// <summary>
     /// Output only. Indicates that this revision deletes the OS policy assignment.
     /// </summary>
-    public TerraformExpression Deleted => this["deleted"];
+    [TerraformPropertyName("deleted")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Deleted => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deleted");
 
     /// <summary>
     /// The etag for this OS policy assignment. If this is provided on update, it must match the server&#39;s etag.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// Output only. Indicates that reconciliation is in progress for the revision. This value is &#39;true&#39; when the &#39;rollout_state&#39; is one of:
     /// * IN_PROGRESS
     /// * CANCELLING
     /// </summary>
-    public TerraformExpression Reconciling => this["reconciling"];
+    [TerraformPropertyName("reconciling")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
 
     /// <summary>
     /// Output only. The timestamp that the revision was created.
     /// </summary>
-    public TerraformExpression RevisionCreateTime => this["revision_create_time"];
+    [TerraformPropertyName("revision_create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RevisionCreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "revision_create_time");
 
     /// <summary>
     /// Output only. The assignment revision ID A new revision is committed whenever a rollout is triggered for a OS policy assignment
     /// </summary>
-    public TerraformExpression RevisionId => this["revision_id"];
+    [TerraformPropertyName("revision_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RevisionId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "revision_id");
 
     /// <summary>
     /// Output only. OS policy assignment rollout state
     /// </summary>
-    public TerraformExpression RolloutState => this["rollout_state"];
+    [TerraformPropertyName("rollout_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RolloutState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "rollout_state");
 
     /// <summary>
     /// Output only. Server generated unique id for the OS policy assignment resource.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
 }

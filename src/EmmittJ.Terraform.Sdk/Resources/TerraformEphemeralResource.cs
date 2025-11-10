@@ -18,8 +18,11 @@ public class TerraformEphemeralResource(string type, string name) : TerraformPro
         => TerraformExpression.Identifier($"{ConstructType}.{ConstructName}");
 
     /// <inheritdoc/>
-    protected override void WriteAdditionalProperties(System.Text.StringBuilder sb, ITerraformContext context)
+    protected override void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
+        // Call base to write all regular properties
+        base.WriteProperties(sb, context);
+
         // Ephemeral resources don't support meta-arguments like lifecycle, provisioners, etc.
         // They are short-lived and don't persist in state
     }

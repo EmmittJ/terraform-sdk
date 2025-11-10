@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAppConfigurationKeysDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermAppConfigurationKeysDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,67 +24,49 @@ public class AzurermAppConfigurationKeysDataSource : TerraformDataSource
 {
     public AzurermAppConfigurationKeysDataSource(string name) : base("azurerm_app_configuration_keys", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("items");
-        SetOutput("configuration_store_id");
-        SetOutput("id");
-        SetOutput("key");
-        SetOutput("label");
     }
 
     /// <summary>
     /// The configuration_store_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
-    public required TerraformProperty<string> ConfigurationStoreId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("configuration_store_id");
-        set => SetProperty("configuration_store_id", value);
-    }
+    [TerraformPropertyName("configuration_store_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConfigurationStoreId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformProperty<string> Key
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key");
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Key { get; set; }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformProperty<string> Label
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("label");
-        set => SetProperty("label", value);
-    }
+    [TerraformPropertyName("label")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Label { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermAppConfigurationKeysDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermAppConfigurationKeysDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The items attribute.
     /// </summary>
-    public TerraformExpression Items => this["items"];
+    [TerraformPropertyName("items")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Items => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "items");
 
 }

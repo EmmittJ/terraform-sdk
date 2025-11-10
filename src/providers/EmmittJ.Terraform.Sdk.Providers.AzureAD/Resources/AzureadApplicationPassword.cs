@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationPasswordTimeoutsBlock : TerraformBlock
+public class AzureadApplicationPasswordTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,104 +45,78 @@ public class AzureadApplicationPassword : TerraformResource
 {
     public AzureadApplicationPassword(string name) : base("azuread_application_password", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("key_id");
-        SetOutput("value");
-        SetOutput("application_id");
-        SetOutput("display_name");
-        SetOutput("end_date");
-        SetOutput("end_date_relative");
-        SetOutput("id");
-        SetOutput("rotate_when_changed");
-        SetOutput("start_date");
     }
 
     /// <summary>
     /// The resource ID of the application for which this password should be created
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    public required TerraformProperty<string> ApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
-        set => SetProperty("application_id", value);
-    }
+    [TerraformPropertyName("application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
 
     /// <summary>
     /// A display name for the password
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The end date until which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`)
     /// </summary>
-    public TerraformProperty<string> EndDate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("end_date");
-        set => SetProperty("end_date", value);
-    }
+    [TerraformPropertyName("end_date")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EndDate { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "end_date");
 
     /// <summary>
     /// A relative duration for which the password is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> EndDateRelative
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("end_date_relative");
-        set => SetProperty("end_date_relative", value);
-    }
+    [TerraformPropertyName("end_date_relative")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndDateRelative { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Arbitrary map of values that, when changed, will trigger rotation of the password
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> RotateWhenChanged
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("rotate_when_changed");
-        set => SetProperty("rotate_when_changed", value);
-    }
+    [TerraformPropertyName("rotate_when_changed")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? RotateWhenChanged { get; set; }
 
     /// <summary>
     /// The start date from which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn&#39;t specified, the current date is used
     /// </summary>
-    public TerraformProperty<string> StartDate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("start_date");
-        set => SetProperty("start_date", value);
-    }
+    [TerraformPropertyName("start_date")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StartDate { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_date");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzureadApplicationPasswordTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzureadApplicationPasswordTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// A UUID used to uniquely identify this password credential
     /// </summary>
-    public TerraformExpression KeyId => this["key_id"];
+    [TerraformPropertyName("key_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_id");
 
     /// <summary>
     /// The password for this application, which is generated by Azure Active Directory
     /// </summary>
-    public TerraformExpression Value => this["value"];
+    [TerraformPropertyName("value")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Value => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "value");
 
 }

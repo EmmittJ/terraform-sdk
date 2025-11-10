@@ -9,89 +9,51 @@ public class GoogleBackupDrBackupVaultDataSource : TerraformDataSource
 {
     public GoogleBackupDrBackupVaultDataSource(string name) : base("google_backup_dr_backup_vault", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_restriction");
-        SetOutput("allow_missing");
-        SetOutput("annotations");
-        SetOutput("backup_count");
-        SetOutput("backup_minimum_enforced_retention_duration");
-        SetOutput("backup_retention_inheritance");
-        SetOutput("create_time");
-        SetOutput("deletable");
-        SetOutput("description");
-        SetOutput("effective_annotations");
-        SetOutput("effective_labels");
-        SetOutput("effective_time");
-        SetOutput("etag");
-        SetOutput("force_delete");
-        SetOutput("force_update");
-        SetOutput("ignore_backup_plan_references");
-        SetOutput("ignore_inactive_datasources");
-        SetOutput("labels");
-        SetOutput("name");
-        SetOutput("service_account");
-        SetOutput("state");
-        SetOutput("terraform_labels");
-        SetOutput("total_stored_bytes");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("backup_vault_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
     /// Required. ID of the requesting object.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
-    public required TerraformProperty<string> BackupVaultId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backup_vault_id");
-        set => SetProperty("backup_vault_id", value);
-    }
+    [TerraformPropertyName("backup_vault_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BackupVaultId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The GCP location for the backup vault.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// Access restriction for the backup vault. Default value is &#39;WITHIN_ORGANIZATION&#39; if not provided during creation. Default value: &amp;quot;WITHIN_ORGANIZATION&amp;quot; Possible values: [&amp;quot;ACCESS_RESTRICTION_UNSPECIFIED&amp;quot;, &amp;quot;WITHIN_PROJECT&amp;quot;, &amp;quot;WITHIN_ORGANIZATION&amp;quot;, &amp;quot;UNRESTRICTED&amp;quot;, &amp;quot;WITHIN_ORG_BUT_UNRESTRICTED_FOR_BA&amp;quot;]
     /// </summary>
-    public TerraformExpression AccessRestriction => this["access_restriction"];
+    [TerraformPropertyName("access_restriction")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AccessRestriction => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_restriction");
 
     /// <summary>
     /// Allow idempotent deletion of backup vault. The request will still succeed in case the backup vault does not exist.
     /// </summary>
-    public TerraformExpression AllowMissing => this["allow_missing"];
+    [TerraformPropertyName("allow_missing")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AllowMissing => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "allow_missing");
 
     /// <summary>
     /// Optional. User annotations. See https://google.aip.dev/128#annotations
@@ -100,64 +62,88 @@ public class GoogleBackupDrBackupVaultDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformExpression Annotations => this["annotations"];
+    [TerraformPropertyName("annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Annotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "annotations");
 
     /// <summary>
     /// Output only. The number of backups in this backup vault.
     /// </summary>
-    public TerraformExpression BackupCount => this["backup_count"];
+    [TerraformPropertyName("backup_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BackupCount => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backup_count");
 
     /// <summary>
     /// Required. The default and minimum enforced retention for each backup within the backup vault. The enforced retention for each backup can be extended.
     /// </summary>
-    public TerraformExpression BackupMinimumEnforcedRetentionDuration => this["backup_minimum_enforced_retention_duration"];
+    [TerraformPropertyName("backup_minimum_enforced_retention_duration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BackupMinimumEnforcedRetentionDuration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backup_minimum_enforced_retention_duration");
 
     /// <summary>
     /// How a backup&#39;s enforced retention end time is inherited. Default value is &#39;INHERIT_VAULT_RETENTION&#39; if not provided during creation. Possible values: [&amp;quot;BACKUP_RETENTION_INHERITANCE_UNSPECIFIED&amp;quot;, &amp;quot;INHERIT_VAULT_RETENTION&amp;quot;, &amp;quot;MATCH_BACKUP_EXPIRE_TIME&amp;quot;]
     /// </summary>
-    public TerraformExpression BackupRetentionInheritance => this["backup_retention_inheritance"];
+    [TerraformPropertyName("backup_retention_inheritance")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BackupRetentionInheritance => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backup_retention_inheritance");
 
     /// <summary>
     /// Output only. The time when the instance was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Output only. Set to true when there are no backups nested under this resource.
     /// </summary>
-    public TerraformExpression Deletable => this["deletable"];
+    [TerraformPropertyName("deletable")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Deletable => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletable");
 
     /// <summary>
     /// Optional. The description of the BackupVault instance (2048 characters or less).
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+    [TerraformPropertyName("effective_annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Optional. Time after which the BackupVault resource is locked.
     /// </summary>
-    public TerraformExpression EffectiveTime => this["effective_time"];
+    [TerraformPropertyName("effective_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EffectiveTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "effective_time");
 
     /// <summary>
     /// Optional. Server specified ETag for the backup vault resource to prevent simultaneous updates from overwiting each other.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// If set, the following restrictions against deletion of the backup vault instance can be overridden:
     ///    * deletion of a backup vault instance containing no backups, but still containing empty datasources.
     ///    * deletion of a backup vault instance that is being referenced by an active backup plan.
     /// </summary>
-    public TerraformExpression ForceDelete => this["force_delete"];
+    [TerraformPropertyName("force_delete")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ForceDelete => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "force_delete");
 
     /// <summary>
     /// If set, allow update to extend the minimum enforced retention for backup vault. This overrides
@@ -165,19 +151,25 @@ public class GoogleBackupDrBackupVaultDataSource : TerraformDataSource
     ///  expiration schedule defined by the associated backup plan is shorter than the minimum
     ///  retention set by the backup vault.
     /// </summary>
-    public TerraformExpression ForceUpdate => this["force_update"];
+    [TerraformPropertyName("force_update")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ForceUpdate => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "force_update");
 
     /// <summary>
     /// If set, the following restrictions against deletion of the backup vault instance can be overridden:
     ///    * deletion of a backup vault instance that is being referenced by an active backup plan.
     /// </summary>
-    public TerraformExpression IgnoreBackupPlanReferences => this["ignore_backup_plan_references"];
+    [TerraformPropertyName("ignore_backup_plan_references")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> IgnoreBackupPlanReferences => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "ignore_backup_plan_references");
 
     /// <summary>
     /// If set, the following restrictions against deletion of the backup vault instance can be overridden:
     ///    * deletion of a backup vault instance containing no backups, but still containing empty datasources.
     /// </summary>
-    public TerraformExpression IgnoreInactiveDatasources => this["ignore_inactive_datasources"];
+    [TerraformPropertyName("ignore_inactive_datasources")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> IgnoreInactiveDatasources => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "ignore_inactive_datasources");
 
     /// <summary>
     /// Optional. Resource labels to represent user provided metadata. 
@@ -185,17 +177,23 @@ public class GoogleBackupDrBackupVaultDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformExpression Labels => this["labels"];
+    [TerraformPropertyName("labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
 
     /// <summary>
     /// Output only. Identifier. The resource name.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Output only. Service account used by the BackupVault Service for this BackupVault.  The user should grant this account permissions in their workload project to enable the service to run backups and restores there.
     /// </summary>
-    public TerraformExpression ServiceAccount => this["service_account"];
+    [TerraformPropertyName("service_account")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServiceAccount => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service_account");
 
     /// <summary>
     /// Output only. The BackupVault resource instance state. 
@@ -206,27 +204,37 @@ public class GoogleBackupDrBackupVaultDataSource : TerraformDataSource
     ///  DELETING
     ///  ERROR
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Output only. Total size of the storage used by all backup resources.
     /// </summary>
-    public TerraformExpression TotalStoredBytes => this["total_stored_bytes"];
+    [TerraformPropertyName("total_stored_bytes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TotalStoredBytes => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "total_stored_bytes");
 
     /// <summary>
     /// Output only. Output only Immutable after resource creation until resource deletion.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// Output only. The time when the instance was updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

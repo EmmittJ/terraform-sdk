@@ -6,79 +6,70 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for app_monitor_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
+public class AwsRumAppMonitorAppMonitorConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The allow_cookies attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowCookies
-    {
-        set => SetProperty("allow_cookies", value);
-    }
+    [TerraformPropertyName("allow_cookies")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowCookies { get; set; }
 
     /// <summary>
     /// The enable_xray attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableXray
-    {
-        set => SetProperty("enable_xray", value);
-    }
+    [TerraformPropertyName("enable_xray")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableXray { get; set; }
 
     /// <summary>
     /// The excluded_pages attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExcludedPages
-    {
-        set => SetProperty("excluded_pages", value);
-    }
+    [TerraformPropertyName("excluded_pages")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ExcludedPages { get; set; }
 
     /// <summary>
     /// The favorite_pages attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? FavoritePages
-    {
-        set => SetProperty("favorite_pages", value);
-    }
+    [TerraformPropertyName("favorite_pages")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? FavoritePages { get; set; }
 
     /// <summary>
     /// The guest_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? GuestRoleArn
-    {
-        set => SetProperty("guest_role_arn", value);
-    }
+    [TerraformPropertyName("guest_role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GuestRoleArn { get; set; }
 
     /// <summary>
     /// The identity_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityPoolId
-    {
-        set => SetProperty("identity_pool_id", value);
-    }
+    [TerraformPropertyName("identity_pool_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IdentityPoolId { get; set; }
 
     /// <summary>
     /// The included_pages attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IncludedPages
-    {
-        set => SetProperty("included_pages", value);
-    }
+    [TerraformPropertyName("included_pages")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IncludedPages { get; set; }
 
     /// <summary>
     /// The session_sample_rate attribute.
     /// </summary>
-    public TerraformProperty<double>? SessionSampleRate
-    {
-        set => SetProperty("session_sample_rate", value);
-    }
+    [TerraformPropertyName("session_sample_rate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SessionSampleRate { get; set; }
 
     /// <summary>
     /// The telemetries attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Telemetries
-    {
-        set => SetProperty("telemetries", value);
-    }
+    [TerraformPropertyName("telemetries")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Telemetries { get; set; }
 
 }
 
@@ -86,15 +77,14 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
 /// Block type for custom_events in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRumAppMonitorCustomEventsBlock : TerraformBlock
+public class AwsRumAppMonitorCustomEventsBlock : ITerraformBlock
 {
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
 }
 
@@ -106,130 +96,100 @@ public class AwsRumAppMonitor : TerraformResource
 {
     public AwsRumAppMonitor(string name) : base("aws_rum_app_monitor", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("app_monitor_id");
-        SetOutput("arn");
-        SetOutput("cw_log_group");
-        SetOutput("cw_log_enabled");
-        SetOutput("domain");
-        SetOutput("domain_list");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The cw_log_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> CwLogEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("cw_log_enabled");
-        set => SetProperty("cw_log_enabled", value);
-    }
+    [TerraformPropertyName("cw_log_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CwLogEnabled { get; set; }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string> Domain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain");
-        set => SetProperty("domain", value);
-    }
+    [TerraformPropertyName("domain")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Domain { get; set; }
 
     /// <summary>
     /// The domain_list attribute.
     /// </summary>
-    public List<TerraformProperty<string>> DomainList
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("domain_list");
-        set => SetProperty("domain_list", value);
-    }
+    [TerraformPropertyName("domain_list")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? DomainList { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for app_monitor_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppMonitorConfiguration block(s) allowed")]
-    public List<AwsRumAppMonitorAppMonitorConfigurationBlock>? AppMonitorConfiguration
-    {
-        set => SetProperty("app_monitor_configuration", value);
-    }
+    [TerraformPropertyName("app_monitor_configuration")]
+    public TerraformList<TerraformBlock<AwsRumAppMonitorAppMonitorConfigurationBlock>>? AppMonitorConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for custom_events.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomEvents block(s) allowed")]
-    public List<AwsRumAppMonitorCustomEventsBlock>? CustomEvents
-    {
-        set => SetProperty("custom_events", value);
-    }
+    [TerraformPropertyName("custom_events")]
+    public TerraformList<TerraformBlock<AwsRumAppMonitorCustomEventsBlock>>? CustomEvents { get; set; } = new();
 
     /// <summary>
     /// The app_monitor_id attribute.
     /// </summary>
-    public TerraformExpression AppMonitorId => this["app_monitor_id"];
+    [TerraformPropertyName("app_monitor_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AppMonitorId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "app_monitor_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The cw_log_group attribute.
     /// </summary>
-    public TerraformExpression CwLogGroup => this["cw_log_group"];
+    [TerraformPropertyName("cw_log_group")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CwLogGroup => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cw_log_group");
 
 }

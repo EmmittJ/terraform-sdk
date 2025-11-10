@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
+public class AzurermNetworkSecurityRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,217 +45,153 @@ public class AzurermNetworkSecurityRule : TerraformResource
 {
     public AzurermNetworkSecurityRule(string name) : base("azurerm_network_security_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access");
-        SetOutput("description");
-        SetOutput("destination_address_prefix");
-        SetOutput("destination_address_prefixes");
-        SetOutput("destination_application_security_group_ids");
-        SetOutput("destination_port_range");
-        SetOutput("destination_port_ranges");
-        SetOutput("direction");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("network_security_group_name");
-        SetOutput("priority");
-        SetOutput("protocol");
-        SetOutput("resource_group_name");
-        SetOutput("source_address_prefix");
-        SetOutput("source_address_prefixes");
-        SetOutput("source_application_security_group_ids");
-        SetOutput("source_port_range");
-        SetOutput("source_port_ranges");
     }
 
     /// <summary>
     /// The access attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
-    public required TerraformProperty<string> Access
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access");
-        set => SetProperty("access", value);
-    }
+    [TerraformPropertyName("access")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Access { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The destination_address_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> DestinationAddressPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_address_prefix");
-        set => SetProperty("destination_address_prefix", value);
-    }
+    [TerraformPropertyName("destination_address_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DestinationAddressPrefix { get; set; }
 
     /// <summary>
     /// The destination_address_prefixes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> DestinationAddressPrefixes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("destination_address_prefixes");
-        set => SetProperty("destination_address_prefixes", value);
-    }
+    [TerraformPropertyName("destination_address_prefixes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DestinationAddressPrefixes { get; set; }
 
     /// <summary>
     /// The destination_application_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> DestinationApplicationSecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("destination_application_security_group_ids");
-        set => SetProperty("destination_application_security_group_ids", value);
-    }
+    [TerraformPropertyName("destination_application_security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DestinationApplicationSecurityGroupIds { get; set; }
 
     /// <summary>
     /// The destination_port_range attribute.
     /// </summary>
-    public TerraformProperty<string> DestinationPortRange
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_port_range");
-        set => SetProperty("destination_port_range", value);
-    }
+    [TerraformPropertyName("destination_port_range")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DestinationPortRange { get; set; }
 
     /// <summary>
     /// The destination_port_ranges attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> DestinationPortRanges
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("destination_port_ranges");
-        set => SetProperty("destination_port_ranges", value);
-    }
+    [TerraformPropertyName("destination_port_ranges")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DestinationPortRanges { get; set; }
 
     /// <summary>
     /// The direction attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
-    public required TerraformProperty<string> Direction
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("direction");
-        set => SetProperty("direction", value);
-    }
+    [TerraformPropertyName("direction")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Direction { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The network_security_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSecurityGroupName is required")]
-    public required TerraformProperty<string> NetworkSecurityGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_security_group_name");
-        set => SetProperty("network_security_group_name", value);
-    }
+    [TerraformPropertyName("network_security_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NetworkSecurityGroupName { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    public required TerraformProperty<double> Priority
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("priority");
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    public required TerraformProperty<string> Protocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The source_address_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> SourceAddressPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_address_prefix");
-        set => SetProperty("source_address_prefix", value);
-    }
+    [TerraformPropertyName("source_address_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceAddressPrefix { get; set; }
 
     /// <summary>
     /// The source_address_prefixes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SourceAddressPrefixes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("source_address_prefixes");
-        set => SetProperty("source_address_prefixes", value);
-    }
+    [TerraformPropertyName("source_address_prefixes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SourceAddressPrefixes { get; set; }
 
     /// <summary>
     /// The source_application_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SourceApplicationSecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("source_application_security_group_ids");
-        set => SetProperty("source_application_security_group_ids", value);
-    }
+    [TerraformPropertyName("source_application_security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SourceApplicationSecurityGroupIds { get; set; }
 
     /// <summary>
     /// The source_port_range attribute.
     /// </summary>
-    public TerraformProperty<string> SourcePortRange
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_port_range");
-        set => SetProperty("source_port_range", value);
-    }
+    [TerraformPropertyName("source_port_range")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourcePortRange { get; set; }
 
     /// <summary>
     /// The source_port_ranges attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SourcePortRanges
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("source_port_ranges");
-        set => SetProperty("source_port_ranges", value);
-    }
+    [TerraformPropertyName("source_port_ranges")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SourcePortRanges { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNetworkSecurityRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNetworkSecurityRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

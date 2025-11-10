@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsWorkspacesWorkspaceTimeoutsBlock : TerraformBlock
+public class AwsWorkspacesWorkspaceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -38,47 +35,42 @@ public class AwsWorkspacesWorkspaceTimeoutsBlock : TerraformBlock
 /// Block type for workspace_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWorkspacesWorkspaceWorkspacePropertiesBlock : TerraformBlock
+public class AwsWorkspacesWorkspaceWorkspacePropertiesBlock : ITerraformBlock
 {
     /// <summary>
     /// The compute_type_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ComputeTypeName
-    {
-        set => SetProperty("compute_type_name", value);
-    }
+    [TerraformPropertyName("compute_type_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ComputeTypeName { get; set; }
 
     /// <summary>
     /// The root_volume_size_gib attribute.
     /// </summary>
-    public TerraformProperty<double>? RootVolumeSizeGib
-    {
-        set => SetProperty("root_volume_size_gib", value);
-    }
+    [TerraformPropertyName("root_volume_size_gib")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? RootVolumeSizeGib { get; set; }
 
     /// <summary>
     /// The running_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? RunningMode
-    {
-        set => SetProperty("running_mode", value);
-    }
+    [TerraformPropertyName("running_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RunningMode { get; set; }
 
     /// <summary>
     /// The running_mode_auto_stop_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? RunningModeAutoStopTimeoutInMinutes
-    {
-        set => SetProperty("running_mode_auto_stop_timeout_in_minutes", value);
-    }
+    [TerraformPropertyName("running_mode_auto_stop_timeout_in_minutes")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> RunningModeAutoStopTimeoutInMinutes { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "running_mode_auto_stop_timeout_in_minutes");
 
     /// <summary>
     /// The user_volume_size_gib attribute.
     /// </summary>
-    public TerraformProperty<double>? UserVolumeSizeGib
-    {
-        set => SetProperty("user_volume_size_gib", value);
-    }
+    [TerraformPropertyName("user_volume_size_gib")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? UserVolumeSizeGib { get; set; }
 
 }
 
@@ -90,151 +82,115 @@ public class AwsWorkspacesWorkspace : TerraformResource
 {
     public AwsWorkspacesWorkspace(string name) : base("aws_workspaces_workspace", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("computer_name");
-        SetOutput("ip_address");
-        SetOutput("state");
-        SetOutput("bundle_id");
-        SetOutput("directory_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("root_volume_encryption_enabled");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("user_name");
-        SetOutput("user_volume_encryption_enabled");
-        SetOutput("volume_encryption_key");
     }
 
     /// <summary>
     /// The bundle_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
-    public required TerraformProperty<string> BundleId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bundle_id");
-        set => SetProperty("bundle_id", value);
-    }
+    [TerraformPropertyName("bundle_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BundleId { get; set; }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
-    public required TerraformProperty<string> DirectoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
-        set => SetProperty("directory_id", value);
-    }
+    [TerraformPropertyName("directory_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DirectoryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The root_volume_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> RootVolumeEncryptionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("root_volume_encryption_enabled");
-        set => SetProperty("root_volume_encryption_enabled", value);
-    }
+    [TerraformPropertyName("root_volume_encryption_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RootVolumeEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
-    public required TerraformProperty<string> UserName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_name");
-        set => SetProperty("user_name", value);
-    }
+    [TerraformPropertyName("user_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UserName { get; set; }
 
     /// <summary>
     /// The user_volume_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> UserVolumeEncryptionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("user_volume_encryption_enabled");
-        set => SetProperty("user_volume_encryption_enabled", value);
-    }
+    [TerraformPropertyName("user_volume_encryption_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UserVolumeEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The volume_encryption_key attribute.
     /// </summary>
-    public TerraformProperty<string> VolumeEncryptionKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("volume_encryption_key");
-        set => SetProperty("volume_encryption_key", value);
-    }
+    [TerraformPropertyName("volume_encryption_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VolumeEncryptionKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsWorkspacesWorkspaceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsWorkspacesWorkspaceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for workspace_properties.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkspaceProperties block(s) allowed")]
-    public List<AwsWorkspacesWorkspaceWorkspacePropertiesBlock>? WorkspaceProperties
-    {
-        set => SetProperty("workspace_properties", value);
-    }
+    [TerraformPropertyName("workspace_properties")]
+    public TerraformList<TerraformBlock<AwsWorkspacesWorkspaceWorkspacePropertiesBlock>>? WorkspaceProperties { get; set; } = new();
 
     /// <summary>
     /// The computer_name attribute.
     /// </summary>
-    public TerraformExpression ComputerName => this["computer_name"];
+    [TerraformPropertyName("computer_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ComputerName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "computer_name");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformExpression IpAddress => this["ip_address"];
+    [TerraformPropertyName("ip_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
 }

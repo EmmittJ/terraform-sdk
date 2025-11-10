@@ -6,47 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for long_term_retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : TerraformBlock
+public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The immutable_backups_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ImmutableBackupsEnabled
-    {
-        set => SetProperty("immutable_backups_enabled", value);
-    }
+    [TerraformPropertyName("immutable_backups_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ImmutableBackupsEnabled { get; set; }
 
     /// <summary>
     /// The monthly_retention attribute.
     /// </summary>
-    public TerraformProperty<string>? MonthlyRetention
-    {
-        set => SetProperty("monthly_retention", value);
-    }
+    [TerraformPropertyName("monthly_retention")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MonthlyRetention { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "monthly_retention");
 
     /// <summary>
     /// The week_of_year attribute.
     /// </summary>
-    public TerraformProperty<double>? WeekOfYear
-    {
-        set => SetProperty("week_of_year", value);
-    }
+    [TerraformPropertyName("week_of_year")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> WeekOfYear { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "week_of_year");
 
     /// <summary>
     /// The weekly_retention attribute.
     /// </summary>
-    public TerraformProperty<string>? WeeklyRetention
-    {
-        set => SetProperty("weekly_retention", value);
-    }
+    [TerraformPropertyName("weekly_retention")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> WeeklyRetention { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "weekly_retention");
 
     /// <summary>
     /// The yearly_retention attribute.
     /// </summary>
-    public TerraformProperty<string>? YearlyRetention
-    {
-        set => SetProperty("yearly_retention", value);
-    }
+    [TerraformPropertyName("yearly_retention")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> YearlyRetention { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "yearly_retention");
 
 }
 
@@ -54,25 +49,23 @@ public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : Terraform
 /// Block type for point_in_time_restore in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : TerraformBlock
+public class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : ITerraformBlock
 {
     /// <summary>
     /// The restore_point_in_time attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestorePointInTime is required")]
-    public required TerraformProperty<string> RestorePointInTime
-    {
-        set => SetProperty("restore_point_in_time", value);
-    }
+    [TerraformPropertyName("restore_point_in_time")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RestorePointInTime { get; set; }
 
     /// <summary>
     /// The source_database_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatabaseId is required")]
-    public required TerraformProperty<string> SourceDatabaseId
-    {
-        set => SetProperty("source_database_id", value);
-    }
+    [TerraformPropertyName("source_database_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceDatabaseId { get; set; }
 
 }
 
@@ -80,39 +73,35 @@ public class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMssqlManagedDatabaseTimeoutsBlock : TerraformBlock
+public class AzurermMssqlManagedDatabaseTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -124,92 +113,66 @@ public class AzurermMssqlManagedDatabase : TerraformResource
 {
     public AzurermMssqlManagedDatabase(string name) : base("azurerm_mssql_managed_database", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("managed_instance_id");
-        SetOutput("name");
-        SetOutput("short_term_retention_days");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The managed_instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
-    public required TerraformProperty<string> ManagedInstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_instance_id");
-        set => SetProperty("managed_instance_id", value);
-    }
+    [TerraformPropertyName("managed_instance_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ManagedInstanceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The short_term_retention_days attribute.
     /// </summary>
-    public TerraformProperty<double> ShortTermRetentionDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("short_term_retention_days");
-        set => SetProperty("short_term_retention_days", value);
-    }
+    [TerraformPropertyName("short_term_retention_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ShortTermRetentionDays { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for long_term_retention_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LongTermRetentionPolicy block(s) allowed")]
-    public List<AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock>? LongTermRetentionPolicy
-    {
-        set => SetProperty("long_term_retention_policy", value);
-    }
+    [TerraformPropertyName("long_term_retention_policy")]
+    public TerraformList<TerraformBlock<AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock>>? LongTermRetentionPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for point_in_time_restore.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRestore block(s) allowed")]
-    public List<AzurermMssqlManagedDatabasePointInTimeRestoreBlock>? PointInTimeRestore
-    {
-        set => SetProperty("point_in_time_restore", value);
-    }
+    [TerraformPropertyName("point_in_time_restore")]
+    public TerraformList<TerraformBlock<AzurermMssqlManagedDatabasePointInTimeRestoreBlock>>? PointInTimeRestore { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMssqlManagedDatabaseTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMssqlManagedDatabaseTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

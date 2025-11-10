@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ownership_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerSpaceOwnershipSettingsBlock : TerraformBlock
+public class AwsSagemakerSpaceOwnershipSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The owner_user_profile_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerUserProfileName is required")]
-    public required TerraformProperty<string> OwnerUserProfileName
-    {
-        set => SetProperty("owner_user_profile_name", value);
-    }
+    [TerraformPropertyName("owner_user_profile_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OwnerUserProfileName { get; set; }
 
 }
 
@@ -23,15 +22,14 @@ public class AwsSagemakerSpaceOwnershipSettingsBlock : TerraformBlock
 /// Block type for space_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerSpaceSpaceSettingsBlock : TerraformBlock
+public class AwsSagemakerSpaceSpaceSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The app_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AppType
-    {
-        set => SetProperty("app_type", value);
-    }
+    [TerraformPropertyName("app_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AppType { get; set; }
 
 }
 
@@ -39,16 +37,15 @@ public class AwsSagemakerSpaceSpaceSettingsBlock : TerraformBlock
 /// Block type for space_sharing_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerSpaceSpaceSharingSettingsBlock : TerraformBlock
+public class AwsSagemakerSpaceSpaceSharingSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The sharing_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharingType is required")]
-    public required TerraformProperty<string> SharingType
-    {
-        set => SetProperty("sharing_type", value);
-    }
+    [TerraformPropertyName("sharing_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SharingType { get; set; }
 
 }
 
@@ -60,131 +57,102 @@ public class AwsSagemakerSpace : TerraformResource
 {
     public AwsSagemakerSpace(string name) : base("aws_sagemaker_space", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("home_efs_file_system_uid");
-        SetOutput("url");
-        SetOutput("domain_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("space_display_name");
-        SetOutput("space_name");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The domain_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
-    public required TerraformProperty<string> DomainId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_id");
-        set => SetProperty("domain_id", value);
-    }
+    [TerraformPropertyName("domain_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The space_display_name attribute.
     /// </summary>
-    public TerraformProperty<string> SpaceDisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("space_display_name");
-        set => SetProperty("space_display_name", value);
-    }
+    [TerraformPropertyName("space_display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SpaceDisplayName { get; set; }
 
     /// <summary>
     /// The space_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
-    public required TerraformProperty<string> SpaceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("space_name");
-        set => SetProperty("space_name", value);
-    }
+    [TerraformPropertyName("space_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SpaceName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for ownership_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OwnershipSettings block(s) allowed")]
-    public List<AwsSagemakerSpaceOwnershipSettingsBlock>? OwnershipSettings
-    {
-        set => SetProperty("ownership_settings", value);
-    }
+    [TerraformPropertyName("ownership_settings")]
+    public TerraformList<TerraformBlock<AwsSagemakerSpaceOwnershipSettingsBlock>>? OwnershipSettings { get; set; } = new();
 
     /// <summary>
     /// Block for space_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpaceSettings block(s) allowed")]
-    public List<AwsSagemakerSpaceSpaceSettingsBlock>? SpaceSettings
-    {
-        set => SetProperty("space_settings", value);
-    }
+    [TerraformPropertyName("space_settings")]
+    public TerraformList<TerraformBlock<AwsSagemakerSpaceSpaceSettingsBlock>>? SpaceSettings { get; set; } = new();
 
     /// <summary>
     /// Block for space_sharing_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpaceSharingSettings block(s) allowed")]
-    public List<AwsSagemakerSpaceSpaceSharingSettingsBlock>? SpaceSharingSettings
-    {
-        set => SetProperty("space_sharing_settings", value);
-    }
+    [TerraformPropertyName("space_sharing_settings")]
+    public TerraformList<TerraformBlock<AwsSagemakerSpaceSpaceSharingSettingsBlock>>? SpaceSharingSettings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The home_efs_file_system_uid attribute.
     /// </summary>
-    public TerraformExpression HomeEfsFileSystemUid => this["home_efs_file_system_uid"];
+    [TerraformPropertyName("home_efs_file_system_uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HomeEfsFileSystemUid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "home_efs_file_system_uid");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformExpression Url => this["url"];
+    [TerraformPropertyName("url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "url");
 
 }

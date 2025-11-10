@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for output_location in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsmAssociationOutputLocationBlock : TerraformBlock
+public class AwsSsmAssociationOutputLocationBlock : ITerraformBlock
 {
     /// <summary>
     /// The s3_bucket_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
-    public required TerraformProperty<string> S3BucketName
-    {
-        set => SetProperty("s3_bucket_name", value);
-    }
+    [TerraformPropertyName("s3_bucket_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> S3BucketName { get; set; }
 
     /// <summary>
     /// The s3_key_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? S3KeyPrefix
-    {
-        set => SetProperty("s3_key_prefix", value);
-    }
+    [TerraformPropertyName("s3_key_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? S3KeyPrefix { get; set; }
 
     /// <summary>
     /// The s3_region attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Region
-    {
-        set => SetProperty("s3_region", value);
-    }
+    [TerraformPropertyName("s3_region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? S3Region { get; set; }
 
 }
 
@@ -39,25 +36,23 @@ public class AwsSsmAssociationOutputLocationBlock : TerraformBlock
 /// Block type for targets in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsmAssociationTargetsBlock : TerraformBlock
+public class AwsSsmAssociationTargetsBlock : ITerraformBlock
 {
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public List<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -69,204 +64,149 @@ public class AwsSsmAssociation : TerraformResource
 {
     public AwsSsmAssociation(string name) : base("aws_ssm_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("association_id");
-        SetOutput("apply_only_at_cron_interval");
-        SetOutput("association_name");
-        SetOutput("automation_target_parameter_name");
-        SetOutput("compliance_severity");
-        SetOutput("document_version");
-        SetOutput("id");
-        SetOutput("max_concurrency");
-        SetOutput("max_errors");
-        SetOutput("name");
-        SetOutput("parameters");
-        SetOutput("region");
-        SetOutput("schedule_expression");
-        SetOutput("sync_compliance");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("wait_for_success_timeout_seconds");
     }
 
     /// <summary>
     /// The apply_only_at_cron_interval attribute.
     /// </summary>
-    public TerraformProperty<bool> ApplyOnlyAtCronInterval
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("apply_only_at_cron_interval");
-        set => SetProperty("apply_only_at_cron_interval", value);
-    }
+    [TerraformPropertyName("apply_only_at_cron_interval")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ApplyOnlyAtCronInterval { get; set; }
 
     /// <summary>
     /// The association_name attribute.
     /// </summary>
-    public TerraformProperty<string> AssociationName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("association_name");
-        set => SetProperty("association_name", value);
-    }
+    [TerraformPropertyName("association_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AssociationName { get; set; }
 
     /// <summary>
     /// The automation_target_parameter_name attribute.
     /// </summary>
-    public TerraformProperty<string> AutomationTargetParameterName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("automation_target_parameter_name");
-        set => SetProperty("automation_target_parameter_name", value);
-    }
+    [TerraformPropertyName("automation_target_parameter_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AutomationTargetParameterName { get; set; }
 
     /// <summary>
     /// The compliance_severity attribute.
     /// </summary>
-    public TerraformProperty<string> ComplianceSeverity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("compliance_severity");
-        set => SetProperty("compliance_severity", value);
-    }
+    [TerraformPropertyName("compliance_severity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ComplianceSeverity { get; set; }
 
     /// <summary>
     /// The document_version attribute.
     /// </summary>
-    public TerraformProperty<string> DocumentVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("document_version");
-        set => SetProperty("document_version", value);
-    }
+    [TerraformPropertyName("document_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DocumentVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "document_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The max_concurrency attribute.
     /// </summary>
-    public TerraformProperty<string> MaxConcurrency
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("max_concurrency");
-        set => SetProperty("max_concurrency", value);
-    }
+    [TerraformPropertyName("max_concurrency")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaxConcurrency { get; set; }
 
     /// <summary>
     /// The max_errors attribute.
     /// </summary>
-    public TerraformProperty<string> MaxErrors
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("max_errors");
-        set => SetProperty("max_errors", value);
-    }
+    [TerraformPropertyName("max_errors")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaxErrors { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Parameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Parameters { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "parameters");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The schedule_expression attribute.
     /// </summary>
-    public TerraformProperty<string> ScheduleExpression
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("schedule_expression");
-        set => SetProperty("schedule_expression", value);
-    }
+    [TerraformPropertyName("schedule_expression")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ScheduleExpression { get; set; }
 
     /// <summary>
     /// The sync_compliance attribute.
     /// </summary>
-    public TerraformProperty<string> SyncCompliance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sync_compliance");
-        set => SetProperty("sync_compliance", value);
-    }
+    [TerraformPropertyName("sync_compliance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SyncCompliance { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The wait_for_success_timeout_seconds attribute.
     /// </summary>
-    public TerraformProperty<double> WaitForSuccessTimeoutSeconds
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("wait_for_success_timeout_seconds");
-        set => SetProperty("wait_for_success_timeout_seconds", value);
-    }
+    [TerraformPropertyName("wait_for_success_timeout_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? WaitForSuccessTimeoutSeconds { get; set; }
 
     /// <summary>
     /// Block for output_location.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputLocation block(s) allowed")]
-    public List<AwsSsmAssociationOutputLocationBlock>? OutputLocation
-    {
-        set => SetProperty("output_location", value);
-    }
+    [TerraformPropertyName("output_location")]
+    public TerraformList<TerraformBlock<AwsSsmAssociationOutputLocationBlock>>? OutputLocation { get; set; } = new();
 
     /// <summary>
     /// Block for targets.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Targets block(s) allowed")]
-    public List<AwsSsmAssociationTargetsBlock>? Targets
-    {
-        set => SetProperty("targets", value);
-    }
+    [TerraformPropertyName("targets")]
+    public TerraformList<TerraformBlock<AwsSsmAssociationTargetsBlock>>? Targets { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
-    public TerraformExpression AssociationId => this["association_id"];
+    [TerraformPropertyName("association_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AssociationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "association_id");
 
 }

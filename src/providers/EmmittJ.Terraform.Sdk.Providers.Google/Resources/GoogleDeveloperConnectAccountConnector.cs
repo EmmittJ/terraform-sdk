@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for provider_oauth_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock : TerraformBlock
+public class GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Required. User selected scopes to apply to the Oauth config
@@ -14,10 +14,9 @@ public class GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock : Te
     /// be deleted and users will re-auth again.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    public List<TerraformProperty<string>>? Scopes
-    {
-        set => SetProperty("scopes", value);
-    }
+    [TerraformPropertyName("scopes")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Scopes { get; set; }
 
     /// <summary>
     /// List of providers that are owned by Developer Connect.
@@ -31,10 +30,9 @@ public class GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock : Te
     /// NEW_RELIC
     /// DATASTAX
     /// </summary>
-    public TerraformProperty<string>? SystemProviderId
-    {
-        set => SetProperty("system_provider_id", value);
-    }
+    [TerraformPropertyName("system_provider_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SystemProviderId { get; set; }
 
 }
 
@@ -42,31 +40,28 @@ public class GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock : Te
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDeveloperConnectAccountConnectorTimeoutsBlock : TerraformBlock
+public class GoogleDeveloperConnectAccountConnectorTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -78,24 +73,6 @@ public class GoogleDeveloperConnectAccountConnector : TerraformResource
 {
     public GoogleDeveloperConnectAccountConnector(string name) : base("google_developer_connect_account_connector", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_annotations");
-        SetOutput("effective_labels");
-        SetOutput("name");
-        SetOutput("oauth_start_uri");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("account_connector_id");
-        SetOutput("annotations");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -105,11 +82,9 @@ public class GoogleDeveloperConnectAccountConnector : TerraformResource
     /// per-project per-location.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountConnectorId is required")]
-    public required TerraformProperty<string> AccountConnectorId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_connector_id");
-        set => SetProperty("account_connector_id", value);
-    }
+    [TerraformPropertyName("account_connector_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountConnectorId { get; set; }
 
     /// <summary>
     /// Optional. Allows users to store small amounts of arbitrary data.
@@ -117,20 +92,16 @@ public class GoogleDeveloperConnectAccountConnector : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Optional. Labels as key value pairs
@@ -138,85 +109,89 @@ public class GoogleDeveloperConnectAccountConnector : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for provider_oauth_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProviderOauthConfig block(s) allowed")]
-    public List<GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock>? ProviderOauthConfig
-    {
-        set => SetProperty("provider_oauth_config", value);
-    }
+    [TerraformPropertyName("provider_oauth_config")]
+    public TerraformList<TerraformBlock<GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock>>? ProviderOauthConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDeveloperConnectAccountConnectorTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDeveloperConnectAccountConnectorTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The timestamp when the userConnection was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+    [TerraformPropertyName("effective_annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Identifier. The resource name of the userConnection, in the format
     /// &#39;projects/{project}/locations/{location}/accountConnectors/{account_connector_id}&#39;.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Output only. Start OAuth flow by clicking on this URL.
     /// </summary>
-    public TerraformExpression OauthStartUri => this["oauth_start_uri"];
+    [TerraformPropertyName("oauth_start_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OauthStartUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "oauth_start_uri");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Output only. The timestamp when the userConnection was updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

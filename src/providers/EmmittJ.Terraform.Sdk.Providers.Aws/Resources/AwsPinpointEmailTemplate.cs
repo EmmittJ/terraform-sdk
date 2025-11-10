@@ -6,55 +6,49 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for email_template in .
 /// Nesting mode: list
 /// </summary>
-public class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
+public class AwsPinpointEmailTemplateEmailTemplateBlock : ITerraformBlock
 {
     /// <summary>
     /// The default_substitutions attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultSubstitutions
-    {
-        set => SetProperty("default_substitutions", value);
-    }
+    [TerraformPropertyName("default_substitutions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultSubstitutions { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The html_part attribute.
     /// </summary>
-    public TerraformProperty<string>? HtmlPart
-    {
-        set => SetProperty("html_part", value);
-    }
+    [TerraformPropertyName("html_part")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HtmlPart { get; set; }
 
     /// <summary>
     /// The recommender_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RecommenderId
-    {
-        set => SetProperty("recommender_id", value);
-    }
+    [TerraformPropertyName("recommender_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RecommenderId { get; set; }
 
     /// <summary>
     /// The subject attribute.
     /// </summary>
-    public TerraformProperty<string>? Subject
-    {
-        set => SetProperty("subject", value);
-    }
+    [TerraformPropertyName("subject")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Subject { get; set; }
 
     /// <summary>
     /// The text_part attribute.
     /// </summary>
-    public TerraformProperty<string>? TextPart
-    {
-        set => SetProperty("text_part", value);
-    }
+    [TerraformPropertyName("text_part")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TextPart { get; set; }
 
 }
 
@@ -65,63 +59,49 @@ public class AwsPinpointEmailTemplate : TerraformResource
 {
     public AwsPinpointEmailTemplate(string name) : base("aws_pinpoint_email_template", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("tags_all");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("template_name");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The template_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateName is required")]
-    public required TerraformProperty<string> TemplateName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("template_name");
-        set => SetProperty("template_name", value);
-    }
+    [TerraformPropertyName("template_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TemplateName { get; set; }
 
     /// <summary>
     /// Block for email_template.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsPinpointEmailTemplateEmailTemplateBlock>? EmailTemplate
-    {
-        set => SetProperty("email_template", value);
-    }
+    [TerraformPropertyName("email_template")]
+    public TerraformList<TerraformBlock<AwsPinpointEmailTemplateEmailTemplateBlock>>? EmailTemplate { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

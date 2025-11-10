@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : TerraformBlock
+public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : ITerraformBlock
 {
     /// <summary>
     /// The name of the Metadata configuration item.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The name of a secret specified in the `secrets` block that contains the value for this metadata configuration item.
     /// </summary>
-    public TerraformProperty<string>? SecretName
-    {
-        set => SetProperty("secret_name", value);
-    }
+    [TerraformPropertyName("secret_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecretName { get; set; }
 
     /// <summary>
     /// The value for this metadata configuration item.
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -39,40 +36,36 @@ public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : Terrafor
 /// Block type for secret in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformBlock
+public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity to use for accessing key vault reference.
     /// </summary>
-    public TerraformProperty<string>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Identity { get; set; }
 
     /// <summary>
     /// The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultSecretId
-    {
-        set => SetProperty("key_vault_secret_id", value);
-    }
+    [TerraformPropertyName("key_vault_secret_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyVaultSecretId { get; set; }
 
     /// <summary>
     /// The secret name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The value for this secret.
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -80,39 +73,35 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : TerraformBlock
+public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -123,122 +112,87 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
 {
     public AzurermContainerAppEnvironmentDaprComponent(string name) : base("azurerm_container_app_environment_dapr_component", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("component_type");
-        SetOutput("container_app_environment_id");
-        SetOutput("id");
-        SetOutput("ignore_errors");
-        SetOutput("init_timeout");
-        SetOutput("name");
-        SetOutput("scopes");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The Dapr Component Type. For example `state.azure.blobstorage`.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentType is required")]
-    public required TerraformProperty<string> ComponentType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("component_type");
-        set => SetProperty("component_type", value);
-    }
+    [TerraformPropertyName("component_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ComponentType { get; set; }
 
     /// <summary>
     /// The Container App Managed Environment ID to configure this Dapr component on.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
-    public required TerraformProperty<string> ContainerAppEnvironmentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_app_environment_id");
-        set => SetProperty("container_app_environment_id", value);
-    }
+    [TerraformPropertyName("container_app_environment_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContainerAppEnvironmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
     /// </summary>
-    public TerraformProperty<bool> IgnoreErrors
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_errors");
-        set => SetProperty("ignore_errors", value);
-    }
+    [TerraformPropertyName("ignore_errors")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IgnoreErrors { get; set; }
 
     /// <summary>
     /// The component initialisation timeout in ISO8601 format. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
     /// </summary>
-    public TerraformProperty<string> InitTimeout
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("init_timeout");
-        set => SetProperty("init_timeout", value);
-    }
+    [TerraformPropertyName("init_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InitTimeout { get; set; }
 
     /// <summary>
     /// The name for this Dapr Component.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// A list of scopes to which this component applies. e.g. a Container App&#39;s `dapr.app_id` value.
     /// </summary>
-    public List<TerraformProperty<string>> Scopes
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("scopes");
-        set => SetProperty("scopes", value);
-    }
+    [TerraformPropertyName("scopes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Scopes { get; set; }
 
     /// <summary>
     /// The version of the component.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
     /// <summary>
     /// Block for metadata.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermContainerAppEnvironmentDaprComponentMetadataBlock>? Metadata
-    {
-        set => SetProperty("metadata", value);
-    }
+    [TerraformPropertyName("metadata")]
+    public TerraformList<TerraformBlock<AzurermContainerAppEnvironmentDaprComponentMetadataBlock>>? Metadata { get; set; } = new();
 
     /// <summary>
     /// Block for secret.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermContainerAppEnvironmentDaprComponentSecretBlock>? Secret
-    {
-        set => SetProperty("secret", value);
-    }
+    [TerraformPropertyName("secret")]
+    public TerraformSet<TerraformBlock<AzurermContainerAppEnvironmentDaprComponentSecretBlock>>? Secret { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

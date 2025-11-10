@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermOrbitalContactTimeoutsBlock : TerraformBlock
+public class AzurermOrbitalContactTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -42,96 +39,68 @@ public class AzurermOrbitalContact : TerraformResource
 {
     public AzurermOrbitalContact(string name) : base("azurerm_orbital_contact", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("contact_profile_id");
-        SetOutput("ground_station_name");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("reservation_end_time");
-        SetOutput("reservation_start_time");
-        SetOutput("spacecraft_id");
     }
 
     /// <summary>
     /// The contact_profile_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactProfileId is required")]
-    public required TerraformProperty<string> ContactProfileId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("contact_profile_id");
-        set => SetProperty("contact_profile_id", value);
-    }
+    [TerraformPropertyName("contact_profile_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContactProfileId { get; set; }
 
     /// <summary>
     /// The ground_station_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroundStationName is required")]
-    public required TerraformProperty<string> GroundStationName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ground_station_name");
-        set => SetProperty("ground_station_name", value);
-    }
+    [TerraformPropertyName("ground_station_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GroundStationName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The reservation_end_time attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationEndTime is required")]
-    public required TerraformProperty<string> ReservationEndTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("reservation_end_time");
-        set => SetProperty("reservation_end_time", value);
-    }
+    [TerraformPropertyName("reservation_end_time")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ReservationEndTime { get; set; }
 
     /// <summary>
     /// The reservation_start_time attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationStartTime is required")]
-    public required TerraformProperty<string> ReservationStartTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("reservation_start_time");
-        set => SetProperty("reservation_start_time", value);
-    }
+    [TerraformPropertyName("reservation_start_time")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ReservationStartTime { get; set; }
 
     /// <summary>
     /// The spacecraft_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpacecraftId is required")]
-    public required TerraformProperty<string> SpacecraftId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("spacecraft_id");
-        set => SetProperty("spacecraft_id", value);
-    }
+    [TerraformPropertyName("spacecraft_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SpacecraftId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermOrbitalContactTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermOrbitalContactTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

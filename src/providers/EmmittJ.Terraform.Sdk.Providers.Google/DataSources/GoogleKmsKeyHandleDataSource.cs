@@ -9,69 +9,54 @@ public class GoogleKmsKeyHandleDataSource : TerraformDataSource
 {
     public GoogleKmsKeyHandleDataSource(string name) : base("google_kms_key_handle", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("kms_key");
-        SetOutput("resource_type_selector");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location for the KeyHandle.
     /// A full list of valid locations can be found by running &#39;gcloud kms locations list&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The resource name for the KeyHandle.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// A reference to a Cloud KMS CryptoKey that can be used for CMEK in the requested
     /// product/project/location, for example
     /// &#39;projects/1/locations/us-east1/keyRings/foo/cryptoKeys/bar-ffffff&#39;
     /// </summary>
-    public TerraformExpression KmsKey => this["kms_key"];
+    [TerraformPropertyName("kms_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key");
 
     /// <summary>
     /// Selector of the resource type where we want to protect resources.
     /// For example, &#39;storage.googleapis.com/Bucket&#39;.
     /// </summary>
-    public TerraformExpression ResourceTypeSelector => this["resource_type_selector"];
+    [TerraformPropertyName("resource_type_selector")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceTypeSelector => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_type_selector");
 
 }

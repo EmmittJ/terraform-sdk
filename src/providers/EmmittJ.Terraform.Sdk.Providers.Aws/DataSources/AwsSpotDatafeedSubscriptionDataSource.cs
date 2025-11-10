@@ -9,33 +9,27 @@ public class AwsSpotDatafeedSubscriptionDataSource : TerraformDataSource
 {
     public AwsSpotDatafeedSubscriptionDataSource(string name) : base("aws_spot_datafeed_subscription", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bucket");
-        SetOutput("prefix");
-        SetOutput("region");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformExpression Bucket => this["bucket"];
+    [TerraformPropertyName("bucket")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Bucket => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bucket");
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformExpression Prefix => this["prefix"];
+    [TerraformPropertyName("prefix")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Prefix => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "prefix");
 
 }

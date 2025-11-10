@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for data_boost_isolation_read_only in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock : TerraformBlock
+public class GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock : ITerraformBlock
 {
     /// <summary>
     /// The Compute Billing Owner for this Data Boost App Profile. Possible values: [&amp;quot;HOST_PAYS&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeBillingOwner is required")]
-    public required TerraformProperty<string> ComputeBillingOwner
-    {
-        set => SetProperty("compute_billing_owner", value);
-    }
+    [TerraformPropertyName("compute_billing_owner")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ComputeBillingOwner { get; set; }
 
 }
 
@@ -23,25 +22,23 @@ public class GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock : Terraform
 /// Block type for single_cluster_routing in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigtableAppProfileSingleClusterRoutingBlock : TerraformBlock
+public class GoogleBigtableAppProfileSingleClusterRoutingBlock : ITerraformBlock
 {
     /// <summary>
     /// If true, CheckAndMutateRow and ReadModifyWriteRow requests are allowed by this app profile.
     /// It is unsafe to send these requests to the same table/row/column in multiple clusters.
     /// </summary>
-    public TerraformProperty<bool>? AllowTransactionalWrites
-    {
-        set => SetProperty("allow_transactional_writes", value);
-    }
+    [TerraformPropertyName("allow_transactional_writes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowTransactionalWrites { get; set; }
 
     /// <summary>
     /// The cluster to which read/write requests should be routed.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    public required TerraformProperty<string> ClusterId
-    {
-        set => SetProperty("cluster_id", value);
-    }
+    [TerraformPropertyName("cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterId { get; set; }
 
 }
 
@@ -49,16 +46,15 @@ public class GoogleBigtableAppProfileSingleClusterRoutingBlock : TerraformBlock
 /// Block type for standard_isolation in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigtableAppProfileStandardIsolationBlock : TerraformBlock
+public class GoogleBigtableAppProfileStandardIsolationBlock : ITerraformBlock
 {
     /// <summary>
     /// The priority of requests sent using this app profile. Possible values: [&amp;quot;PRIORITY_LOW&amp;quot;, &amp;quot;PRIORITY_MEDIUM&amp;quot;, &amp;quot;PRIORITY_HIGH&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    public required TerraformProperty<string> Priority
-    {
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Priority { get; set; }
 
 }
 
@@ -66,31 +62,28 @@ public class GoogleBigtableAppProfileStandardIsolationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigtableAppProfileTimeoutsBlock : TerraformBlock
+public class GoogleBigtableAppProfileTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -102,149 +95,110 @@ public class GoogleBigtableAppProfile : TerraformResource
 {
     public GoogleBigtableAppProfile(string name) : base("google_bigtable_app_profile", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("app_profile_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("ignore_warnings");
-        SetOutput("instance");
-        SetOutput("multi_cluster_routing_cluster_ids");
-        SetOutput("multi_cluster_routing_use_any");
-        SetOutput("project");
-        SetOutput("row_affinity");
     }
 
     /// <summary>
     /// The unique name of the app profile in the form &#39;[_a-zA-Z0-9][-_.a-zA-Z0-9]*&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppProfileId is required")]
-    public required TerraformProperty<string> AppProfileId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_profile_id");
-        set => SetProperty("app_profile_id", value);
-    }
+    [TerraformPropertyName("app_profile_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AppProfileId { get; set; }
 
     /// <summary>
     /// Long form description of the use case for this app profile.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// If true, ignore safety checks when deleting/updating the app profile.
     /// </summary>
-    public TerraformProperty<bool> IgnoreWarnings
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ignore_warnings");
-        set => SetProperty("ignore_warnings", value);
-    }
+    [TerraformPropertyName("ignore_warnings")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IgnoreWarnings { get; set; }
 
     /// <summary>
     /// The name of the instance to create the app profile within.
     /// </summary>
-    public TerraformProperty<string> Instance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance");
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Instance { get; set; }
 
     /// <summary>
     /// The set of clusters to route to. The order is ignored; clusters will be tried in order of distance. If left empty, all clusters are eligible.
     /// </summary>
-    public List<TerraformProperty<string>> MultiClusterRoutingClusterIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("multi_cluster_routing_cluster_ids");
-        set => SetProperty("multi_cluster_routing_cluster_ids", value);
-    }
+    [TerraformPropertyName("multi_cluster_routing_cluster_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? MultiClusterRoutingClusterIds { get; set; }
 
     /// <summary>
     /// If true, read/write requests are routed to the nearest cluster in the instance, and will fail over to the nearest cluster that is available
     /// in the event of transient errors or delays. Clusters in a region are considered equidistant. Choosing this option sacrifices read-your-writes
     /// consistency to improve availability.
     /// </summary>
-    public TerraformProperty<bool> MultiClusterRoutingUseAny
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("multi_cluster_routing_use_any");
-        set => SetProperty("multi_cluster_routing_use_any", value);
-    }
+    [TerraformPropertyName("multi_cluster_routing_use_any")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MultiClusterRoutingUseAny { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Must be used with multi-cluster routing. If true, then this app profile will use row affinity sticky routing. With row affinity, Bigtable will route single row key requests based on the row key, rather than randomly. Instead, each row key will be assigned to a cluster by Cloud Bigtable, and will stick to that cluster. Choosing this option improves read-your-writes consistency for most requests under most circumstances, without sacrificing availability. Consistency is not guaranteed, as requests may still fail over between clusters in the event of errors or latency.
     /// </summary>
-    public TerraformProperty<bool> RowAffinity
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("row_affinity");
-        set => SetProperty("row_affinity", value);
-    }
+    [TerraformPropertyName("row_affinity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RowAffinity { get; set; }
 
     /// <summary>
     /// Block for data_boost_isolation_read_only.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataBoostIsolationReadOnly block(s) allowed")]
-    public List<GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock>? DataBoostIsolationReadOnly
-    {
-        set => SetProperty("data_boost_isolation_read_only", value);
-    }
+    [TerraformPropertyName("data_boost_isolation_read_only")]
+    public TerraformList<TerraformBlock<GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock>>? DataBoostIsolationReadOnly { get; set; } = new();
 
     /// <summary>
     /// Block for single_cluster_routing.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SingleClusterRouting block(s) allowed")]
-    public List<GoogleBigtableAppProfileSingleClusterRoutingBlock>? SingleClusterRouting
-    {
-        set => SetProperty("single_cluster_routing", value);
-    }
+    [TerraformPropertyName("single_cluster_routing")]
+    public TerraformList<TerraformBlock<GoogleBigtableAppProfileSingleClusterRoutingBlock>>? SingleClusterRouting { get; set; } = new();
 
     /// <summary>
     /// Block for standard_isolation.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StandardIsolation block(s) allowed")]
-    public List<GoogleBigtableAppProfileStandardIsolationBlock>? StandardIsolation
-    {
-        set => SetProperty("standard_isolation", value);
-    }
+    [TerraformPropertyName("standard_isolation")]
+    public TerraformList<TerraformBlock<GoogleBigtableAppProfileStandardIsolationBlock>>? StandardIsolation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleBigtableAppProfileTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleBigtableAppProfileTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The unique name of the requested app profile. Values are of the form &#39;projects/&amp;lt;project&amp;gt;/instances/&amp;lt;instance&amp;gt;/appProfiles/&amp;lt;appProfileId&amp;gt;&#39;.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

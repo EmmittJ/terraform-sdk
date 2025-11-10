@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,82 +24,71 @@ public class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
 {
     public AzurermDataShareDatasetBlobStorageDataSource(string name) : base("azurerm_data_share_dataset_blob_storage", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("container_name");
-        SetOutput("display_name");
-        SetOutput("file_path");
-        SetOutput("folder_path");
-        SetOutput("storage_account");
-        SetOutput("data_share_id");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The data_share_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareId is required")]
-    public required TerraformProperty<string> DataShareId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_share_id");
-        set => SetProperty("data_share_id", value);
-    }
+    [TerraformPropertyName("data_share_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataShareId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    public TerraformExpression ContainerName => this["container_name"];
+    [TerraformPropertyName("container_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContainerName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "container_name");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The file_path attribute.
     /// </summary>
-    public TerraformExpression FilePath => this["file_path"];
+    [TerraformPropertyName("file_path")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FilePath => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "file_path");
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
-    public TerraformExpression FolderPath => this["folder_path"];
+    [TerraformPropertyName("folder_path")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FolderPath => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "folder_path");
 
     /// <summary>
     /// The storage_account attribute.
     /// </summary>
-    public TerraformExpression StorageAccount => this["storage_account"];
+    [TerraformPropertyName("storage_account")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> StorageAccount => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "storage_account");
 
 }

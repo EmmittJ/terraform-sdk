@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermHealthcareFhirServiceDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermHealthcareFhirServiceDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,110 +24,99 @@ public class AzurermHealthcareFhirServiceDataSource : TerraformDataSource
 {
     public AzurermHealthcareFhirServiceDataSource(string name) : base("azurerm_healthcare_fhir_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_policy_object_ids");
-        SetOutput("authentication");
-        SetOutput("configuration_export_storage_account_name");
-        SetOutput("container_registry_login_server_url");
-        SetOutput("cors");
-        SetOutput("identity");
-        SetOutput("kind");
-        SetOutput("location");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("tags");
-        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    public required TerraformProperty<string> WorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
-        set => SetProperty("workspace_id", value);
-    }
+    [TerraformPropertyName("workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermHealthcareFhirServiceDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermHealthcareFhirServiceDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The access_policy_object_ids attribute.
     /// </summary>
-    public TerraformExpression AccessPolicyObjectIds => this["access_policy_object_ids"];
+    [TerraformPropertyName("access_policy_object_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AccessPolicyObjectIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "access_policy_object_ids");
 
     /// <summary>
     /// The authentication attribute.
     /// </summary>
-    public TerraformExpression Authentication => this["authentication"];
+    [TerraformPropertyName("authentication")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Authentication => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "authentication");
 
     /// <summary>
     /// The configuration_export_storage_account_name attribute.
     /// </summary>
-    public TerraformExpression ConfigurationExportStorageAccountName => this["configuration_export_storage_account_name"];
+    [TerraformPropertyName("configuration_export_storage_account_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConfigurationExportStorageAccountName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "configuration_export_storage_account_name");
 
     /// <summary>
     /// The container_registry_login_server_url attribute.
     /// </summary>
-    public TerraformExpression ContainerRegistryLoginServerUrl => this["container_registry_login_server_url"];
+    [TerraformPropertyName("container_registry_login_server_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ContainerRegistryLoginServerUrl => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "container_registry_login_server_url");
 
     /// <summary>
     /// The cors attribute.
     /// </summary>
-    public TerraformExpression Cors => this["cors"];
+    [TerraformPropertyName("cors")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Cors => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "cors");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformExpression Identity => this["identity"];
+    [TerraformPropertyName("identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformExpression Kind => this["kind"];
+    [TerraformPropertyName("kind")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Kind => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
 }

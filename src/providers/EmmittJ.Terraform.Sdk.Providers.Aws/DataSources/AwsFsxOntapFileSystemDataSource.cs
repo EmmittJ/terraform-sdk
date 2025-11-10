@@ -9,168 +9,175 @@ public class AwsFsxOntapFileSystemDataSource : TerraformDataSource
 {
     public AwsFsxOntapFileSystemDataSource(string name) : base("aws_fsx_ontap_file_system", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("automatic_backup_retention_days");
-        SetOutput("daily_automatic_backup_start_time");
-        SetOutput("deployment_type");
-        SetOutput("disk_iops_configuration");
-        SetOutput("dns_name");
-        SetOutput("endpoint_ip_address_range");
-        SetOutput("endpoints");
-        SetOutput("ha_pairs");
-        SetOutput("kms_key_id");
-        SetOutput("network_interface_ids");
-        SetOutput("owner_id");
-        SetOutput("preferred_subnet_id");
-        SetOutput("route_table_ids");
-        SetOutput("storage_capacity");
-        SetOutput("storage_type");
-        SetOutput("subnet_ids");
-        SetOutput("throughput_capacity");
-        SetOutput("throughput_capacity_per_ha_pair");
-        SetOutput("vpc_id");
-        SetOutput("weekly_maintenance_start_time");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The automatic_backup_retention_days attribute.
     /// </summary>
-    public TerraformExpression AutomaticBackupRetentionDays => this["automatic_backup_retention_days"];
+    [TerraformPropertyName("automatic_backup_retention_days")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AutomaticBackupRetentionDays => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "automatic_backup_retention_days");
 
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
-    public TerraformExpression DailyAutomaticBackupStartTime => this["daily_automatic_backup_start_time"];
+    [TerraformPropertyName("daily_automatic_backup_start_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DailyAutomaticBackupStartTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "daily_automatic_backup_start_time");
 
     /// <summary>
     /// The deployment_type attribute.
     /// </summary>
-    public TerraformExpression DeploymentType => this["deployment_type"];
+    [TerraformPropertyName("deployment_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeploymentType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deployment_type");
 
     /// <summary>
     /// The disk_iops_configuration attribute.
     /// </summary>
-    public TerraformExpression DiskIopsConfiguration => this["disk_iops_configuration"];
+    [TerraformPropertyName("disk_iops_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DiskIopsConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "disk_iops_configuration");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformExpression DnsName => this["dns_name"];
+    [TerraformPropertyName("dns_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dns_name");
 
     /// <summary>
     /// The endpoint_ip_address_range attribute.
     /// </summary>
-    public TerraformExpression EndpointIpAddressRange => this["endpoint_ip_address_range"];
+    [TerraformPropertyName("endpoint_ip_address_range")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EndpointIpAddressRange => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_ip_address_range");
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
-    public TerraformExpression Endpoints => this["endpoints"];
+    [TerraformPropertyName("endpoints")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Endpoints => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "endpoints");
 
     /// <summary>
     /// The ha_pairs attribute.
     /// </summary>
-    public TerraformExpression HaPairs => this["ha_pairs"];
+    [TerraformPropertyName("ha_pairs")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> HaPairs => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ha_pairs");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformExpression KmsKeyId => this["kms_key_id"];
+    [TerraformPropertyName("kms_key_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsKeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_id");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
-    public TerraformExpression NetworkInterfaceIds => this["network_interface_ids"];
+    [TerraformPropertyName("network_interface_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> NetworkInterfaceIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "network_interface_ids");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformExpression OwnerId => this["owner_id"];
+    [TerraformPropertyName("owner_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
 
     /// <summary>
     /// The preferred_subnet_id attribute.
     /// </summary>
-    public TerraformExpression PreferredSubnetId => this["preferred_subnet_id"];
+    [TerraformPropertyName("preferred_subnet_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PreferredSubnetId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_subnet_id");
 
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public TerraformExpression RouteTableIds => this["route_table_ids"];
+    [TerraformPropertyName("route_table_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> RouteTableIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "route_table_ids");
 
     /// <summary>
     /// The storage_capacity attribute.
     /// </summary>
-    public TerraformExpression StorageCapacity => this["storage_capacity"];
+    [TerraformPropertyName("storage_capacity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> StorageCapacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "storage_capacity");
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformExpression StorageType => this["storage_type"];
+    [TerraformPropertyName("storage_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StorageType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_type");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformExpression SubnetIds => this["subnet_ids"];
+    [TerraformPropertyName("subnet_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SubnetIds => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "subnet_ids");
 
     /// <summary>
     /// The throughput_capacity attribute.
     /// </summary>
-    public TerraformExpression ThroughputCapacity => this["throughput_capacity"];
+    [TerraformPropertyName("throughput_capacity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ThroughputCapacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "throughput_capacity");
 
     /// <summary>
     /// The throughput_capacity_per_ha_pair attribute.
     /// </summary>
-    public TerraformExpression ThroughputCapacityPerHaPair => this["throughput_capacity_per_ha_pair"];
+    [TerraformPropertyName("throughput_capacity_per_ha_pair")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ThroughputCapacityPerHaPair => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "throughput_capacity_per_ha_pair");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformExpression VpcId => this["vpc_id"];
+    [TerraformPropertyName("vpc_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_id");
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
-    public TerraformExpression WeeklyMaintenanceStartTime => this["weekly_maintenance_start_time"];
+    [TerraformPropertyName("weekly_maintenance_start_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WeeklyMaintenanceStartTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "weekly_maintenance_start_time");
 
 }

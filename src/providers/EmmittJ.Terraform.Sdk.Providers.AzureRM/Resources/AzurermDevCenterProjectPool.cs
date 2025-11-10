@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDevCenterProjectPoolTimeoutsBlock : TerraformBlock
+public class AzurermDevCenterProjectPoolTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,136 +45,96 @@ public class AzurermDevCenterProjectPool : TerraformResource
 {
     public AzurermDevCenterProjectPool(string name) : base("azurerm_dev_center_project_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("dev_box_definition_name");
-        SetOutput("dev_center_attached_network_name");
-        SetOutput("dev_center_project_id");
-        SetOutput("id");
-        SetOutput("local_administrator_enabled");
-        SetOutput("location");
-        SetOutput("managed_virtual_network_regions");
-        SetOutput("name");
-        SetOutput("single_sign_on_enabled");
-        SetOutput("stop_on_disconnect_grace_period_minutes");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The dev_box_definition_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevBoxDefinitionName is required")]
-    public required TerraformProperty<string> DevBoxDefinitionName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dev_box_definition_name");
-        set => SetProperty("dev_box_definition_name", value);
-    }
+    [TerraformPropertyName("dev_box_definition_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DevBoxDefinitionName { get; set; }
 
     /// <summary>
     /// The dev_center_attached_network_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterAttachedNetworkName is required")]
-    public required TerraformProperty<string> DevCenterAttachedNetworkName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dev_center_attached_network_name");
-        set => SetProperty("dev_center_attached_network_name", value);
-    }
+    [TerraformPropertyName("dev_center_attached_network_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DevCenterAttachedNetworkName { get; set; }
 
     /// <summary>
     /// The dev_center_project_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
-    public required TerraformProperty<string> DevCenterProjectId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dev_center_project_id");
-        set => SetProperty("dev_center_project_id", value);
-    }
+    [TerraformPropertyName("dev_center_project_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DevCenterProjectId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The local_administrator_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalAdministratorEnabled is required")]
-    public required TerraformProperty<bool> LocalAdministratorEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("local_administrator_enabled");
-        set => SetProperty("local_administrator_enabled", value);
-    }
+    [TerraformPropertyName("local_administrator_enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> LocalAdministratorEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The managed_virtual_network_regions attribute.
     /// </summary>
-    public List<TerraformProperty<string>> ManagedVirtualNetworkRegions
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("managed_virtual_network_regions");
-        set => SetProperty("managed_virtual_network_regions", value);
-    }
+    [TerraformPropertyName("managed_virtual_network_regions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ManagedVirtualNetworkRegions { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The single_sign_on_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> SingleSignOnEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("single_sign_on_enabled");
-        set => SetProperty("single_sign_on_enabled", value);
-    }
+    [TerraformPropertyName("single_sign_on_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SingleSignOnEnabled { get; set; }
 
     /// <summary>
     /// The stop_on_disconnect_grace_period_minutes attribute.
     /// </summary>
-    public TerraformProperty<double> StopOnDisconnectGracePeriodMinutes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("stop_on_disconnect_grace_period_minutes");
-        set => SetProperty("stop_on_disconnect_grace_period_minutes", value);
-    }
+    [TerraformPropertyName("stop_on_disconnect_grace_period_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? StopOnDisconnectGracePeriodMinutes { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDevCenterProjectPoolTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDevCenterProjectPoolTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

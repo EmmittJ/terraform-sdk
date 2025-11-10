@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for frontend_ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLbOutboundRuleFrontendIpConfigurationBlock : TerraformBlock
+public class AzurermLbOutboundRuleFrontendIpConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -31,39 +29,35 @@ public class AzurermLbOutboundRuleFrontendIpConfigurationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLbOutboundRuleTimeoutsBlock : TerraformBlock
+public class AzurermLbOutboundRuleTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -74,124 +68,88 @@ public class AzurermLbOutboundRule : TerraformResource
 {
     public AzurermLbOutboundRule(string name) : base("azurerm_lb_outbound_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("allocated_outbound_ports");
-        SetOutput("backend_address_pool_id");
-        SetOutput("enable_tcp_reset");
-        SetOutput("id");
-        SetOutput("idle_timeout_in_minutes");
-        SetOutput("loadbalancer_id");
-        SetOutput("name");
-        SetOutput("protocol");
-        SetOutput("tcp_reset_enabled");
     }
 
     /// <summary>
     /// The allocated_outbound_ports attribute.
     /// </summary>
-    public TerraformProperty<double> AllocatedOutboundPorts
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("allocated_outbound_ports");
-        set => SetProperty("allocated_outbound_ports", value);
-    }
+    [TerraformPropertyName("allocated_outbound_ports")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AllocatedOutboundPorts { get; set; }
 
     /// <summary>
     /// The backend_address_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
-    public required TerraformProperty<string> BackendAddressPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backend_address_pool_id");
-        set => SetProperty("backend_address_pool_id", value);
-    }
+    [TerraformPropertyName("backend_address_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BackendAddressPoolId { get; set; }
 
     /// <summary>
     /// The enable_tcp_reset attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool> EnableTcpReset
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_tcp_reset");
-        set => SetProperty("enable_tcp_reset", value);
-    }
+    [TerraformPropertyName("enable_tcp_reset")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnableTcpReset { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_tcp_reset");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double> IdleTimeoutInMinutes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("idle_timeout_in_minutes");
-        set => SetProperty("idle_timeout_in_minutes", value);
-    }
+    [TerraformPropertyName("idle_timeout_in_minutes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? IdleTimeoutInMinutes { get; set; }
 
     /// <summary>
     /// The loadbalancer_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
-    public required TerraformProperty<string> LoadbalancerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("loadbalancer_id");
-        set => SetProperty("loadbalancer_id", value);
-    }
+    [TerraformPropertyName("loadbalancer_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LoadbalancerId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    public required TerraformProperty<string> Protocol
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protocol");
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
 
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> TcpResetEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("tcp_reset_enabled");
-        set => SetProperty("tcp_reset_enabled", value);
-    }
+    [TerraformPropertyName("tcp_reset_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> TcpResetEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "tcp_reset_enabled");
 
     /// <summary>
     /// Block for frontend_ip_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermLbOutboundRuleFrontendIpConfigurationBlock>? FrontendIpConfiguration
-    {
-        set => SetProperty("frontend_ip_configuration", value);
-    }
+    [TerraformPropertyName("frontend_ip_configuration")]
+    public TerraformList<TerraformBlock<AzurermLbOutboundRuleFrontendIpConfigurationBlock>>? FrontendIpConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLbOutboundRuleTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLbOutboundRuleTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

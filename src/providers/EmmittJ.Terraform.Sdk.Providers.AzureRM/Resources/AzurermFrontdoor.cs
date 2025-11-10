@@ -6,42 +6,38 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for backend_pool in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
+public class AzurermFrontdoorBackendPoolBlock : ITerraformBlock
 {
     /// <summary>
     /// The health_probe_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthProbeName is required")]
-    public required TerraformProperty<string> HealthProbeName
-    {
-        set => SetProperty("health_probe_name", value);
-    }
+    [TerraformPropertyName("health_probe_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HealthProbeName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The load_balancing_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingName is required")]
-    public required TerraformProperty<string> LoadBalancingName
-    {
-        set => SetProperty("load_balancing_name", value);
-    }
+    [TerraformPropertyName("load_balancing_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LoadBalancingName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -49,64 +45,57 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
 /// Block type for backend_pool_health_probe in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
+public class AzurermFrontdoorBackendPoolHealthProbeBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The interval_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? IntervalInSeconds
-    {
-        set => SetProperty("interval_in_seconds", value);
-    }
+    [TerraformPropertyName("interval_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? IntervalInSeconds { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
-    {
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
 
     /// <summary>
     /// The probe_method attribute.
     /// </summary>
-    public TerraformProperty<string>? ProbeMethod
-    {
-        set => SetProperty("probe_method", value);
-    }
+    [TerraformPropertyName("probe_method")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProbeMethod { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? Protocol
-    {
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Protocol { get; set; }
 
 }
 
@@ -114,48 +103,43 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
 /// Block type for backend_pool_load_balancing in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
+public class AzurermFrontdoorBackendPoolLoadBalancingBlock : ITerraformBlock
 {
     /// <summary>
     /// The additional_latency_milliseconds attribute.
     /// </summary>
-    public TerraformProperty<double>? AdditionalLatencyMilliseconds
-    {
-        set => SetProperty("additional_latency_milliseconds", value);
-    }
+    [TerraformPropertyName("additional_latency_milliseconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AdditionalLatencyMilliseconds { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The sample_size attribute.
     /// </summary>
-    public TerraformProperty<double>? SampleSize
-    {
-        set => SetProperty("sample_size", value);
-    }
+    [TerraformPropertyName("sample_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SampleSize { get; set; }
 
     /// <summary>
     /// The successful_samples_required attribute.
     /// </summary>
-    public TerraformProperty<double>? SuccessfulSamplesRequired
-    {
-        set => SetProperty("successful_samples_required", value);
-    }
+    [TerraformPropertyName("successful_samples_required")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SuccessfulSamplesRequired { get; set; }
 
 }
 
@@ -163,24 +147,22 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
 /// Block type for backend_pool_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlock
+public class AzurermFrontdoorBackendPoolSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The backend_pools_send_receive_timeout_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? BackendPoolsSendReceiveTimeoutSeconds
-    {
-        set => SetProperty("backend_pools_send_receive_timeout_seconds", value);
-    }
+    [TerraformPropertyName("backend_pools_send_receive_timeout_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? BackendPoolsSendReceiveTimeoutSeconds { get; set; }
 
     /// <summary>
     /// The enforce_backend_pools_certificate_name_check attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforceBackendPoolsCertificateNameCheck is required")]
-    public required TerraformProperty<bool> EnforceBackendPoolsCertificateNameCheck
-    {
-        set => SetProperty("enforce_backend_pools_certificate_name_check", value);
-    }
+    [TerraformPropertyName("enforce_backend_pools_certificate_name_check")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> EnforceBackendPoolsCertificateNameCheck { get; set; }
 
 }
 
@@ -188,57 +170,51 @@ public class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlock
 /// Block type for frontend_endpoint in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
+public class AzurermFrontdoorFrontendEndpointBlock : ITerraformBlock
 {
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    public required TerraformProperty<string> HostName
-    {
-        set => SetProperty("host_name", value);
-    }
+    [TerraformPropertyName("host_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HostName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The session_affinity_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SessionAffinityEnabled
-    {
-        set => SetProperty("session_affinity_enabled", value);
-    }
+    [TerraformPropertyName("session_affinity_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SessionAffinityEnabled { get; set; }
 
     /// <summary>
     /// The session_affinity_ttl_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? SessionAffinityTtlSeconds
-    {
-        set => SetProperty("session_affinity_ttl_seconds", value);
-    }
+    [TerraformPropertyName("session_affinity_ttl_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SessionAffinityTtlSeconds { get; set; }
 
     /// <summary>
     /// The web_application_firewall_policy_link_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WebApplicationFirewallPolicyLinkId
-    {
-        set => SetProperty("web_application_firewall_policy_link_id", value);
-    }
+    [TerraformPropertyName("web_application_firewall_policy_link_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WebApplicationFirewallPolicyLinkId { get; set; }
 
 }
 
@@ -246,59 +222,53 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
 /// Block type for routing_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
+public class AzurermFrontdoorRoutingRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The accepted_protocols attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceptedProtocols is required")]
-    public List<TerraformProperty<string>>? AcceptedProtocols
-    {
-        set => SetProperty("accepted_protocols", value);
-    }
+    [TerraformPropertyName("accepted_protocols")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? AcceptedProtocols { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The frontend_endpoints attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpoints is required")]
-    public List<TerraformProperty<string>>? FrontendEndpoints
-    {
-        set => SetProperty("frontend_endpoints", value);
-    }
+    [TerraformPropertyName("frontend_endpoints")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? FrontendEndpoints { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The patterns_to_match attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternsToMatch is required")]
-    public List<TerraformProperty<string>>? PatternsToMatch
-    {
-        set => SetProperty("patterns_to_match", value);
-    }
+    [TerraformPropertyName("patterns_to_match")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? PatternsToMatch { get; set; }
 
 }
 
@@ -306,39 +276,35 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
+public class AzurermFrontdoorTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -350,82 +316,51 @@ public class AzurermFrontdoor : TerraformResource
 {
     public AzurermFrontdoor(string name) : base("azurerm_frontdoor", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("backend_pool_health_probes");
-        SetOutput("backend_pool_load_balancing_settings");
-        SetOutput("backend_pools");
-        SetOutput("cname");
-        SetOutput("explicit_resource_order");
-        SetOutput("frontend_endpoints");
-        SetOutput("header_frontdoor_id");
-        SetOutput("routing_rules");
-        SetOutput("friendly_name");
-        SetOutput("id");
-        SetOutput("load_balancer_enabled");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    public TerraformProperty<string> FriendlyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("friendly_name");
-        set => SetProperty("friendly_name", value);
-    }
+    [TerraformPropertyName("friendly_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FriendlyName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The load_balancer_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LoadBalancerEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("load_balancer_enabled");
-        set => SetProperty("load_balancer_enabled", value);
-    }
+    [TerraformPropertyName("load_balancer_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LoadBalancerEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for backend_pool.
@@ -433,10 +368,8 @@ public class AzurermFrontdoor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPool is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPool block(s) required")]
-    public List<AzurermFrontdoorBackendPoolBlock>? BackendPool
-    {
-        set => SetProperty("backend_pool", value);
-    }
+    [TerraformPropertyName("backend_pool")]
+    public TerraformList<TerraformBlock<AzurermFrontdoorBackendPoolBlock>>? BackendPool { get; set; } = new();
 
     /// <summary>
     /// Block for backend_pool_health_probe.
@@ -445,10 +378,8 @@ public class AzurermFrontdoor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPoolHealthProbe is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPoolHealthProbe block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5000, ErrorMessage = "Maximum 5000 BackendPoolHealthProbe block(s) allowed")]
-    public List<AzurermFrontdoorBackendPoolHealthProbeBlock>? BackendPoolHealthProbe
-    {
-        set => SetProperty("backend_pool_health_probe", value);
-    }
+    [TerraformPropertyName("backend_pool_health_probe")]
+    public TerraformList<TerraformBlock<AzurermFrontdoorBackendPoolHealthProbeBlock>>? BackendPoolHealthProbe { get; set; } = new();
 
     /// <summary>
     /// Block for backend_pool_load_balancing.
@@ -457,19 +388,15 @@ public class AzurermFrontdoor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPoolLoadBalancing is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPoolLoadBalancing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5000, ErrorMessage = "Maximum 5000 BackendPoolLoadBalancing block(s) allowed")]
-    public List<AzurermFrontdoorBackendPoolLoadBalancingBlock>? BackendPoolLoadBalancing
-    {
-        set => SetProperty("backend_pool_load_balancing", value);
-    }
+    [TerraformPropertyName("backend_pool_load_balancing")]
+    public TerraformList<TerraformBlock<AzurermFrontdoorBackendPoolLoadBalancingBlock>>? BackendPoolLoadBalancing { get; set; } = new();
 
     /// <summary>
     /// Block for backend_pool_settings.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermFrontdoorBackendPoolSettingsBlock>? BackendPoolSettings
-    {
-        set => SetProperty("backend_pool_settings", value);
-    }
+    [TerraformPropertyName("backend_pool_settings")]
+    public TerraformList<TerraformBlock<AzurermFrontdoorBackendPoolSettingsBlock>>? BackendPoolSettings { get; set; } = new();
 
     /// <summary>
     /// Block for frontend_endpoint.
@@ -478,10 +405,8 @@ public class AzurermFrontdoor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FrontendEndpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 FrontendEndpoint block(s) allowed")]
-    public List<AzurermFrontdoorFrontendEndpointBlock>? FrontendEndpoint
-    {
-        set => SetProperty("frontend_endpoint", value);
-    }
+    [TerraformPropertyName("frontend_endpoint")]
+    public TerraformList<TerraformBlock<AzurermFrontdoorFrontendEndpointBlock>>? FrontendEndpoint { get; set; } = new();
 
     /// <summary>
     /// Block for routing_rule.
@@ -490,58 +415,70 @@ public class AzurermFrontdoor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 RoutingRule block(s) allowed")]
-    public List<AzurermFrontdoorRoutingRuleBlock>? RoutingRule
-    {
-        set => SetProperty("routing_rule", value);
-    }
+    [TerraformPropertyName("routing_rule")]
+    public TerraformList<TerraformBlock<AzurermFrontdoorRoutingRuleBlock>>? RoutingRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermFrontdoorTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermFrontdoorTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The backend_pool_health_probes attribute.
     /// </summary>
-    public TerraformExpression BackendPoolHealthProbes => this["backend_pool_health_probes"];
+    [TerraformPropertyName("backend_pool_health_probes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> BackendPoolHealthProbes => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "backend_pool_health_probes");
 
     /// <summary>
     /// The backend_pool_load_balancing_settings attribute.
     /// </summary>
-    public TerraformExpression BackendPoolLoadBalancingSettings => this["backend_pool_load_balancing_settings"];
+    [TerraformPropertyName("backend_pool_load_balancing_settings")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> BackendPoolLoadBalancingSettings => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "backend_pool_load_balancing_settings");
 
     /// <summary>
     /// The backend_pools attribute.
     /// </summary>
-    public TerraformExpression BackendPools => this["backend_pools"];
+    [TerraformPropertyName("backend_pools")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> BackendPools => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "backend_pools");
 
     /// <summary>
     /// The cname attribute.
     /// </summary>
-    public TerraformExpression Cname => this["cname"];
+    [TerraformPropertyName("cname")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Cname => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cname");
 
     /// <summary>
     /// The explicit_resource_order attribute.
     /// </summary>
-    public TerraformExpression ExplicitResourceOrder => this["explicit_resource_order"];
+    [TerraformPropertyName("explicit_resource_order")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ExplicitResourceOrder => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "explicit_resource_order");
 
     /// <summary>
     /// The frontend_endpoints attribute.
     /// </summary>
-    public TerraformExpression FrontendEndpoints => this["frontend_endpoints"];
+    [TerraformPropertyName("frontend_endpoints")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> FrontendEndpoints => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "frontend_endpoints");
 
     /// <summary>
     /// The header_frontdoor_id attribute.
     /// </summary>
-    public TerraformExpression HeaderFrontdoorId => this["header_frontdoor_id"];
+    [TerraformPropertyName("header_frontdoor_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HeaderFrontdoorId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "header_frontdoor_id");
 
     /// <summary>
     /// The routing_rules attribute.
     /// </summary>
-    public TerraformExpression RoutingRules => this["routing_rules"];
+    [TerraformPropertyName("routing_rules")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> RoutingRules => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "routing_rules");
 
 }

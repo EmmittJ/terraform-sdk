@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for api_server_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRedhatOpenshiftClusterApiServerProfileBlock : TerraformBlock
+public class AzurermRedhatOpenshiftClusterApiServerProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddress
-    {
-        set => SetProperty("ip_address", value);
-    }
+    [TerraformPropertyName("ip_address")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpAddress => new TerraformReferenceProperty<TerraformProperty<string>>("", "ip_address");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformProperty<string>? Url
-    {
-        set => SetProperty("url", value);
-    }
+    [TerraformPropertyName("url")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>("", "url");
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Visibility is required")]
-    public required TerraformProperty<string> Visibility
-    {
-        set => SetProperty("visibility", value);
-    }
+    [TerraformPropertyName("visibility")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Visibility { get; set; }
 
 }
 
@@ -39,57 +36,51 @@ public class AzurermRedhatOpenshiftClusterApiServerProfileBlock : TerraformBlock
 /// Block type for cluster_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlock
+public class AzurermRedhatOpenshiftClusterClusterProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The domain attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
-    public required TerraformProperty<string> Domain
-    {
-        set => SetProperty("domain", value);
-    }
+    [TerraformPropertyName("domain")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Domain { get; set; }
 
     /// <summary>
     /// The fips_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? FipsEnabled
-    {
-        set => SetProperty("fips_enabled", value);
-    }
+    [TerraformPropertyName("fips_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? FipsEnabled { get; set; }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedResourceGroupName
-    {
-        set => SetProperty("managed_resource_group_name", value);
-    }
+    [TerraformPropertyName("managed_resource_group_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManagedResourceGroupName { get; set; }
 
     /// <summary>
     /// The pull_secret attribute.
     /// </summary>
-    public TerraformProperty<string>? PullSecret
-    {
-        set => SetProperty("pull_secret", value);
-    }
+    [TerraformPropertyName("pull_secret")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PullSecret { get; set; }
 
     /// <summary>
     /// The resource_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupId
-    {
-        set => SetProperty("resource_group_id", value);
-    }
+    [TerraformPropertyName("resource_group_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceGroupId => new TerraformReferenceProperty<TerraformProperty<string>>("", "resource_group_id");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
 }
 
@@ -97,32 +88,29 @@ public class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlock
 /// Block type for ingress_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRedhatOpenshiftClusterIngressProfileBlock : TerraformBlock
+public class AzurermRedhatOpenshiftClusterIngressProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddress
-    {
-        set => SetProperty("ip_address", value);
-    }
+    [TerraformPropertyName("ip_address")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpAddress => new TerraformReferenceProperty<TerraformProperty<string>>("", "ip_address");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>("", "name");
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Visibility is required")]
-    public required TerraformProperty<string> Visibility
-    {
-        set => SetProperty("visibility", value);
-    }
+    [TerraformPropertyName("visibility")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Visibility { get; set; }
 
 }
 
@@ -130,41 +118,37 @@ public class AzurermRedhatOpenshiftClusterIngressProfileBlock : TerraformBlock
 /// Block type for main_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBlock
+public class AzurermRedhatOpenshiftClusterMainProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskEncryptionSetId
-    {
-        set => SetProperty("disk_encryption_set_id", value);
-    }
+    [TerraformPropertyName("disk_encryption_set_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The encryption_at_host_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EncryptionAtHostEnabled
-    {
-        set => SetProperty("encryption_at_host_enabled", value);
-    }
+    [TerraformPropertyName("encryption_at_host_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EncryptionAtHostEnabled { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
-    public required TerraformProperty<string> VmSize
-    {
-        set => SetProperty("vm_size", value);
-    }
+    [TerraformPropertyName("vm_size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VmSize { get; set; }
 
 }
 
@@ -172,41 +156,37 @@ public class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBlock
 /// Block type for network_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRedhatOpenshiftClusterNetworkProfileBlock : TerraformBlock
+public class AzurermRedhatOpenshiftClusterNetworkProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The outbound_type attribute.
     /// </summary>
-    public TerraformProperty<string>? OutboundType
-    {
-        set => SetProperty("outbound_type", value);
-    }
+    [TerraformPropertyName("outbound_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OutboundType { get; set; }
 
     /// <summary>
     /// The pod_cidr attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodCidr is required")]
-    public required TerraformProperty<string> PodCidr
-    {
-        set => SetProperty("pod_cidr", value);
-    }
+    [TerraformPropertyName("pod_cidr")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PodCidr { get; set; }
 
     /// <summary>
     /// The preconfigured_network_security_group_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PreconfiguredNetworkSecurityGroupEnabled
-    {
-        set => SetProperty("preconfigured_network_security_group_enabled", value);
-    }
+    [TerraformPropertyName("preconfigured_network_security_group_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PreconfiguredNetworkSecurityGroupEnabled { get; set; }
 
     /// <summary>
     /// The service_cidr attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCidr is required")]
-    public required TerraformProperty<string> ServiceCidr
-    {
-        set => SetProperty("service_cidr", value);
-    }
+    [TerraformPropertyName("service_cidr")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceCidr { get; set; }
 
 }
 
@@ -214,25 +194,23 @@ public class AzurermRedhatOpenshiftClusterNetworkProfileBlock : TerraformBlock
 /// Block type for service_principal in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRedhatOpenshiftClusterServicePrincipalBlock : TerraformBlock
+public class AzurermRedhatOpenshiftClusterServicePrincipalBlock : ITerraformBlock
 {
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
-    public required TerraformProperty<string> ClientId
-    {
-        set => SetProperty("client_id", value);
-    }
+    [TerraformPropertyName("client_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
-    public required TerraformProperty<string> ClientSecret
-    {
-        set => SetProperty("client_secret", value);
-    }
+    [TerraformPropertyName("client_secret")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClientSecret { get; set; }
 
 }
 
@@ -240,39 +218,35 @@ public class AzurermRedhatOpenshiftClusterServicePrincipalBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermRedhatOpenshiftClusterTimeoutsBlock : TerraformBlock
+public class AzurermRedhatOpenshiftClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -280,59 +254,53 @@ public class AzurermRedhatOpenshiftClusterTimeoutsBlock : TerraformBlock
 /// Block type for worker_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
+public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskEncryptionSetId
-    {
-        set => SetProperty("disk_encryption_set_id", value);
-    }
+    [TerraformPropertyName("disk_encryption_set_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
-    public required TerraformProperty<double> DiskSizeGb
-    {
-        set => SetProperty("disk_size_gb", value);
-    }
+    [TerraformPropertyName("disk_size_gb")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> DiskSizeGb { get; set; }
 
     /// <summary>
     /// The encryption_at_host_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? EncryptionAtHostEnabled
-    {
-        set => SetProperty("encryption_at_host_enabled", value);
-    }
+    [TerraformPropertyName("encryption_at_host_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EncryptionAtHostEnabled { get; set; }
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
-    public required TerraformProperty<double> NodeCount
-    {
-        set => SetProperty("node_count", value);
-    }
+    [TerraformPropertyName("node_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> NodeCount { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
-    public required TerraformProperty<string> VmSize
-    {
-        set => SetProperty("vm_size", value);
-    }
+    [TerraformPropertyName("vm_size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VmSize { get; set; }
 
 }
 
@@ -344,66 +312,45 @@ public class AzurermRedhatOpenshiftCluster : TerraformResource
 {
     public AzurermRedhatOpenshiftCluster(string name) : base("azurerm_redhat_openshift_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("console_url");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for api_server_profile.
@@ -412,10 +359,8 @@ public class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiServerProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ApiServerProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiServerProfile block(s) allowed")]
-    public List<AzurermRedhatOpenshiftClusterApiServerProfileBlock>? ApiServerProfile
-    {
-        set => SetProperty("api_server_profile", value);
-    }
+    [TerraformPropertyName("api_server_profile")]
+    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterApiServerProfileBlock>>? ApiServerProfile { get; set; } = new();
 
     /// <summary>
     /// Block for cluster_profile.
@@ -424,10 +369,8 @@ public class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ClusterProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterProfile block(s) allowed")]
-    public List<AzurermRedhatOpenshiftClusterClusterProfileBlock>? ClusterProfile
-    {
-        set => SetProperty("cluster_profile", value);
-    }
+    [TerraformPropertyName("cluster_profile")]
+    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterClusterProfileBlock>>? ClusterProfile { get; set; } = new();
 
     /// <summary>
     /// Block for ingress_profile.
@@ -436,10 +379,8 @@ public class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngressProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IngressProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressProfile block(s) allowed")]
-    public List<AzurermRedhatOpenshiftClusterIngressProfileBlock>? IngressProfile
-    {
-        set => SetProperty("ingress_profile", value);
-    }
+    [TerraformPropertyName("ingress_profile")]
+    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterIngressProfileBlock>>? IngressProfile { get; set; } = new();
 
     /// <summary>
     /// Block for main_profile.
@@ -448,10 +389,8 @@ public class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MainProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MainProfile block(s) allowed")]
-    public List<AzurermRedhatOpenshiftClusterMainProfileBlock>? MainProfile
-    {
-        set => SetProperty("main_profile", value);
-    }
+    [TerraformPropertyName("main_profile")]
+    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterMainProfileBlock>>? MainProfile { get; set; } = new();
 
     /// <summary>
     /// Block for network_profile.
@@ -460,10 +399,8 @@ public class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
-    public List<AzurermRedhatOpenshiftClusterNetworkProfileBlock>? NetworkProfile
-    {
-        set => SetProperty("network_profile", value);
-    }
+    [TerraformPropertyName("network_profile")]
+    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterNetworkProfileBlock>>? NetworkProfile { get; set; } = new();
 
     /// <summary>
     /// Block for service_principal.
@@ -472,19 +409,15 @@ public class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipal is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServicePrincipal block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipal block(s) allowed")]
-    public List<AzurermRedhatOpenshiftClusterServicePrincipalBlock>? ServicePrincipal
-    {
-        set => SetProperty("service_principal", value);
-    }
+    [TerraformPropertyName("service_principal")]
+    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterServicePrincipalBlock>>? ServicePrincipal { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermRedhatOpenshiftClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermRedhatOpenshiftClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for worker_profile.
@@ -493,14 +426,14 @@ public class AzurermRedhatOpenshiftCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 WorkerProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerProfile block(s) allowed")]
-    public List<AzurermRedhatOpenshiftClusterWorkerProfileBlock>? WorkerProfile
-    {
-        set => SetProperty("worker_profile", value);
-    }
+    [TerraformPropertyName("worker_profile")]
+    public TerraformList<TerraformBlock<AzurermRedhatOpenshiftClusterWorkerProfileBlock>>? WorkerProfile { get; set; } = new();
 
     /// <summary>
     /// The console_url attribute.
     /// </summary>
-    public TerraformExpression ConsoleUrl => this["console_url"];
+    [TerraformPropertyName("console_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConsoleUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "console_url");
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,100 +24,92 @@ public class AzurermLogAnalyticsWorkspaceDataSource : TerraformDataSource
 {
     public AzurermLogAnalyticsWorkspaceDataSource(string name) : base("azurerm_log_analytics_workspace", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("daily_quota_gb");
-        SetOutput("location");
-        SetOutput("primary_shared_key");
-        SetOutput("retention_in_days");
-        SetOutput("secondary_shared_key");
-        SetOutput("sku");
-        SetOutput("tags");
-        SetOutput("workspace_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The daily_quota_gb attribute.
     /// </summary>
-    public TerraformExpression DailyQuotaGb => this["daily_quota_gb"];
+    [TerraformPropertyName("daily_quota_gb")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DailyQuotaGb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "daily_quota_gb");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The primary_shared_key attribute.
     /// </summary>
-    public TerraformExpression PrimarySharedKey => this["primary_shared_key"];
+    [TerraformPropertyName("primary_shared_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimarySharedKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_shared_key");
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    public TerraformExpression RetentionInDays => this["retention_in_days"];
+    [TerraformPropertyName("retention_in_days")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RetentionInDays => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "retention_in_days");
 
     /// <summary>
     /// The secondary_shared_key attribute.
     /// </summary>
-    public TerraformExpression SecondarySharedKey => this["secondary_shared_key"];
+    [TerraformPropertyName("secondary_shared_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondarySharedKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_shared_key");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformExpression Sku => this["sku"];
+    [TerraformPropertyName("sku")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Sku => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformExpression WorkspaceId => this["workspace_id"];
+    [TerraformPropertyName("workspace_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WorkspaceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workspace_id");
 
 }

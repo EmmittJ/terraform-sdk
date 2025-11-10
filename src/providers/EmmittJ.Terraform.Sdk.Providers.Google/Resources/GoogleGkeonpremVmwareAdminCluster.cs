@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for addon_node in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremVmwareAdminClusterAddonNodeBlock : TerraformBlock
+public class GoogleGkeonpremVmwareAdminClusterAddonNodeBlock : ITerraformBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class GoogleGkeonpremVmwareAdminClusterAddonNodeBlock : TerraformBlock
 /// Block type for anti_affinity_groups in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock : TerraformBlock
+public class GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock : ITerraformBlock
 {
     /// <summary>
     /// Spread nodes across at least three physical hosts (requires at least three
@@ -22,10 +22,9 @@ public class GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock : Terrafor
     /// Enabled by default.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AagConfigDisabled is required")]
-    public required TerraformProperty<bool> AagConfigDisabled
-    {
-        set => SetProperty("aag_config_disabled", value);
-    }
+    [TerraformPropertyName("aag_config_disabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> AagConfigDisabled { get; set; }
 
 }
 
@@ -33,7 +32,7 @@ public class GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock : Terrafor
 /// Block type for authorization in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremVmwareAdminClusterAuthorizationBlock : TerraformBlock
+public class GoogleGkeonpremVmwareAdminClusterAuthorizationBlock : ITerraformBlock
 {
 }
 
@@ -41,16 +40,15 @@ public class GoogleGkeonpremVmwareAdminClusterAuthorizationBlock : TerraformBloc
 /// Block type for auto_repair_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock : TerraformBlock
+public class GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Whether auto repair is enabled.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
 }
 
@@ -58,31 +56,28 @@ public class GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock : TerraformB
 /// Block type for control_plane_node in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremVmwareAdminClusterControlPlaneNodeBlock : TerraformBlock
+public class GoogleGkeonpremVmwareAdminClusterControlPlaneNodeBlock : ITerraformBlock
 {
     /// <summary>
     /// The number of vCPUs for the control-plane node of the admin cluster.
     /// </summary>
-    public TerraformProperty<double>? Cpus
-    {
-        set => SetProperty("cpus", value);
-    }
+    [TerraformPropertyName("cpus")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Cpus { get; set; }
 
     /// <summary>
     /// The number of mebibytes of memory for the control-plane node of the admin cluster.
     /// </summary>
-    public TerraformProperty<double>? Memory
-    {
-        set => SetProperty("memory", value);
-    }
+    [TerraformPropertyName("memory")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Memory { get; set; }
 
     /// <summary>
     /// The number of control plane nodes for this VMware admin cluster.
     /// </summary>
-    public TerraformProperty<double>? Replicas
-    {
-        set => SetProperty("replicas", value);
-    }
+    [TerraformPropertyName("replicas")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Replicas { get; set; }
 
 }
 
@@ -90,7 +85,7 @@ public class GoogleGkeonpremVmwareAdminClusterControlPlaneNodeBlock : TerraformB
 /// Block type for load_balancer in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremVmwareAdminClusterLoadBalancerBlock : TerraformBlock
+public class GoogleGkeonpremVmwareAdminClusterLoadBalancerBlock : ITerraformBlock
 {
 }
 
@@ -98,17 +93,16 @@ public class GoogleGkeonpremVmwareAdminClusterLoadBalancerBlock : TerraformBlock
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock : TerraformBlock
+public class GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// All pods in the cluster are assigned an RFC1918 IPv4 address from these ranges.
     /// Only a single range is supported. This field cannot be changed after creation.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodAddressCidrBlocks is required")]
-    public List<TerraformProperty<string>>? PodAddressCidrBlocks
-    {
-        set => SetProperty("pod_address_cidr_blocks", value);
-    }
+    [TerraformPropertyName("pod_address_cidr_blocks")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? PodAddressCidrBlocks { get; set; }
 
     /// <summary>
     /// All services in the cluster are assigned an RFC1918 IPv4 address
@@ -116,18 +110,16 @@ public class GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock : TerraformBloc
     /// cannot be changed after creation.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAddressCidrBlocks is required")]
-    public List<TerraformProperty<string>>? ServiceAddressCidrBlocks
-    {
-        set => SetProperty("service_address_cidr_blocks", value);
-    }
+    [TerraformPropertyName("service_address_cidr_blocks")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? ServiceAddressCidrBlocks { get; set; }
 
     /// <summary>
     /// vcenter_network specifies vCenter network name.
     /// </summary>
-    public TerraformProperty<string>? VcenterNetwork
-    {
-        set => SetProperty("vcenter_network", value);
-    }
+    [TerraformPropertyName("vcenter_network")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VcenterNetwork { get; set; }
 
 }
 
@@ -135,23 +127,21 @@ public class GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock : TerraformBloc
 /// Block type for platform_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock : TerraformBlock
+public class GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The list of bundles installed in the admin cluster.
     /// </summary>
-    public List<TerraformProperty<object>>? Bundles
-    {
-        set => SetProperty("bundles", value);
-    }
+    [TerraformPropertyName("bundles")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Bundles => new TerraformReferenceProperty<List<TerraformProperty<object>>>("", "bundles");
 
     /// <summary>
     /// The platform version e.g. 1.13.2.
     /// </summary>
-    public TerraformProperty<string>? PlatformVersion
-    {
-        set => SetProperty("platform_version", value);
-    }
+    [TerraformPropertyName("platform_version")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PlatformVersion => new TerraformReferenceProperty<TerraformProperty<string>>("", "platform_version");
 
     /// <summary>
     /// The required platform version e.g. 1.13.1.
@@ -160,18 +150,16 @@ public class GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock : TerraformBlo
     /// If the target version is not installed in the platform
     /// (bundle versions), download the target version bundle.
     /// </summary>
-    public TerraformProperty<string>? RequiredPlatformVersion
-    {
-        set => SetProperty("required_platform_version", value);
-    }
+    [TerraformPropertyName("required_platform_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RequiredPlatformVersion { get; set; }
 
     /// <summary>
     /// ResourceStatus representing detailed cluster state.
     /// </summary>
-    public List<TerraformProperty<object>>? Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Status => new TerraformReferenceProperty<List<TerraformProperty<object>>>("", "status");
 
 }
 
@@ -179,23 +167,21 @@ public class GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock : TerraformBlo
 /// Block type for private_registry_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremVmwareAdminClusterPrivateRegistryConfigBlock : TerraformBlock
+public class GoogleGkeonpremVmwareAdminClusterPrivateRegistryConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The registry address.
     /// </summary>
-    public TerraformProperty<string>? Address
-    {
-        set => SetProperty("address", value);
-    }
+    [TerraformPropertyName("address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Address { get; set; }
 
     /// <summary>
     /// The CA certificate public key for private registry.
     /// </summary>
-    public TerraformProperty<string>? CaCert
-    {
-        set => SetProperty("ca_cert", value);
-    }
+    [TerraformPropertyName("ca_cert")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CaCert { get; set; }
 
 }
 
@@ -203,25 +189,23 @@ public class GoogleGkeonpremVmwareAdminClusterPrivateRegistryConfigBlock : Terra
 /// Block type for proxy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremVmwareAdminClusterProxyBlock : TerraformBlock
+public class GoogleGkeonpremVmwareAdminClusterProxyBlock : ITerraformBlock
 {
     /// <summary>
     /// A comma-separated list of IP addresses, IP address ranges,
     /// host names, and domain names that should not go through the proxy server.
     /// </summary>
-    public TerraformProperty<string>? NoProxy
-    {
-        set => SetProperty("no_proxy", value);
-    }
+    [TerraformPropertyName("no_proxy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NoProxy { get; set; }
 
     /// <summary>
     /// The proxy url.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
-    public required TerraformProperty<string> Url
-    {
-        set => SetProperty("url", value);
-    }
+    [TerraformPropertyName("url")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Url { get; set; }
 
 }
 
@@ -229,31 +213,28 @@ public class GoogleGkeonpremVmwareAdminClusterProxyBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleGkeonpremVmwareAdminClusterTimeoutsBlock : TerraformBlock
+public class GoogleGkeonpremVmwareAdminClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -261,79 +242,70 @@ public class GoogleGkeonpremVmwareAdminClusterTimeoutsBlock : TerraformBlock
 /// Block type for vcenter in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremVmwareAdminClusterVcenterBlock : TerraformBlock
+public class GoogleGkeonpremVmwareAdminClusterVcenterBlock : ITerraformBlock
 {
     /// <summary>
     /// The vCenter IP address.
     /// </summary>
-    public TerraformProperty<string>? Address
-    {
-        set => SetProperty("address", value);
-    }
+    [TerraformPropertyName("address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Address { get; set; }
 
     /// <summary>
     /// Contains the vCenter CA certificate public key for SSL verification.
     /// </summary>
-    public TerraformProperty<string>? CaCertData
-    {
-        set => SetProperty("ca_cert_data", value);
-    }
+    [TerraformPropertyName("ca_cert_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CaCertData { get; set; }
 
     /// <summary>
     /// The name of the vCenter cluster for the admin cluster.
     /// </summary>
-    public TerraformProperty<string>? Cluster
-    {
-        set => SetProperty("cluster", value);
-    }
+    [TerraformPropertyName("cluster")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Cluster { get; set; }
 
     /// <summary>
     /// The name of the virtual machine disk (VMDK) for the admin cluster.
     /// </summary>
-    public TerraformProperty<string>? DataDisk
-    {
-        set => SetProperty("data_disk", value);
-    }
+    [TerraformPropertyName("data_disk")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DataDisk { get; set; }
 
     /// <summary>
     /// The name of the vCenter datacenter for the admin cluster.
     /// </summary>
-    public TerraformProperty<string>? Datacenter
-    {
-        set => SetProperty("datacenter", value);
-    }
+    [TerraformPropertyName("datacenter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Datacenter { get; set; }
 
     /// <summary>
     /// The name of the vCenter datastore for the admin cluster.
     /// </summary>
-    public TerraformProperty<string>? Datastore
-    {
-        set => SetProperty("datastore", value);
-    }
+    [TerraformPropertyName("datastore")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Datastore { get; set; }
 
     /// <summary>
     /// The name of the vCenter folder for the admin cluster.
     /// </summary>
-    public TerraformProperty<string>? Folder
-    {
-        set => SetProperty("folder", value);
-    }
+    [TerraformPropertyName("folder")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Folder { get; set; }
 
     /// <summary>
     /// The name of the vCenter resource pool for the admin cluster.
     /// </summary>
-    public TerraformProperty<string>? ResourcePool
-    {
-        set => SetProperty("resource_pool", value);
-    }
+    [TerraformPropertyName("resource_pool")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourcePool { get; set; }
 
     /// <summary>
     /// The name of the vCenter storage policy for the user cluster.
     /// </summary>
-    public TerraformProperty<string>? StoragePolicyName
-    {
-        set => SetProperty("storage_policy_name", value);
-    }
+    [TerraformPropertyName("storage_policy_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StoragePolicyName { get; set; }
 
 }
 
@@ -345,32 +317,6 @@ public class GoogleGkeonpremVmwareAdminCluster : TerraformResource
 {
     public GoogleGkeonpremVmwareAdminCluster(string name) : base("google_gkeonprem_vmware_admin_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_annotations");
-        SetOutput("endpoint");
-        SetOutput("etag");
-        SetOutput("fleet");
-        SetOutput("local_name");
-        SetOutput("reconciling");
-        SetOutput("state");
-        SetOutput("status");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("annotations");
-        SetOutput("bootstrap_cluster_membership");
-        SetOutput("description");
-        SetOutput("enable_advanced_cluster");
-        SetOutput("id");
-        SetOutput("image_type");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("on_prem_version");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -387,154 +333,122 @@ public class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Annotations { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "annotations");
 
     /// <summary>
     /// The bootstrap cluster this VMware admin cluster belongs to.
     /// </summary>
-    public TerraformProperty<string> BootstrapClusterMembership
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bootstrap_cluster_membership");
-        set => SetProperty("bootstrap_cluster_membership", value);
-    }
+    [TerraformPropertyName("bootstrap_cluster_membership")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> BootstrapClusterMembership { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bootstrap_cluster_membership");
 
     /// <summary>
     /// A human readable description of this VMware admin cluster.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Description { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// If set, the advanced cluster feature is enabled.
     /// </summary>
-    public TerraformProperty<bool> EnableAdvancedCluster
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_advanced_cluster");
-        set => SetProperty("enable_advanced_cluster", value);
-    }
+    [TerraformPropertyName("enable_advanced_cluster")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnableAdvancedCluster { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_advanced_cluster");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The OS image type for the VMware admin cluster.
     /// </summary>
-    public TerraformProperty<string> ImageType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("image_type");
-        set => SetProperty("image_type", value);
-    }
+    [TerraformPropertyName("image_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ImageType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_type");
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The VMware admin cluster resource name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The Anthos clusters on the VMware version for the admin cluster.
     /// </summary>
-    public TerraformProperty<string> OnPremVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("on_prem_version");
-        set => SetProperty("on_prem_version", value);
-    }
+    [TerraformPropertyName("on_prem_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OnPremVersion { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for addon_node.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AddonNode block(s) allowed")]
-    public List<GoogleGkeonpremVmwareAdminClusterAddonNodeBlock>? AddonNode
-    {
-        set => SetProperty("addon_node", value);
-    }
+    [TerraformPropertyName("addon_node")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAddonNodeBlock>>? AddonNode { get; set; } = new();
 
     /// <summary>
     /// Block for anti_affinity_groups.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AntiAffinityGroups block(s) allowed")]
-    public List<GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock>? AntiAffinityGroups
-    {
-        set => SetProperty("anti_affinity_groups", value);
-    }
+    [TerraformPropertyName("anti_affinity_groups")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAntiAffinityGroupsBlock>>? AntiAffinityGroups { get; set; } = new();
 
     /// <summary>
     /// Block for authorization.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
-    public List<GoogleGkeonpremVmwareAdminClusterAuthorizationBlock>? Authorization
-    {
-        set => SetProperty("authorization", value);
-    }
+    [TerraformPropertyName("authorization")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAuthorizationBlock>>? Authorization { get; set; } = new();
 
     /// <summary>
     /// Block for auto_repair_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoRepairConfig block(s) allowed")]
-    public List<GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock>? AutoRepairConfig
-    {
-        set => SetProperty("auto_repair_config", value);
-    }
+    [TerraformPropertyName("auto_repair_config")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterAutoRepairConfigBlock>>? AutoRepairConfig { get; set; } = new();
 
     /// <summary>
     /// Block for control_plane_node.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlaneNode block(s) allowed")]
-    public List<GoogleGkeonpremVmwareAdminClusterControlPlaneNodeBlock>? ControlPlaneNode
-    {
-        set => SetProperty("control_plane_node", value);
-    }
+    [TerraformPropertyName("control_plane_node")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterControlPlaneNodeBlock>>? ControlPlaneNode { get; set; } = new();
 
     /// <summary>
     /// Block for load_balancer.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancer block(s) allowed")]
-    public List<GoogleGkeonpremVmwareAdminClusterLoadBalancerBlock>? LoadBalancer
-    {
-        set => SetProperty("load_balancer", value);
-    }
+    [TerraformPropertyName("load_balancer")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterLoadBalancerBlock>>? LoadBalancer { get; set; } = new();
 
     /// <summary>
     /// Block for network_config.
@@ -543,74 +457,68 @@ public class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
-    public List<GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock>? NetworkConfig
-    {
-        set => SetProperty("network_config", value);
-    }
+    [TerraformPropertyName("network_config")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterNetworkConfigBlock>>? NetworkConfig { get; set; } = new();
 
     /// <summary>
     /// Block for platform_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PlatformConfig block(s) allowed")]
-    public List<GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock>? PlatformConfig
-    {
-        set => SetProperty("platform_config", value);
-    }
+    [TerraformPropertyName("platform_config")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterPlatformConfigBlock>>? PlatformConfig { get; set; } = new();
 
     /// <summary>
     /// Block for private_registry_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateRegistryConfig block(s) allowed")]
-    public List<GoogleGkeonpremVmwareAdminClusterPrivateRegistryConfigBlock>? PrivateRegistryConfig
-    {
-        set => SetProperty("private_registry_config", value);
-    }
+    [TerraformPropertyName("private_registry_config")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterPrivateRegistryConfigBlock>>? PrivateRegistryConfig { get; set; } = new();
 
     /// <summary>
     /// Block for proxy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
-    public List<GoogleGkeonpremVmwareAdminClusterProxyBlock>? Proxy
-    {
-        set => SetProperty("proxy", value);
-    }
+    [TerraformPropertyName("proxy")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterProxyBlock>>? Proxy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleGkeonpremVmwareAdminClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleGkeonpremVmwareAdminClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vcenter.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Vcenter block(s) allowed")]
-    public List<GoogleGkeonpremVmwareAdminClusterVcenterBlock>? Vcenter
-    {
-        set => SetProperty("vcenter", value);
-    }
+    [TerraformPropertyName("vcenter")]
+    public TerraformList<TerraformBlock<GoogleGkeonpremVmwareAdminClusterVcenterBlock>>? Vcenter { get; set; } = new();
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+    [TerraformPropertyName("effective_annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
 
     /// <summary>
     /// The DNS name of VMware admin cluster&#39;s API server.
     /// </summary>
-    public TerraformExpression Endpoint => this["endpoint"];
+    [TerraformPropertyName("endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Endpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -619,12 +527,16 @@ public class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// Allows clients to perform consistent read-modify-writes
     /// through optimistic concurrency control.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// Fleet configuration for the cluster.
     /// </summary>
-    public TerraformExpression Fleet => this["fleet"];
+    [TerraformPropertyName("fleet")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Fleet => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "fleet");
 
     /// <summary>
     /// The object name of the VMwareAdminCluster custom resource on the
@@ -638,31 +550,43 @@ public class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// kubectl and should expect to see the local name when viewing admin
     /// cluster controller logs.
     /// </summary>
-    public TerraformExpression LocalName => this["local_name"];
+    [TerraformPropertyName("local_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LocalName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "local_name");
 
     /// <summary>
     /// If set, there are currently changes in flight to the VMware admin cluster.
     /// </summary>
-    public TerraformExpression Reconciling => this["reconciling"];
+    [TerraformPropertyName("reconciling")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
 
     /// <summary>
     /// The lifecycle state of the VMware admin cluster.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// ResourceStatus representing detailed cluster state.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Status => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "status");
 
     /// <summary>
     /// The unique identifier of the VMware Admin Cluster.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

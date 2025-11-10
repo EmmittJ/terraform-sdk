@@ -6,57 +6,51 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cors_rule in .
 /// Nesting mode: set
 /// </summary>
-public class AwsS3BucketCorsConfigurationCorsRuleBlock : TerraformBlock
+public class AwsS3BucketCorsConfigurationCorsRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The allowed_headers attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowedHeaders
-    {
-        set => SetProperty("allowed_headers", value);
-    }
+    [TerraformPropertyName("allowed_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedHeaders { get; set; }
 
     /// <summary>
     /// The allowed_methods attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
-    public HashSet<TerraformProperty<string>>? AllowedMethods
-    {
-        set => SetProperty("allowed_methods", value);
-    }
+    [TerraformPropertyName("allowed_methods")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedMethods { get; set; }
 
     /// <summary>
     /// The allowed_origins attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
-    public HashSet<TerraformProperty<string>>? AllowedOrigins
-    {
-        set => SetProperty("allowed_origins", value);
-    }
+    [TerraformPropertyName("allowed_origins")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedOrigins { get; set; }
 
     /// <summary>
     /// The expose_headers attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExposeHeaders
-    {
-        set => SetProperty("expose_headers", value);
-    }
+    [TerraformPropertyName("expose_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ExposeHeaders { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Id { get; set; }
 
     /// <summary>
     /// The max_age_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxAgeSeconds
-    {
-        set => SetProperty("max_age_seconds", value);
-    }
+    [TerraformPropertyName("max_age_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxAgeSeconds { get; set; }
 
 }
 
@@ -68,53 +62,36 @@ public class AwsS3BucketCorsConfiguration : TerraformResource
 {
     public AwsS3BucketCorsConfiguration(string name) : base("aws_s3_bucket_cors_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bucket");
-        SetOutput("expected_bucket_owner");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string> ExpectedBucketOwner
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("expected_bucket_owner");
-        set => SetProperty("expected_bucket_owner", value);
-    }
+    [TerraformPropertyName("expected_bucket_owner")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for cors_rule.
@@ -123,9 +100,7 @@ public class AwsS3BucketCorsConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CorsRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CorsRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 CorsRule block(s) allowed")]
-    public HashSet<AwsS3BucketCorsConfigurationCorsRuleBlock>? CorsRule
-    {
-        set => SetProperty("cors_rule", value);
-    }
+    [TerraformPropertyName("cors_rule")]
+    public TerraformSet<TerraformBlock<AwsS3BucketCorsConfigurationCorsRuleBlock>>? CorsRule { get; set; } = new();
 
 }

@@ -9,102 +9,84 @@ public class GoogleSecretManagerSecretVersionDataSource : TerraformDataSource
 {
     public GoogleSecretManagerSecretVersionDataSource(string name) : base("google_secret_manager_secret_version", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("destroy_time");
-        SetOutput("enabled");
-        SetOutput("name");
-        SetOutput("secret_data");
-        SetOutput("fetch_secret_data");
-        SetOutput("id");
-        SetOutput("is_secret_data_base64");
-        SetOutput("project");
-        SetOutput("secret");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The fetch_secret_data attribute.
     /// </summary>
-    public TerraformProperty<bool> FetchSecretData
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("fetch_secret_data");
-        set => SetProperty("fetch_secret_data", value);
-    }
+    [TerraformPropertyName("fetch_secret_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? FetchSecretData { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The is_secret_data_base64 attribute.
     /// </summary>
-    public TerraformProperty<bool> IsSecretDataBase64
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_secret_data_base64");
-        set => SetProperty("is_secret_data_base64", value);
-    }
+    [TerraformPropertyName("is_secret_data_base64")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsSecretDataBase64 { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
-    public required TerraformProperty<string> Secret
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("secret");
-        set => SetProperty("secret", value);
-    }
+    [TerraformPropertyName("secret")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Secret { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Version { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The destroy_time attribute.
     /// </summary>
-    public TerraformExpression DestroyTime => this["destroy_time"];
+    [TerraformPropertyName("destroy_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DestroyTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "destroy_time");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformExpression Enabled => this["enabled"];
+    [TerraformPropertyName("enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Enabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enabled");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The secret_data attribute.
     /// </summary>
-    public TerraformExpression SecretData => this["secret_data"];
+    [TerraformPropertyName("secret_data")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecretData => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secret_data");
 
 }

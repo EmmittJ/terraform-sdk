@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for s3_job_definition in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMacie2ClassificationJobS3JobDefinitionBlock : TerraformBlock
+public class AwsMacie2ClassificationJobS3JobDefinitionBlock : ITerraformBlock
 {
 }
 
@@ -14,31 +14,28 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlock : TerraformBlock
 /// Block type for schedule_frequency in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMacie2ClassificationJobScheduleFrequencyBlock : TerraformBlock
+public class AwsMacie2ClassificationJobScheduleFrequencyBlock : ITerraformBlock
 {
     /// <summary>
     /// The daily_schedule attribute.
     /// </summary>
-    public TerraformProperty<bool>? DailySchedule
-    {
-        set => SetProperty("daily_schedule", value);
-    }
+    [TerraformPropertyName("daily_schedule")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DailySchedule { get; set; }
 
     /// <summary>
     /// The monthly_schedule attribute.
     /// </summary>
-    public TerraformProperty<double>? MonthlySchedule
-    {
-        set => SetProperty("monthly_schedule", value);
-    }
+    [TerraformPropertyName("monthly_schedule")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MonthlySchedule { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "monthly_schedule");
 
     /// <summary>
     /// The weekly_schedule attribute.
     /// </summary>
-    public TerraformProperty<string>? WeeklySchedule
-    {
-        set => SetProperty("weekly_schedule", value);
-    }
+    [TerraformPropertyName("weekly_schedule")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> WeeklySchedule { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "weekly_schedule");
 
 }
 
@@ -46,23 +43,21 @@ public class AwsMacie2ClassificationJobScheduleFrequencyBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMacie2ClassificationJobTimeoutsBlock : TerraformBlock
+public class AwsMacie2ClassificationJobTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -74,137 +69,92 @@ public class AwsMacie2ClassificationJob : TerraformResource
 {
     public AwsMacie2ClassificationJob(string name) : base("aws_macie2_classification_job", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("created_at");
-        SetOutput("job_arn");
-        SetOutput("job_id");
-        SetOutput("user_paused_details");
-        SetOutput("custom_data_identifier_ids");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("initial_run");
-        SetOutput("job_status");
-        SetOutput("job_type");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("region");
-        SetOutput("sampling_percentage");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The custom_data_identifier_ids attribute.
     /// </summary>
-    public List<TerraformProperty<string>> CustomDataIdentifierIds
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("custom_data_identifier_ids");
-        set => SetProperty("custom_data_identifier_ids", value);
-    }
+    [TerraformPropertyName("custom_data_identifier_ids")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> CustomDataIdentifierIds { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "custom_data_identifier_ids");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Description { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The initial_run attribute.
     /// </summary>
-    public TerraformProperty<bool> InitialRun
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("initial_run");
-        set => SetProperty("initial_run", value);
-    }
+    [TerraformPropertyName("initial_run")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InitialRun { get; set; }
 
     /// <summary>
     /// The job_status attribute.
     /// </summary>
-    public TerraformProperty<string> JobStatus
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("job_status");
-        set => SetProperty("job_status", value);
-    }
+    [TerraformPropertyName("job_status")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> JobStatus { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "job_status");
 
     /// <summary>
     /// The job_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobType is required")]
-    public required TerraformProperty<string> JobType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("job_type");
-        set => SetProperty("job_type", value);
-    }
+    [TerraformPropertyName("job_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> JobType { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    public TerraformProperty<double> SamplingPercentage
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("sampling_percentage");
-        set => SetProperty("sampling_percentage", value);
-    }
+    [TerraformPropertyName("sampling_percentage")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> SamplingPercentage { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "sampling_percentage");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for s3_job_definition.
@@ -213,48 +163,50 @@ public class AwsMacie2ClassificationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3JobDefinition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3JobDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3JobDefinition block(s) allowed")]
-    public List<AwsMacie2ClassificationJobS3JobDefinitionBlock>? S3JobDefinition
-    {
-        set => SetProperty("s3_job_definition", value);
-    }
+    [TerraformPropertyName("s3_job_definition")]
+    public TerraformList<TerraformBlock<AwsMacie2ClassificationJobS3JobDefinitionBlock>>? S3JobDefinition { get; set; } = new();
 
     /// <summary>
     /// Block for schedule_frequency.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleFrequency block(s) allowed")]
-    public List<AwsMacie2ClassificationJobScheduleFrequencyBlock>? ScheduleFrequency
-    {
-        set => SetProperty("schedule_frequency", value);
-    }
+    [TerraformPropertyName("schedule_frequency")]
+    public TerraformList<TerraformBlock<AwsMacie2ClassificationJobScheduleFrequencyBlock>>? ScheduleFrequency { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsMacie2ClassificationJobTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsMacie2ClassificationJobTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The job_arn attribute.
     /// </summary>
-    public TerraformExpression JobArn => this["job_arn"];
+    [TerraformPropertyName("job_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> JobArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "job_arn");
 
     /// <summary>
     /// The job_id attribute.
     /// </summary>
-    public TerraformExpression JobId => this["job_id"];
+    [TerraformPropertyName("job_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> JobId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "job_id");
 
     /// <summary>
     /// The user_paused_details attribute.
     /// </summary>
-    public TerraformExpression UserPausedDetails => this["user_paused_details"];
+    [TerraformPropertyName("user_paused_details")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> UserPausedDetails => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "user_paused_details");
 
 }

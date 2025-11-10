@@ -9,76 +9,63 @@ public class AwsServerlessapplicationrepositoryApplicationDataSource : Terraform
 {
     public AwsServerlessapplicationrepositoryApplicationDataSource(string name) : base("aws_serverlessapplicationrepository_application", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("required_capabilities");
-        SetOutput("source_code_url");
-        SetOutput("template_url");
-        SetOutput("application_id");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("semantic_version");
     }
 
     /// <summary>
     /// The application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    public required TerraformProperty<string> ApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_id");
-        set => SetProperty("application_id", value);
-    }
+    [TerraformPropertyName("application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The semantic_version attribute.
     /// </summary>
-    public TerraformProperty<string> SemanticVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("semantic_version");
-        set => SetProperty("semantic_version", value);
-    }
+    [TerraformPropertyName("semantic_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SemanticVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "semantic_version");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The required_capabilities attribute.
     /// </summary>
-    public TerraformExpression RequiredCapabilities => this["required_capabilities"];
+    [TerraformPropertyName("required_capabilities")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> RequiredCapabilities => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "required_capabilities");
 
     /// <summary>
     /// The source_code_url attribute.
     /// </summary>
-    public TerraformExpression SourceCodeUrl => this["source_code_url"];
+    [TerraformPropertyName("source_code_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceCodeUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_code_url");
 
     /// <summary>
     /// The template_url attribute.
     /// </summary>
-    public TerraformExpression TemplateUrl => this["template_url"];
+    [TerraformPropertyName("template_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TemplateUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "template_url");
 
 }

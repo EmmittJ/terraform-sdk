@@ -9,62 +9,56 @@ public class AwsArnDataSource : TerraformDataSource
 {
     public AwsArnDataSource(string name) : base("aws_arn", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account");
-        SetOutput("partition");
-        SetOutput("region");
-        SetOutput("resource");
-        SetOutput("service");
-        SetOutput("arn");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    public required TerraformProperty<string> Arn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arn");
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The account attribute.
     /// </summary>
-    public TerraformExpression Account => this["account"];
+    [TerraformPropertyName("account")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Account => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account");
 
     /// <summary>
     /// The partition attribute.
     /// </summary>
-    public TerraformExpression Partition => this["partition"];
+    [TerraformPropertyName("partition")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Partition => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "partition");
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformExpression Region => this["region"];
+    [TerraformPropertyName("region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Region => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource attribute.
     /// </summary>
-    public TerraformExpression Resource => this["resource"];
+    [TerraformPropertyName("resource")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Resource => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource");
 
     /// <summary>
     /// The service attribute.
     /// </summary>
-    public TerraformExpression Service => this["service"];
+    [TerraformPropertyName("service")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Service => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "service");
 
 }

@@ -9,50 +9,42 @@ public class GoogleIamRoleDataSource : TerraformDataSource
 {
     public GoogleIamRoleDataSource(string name) : base("google_iam_role", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("included_permissions");
-        SetOutput("stage");
-        SetOutput("title");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The included_permissions attribute.
     /// </summary>
-    public TerraformExpression IncludedPermissions => this["included_permissions"];
+    [TerraformPropertyName("included_permissions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> IncludedPermissions => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "included_permissions");
 
     /// <summary>
     /// The stage attribute.
     /// </summary>
-    public TerraformExpression Stage => this["stage"];
+    [TerraformPropertyName("stage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Stage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "stage");
 
     /// <summary>
     /// The title attribute.
     /// </summary>
-    public TerraformExpression Title => this["title"];
+    [TerraformPropertyName("title")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Title => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "title");
 
 }

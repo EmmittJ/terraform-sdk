@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock : TerraformBlock
+public class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock : ITerraformBlock
 {
     /// <summary>
     /// The day_of_week attribute.
     /// </summary>
-    public TerraformProperty<double>? DayOfWeek
-    {
-        set => SetProperty("day_of_week", value);
-    }
+    [TerraformPropertyName("day_of_week")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DayOfWeek { get; set; }
 
     /// <summary>
     /// The start_hour attribute.
     /// </summary>
-    public TerraformProperty<double>? StartHour
-    {
-        set => SetProperty("start_hour", value);
-    }
+    [TerraformPropertyName("start_hour")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? StartHour { get; set; }
 
     /// <summary>
     /// The start_minute attribute.
     /// </summary>
-    public TerraformProperty<double>? StartMinute
-    {
-        set => SetProperty("start_minute", value);
-    }
+    [TerraformPropertyName("start_minute")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? StartMinute { get; set; }
 
 }
 
@@ -38,39 +35,35 @@ public class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCosmosdbPostgresqlClusterTimeoutsBlock : TerraformBlock
+public class AzurermCosmosdbPostgresqlClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -82,276 +75,200 @@ public class AzurermCosmosdbPostgresqlCluster : TerraformResource
 {
     public AzurermCosmosdbPostgresqlCluster(string name) : base("azurerm_cosmosdb_postgresql_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("earliest_restore_time");
-        SetOutput("servers");
-        SetOutput("administrator_login_password");
-        SetOutput("citus_version");
-        SetOutput("coordinator_public_ip_access_enabled");
-        SetOutput("coordinator_server_edition");
-        SetOutput("coordinator_storage_quota_in_mb");
-        SetOutput("coordinator_vcore_count");
-        SetOutput("ha_enabled");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("node_count");
-        SetOutput("node_public_ip_access_enabled");
-        SetOutput("node_server_edition");
-        SetOutput("node_storage_quota_in_mb");
-        SetOutput("node_vcores");
-        SetOutput("point_in_time_in_utc");
-        SetOutput("preferred_primary_zone");
-        SetOutput("resource_group_name");
-        SetOutput("shards_on_coordinator_enabled");
-        SetOutput("source_location");
-        SetOutput("source_resource_id");
-        SetOutput("sql_version");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The administrator_login_password attribute.
     /// </summary>
-    public TerraformProperty<string> AdministratorLoginPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("administrator_login_password");
-        set => SetProperty("administrator_login_password", value);
-    }
+    [TerraformPropertyName("administrator_login_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AdministratorLoginPassword { get; set; }
 
     /// <summary>
     /// The citus_version attribute.
     /// </summary>
-    public TerraformProperty<string> CitusVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("citus_version");
-        set => SetProperty("citus_version", value);
-    }
+    [TerraformPropertyName("citus_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CitusVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "citus_version");
 
     /// <summary>
     /// The coordinator_public_ip_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> CoordinatorPublicIpAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("coordinator_public_ip_access_enabled");
-        set => SetProperty("coordinator_public_ip_access_enabled", value);
-    }
+    [TerraformPropertyName("coordinator_public_ip_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CoordinatorPublicIpAccessEnabled { get; set; }
 
     /// <summary>
     /// The coordinator_server_edition attribute.
     /// </summary>
-    public TerraformProperty<string> CoordinatorServerEdition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("coordinator_server_edition");
-        set => SetProperty("coordinator_server_edition", value);
-    }
+    [TerraformPropertyName("coordinator_server_edition")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CoordinatorServerEdition { get; set; }
 
     /// <summary>
     /// The coordinator_storage_quota_in_mb attribute.
     /// </summary>
-    public TerraformProperty<double> CoordinatorStorageQuotaInMb
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("coordinator_storage_quota_in_mb");
-        set => SetProperty("coordinator_storage_quota_in_mb", value);
-    }
+    [TerraformPropertyName("coordinator_storage_quota_in_mb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CoordinatorStorageQuotaInMb { get; set; }
 
     /// <summary>
     /// The coordinator_vcore_count attribute.
     /// </summary>
-    public TerraformProperty<double> CoordinatorVcoreCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("coordinator_vcore_count");
-        set => SetProperty("coordinator_vcore_count", value);
-    }
+    [TerraformPropertyName("coordinator_vcore_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CoordinatorVcoreCount { get; set; }
 
     /// <summary>
     /// The ha_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> HaEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ha_enabled");
-        set => SetProperty("ha_enabled", value);
-    }
+    [TerraformPropertyName("ha_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? HaEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
-    public required TerraformProperty<double> NodeCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("node_count");
-        set => SetProperty("node_count", value);
-    }
+    [TerraformPropertyName("node_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> NodeCount { get; set; }
 
     /// <summary>
     /// The node_public_ip_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> NodePublicIpAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("node_public_ip_access_enabled");
-        set => SetProperty("node_public_ip_access_enabled", value);
-    }
+    [TerraformPropertyName("node_public_ip_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? NodePublicIpAccessEnabled { get; set; }
 
     /// <summary>
     /// The node_server_edition attribute.
     /// </summary>
-    public TerraformProperty<string> NodeServerEdition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("node_server_edition");
-        set => SetProperty("node_server_edition", value);
-    }
+    [TerraformPropertyName("node_server_edition")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NodeServerEdition { get; set; }
 
     /// <summary>
     /// The node_storage_quota_in_mb attribute.
     /// </summary>
-    public TerraformProperty<double> NodeStorageQuotaInMb
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("node_storage_quota_in_mb");
-        set => SetProperty("node_storage_quota_in_mb", value);
-    }
+    [TerraformPropertyName("node_storage_quota_in_mb")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> NodeStorageQuotaInMb { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "node_storage_quota_in_mb");
 
     /// <summary>
     /// The node_vcores attribute.
     /// </summary>
-    public TerraformProperty<double> NodeVcores
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("node_vcores");
-        set => SetProperty("node_vcores", value);
-    }
+    [TerraformPropertyName("node_vcores")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> NodeVcores { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "node_vcores");
 
     /// <summary>
     /// The point_in_time_in_utc attribute.
     /// </summary>
-    public TerraformProperty<string> PointInTimeInUtc
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("point_in_time_in_utc");
-        set => SetProperty("point_in_time_in_utc", value);
-    }
+    [TerraformPropertyName("point_in_time_in_utc")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PointInTimeInUtc { get; set; }
 
     /// <summary>
     /// The preferred_primary_zone attribute.
     /// </summary>
-    public TerraformProperty<string> PreferredPrimaryZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("preferred_primary_zone");
-        set => SetProperty("preferred_primary_zone", value);
-    }
+    [TerraformPropertyName("preferred_primary_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PreferredPrimaryZone { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The shards_on_coordinator_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ShardsOnCoordinatorEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("shards_on_coordinator_enabled");
-        set => SetProperty("shards_on_coordinator_enabled", value);
-    }
+    [TerraformPropertyName("shards_on_coordinator_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> ShardsOnCoordinatorEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "shards_on_coordinator_enabled");
 
     /// <summary>
     /// The source_location attribute.
     /// </summary>
-    public TerraformProperty<string> SourceLocation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_location");
-        set => SetProperty("source_location", value);
-    }
+    [TerraformPropertyName("source_location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceLocation { get; set; }
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string> SourceResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_resource_id");
-        set => SetProperty("source_resource_id", value);
-    }
+    [TerraformPropertyName("source_resource_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceResourceId { get; set; }
 
     /// <summary>
     /// The sql_version attribute.
     /// </summary>
-    public TerraformProperty<string> SqlVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sql_version");
-        set => SetProperty("sql_version", value);
-    }
+    [TerraformPropertyName("sql_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SqlVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sql_version");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for maintenance_window.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
-    public List<AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock>? MaintenanceWindow
-    {
-        set => SetProperty("maintenance_window", value);
-    }
+    [TerraformPropertyName("maintenance_window")]
+    public TerraformList<TerraformBlock<AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock>>? MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCosmosdbPostgresqlClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCosmosdbPostgresqlClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The earliest_restore_time attribute.
     /// </summary>
-    public TerraformExpression EarliestRestoreTime => this["earliest_restore_time"];
+    [TerraformPropertyName("earliest_restore_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EarliestRestoreTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "earliest_restore_time");
 
     /// <summary>
     /// The servers attribute.
     /// </summary>
-    public TerraformExpression Servers => this["servers"];
+    [TerraformPropertyName("servers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Servers => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "servers");
 
 }

@@ -6,77 +6,69 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for as2_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
+public class AwsTransferConnectorAs2ConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The compression attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compression is required")]
-    public required TerraformProperty<string> Compression
-    {
-        set => SetProperty("compression", value);
-    }
+    [TerraformPropertyName("compression")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Compression { get; set; }
 
     /// <summary>
     /// The encryption_algorithm attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionAlgorithm is required")]
-    public required TerraformProperty<string> EncryptionAlgorithm
-    {
-        set => SetProperty("encryption_algorithm", value);
-    }
+    [TerraformPropertyName("encryption_algorithm")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EncryptionAlgorithm { get; set; }
 
     /// <summary>
     /// The local_profile_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalProfileId is required")]
-    public required TerraformProperty<string> LocalProfileId
-    {
-        set => SetProperty("local_profile_id", value);
-    }
+    [TerraformPropertyName("local_profile_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LocalProfileId { get; set; }
 
     /// <summary>
     /// The mdn_response attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MdnResponse is required")]
-    public required TerraformProperty<string> MdnResponse
-    {
-        set => SetProperty("mdn_response", value);
-    }
+    [TerraformPropertyName("mdn_response")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MdnResponse { get; set; }
 
     /// <summary>
     /// The mdn_signing_algorithm attribute.
     /// </summary>
-    public TerraformProperty<string>? MdnSigningAlgorithm
-    {
-        set => SetProperty("mdn_signing_algorithm", value);
-    }
+    [TerraformPropertyName("mdn_signing_algorithm")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MdnSigningAlgorithm { get; set; }
 
     /// <summary>
     /// The message_subject attribute.
     /// </summary>
-    public TerraformProperty<string>? MessageSubject
-    {
-        set => SetProperty("message_subject", value);
-    }
+    [TerraformPropertyName("message_subject")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MessageSubject { get; set; }
 
     /// <summary>
     /// The partner_profile_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerProfileId is required")]
-    public required TerraformProperty<string> PartnerProfileId
-    {
-        set => SetProperty("partner_profile_id", value);
-    }
+    [TerraformPropertyName("partner_profile_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PartnerProfileId { get; set; }
 
     /// <summary>
     /// The signing_algorithm attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
-    public required TerraformProperty<string> SigningAlgorithm
-    {
-        set => SetProperty("signing_algorithm", value);
-    }
+    [TerraformPropertyName("signing_algorithm")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SigningAlgorithm { get; set; }
 
 }
 
@@ -84,23 +76,21 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
 /// Block type for sftp_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTransferConnectorSftpConfigBlock : TerraformBlock
+public class AwsTransferConnectorSftpConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The trusted_host_keys attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? TrustedHostKeys
-    {
-        set => SetProperty("trusted_host_keys", value);
-    }
+    [TerraformPropertyName("trusted_host_keys")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? TrustedHostKeys { get; set; }
 
     /// <summary>
     /// The user_secret_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserSecretId
-    {
-        set => SetProperty("user_secret_id", value);
-    }
+    [TerraformPropertyName("user_secret_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserSecretId { get; set; }
 
 }
 
@@ -112,125 +102,94 @@ public class AwsTransferConnector : TerraformResource
 {
     public AwsTransferConnector(string name) : base("aws_transfer_connector", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("connector_id");
-        SetOutput("access_role");
-        SetOutput("id");
-        SetOutput("logging_role");
-        SetOutput("region");
-        SetOutput("security_policy_name");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("url");
     }
 
     /// <summary>
     /// The access_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessRole is required")]
-    public required TerraformProperty<string> AccessRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_role");
-        set => SetProperty("access_role", value);
-    }
+    [TerraformPropertyName("access_role")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccessRole { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The logging_role attribute.
     /// </summary>
-    public TerraformProperty<string> LoggingRole
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("logging_role");
-        set => SetProperty("logging_role", value);
-    }
+    [TerraformPropertyName("logging_role")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LoggingRole { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The security_policy_name attribute.
     /// </summary>
-    public TerraformProperty<string> SecurityPolicyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_policy_name");
-        set => SetProperty("security_policy_name", value);
-    }
+    [TerraformPropertyName("security_policy_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SecurityPolicyName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "security_policy_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
-    public required TerraformProperty<string> Url
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("url");
-        set => SetProperty("url", value);
-    }
+    [TerraformPropertyName("url")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Url { get; set; }
 
     /// <summary>
     /// Block for as2_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 As2Config block(s) allowed")]
-    public List<AwsTransferConnectorAs2ConfigBlock>? As2Config
-    {
-        set => SetProperty("as2_config", value);
-    }
+    [TerraformPropertyName("as2_config")]
+    public TerraformList<TerraformBlock<AwsTransferConnectorAs2ConfigBlock>>? As2Config { get; set; } = new();
 
     /// <summary>
     /// Block for sftp_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SftpConfig block(s) allowed")]
-    public List<AwsTransferConnectorSftpConfigBlock>? SftpConfig
-    {
-        set => SetProperty("sftp_config", value);
-    }
+    [TerraformPropertyName("sftp_config")]
+    public TerraformList<TerraformBlock<AwsTransferConnectorSftpConfigBlock>>? SftpConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The connector_id attribute.
     /// </summary>
-    public TerraformExpression ConnectorId => this["connector_id"];
+    [TerraformPropertyName("connector_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConnectorId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "connector_id");
 
 }

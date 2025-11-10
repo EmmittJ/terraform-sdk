@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDatasyncAgentTimeoutsBlock : TerraformBlock
+public class AwsDatasyncAgentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
 }
 
@@ -25,136 +24,97 @@ public class AwsDatasyncAgent : TerraformResource
 {
     public AwsDatasyncAgent(string name) : base("aws_datasync_agent", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("activation_key");
-        SetOutput("id");
-        SetOutput("ip_address");
-        SetOutput("name");
-        SetOutput("private_link_endpoint");
-        SetOutput("region");
-        SetOutput("security_group_arns");
-        SetOutput("subnet_arns");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("vpc_endpoint_id");
     }
 
     /// <summary>
     /// The activation_key attribute.
     /// </summary>
-    public TerraformProperty<string> ActivationKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("activation_key");
-        set => SetProperty("activation_key", value);
-    }
+    [TerraformPropertyName("activation_key")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ActivationKey { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "activation_key");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformProperty<string> IpAddress
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ip_address");
-        set => SetProperty("ip_address", value);
-    }
+    [TerraformPropertyName("ip_address")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IpAddress { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The private_link_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string> PrivateLinkEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("private_link_endpoint");
-        set => SetProperty("private_link_endpoint", value);
-    }
+    [TerraformPropertyName("private_link_endpoint")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PrivateLinkEndpoint { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_link_endpoint");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The security_group_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SecurityGroupArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_arns");
-        set => SetProperty("security_group_arns", value);
-    }
+    [TerraformPropertyName("security_group_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupArns { get; set; }
 
     /// <summary>
     /// The subnet_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SubnetArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_arns");
-        set => SetProperty("subnet_arns", value);
-    }
+    [TerraformPropertyName("subnet_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetArns { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string> VpcEndpointId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_endpoint_id");
-        set => SetProperty("vpc_endpoint_id", value);
-    }
+    [TerraformPropertyName("vpc_endpoint_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VpcEndpointId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDatasyncAgentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDatasyncAgentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

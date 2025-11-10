@@ -6,43 +6,39 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for gallery_image_reference in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : TerraformBlock
+public class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : ITerraformBlock
 {
     /// <summary>
     /// The offer attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
-    public required TerraformProperty<string> Offer
-    {
-        set => SetProperty("offer", value);
-    }
+    [TerraformPropertyName("offer")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Offer { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    public required TerraformProperty<string> Publisher
-    {
-        set => SetProperty("publisher", value);
-    }
+    [TerraformPropertyName("publisher")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    public required TerraformProperty<string> Sku
-    {
-        set => SetProperty("sku", value);
-    }
+    [TerraformPropertyName("sku")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Sku { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
 }
 
@@ -50,33 +46,30 @@ public class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : Terra
 /// Block type for inbound_nat_rule in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock : TerraformBlock
+public class AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The backend_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
-    public required TerraformProperty<double> BackendPort
-    {
-        set => SetProperty("backend_port", value);
-    }
+    [TerraformPropertyName("backend_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> BackendPort { get; set; }
 
     /// <summary>
     /// The frontend_port attribute.
     /// </summary>
-    public TerraformProperty<double>? FrontendPort
-    {
-        set => SetProperty("frontend_port", value);
-    }
+    [TerraformPropertyName("frontend_port")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> FrontendPort => new TerraformReferenceProperty<TerraformProperty<double>>("", "frontend_port");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    public required TerraformProperty<string> Protocol
-    {
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
 
 }
 
@@ -84,39 +77,35 @@ public class AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : TerraformBlock
+public class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -128,183 +117,128 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
 {
     public AzurermDevTestLinuxVirtualMachine(string name) : base("azurerm_dev_test_linux_virtual_machine", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("fqdn");
-        SetOutput("unique_identifier");
-        SetOutput("allow_claim");
-        SetOutput("disallow_public_ip_address");
-        SetOutput("id");
-        SetOutput("lab_name");
-        SetOutput("lab_subnet_name");
-        SetOutput("lab_virtual_network_id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("notes");
-        SetOutput("password");
-        SetOutput("resource_group_name");
-        SetOutput("size");
-        SetOutput("ssh_key");
-        SetOutput("storage_type");
-        SetOutput("tags");
-        SetOutput("username");
     }
 
     /// <summary>
     /// The allow_claim attribute.
     /// </summary>
-    public TerraformProperty<bool> AllowClaim
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_claim");
-        set => SetProperty("allow_claim", value);
-    }
+    [TerraformPropertyName("allow_claim")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowClaim { get; set; }
 
     /// <summary>
     /// The disallow_public_ip_address attribute.
     /// </summary>
-    public TerraformProperty<bool> DisallowPublicIpAddress
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("disallow_public_ip_address");
-        set => SetProperty("disallow_public_ip_address", value);
-    }
+    [TerraformPropertyName("disallow_public_ip_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DisallowPublicIpAddress { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The lab_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
-    public required TerraformProperty<string> LabName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("lab_name");
-        set => SetProperty("lab_name", value);
-    }
+    [TerraformPropertyName("lab_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LabName { get; set; }
 
     /// <summary>
     /// The lab_subnet_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabSubnetName is required")]
-    public required TerraformProperty<string> LabSubnetName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("lab_subnet_name");
-        set => SetProperty("lab_subnet_name", value);
-    }
+    [TerraformPropertyName("lab_subnet_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LabSubnetName { get; set; }
 
     /// <summary>
     /// The lab_virtual_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabVirtualNetworkId is required")]
-    public required TerraformProperty<string> LabVirtualNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("lab_virtual_network_id");
-        set => SetProperty("lab_virtual_network_id", value);
-    }
+    [TerraformPropertyName("lab_virtual_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LabVirtualNetworkId { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
-    public TerraformProperty<string> Notes
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("notes");
-        set => SetProperty("notes", value);
-    }
+    [TerraformPropertyName("notes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Notes { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string> Password
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("password");
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Password { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
-    public required TerraformProperty<string> Size
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("size");
-        set => SetProperty("size", value);
-    }
+    [TerraformPropertyName("size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Size { get; set; }
 
     /// <summary>
     /// The ssh_key attribute.
     /// </summary>
-    public TerraformProperty<string> SshKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ssh_key");
-        set => SetProperty("ssh_key", value);
-    }
+    [TerraformPropertyName("ssh_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SshKey { get; set; }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
-    public required TerraformProperty<string> StorageType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_type");
-        set => SetProperty("storage_type", value);
-    }
+    [TerraformPropertyName("storage_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    public required TerraformProperty<string> Username
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("username");
-        set => SetProperty("username", value);
-    }
+    [TerraformPropertyName("username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Username { get; set; }
 
     /// <summary>
     /// Block for gallery_image_reference.
@@ -313,37 +247,35 @@ public class AzurermDevTestLinuxVirtualMachine : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryImageReference is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GalleryImageReference block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GalleryImageReference block(s) allowed")]
-    public List<AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock>? GalleryImageReference
-    {
-        set => SetProperty("gallery_image_reference", value);
-    }
+    [TerraformPropertyName("gallery_image_reference")]
+    public TerraformList<TerraformBlock<AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock>>? GalleryImageReference { get; set; } = new();
 
     /// <summary>
     /// Block for inbound_nat_rule.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock>? InboundNatRule
-    {
-        set => SetProperty("inbound_nat_rule", value);
-    }
+    [TerraformPropertyName("inbound_nat_rule")]
+    public TerraformSet<TerraformBlock<AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock>>? InboundNatRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDevTestLinuxVirtualMachineTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDevTestLinuxVirtualMachineTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    public TerraformExpression Fqdn => this["fqdn"];
+    [TerraformPropertyName("fqdn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fqdn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fqdn");
 
     /// <summary>
     /// The unique_identifier attribute.
     /// </summary>
-    public TerraformExpression UniqueIdentifier => this["unique_identifier"];
+    [TerraformPropertyName("unique_identifier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UniqueIdentifier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "unique_identifier");
 
 }

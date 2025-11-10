@@ -9,90 +9,65 @@ public class AwsRedshiftserverlessUsageLimit : TerraformResource
 {
     public AwsRedshiftserverlessUsageLimit(string name) : base("aws_redshiftserverless_usage_limit", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("amount");
-        SetOutput("breach_action");
-        SetOutput("id");
-        SetOutput("period");
-        SetOutput("region");
-        SetOutput("resource_arn");
-        SetOutput("usage_type");
     }
 
     /// <summary>
     /// The amount attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
-    public required TerraformProperty<double> Amount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("amount");
-        set => SetProperty("amount", value);
-    }
+    [TerraformPropertyName("amount")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Amount { get; set; }
 
     /// <summary>
     /// The breach_action attribute.
     /// </summary>
-    public TerraformProperty<string> BreachAction
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("breach_action");
-        set => SetProperty("breach_action", value);
-    }
+    [TerraformPropertyName("breach_action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BreachAction { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The period attribute.
     /// </summary>
-    public TerraformProperty<string> Period
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("period");
-        set => SetProperty("period", value);
-    }
+    [TerraformPropertyName("period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Period { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
-    public required TerraformProperty<string> ResourceArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_arn");
-        set => SetProperty("resource_arn", value);
-    }
+    [TerraformPropertyName("resource_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceArn { get; set; }
 
     /// <summary>
     /// The usage_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsageType is required")]
-    public required TerraformProperty<string> UsageType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("usage_type");
-        set => SetProperty("usage_type", value);
-    }
+    [TerraformPropertyName("usage_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> UsageType { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

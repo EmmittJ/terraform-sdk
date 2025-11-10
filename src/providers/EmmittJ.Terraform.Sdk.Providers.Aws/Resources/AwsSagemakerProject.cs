@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for service_catalog_provisioning_details in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock : TerraformBlock
+public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock : ITerraformBlock
 {
     /// <summary>
     /// The path_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PathId
-    {
-        set => SetProperty("path_id", value);
-    }
+    [TerraformPropertyName("path_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PathId { get; set; }
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
-    public required TerraformProperty<string> ProductId
-    {
-        set => SetProperty("product_id", value);
-    }
+    [TerraformPropertyName("product_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProductId { get; set; }
 
     /// <summary>
     /// The provisioning_artifact_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ProvisioningArtifactId
-    {
-        set => SetProperty("provisioning_artifact_id", value);
-    }
+    [TerraformPropertyName("provisioning_artifact_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ProvisioningArtifactId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "provisioning_artifact_id");
 
 }
 
@@ -43,75 +40,50 @@ public class AwsSagemakerProject : TerraformResource
 {
     public AwsSagemakerProject(string name) : base("aws_sagemaker_project", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("project_id");
-        SetOutput("id");
-        SetOutput("project_description");
-        SetOutput("project_name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The project_description attribute.
     /// </summary>
-    public TerraformProperty<string> ProjectDescription
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project_description");
-        set => SetProperty("project_description", value);
-    }
+    [TerraformPropertyName("project_description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProjectDescription { get; set; }
 
     /// <summary>
     /// The project_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
-    public required TerraformProperty<string> ProjectName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project_name");
-        set => SetProperty("project_name", value);
-    }
+    [TerraformPropertyName("project_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProjectName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for service_catalog_provisioning_details.
@@ -120,19 +92,21 @@ public class AwsSagemakerProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCatalogProvisioningDetails is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceCatalogProvisioningDetails block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceCatalogProvisioningDetails block(s) allowed")]
-    public List<AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock>? ServiceCatalogProvisioningDetails
-    {
-        set => SetProperty("service_catalog_provisioning_details", value);
-    }
+    [TerraformPropertyName("service_catalog_provisioning_details")]
+    public TerraformList<TerraformBlock<AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock>>? ServiceCatalogProvisioningDetails { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The project_id attribute.
     /// </summary>
-    public TerraformExpression ProjectId => this["project_id"];
+    [TerraformPropertyName("project_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project_id");
 
 }

@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermWebAppActiveSlotTimeoutsBlock : TerraformBlock
+public class AzurermWebAppActiveSlotTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,57 +45,42 @@ public class AzurermWebAppActiveSlot : TerraformResource
 {
     public AzurermWebAppActiveSlot(string name) : base("azurerm_web_app_active_slot", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("last_successful_swap");
-        SetOutput("id");
-        SetOutput("overwrite_network_config");
-        SetOutput("slot_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The swap action should overwrite the Production slot&#39;s network configuration with the configuration from this slot. Defaults to `true`.
     /// </summary>
-    public TerraformProperty<bool> OverwriteNetworkConfig
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("overwrite_network_config");
-        set => SetProperty("overwrite_network_config", value);
-    }
+    [TerraformPropertyName("overwrite_network_config")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? OverwriteNetworkConfig { get; set; }
 
     /// <summary>
     /// The ID of the Slot to swap with `Production`.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotId is required")]
-    public required TerraformProperty<string> SlotId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("slot_id");
-        set => SetProperty("slot_id", value);
-    }
+    [TerraformPropertyName("slot_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SlotId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermWebAppActiveSlotTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermWebAppActiveSlotTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The timestamp of the last successful swap with `Production`
     /// </summary>
-    public TerraformExpression LastSuccessfulSwap => this["last_successful_swap"];
+    [TerraformPropertyName("last_successful_swap")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastSuccessfulSwap => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_successful_swap");
 
 }

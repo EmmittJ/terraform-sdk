@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVmwareExpressRouteAuthorizationTimeoutsBlock : TerraformBlock
+public class AzurermVmwareExpressRouteAuthorizationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,64 +38,50 @@ public class AzurermVmwareExpressRouteAuthorization : TerraformResource
 {
     public AzurermVmwareExpressRouteAuthorization(string name) : base("azurerm_vmware_express_route_authorization", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("express_route_authorization_id");
-        SetOutput("express_route_authorization_key");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("private_cloud_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The private_cloud_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateCloudId is required")]
-    public required TerraformProperty<string> PrivateCloudId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("private_cloud_id");
-        set => SetProperty("private_cloud_id", value);
-    }
+    [TerraformPropertyName("private_cloud_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrivateCloudId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVmwareExpressRouteAuthorizationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVmwareExpressRouteAuthorizationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The express_route_authorization_id attribute.
     /// </summary>
-    public TerraformExpression ExpressRouteAuthorizationId => this["express_route_authorization_id"];
+    [TerraformPropertyName("express_route_authorization_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpressRouteAuthorizationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "express_route_authorization_id");
 
     /// <summary>
     /// The express_route_authorization_key attribute.
     /// </summary>
-    public TerraformExpression ExpressRouteAuthorizationKey => this["express_route_authorization_key"];
+    [TerraformPropertyName("express_route_authorization_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpressRouteAuthorizationKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "express_route_authorization_key");
 
 }

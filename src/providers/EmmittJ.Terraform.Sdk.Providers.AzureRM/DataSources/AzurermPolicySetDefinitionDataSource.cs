@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPolicySetDefinitionDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermPolicySetDefinitionDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,102 +24,90 @@ public class AzurermPolicySetDefinitionDataSource : TerraformDataSource
 {
     public AzurermPolicySetDefinitionDataSource(string name) : base("azurerm_policy_set_definition", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("metadata");
-        SetOutput("parameters");
-        SetOutput("policy_definition_group");
-        SetOutput("policy_definition_reference");
-        SetOutput("policy_definitions");
-        SetOutput("policy_type");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("management_group_name");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DisplayName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The management_group_name attribute.
     /// </summary>
-    public TerraformProperty<string> ManagementGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("management_group_name");
-        set => SetProperty("management_group_name", value);
-    }
+    [TerraformPropertyName("management_group_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManagementGroupName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermPolicySetDefinitionDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermPolicySetDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformExpression Metadata => this["metadata"];
+    [TerraformPropertyName("metadata")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Metadata => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "metadata");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformExpression Parameters => this["parameters"];
+    [TerraformPropertyName("parameters")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Parameters => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parameters");
 
     /// <summary>
     /// The policy_definition_group attribute.
     /// </summary>
-    public TerraformExpression PolicyDefinitionGroup => this["policy_definition_group"];
+    [TerraformPropertyName("policy_definition_group")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PolicyDefinitionGroup => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "policy_definition_group");
 
     /// <summary>
     /// The policy_definition_reference attribute.
     /// </summary>
-    public TerraformExpression PolicyDefinitionReference => this["policy_definition_reference"];
+    [TerraformPropertyName("policy_definition_reference")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PolicyDefinitionReference => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "policy_definition_reference");
 
     /// <summary>
     /// The policy_definitions attribute.
     /// </summary>
-    public TerraformExpression PolicyDefinitions => this["policy_definitions"];
+    [TerraformPropertyName("policy_definitions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PolicyDefinitions => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy_definitions");
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
-    public TerraformExpression PolicyType => this["policy_type"];
+    [TerraformPropertyName("policy_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PolicyType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy_type");
 
 }

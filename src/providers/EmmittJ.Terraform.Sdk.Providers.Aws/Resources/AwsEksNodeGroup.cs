@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for launch_template in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlock
+public class AwsEksNodeGroupLaunchTemplateBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "name");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    public required TerraformProperty<string> Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Version { get; set; }
 
 }
 
@@ -39,15 +36,14 @@ public class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlock
 /// Block type for node_repair_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksNodeGroupNodeRepairConfigBlock : TerraformBlock
+public class AwsEksNodeGroupNodeRepairConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
 }
 
@@ -55,23 +51,21 @@ public class AwsEksNodeGroupNodeRepairConfigBlock : TerraformBlock
 /// Block type for remote_access in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksNodeGroupRemoteAccessBlock : TerraformBlock
+public class AwsEksNodeGroupRemoteAccessBlock : ITerraformBlock
 {
     /// <summary>
     /// The ec2_ssh_key attribute.
     /// </summary>
-    public TerraformProperty<string>? Ec2SshKey
-    {
-        set => SetProperty("ec2_ssh_key", value);
-    }
+    [TerraformPropertyName("ec2_ssh_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Ec2SshKey { get; set; }
 
     /// <summary>
     /// The source_security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SourceSecurityGroupIds
-    {
-        set => SetProperty("source_security_group_ids", value);
-    }
+    [TerraformPropertyName("source_security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SourceSecurityGroupIds { get; set; }
 
 }
 
@@ -79,34 +73,31 @@ public class AwsEksNodeGroupRemoteAccessBlock : TerraformBlock
 /// Block type for scaling_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksNodeGroupScalingConfigBlock : TerraformBlock
+public class AwsEksNodeGroupScalingConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The desired_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredSize is required")]
-    public required TerraformProperty<double> DesiredSize
-    {
-        set => SetProperty("desired_size", value);
-    }
+    [TerraformPropertyName("desired_size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> DesiredSize { get; set; }
 
     /// <summary>
     /// The max_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSize is required")]
-    public required TerraformProperty<double> MaxSize
-    {
-        set => SetProperty("max_size", value);
-    }
+    [TerraformPropertyName("max_size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxSize { get; set; }
 
     /// <summary>
     /// The min_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinSize is required")]
-    public required TerraformProperty<double> MinSize
-    {
-        set => SetProperty("min_size", value);
-    }
+    [TerraformPropertyName("min_size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MinSize { get; set; }
 
 }
 
@@ -114,33 +105,30 @@ public class AwsEksNodeGroupScalingConfigBlock : TerraformBlock
 /// Block type for taint in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEksNodeGroupTaintBlock : TerraformBlock
+public class AwsEksNodeGroupTaintBlock : ITerraformBlock
 {
     /// <summary>
     /// The effect attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Effect is required")]
-    public required TerraformProperty<string> Effect
-    {
-        set => SetProperty("effect", value);
-    }
+    [TerraformPropertyName("effect")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Effect { get; set; }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -148,31 +136,28 @@ public class AwsEksNodeGroupTaintBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEksNodeGroupTimeoutsBlock : TerraformBlock
+public class AwsEksNodeGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -180,23 +165,21 @@ public class AwsEksNodeGroupTimeoutsBlock : TerraformBlock
 /// Block type for update_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksNodeGroupUpdateConfigBlock : TerraformBlock
+public class AwsEksNodeGroupUpdateConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The max_unavailable attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxUnavailable
-    {
-        set => SetProperty("max_unavailable", value);
-    }
+    [TerraformPropertyName("max_unavailable")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxUnavailable { get; set; }
 
     /// <summary>
     /// The max_unavailable_percentage attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxUnavailablePercentage
-    {
-        set => SetProperty("max_unavailable_percentage", value);
-    }
+    [TerraformPropertyName("max_unavailable_percentage")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxUnavailablePercentage { get; set; }
 
 }
 
@@ -208,218 +191,153 @@ public class AwsEksNodeGroup : TerraformResource
 {
     public AwsEksNodeGroup(string name) : base("aws_eks_node_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("resources");
-        SetOutput("status");
-        SetOutput("ami_type");
-        SetOutput("capacity_type");
-        SetOutput("cluster_name");
-        SetOutput("disk_size");
-        SetOutput("force_update_version");
-        SetOutput("id");
-        SetOutput("instance_types");
-        SetOutput("labels");
-        SetOutput("node_group_name");
-        SetOutput("node_group_name_prefix");
-        SetOutput("node_role_arn");
-        SetOutput("region");
-        SetOutput("release_version");
-        SetOutput("subnet_ids");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The ami_type attribute.
     /// </summary>
-    public TerraformProperty<string> AmiType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ami_type");
-        set => SetProperty("ami_type", value);
-    }
+    [TerraformPropertyName("ami_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AmiType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ami_type");
 
     /// <summary>
     /// The capacity_type attribute.
     /// </summary>
-    public TerraformProperty<string> CapacityType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("capacity_type");
-        set => SetProperty("capacity_type", value);
-    }
+    [TerraformPropertyName("capacity_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CapacityType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "capacity_type");
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    public required TerraformProperty<string> ClusterName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_name");
-        set => SetProperty("cluster_name", value);
-    }
+    [TerraformPropertyName("cluster_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterName { get; set; }
 
     /// <summary>
     /// The disk_size attribute.
     /// </summary>
-    public TerraformProperty<double> DiskSize
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("disk_size");
-        set => SetProperty("disk_size", value);
-    }
+    [TerraformPropertyName("disk_size")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DiskSize { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "disk_size");
 
     /// <summary>
     /// The force_update_version attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceUpdateVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_update_version");
-        set => SetProperty("force_update_version", value);
-    }
+    [TerraformPropertyName("force_update_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceUpdateVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>> InstanceTypes
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("instance_types");
-        set => SetProperty("instance_types", value);
-    }
+    [TerraformPropertyName("instance_types")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> InstanceTypes { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "instance_types");
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The node_group_name attribute.
     /// </summary>
-    public TerraformProperty<string> NodeGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("node_group_name");
-        set => SetProperty("node_group_name", value);
-    }
+    [TerraformPropertyName("node_group_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NodeGroupName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_group_name");
 
     /// <summary>
     /// The node_group_name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NodeGroupNamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("node_group_name_prefix");
-        set => SetProperty("node_group_name_prefix", value);
-    }
+    [TerraformPropertyName("node_group_name_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NodeGroupNamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "node_group_name_prefix");
 
     /// <summary>
     /// The node_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeRoleArn is required")]
-    public required TerraformProperty<string> NodeRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("node_role_arn");
-        set => SetProperty("node_role_arn", value);
-    }
+    [TerraformPropertyName("node_role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NodeRoleArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The release_version attribute.
     /// </summary>
-    public TerraformProperty<string> ReleaseVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("release_version");
-        set => SetProperty("release_version", value);
-    }
+    [TerraformPropertyName("release_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ReleaseVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "release_version");
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public HashSet<TerraformProperty<string>> SubnetIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_ids");
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Version { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
     /// <summary>
     /// Block for launch_template.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchTemplate block(s) allowed")]
-    public List<AwsEksNodeGroupLaunchTemplateBlock>? LaunchTemplate
-    {
-        set => SetProperty("launch_template", value);
-    }
+    [TerraformPropertyName("launch_template")]
+    public TerraformList<TerraformBlock<AwsEksNodeGroupLaunchTemplateBlock>>? LaunchTemplate { get; set; } = new();
 
     /// <summary>
     /// Block for node_repair_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeRepairConfig block(s) allowed")]
-    public List<AwsEksNodeGroupNodeRepairConfigBlock>? NodeRepairConfig
-    {
-        set => SetProperty("node_repair_config", value);
-    }
+    [TerraformPropertyName("node_repair_config")]
+    public TerraformList<TerraformBlock<AwsEksNodeGroupNodeRepairConfigBlock>>? NodeRepairConfig { get; set; } = new();
 
     /// <summary>
     /// Block for remote_access.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteAccess block(s) allowed")]
-    public List<AwsEksNodeGroupRemoteAccessBlock>? RemoteAccess
-    {
-        set => SetProperty("remote_access", value);
-    }
+    [TerraformPropertyName("remote_access")]
+    public TerraformList<TerraformBlock<AwsEksNodeGroupRemoteAccessBlock>>? RemoteAccess { get; set; } = new();
 
     /// <summary>
     /// Block for scaling_config.
@@ -428,53 +346,51 @@ public class AwsEksNodeGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScalingConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfig block(s) allowed")]
-    public List<AwsEksNodeGroupScalingConfigBlock>? ScalingConfig
-    {
-        set => SetProperty("scaling_config", value);
-    }
+    [TerraformPropertyName("scaling_config")]
+    public TerraformList<TerraformBlock<AwsEksNodeGroupScalingConfigBlock>>? ScalingConfig { get; set; } = new();
 
     /// <summary>
     /// Block for taint.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Taint block(s) allowed")]
-    public HashSet<AwsEksNodeGroupTaintBlock>? Taint
-    {
-        set => SetProperty("taint", value);
-    }
+    [TerraformPropertyName("taint")]
+    public TerraformSet<TerraformBlock<AwsEksNodeGroupTaintBlock>>? Taint { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEksNodeGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEksNodeGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for update_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpdateConfig block(s) allowed")]
-    public List<AwsEksNodeGroupUpdateConfigBlock>? UpdateConfig
-    {
-        set => SetProperty("update_config", value);
-    }
+    [TerraformPropertyName("update_config")]
+    public TerraformList<TerraformBlock<AwsEksNodeGroupUpdateConfigBlock>>? UpdateConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
-    public TerraformExpression Resources => this["resources"];
+    [TerraformPropertyName("resources")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Resources => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "resources");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

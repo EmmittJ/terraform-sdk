@@ -9,38 +9,28 @@ public class AwsCloudwatchContributorManagedInsightRulesDataSource : TerraformDa
 {
     public AwsCloudwatchContributorManagedInsightRulesDataSource(string name) : base("aws_cloudwatch_contributor_managed_insight_rules", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("managed_rules");
-        SetOutput("region");
-        SetOutput("resource_arn");
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
-    public required TerraformProperty<string> ResourceArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_arn");
-        set => SetProperty("resource_arn", value);
-    }
+    [TerraformPropertyName("resource_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceArn { get; set; }
 
     /// <summary>
     /// The managed_rules attribute.
     /// </summary>
-    public TerraformExpression ManagedRules => this["managed_rules"];
+    [TerraformPropertyName("managed_rules")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ManagedRules => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "managed_rules");
 
 }

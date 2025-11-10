@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for artifact_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSyntheticsCanaryArtifactConfigBlock : TerraformBlock
+public class AwsSyntheticsCanaryArtifactConfigBlock : ITerraformBlock
 {
 }
 
@@ -14,47 +14,42 @@ public class AwsSyntheticsCanaryArtifactConfigBlock : TerraformBlock
 /// Block type for run_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSyntheticsCanaryRunConfigBlock : TerraformBlock
+public class AwsSyntheticsCanaryRunConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The active_tracing attribute.
     /// </summary>
-    public TerraformProperty<bool>? ActiveTracing
-    {
-        set => SetProperty("active_tracing", value);
-    }
+    [TerraformPropertyName("active_tracing")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ActiveTracing { get; set; }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? EnvironmentVariables
-    {
-        set => SetProperty("environment_variables", value);
-    }
+    [TerraformPropertyName("environment_variables")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? EnvironmentVariables { get; set; }
 
     /// <summary>
     /// The ephemeral_storage attribute.
     /// </summary>
-    public TerraformProperty<double>? EphemeralStorage
-    {
-        set => SetProperty("ephemeral_storage", value);
-    }
+    [TerraformPropertyName("ephemeral_storage")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> EphemeralStorage { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "ephemeral_storage");
 
     /// <summary>
     /// The memory_in_mb attribute.
     /// </summary>
-    public TerraformProperty<double>? MemoryInMb
-    {
-        set => SetProperty("memory_in_mb", value);
-    }
+    [TerraformPropertyName("memory_in_mb")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MemoryInMb { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "memory_in_mb");
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? TimeoutInSeconds
-    {
-        set => SetProperty("timeout_in_seconds", value);
-    }
+    [TerraformPropertyName("timeout_in_seconds")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> TimeoutInSeconds { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "timeout_in_seconds");
 
 }
 
@@ -62,24 +57,22 @@ public class AwsSyntheticsCanaryRunConfigBlock : TerraformBlock
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSyntheticsCanaryScheduleBlock : TerraformBlock
+public class AwsSyntheticsCanaryScheduleBlock : ITerraformBlock
 {
     /// <summary>
     /// The duration_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? DurationInSeconds
-    {
-        set => SetProperty("duration_in_seconds", value);
-    }
+    [TerraformPropertyName("duration_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DurationInSeconds { get; set; }
 
     /// <summary>
     /// The expression attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
-    public required TerraformProperty<string> Expression
-    {
-        set => SetProperty("expression", value);
-    }
+    [TerraformPropertyName("expression")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Expression { get; set; }
 
 }
 
@@ -87,39 +80,35 @@ public class AwsSyntheticsCanaryScheduleBlock : TerraformBlock
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSyntheticsCanaryVpcConfigBlock : TerraformBlock
+public class AwsSyntheticsCanaryVpcConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The ipv6_allowed_for_dual_stack attribute.
     /// </summary>
-    public TerraformProperty<bool>? Ipv6AllowedForDualStack
-    {
-        set => SetProperty("ipv6_allowed_for_dual_stack", value);
-    }
+    [TerraformPropertyName("ipv6_allowed_for_dual_stack")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Ipv6AllowedForDualStack { get; set; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
-    {
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
-    {
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
-    {
-        set => SetProperty("vpc_id", value);
-    }
+    [TerraformPropertyName("vpc_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VpcId => new TerraformReferenceProperty<TerraformProperty<string>>("", "vpc_id");
 
 }
 
@@ -131,212 +120,147 @@ public class AwsSyntheticsCanary : TerraformResource
 {
     public AwsSyntheticsCanary(string name) : base("aws_synthetics_canary", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("engine_arn");
-        SetOutput("source_location_arn");
-        SetOutput("status");
-        SetOutput("timeline");
-        SetOutput("artifact_s3_location");
-        SetOutput("delete_lambda");
-        SetOutput("execution_role_arn");
-        SetOutput("failure_retention_period");
-        SetOutput("handler");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("runtime_version");
-        SetOutput("s3_bucket");
-        SetOutput("s3_key");
-        SetOutput("s3_version");
-        SetOutput("start_canary");
-        SetOutput("success_retention_period");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("zip_file");
     }
 
     /// <summary>
     /// The artifact_s3_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactS3Location is required")]
-    public required TerraformProperty<string> ArtifactS3Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("artifact_s3_location");
-        set => SetProperty("artifact_s3_location", value);
-    }
+    [TerraformPropertyName("artifact_s3_location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ArtifactS3Location { get; set; }
 
     /// <summary>
     /// The delete_lambda attribute.
     /// </summary>
-    public TerraformProperty<bool> DeleteLambda
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("delete_lambda");
-        set => SetProperty("delete_lambda", value);
-    }
+    [TerraformPropertyName("delete_lambda")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeleteLambda { get; set; }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
-    public required TerraformProperty<string> ExecutionRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
-        set => SetProperty("execution_role_arn", value);
-    }
+    [TerraformPropertyName("execution_role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The failure_retention_period attribute.
     /// </summary>
-    public TerraformProperty<double> FailureRetentionPeriod
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("failure_retention_period");
-        set => SetProperty("failure_retention_period", value);
-    }
+    [TerraformPropertyName("failure_retention_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? FailureRetentionPeriod { get; set; }
 
     /// <summary>
     /// The handler attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Handler is required")]
-    public required TerraformProperty<string> Handler
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("handler");
-        set => SetProperty("handler", value);
-    }
+    [TerraformPropertyName("handler")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Handler { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The runtime_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
-    public required TerraformProperty<string> RuntimeVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("runtime_version");
-        set => SetProperty("runtime_version", value);
-    }
+    [TerraformPropertyName("runtime_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RuntimeVersion { get; set; }
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    public TerraformProperty<string> S3Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket");
-        set => SetProperty("s3_bucket", value);
-    }
+    [TerraformPropertyName("s3_bucket")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? S3Bucket { get; set; }
 
     /// <summary>
     /// The s3_key attribute.
     /// </summary>
-    public TerraformProperty<string> S3Key
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_key");
-        set => SetProperty("s3_key", value);
-    }
+    [TerraformPropertyName("s3_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? S3Key { get; set; }
 
     /// <summary>
     /// The s3_version attribute.
     /// </summary>
-    public TerraformProperty<string> S3Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_version");
-        set => SetProperty("s3_version", value);
-    }
+    [TerraformPropertyName("s3_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? S3Version { get; set; }
 
     /// <summary>
     /// The start_canary attribute.
     /// </summary>
-    public TerraformProperty<bool> StartCanary
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("start_canary");
-        set => SetProperty("start_canary", value);
-    }
+    [TerraformPropertyName("start_canary")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StartCanary { get; set; }
 
     /// <summary>
     /// The success_retention_period attribute.
     /// </summary>
-    public TerraformProperty<double> SuccessRetentionPeriod
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("success_retention_period");
-        set => SetProperty("success_retention_period", value);
-    }
+    [TerraformPropertyName("success_retention_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SuccessRetentionPeriod { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The zip_file attribute.
     /// </summary>
-    public TerraformProperty<string> ZipFile
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("zip_file");
-        set => SetProperty("zip_file", value);
-    }
+    [TerraformPropertyName("zip_file")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ZipFile { get; set; }
 
     /// <summary>
     /// Block for artifact_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ArtifactConfig block(s) allowed")]
-    public List<AwsSyntheticsCanaryArtifactConfigBlock>? ArtifactConfig
-    {
-        set => SetProperty("artifact_config", value);
-    }
+    [TerraformPropertyName("artifact_config")]
+    public TerraformList<TerraformBlock<AwsSyntheticsCanaryArtifactConfigBlock>>? ArtifactConfig { get; set; } = new();
 
     /// <summary>
     /// Block for run_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RunConfig block(s) allowed")]
-    public List<AwsSyntheticsCanaryRunConfigBlock>? RunConfig
-    {
-        set => SetProperty("run_config", value);
-    }
+    [TerraformPropertyName("run_config")]
+    public TerraformList<TerraformBlock<AwsSyntheticsCanaryRunConfigBlock>>? RunConfig { get; set; } = new();
 
     /// <summary>
     /// Block for schedule.
@@ -345,44 +269,50 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    public List<AwsSyntheticsCanaryScheduleBlock>? Schedule
-    {
-        set => SetProperty("schedule", value);
-    }
+    [TerraformPropertyName("schedule")]
+    public TerraformList<TerraformBlock<AwsSyntheticsCanaryScheduleBlock>>? Schedule { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
-    public List<AwsSyntheticsCanaryVpcConfigBlock>? VpcConfig
-    {
-        set => SetProperty("vpc_config", value);
-    }
+    [TerraformPropertyName("vpc_config")]
+    public TerraformList<TerraformBlock<AwsSyntheticsCanaryVpcConfigBlock>>? VpcConfig { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The engine_arn attribute.
     /// </summary>
-    public TerraformExpression EngineArn => this["engine_arn"];
+    [TerraformPropertyName("engine_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EngineArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_arn");
 
     /// <summary>
     /// The source_location_arn attribute.
     /// </summary>
-    public TerraformExpression SourceLocationArn => this["source_location_arn"];
+    [TerraformPropertyName("source_location_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceLocationArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_location_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The timeline attribute.
     /// </summary>
-    public TerraformExpression Timeline => this["timeline"];
+    [TerraformPropertyName("timeline")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Timeline => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "timeline");
 
 }

@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_endpoints in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAppstreamStackAccessEndpointsBlock : TerraformBlock
+public class AwsAppstreamStackAccessEndpointsBlock : ITerraformBlock
 {
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
-    public required TerraformProperty<string> EndpointType
-    {
-        set => SetProperty("endpoint_type", value);
-    }
+    [TerraformPropertyName("endpoint_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EndpointType { get; set; }
 
     /// <summary>
     /// The vpce_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpceId
-    {
-        set => SetProperty("vpce_id", value);
-    }
+    [TerraformPropertyName("vpce_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VpceId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "vpce_id");
 
 }
 
@@ -31,24 +29,22 @@ public class AwsAppstreamStackAccessEndpointsBlock : TerraformBlock
 /// Block type for application_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppstreamStackApplicationSettingsBlock : TerraformBlock
+public class AwsAppstreamStackApplicationSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The settings_group attribute.
     /// </summary>
-    public TerraformProperty<string>? SettingsGroup
-    {
-        set => SetProperty("settings_group", value);
-    }
+    [TerraformPropertyName("settings_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SettingsGroup { get; set; }
 
 }
 
@@ -56,32 +52,29 @@ public class AwsAppstreamStackApplicationSettingsBlock : TerraformBlock
 /// Block type for storage_connectors in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAppstreamStackStorageConnectorsBlock : TerraformBlock
+public class AwsAppstreamStackStorageConnectorsBlock : ITerraformBlock
 {
     /// <summary>
     /// The connector_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
-    public required TerraformProperty<string> ConnectorType
-    {
-        set => SetProperty("connector_type", value);
-    }
+    [TerraformPropertyName("connector_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConnectorType { get; set; }
 
     /// <summary>
     /// The domains attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? Domains
-    {
-        set => SetProperty("domains", value);
-    }
+    [TerraformPropertyName("domains")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> Domains { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "domains");
 
     /// <summary>
     /// The resource_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceIdentifier
-    {
-        set => SetProperty("resource_identifier", value);
-    }
+    [TerraformPropertyName("resource_identifier")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ResourceIdentifier { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "resource_identifier");
 
 }
 
@@ -89,15 +82,14 @@ public class AwsAppstreamStackStorageConnectorsBlock : TerraformBlock
 /// Block type for streaming_experience_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppstreamStackStreamingExperienceSettingsBlock : TerraformBlock
+public class AwsAppstreamStackStreamingExperienceSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The preferred_protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? PreferredProtocol
-    {
-        set => SetProperty("preferred_protocol", value);
-    }
+    [TerraformPropertyName("preferred_protocol")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PreferredProtocol { get; set; }
 
 }
 
@@ -105,25 +97,23 @@ public class AwsAppstreamStackStreamingExperienceSettingsBlock : TerraformBlock
 /// Block type for user_settings in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAppstreamStackUserSettingsBlock : TerraformBlock
+public class AwsAppstreamStackUserSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// The permission attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
-    public required TerraformProperty<string> Permission
-    {
-        set => SetProperty("permission", value);
-    }
+    [TerraformPropertyName("permission")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Permission { get; set; }
 
 }
 
@@ -135,172 +125,129 @@ public class AwsAppstreamStack : TerraformResource
 {
     public AwsAppstreamStack(string name) : base("aws_appstream_stack", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("created_time");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("embed_host_domains");
-        SetOutput("feedback_url");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("redirect_url");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The embed_host_domains attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> EmbedHostDomains
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("embed_host_domains");
-        set => SetProperty("embed_host_domains", value);
-    }
+    [TerraformPropertyName("embed_host_domains")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> EmbedHostDomains { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "embed_host_domains");
 
     /// <summary>
     /// The feedback_url attribute.
     /// </summary>
-    public TerraformProperty<string> FeedbackUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("feedback_url");
-        set => SetProperty("feedback_url", value);
-    }
+    [TerraformPropertyName("feedback_url")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> FeedbackUrl { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "feedback_url");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The redirect_url attribute.
     /// </summary>
-    public TerraformProperty<string> RedirectUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("redirect_url");
-        set => SetProperty("redirect_url", value);
-    }
+    [TerraformPropertyName("redirect_url")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> RedirectUrl { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "redirect_url");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for access_endpoints.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 AccessEndpoints block(s) allowed")]
-    public HashSet<AwsAppstreamStackAccessEndpointsBlock>? AccessEndpoints
-    {
-        set => SetProperty("access_endpoints", value);
-    }
+    [TerraformPropertyName("access_endpoints")]
+    public TerraformSet<TerraformBlock<AwsAppstreamStackAccessEndpointsBlock>>? AccessEndpoints { get; set; } = new();
 
     /// <summary>
     /// Block for application_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationSettings block(s) allowed")]
-    public List<AwsAppstreamStackApplicationSettingsBlock>? ApplicationSettings
-    {
-        set => SetProperty("application_settings", value);
-    }
+    [TerraformPropertyName("application_settings")]
+    public TerraformList<TerraformBlock<AwsAppstreamStackApplicationSettingsBlock>>? ApplicationSettings { get; set; } = new();
 
     /// <summary>
     /// Block for storage_connectors.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsAppstreamStackStorageConnectorsBlock>? StorageConnectors
-    {
-        set => SetProperty("storage_connectors", value);
-    }
+    [TerraformPropertyName("storage_connectors")]
+    public TerraformSet<TerraformBlock<AwsAppstreamStackStorageConnectorsBlock>>? StorageConnectors { get; set; } = new();
 
     /// <summary>
     /// Block for streaming_experience_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StreamingExperienceSettings block(s) allowed")]
-    public List<AwsAppstreamStackStreamingExperienceSettingsBlock>? StreamingExperienceSettings
-    {
-        set => SetProperty("streaming_experience_settings", value);
-    }
+    [TerraformPropertyName("streaming_experience_settings")]
+    public TerraformList<TerraformBlock<AwsAppstreamStackStreamingExperienceSettingsBlock>>? StreamingExperienceSettings { get; set; } = new();
 
     /// <summary>
     /// Block for user_settings.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsAppstreamStackUserSettingsBlock>? UserSettings
-    {
-        set => SetProperty("user_settings", value);
-    }
+    [TerraformPropertyName("user_settings")]
+    public TerraformSet<TerraformBlock<AwsAppstreamStackUserSettingsBlock>>? UserSettings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
-    public TerraformExpression CreatedTime => this["created_time"];
+    [TerraformPropertyName("created_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_time");
 
 }

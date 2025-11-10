@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageBlobTimeoutsBlock : TerraformBlock
+public class AzurermStorageBlobTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,190 +45,136 @@ public class AzurermStorageBlob : TerraformResource
 {
     public AzurermStorageBlob(string name) : base("azurerm_storage_blob", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("url");
-        SetOutput("access_tier");
-        SetOutput("cache_control");
-        SetOutput("content_md5");
-        SetOutput("content_type");
-        SetOutput("encryption_scope");
-        SetOutput("id");
-        SetOutput("metadata");
-        SetOutput("name");
-        SetOutput("parallelism");
-        SetOutput("size");
-        SetOutput("source");
-        SetOutput("source_content");
-        SetOutput("source_uri");
-        SetOutput("storage_account_name");
-        SetOutput("storage_container_name");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
-    public TerraformProperty<string> AccessTier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_tier");
-        set => SetProperty("access_tier", value);
-    }
+    [TerraformPropertyName("access_tier")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AccessTier { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_tier");
 
     /// <summary>
     /// The cache_control attribute.
     /// </summary>
-    public TerraformProperty<string> CacheControl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cache_control");
-        set => SetProperty("cache_control", value);
-    }
+    [TerraformPropertyName("cache_control")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CacheControl { get; set; }
 
     /// <summary>
     /// The content_md5 attribute.
     /// </summary>
-    public TerraformProperty<string> ContentMd5
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content_md5");
-        set => SetProperty("content_md5", value);
-    }
+    [TerraformPropertyName("content_md5")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContentMd5 { get; set; }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformProperty<string> ContentType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("content_type");
-        set => SetProperty("content_type", value);
-    }
+    [TerraformPropertyName("content_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContentType { get; set; }
 
     /// <summary>
     /// The encryption_scope attribute.
     /// </summary>
-    public TerraformProperty<string> EncryptionScope
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("encryption_scope");
-        set => SetProperty("encryption_scope", value);
-    }
+    [TerraformPropertyName("encryption_scope")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EncryptionScope { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Metadata
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => SetProperty("metadata", value);
-    }
+    [TerraformPropertyName("metadata")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Metadata { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "metadata");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parallelism attribute.
     /// </summary>
-    public TerraformProperty<double> Parallelism
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("parallelism");
-        set => SetProperty("parallelism", value);
-    }
+    [TerraformPropertyName("parallelism")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Parallelism { get; set; }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
-    public TerraformProperty<double> Size
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("size");
-        set => SetProperty("size", value);
-    }
+    [TerraformPropertyName("size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Size { get; set; }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformProperty<string> Source
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source");
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Source { get; set; }
 
     /// <summary>
     /// The source_content attribute.
     /// </summary>
-    public TerraformProperty<string> SourceContent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_content");
-        set => SetProperty("source_content", value);
-    }
+    [TerraformPropertyName("source_content")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceContent { get; set; }
 
     /// <summary>
     /// The source_uri attribute.
     /// </summary>
-    public TerraformProperty<string> SourceUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_uri");
-        set => SetProperty("source_uri", value);
-    }
+    [TerraformPropertyName("source_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceUri { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
-    public required TerraformProperty<string> StorageAccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_name");
-        set => SetProperty("storage_account_name", value);
-    }
+    [TerraformPropertyName("storage_account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountName { get; set; }
 
     /// <summary>
     /// The storage_container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
-    public required TerraformProperty<string> StorageContainerName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_container_name");
-        set => SetProperty("storage_container_name", value);
-    }
+    [TerraformPropertyName("storage_container_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageContainerName { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStorageBlobTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStorageBlobTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformExpression Url => this["url"];
+    [TerraformPropertyName("url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "url");
 
 }

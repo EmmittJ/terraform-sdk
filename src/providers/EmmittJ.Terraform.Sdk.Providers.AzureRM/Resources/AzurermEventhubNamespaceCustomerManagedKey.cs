@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermEventhubNamespaceCustomerManagedKeyTimeoutsBlock : TerraformBlock
+public class AzurermEventhubNamespaceCustomerManagedKeyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,72 +45,50 @@ public class AzurermEventhubNamespaceCustomerManagedKey : TerraformResource
 {
     public AzurermEventhubNamespaceCustomerManagedKey(string name) : base("azurerm_eventhub_namespace_customer_managed_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("eventhub_namespace_id");
-        SetOutput("id");
-        SetOutput("infrastructure_encryption_enabled");
-        SetOutput("key_vault_key_ids");
-        SetOutput("user_assigned_identity_id");
     }
 
     /// <summary>
     /// The eventhub_namespace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceId is required")]
-    public required TerraformProperty<string> EventhubNamespaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_namespace_id");
-        set => SetProperty("eventhub_namespace_id", value);
-    }
+    [TerraformPropertyName("eventhub_namespace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventhubNamespaceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> InfrastructureEncryptionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("infrastructure_encryption_enabled");
-        set => SetProperty("infrastructure_encryption_enabled", value);
-    }
+    [TerraformPropertyName("infrastructure_encryption_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InfrastructureEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The key_vault_key_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyIds is required")]
-    public HashSet<TerraformProperty<string>> KeyVaultKeyIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("key_vault_key_ids");
-        set => SetProperty("key_vault_key_ids", value);
-    }
+    [TerraformPropertyName("key_vault_key_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? KeyVaultKeyIds { get; set; }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
-    public TerraformProperty<string> UserAssignedIdentityId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_assigned_identity_id");
-        set => SetProperty("user_assigned_identity_id", value);
-    }
+    [TerraformPropertyName("user_assigned_identity_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserAssignedIdentityId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermEventhubNamespaceCustomerManagedKeyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermEventhubNamespaceCustomerManagedKeyTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

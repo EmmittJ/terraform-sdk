@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attributes in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeDeveloperAppAttributesBlock : TerraformBlock
+public class GoogleApigeeDeveloperAppAttributesBlock : ITerraformBlock
 {
     /// <summary>
     /// Key of the attribute
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// Value of the attribute
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -30,31 +28,28 @@ public class GoogleApigeeDeveloperAppAttributesBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeDeveloperAppTimeoutsBlock : TerraformBlock
+public class GoogleApigeeDeveloperAppTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -65,56 +60,30 @@ public class GoogleApigeeDeveloperApp : TerraformResource
 {
     public GoogleApigeeDeveloperApp(string name) : base("google_apigee_developer_app", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("app_id");
-        SetOutput("created_at");
-        SetOutput("credentials");
-        SetOutput("developer_id");
-        SetOutput("last_modified_at");
-        SetOutput("api_products");
-        SetOutput("app_family");
-        SetOutput("callback_url");
-        SetOutput("developer_email");
-        SetOutput("id");
-        SetOutput("key_expires_in");
-        SetOutput("name");
-        SetOutput("org_id");
-        SetOutput("scopes");
-        SetOutput("status");
     }
 
     /// <summary>
     /// List of API products associated with the developer app.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ApiProducts
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("api_products");
-        set => SetProperty("api_products", value);
-    }
+    [TerraformPropertyName("api_products")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ApiProducts { get; set; }
 
     /// <summary>
     /// Developer app family.
     /// </summary>
-    public TerraformProperty<string> AppFamily
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("app_family");
-        set => SetProperty("app_family", value);
-    }
+    [TerraformPropertyName("app_family")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AppFamily { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "app_family");
 
     /// <summary>
     /// Callback URL used by OAuth 2.0 authorization servers to communicate
     /// authorization codes back to developer apps.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallbackUrl is required")]
-    public required TerraformProperty<string> CallbackUrl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("callback_url");
-        set => SetProperty("callback_url", value);
-    }
+    [TerraformPropertyName("callback_url")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CallbackUrl { get; set; }
 
     /// <summary>
     /// Email address of the developer.
@@ -122,116 +91,108 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// Note that the email address has to be in lowercase only.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeveloperEmail is required")]
-    public required TerraformProperty<string> DeveloperEmail
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("developer_email");
-        set => SetProperty("developer_email", value);
-    }
+    [TerraformPropertyName("developer_email")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DeveloperEmail { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Expiration time, in milliseconds, for the consumer key that is generated
     /// for the developer app. If not set or left to the default value of -1,
     /// the API key never expires. The expiration time can&#39;t be updated after it is set.
     /// </summary>
-    public TerraformProperty<string> KeyExpiresIn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_expires_in");
-        set => SetProperty("key_expires_in", value);
-    }
+    [TerraformPropertyName("key_expires_in")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyExpiresIn { get; set; }
 
     /// <summary>
     /// Name of the developer app.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee instance,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    public required TerraformProperty<string> OrgId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
-        set => SetProperty("org_id", value);
-    }
+    [TerraformPropertyName("org_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
 
     /// <summary>
     /// Scopes to apply to the developer app.
     /// The specified scopes must already exist for the API product that
     /// you associate with the developer app.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Scopes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("scopes");
-        set => SetProperty("scopes", value);
-    }
+    [TerraformPropertyName("scopes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Scopes { get; set; }
 
     /// <summary>
     /// Status of the credential. Valid values include approved or revoked.
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Status { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// Block for attributes.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleApigeeDeveloperAppAttributesBlock>? Attributes
-    {
-        set => SetProperty("attributes", value);
-    }
+    [TerraformPropertyName("attributes")]
+    public TerraformList<TerraformBlock<GoogleApigeeDeveloperAppAttributesBlock>>? Attributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeDeveloperAppTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeDeveloperAppTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// ID of the developer app. This ID is not user specified but is
     /// automatically generated on app creation. appId is a UUID.
     /// </summary>
-    public TerraformExpression AppId => this["app_id"];
+    [TerraformPropertyName("app_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AppId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "app_id");
 
     /// <summary>
     /// Time at which the developer was created in milliseconds since epoch.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// Output only. Set of credentials for the developer app consisting of
     /// the consumer key/secret pairs associated with the API products.
     /// </summary>
-    public TerraformExpression Credentials => this["credentials"];
+    [TerraformPropertyName("credentials")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Credentials => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "credentials");
 
     /// <summary>
     /// ID of the developer.
     /// </summary>
-    public TerraformExpression DeveloperId => this["developer_id"];
+    [TerraformPropertyName("developer_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeveloperId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "developer_id");
 
     /// <summary>
     /// Time at which the developer was last modified in milliseconds since epoch.
     /// </summary>
-    public TerraformExpression LastModifiedAt => this["last_modified_at"];
+    [TerraformPropertyName("last_modified_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_at");
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for evaluation_mode in .
 /// Nesting mode: set
 /// </summary>
-public class AwsConfigConfigRuleEvaluationModeBlock : TerraformBlock
+public class AwsConfigConfigRuleEvaluationModeBlock : ITerraformBlock
 {
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string>? Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Mode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "mode");
 
 }
 
@@ -22,39 +21,35 @@ public class AwsConfigConfigRuleEvaluationModeBlock : TerraformBlock
 /// Block type for scope in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConfigConfigRuleScopeBlock : TerraformBlock
+public class AwsConfigConfigRuleScopeBlock : ITerraformBlock
 {
     /// <summary>
     /// The compliance_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ComplianceResourceId
-    {
-        set => SetProperty("compliance_resource_id", value);
-    }
+    [TerraformPropertyName("compliance_resource_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ComplianceResourceId { get; set; }
 
     /// <summary>
     /// The compliance_resource_types attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ComplianceResourceTypes
-    {
-        set => SetProperty("compliance_resource_types", value);
-    }
+    [TerraformPropertyName("compliance_resource_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ComplianceResourceTypes { get; set; }
 
     /// <summary>
     /// The tag_key attribute.
     /// </summary>
-    public TerraformProperty<string>? TagKey
-    {
-        set => SetProperty("tag_key", value);
-    }
+    [TerraformPropertyName("tag_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TagKey { get; set; }
 
     /// <summary>
     /// The tag_value attribute.
     /// </summary>
-    public TerraformProperty<string>? TagValue
-    {
-        set => SetProperty("tag_value", value);
-    }
+    [TerraformPropertyName("tag_value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TagValue { get; set; }
 
 }
 
@@ -62,24 +57,22 @@ public class AwsConfigConfigRuleScopeBlock : TerraformBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConfigConfigRuleSourceBlock : TerraformBlock
+public class AwsConfigConfigRuleSourceBlock : ITerraformBlock
 {
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
-    public required TerraformProperty<string> Owner
-    {
-        set => SetProperty("owner", value);
-    }
+    [TerraformPropertyName("owner")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Owner { get; set; }
 
     /// <summary>
     /// The source_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceIdentifier
-    {
-        set => SetProperty("source_identifier", value);
-    }
+    [TerraformPropertyName("source_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceIdentifier { get; set; }
 
 }
 
@@ -91,114 +84,79 @@ public class AwsConfigConfigRule : TerraformResource
 {
     public AwsConfigConfigRule(string name) : base("aws_config_config_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("rule_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("input_parameters");
-        SetOutput("maximum_execution_frequency");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The input_parameters attribute.
     /// </summary>
-    public TerraformProperty<string> InputParameters
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("input_parameters");
-        set => SetProperty("input_parameters", value);
-    }
+    [TerraformPropertyName("input_parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InputParameters { get; set; }
 
     /// <summary>
     /// The maximum_execution_frequency attribute.
     /// </summary>
-    public TerraformProperty<string> MaximumExecutionFrequency
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("maximum_execution_frequency");
-        set => SetProperty("maximum_execution_frequency", value);
-    }
+    [TerraformPropertyName("maximum_execution_frequency")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaximumExecutionFrequency { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for evaluation_mode.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsConfigConfigRuleEvaluationModeBlock>? EvaluationMode
-    {
-        set => SetProperty("evaluation_mode", value);
-    }
+    [TerraformPropertyName("evaluation_mode")]
+    public TerraformSet<TerraformBlock<AwsConfigConfigRuleEvaluationModeBlock>>? EvaluationMode { get; set; } = new();
 
     /// <summary>
     /// Block for scope.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scope block(s) allowed")]
-    public List<AwsConfigConfigRuleScopeBlock>? Scope
-    {
-        set => SetProperty("scope", value);
-    }
+    [TerraformPropertyName("scope")]
+    public TerraformList<TerraformBlock<AwsConfigConfigRuleScopeBlock>>? Scope { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -207,19 +165,21 @@ public class AwsConfigConfigRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    public List<AwsConfigConfigRuleSourceBlock>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    public TerraformList<TerraformBlock<AwsConfigConfigRuleSourceBlock>>? Source { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The rule_id attribute.
     /// </summary>
-    public TerraformExpression RuleId => this["rule_id"];
+    [TerraformPropertyName("rule_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RuleId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "rule_id");
 
 }

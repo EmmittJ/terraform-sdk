@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameters in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRedshiftdataStatementParametersBlock : TerraformBlock
+public class AwsRedshiftdataStatementParametersBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<string> Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
 
 }
 
@@ -32,15 +30,14 @@ public class AwsRedshiftdataStatementParametersBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRedshiftdataStatementTimeoutsBlock : TerraformBlock
+public class AwsRedshiftdataStatementTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
 }
 
@@ -51,131 +48,92 @@ public class AwsRedshiftdataStatement : TerraformResource
 {
     public AwsRedshiftdataStatement(string name) : base("aws_redshiftdata_statement", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cluster_identifier");
-        SetOutput("database");
-        SetOutput("db_user");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("secret_arn");
-        SetOutput("sql");
-        SetOutput("statement_name");
-        SetOutput("with_event");
-        SetOutput("workgroup_name");
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string> ClusterIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cluster_identifier");
-        set => SetProperty("cluster_identifier", value);
-    }
+    [TerraformPropertyName("cluster_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ClusterIdentifier { get; set; }
 
     /// <summary>
     /// The database attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
-    public required TerraformProperty<string> Database
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database");
-        set => SetProperty("database", value);
-    }
+    [TerraformPropertyName("database")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Database { get; set; }
 
     /// <summary>
     /// The db_user attribute.
     /// </summary>
-    public TerraformProperty<string> DbUser
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("db_user");
-        set => SetProperty("db_user", value);
-    }
+    [TerraformPropertyName("db_user")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DbUser { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
-    public TerraformProperty<string> SecretArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("secret_arn");
-        set => SetProperty("secret_arn", value);
-    }
+    [TerraformPropertyName("secret_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecretArn { get; set; }
 
     /// <summary>
     /// The sql attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sql is required")]
-    public required TerraformProperty<string> Sql
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sql");
-        set => SetProperty("sql", value);
-    }
+    [TerraformPropertyName("sql")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Sql { get; set; }
 
     /// <summary>
     /// The statement_name attribute.
     /// </summary>
-    public TerraformProperty<string> StatementName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("statement_name");
-        set => SetProperty("statement_name", value);
-    }
+    [TerraformPropertyName("statement_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StatementName { get; set; }
 
     /// <summary>
     /// The with_event attribute.
     /// </summary>
-    public TerraformProperty<bool> WithEvent
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("with_event");
-        set => SetProperty("with_event", value);
-    }
+    [TerraformPropertyName("with_event")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WithEvent { get; set; }
 
     /// <summary>
     /// The workgroup_name attribute.
     /// </summary>
-    public TerraformProperty<string> WorkgroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workgroup_name");
-        set => SetProperty("workgroup_name", value);
-    }
+    [TerraformPropertyName("workgroup_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WorkgroupName { get; set; }
 
     /// <summary>
     /// Block for parameters.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsRedshiftdataStatementParametersBlock>? Parameters
-    {
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    public TerraformList<TerraformBlock<AwsRedshiftdataStatementParametersBlock>>? Parameters { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsRedshiftdataStatementTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsRedshiftdataStatementTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

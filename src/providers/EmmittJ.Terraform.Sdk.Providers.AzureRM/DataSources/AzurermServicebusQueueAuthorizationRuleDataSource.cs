@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermServicebusQueueAuthorizationRuleDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermServicebusQueueAuthorizationRuleDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,135 +24,119 @@ public class AzurermServicebusQueueAuthorizationRuleDataSource : TerraformDataSo
 {
     public AzurermServicebusQueueAuthorizationRuleDataSource(string name) : base("azurerm_servicebus_queue_authorization_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("listen");
-        SetOutput("manage");
-        SetOutput("primary_connection_string");
-        SetOutput("primary_connection_string_alias");
-        SetOutput("primary_key");
-        SetOutput("secondary_connection_string");
-        SetOutput("secondary_connection_string_alias");
-        SetOutput("secondary_key");
-        SetOutput("send");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("namespace_name");
-        SetOutput("queue_id");
-        SetOutput("queue_name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
-    public TerraformProperty<string> NamespaceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace_name");
-        set => SetProperty("namespace_name", value);
-    }
+    [TerraformPropertyName("namespace_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NamespaceName { get; set; }
 
     /// <summary>
     /// The queue_id attribute.
     /// </summary>
-    public TerraformProperty<string> QueueId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("queue_id");
-        set => SetProperty("queue_id", value);
-    }
+    [TerraformPropertyName("queue_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? QueueId { get; set; }
 
     /// <summary>
     /// The queue_name attribute.
     /// </summary>
-    public TerraformProperty<string> QueueName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("queue_name");
-        set => SetProperty("queue_name", value);
-    }
+    [TerraformPropertyName("queue_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? QueueName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermServicebusQueueAuthorizationRuleDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermServicebusQueueAuthorizationRuleDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The listen attribute.
     /// </summary>
-    public TerraformExpression Listen => this["listen"];
+    [TerraformPropertyName("listen")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Listen => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "listen");
 
     /// <summary>
     /// The manage attribute.
     /// </summary>
-    public TerraformExpression Manage => this["manage"];
+    [TerraformPropertyName("manage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Manage => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "manage");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
-    public TerraformExpression PrimaryConnectionString => this["primary_connection_string"];
+    [TerraformPropertyName("primary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_connection_string");
 
     /// <summary>
     /// The primary_connection_string_alias attribute.
     /// </summary>
-    public TerraformExpression PrimaryConnectionStringAlias => this["primary_connection_string_alias"];
+    [TerraformPropertyName("primary_connection_string_alias")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryConnectionStringAlias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_connection_string_alias");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    public TerraformExpression PrimaryKey => this["primary_key"];
+    [TerraformPropertyName("primary_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
-    public TerraformExpression SecondaryConnectionString => this["secondary_connection_string"];
+    [TerraformPropertyName("secondary_connection_string")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryConnectionString => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_connection_string");
 
     /// <summary>
     /// The secondary_connection_string_alias attribute.
     /// </summary>
-    public TerraformExpression SecondaryConnectionStringAlias => this["secondary_connection_string_alias"];
+    [TerraformPropertyName("secondary_connection_string_alias")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryConnectionStringAlias => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_connection_string_alias");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    public TerraformExpression SecondaryKey => this["secondary_key"];
+    [TerraformPropertyName("secondary_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_key");
 
     /// <summary>
     /// The send attribute.
     /// </summary>
-    public TerraformExpression Send => this["send"];
+    [TerraformPropertyName("send")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Send => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "send");
 
 }

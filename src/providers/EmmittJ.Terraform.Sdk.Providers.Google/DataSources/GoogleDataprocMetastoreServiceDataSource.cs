@@ -9,71 +9,30 @@ public class GoogleDataprocMetastoreServiceDataSource : TerraformDataSource
 {
     public GoogleDataprocMetastoreServiceDataSource(string name) : base("google_dataproc_metastore_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("artifact_gcs_uri");
-        SetOutput("create_time");
-        SetOutput("database_type");
-        SetOutput("deletion_protection");
-        SetOutput("effective_labels");
-        SetOutput("encryption_config");
-        SetOutput("endpoint_uri");
-        SetOutput("hive_metastore_config");
-        SetOutput("labels");
-        SetOutput("maintenance_window");
-        SetOutput("metadata_integration");
-        SetOutput("name");
-        SetOutput("network");
-        SetOutput("network_config");
-        SetOutput("port");
-        SetOutput("release_channel");
-        SetOutput("scaling_config");
-        SetOutput("scheduled_backup");
-        SetOutput("state");
-        SetOutput("state_message");
-        SetOutput("tags");
-        SetOutput("telemetry_config");
-        SetOutput("terraform_labels");
-        SetOutput("tier");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("service_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location where the metastore service should reside.
     /// The default value is &#39;global&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The ID of the metastore service. The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
@@ -81,52 +40,66 @@ public class GoogleDataprocMetastoreServiceDataSource : TerraformDataSource
     /// 3 and 63 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
-    public required TerraformProperty<string> ServiceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("service_id");
-        set => SetProperty("service_id", value);
-    }
+    [TerraformPropertyName("service_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServiceId { get; set; }
 
     /// <summary>
     /// A Cloud Storage URI (starting with gs://) that specifies where artifacts related to the metastore service are stored.
     /// </summary>
-    public TerraformExpression ArtifactGcsUri => this["artifact_gcs_uri"];
+    [TerraformPropertyName("artifact_gcs_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ArtifactGcsUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "artifact_gcs_uri");
 
     /// <summary>
     /// Output only. The time when the metastore service was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The database type that the Metastore service stores its data. Default value: &amp;quot;MYSQL&amp;quot; Possible values: [&amp;quot;MYSQL&amp;quot;, &amp;quot;SPANNER&amp;quot;]
     /// </summary>
-    public TerraformExpression DatabaseType => this["database_type"];
+    [TerraformPropertyName("database_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DatabaseType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "database_type");
 
     /// <summary>
     /// Indicates if the dataproc metastore should be protected against accidental deletions.
     /// </summary>
-    public TerraformExpression DeletionProtection => this["deletion_protection"];
+    [TerraformPropertyName("deletion_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Information used to configure the Dataproc Metastore service to encrypt
     /// customer data at rest.
     /// </summary>
-    public TerraformExpression EncryptionConfig => this["encryption_config"];
+    [TerraformPropertyName("encryption_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> EncryptionConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "encryption_config");
 
     /// <summary>
     /// The URI of the endpoint used to access the metastore service.
     /// </summary>
-    public TerraformExpression EndpointUri => this["endpoint_uri"];
+    [TerraformPropertyName("endpoint_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EndpointUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_uri");
 
     /// <summary>
     /// Configuration information specific to running Hive metastore software as the metastore service.
     /// </summary>
-    public TerraformExpression HiveMetastoreConfig => this["hive_metastore_config"];
+    [TerraformPropertyName("hive_metastore_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> HiveMetastoreConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "hive_metastore_config");
 
     /// <summary>
     /// User-defined labels for the metastore service.
@@ -134,98 +107,134 @@ public class GoogleDataprocMetastoreServiceDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformExpression Labels => this["labels"];
+    [TerraformPropertyName("labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
 
     /// <summary>
     /// The one hour maintenance window of the metastore service.
     /// This specifies when the service can be restarted for maintenance purposes in UTC time.
     /// Maintenance window is not needed for services with the &#39;SPANNER&#39; database type.
     /// </summary>
-    public TerraformExpression MaintenanceWindow => this["maintenance_window"];
+    [TerraformPropertyName("maintenance_window")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MaintenanceWindow => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "maintenance_window");
 
     /// <summary>
     /// The setting that defines how metastore metadata should be integrated with external services and systems.
     /// </summary>
-    public TerraformExpression MetadataIntegration => this["metadata_integration"];
+    [TerraformPropertyName("metadata_integration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MetadataIntegration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "metadata_integration");
 
     /// <summary>
     /// The relative resource name of the metastore service.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The relative resource name of the VPC network on which the instance can be accessed. It is specified in the following form:
     /// 
     /// &amp;quot;projects/{projectNumber}/global/networks/{network_id}&amp;quot;.
     /// </summary>
-    public TerraformExpression Network => this["network"];
+    [TerraformPropertyName("network")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Network => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network");
 
     /// <summary>
     /// The configuration specifying the network settings for the Dataproc Metastore service.
     /// </summary>
-    public TerraformExpression NetworkConfig => this["network_config"];
+    [TerraformPropertyName("network_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> NetworkConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "network_config");
 
     /// <summary>
     /// The TCP port at which the metastore service is reached. Default: 9083.
     /// </summary>
-    public TerraformExpression Port => this["port"];
+    [TerraformPropertyName("port")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Port => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "port");
 
     /// <summary>
     /// The release channel of the service. If unspecified, defaults to &#39;STABLE&#39;. Default value: &amp;quot;STABLE&amp;quot; Possible values: [&amp;quot;CANARY&amp;quot;, &amp;quot;STABLE&amp;quot;]
     /// </summary>
-    public TerraformExpression ReleaseChannel => this["release_channel"];
+    [TerraformPropertyName("release_channel")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ReleaseChannel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "release_channel");
 
     /// <summary>
     /// Represents the scaling configuration of a metastore service.
     /// </summary>
-    public TerraformExpression ScalingConfig => this["scaling_config"];
+    [TerraformPropertyName("scaling_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ScalingConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "scaling_config");
 
     /// <summary>
     /// The configuration of scheduled backup for the metastore service.
     /// </summary>
-    public TerraformExpression ScheduledBackup => this["scheduled_backup"];
+    [TerraformPropertyName("scheduled_backup")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> ScheduledBackup => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "scheduled_backup");
 
     /// <summary>
     /// The current state of the metastore service.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// Additional information about the current state of the metastore service, if available.
     /// </summary>
-    public TerraformExpression StateMessage => this["state_message"];
+    [TerraformPropertyName("state_message")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StateMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state_message");
 
     /// <summary>
     /// A map of resource manager tags.
     /// Resource manager tag keys and values have the same definition as resource manager tags.
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The configuration specifying telemetry settings for the Dataproc Metastore service. If unspecified defaults to JSON.
     /// </summary>
-    public TerraformExpression TelemetryConfig => this["telemetry_config"];
+    [TerraformPropertyName("telemetry_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TelemetryConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "telemetry_config");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// The tier of the service. Possible values: [&amp;quot;DEVELOPER&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;]
     /// </summary>
-    public TerraformExpression Tier => this["tier"];
+    [TerraformPropertyName("tier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Tier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tier");
 
     /// <summary>
     /// The globally unique resource identifier of the metastore service.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// Output only. The time when the metastore service was last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for report_delivery_channel in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBackupReportPlanReportDeliveryChannelBlock : TerraformBlock
+public class AwsBackupReportPlanReportDeliveryChannelBlock : ITerraformBlock
 {
     /// <summary>
     /// The formats attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Formats
-    {
-        set => SetProperty("formats", value);
-    }
+    [TerraformPropertyName("formats")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Formats { get; set; }
 
     /// <summary>
     /// The s3_bucket_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
-    public required TerraformProperty<string> S3BucketName
-    {
-        set => SetProperty("s3_bucket_name", value);
-    }
+    [TerraformPropertyName("s3_bucket_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> S3BucketName { get; set; }
 
     /// <summary>
     /// The s3_key_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? S3KeyPrefix
-    {
-        set => SetProperty("s3_key_prefix", value);
-    }
+    [TerraformPropertyName("s3_key_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? S3KeyPrefix { get; set; }
 
 }
 
@@ -39,56 +36,50 @@ public class AwsBackupReportPlanReportDeliveryChannelBlock : TerraformBlock
 /// Block type for report_setting in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
+public class AwsBackupReportPlanReportSettingBlock : ITerraformBlock
 {
     /// <summary>
     /// The accounts attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Accounts
-    {
-        set => SetProperty("accounts", value);
-    }
+    [TerraformPropertyName("accounts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Accounts { get; set; }
 
     /// <summary>
     /// The framework_arns attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? FrameworkArns
-    {
-        set => SetProperty("framework_arns", value);
-    }
+    [TerraformPropertyName("framework_arns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? FrameworkArns { get; set; }
 
     /// <summary>
     /// The number_of_frameworks attribute.
     /// </summary>
-    public TerraformProperty<double>? NumberOfFrameworks
-    {
-        set => SetProperty("number_of_frameworks", value);
-    }
+    [TerraformPropertyName("number_of_frameworks")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? NumberOfFrameworks { get; set; }
 
     /// <summary>
     /// The organization_units attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? OrganizationUnits
-    {
-        set => SetProperty("organization_units", value);
-    }
+    [TerraformPropertyName("organization_units")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? OrganizationUnits { get; set; }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Regions
-    {
-        set => SetProperty("regions", value);
-    }
+    [TerraformPropertyName("regions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Regions { get; set; }
 
     /// <summary>
     /// The report_template attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportTemplate is required")]
-    public required TerraformProperty<string> ReportTemplate
-    {
-        set => SetProperty("report_template", value);
-    }
+    [TerraformPropertyName("report_template")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ReportTemplate { get; set; }
 
 }
 
@@ -100,76 +91,50 @@ public class AwsBackupReportPlan : TerraformResource
 {
     public AwsBackupReportPlan(string name) : base("aws_backup_report_plan", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("creation_time");
-        SetOutput("deployment_status");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for report_delivery_channel.
@@ -178,10 +143,8 @@ public class AwsBackupReportPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportDeliveryChannel is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReportDeliveryChannel block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReportDeliveryChannel block(s) allowed")]
-    public List<AwsBackupReportPlanReportDeliveryChannelBlock>? ReportDeliveryChannel
-    {
-        set => SetProperty("report_delivery_channel", value);
-    }
+    [TerraformPropertyName("report_delivery_channel")]
+    public TerraformList<TerraformBlock<AwsBackupReportPlanReportDeliveryChannelBlock>>? ReportDeliveryChannel { get; set; } = new();
 
     /// <summary>
     /// Block for report_setting.
@@ -190,24 +153,28 @@ public class AwsBackupReportPlan : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportSetting is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReportSetting block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReportSetting block(s) allowed")]
-    public List<AwsBackupReportPlanReportSettingBlock>? ReportSetting
-    {
-        set => SetProperty("report_setting", value);
-    }
+    [TerraformPropertyName("report_setting")]
+    public TerraformList<TerraformBlock<AwsBackupReportPlanReportSettingBlock>>? ReportSetting { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    public TerraformExpression CreationTime => this["creation_time"];
+    [TerraformPropertyName("creation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
 
     /// <summary>
     /// The deployment_status attribute.
     /// </summary>
-    public TerraformExpression DeploymentStatus => this["deployment_status"];
+    [TerraformPropertyName("deployment_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeploymentStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deployment_status");
 
 }

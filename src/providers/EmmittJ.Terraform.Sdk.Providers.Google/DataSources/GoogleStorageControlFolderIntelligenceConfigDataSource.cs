@@ -9,62 +9,56 @@ public class GoogleStorageControlFolderIntelligenceConfigDataSource : TerraformD
 {
     public GoogleStorageControlFolderIntelligenceConfigDataSource(string name) : base("google_storage_control_folder_intelligence_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("edition_config");
-        SetOutput("effective_intelligence_config");
-        SetOutput("filter");
-        SetOutput("trial_config");
-        SetOutput("update_time");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Identifier of the GCP Folder. For GCP Folder, this field can be folder number.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Edition configuration of the Storage Intelligence resource. Valid values are INHERIT, TRIAL, DISABLED and STANDARD.
     /// </summary>
-    public TerraformExpression EditionConfig => this["edition_config"];
+    [TerraformPropertyName("edition_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EditionConfig => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "edition_config");
 
     /// <summary>
     /// The Intelligence config that is effective for the resource.
     /// </summary>
-    public TerraformExpression EffectiveIntelligenceConfig => this["effective_intelligence_config"];
+    [TerraformPropertyName("effective_intelligence_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> EffectiveIntelligenceConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "effective_intelligence_config");
 
     /// <summary>
     /// Filter over location and bucket using include or exclude semantics. Resources that match the include or exclude filter are exclusively included or excluded from the Storage Intelligence plan.
     /// </summary>
-    public TerraformExpression Filter => this["filter"];
+    [TerraformPropertyName("filter")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Filter => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "filter");
 
     /// <summary>
     /// The trial configuration of the Storage Intelligence resource.
     /// </summary>
-    public TerraformExpression TrialConfig => this["trial_config"];
+    [TerraformPropertyName("trial_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TrialConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "trial_config");
 
     /// <summary>
     /// The time at which the Storage Intelligence Config resource is last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

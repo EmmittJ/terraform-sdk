@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermOracleAutonomousDatabaseCloneFromBackupTimeoutsBlock : TerraformBlock
+public class AzurermOracleAutonomousDatabaseCloneFromBackupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,299 +38,214 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
 {
     public AzurermOracleAutonomousDatabaseCloneFromBackup(string name) : base("azurerm_oracle_autonomous_database_clone_from_backup", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("admin_password");
-        SetOutput("allowed_ip_addresses");
-        SetOutput("auto_scaling_enabled");
-        SetOutput("auto_scaling_for_storage_enabled");
-        SetOutput("backup_retention_period_in_days");
-        SetOutput("backup_timestamp");
-        SetOutput("character_set");
-        SetOutput("clone_type");
-        SetOutput("compute_count");
-        SetOutput("compute_model");
-        SetOutput("customer_contacts");
-        SetOutput("data_storage_size_in_tb");
-        SetOutput("database_version");
-        SetOutput("database_workload");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("license_model");
-        SetOutput("location");
-        SetOutput("mtls_connection_required");
-        SetOutput("name");
-        SetOutput("national_character_set");
-        SetOutput("resource_group_name");
-        SetOutput("source_autonomous_database_id");
-        SetOutput("subnet_id");
-        SetOutput("tags");
-        SetOutput("virtual_network_id");
     }
 
     /// <summary>
     /// The admin_password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
-    public required TerraformProperty<string> AdminPassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("admin_password");
-        set => SetProperty("admin_password", value);
-    }
+    [TerraformPropertyName("admin_password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AdminPassword { get; set; }
 
     /// <summary>
     /// The allowed_ip_addresses attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AllowedIpAddresses
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("allowed_ip_addresses");
-        set => SetProperty("allowed_ip_addresses", value);
-    }
+    [TerraformPropertyName("allowed_ip_addresses")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedIpAddresses { get; set; }
 
     /// <summary>
     /// The auto_scaling_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingEnabled is required")]
-    public required TerraformProperty<bool> AutoScalingEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_scaling_enabled");
-        set => SetProperty("auto_scaling_enabled", value);
-    }
+    [TerraformPropertyName("auto_scaling_enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> AutoScalingEnabled { get; set; }
 
     /// <summary>
     /// The auto_scaling_for_storage_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingForStorageEnabled is required")]
-    public required TerraformProperty<bool> AutoScalingForStorageEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_scaling_for_storage_enabled");
-        set => SetProperty("auto_scaling_for_storage_enabled", value);
-    }
+    [TerraformPropertyName("auto_scaling_for_storage_enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> AutoScalingForStorageEnabled { get; set; }
 
     /// <summary>
     /// The backup_retention_period_in_days attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRetentionPeriodInDays is required")]
-    public required TerraformProperty<double> BackupRetentionPeriodInDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("backup_retention_period_in_days");
-        set => SetProperty("backup_retention_period_in_days", value);
-    }
+    [TerraformPropertyName("backup_retention_period_in_days")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> BackupRetentionPeriodInDays { get; set; }
 
     /// <summary>
     /// The backup_timestamp attribute.
     /// </summary>
-    public TerraformProperty<string> BackupTimestamp
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backup_timestamp");
-        set => SetProperty("backup_timestamp", value);
-    }
+    [TerraformPropertyName("backup_timestamp")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BackupTimestamp { get; set; }
 
     /// <summary>
     /// The character_set attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CharacterSet is required")]
-    public required TerraformProperty<string> CharacterSet
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("character_set");
-        set => SetProperty("character_set", value);
-    }
+    [TerraformPropertyName("character_set")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CharacterSet { get; set; }
 
     /// <summary>
     /// The clone_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloneType is required")]
-    public required TerraformProperty<string> CloneType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("clone_type");
-        set => SetProperty("clone_type", value);
-    }
+    [TerraformPropertyName("clone_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CloneType { get; set; }
 
     /// <summary>
     /// The compute_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
-    public required TerraformProperty<double> ComputeCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("compute_count");
-        set => SetProperty("compute_count", value);
-    }
+    [TerraformPropertyName("compute_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ComputeCount { get; set; }
 
     /// <summary>
     /// The compute_model attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeModel is required")]
-    public required TerraformProperty<string> ComputeModel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("compute_model");
-        set => SetProperty("compute_model", value);
-    }
+    [TerraformPropertyName("compute_model")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ComputeModel { get; set; }
 
     /// <summary>
     /// The customer_contacts attribute.
     /// </summary>
-    public List<TerraformProperty<string>> CustomerContacts
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("customer_contacts");
-        set => SetProperty("customer_contacts", value);
-    }
+    [TerraformPropertyName("customer_contacts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? CustomerContacts { get; set; }
 
     /// <summary>
     /// The data_storage_size_in_tb attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStorageSizeInTb is required")]
-    public required TerraformProperty<double> DataStorageSizeInTb
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("data_storage_size_in_tb");
-        set => SetProperty("data_storage_size_in_tb", value);
-    }
+    [TerraformPropertyName("data_storage_size_in_tb")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> DataStorageSizeInTb { get; set; }
 
     /// <summary>
     /// The database_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseVersion is required")]
-    public required TerraformProperty<string> DatabaseVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_version");
-        set => SetProperty("database_version", value);
-    }
+    [TerraformPropertyName("database_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseVersion { get; set; }
 
     /// <summary>
     /// The database_workload attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseWorkload is required")]
-    public required TerraformProperty<string> DatabaseWorkload
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("database_workload");
-        set => SetProperty("database_workload", value);
-    }
+    [TerraformPropertyName("database_workload")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatabaseWorkload { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseModel is required")]
-    public required TerraformProperty<string> LicenseModel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("license_model");
-        set => SetProperty("license_model", value);
-    }
+    [TerraformPropertyName("license_model")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LicenseModel { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The mtls_connection_required attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MtlsConnectionRequired is required")]
-    public required TerraformProperty<bool> MtlsConnectionRequired
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("mtls_connection_required");
-        set => SetProperty("mtls_connection_required", value);
-    }
+    [TerraformPropertyName("mtls_connection_required")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> MtlsConnectionRequired { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The national_character_set attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NationalCharacterSet is required")]
-    public required TerraformProperty<string> NationalCharacterSet
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("national_character_set");
-        set => SetProperty("national_character_set", value);
-    }
+    [TerraformPropertyName("national_character_set")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NationalCharacterSet { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The source_autonomous_database_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceAutonomousDatabaseId is required")]
-    public required TerraformProperty<string> SourceAutonomousDatabaseId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_autonomous_database_id");
-        set => SetProperty("source_autonomous_database_id", value);
-    }
+    [TerraformPropertyName("source_autonomous_database_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceAutonomousDatabaseId { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string> SubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    public TerraformProperty<string> VirtualNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_id");
-        set => SetProperty("virtual_network_id", value);
-    }
+    [TerraformPropertyName("virtual_network_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VirtualNetworkId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermOracleAutonomousDatabaseCloneFromBackupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermOracleAutonomousDatabaseCloneFromBackupTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

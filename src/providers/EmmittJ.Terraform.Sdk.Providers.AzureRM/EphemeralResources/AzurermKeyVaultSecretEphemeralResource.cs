@@ -10,61 +10,50 @@ public class AzurermKeyVaultSecretEphemeralResource : TerraformEphemeralResource
 {
     public AzurermKeyVaultSecretEphemeralResource(string name) : base("azurerm_key_vault_secret", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("expiration_date");
-        SetOutput("not_before_date");
-        SetOutput("value");
-        SetOutput("key_vault_id");
-        SetOutput("name");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    public required TerraformProperty<string> KeyVaultId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
-        set => SetProperty("key_vault_id", value);
-    }
+    [TerraformPropertyName("key_vault_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyVaultId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Version { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    public TerraformExpression ExpirationDate => this["expiration_date"];
+    [TerraformPropertyName("expiration_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpirationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_date");
 
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
-    public TerraformExpression NotBeforeDate => this["not_before_date"];
+    [TerraformPropertyName("not_before_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NotBeforeDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "not_before_date");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformExpression Value => this["value"];
+    [TerraformPropertyName("value")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Value => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "value");
 
 }

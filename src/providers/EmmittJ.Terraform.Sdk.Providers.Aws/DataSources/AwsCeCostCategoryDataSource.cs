@@ -9,84 +9,77 @@ public class AwsCeCostCategoryDataSource : TerraformDataSource
 {
     public AwsCeCostCategoryDataSource(string name) : base("aws_ce_cost_category", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("default_value");
-        SetOutput("effective_end");
-        SetOutput("effective_start");
-        SetOutput("name");
-        SetOutput("rule");
-        SetOutput("rule_version");
-        SetOutput("split_charge_rule");
-        SetOutput("cost_category_arn");
-        SetOutput("id");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The cost_category_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CostCategoryArn is required")]
-    public required TerraformProperty<string> CostCategoryArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cost_category_arn");
-        set => SetProperty("cost_category_arn", value);
-    }
+    [TerraformPropertyName("cost_category_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CostCategoryArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The default_value attribute.
     /// </summary>
-    public TerraformExpression DefaultValue => this["default_value"];
+    [TerraformPropertyName("default_value")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DefaultValue => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "default_value");
 
     /// <summary>
     /// The effective_end attribute.
     /// </summary>
-    public TerraformExpression EffectiveEnd => this["effective_end"];
+    [TerraformPropertyName("effective_end")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EffectiveEnd => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "effective_end");
 
     /// <summary>
     /// The effective_start attribute.
     /// </summary>
-    public TerraformExpression EffectiveStart => this["effective_start"];
+    [TerraformPropertyName("effective_start")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EffectiveStart => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "effective_start");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The rule attribute.
     /// </summary>
-    public TerraformExpression Rule => this["rule"];
+    [TerraformPropertyName("rule")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Rule => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "rule");
 
     /// <summary>
     /// The rule_version attribute.
     /// </summary>
-    public TerraformExpression RuleVersion => this["rule_version"];
+    [TerraformPropertyName("rule_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RuleVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "rule_version");
 
     /// <summary>
     /// The split_charge_rule attribute.
     /// </summary>
-    public TerraformExpression SplitChargeRule => this["split_charge_rule"];
+    [TerraformPropertyName("split_charge_rule")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> SplitChargeRule => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "split_charge_rule");
 
 }

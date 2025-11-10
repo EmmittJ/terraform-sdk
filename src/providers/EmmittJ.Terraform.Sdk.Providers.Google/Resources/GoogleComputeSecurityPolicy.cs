@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for adaptive_protection_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeSecurityPolicyAdaptiveProtectionConfigBlock : TerraformBlock
+public class GoogleComputeSecurityPolicyAdaptiveProtectionConfigBlock : ITerraformBlock
 {
 }
 
@@ -14,31 +14,28 @@ public class GoogleComputeSecurityPolicyAdaptiveProtectionConfigBlock : Terrafor
 /// Block type for advanced_options_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock : TerraformBlock
+public class GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// JSON body parsing. Supported values include: &amp;quot;DISABLED&amp;quot;, &amp;quot;STANDARD&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? JsonParsing
-    {
-        set => SetProperty("json_parsing", value);
-    }
+    [TerraformPropertyName("json_parsing")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> JsonParsing { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "json_parsing");
 
     /// <summary>
     /// Logging level. Supported values include: &amp;quot;NORMAL&amp;quot;, &amp;quot;VERBOSE&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? LogLevel
-    {
-        set => SetProperty("log_level", value);
-    }
+    [TerraformPropertyName("log_level")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LogLevel { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "log_level");
 
     /// <summary>
     /// An optional list of case-insensitive request header names to use for resolving the callers client IP address.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? UserIpRequestHeaders
-    {
-        set => SetProperty("user_ip_request_headers", value);
-    }
+    [TerraformPropertyName("user_ip_request_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? UserIpRequestHeaders { get; set; }
 
 }
 
@@ -46,16 +43,15 @@ public class GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock : TerraformBl
 /// Block type for recaptcha_options_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock : TerraformBlock
+public class GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// A field to supply a reCAPTCHA site key to be used for all the rules using the redirect action with the type of GOOGLE_RECAPTCHA under the security policy. The specified site key needs to be created from the reCAPTCHA API. The user is responsible for the validity of the specified site key. If not specified, a Google-managed site key is used.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectSiteKey is required")]
-    public required TerraformProperty<string> RedirectSiteKey
-    {
-        set => SetProperty("redirect_site_key", value);
-    }
+    [TerraformPropertyName("redirect_site_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RedirectSiteKey { get; set; }
 
 }
 
@@ -63,41 +59,37 @@ public class GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock : TerraformB
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleComputeSecurityPolicyRuleBlock : TerraformBlock
+public class GoogleComputeSecurityPolicyRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// Action to take when match matches the request.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// An optional description of this rule. Max size is 64.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// When set to true, the action specified above is not enforced. Stackdriver logs for requests that trigger a preview action are annotated as such.
     /// </summary>
-    public TerraformProperty<bool>? Preview
-    {
-        set => SetProperty("preview", value);
-    }
+    [TerraformPropertyName("preview")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> Preview { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "preview");
 
     /// <summary>
     /// An unique positive integer indicating the priority of evaluation for a rule. Rules are evaluated from highest priority (lowest numerically) to lowest priority (highest numerically) in order.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    public required TerraformProperty<double> Priority
-    {
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
 
 }
 
@@ -105,31 +97,28 @@ public class GoogleComputeSecurityPolicyRuleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeSecurityPolicyTimeoutsBlock : TerraformBlock
+public class GoogleComputeSecurityPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -141,41 +130,21 @@ public class GoogleComputeSecurityPolicy : TerraformResource
 {
     public GoogleComputeSecurityPolicy(string name) : base("google_compute_security_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("effective_labels");
-        SetOutput("fingerprint");
-        SetOutput("label_fingerprint");
-        SetOutput("self_link");
-        SetOutput("terraform_labels");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("type");
     }
 
     /// <summary>
     /// An optional description of this security policy. Max size is 2048.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Labels to apply to this address.  A list of key-&amp;gt;value pairs.
@@ -184,111 +153,103 @@ public class GoogleComputeSecurityPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The name of the security policy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The type indicates the intended use of the security policy. CLOUD_ARMOR - Cloud Armor backend security policies can be configured to filter incoming HTTP requests targeting backend services. They filter requests before they hit the origin servers. CLOUD_ARMOR_EDGE - Cloud Armor edge security policies can be configured to filter incoming HTTP requests targeting backend services (including Cloud CDN-enabled) as well as backend buckets (Cloud Storage). They filter requests before the request is served from Google&#39;s cache.
     /// </summary>
-    public TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Type { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
     /// <summary>
     /// Block for adaptive_protection_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdaptiveProtectionConfig block(s) allowed")]
-    public List<GoogleComputeSecurityPolicyAdaptiveProtectionConfigBlock>? AdaptiveProtectionConfig
-    {
-        set => SetProperty("adaptive_protection_config", value);
-    }
+    [TerraformPropertyName("adaptive_protection_config")]
+    public TerraformList<TerraformBlock<GoogleComputeSecurityPolicyAdaptiveProtectionConfigBlock>>? AdaptiveProtectionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for advanced_options_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedOptionsConfig block(s) allowed")]
-    public List<GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock>? AdvancedOptionsConfig
-    {
-        set => SetProperty("advanced_options_config", value);
-    }
+    [TerraformPropertyName("advanced_options_config")]
+    public TerraformList<TerraformBlock<GoogleComputeSecurityPolicyAdvancedOptionsConfigBlock>>? AdvancedOptionsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for recaptcha_options_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecaptchaOptionsConfig block(s) allowed")]
-    public List<GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock>? RecaptchaOptionsConfig
-    {
-        set => SetProperty("recaptcha_options_config", value);
-    }
+    [TerraformPropertyName("recaptcha_options_config")]
+    public TerraformList<TerraformBlock<GoogleComputeSecurityPolicyRecaptchaOptionsConfigBlock>>? RecaptchaOptionsConfig { get; set; } = new();
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<GoogleComputeSecurityPolicyRuleBlock>? Rule
-    {
-        set => SetProperty("rule", value);
-    }
+    [TerraformPropertyName("rule")]
+    public TerraformSet<TerraformBlock<GoogleComputeSecurityPolicyRuleBlock>>? Rule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeSecurityPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeSecurityPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Fingerprint of this resource.
     /// </summary>
-    public TerraformExpression Fingerprint => this["fingerprint"];
+    [TerraformPropertyName("fingerprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fingerprint");
 
     /// <summary>
     /// The unique fingerprint of the labels.
     /// </summary>
-    public TerraformExpression LabelFingerprint => this["label_fingerprint"];
+    [TerraformPropertyName("label_fingerprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LabelFingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "label_fingerprint");
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

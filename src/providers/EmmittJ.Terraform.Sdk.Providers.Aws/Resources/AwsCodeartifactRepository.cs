@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for external_connections in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodeartifactRepositoryExternalConnectionsBlock : TerraformBlock
+public class AwsCodeartifactRepositoryExternalConnectionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The external_connection_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalConnectionName is required")]
-    public required TerraformProperty<string> ExternalConnectionName
-    {
-        set => SetProperty("external_connection_name", value);
-    }
+    [TerraformPropertyName("external_connection_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExternalConnectionName { get; set; }
 
     /// <summary>
     /// The package_format attribute.
     /// </summary>
-    public TerraformProperty<string>? PackageFormat
-    {
-        set => SetProperty("package_format", value);
-    }
+    [TerraformPropertyName("package_format")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PackageFormat => new TerraformReferenceProperty<TerraformProperty<string>>("", "package_format");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>("", "status");
 
 }
 
@@ -39,16 +36,15 @@ public class AwsCodeartifactRepositoryExternalConnectionsBlock : TerraformBlock
 /// Block type for upstream in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodeartifactRepositoryUpstreamBlock : TerraformBlock
+public class AwsCodeartifactRepositoryUpstreamBlock : ITerraformBlock
 {
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
-    public required TerraformProperty<string> RepositoryName
-    {
-        set => SetProperty("repository_name", value);
-    }
+    [TerraformPropertyName("repository_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RepositoryName { get; set; }
 
 }
 
@@ -60,124 +56,93 @@ public class AwsCodeartifactRepository : TerraformResource
 {
     public AwsCodeartifactRepository(string name) : base("aws_codeartifact_repository", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("administrator_account");
-        SetOutput("arn");
-        SetOutput("description");
-        SetOutput("domain");
-        SetOutput("domain_owner");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("repository");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
-    public required TerraformProperty<string> Domain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain");
-        set => SetProperty("domain", value);
-    }
+    [TerraformPropertyName("domain")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Domain { get; set; }
 
     /// <summary>
     /// The domain_owner attribute.
     /// </summary>
-    public TerraformProperty<string> DomainOwner
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_owner");
-        set => SetProperty("domain_owner", value);
-    }
+    [TerraformPropertyName("domain_owner")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DomainOwner { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_owner");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The repository attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
-    public required TerraformProperty<string> Repository
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("repository");
-        set => SetProperty("repository", value);
-    }
+    [TerraformPropertyName("repository")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Repository { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for external_connections.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalConnections block(s) allowed")]
-    public List<AwsCodeartifactRepositoryExternalConnectionsBlock>? ExternalConnections
-    {
-        set => SetProperty("external_connections", value);
-    }
+    [TerraformPropertyName("external_connections")]
+    public TerraformList<TerraformBlock<AwsCodeartifactRepositoryExternalConnectionsBlock>>? ExternalConnections { get; set; } = new();
 
     /// <summary>
     /// Block for upstream.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsCodeartifactRepositoryUpstreamBlock>? Upstream
-    {
-        set => SetProperty("upstream", value);
-    }
+    [TerraformPropertyName("upstream")]
+    public TerraformList<TerraformBlock<AwsCodeartifactRepositoryUpstreamBlock>>? Upstream { get; set; } = new();
 
     /// <summary>
     /// The administrator_account attribute.
     /// </summary>
-    public TerraformExpression AdministratorAccount => this["administrator_account"];
+    [TerraformPropertyName("administrator_account")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AdministratorAccount => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "administrator_account");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerAppCustomDomainTimeoutsBlock : TerraformBlock
+public class AzurermContainerAppCustomDomainTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,78 +38,57 @@ public class AzurermContainerAppCustomDomain : TerraformResource
 {
     public AzurermContainerAppCustomDomain(string name) : base("azurerm_container_app_custom_domain", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("container_app_environment_managed_certificate_id");
-        SetOutput("certificate_binding_type");
-        SetOutput("container_app_environment_certificate_id");
-        SetOutput("container_app_id");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The Binding type. Possible values include `Disabled` and `SniEnabled`.
     /// </summary>
-    public TerraformProperty<string> CertificateBindingType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("certificate_binding_type");
-        set => SetProperty("certificate_binding_type", value);
-    }
+    [TerraformPropertyName("certificate_binding_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CertificateBindingType { get; set; }
 
     /// <summary>
     /// The container_app_environment_certificate_id attribute.
     /// </summary>
-    public TerraformProperty<string> ContainerAppEnvironmentCertificateId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_app_environment_certificate_id");
-        set => SetProperty("container_app_environment_certificate_id", value);
-    }
+    [TerraformPropertyName("container_app_environment_certificate_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContainerAppEnvironmentCertificateId { get; set; }
 
     /// <summary>
     /// The container_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppId is required")]
-    public required TerraformProperty<string> ContainerAppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_app_id");
-        set => SetProperty("container_app_id", value);
-    }
+    [TerraformPropertyName("container_app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContainerAppId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermContainerAppCustomDomainTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermContainerAppCustomDomainTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The container_app_environment_managed_certificate_id attribute.
     /// </summary>
-    public TerraformExpression ContainerAppEnvironmentManagedCertificateId => this["container_app_environment_managed_certificate_id"];
+    [TerraformPropertyName("container_app_environment_managed_certificate_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContainerAppEnvironmentManagedCertificateId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "container_app_environment_managed_certificate_id");
 
 }

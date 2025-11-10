@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeFirewallPolicyAssociationTimeoutsBlock : TerraformBlock
+public class GoogleComputeFirewallPolicyAssociationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,27 +38,15 @@ public class GoogleComputeFirewallPolicyAssociation : TerraformResource
 {
     public GoogleComputeFirewallPolicyAssociation(string name) : base("google_compute_firewall_policy_association", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("short_name");
-        SetOutput("attachment_target");
-        SetOutput("firewall_policy");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The target that the firewall policy is attached to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentTarget is required")]
-    public required TerraformProperty<string> AttachmentTarget
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("attachment_target");
-        set => SetProperty("attachment_target", value);
-    }
+    [TerraformPropertyName("attachment_target")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AttachmentTarget { get; set; }
 
     /// <summary>
     /// The firewall policy of the resource.
@@ -73,43 +58,37 @@ public class GoogleComputeFirewallPolicyAssociation : TerraformResource
     /// on your exisiting firewall policy so as to prevent a situation where your attachment target has no associated policy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicy is required")]
-    public required TerraformProperty<string> FirewallPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("firewall_policy");
-        set => SetProperty("firewall_policy", value);
-    }
+    [TerraformPropertyName("firewall_policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FirewallPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name for an association.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeFirewallPolicyAssociationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeFirewallPolicyAssociationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The short name of the firewall policy of the association.
     /// </summary>
-    public TerraformExpression ShortName => this["short_name"];
+    [TerraformPropertyName("short_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ShortName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "short_name");
 
 }

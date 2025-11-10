@@ -9,172 +9,175 @@ public class AwsKmsKeyDataSource : TerraformDataSource
 {
     public AwsKmsKeyDataSource(string name) : base("aws_kms_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("aws_account_id");
-        SetOutput("cloud_hsm_cluster_id");
-        SetOutput("creation_date");
-        SetOutput("custom_key_store_id");
-        SetOutput("customer_master_key_spec");
-        SetOutput("deletion_date");
-        SetOutput("description");
-        SetOutput("enabled");
-        SetOutput("expiration_model");
-        SetOutput("key_manager");
-        SetOutput("key_spec");
-        SetOutput("key_state");
-        SetOutput("key_usage");
-        SetOutput("multi_region");
-        SetOutput("multi_region_configuration");
-        SetOutput("origin");
-        SetOutput("pending_deletion_window_in_days");
-        SetOutput("valid_to");
-        SetOutput("xks_key_configuration");
-        SetOutput("grant_tokens");
-        SetOutput("id");
-        SetOutput("key_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The grant_tokens attribute.
     /// </summary>
-    public List<TerraformProperty<string>> GrantTokens
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("grant_tokens");
-        set => SetProperty("grant_tokens", value);
-    }
+    [TerraformPropertyName("grant_tokens")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? GrantTokens { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
-    public required TerraformProperty<string> KeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_id");
-        set => SetProperty("key_id", value);
-    }
+    [TerraformPropertyName("key_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformExpression AwsAccountId => this["aws_account_id"];
+    [TerraformPropertyName("aws_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AwsAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_account_id");
 
     /// <summary>
     /// The cloud_hsm_cluster_id attribute.
     /// </summary>
-    public TerraformExpression CloudHsmClusterId => this["cloud_hsm_cluster_id"];
+    [TerraformPropertyName("cloud_hsm_cluster_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CloudHsmClusterId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cloud_hsm_cluster_id");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
-    public TerraformExpression CreationDate => this["creation_date"];
+    [TerraformPropertyName("creation_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_date");
 
     /// <summary>
     /// The custom_key_store_id attribute.
     /// </summary>
-    public TerraformExpression CustomKeyStoreId => this["custom_key_store_id"];
+    [TerraformPropertyName("custom_key_store_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CustomKeyStoreId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "custom_key_store_id");
 
     /// <summary>
     /// The customer_master_key_spec attribute.
     /// </summary>
-    public TerraformExpression CustomerMasterKeySpec => this["customer_master_key_spec"];
+    [TerraformPropertyName("customer_master_key_spec")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CustomerMasterKeySpec => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "customer_master_key_spec");
 
     /// <summary>
     /// The deletion_date attribute.
     /// </summary>
-    public TerraformExpression DeletionDate => this["deletion_date"];
+    [TerraformPropertyName("deletion_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeletionDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deletion_date");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformExpression Enabled => this["enabled"];
+    [TerraformPropertyName("enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Enabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enabled");
 
     /// <summary>
     /// The expiration_model attribute.
     /// </summary>
-    public TerraformExpression ExpirationModel => this["expiration_model"];
+    [TerraformPropertyName("expiration_model")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpirationModel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_model");
 
     /// <summary>
     /// The key_manager attribute.
     /// </summary>
-    public TerraformExpression KeyManager => this["key_manager"];
+    [TerraformPropertyName("key_manager")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyManager => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_manager");
 
     /// <summary>
     /// The key_spec attribute.
     /// </summary>
-    public TerraformExpression KeySpec => this["key_spec"];
+    [TerraformPropertyName("key_spec")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeySpec => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_spec");
 
     /// <summary>
     /// The key_state attribute.
     /// </summary>
-    public TerraformExpression KeyState => this["key_state"];
+    [TerraformPropertyName("key_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_state");
 
     /// <summary>
     /// The key_usage attribute.
     /// </summary>
-    public TerraformExpression KeyUsage => this["key_usage"];
+    [TerraformPropertyName("key_usage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KeyUsage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "key_usage");
 
     /// <summary>
     /// The multi_region attribute.
     /// </summary>
-    public TerraformExpression MultiRegion => this["multi_region"];
+    [TerraformPropertyName("multi_region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> MultiRegion => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "multi_region");
 
     /// <summary>
     /// The multi_region_configuration attribute.
     /// </summary>
-    public TerraformExpression MultiRegionConfiguration => this["multi_region_configuration"];
+    [TerraformPropertyName("multi_region_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> MultiRegionConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "multi_region_configuration");
 
     /// <summary>
     /// The origin attribute.
     /// </summary>
-    public TerraformExpression Origin => this["origin"];
+    [TerraformPropertyName("origin")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Origin => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "origin");
 
     /// <summary>
     /// The pending_deletion_window_in_days attribute.
     /// </summary>
-    public TerraformExpression PendingDeletionWindowInDays => this["pending_deletion_window_in_days"];
+    [TerraformPropertyName("pending_deletion_window_in_days")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> PendingDeletionWindowInDays => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "pending_deletion_window_in_days");
 
     /// <summary>
     /// The valid_to attribute.
     /// </summary>
-    public TerraformExpression ValidTo => this["valid_to"];
+    [TerraformPropertyName("valid_to")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ValidTo => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "valid_to");
 
     /// <summary>
     /// The xks_key_configuration attribute.
     /// </summary>
-    public TerraformExpression XksKeyConfiguration => this["xks_key_configuration"];
+    [TerraformPropertyName("xks_key_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> XksKeyConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "xks_key_configuration");
 
 }

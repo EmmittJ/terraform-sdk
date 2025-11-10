@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cidr_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedaccessEndpointCidrOptionsBlock : TerraformBlock
+public class AwsVerifiedaccessEndpointCidrOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The cidr attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
-    public required TerraformProperty<string> Cidr
-    {
-        set => SetProperty("cidr", value);
-    }
+    [TerraformPropertyName("cidr")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Cidr { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? Protocol
-    {
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Protocol { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
-    {
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
 }
 
@@ -39,39 +36,35 @@ public class AwsVerifiedaccessEndpointCidrOptionsBlock : TerraformBlock
 /// Block type for load_balancer_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock : TerraformBlock
+public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The load_balancer_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? LoadBalancerArn
-    {
-        set => SetProperty("load_balancer_arn", value);
-    }
+    [TerraformPropertyName("load_balancer_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LoadBalancerArn { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? Protocol
-    {
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Protocol { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
-    {
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
 }
 
@@ -79,31 +72,28 @@ public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock : TerraformBlock
 /// Block type for network_interface_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock : TerraformBlock
+public class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkInterfaceId
-    {
-        set => SetProperty("network_interface_id", value);
-    }
+    [TerraformPropertyName("network_interface_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NetworkInterfaceId { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? Protocol
-    {
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Protocol { get; set; }
 
 }
 
@@ -111,63 +101,56 @@ public class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock : TerraformBl
 /// Block type for rds_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
+public class AwsVerifiedaccessEndpointRdsOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? Protocol
-    {
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Protocol { get; set; }
 
     /// <summary>
     /// The rds_db_cluster_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RdsDbClusterArn
-    {
-        set => SetProperty("rds_db_cluster_arn", value);
-    }
+    [TerraformPropertyName("rds_db_cluster_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RdsDbClusterArn { get; set; }
 
     /// <summary>
     /// The rds_db_instance_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RdsDbInstanceArn
-    {
-        set => SetProperty("rds_db_instance_arn", value);
-    }
+    [TerraformPropertyName("rds_db_instance_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RdsDbInstanceArn { get; set; }
 
     /// <summary>
     /// The rds_db_proxy_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RdsDbProxyArn
-    {
-        set => SetProperty("rds_db_proxy_arn", value);
-    }
+    [TerraformPropertyName("rds_db_proxy_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RdsDbProxyArn { get; set; }
 
     /// <summary>
     /// The rds_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? RdsEndpoint
-    {
-        set => SetProperty("rds_endpoint", value);
-    }
+    [TerraformPropertyName("rds_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RdsEndpoint { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SubnetIds
-    {
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
 }
 
@@ -175,23 +158,21 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
 /// Block type for sse_specification in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedaccessEndpointSseSpecificationBlock : TerraformBlock
+public class AwsVerifiedaccessEndpointSseSpecificationBlock : ITerraformBlock
 {
     /// <summary>
     /// The customer_managed_key_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CustomerManagedKeyEnabled
-    {
-        set => SetProperty("customer_managed_key_enabled", value);
-    }
+    [TerraformPropertyName("customer_managed_key_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CustomerManagedKeyEnabled { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
-    {
-        set => SetProperty("kms_key_arn", value);
-    }
+    [TerraformPropertyName("kms_key_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyArn { get; set; }
 
 }
 
@@ -199,31 +180,28 @@ public class AwsVerifiedaccessEndpointSseSpecificationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsVerifiedaccessEndpointTimeoutsBlock : TerraformBlock
+public class AwsVerifiedaccessEndpointTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -235,221 +213,168 @@ public class AwsVerifiedaccessEndpoint : TerraformResource
 {
     public AwsVerifiedaccessEndpoint(string name) : base("aws_verifiedaccess_endpoint", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("device_validation_domain");
-        SetOutput("endpoint_domain");
-        SetOutput("verified_access_instance_id");
-        SetOutput("application_domain");
-        SetOutput("attachment_type");
-        SetOutput("description");
-        SetOutput("domain_certificate_arn");
-        SetOutput("endpoint_domain_prefix");
-        SetOutput("endpoint_type");
-        SetOutput("id");
-        SetOutput("policy_document");
-        SetOutput("region");
-        SetOutput("security_group_ids");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("verified_access_group_id");
     }
 
     /// <summary>
     /// The application_domain attribute.
     /// </summary>
-    public TerraformProperty<string> ApplicationDomain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_domain");
-        set => SetProperty("application_domain", value);
-    }
+    [TerraformPropertyName("application_domain")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ApplicationDomain { get; set; }
 
     /// <summary>
     /// The attachment_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentType is required")]
-    public required TerraformProperty<string> AttachmentType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("attachment_type");
-        set => SetProperty("attachment_type", value);
-    }
+    [TerraformPropertyName("attachment_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AttachmentType { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The domain_certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string> DomainCertificateArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_certificate_arn");
-        set => SetProperty("domain_certificate_arn", value);
-    }
+    [TerraformPropertyName("domain_certificate_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DomainCertificateArn { get; set; }
 
     /// <summary>
     /// The endpoint_domain_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> EndpointDomainPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_domain_prefix");
-        set => SetProperty("endpoint_domain_prefix", value);
-    }
+    [TerraformPropertyName("endpoint_domain_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EndpointDomainPrefix { get; set; }
 
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
-    public required TerraformProperty<string> EndpointType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("endpoint_type");
-        set => SetProperty("endpoint_type", value);
-    }
+    [TerraformPropertyName("endpoint_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EndpointType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The policy_document attribute.
     /// </summary>
-    public TerraformProperty<string> PolicyDocument
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_document");
-        set => SetProperty("policy_document", value);
-    }
+    [TerraformPropertyName("policy_document")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PolicyDocument { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SecurityGroupIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_group_ids");
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The verified_access_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedAccessGroupId is required")]
-    public required TerraformProperty<string> VerifiedAccessGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("verified_access_group_id");
-        set => SetProperty("verified_access_group_id", value);
-    }
+    [TerraformPropertyName("verified_access_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VerifiedAccessGroupId { get; set; }
 
     /// <summary>
     /// Block for cidr_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CidrOptions block(s) allowed")]
-    public List<AwsVerifiedaccessEndpointCidrOptionsBlock>? CidrOptions
-    {
-        set => SetProperty("cidr_options", value);
-    }
+    [TerraformPropertyName("cidr_options")]
+    public TerraformList<TerraformBlock<AwsVerifiedaccessEndpointCidrOptionsBlock>>? CidrOptions { get; set; } = new();
 
     /// <summary>
     /// Block for load_balancer_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancerOptions block(s) allowed")]
-    public List<AwsVerifiedaccessEndpointLoadBalancerOptionsBlock>? LoadBalancerOptions
-    {
-        set => SetProperty("load_balancer_options", value);
-    }
+    [TerraformPropertyName("load_balancer_options")]
+    public TerraformList<TerraformBlock<AwsVerifiedaccessEndpointLoadBalancerOptionsBlock>>? LoadBalancerOptions { get; set; } = new();
 
     /// <summary>
     /// Block for network_interface_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkInterfaceOptions block(s) allowed")]
-    public List<AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock>? NetworkInterfaceOptions
-    {
-        set => SetProperty("network_interface_options", value);
-    }
+    [TerraformPropertyName("network_interface_options")]
+    public TerraformList<TerraformBlock<AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock>>? NetworkInterfaceOptions { get; set; } = new();
 
     /// <summary>
     /// Block for rds_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RdsOptions block(s) allowed")]
-    public List<AwsVerifiedaccessEndpointRdsOptionsBlock>? RdsOptions
-    {
-        set => SetProperty("rds_options", value);
-    }
+    [TerraformPropertyName("rds_options")]
+    public TerraformList<TerraformBlock<AwsVerifiedaccessEndpointRdsOptionsBlock>>? RdsOptions { get; set; } = new();
 
     /// <summary>
     /// Block for sse_specification.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SseSpecification block(s) allowed")]
-    public List<AwsVerifiedaccessEndpointSseSpecificationBlock>? SseSpecification
-    {
-        set => SetProperty("sse_specification", value);
-    }
+    [TerraformPropertyName("sse_specification")]
+    public TerraformList<TerraformBlock<AwsVerifiedaccessEndpointSseSpecificationBlock>>? SseSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsVerifiedaccessEndpointTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsVerifiedaccessEndpointTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The device_validation_domain attribute.
     /// </summary>
-    public TerraformExpression DeviceValidationDomain => this["device_validation_domain"];
+    [TerraformPropertyName("device_validation_domain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeviceValidationDomain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "device_validation_domain");
 
     /// <summary>
     /// The endpoint_domain attribute.
     /// </summary>
-    public TerraformExpression EndpointDomain => this["endpoint_domain"];
+    [TerraformPropertyName("endpoint_domain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EndpointDomain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_domain");
 
     /// <summary>
     /// The verified_access_instance_id attribute.
     /// </summary>
-    public TerraformExpression VerifiedAccessInstanceId => this["verified_access_instance_id"];
+    [TerraformPropertyName("verified_access_instance_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VerifiedAccessInstanceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "verified_access_instance_id");
 
 }

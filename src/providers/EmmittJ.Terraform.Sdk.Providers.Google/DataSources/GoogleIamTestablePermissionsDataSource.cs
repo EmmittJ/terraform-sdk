@@ -9,58 +9,42 @@ public class GoogleIamTestablePermissionsDataSource : TerraformDataSource
 {
     public GoogleIamTestablePermissionsDataSource(string name) : base("google_iam_testable_permissions", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("permissions");
-        SetOutput("custom_support_level");
-        SetOutput("full_resource_name");
-        SetOutput("id");
-        SetOutput("stages");
     }
 
     /// <summary>
     /// The custom_support_level attribute.
     /// </summary>
-    public TerraformProperty<string> CustomSupportLevel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("custom_support_level");
-        set => SetProperty("custom_support_level", value);
-    }
+    [TerraformPropertyName("custom_support_level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CustomSupportLevel { get; set; }
 
     /// <summary>
     /// The full_resource_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullResourceName is required")]
-    public required TerraformProperty<string> FullResourceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("full_resource_name");
-        set => SetProperty("full_resource_name", value);
-    }
+    [TerraformPropertyName("full_resource_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FullResourceName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The stages attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Stages
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("stages");
-        set => SetProperty("stages", value);
-    }
+    [TerraformPropertyName("stages")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Stages { get; set; }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public TerraformExpression Permissions => this["permissions"];
+    [TerraformPropertyName("permissions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Permissions => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "permissions");
 
 }

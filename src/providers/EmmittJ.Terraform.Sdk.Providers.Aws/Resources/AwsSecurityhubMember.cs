@@ -9,74 +9,56 @@ public class AwsSecurityhubMember : TerraformResource
 {
     public AwsSecurityhubMember(string name) : base("aws_securityhub_member", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("master_id");
-        SetOutput("member_status");
-        SetOutput("account_id");
-        SetOutput("email");
-        SetOutput("id");
-        SetOutput("invite");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
-    public required TerraformProperty<string> AccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_id");
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountId { get; set; }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformProperty<string> Email
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("email");
-        set => SetProperty("email", value);
-    }
+    [TerraformPropertyName("email")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Email { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The invite attribute.
     /// </summary>
-    public TerraformProperty<bool> Invite
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("invite");
-        set => SetProperty("invite", value);
-    }
+    [TerraformPropertyName("invite")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Invite { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The master_id attribute.
     /// </summary>
-    public TerraformExpression MasterId => this["master_id"];
+    [TerraformPropertyName("master_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MasterId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "master_id");
 
     /// <summary>
     /// The member_status attribute.
     /// </summary>
-    public TerraformExpression MemberStatus => this["member_status"];
+    [TerraformPropertyName("member_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MemberStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "member_status");
 
 }

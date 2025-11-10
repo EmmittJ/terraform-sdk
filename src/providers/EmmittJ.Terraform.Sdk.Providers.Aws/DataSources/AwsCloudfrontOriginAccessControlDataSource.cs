@@ -9,64 +9,63 @@ public class AwsCloudfrontOriginAccessControlDataSource : TerraformDataSource
 {
     public AwsCloudfrontOriginAccessControlDataSource(string name) : base("aws_cloudfront_origin_access_control", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("description");
-        SetOutput("etag");
-        SetOutput("name");
-        SetOutput("origin_access_control_origin_type");
-        SetOutput("signing_behavior");
-        SetOutput("signing_protocol");
-        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The origin_access_control_origin_type attribute.
     /// </summary>
-    public TerraformExpression OriginAccessControlOriginType => this["origin_access_control_origin_type"];
+    [TerraformPropertyName("origin_access_control_origin_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OriginAccessControlOriginType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "origin_access_control_origin_type");
 
     /// <summary>
     /// The signing_behavior attribute.
     /// </summary>
-    public TerraformExpression SigningBehavior => this["signing_behavior"];
+    [TerraformPropertyName("signing_behavior")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SigningBehavior => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signing_behavior");
 
     /// <summary>
     /// The signing_protocol attribute.
     /// </summary>
-    public TerraformExpression SigningProtocol => this["signing_protocol"];
+    [TerraformPropertyName("signing_protocol")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SigningProtocol => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signing_protocol");
 
 }

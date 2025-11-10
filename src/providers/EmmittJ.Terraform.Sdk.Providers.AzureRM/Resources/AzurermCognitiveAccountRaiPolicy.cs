@@ -6,52 +6,47 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for content_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
+public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The block_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockEnabled is required")]
-    public required TerraformProperty<bool> BlockEnabled
-    {
-        set => SetProperty("block_enabled", value);
-    }
+    [TerraformPropertyName("block_enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> BlockEnabled { get; set; }
 
     /// <summary>
     /// The filter_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterEnabled is required")]
-    public required TerraformProperty<bool> FilterEnabled
-    {
-        set => SetProperty("filter_enabled", value);
-    }
+    [TerraformPropertyName("filter_enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> FilterEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The severity_threshold attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SeverityThreshold is required")]
-    public required TerraformProperty<string> SeverityThreshold
-    {
-        set => SetProperty("severity_threshold", value);
-    }
+    [TerraformPropertyName("severity_threshold")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SeverityThreshold { get; set; }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
-    public required TerraformProperty<string> Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Source { get; set; }
 
 }
 
@@ -59,39 +54,35 @@ public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCognitiveAccountRaiPolicyTimeoutsBlock : TerraformBlock
+public class AzurermCognitiveAccountRaiPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -103,75 +94,52 @@ public class AzurermCognitiveAccountRaiPolicy : TerraformResource
 {
     public AzurermCognitiveAccountRaiPolicy(string name) : base("azurerm_cognitive_account_rai_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("base_policy_name");
-        SetOutput("cognitive_account_id");
-        SetOutput("id");
-        SetOutput("mode");
-        SetOutput("name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The base_policy_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BasePolicyName is required")]
-    public required TerraformProperty<string> BasePolicyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("base_policy_name");
-        set => SetProperty("base_policy_name", value);
-    }
+    [TerraformPropertyName("base_policy_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BasePolicyName { get; set; }
 
     /// <summary>
     /// The cognitive_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
-    public required TerraformProperty<string> CognitiveAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cognitive_account_id");
-        set => SetProperty("cognitive_account_id", value);
-    }
+    [TerraformPropertyName("cognitive_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CognitiveAccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string> Mode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("mode");
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for content_filter.
@@ -179,18 +147,14 @@ public class AzurermCognitiveAccountRaiPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentFilter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContentFilter block(s) required")]
-    public List<AzurermCognitiveAccountRaiPolicyContentFilterBlock>? ContentFilter
-    {
-        set => SetProperty("content_filter", value);
-    }
+    [TerraformPropertyName("content_filter")]
+    public TerraformList<TerraformBlock<AzurermCognitiveAccountRaiPolicyContentFilterBlock>>? ContentFilter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCognitiveAccountRaiPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCognitiveAccountRaiPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

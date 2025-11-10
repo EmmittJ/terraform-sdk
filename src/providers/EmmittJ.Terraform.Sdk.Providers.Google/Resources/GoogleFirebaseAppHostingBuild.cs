@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFirebaseAppHostingBuildSourceBlock : TerraformBlock
+public class GoogleFirebaseAppHostingBuildSourceBlock : ITerraformBlock
 {
 }
 
@@ -14,31 +14,28 @@ public class GoogleFirebaseAppHostingBuildSourceBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirebaseAppHostingBuildTimeoutsBlock : TerraformBlock
+public class GoogleFirebaseAppHostingBuildTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -50,33 +47,6 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
 {
     public GoogleFirebaseAppHostingBuild(string name) : base("google_firebase_app_hosting_build", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("build_logs_uri");
-        SetOutput("create_time");
-        SetOutput("effective_annotations");
-        SetOutput("effective_labels");
-        SetOutput("environment");
-        SetOutput("error");
-        SetOutput("error_source");
-        SetOutput("etag");
-        SetOutput("image");
-        SetOutput("name");
-        SetOutput("state");
-        SetOutput("terraform_labels");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("annotations");
-        SetOutput("backend");
-        SetOutput("build_id");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -87,49 +57,39 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// The ID of the Backend that this Build applies to
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
-    public required TerraformProperty<string> Backend
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backend");
-        set => SetProperty("backend", value);
-    }
+    [TerraformPropertyName("backend")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Backend { get; set; }
 
     /// <summary>
     /// The user-specified ID of the build being created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuildId is required")]
-    public required TerraformProperty<string> BuildId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("build_id");
-        set => SetProperty("build_id", value);
-    }
+    [TerraformPropertyName("build_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BuildId { get; set; }
 
     /// <summary>
     /// Human-readable name. 63 character limit.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Unstructured key value map that can be used to organize and categorize
@@ -138,30 +98,24 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The location of the Backend that this Build applies to
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for source.
@@ -170,46 +124,52 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    public List<GoogleFirebaseAppHostingBuildSourceBlock>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    public TerraformList<TerraformBlock<GoogleFirebaseAppHostingBuildSourceBlock>>? Source { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleFirebaseAppHostingBuildTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleFirebaseAppHostingBuildTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The location of the [Cloud Build
     /// logs](https://cloud.google.com/build/docs/view-build-results) for the build
     /// process.
     /// </summary>
-    public TerraformExpression BuildLogsUri => this["build_logs_uri"];
+    [TerraformPropertyName("build_logs_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BuildLogsUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "build_logs_uri");
 
     /// <summary>
     /// Time at which the build was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+    [TerraformPropertyName("effective_annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The environment name of the backend when this build was created.
     /// </summary>
-    public TerraformExpression Environment => this["environment"];
+    [TerraformPropertyName("environment")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Environment => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "environment");
 
     /// <summary>
     /// The &#39;Status&#39; type defines a logical error model that is suitable for
@@ -220,7 +180,9 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     /// You can find out more about this error model and how to work with it in the
     /// [API Design Guide](https://cloud.google.com/apis/design/errors).
     /// </summary>
-    public TerraformExpression Error => this["error"];
+    [TerraformPropertyName("error")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Error => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "error");
 
     /// <summary>
     /// The source of the error for the build, if in a &#39;FAILED&#39; state.
@@ -228,13 +190,17 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     /// CLOUD_BUILD
     /// CLOUD_RUN
     /// </summary>
-    public TerraformExpression ErrorSource => this["error_source"];
+    [TerraformPropertyName("error_source")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ErrorSource => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "error_source");
 
     /// <summary>
     /// Server-computed checksum based on other values; may be sent
     /// on update or delete to ensure operation is done on expected resource.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The Artifact Registry
@@ -244,7 +210,9 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     /// [&#39;revision&#39;](https://cloud.google.com/run/docs/reference/rest/v2/projects.locations.services.revisions)
     /// for this build.
     /// </summary>
-    public TerraformExpression Image => this["image"];
+    [TerraformPropertyName("image")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Image => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image");
 
     /// <summary>
     /// Identifier. The resource name of the build.
@@ -253,7 +221,9 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     /// 
     /// &#39;projects/{project}/locations/{locationId}/backends/{backendId}/builds/{buildId}&#39;.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The state of the build.
@@ -264,22 +234,30 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     /// READY
     /// FAILED
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// System-assigned, unique identifier.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// Time at which the build was last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

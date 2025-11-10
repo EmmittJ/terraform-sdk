@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoint in .
 /// Nesting mode: set
 /// </summary>
-public class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock : TerraformBlock
+public class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformProperty<string>? Region
-    {
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<string>? Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Value { get; set; }
 
 }
 
@@ -47,24 +43,22 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock : TerraformB
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock : TerraformBlock
+public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -75,85 +69,62 @@ public class AwsRoute53TrafficPolicyDocumentDataSource : TerraformDataSource
 {
     public AwsRoute53TrafficPolicyDocumentDataSource(string name) : base("aws_route53_traffic_policy_document", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("json");
-        SetOutput("id");
-        SetOutput("record_type");
-        SetOutput("start_endpoint");
-        SetOutput("start_rule");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The record_type attribute.
     /// </summary>
-    public TerraformProperty<string> RecordType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("record_type");
-        set => SetProperty("record_type", value);
-    }
+    [TerraformPropertyName("record_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RecordType { get; set; }
 
     /// <summary>
     /// The start_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string> StartEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("start_endpoint");
-        set => SetProperty("start_endpoint", value);
-    }
+    [TerraformPropertyName("start_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StartEndpoint { get; set; }
 
     /// <summary>
     /// The start_rule attribute.
     /// </summary>
-    public TerraformProperty<string> StartRule
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("start_rule");
-        set => SetProperty("start_rule", value);
-    }
+    [TerraformPropertyName("start_rule")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StartRule { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
     /// <summary>
     /// Block for endpoint.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock>? Endpoint
-    {
-        set => SetProperty("endpoint", value);
-    }
+    [TerraformPropertyName("endpoint")]
+    public TerraformSet<TerraformBlock<AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock>>? Endpoint { get; set; } = new();
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock>? Rule
-    {
-        set => SetProperty("rule", value);
-    }
+    [TerraformPropertyName("rule")]
+    public TerraformSet<TerraformBlock<AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock>>? Rule { get; set; } = new();
 
     /// <summary>
     /// The json attribute.
     /// </summary>
-    public TerraformExpression Json => this["json"];
+    [TerraformPropertyName("json")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Json => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "json");
 
 }

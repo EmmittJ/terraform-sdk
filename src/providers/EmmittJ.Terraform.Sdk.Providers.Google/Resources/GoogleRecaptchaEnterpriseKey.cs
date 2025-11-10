@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for android_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock : TerraformBlock
+public class GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// If set to true, it means allowed_package_names will not be enforced.
     /// </summary>
-    public TerraformProperty<bool>? AllowAllPackageNames
-    {
-        set => SetProperty("allow_all_package_names", value);
-    }
+    [TerraformPropertyName("allow_all_package_names")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowAllPackageNames { get; set; }
 
     /// <summary>
     /// Android package names of apps allowed to use the key. Example: &#39;com.companyname.appname&#39;
     /// </summary>
-    public List<TerraformProperty<string>>? AllowedPackageNames
-    {
-        set => SetProperty("allowed_package_names", value);
-    }
+    [TerraformPropertyName("allowed_package_names")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AllowedPackageNames { get; set; }
 
 }
 
@@ -30,23 +28,21 @@ public class GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock : TerraformBlock
 /// Block type for ios_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleRecaptchaEnterpriseKeyIosSettingsBlock : TerraformBlock
+public class GoogleRecaptchaEnterpriseKeyIosSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// If set to true, it means allowed_bundle_ids will not be enforced.
     /// </summary>
-    public TerraformProperty<bool>? AllowAllBundleIds
-    {
-        set => SetProperty("allow_all_bundle_ids", value);
-    }
+    [TerraformPropertyName("allow_all_bundle_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowAllBundleIds { get; set; }
 
     /// <summary>
     /// iOS bundle ids of apps allowed to use the key. Example: &#39;com.companyname.productname.appname&#39;
     /// </summary>
-    public List<TerraformProperty<string>>? AllowedBundleIds
-    {
-        set => SetProperty("allowed_bundle_ids", value);
-    }
+    [TerraformPropertyName("allowed_bundle_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AllowedBundleIds { get; set; }
 
 }
 
@@ -54,23 +50,21 @@ public class GoogleRecaptchaEnterpriseKeyIosSettingsBlock : TerraformBlock
 /// Block type for testing_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleRecaptchaEnterpriseKeyTestingOptionsBlock : TerraformBlock
+public class GoogleRecaptchaEnterpriseKeyTestingOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// For challenge-based keys only (CHECKBOX, INVISIBLE), all challenge requests for this site will return nocaptcha if NOCAPTCHA, or an unsolvable challenge if UNSOLVABLE_CHALLENGE. Possible values: TESTING_CHALLENGE_UNSPECIFIED, NOCAPTCHA, UNSOLVABLE_CHALLENGE
     /// </summary>
-    public TerraformProperty<string>? TestingChallenge
-    {
-        set => SetProperty("testing_challenge", value);
-    }
+    [TerraformPropertyName("testing_challenge")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TestingChallenge { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "testing_challenge");
 
     /// <summary>
     /// All assessments for this Key will return this score. Must be between 0 (likely not legitimate) and 1 (likely legitimate) inclusive.
     /// </summary>
-    public TerraformProperty<double>? TestingScore
-    {
-        set => SetProperty("testing_score", value);
-    }
+    [TerraformPropertyName("testing_score")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TestingScore { get; set; }
 
 }
 
@@ -78,31 +72,28 @@ public class GoogleRecaptchaEnterpriseKeyTestingOptionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleRecaptchaEnterpriseKeyTimeoutsBlock : TerraformBlock
+public class GoogleRecaptchaEnterpriseKeyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -110,25 +101,23 @@ public class GoogleRecaptchaEnterpriseKeyTimeoutsBlock : TerraformBlock
 /// Block type for waf_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleRecaptchaEnterpriseKeyWafSettingsBlock : TerraformBlock
+public class GoogleRecaptchaEnterpriseKeyWafSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// Supported WAF features. For more information, see https://cloud.google.com/recaptcha-enterprise/docs/usecase#comparison_of_features. Possible values: CHALLENGE_PAGE, SESSION_TOKEN, ACTION_TOKEN, EXPRESS
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WafFeature is required")]
-    public required TerraformProperty<string> WafFeature
-    {
-        set => SetProperty("waf_feature", value);
-    }
+    [TerraformPropertyName("waf_feature")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WafFeature { get; set; }
 
     /// <summary>
     /// The WAF service that uses this key. Possible values: CA, FASTLY
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WafService is required")]
-    public required TerraformProperty<string> WafService
-    {
-        set => SetProperty("waf_service", value);
-    }
+    [TerraformPropertyName("waf_service")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WafService { get; set; }
 
 }
 
@@ -136,48 +125,43 @@ public class GoogleRecaptchaEnterpriseKeyWafSettingsBlock : TerraformBlock
 /// Block type for web_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
+public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// If set to true, it means allowed_domains will not be enforced.
     /// </summary>
-    public TerraformProperty<bool>? AllowAllDomains
-    {
-        set => SetProperty("allow_all_domains", value);
-    }
+    [TerraformPropertyName("allow_all_domains")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowAllDomains { get; set; }
 
     /// <summary>
     /// If set to true, the key can be used on AMP (Accelerated Mobile Pages) websites. This is supported only for the SCORE integration type.
     /// </summary>
-    public TerraformProperty<bool>? AllowAmpTraffic
-    {
-        set => SetProperty("allow_amp_traffic", value);
-    }
+    [TerraformPropertyName("allow_amp_traffic")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowAmpTraffic { get; set; }
 
     /// <summary>
     /// Domains or subdomains of websites allowed to use the key. All subdomains of an allowed domain are automatically allowed. A valid domain requires a host and must not include any path, port, query or fragment. Examples: &#39;example.com&#39; or &#39;subdomain.example.com&#39;
     /// </summary>
-    public List<TerraformProperty<string>>? AllowedDomains
-    {
-        set => SetProperty("allowed_domains", value);
-    }
+    [TerraformPropertyName("allowed_domains")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AllowedDomains { get; set; }
 
     /// <summary>
     /// Settings for the frequency and difficulty at which this key triggers captcha challenges. This should only be specified for IntegrationTypes CHECKBOX and INVISIBLE. Possible values: CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED, USABILITY, BALANCE, SECURITY
     /// </summary>
-    public TerraformProperty<string>? ChallengeSecurityPreference
-    {
-        set => SetProperty("challenge_security_preference", value);
-    }
+    [TerraformPropertyName("challenge_security_preference")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ChallengeSecurityPreference { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "challenge_security_preference");
 
     /// <summary>
     /// Required. Describes how this key is integrated with the website. Possible values: SCORE, CHECKBOX, INVISIBLE
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationType is required")]
-    public required TerraformProperty<string> IntegrationType
-    {
-        set => SetProperty("integration_type", value);
-    }
+    [TerraformPropertyName("integration_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IntegrationType { get; set; }
 
 }
 
@@ -189,39 +173,22 @@ public class GoogleRecaptchaEnterpriseKey : TerraformResource
 {
     public GoogleRecaptchaEnterpriseKey(string name) : base("google_recaptcha_enterprise_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("name");
-        SetOutput("terraform_labels");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("project");
     }
 
     /// <summary>
     /// Human-readable display name of this key. Modifiable by user.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// See [Creating and managing labels](https://cloud.google.com/recaptcha-enterprise/docs/labels).
@@ -229,98 +196,90 @@ public class GoogleRecaptchaEnterpriseKey : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field `effective_labels` for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for android_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AndroidSettings block(s) allowed")]
-    public List<GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock>? AndroidSettings
-    {
-        set => SetProperty("android_settings", value);
-    }
+    [TerraformPropertyName("android_settings")]
+    public TerraformList<TerraformBlock<GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock>>? AndroidSettings { get; set; } = new();
 
     /// <summary>
     /// Block for ios_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IosSettings block(s) allowed")]
-    public List<GoogleRecaptchaEnterpriseKeyIosSettingsBlock>? IosSettings
-    {
-        set => SetProperty("ios_settings", value);
-    }
+    [TerraformPropertyName("ios_settings")]
+    public TerraformList<TerraformBlock<GoogleRecaptchaEnterpriseKeyIosSettingsBlock>>? IosSettings { get; set; } = new();
 
     /// <summary>
     /// Block for testing_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TestingOptions block(s) allowed")]
-    public List<GoogleRecaptchaEnterpriseKeyTestingOptionsBlock>? TestingOptions
-    {
-        set => SetProperty("testing_options", value);
-    }
+    [TerraformPropertyName("testing_options")]
+    public TerraformList<TerraformBlock<GoogleRecaptchaEnterpriseKeyTestingOptionsBlock>>? TestingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleRecaptchaEnterpriseKeyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleRecaptchaEnterpriseKeyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for waf_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WafSettings block(s) allowed")]
-    public List<GoogleRecaptchaEnterpriseKeyWafSettingsBlock>? WafSettings
-    {
-        set => SetProperty("waf_settings", value);
-    }
+    [TerraformPropertyName("waf_settings")]
+    public TerraformList<TerraformBlock<GoogleRecaptchaEnterpriseKeyWafSettingsBlock>>? WafSettings { get; set; } = new();
 
     /// <summary>
     /// Block for web_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebSettings block(s) allowed")]
-    public List<GoogleRecaptchaEnterpriseKeyWebSettingsBlock>? WebSettings
-    {
-        set => SetProperty("web_settings", value);
-    }
+    [TerraformPropertyName("web_settings")]
+    public TerraformList<TerraformBlock<GoogleRecaptchaEnterpriseKeyWebSettingsBlock>>? WebSettings { get; set; } = new();
 
     /// <summary>
     /// The timestamp corresponding to the creation of this Key.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The resource id for the Key, which is the same as the Site Key itself.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

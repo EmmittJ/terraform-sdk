@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for file in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFunctionAppFunctionFileBlock : TerraformBlock
+public class AzurermFunctionAppFunctionFileBlock : ITerraformBlock
 {
     /// <summary>
     /// The content of the file.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    public required TerraformProperty<string> Content
-    {
-        set => SetProperty("content", value);
-    }
+    [TerraformPropertyName("content")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Content { get; set; }
 
     /// <summary>
     /// The filename of the file to be uploaded.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -32,39 +30,35 @@ public class AzurermFunctionAppFunctionFileBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermFunctionAppFunctionTimeoutsBlock : TerraformBlock
+public class AzurermFunctionAppFunctionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -75,144 +69,121 @@ public class AzurermFunctionAppFunction : TerraformResource
 {
     public AzurermFunctionAppFunction(string name) : base("azurerm_function_app_function", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("config_url");
-        SetOutput("invocation_url");
-        SetOutput("script_root_path_url");
-        SetOutput("script_url");
-        SetOutput("secrets_file_url");
-        SetOutput("test_data_url");
-        SetOutput("url");
-        SetOutput("config_json");
-        SetOutput("enabled");
-        SetOutput("function_app_id");
-        SetOutput("id");
-        SetOutput("language");
-        SetOutput("name");
-        SetOutput("test_data");
     }
 
     /// <summary>
     /// The config for this Function in JSON format.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigJson is required")]
-    public required TerraformProperty<string> ConfigJson
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("config_json");
-        set => SetProperty("config_json", value);
-    }
+    [TerraformPropertyName("config_json")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConfigJson { get; set; }
 
     /// <summary>
     /// Should this function be enabled. Defaults to `true`.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The ID of the Function App in which this function should reside.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
-    public required TerraformProperty<string> FunctionAppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("function_app_id");
-        set => SetProperty("function_app_id", value);
-    }
+    [TerraformPropertyName("function_app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FunctionAppId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The language the Function is written in.
     /// </summary>
-    public TerraformProperty<string> Language
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("language");
-        set => SetProperty("language", value);
-    }
+    [TerraformPropertyName("language")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Language { get; set; }
 
     /// <summary>
     /// The name of the function.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The test data for the function.
     /// </summary>
-    public TerraformProperty<string> TestData
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("test_data");
-        set => SetProperty("test_data", value);
-    }
+    [TerraformPropertyName("test_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TestData { get; set; }
 
     /// <summary>
     /// Block for file.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermFunctionAppFunctionFileBlock>? File
-    {
-        set => SetProperty("file", value);
-    }
+    [TerraformPropertyName("file")]
+    public TerraformList<TerraformBlock<AzurermFunctionAppFunctionFileBlock>>? File { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermFunctionAppFunctionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermFunctionAppFunctionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The URL of the configuration JSON.
     /// </summary>
-    public TerraformExpression ConfigUrl => this["config_url"];
+    [TerraformPropertyName("config_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConfigUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "config_url");
 
     /// <summary>
     /// The invocation URL.
     /// </summary>
-    public TerraformExpression InvocationUrl => this["invocation_url"];
+    [TerraformPropertyName("invocation_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InvocationUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "invocation_url");
 
     /// <summary>
     /// The Script root path URL.
     /// </summary>
-    public TerraformExpression ScriptRootPathUrl => this["script_root_path_url"];
+    [TerraformPropertyName("script_root_path_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ScriptRootPathUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "script_root_path_url");
 
     /// <summary>
     /// The script URL.
     /// </summary>
-    public TerraformExpression ScriptUrl => this["script_url"];
+    [TerraformPropertyName("script_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ScriptUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "script_url");
 
     /// <summary>
     /// The URL for the Secrets File.
     /// </summary>
-    public TerraformExpression SecretsFileUrl => this["secrets_file_url"];
+    [TerraformPropertyName("secrets_file_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecretsFileUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secrets_file_url");
 
     /// <summary>
     /// The Test data URL.
     /// </summary>
-    public TerraformExpression TestDataUrl => this["test_data_url"];
+    [TerraformPropertyName("test_data_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TestDataUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "test_data_url");
 
     /// <summary>
     /// The function URL.
     /// </summary>
-    public TerraformExpression Url => this["url"];
+    [TerraformPropertyName("url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "url");
 
 }

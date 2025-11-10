@@ -9,52 +9,35 @@ public class AwsSecurityhubFindingAggregator : TerraformResource
 {
     public AwsSecurityhubFindingAggregator(string name) : base("aws_securityhub_finding_aggregator", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("linking_mode");
-        SetOutput("region");
-        SetOutput("specified_regions");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The linking_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkingMode is required")]
-    public required TerraformProperty<string> LinkingMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("linking_mode");
-        set => SetProperty("linking_mode", value);
-    }
+    [TerraformPropertyName("linking_mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LinkingMode { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The specified_regions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SpecifiedRegions
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("specified_regions");
-        set => SetProperty("specified_regions", value);
-    }
+    [TerraformPropertyName("specified_regions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SpecifiedRegions { get; set; }
 
 }

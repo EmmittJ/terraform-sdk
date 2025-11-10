@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for artifact_store in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCodepipelineArtifactStoreBlock : TerraformBlock
+public class AwsCodepipelineArtifactStoreBlock : ITerraformBlock
 {
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformProperty<string>? Region
-    {
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -40,16 +37,15 @@ public class AwsCodepipelineArtifactStoreBlock : TerraformBlock
 /// Block type for stage in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodepipelineStageBlock : TerraformBlock
+public class AwsCodepipelineStageBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -57,16 +53,15 @@ public class AwsCodepipelineStageBlock : TerraformBlock
 /// Block type for trigger in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodepipelineTriggerBlock : TerraformBlock
+public class AwsCodepipelineTriggerBlock : ITerraformBlock
 {
     /// <summary>
     /// The provider_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
-    public required TerraformProperty<string> ProviderType
-    {
-        set => SetProperty("provider_type", value);
-    }
+    [TerraformPropertyName("provider_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProviderType { get; set; }
 
 }
 
@@ -74,32 +69,29 @@ public class AwsCodepipelineTriggerBlock : TerraformBlock
 /// Block type for variable in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodepipelineVariableBlock : TerraformBlock
+public class AwsCodepipelineVariableBlock : ITerraformBlock
 {
     /// <summary>
     /// The default_value attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultValue
-    {
-        set => SetProperty("default_value", value);
-    }
+    [TerraformPropertyName("default_value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultValue { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -111,96 +103,65 @@ public class AwsCodepipeline : TerraformResource
 {
     public AwsCodepipeline(string name) : base("aws_codepipeline", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("trigger_all");
-        SetOutput("execution_mode");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("pipeline_type");
-        SetOutput("region");
-        SetOutput("role_arn");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The execution_mode attribute.
     /// </summary>
-    public TerraformProperty<string> ExecutionMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("execution_mode");
-        set => SetProperty("execution_mode", value);
-    }
+    [TerraformPropertyName("execution_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExecutionMode { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The pipeline_type attribute.
     /// </summary>
-    public TerraformProperty<string> PipelineType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_type");
-        set => SetProperty("pipeline_type", value);
-    }
+    [TerraformPropertyName("pipeline_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PipelineType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for artifact_store.
@@ -208,48 +169,44 @@ public class AwsCodepipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactStore is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ArtifactStore block(s) required")]
-    public HashSet<AwsCodepipelineArtifactStoreBlock>? ArtifactStore
-    {
-        set => SetProperty("artifact_store", value);
-    }
+    [TerraformPropertyName("artifact_store")]
+    public TerraformSet<TerraformBlock<AwsCodepipelineArtifactStoreBlock>>? ArtifactStore { get; set; } = new();
 
     /// <summary>
     /// Block for stage.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 Stage block(s) required")]
-    public List<AwsCodepipelineStageBlock>? Stage
-    {
-        set => SetProperty("stage", value);
-    }
+    [TerraformPropertyName("stage")]
+    public TerraformList<TerraformBlock<AwsCodepipelineStageBlock>>? Stage { get; set; } = new();
 
     /// <summary>
     /// Block for trigger.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Trigger block(s) allowed")]
-    public List<AwsCodepipelineTriggerBlock>? Trigger
-    {
-        set => SetProperty("trigger", value);
-    }
+    [TerraformPropertyName("trigger")]
+    public TerraformList<TerraformBlock<AwsCodepipelineTriggerBlock>>? Trigger { get; set; } = new();
 
     /// <summary>
     /// Block for variable.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsCodepipelineVariableBlock>? Variable
-    {
-        set => SetProperty("variable", value);
-    }
+    [TerraformPropertyName("variable")]
+    public TerraformList<TerraformBlock<AwsCodepipelineVariableBlock>>? Variable { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The trigger_all attribute.
     /// </summary>
-    public TerraformExpression TriggerAll => this["trigger_all"];
+    [TerraformPropertyName("trigger_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TriggerAll => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "trigger_all");
 
 }

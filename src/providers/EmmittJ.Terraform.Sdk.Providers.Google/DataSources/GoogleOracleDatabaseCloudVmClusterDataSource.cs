@@ -9,31 +9,6 @@ public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
 {
     public GoogleOracleDatabaseCloudVmClusterDataSource(string name) : base("google_oracle_database_cloud_vm_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("backup_odb_subnet");
-        SetOutput("backup_subnet_cidr");
-        SetOutput("cidr");
-        SetOutput("create_time");
-        SetOutput("deletion_protection");
-        SetOutput("display_name");
-        SetOutput("effective_labels");
-        SetOutput("exadata_infrastructure");
-        SetOutput("gcp_oracle_zone");
-        SetOutput("labels");
-        SetOutput("name");
-        SetOutput("network");
-        SetOutput("odb_network");
-        SetOutput("odb_subnet");
-        SetOutput("properties");
-        SetOutput("terraform_labels");
-        SetOutput("cloud_vm_cluster_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -43,89 +18,99 @@ public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
     /// a letter or a number.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
-    public required TerraformProperty<string> CloudVmClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_vm_cluster_id");
-        set => SetProperty("cloud_vm_cluster_id", value);
-    }
+    [TerraformPropertyName("cloud_vm_cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CloudVmClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. See documentation for resource type &#39;oracledatabase.googleapis.com/DbNode&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The name of the backup OdbSubnet associated with the VM Cluster.
     /// Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformExpression BackupOdbSubnet => this["backup_odb_subnet"];
+    [TerraformPropertyName("backup_odb_subnet")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BackupOdbSubnet => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backup_odb_subnet");
 
     /// <summary>
     /// CIDR range of the backup subnet.
     /// </summary>
-    public TerraformExpression BackupSubnetCidr => this["backup_subnet_cidr"];
+    [TerraformPropertyName("backup_subnet_cidr")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BackupSubnetCidr => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backup_subnet_cidr");
 
     /// <summary>
     /// Network settings. CIDR to use for cluster IP allocation.
     /// </summary>
-    public TerraformExpression Cidr => this["cidr"];
+    [TerraformPropertyName("cidr")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Cidr => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cidr");
 
     /// <summary>
     /// The date and time that the VM cluster was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the cluster. Deleting this cluster via terraform destroy or terraform apply will only succeed if this field is false in the Terraform state.
     /// </summary>
-    public TerraformExpression DeletionProtection => this["deletion_protection"];
+    [TerraformPropertyName("deletion_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection");
 
     /// <summary>
     /// User friendly name for this resource.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The name of the Exadata Infrastructure resource on which VM cluster
     /// resource is created, in the following format:
     /// projects/{project}/locations/{region}/cloudExadataInfrastuctures/{cloud_extradata_infrastructure}
     /// </summary>
-    public TerraformExpression ExadataInfrastructure => this["exadata_infrastructure"];
+    [TerraformPropertyName("exadata_infrastructure")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExadataInfrastructure => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "exadata_infrastructure");
 
     /// <summary>
     /// GCP location where Oracle Exadata is hosted. It is same as GCP Oracle zone
     /// of Exadata infrastructure.
     /// </summary>
-    public TerraformExpression GcpOracleZone => this["gcp_oracle_zone"];
+    [TerraformPropertyName("gcp_oracle_zone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GcpOracleZone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gcp_oracle_zone");
 
     /// <summary>
     /// Labels or tags associated with the VM Cluster. 
@@ -133,19 +118,25 @@ public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformExpression Labels => this["labels"];
+    [TerraformPropertyName("labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
 
     /// <summary>
     /// Identifier. The name of the VM Cluster resource with the format:
     /// projects/{project}/locations/{region}/cloudVmClusters/{cloud_vm_cluster}
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name of the VPC network.
     /// Format: projects/{project}/global/networks/{network}
     /// </summary>
-    public TerraformExpression Network => this["network"];
+    [TerraformPropertyName("network")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Network => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network");
 
     /// <summary>
     /// The name of the OdbNetwork associated with the VM Cluster.
@@ -154,24 +145,32 @@ public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
     /// It is optional but if specified, this should match the parent ODBNetwork of
     /// the odb_subnet and backup_odb_subnet.
     /// </summary>
-    public TerraformExpression OdbNetwork => this["odb_network"];
+    [TerraformPropertyName("odb_network")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OdbNetwork => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "odb_network");
 
     /// <summary>
     /// The name of the OdbSubnet associated with the VM Cluster for
     /// IP allocation. Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformExpression OdbSubnet => this["odb_subnet"];
+    [TerraformPropertyName("odb_subnet")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OdbSubnet => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "odb_subnet");
 
     /// <summary>
     /// Various properties and settings associated with Exadata VM cluster.
     /// </summary>
-    public TerraformExpression Properties => this["properties"];
+    [TerraformPropertyName("properties")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Properties => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "properties");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

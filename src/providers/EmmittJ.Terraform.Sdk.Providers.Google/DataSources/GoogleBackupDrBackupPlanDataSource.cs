@@ -9,114 +9,107 @@ public class GoogleBackupDrBackupPlanDataSource : TerraformDataSource
 {
     public GoogleBackupDrBackupPlanDataSource(string name) : base("google_backup_dr_backup_plan", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("backup_rules");
-        SetOutput("backup_vault");
-        SetOutput("backup_vault_service_account");
-        SetOutput("create_time");
-        SetOutput("description");
-        SetOutput("log_retention_days");
-        SetOutput("name");
-        SetOutput("resource_type");
-        SetOutput("supported_resource_types");
-        SetOutput("update_time");
-        SetOutput("backup_plan_id");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The ID of the backup plan
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanId is required")]
-    public required TerraformProperty<string> BackupPlanId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backup_plan_id");
-        set => SetProperty("backup_plan_id", value);
-    }
+    [TerraformPropertyName("backup_plan_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BackupPlanId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location for the backup plan
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The backup rules for this &#39;BackupPlan&#39;. There must be at least one &#39;BackupRule&#39; message.
     /// </summary>
-    public TerraformExpression BackupRules => this["backup_rules"];
+    [TerraformPropertyName("backup_rules")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> BackupRules => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "backup_rules");
 
     /// <summary>
     /// Backup vault where the backups gets stored using this Backup plan.
     /// </summary>
-    public TerraformExpression BackupVault => this["backup_vault"];
+    [TerraformPropertyName("backup_vault")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BackupVault => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backup_vault");
 
     /// <summary>
     /// The Google Cloud Platform Service Account to be used by the BackupVault for taking backups.
     /// </summary>
-    public TerraformExpression BackupVaultServiceAccount => this["backup_vault_service_account"];
+    [TerraformPropertyName("backup_vault_service_account")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BackupVaultServiceAccount => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "backup_vault_service_account");
 
     /// <summary>
     /// When the &#39;BackupPlan&#39; was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The description allows for additional details about &#39;BackupPlan&#39; and its use cases to be provided.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// This is only applicable for CloudSql resource. Days for which logs will be stored. This value should be greater than or equal to minimum enforced log retention duration of the backup vault.
     /// </summary>
-    public TerraformExpression LogRetentionDays => this["log_retention_days"];
+    [TerraformPropertyName("log_retention_days")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> LogRetentionDays => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "log_retention_days");
 
     /// <summary>
     /// The name of backup plan resource created
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The resource type to which the &#39;BackupPlan&#39; will be applied.
     /// Examples include, &amp;quot;compute.googleapis.com/Instance&amp;quot;, &amp;quot;compute.googleapis.com/Disk&amp;quot;, &amp;quot;sqladmin.googleapis.com/Instance&amp;quot; and &amp;quot;storage.googleapis.com/Bucket&amp;quot;.
     /// </summary>
-    public TerraformExpression ResourceType => this["resource_type"];
+    [TerraformPropertyName("resource_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_type");
 
     /// <summary>
     /// The list of all resource types to which the &#39;BackupPlan&#39; can be applied.
     /// </summary>
-    public TerraformExpression SupportedResourceTypes => this["supported_resource_types"];
+    [TerraformPropertyName("supported_resource_types")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SupportedResourceTypes => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "supported_resource_types");
 
     /// <summary>
     /// When the &#39;BackupPlan&#39; was last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

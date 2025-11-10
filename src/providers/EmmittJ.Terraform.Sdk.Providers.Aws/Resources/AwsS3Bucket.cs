@@ -7,49 +7,44 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsS3BucketCorsRuleBlock : TerraformBlock
+public class AwsS3BucketCorsRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The allowed_headers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? AllowedHeaders
-    {
-        set => SetProperty("allowed_headers", value);
-    }
+    [TerraformPropertyName("allowed_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AllowedHeaders { get; set; }
 
     /// <summary>
     /// The allowed_methods attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
-    public List<TerraformProperty<string>>? AllowedMethods
-    {
-        set => SetProperty("allowed_methods", value);
-    }
+    [TerraformPropertyName("allowed_methods")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? AllowedMethods { get; set; }
 
     /// <summary>
     /// The allowed_origins attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
-    public List<TerraformProperty<string>>? AllowedOrigins
-    {
-        set => SetProperty("allowed_origins", value);
-    }
+    [TerraformPropertyName("allowed_origins")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? AllowedOrigins { get; set; }
 
     /// <summary>
     /// The expose_headers attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? ExposeHeaders
-    {
-        set => SetProperty("expose_headers", value);
-    }
+    [TerraformPropertyName("expose_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ExposeHeaders { get; set; }
 
     /// <summary>
     /// The max_age_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxAgeSeconds
-    {
-        set => SetProperty("max_age_seconds", value);
-    }
+    [TerraformPropertyName("max_age_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxAgeSeconds { get; set; }
 
 }
 
@@ -58,41 +53,37 @@ public class AwsS3BucketCorsRuleBlock : TerraformBlock
 /// Nesting mode: set
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsS3BucketGrantBlock : TerraformBlock
+public class AwsS3BucketGrantBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Id { get; set; }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
-    public HashSet<TerraformProperty<string>>? Permissions
-    {
-        set => SetProperty("permissions", value);
-    }
+    [TerraformPropertyName("permissions")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Permissions { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformProperty<string>? Uri
-    {
-        set => SetProperty("uri", value);
-    }
+    [TerraformPropertyName("uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Uri { get; set; }
 
 }
 
@@ -101,48 +92,43 @@ public class AwsS3BucketGrantBlock : TerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsS3BucketLifecycleRuleBlock : TerraformBlock
+public class AwsS3BucketLifecycleRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The abort_incomplete_multipart_upload_days attribute.
     /// </summary>
-    public TerraformProperty<double>? AbortIncompleteMultipartUploadDays
-    {
-        set => SetProperty("abort_incomplete_multipart_upload_days", value);
-    }
+    [TerraformPropertyName("abort_incomplete_multipart_upload_days")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AbortIncompleteMultipartUploadDays { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? Prefix
-    {
-        set => SetProperty("prefix", value);
-    }
+    [TerraformPropertyName("prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Prefix { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Tags
-    {
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
 }
 
@@ -151,24 +137,22 @@ public class AwsS3BucketLifecycleRuleBlock : TerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsS3BucketLoggingBlock : TerraformBlock
+public class AwsS3BucketLoggingBlock : ITerraformBlock
 {
     /// <summary>
     /// The target_bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetBucket is required")]
-    public required TerraformProperty<string> TargetBucket
-    {
-        set => SetProperty("target_bucket", value);
-    }
+    [TerraformPropertyName("target_bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetBucket { get; set; }
 
     /// <summary>
     /// The target_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetPrefix
-    {
-        set => SetProperty("target_prefix", value);
-    }
+    [TerraformPropertyName("target_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetPrefix { get; set; }
 
 }
 
@@ -177,16 +161,15 @@ public class AwsS3BucketLoggingBlock : TerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsS3BucketObjectLockConfigurationBlock : TerraformBlock
+public class AwsS3BucketObjectLockConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The object_lock_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? ObjectLockEnabled
-    {
-        set => SetProperty("object_lock_enabled", value);
-    }
+    [TerraformPropertyName("object_lock_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ObjectLockEnabled { get; set; }
 
 }
 
@@ -195,16 +178,15 @@ public class AwsS3BucketObjectLockConfigurationBlock : TerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsS3BucketReplicationConfigurationBlock : TerraformBlock
+public class AwsS3BucketReplicationConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
-    public required TerraformProperty<string> Role
-    {
-        set => SetProperty("role", value);
-    }
+    [TerraformPropertyName("role")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Role { get; set; }
 
 }
 
@@ -213,7 +195,7 @@ public class AwsS3BucketReplicationConfigurationBlock : TerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsS3BucketServerSideEncryptionConfigurationBlock : TerraformBlock
+public class AwsS3BucketServerSideEncryptionConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -221,39 +203,35 @@ public class AwsS3BucketServerSideEncryptionConfigurationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsS3BucketTimeoutsBlock : TerraformBlock
+public class AwsS3BucketTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -262,23 +240,21 @@ public class AwsS3BucketTimeoutsBlock : TerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsS3BucketVersioningBlock : TerraformBlock
+public class AwsS3BucketVersioningBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
     /// <summary>
     /// The mfa_delete attribute.
     /// </summary>
-    public TerraformProperty<bool>? MfaDelete
-    {
-        set => SetProperty("mfa_delete", value);
-    }
+    [TerraformPropertyName("mfa_delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MfaDelete { get; set; }
 
 }
 
@@ -287,39 +263,35 @@ public class AwsS3BucketVersioningBlock : TerraformBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsS3BucketWebsiteBlock : TerraformBlock
+public class AwsS3BucketWebsiteBlock : ITerraformBlock
 {
     /// <summary>
     /// The error_document attribute.
     /// </summary>
-    public TerraformProperty<string>? ErrorDocument
-    {
-        set => SetProperty("error_document", value);
-    }
+    [TerraformPropertyName("error_document")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ErrorDocument { get; set; }
 
     /// <summary>
     /// The index_document attribute.
     /// </summary>
-    public TerraformProperty<string>? IndexDocument
-    {
-        set => SetProperty("index_document", value);
-    }
+    [TerraformPropertyName("index_document")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IndexDocument { get; set; }
 
     /// <summary>
     /// The redirect_all_requests_to attribute.
     /// </summary>
-    public TerraformProperty<string>? RedirectAllRequestsTo
-    {
-        set => SetProperty("redirect_all_requests_to", value);
-    }
+    [TerraformPropertyName("redirect_all_requests_to")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RedirectAllRequestsTo { get; set; }
 
     /// <summary>
     /// The routing_rules attribute.
     /// </summary>
-    public TerraformProperty<string>? RoutingRules
-    {
-        set => SetProperty("routing_rules", value);
-    }
+    [TerraformPropertyName("routing_rules")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoutingRules { get; set; }
 
 }
 
@@ -331,173 +303,119 @@ public class AwsS3Bucket : TerraformResource
 {
     public AwsS3Bucket(string name) : base("aws_s3_bucket", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("bucket_domain_name");
-        SetOutput("bucket_region");
-        SetOutput("bucket_regional_domain_name");
-        SetOutput("hosted_zone_id");
-        SetOutput("website_domain");
-        SetOutput("website_endpoint");
-        SetOutput("acceleration_status");
-        SetOutput("acl");
-        SetOutput("bucket");
-        SetOutput("bucket_prefix");
-        SetOutput("force_destroy");
-        SetOutput("id");
-        SetOutput("object_lock_enabled");
-        SetOutput("policy");
-        SetOutput("region");
-        SetOutput("request_payer");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The acceleration_status attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> AccelerationStatus
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("acceleration_status");
-        set => SetProperty("acceleration_status", value);
-    }
+    [TerraformPropertyName("acceleration_status")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AccelerationStatus { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "acceleration_status");
 
     /// <summary>
     /// The acl attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> Acl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("acl");
-        set => SetProperty("acl", value);
-    }
+    [TerraformPropertyName("acl")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Acl { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "acl");
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Bucket { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bucket");
 
     /// <summary>
     /// The bucket_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> BucketPrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket_prefix");
-        set => SetProperty("bucket_prefix", value);
-    }
+    [TerraformPropertyName("bucket_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> BucketPrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bucket_prefix");
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceDestroy
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_destroy");
-        set => SetProperty("force_destroy", value);
-    }
+    [TerraformPropertyName("force_destroy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The object_lock_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ObjectLockEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("object_lock_enabled");
-        set => SetProperty("object_lock_enabled", value);
-    }
+    [TerraformPropertyName("object_lock_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> ObjectLockEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "object_lock_enabled");
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> Policy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy");
-        set => SetProperty("policy", value);
-    }
+    [TerraformPropertyName("policy")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Policy { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The request_payer attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string> RequestPayer
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("request_payer");
-        set => SetProperty("request_payer", value);
-    }
+    [TerraformPropertyName("request_payer")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> RequestPayer { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "request_payer");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for cors_rule.
     /// Nesting mode: list
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    public List<AwsS3BucketCorsRuleBlock>? CorsRule
-    {
-        set => SetProperty("cors_rule", value);
-    }
+    [TerraformPropertyName("cors_rule")]
+    public TerraformList<TerraformBlock<AwsS3BucketCorsRuleBlock>>? CorsRule { get; set; } = new();
 
     /// <summary>
     /// Block for grant.
     /// Nesting mode: set
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    public HashSet<AwsS3BucketGrantBlock>? Grant
-    {
-        set => SetProperty("grant", value);
-    }
+    [TerraformPropertyName("grant")]
+    public TerraformSet<TerraformBlock<AwsS3BucketGrantBlock>>? Grant { get; set; } = new();
 
     /// <summary>
     /// Block for lifecycle_rule.
     /// Nesting mode: list
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    public List<AwsS3BucketLifecycleRuleBlock>? LifecycleRule
-    {
-        set => SetProperty("lifecycle_rule", value);
-    }
+    [TerraformPropertyName("lifecycle_rule")]
+    public TerraformList<TerraformBlock<AwsS3BucketLifecycleRuleBlock>>? LifecycleRule { get; set; } = new();
 
     /// <summary>
     /// Block for logging.
@@ -505,10 +423,8 @@ public class AwsS3Bucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public List<AwsS3BucketLoggingBlock>? Logging
-    {
-        set => SetProperty("logging", value);
-    }
+    [TerraformPropertyName("logging")]
+    public TerraformList<TerraformBlock<AwsS3BucketLoggingBlock>>? Logging { get; set; } = new();
 
     /// <summary>
     /// Block for object_lock_configuration.
@@ -516,10 +432,8 @@ public class AwsS3Bucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ObjectLockConfiguration block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public List<AwsS3BucketObjectLockConfigurationBlock>? ObjectLockConfiguration
-    {
-        set => SetProperty("object_lock_configuration", value);
-    }
+    [TerraformPropertyName("object_lock_configuration")]
+    public TerraformList<TerraformBlock<AwsS3BucketObjectLockConfigurationBlock>>? ObjectLockConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for replication_configuration.
@@ -527,10 +441,8 @@ public class AwsS3Bucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationConfiguration block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public List<AwsS3BucketReplicationConfigurationBlock>? ReplicationConfiguration
-    {
-        set => SetProperty("replication_configuration", value);
-    }
+    [TerraformPropertyName("replication_configuration")]
+    public TerraformList<TerraformBlock<AwsS3BucketReplicationConfigurationBlock>>? ReplicationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for server_side_encryption_configuration.
@@ -538,19 +450,15 @@ public class AwsS3Bucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryptionConfiguration block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public List<AwsS3BucketServerSideEncryptionConfigurationBlock>? ServerSideEncryptionConfiguration
-    {
-        set => SetProperty("server_side_encryption_configuration", value);
-    }
+    [TerraformPropertyName("server_side_encryption_configuration")]
+    public TerraformList<TerraformBlock<AwsS3BucketServerSideEncryptionConfigurationBlock>>? ServerSideEncryptionConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsS3BucketTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsS3BucketTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for versioning.
@@ -558,10 +466,8 @@ public class AwsS3Bucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Versioning block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public List<AwsS3BucketVersioningBlock>? Versioning
-    {
-        set => SetProperty("versioning", value);
-    }
+    [TerraformPropertyName("versioning")]
+    public TerraformList<TerraformBlock<AwsS3BucketVersioningBlock>>? Versioning { get; set; } = new();
 
     /// <summary>
     /// Block for website.
@@ -569,44 +475,56 @@ public class AwsS3Bucket : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Website block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public List<AwsS3BucketWebsiteBlock>? Website
-    {
-        set => SetProperty("website", value);
-    }
+    [TerraformPropertyName("website")]
+    public TerraformList<TerraformBlock<AwsS3BucketWebsiteBlock>>? Website { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The bucket_domain_name attribute.
     /// </summary>
-    public TerraformExpression BucketDomainName => this["bucket_domain_name"];
+    [TerraformPropertyName("bucket_domain_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BucketDomainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bucket_domain_name");
 
     /// <summary>
     /// The bucket_region attribute.
     /// </summary>
-    public TerraformExpression BucketRegion => this["bucket_region"];
+    [TerraformPropertyName("bucket_region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BucketRegion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bucket_region");
 
     /// <summary>
     /// The bucket_regional_domain_name attribute.
     /// </summary>
-    public TerraformExpression BucketRegionalDomainName => this["bucket_regional_domain_name"];
+    [TerraformPropertyName("bucket_regional_domain_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BucketRegionalDomainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "bucket_regional_domain_name");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    public TerraformExpression HostedZoneId => this["hosted_zone_id"];
+    [TerraformPropertyName("hosted_zone_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> HostedZoneId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "hosted_zone_id");
 
     /// <summary>
     /// The website_domain attribute.
     /// </summary>
-    public TerraformExpression WebsiteDomain => this["website_domain"];
+    [TerraformPropertyName("website_domain")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WebsiteDomain => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "website_domain");
 
     /// <summary>
     /// The website_endpoint attribute.
     /// </summary>
-    public TerraformExpression WebsiteEndpoint => this["website_endpoint"];
+    [TerraformPropertyName("website_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WebsiteEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "website_endpoint");
 
 }

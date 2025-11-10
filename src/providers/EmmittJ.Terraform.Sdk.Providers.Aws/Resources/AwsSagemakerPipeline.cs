@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parallelism_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerPipelineParallelismConfigurationBlock : TerraformBlock
+public class AwsSagemakerPipelineParallelismConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The max_parallel_execution_steps attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxParallelExecutionSteps is required")]
-    public required TerraformProperty<double> MaxParallelExecutionSteps
-    {
-        set => SetProperty("max_parallel_execution_steps", value);
-    }
+    [TerraformPropertyName("max_parallel_execution_steps")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxParallelExecutionSteps { get; set; }
 
 }
 
@@ -23,33 +22,30 @@ public class AwsSagemakerPipelineParallelismConfigurationBlock : TerraformBlock
 /// Block type for pipeline_definition_s3_location in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : TerraformBlock
+public class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : ITerraformBlock
 {
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The object_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectKey is required")]
-    public required TerraformProperty<string> ObjectKey
-    {
-        set => SetProperty("object_key", value);
-    }
+    [TerraformPropertyName("object_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ObjectKey { get; set; }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionId
-    {
-        set => SetProperty("version_id", value);
-    }
+    [TerraformPropertyName("version_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VersionId { get; set; }
 
 }
 
@@ -61,129 +57,94 @@ public class AwsSagemakerPipeline : TerraformResource
 {
     public AwsSagemakerPipeline(string name) : base("aws_sagemaker_pipeline", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("pipeline_definition");
-        SetOutput("pipeline_description");
-        SetOutput("pipeline_display_name");
-        SetOutput("pipeline_name");
-        SetOutput("region");
-        SetOutput("role_arn");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The pipeline_definition attribute.
     /// </summary>
-    public TerraformProperty<string> PipelineDefinition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_definition");
-        set => SetProperty("pipeline_definition", value);
-    }
+    [TerraformPropertyName("pipeline_definition")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PipelineDefinition { get; set; }
 
     /// <summary>
     /// The pipeline_description attribute.
     /// </summary>
-    public TerraformProperty<string> PipelineDescription
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_description");
-        set => SetProperty("pipeline_description", value);
-    }
+    [TerraformPropertyName("pipeline_description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PipelineDescription { get; set; }
 
     /// <summary>
     /// The pipeline_display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineDisplayName is required")]
-    public required TerraformProperty<string> PipelineDisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_display_name");
-        set => SetProperty("pipeline_display_name", value);
-    }
+    [TerraformPropertyName("pipeline_display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PipelineDisplayName { get; set; }
 
     /// <summary>
     /// The pipeline_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineName is required")]
-    public required TerraformProperty<string> PipelineName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_name");
-        set => SetProperty("pipeline_name", value);
-    }
+    [TerraformPropertyName("pipeline_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PipelineName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for parallelism_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParallelismConfiguration block(s) allowed")]
-    public List<AwsSagemakerPipelineParallelismConfigurationBlock>? ParallelismConfiguration
-    {
-        set => SetProperty("parallelism_configuration", value);
-    }
+    [TerraformPropertyName("parallelism_configuration")]
+    public TerraformList<TerraformBlock<AwsSagemakerPipelineParallelismConfigurationBlock>>? ParallelismConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for pipeline_definition_s3_location.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PipelineDefinitionS3Location block(s) allowed")]
-    public List<AwsSagemakerPipelinePipelineDefinitionS3LocationBlock>? PipelineDefinitionS3Location
-    {
-        set => SetProperty("pipeline_definition_s3_location", value);
-    }
+    [TerraformPropertyName("pipeline_definition_s3_location")]
+    public TerraformList<TerraformBlock<AwsSagemakerPipelinePipelineDefinitionS3LocationBlock>>? PipelineDefinitionS3Location { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

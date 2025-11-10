@@ -9,60 +9,49 @@ public class AwsSecretsmanagerSecretRotationDataSource : TerraformDataSource
 {
     public AwsSecretsmanagerSecretRotationDataSource(string name) : base("aws_secretsmanager_secret_rotation", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("rotation_enabled");
-        SetOutput("rotation_lambda_arn");
-        SetOutput("rotation_rules");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("secret_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The secret_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
-    public required TerraformProperty<string> SecretId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("secret_id");
-        set => SetProperty("secret_id", value);
-    }
+    [TerraformPropertyName("secret_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SecretId { get; set; }
 
     /// <summary>
     /// The rotation_enabled attribute.
     /// </summary>
-    public TerraformExpression RotationEnabled => this["rotation_enabled"];
+    [TerraformPropertyName("rotation_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> RotationEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "rotation_enabled");
 
     /// <summary>
     /// The rotation_lambda_arn attribute.
     /// </summary>
-    public TerraformExpression RotationLambdaArn => this["rotation_lambda_arn"];
+    [TerraformPropertyName("rotation_lambda_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RotationLambdaArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "rotation_lambda_arn");
 
     /// <summary>
     /// The rotation_rules attribute.
     /// </summary>
-    public TerraformExpression RotationRules => this["rotation_rules"];
+    [TerraformPropertyName("rotation_rules")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RotationRules => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "rotation_rules");
 
 }

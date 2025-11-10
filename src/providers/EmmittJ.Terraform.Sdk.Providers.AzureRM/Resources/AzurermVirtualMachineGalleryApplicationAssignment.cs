@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : TerraformBlock
+public class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,82 +45,57 @@ public class AzurermVirtualMachineGalleryApplicationAssignment : TerraformResour
 {
     public AzurermVirtualMachineGalleryApplicationAssignment(string name) : base("azurerm_virtual_machine_gallery_application_assignment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("configuration_blob_uri");
-        SetOutput("gallery_application_version_id");
-        SetOutput("id");
-        SetOutput("order");
-        SetOutput("tag");
-        SetOutput("virtual_machine_id");
     }
 
     /// <summary>
     /// The configuration_blob_uri attribute.
     /// </summary>
-    public TerraformProperty<string> ConfigurationBlobUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("configuration_blob_uri");
-        set => SetProperty("configuration_blob_uri", value);
-    }
+    [TerraformPropertyName("configuration_blob_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConfigurationBlobUri { get; set; }
 
     /// <summary>
     /// The gallery_application_version_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryApplicationVersionId is required")]
-    public required TerraformProperty<string> GalleryApplicationVersionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gallery_application_version_id");
-        set => SetProperty("gallery_application_version_id", value);
-    }
+    [TerraformPropertyName("gallery_application_version_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GalleryApplicationVersionId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The order attribute.
     /// </summary>
-    public TerraformProperty<double> Order
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("order");
-        set => SetProperty("order", value);
-    }
+    [TerraformPropertyName("order")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Order { get; set; }
 
     /// <summary>
     /// The tag attribute.
     /// </summary>
-    public TerraformProperty<string> Tag
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tag");
-        set => SetProperty("tag", value);
-    }
+    [TerraformPropertyName("tag")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Tag { get; set; }
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
-    public required TerraformProperty<string> VirtualMachineId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_machine_id");
-        set => SetProperty("virtual_machine_id", value);
-    }
+    [TerraformPropertyName("virtual_machine_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualMachineId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

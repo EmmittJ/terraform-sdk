@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlock
+public class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -46,32 +42,29 @@ public class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlock
 /// Block type for tls in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlock
+public class AzurermCdnFrontdoorCustomDomainTlsBlock : ITerraformBlock
 {
     /// <summary>
     /// The cdn_frontdoor_secret_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CdnFrontdoorSecretId
-    {
-        set => SetProperty("cdn_frontdoor_secret_id", value);
-    }
+    [TerraformPropertyName("cdn_frontdoor_secret_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CdnFrontdoorSecretId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "cdn_frontdoor_secret_id");
 
     /// <summary>
     /// The certificate_type attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateType
-    {
-        set => SetProperty("certificate_type", value);
-    }
+    [TerraformPropertyName("certificate_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CertificateType { get; set; }
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? MinimumTlsVersion
-    {
-        set => SetProperty("minimum_tls_version", value);
-    }
+    [TerraformPropertyName("minimum_tls_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MinimumTlsVersion { get; set; }
 
 }
 
@@ -83,76 +76,52 @@ public class AzurermCdnFrontdoorCustomDomain : TerraformResource
 {
     public AzurermCdnFrontdoorCustomDomain(string name) : base("azurerm_cdn_frontdoor_custom_domain", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("expiration_date");
-        SetOutput("validation_token");
-        SetOutput("cdn_frontdoor_profile_id");
-        SetOutput("dns_zone_id");
-        SetOutput("host_name");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// The cdn_frontdoor_profile_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
-    public required TerraformProperty<string> CdnFrontdoorProfileId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cdn_frontdoor_profile_id");
-        set => SetProperty("cdn_frontdoor_profile_id", value);
-    }
+    [TerraformPropertyName("cdn_frontdoor_profile_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CdnFrontdoorProfileId { get; set; }
 
     /// <summary>
     /// The dns_zone_id attribute.
     /// </summary>
-    public TerraformProperty<string> DnsZoneId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dns_zone_id");
-        set => SetProperty("dns_zone_id", value);
-    }
+    [TerraformPropertyName("dns_zone_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DnsZoneId { get; set; }
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    public required TerraformProperty<string> HostName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("host_name");
-        set => SetProperty("host_name", value);
-    }
+    [TerraformPropertyName("host_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> HostName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCdnFrontdoorCustomDomainTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCdnFrontdoorCustomDomainTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for tls.
@@ -161,19 +130,21 @@ public class AzurermCdnFrontdoorCustomDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tls is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Tls block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tls block(s) allowed")]
-    public List<AzurermCdnFrontdoorCustomDomainTlsBlock>? Tls
-    {
-        set => SetProperty("tls", value);
-    }
+    [TerraformPropertyName("tls")]
+    public TerraformList<TerraformBlock<AzurermCdnFrontdoorCustomDomainTlsBlock>>? Tls { get; set; } = new();
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    public TerraformExpression ExpirationDate => this["expiration_date"];
+    [TerraformPropertyName("expiration_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpirationDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_date");
 
     /// <summary>
     /// The validation_token attribute.
     /// </summary>
-    public TerraformExpression ValidationToken => this["validation_token"];
+    [TerraformPropertyName("validation_token")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ValidationToken => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "validation_token");
 
 }

@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAppServiceCertificateOrderTimeoutsBlock : TerraformBlock
+public class AzurermAppServiceCertificateOrderTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,187 +45,156 @@ public class AzurermAppServiceCertificateOrder : TerraformResource
 {
     public AzurermAppServiceCertificateOrder(string name) : base("azurerm_app_service_certificate_order", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("app_service_certificate_not_renewable_reasons");
-        SetOutput("certificates");
-        SetOutput("domain_verification_token");
-        SetOutput("expiration_time");
-        SetOutput("intermediate_thumbprint");
-        SetOutput("is_private_key_external");
-        SetOutput("root_thumbprint");
-        SetOutput("signed_certificate_thumbprint");
-        SetOutput("status");
-        SetOutput("auto_renew");
-        SetOutput("csr");
-        SetOutput("distinguished_name");
-        SetOutput("id");
-        SetOutput("key_size");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("product_type");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
-        SetOutput("validity_in_years");
     }
 
     /// <summary>
     /// The auto_renew attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoRenew
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_renew");
-        set => SetProperty("auto_renew", value);
-    }
+    [TerraformPropertyName("auto_renew")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoRenew { get; set; }
 
     /// <summary>
     /// The csr attribute.
     /// </summary>
-    public TerraformProperty<string> Csr
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("csr");
-        set => SetProperty("csr", value);
-    }
+    [TerraformPropertyName("csr")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Csr { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "csr");
 
     /// <summary>
     /// The distinguished_name attribute.
     /// </summary>
-    public TerraformProperty<string> DistinguishedName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("distinguished_name");
-        set => SetProperty("distinguished_name", value);
-    }
+    [TerraformPropertyName("distinguished_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DistinguishedName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "distinguished_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
-    public TerraformProperty<double> KeySize
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("key_size");
-        set => SetProperty("key_size", value);
-    }
+    [TerraformPropertyName("key_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? KeySize { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The product_type attribute.
     /// </summary>
-    public TerraformProperty<string> ProductType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("product_type");
-        set => SetProperty("product_type", value);
-    }
+    [TerraformPropertyName("product_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProductType { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The validity_in_years attribute.
     /// </summary>
-    public TerraformProperty<double> ValidityInYears
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("validity_in_years");
-        set => SetProperty("validity_in_years", value);
-    }
+    [TerraformPropertyName("validity_in_years")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ValidityInYears { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermAppServiceCertificateOrderTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermAppServiceCertificateOrderTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The app_service_certificate_not_renewable_reasons attribute.
     /// </summary>
-    public TerraformExpression AppServiceCertificateNotRenewableReasons => this["app_service_certificate_not_renewable_reasons"];
+    [TerraformPropertyName("app_service_certificate_not_renewable_reasons")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AppServiceCertificateNotRenewableReasons => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "app_service_certificate_not_renewable_reasons");
 
     /// <summary>
     /// The certificates attribute.
     /// </summary>
-    public TerraformExpression Certificates => this["certificates"];
+    [TerraformPropertyName("certificates")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Certificates => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "certificates");
 
     /// <summary>
     /// The domain_verification_token attribute.
     /// </summary>
-    public TerraformExpression DomainVerificationToken => this["domain_verification_token"];
+    [TerraformPropertyName("domain_verification_token")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DomainVerificationToken => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "domain_verification_token");
 
     /// <summary>
     /// The expiration_time attribute.
     /// </summary>
-    public TerraformExpression ExpirationTime => this["expiration_time"];
+    [TerraformPropertyName("expiration_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpirationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration_time");
 
     /// <summary>
     /// The intermediate_thumbprint attribute.
     /// </summary>
-    public TerraformExpression IntermediateThumbprint => this["intermediate_thumbprint"];
+    [TerraformPropertyName("intermediate_thumbprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IntermediateThumbprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "intermediate_thumbprint");
 
     /// <summary>
     /// The is_private_key_external attribute.
     /// </summary>
-    public TerraformExpression IsPrivateKeyExternal => this["is_private_key_external"];
+    [TerraformPropertyName("is_private_key_external")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> IsPrivateKeyExternal => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "is_private_key_external");
 
     /// <summary>
     /// The root_thumbprint attribute.
     /// </summary>
-    public TerraformExpression RootThumbprint => this["root_thumbprint"];
+    [TerraformPropertyName("root_thumbprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RootThumbprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "root_thumbprint");
 
     /// <summary>
     /// The signed_certificate_thumbprint attribute.
     /// </summary>
-    public TerraformExpression SignedCertificateThumbprint => this["signed_certificate_thumbprint"];
+    [TerraformPropertyName("signed_certificate_thumbprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SignedCertificateThumbprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signed_certificate_thumbprint");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

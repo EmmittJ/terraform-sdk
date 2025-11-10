@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for replication in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSecretManagerSecretReplicationBlock : TerraformBlock
+public class GoogleSecretManagerSecretReplicationBlock : ITerraformBlock
 {
 }
 
@@ -14,25 +14,23 @@ public class GoogleSecretManagerSecretReplicationBlock : TerraformBlock
 /// Block type for rotation in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSecretManagerSecretRotationBlock : TerraformBlock
+public class GoogleSecretManagerSecretRotationBlock : ITerraformBlock
 {
     /// <summary>
     /// Timestamp in UTC at which the Secret is scheduled to rotate.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? NextRotationTime
-    {
-        set => SetProperty("next_rotation_time", value);
-    }
+    [TerraformPropertyName("next_rotation_time")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NextRotationTime { get; set; }
 
     /// <summary>
     /// The Duration between rotation notifications. Must be in seconds and at least 3600s (1h) and at most 3153600000s (100 years).
     /// If rotationPeriod is set, &#39;next_rotation_time&#39; must be set. &#39;next_rotation_time&#39; will be advanced by this period when the service automatically sends rotation notifications.
     /// </summary>
-    public TerraformProperty<string>? RotationPeriod
-    {
-        set => SetProperty("rotation_period", value);
-    }
+    [TerraformPropertyName("rotation_period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RotationPeriod { get; set; }
 
 }
 
@@ -40,31 +38,28 @@ public class GoogleSecretManagerSecretRotationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSecretManagerSecretTimeoutsBlock : TerraformBlock
+public class GoogleSecretManagerSecretTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -72,17 +67,16 @@ public class GoogleSecretManagerSecretTimeoutsBlock : TerraformBlock
 /// Block type for topics in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSecretManagerSecretTopicsBlock : TerraformBlock
+public class GoogleSecretManagerSecretTopicsBlock : ITerraformBlock
 {
     /// <summary>
     /// The resource name of the Pub/Sub topic that will be published to, in the following format: projects/*/topics/*.
     /// For publication to succeed, the Secret Manager Service Agent service account must have pubsub.publisher permissions on the topic.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -94,27 +88,6 @@ public class GoogleSecretManagerSecret : TerraformResource
 {
     public GoogleSecretManagerSecret(string name) : base("google_secret_manager_secret", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_annotations");
-        SetOutput("effective_labels");
-        SetOutput("name");
-        SetOutput("terraform_labels");
-        SetOutput("annotations");
-        SetOutput("deletion_protection");
-        SetOutput("expire_time");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("project");
-        SetOutput("secret_id");
-        SetOutput("tags");
-        SetOutput("ttl");
-        SetOutput("version_aliases");
-        SetOutput("version_destroy_ttl");
     }
 
     /// <summary>
@@ -137,42 +110,34 @@ public class GoogleSecretManagerSecret : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the secret. Defaults to false.
     /// When the field is set to true in Terraform state, a &#39;terraform apply&#39;
     /// or &#39;terraform destroy&#39; that would delete the secret will fail.
     /// </summary>
-    public TerraformProperty<bool> DeletionProtection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
-        set => SetProperty("deletion_protection", value);
-    }
+    [TerraformPropertyName("deletion_protection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeletionProtection { get; set; }
 
     /// <summary>
     /// Timestamp in UTC when the Secret is scheduled to expire. This is always provided on output, regardless of what was sent on input.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// Only one of &#39;expire_time&#39; or &#39;ttl&#39; can be provided.
     /// </summary>
-    public TerraformProperty<string> ExpireTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("expire_time");
-        set => SetProperty("expire_time", value);
-    }
+    [TerraformPropertyName("expire_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ExpireTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expire_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The labels assigned to this Secret.
@@ -192,52 +157,42 @@ public class GoogleSecretManagerSecret : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// This must be unique within the project.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
-    public required TerraformProperty<string> SecretId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("secret_id");
-        set => SetProperty("secret_id", value);
-    }
+    [TerraformPropertyName("secret_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SecretId { get; set; }
 
     /// <summary>
     /// A map of resource manager tags.
     /// Resource manager tag keys and values have the same definition as resource manager tags.
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The TTL for the Secret.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// Only one of &#39;ttl&#39; or &#39;expire_time&#39; can be provided.
     /// </summary>
-    public TerraformProperty<string> Ttl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ttl");
-        set => SetProperty("ttl", value);
-    }
+    [TerraformPropertyName("ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Ttl { get; set; }
 
     /// <summary>
     /// Mapping from version alias to version name.
@@ -250,11 +205,9 @@ public class GoogleSecretManagerSecret : TerraformResource
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example:
     /// { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> VersionAliases
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("version_aliases");
-        set => SetProperty("version_aliases", value);
-    }
+    [TerraformPropertyName("version_aliases")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? VersionAliases { get; set; }
 
     /// <summary>
     /// Secret Version TTL after destruction request.
@@ -263,11 +216,9 @@ public class GoogleSecretManagerSecret : TerraformResource
     /// on calling destroy instead the version goes to a disabled state and
     /// the actual destruction happens after this TTL expires.
     /// </summary>
-    public TerraformProperty<string> VersionDestroyTtl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version_destroy_ttl");
-        set => SetProperty("version_destroy_ttl", value);
-    }
+    [TerraformPropertyName("version_destroy_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VersionDestroyTtl { get; set; }
 
     /// <summary>
     /// Block for replication.
@@ -276,64 +227,66 @@ public class GoogleSecretManagerSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Replication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Replication block(s) allowed")]
-    public List<GoogleSecretManagerSecretReplicationBlock>? Replication
-    {
-        set => SetProperty("replication", value);
-    }
+    [TerraformPropertyName("replication")]
+    public TerraformList<TerraformBlock<GoogleSecretManagerSecretReplicationBlock>>? Replication { get; set; } = new();
 
     /// <summary>
     /// Block for rotation.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rotation block(s) allowed")]
-    public List<GoogleSecretManagerSecretRotationBlock>? Rotation
-    {
-        set => SetProperty("rotation", value);
-    }
+    [TerraformPropertyName("rotation")]
+    public TerraformList<TerraformBlock<GoogleSecretManagerSecretRotationBlock>>? Rotation { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleSecretManagerSecretTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleSecretManagerSecretTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for topics.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleSecretManagerSecretTopicsBlock>? Topics
-    {
-        set => SetProperty("topics", value);
-    }
+    [TerraformPropertyName("topics")]
+    public TerraformList<TerraformBlock<GoogleSecretManagerSecretTopicsBlock>>? Topics { get; set; } = new();
 
     /// <summary>
     /// The time at which the Secret was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+    [TerraformPropertyName("effective_annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// The resource name of the Secret. Format:
     /// &#39;projects/{{project}}/secrets/{{secret_id}}&#39;
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

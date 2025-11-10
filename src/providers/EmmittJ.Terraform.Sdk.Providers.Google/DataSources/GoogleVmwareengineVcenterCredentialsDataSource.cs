@@ -9,25 +9,14 @@ public class GoogleVmwareengineVcenterCredentialsDataSource : TerraformDataSourc
 {
     public GoogleVmwareengineVcenterCredentialsDataSource(string name) : base("google_vmwareengine_vcenter_credentials", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("password");
-        SetOutput("username");
-        SetOutput("id");
-        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The resource name of the private cloud which contains vcenter.
@@ -35,20 +24,22 @@ public class GoogleVmwareengineVcenterCredentialsDataSource : TerraformDataSourc
     /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    public required TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
 
     /// <summary>
     /// Initial password.
     /// </summary>
-    public TerraformExpression Password => this["password"];
+    [TerraformPropertyName("password")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Password => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "password");
 
     /// <summary>
     /// Initial username.
     /// </summary>
-    public TerraformExpression Username => this["username"];
+    [TerraformPropertyName("username")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Username => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "username");
 
 }

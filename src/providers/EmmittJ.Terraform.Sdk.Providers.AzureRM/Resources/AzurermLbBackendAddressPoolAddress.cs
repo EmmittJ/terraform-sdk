@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLbBackendAddressPoolAddressTimeoutsBlock : TerraformBlock
+public class AzurermLbBackendAddressPoolAddressTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,88 +45,64 @@ public class AzurermLbBackendAddressPoolAddress : TerraformResource
 {
     public AzurermLbBackendAddressPoolAddress(string name) : base("azurerm_lb_backend_address_pool_address", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("inbound_nat_rule_port_mapping");
-        SetOutput("backend_address_ip_configuration_id");
-        SetOutput("backend_address_pool_id");
-        SetOutput("id");
-        SetOutput("ip_address");
-        SetOutput("name");
-        SetOutput("virtual_network_id");
     }
 
     /// <summary>
     /// For global load balancer, user needs to specify the `backend_address_ip_configuration_id` of the added regional load balancers
     /// </summary>
-    public TerraformProperty<string> BackendAddressIpConfigurationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backend_address_ip_configuration_id");
-        set => SetProperty("backend_address_ip_configuration_id", value);
-    }
+    [TerraformPropertyName("backend_address_ip_configuration_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BackendAddressIpConfigurationId { get; set; }
 
     /// <summary>
     /// The backend_address_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
-    public required TerraformProperty<string> BackendAddressPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backend_address_pool_id");
-        set => SetProperty("backend_address_pool_id", value);
-    }
+    [TerraformPropertyName("backend_address_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BackendAddressPoolId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformProperty<string> IpAddress
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ip_address");
-        set => SetProperty("ip_address", value);
-    }
+    [TerraformPropertyName("ip_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IpAddress { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    public TerraformProperty<string> VirtualNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_id");
-        set => SetProperty("virtual_network_id", value);
-    }
+    [TerraformPropertyName("virtual_network_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VirtualNetworkId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLbBackendAddressPoolAddressTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLbBackendAddressPoolAddressTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The inbound_nat_rule_port_mapping attribute.
     /// </summary>
-    public TerraformExpression InboundNatRulePortMapping => this["inbound_nat_rule_port_mapping"];
+    [TerraformPropertyName("inbound_nat_rule_port_mapping")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> InboundNatRulePortMapping => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "inbound_nat_rule_port_mapping");
 
 }

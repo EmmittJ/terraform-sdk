@@ -9,83 +9,57 @@ public class AwsApiGatewayGatewayResponse : TerraformResource
 {
     public AwsApiGatewayGatewayResponse(string name) : base("aws_api_gateway_gateway_response", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("response_parameters");
-        SetOutput("response_templates");
-        SetOutput("response_type");
-        SetOutput("rest_api_id");
-        SetOutput("status_code");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The response_parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> ResponseParameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("response_parameters");
-        set => SetProperty("response_parameters", value);
-    }
+    [TerraformPropertyName("response_parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ResponseParameters { get; set; }
 
     /// <summary>
     /// The response_templates attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> ResponseTemplates
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("response_templates");
-        set => SetProperty("response_templates", value);
-    }
+    [TerraformPropertyName("response_templates")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ResponseTemplates { get; set; }
 
     /// <summary>
     /// The response_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponseType is required")]
-    public required TerraformProperty<string> ResponseType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("response_type");
-        set => SetProperty("response_type", value);
-    }
+    [TerraformPropertyName("response_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResponseType { get; set; }
 
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
-    public required TerraformProperty<string> RestApiId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rest_api_id");
-        set => SetProperty("rest_api_id", value);
-    }
+    [TerraformPropertyName("rest_api_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RestApiId { get; set; }
 
     /// <summary>
     /// The status_code attribute.
     /// </summary>
-    public TerraformProperty<string> StatusCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status_code");
-        set => SetProperty("status_code", value);
-    }
+    [TerraformPropertyName("status_code")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StatusCode { get; set; }
 
 }

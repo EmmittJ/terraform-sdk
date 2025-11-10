@@ -9,249 +9,246 @@ public class AwsS3ObjectDataSource : TerraformDataSource
 {
     public AwsS3ObjectDataSource(string name) : base("aws_s3_object", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("body");
-        SetOutput("bucket_key_enabled");
-        SetOutput("cache_control");
-        SetOutput("checksum_crc32");
-        SetOutput("checksum_crc32c");
-        SetOutput("checksum_crc64nvme");
-        SetOutput("checksum_sha1");
-        SetOutput("checksum_sha256");
-        SetOutput("content_disposition");
-        SetOutput("content_encoding");
-        SetOutput("content_language");
-        SetOutput("content_length");
-        SetOutput("content_type");
-        SetOutput("etag");
-        SetOutput("expiration");
-        SetOutput("expires");
-        SetOutput("last_modified");
-        SetOutput("metadata");
-        SetOutput("object_lock_legal_hold_status");
-        SetOutput("object_lock_mode");
-        SetOutput("object_lock_retain_until_date");
-        SetOutput("server_side_encryption");
-        SetOutput("sse_kms_key_id");
-        SetOutput("storage_class");
-        SetOutput("website_redirect_location");
-        SetOutput("bucket");
-        SetOutput("checksum_mode");
-        SetOutput("id");
-        SetOutput("key");
-        SetOutput("range");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("version_id");
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The checksum_mode attribute.
     /// </summary>
-    public TerraformProperty<string> ChecksumMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("checksum_mode");
-        set => SetProperty("checksum_mode", value);
-    }
+    [TerraformPropertyName("checksum_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ChecksumMode { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key");
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// The range attribute.
     /// </summary>
-    public TerraformProperty<string> Range
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("range");
-        set => SetProperty("range", value);
-    }
+    [TerraformPropertyName("range")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Range { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformProperty<string> VersionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version_id");
-        set => SetProperty("version_id", value);
-    }
+    [TerraformPropertyName("version_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VersionId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The body attribute.
     /// </summary>
-    public TerraformExpression Body => this["body"];
+    [TerraformPropertyName("body")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Body => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "body");
 
     /// <summary>
     /// The bucket_key_enabled attribute.
     /// </summary>
-    public TerraformExpression BucketKeyEnabled => this["bucket_key_enabled"];
+    [TerraformPropertyName("bucket_key_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> BucketKeyEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "bucket_key_enabled");
 
     /// <summary>
     /// The cache_control attribute.
     /// </summary>
-    public TerraformExpression CacheControl => this["cache_control"];
+    [TerraformPropertyName("cache_control")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CacheControl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cache_control");
 
     /// <summary>
     /// The checksum_crc32 attribute.
     /// </summary>
-    public TerraformExpression ChecksumCrc32 => this["checksum_crc32"];
+    [TerraformPropertyName("checksum_crc32")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ChecksumCrc32 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "checksum_crc32");
 
     /// <summary>
     /// The checksum_crc32c attribute.
     /// </summary>
-    public TerraformExpression ChecksumCrc32c => this["checksum_crc32c"];
+    [TerraformPropertyName("checksum_crc32c")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ChecksumCrc32c => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "checksum_crc32c");
 
     /// <summary>
     /// The checksum_crc64nvme attribute.
     /// </summary>
-    public TerraformExpression ChecksumCrc64nvme => this["checksum_crc64nvme"];
+    [TerraformPropertyName("checksum_crc64nvme")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ChecksumCrc64nvme => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "checksum_crc64nvme");
 
     /// <summary>
     /// The checksum_sha1 attribute.
     /// </summary>
-    public TerraformExpression ChecksumSha1 => this["checksum_sha1"];
+    [TerraformPropertyName("checksum_sha1")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ChecksumSha1 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "checksum_sha1");
 
     /// <summary>
     /// The checksum_sha256 attribute.
     /// </summary>
-    public TerraformExpression ChecksumSha256 => this["checksum_sha256"];
+    [TerraformPropertyName("checksum_sha256")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ChecksumSha256 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "checksum_sha256");
 
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
-    public TerraformExpression ContentDisposition => this["content_disposition"];
+    [TerraformPropertyName("content_disposition")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContentDisposition => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content_disposition");
 
     /// <summary>
     /// The content_encoding attribute.
     /// </summary>
-    public TerraformExpression ContentEncoding => this["content_encoding"];
+    [TerraformPropertyName("content_encoding")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContentEncoding => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content_encoding");
 
     /// <summary>
     /// The content_language attribute.
     /// </summary>
-    public TerraformExpression ContentLanguage => this["content_language"];
+    [TerraformPropertyName("content_language")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContentLanguage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content_language");
 
     /// <summary>
     /// The content_length attribute.
     /// </summary>
-    public TerraformExpression ContentLength => this["content_length"];
+    [TerraformPropertyName("content_length")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ContentLength => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "content_length");
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformExpression ContentType => this["content_type"];
+    [TerraformPropertyName("content_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ContentType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "content_type");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
-    public TerraformExpression Expiration => this["expiration"];
+    [TerraformPropertyName("expiration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Expiration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expiration");
 
     /// <summary>
     /// The expires attribute.
     /// </summary>
-    public TerraformExpression Expires => this["expires"];
+    [TerraformPropertyName("expires")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Expires => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expires");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
-    public TerraformExpression LastModified => this["last_modified"];
+    [TerraformPropertyName("last_modified")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModified => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformExpression Metadata => this["metadata"];
+    [TerraformPropertyName("metadata")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Metadata => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "metadata");
 
     /// <summary>
     /// The object_lock_legal_hold_status attribute.
     /// </summary>
-    public TerraformExpression ObjectLockLegalHoldStatus => this["object_lock_legal_hold_status"];
+    [TerraformPropertyName("object_lock_legal_hold_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ObjectLockLegalHoldStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_lock_legal_hold_status");
 
     /// <summary>
     /// The object_lock_mode attribute.
     /// </summary>
-    public TerraformExpression ObjectLockMode => this["object_lock_mode"];
+    [TerraformPropertyName("object_lock_mode")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ObjectLockMode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_lock_mode");
 
     /// <summary>
     /// The object_lock_retain_until_date attribute.
     /// </summary>
-    public TerraformExpression ObjectLockRetainUntilDate => this["object_lock_retain_until_date"];
+    [TerraformPropertyName("object_lock_retain_until_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ObjectLockRetainUntilDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "object_lock_retain_until_date");
 
     /// <summary>
     /// The server_side_encryption attribute.
     /// </summary>
-    public TerraformExpression ServerSideEncryption => this["server_side_encryption"];
+    [TerraformPropertyName("server_side_encryption")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ServerSideEncryption => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "server_side_encryption");
 
     /// <summary>
     /// The sse_kms_key_id attribute.
     /// </summary>
-    public TerraformExpression SseKmsKeyId => this["sse_kms_key_id"];
+    [TerraformPropertyName("sse_kms_key_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SseKmsKeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sse_kms_key_id");
 
     /// <summary>
     /// The storage_class attribute.
     /// </summary>
-    public TerraformExpression StorageClass => this["storage_class"];
+    [TerraformPropertyName("storage_class")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StorageClass => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "storage_class");
 
     /// <summary>
     /// The website_redirect_location attribute.
     /// </summary>
-    public TerraformExpression WebsiteRedirectLocation => this["website_redirect_location"];
+    [TerraformPropertyName("website_redirect_location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WebsiteRedirectLocation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "website_redirect_location");
 
 }

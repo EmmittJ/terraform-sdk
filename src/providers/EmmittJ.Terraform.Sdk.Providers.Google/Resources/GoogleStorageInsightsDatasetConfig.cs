@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for exclude_cloud_storage_buckets in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlock : TerraformBlock
+public class GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlock : ITerraformBlock
 {
 }
 
@@ -14,16 +14,15 @@ public class GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlock :
 /// Block type for exclude_cloud_storage_locations in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocationsBlock : TerraformBlock
+public class GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocationsBlock : ITerraformBlock
 {
     /// <summary>
     /// The list of cloud storage locations to exclude in the DatasetConfig.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locations is required")]
-    public List<TerraformProperty<string>>? Locations
-    {
-        set => SetProperty("locations", value);
-    }
+    [TerraformPropertyName("locations")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Locations { get; set; }
 
 }
 
@@ -31,24 +30,22 @@ public class GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocationsBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageInsightsDatasetConfigIdentityBlock : TerraformBlock
+public class GoogleStorageInsightsDatasetConfigIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// Name of the identity.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>("", "name");
 
     /// <summary>
     /// Type of identity to use for the DatasetConfig. Possible values: [&amp;quot;IDENTITY_TYPE_PER_CONFIG&amp;quot;, &amp;quot;IDENTITY_TYPE_PER_PROJECT&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -56,7 +53,7 @@ public class GoogleStorageInsightsDatasetConfigIdentityBlock : TerraformBlock
 /// Block type for include_cloud_storage_buckets in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlock : TerraformBlock
+public class GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlock : ITerraformBlock
 {
 }
 
@@ -64,16 +61,15 @@ public class GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlock :
 /// Block type for include_cloud_storage_locations in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocationsBlock : TerraformBlock
+public class GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocationsBlock : ITerraformBlock
 {
     /// <summary>
     /// The list of cloud storage locations to include in the DatasetConfig.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locations is required")]
-    public List<TerraformProperty<string>>? Locations
-    {
-        set => SetProperty("locations", value);
-    }
+    [TerraformPropertyName("locations")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<List<TerraformProperty<string>>>? Locations { get; set; }
 
 }
 
@@ -81,15 +77,14 @@ public class GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocationsBlock
 /// Block type for source_folders in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageInsightsDatasetConfigSourceFoldersBlock : TerraformBlock
+public class GoogleStorageInsightsDatasetConfigSourceFoldersBlock : ITerraformBlock
 {
     /// <summary>
     /// The list of folder numbers to include in the DatasetConfig.
     /// </summary>
-    public List<TerraformProperty<string>>? FolderNumbers
-    {
-        set => SetProperty("folder_numbers", value);
-    }
+    [TerraformPropertyName("folder_numbers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? FolderNumbers { get; set; }
 
 }
 
@@ -97,15 +92,14 @@ public class GoogleStorageInsightsDatasetConfigSourceFoldersBlock : TerraformBlo
 /// Block type for source_projects in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageInsightsDatasetConfigSourceProjectsBlock : TerraformBlock
+public class GoogleStorageInsightsDatasetConfigSourceProjectsBlock : ITerraformBlock
 {
     /// <summary>
     /// The list of project numbers to include in the DatasetConfig.
     /// </summary>
-    public List<TerraformProperty<string>>? ProjectNumbers
-    {
-        set => SetProperty("project_numbers", value);
-    }
+    [TerraformPropertyName("project_numbers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ProjectNumbers { get; set; }
 
 }
 
@@ -113,31 +107,28 @@ public class GoogleStorageInsightsDatasetConfigSourceProjectsBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleStorageInsightsDatasetConfigTimeoutsBlock : TerraformBlock
+public class GoogleStorageInsightsDatasetConfigTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -149,65 +140,36 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
 {
     public GoogleStorageInsightsDatasetConfig(string name) : base("google_storage_insights_dataset_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("dataset_config_state");
-        SetOutput("link");
-        SetOutput("name");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("dataset_config_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("include_newly_created_buckets");
-        SetOutput("link_dataset");
-        SetOutput("location");
-        SetOutput("organization_number");
-        SetOutput("organization_scope");
-        SetOutput("project");
-        SetOutput("retention_period_days");
     }
 
     /// <summary>
     /// The user-defined ID of the DatasetConfig
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetConfigId is required")]
-    public required TerraformProperty<string> DatasetConfigId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dataset_config_id");
-        set => SetProperty("dataset_config_id", value);
-    }
+    [TerraformPropertyName("dataset_config_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatasetConfigId { get; set; }
 
     /// <summary>
     /// An optional user-provided description for the dataset configuration with a maximum length of 256 characters.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// If set to true, the request includes all the newly created buckets in the dataset that meet the inclusion and exclusion rules.
     /// </summary>
-    public TerraformProperty<bool> IncludeNewlyCreatedBuckets
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("include_newly_created_buckets");
-        set => SetProperty("include_newly_created_buckets", value);
-    }
+    [TerraformPropertyName("include_newly_created_buckets")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeNewlyCreatedBuckets { get; set; }
 
     /// <summary>
     /// A boolean terraform only flag to link/unlink dataset.
@@ -216,79 +178,63 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// -&amp;gt; **Note** A dataset config resource can only be destroyed once it is unlinked,
     /// so users must set this field to false to unlink the dataset and destroy the dataset config resource.
     /// </summary>
-    public TerraformProperty<bool> LinkDataset
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("link_dataset");
-        set => SetProperty("link_dataset", value);
-    }
+    [TerraformPropertyName("link_dataset")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LinkDataset { get; set; }
 
     /// <summary>
     /// The location of the DatasetConfig.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// Organization resource ID that the source projects should belong to.
     /// Projects that do not belong to the provided organization are not considered when creating the dataset.
     /// </summary>
-    public TerraformProperty<string> OrganizationNumber
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("organization_number");
-        set => SetProperty("organization_number", value);
-    }
+    [TerraformPropertyName("organization_number")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> OrganizationNumber { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "organization_number");
 
     /// <summary>
     /// Defines the options for providing a source organization for the DatasetConfig.
     /// </summary>
-    public TerraformProperty<bool> OrganizationScope
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("organization_scope");
-        set => SetProperty("organization_scope", value);
-    }
+    [TerraformPropertyName("organization_scope")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? OrganizationScope { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Number of days of history that must be retained.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodDays is required")]
-    public required TerraformProperty<double> RetentionPeriodDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("retention_period_days");
-        set => SetProperty("retention_period_days", value);
-    }
+    [TerraformPropertyName("retention_period_days")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> RetentionPeriodDays { get; set; }
 
     /// <summary>
     /// Block for exclude_cloud_storage_buckets.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExcludeCloudStorageBuckets block(s) allowed")]
-    public List<GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlock>? ExcludeCloudStorageBuckets
-    {
-        set => SetProperty("exclude_cloud_storage_buckets", value);
-    }
+    [TerraformPropertyName("exclude_cloud_storage_buckets")]
+    public TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlock>>? ExcludeCloudStorageBuckets { get; set; } = new();
 
     /// <summary>
     /// Block for exclude_cloud_storage_locations.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExcludeCloudStorageLocations block(s) allowed")]
-    public List<GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocationsBlock>? ExcludeCloudStorageLocations
-    {
-        set => SetProperty("exclude_cloud_storage_locations", value);
-    }
+    [TerraformPropertyName("exclude_cloud_storage_locations")]
+    public TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocationsBlock>>? ExcludeCloudStorageLocations { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -297,88 +243,88 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<GoogleStorageInsightsDatasetConfigIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for include_cloud_storage_buckets.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeCloudStorageBuckets block(s) allowed")]
-    public List<GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlock>? IncludeCloudStorageBuckets
-    {
-        set => SetProperty("include_cloud_storage_buckets", value);
-    }
+    [TerraformPropertyName("include_cloud_storage_buckets")]
+    public TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlock>>? IncludeCloudStorageBuckets { get; set; } = new();
 
     /// <summary>
     /// Block for include_cloud_storage_locations.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeCloudStorageLocations block(s) allowed")]
-    public List<GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocationsBlock>? IncludeCloudStorageLocations
-    {
-        set => SetProperty("include_cloud_storage_locations", value);
-    }
+    [TerraformPropertyName("include_cloud_storage_locations")]
+    public TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocationsBlock>>? IncludeCloudStorageLocations { get; set; } = new();
 
     /// <summary>
     /// Block for source_folders.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceFolders block(s) allowed")]
-    public List<GoogleStorageInsightsDatasetConfigSourceFoldersBlock>? SourceFolders
-    {
-        set => SetProperty("source_folders", value);
-    }
+    [TerraformPropertyName("source_folders")]
+    public TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigSourceFoldersBlock>>? SourceFolders { get; set; } = new();
 
     /// <summary>
     /// Block for source_projects.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceProjects block(s) allowed")]
-    public List<GoogleStorageInsightsDatasetConfigSourceProjectsBlock>? SourceProjects
-    {
-        set => SetProperty("source_projects", value);
-    }
+    [TerraformPropertyName("source_projects")]
+    public TerraformList<TerraformBlock<GoogleStorageInsightsDatasetConfigSourceProjectsBlock>>? SourceProjects { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleStorageInsightsDatasetConfigTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleStorageInsightsDatasetConfigTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The UTC time at which the DatasetConfig was created. This is auto-populated.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// State of the DatasetConfig.
     /// </summary>
-    public TerraformExpression DatasetConfigState => this["dataset_config_state"];
+    [TerraformPropertyName("dataset_config_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DatasetConfigState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dataset_config_state");
 
     /// <summary>
     /// Details of the linked DatasetConfig.
     /// </summary>
-    public TerraformExpression Link => this["link"];
+    [TerraformPropertyName("link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Link => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "link");
 
     /// <summary>
     /// The full canonical resource name of the DatasetConfig (e.g., projects/P/locations/L/datasetConfigs/ID).
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// System generated unique identifier for the resource.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// The UTC time at which the DatasetConfig was updated. This is auto-populated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

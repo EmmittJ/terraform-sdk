@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsQuicksightAccountSubscriptionTimeoutsBlock : TerraformBlock
+public class AwsQuicksightAccountSubscriptionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -41,240 +38,171 @@ public class AwsQuicksightAccountSubscription : TerraformResource
 {
     public AwsQuicksightAccountSubscription(string name) : base("aws_quicksight_account_subscription", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account_subscription_status");
-        SetOutput("account_name");
-        SetOutput("active_directory_name");
-        SetOutput("admin_group");
-        SetOutput("admin_pro_group");
-        SetOutput("authentication_method");
-        SetOutput("author_group");
-        SetOutput("author_pro_group");
-        SetOutput("aws_account_id");
-        SetOutput("contact_number");
-        SetOutput("directory_id");
-        SetOutput("edition");
-        SetOutput("email_address");
-        SetOutput("first_name");
-        SetOutput("iam_identity_center_instance_arn");
-        SetOutput("id");
-        SetOutput("last_name");
-        SetOutput("notification_email");
-        SetOutput("reader_group");
-        SetOutput("reader_pro_group");
-        SetOutput("realm");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    public required TerraformProperty<string> AccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
-        set => SetProperty("account_name", value);
-    }
+    [TerraformPropertyName("account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountName { get; set; }
 
     /// <summary>
     /// The active_directory_name attribute.
     /// </summary>
-    public TerraformProperty<string> ActiveDirectoryName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("active_directory_name");
-        set => SetProperty("active_directory_name", value);
-    }
+    [TerraformPropertyName("active_directory_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ActiveDirectoryName { get; set; }
 
     /// <summary>
     /// The admin_group attribute.
     /// </summary>
-    public List<TerraformProperty<string>> AdminGroup
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("admin_group");
-        set => SetProperty("admin_group", value);
-    }
+    [TerraformPropertyName("admin_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AdminGroup { get; set; }
 
     /// <summary>
     /// The admin_pro_group attribute.
     /// </summary>
-    public List<TerraformProperty<string>> AdminProGroup
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("admin_pro_group");
-        set => SetProperty("admin_pro_group", value);
-    }
+    [TerraformPropertyName("admin_pro_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AdminProGroup { get; set; }
 
     /// <summary>
     /// The authentication_method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationMethod is required")]
-    public required TerraformProperty<string> AuthenticationMethod
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_method");
-        set => SetProperty("authentication_method", value);
-    }
+    [TerraformPropertyName("authentication_method")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthenticationMethod { get; set; }
 
     /// <summary>
     /// The author_group attribute.
     /// </summary>
-    public List<TerraformProperty<string>> AuthorGroup
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("author_group");
-        set => SetProperty("author_group", value);
-    }
+    [TerraformPropertyName("author_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AuthorGroup { get; set; }
 
     /// <summary>
     /// The author_pro_group attribute.
     /// </summary>
-    public List<TerraformProperty<string>> AuthorProGroup
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("author_pro_group");
-        set => SetProperty("author_pro_group", value);
-    }
+    [TerraformPropertyName("author_pro_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AuthorProGroup { get; set; }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformProperty<string> AwsAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("aws_account_id");
-        set => SetProperty("aws_account_id", value);
-    }
+    [TerraformPropertyName("aws_account_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AwsAccountId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_account_id");
 
     /// <summary>
     /// The contact_number attribute.
     /// </summary>
-    public TerraformProperty<string> ContactNumber
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("contact_number");
-        set => SetProperty("contact_number", value);
-    }
+    [TerraformPropertyName("contact_number")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContactNumber { get; set; }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public TerraformProperty<string> DirectoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("directory_id");
-        set => SetProperty("directory_id", value);
-    }
+    [TerraformPropertyName("directory_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DirectoryId { get; set; }
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Edition is required")]
-    public required TerraformProperty<string> Edition
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("edition");
-        set => SetProperty("edition", value);
-    }
+    [TerraformPropertyName("edition")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Edition { get; set; }
 
     /// <summary>
     /// The email_address attribute.
     /// </summary>
-    public TerraformProperty<string> EmailAddress
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("email_address");
-        set => SetProperty("email_address", value);
-    }
+    [TerraformPropertyName("email_address")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EmailAddress { get; set; }
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
-    public TerraformProperty<string> FirstName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("first_name");
-        set => SetProperty("first_name", value);
-    }
+    [TerraformPropertyName("first_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FirstName { get; set; }
 
     /// <summary>
     /// The iam_identity_center_instance_arn attribute.
     /// </summary>
-    public TerraformProperty<string> IamIdentityCenterInstanceArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iam_identity_center_instance_arn");
-        set => SetProperty("iam_identity_center_instance_arn", value);
-    }
+    [TerraformPropertyName("iam_identity_center_instance_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IamIdentityCenterInstanceArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
-    public TerraformProperty<string> LastName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("last_name");
-        set => SetProperty("last_name", value);
-    }
+    [TerraformPropertyName("last_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LastName { get; set; }
 
     /// <summary>
     /// The notification_email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationEmail is required")]
-    public required TerraformProperty<string> NotificationEmail
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("notification_email");
-        set => SetProperty("notification_email", value);
-    }
+    [TerraformPropertyName("notification_email")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NotificationEmail { get; set; }
 
     /// <summary>
     /// The reader_group attribute.
     /// </summary>
-    public List<TerraformProperty<string>> ReaderGroup
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("reader_group");
-        set => SetProperty("reader_group", value);
-    }
+    [TerraformPropertyName("reader_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ReaderGroup { get; set; }
 
     /// <summary>
     /// The reader_pro_group attribute.
     /// </summary>
-    public List<TerraformProperty<string>> ReaderProGroup
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("reader_pro_group");
-        set => SetProperty("reader_pro_group", value);
-    }
+    [TerraformPropertyName("reader_pro_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ReaderProGroup { get; set; }
 
     /// <summary>
     /// The realm attribute.
     /// </summary>
-    public TerraformProperty<string> Realm
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("realm");
-        set => SetProperty("realm", value);
-    }
+    [TerraformPropertyName("realm")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Realm { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsQuicksightAccountSubscriptionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsQuicksightAccountSubscriptionTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The account_subscription_status attribute.
     /// </summary>
-    public TerraformExpression AccountSubscriptionStatus => this["account_subscription_status"];
+    [TerraformPropertyName("account_subscription_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AccountSubscriptionStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "account_subscription_status");
 
 }

@@ -9,102 +9,98 @@ public class GoogleComputeInterconnectLocationDataSource : TerraformDataSource
 {
     public GoogleComputeInterconnectLocationDataSource(string name) : base("google_compute_interconnect_location", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("address");
-        SetOutput("availability_zone");
-        SetOutput("city");
-        SetOutput("continent");
-        SetOutput("description");
-        SetOutput("facility_provider");
-        SetOutput("facility_provider_facility_id");
-        SetOutput("peeringdb_facility_id");
-        SetOutput("self_link");
-        SetOutput("status");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The address attribute.
     /// </summary>
-    public TerraformExpression Address => this["address"];
+    [TerraformPropertyName("address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Address => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "address");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformExpression AvailabilityZone => this["availability_zone"];
+    [TerraformPropertyName("availability_zone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone");
 
     /// <summary>
     /// The city attribute.
     /// </summary>
-    public TerraformExpression City => this["city"];
+    [TerraformPropertyName("city")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> City => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "city");
 
     /// <summary>
     /// The continent attribute.
     /// </summary>
-    public TerraformExpression Continent => this["continent"];
+    [TerraformPropertyName("continent")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Continent => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "continent");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The facility_provider attribute.
     /// </summary>
-    public TerraformExpression FacilityProvider => this["facility_provider"];
+    [TerraformPropertyName("facility_provider")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FacilityProvider => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "facility_provider");
 
     /// <summary>
     /// The facility_provider_facility_id attribute.
     /// </summary>
-    public TerraformExpression FacilityProviderFacilityId => this["facility_provider_facility_id"];
+    [TerraformPropertyName("facility_provider_facility_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FacilityProviderFacilityId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "facility_provider_facility_id");
 
     /// <summary>
     /// The peeringdb_facility_id attribute.
     /// </summary>
-    public TerraformExpression PeeringdbFacilityId => this["peeringdb_facility_id"];
+    [TerraformPropertyName("peeringdb_facility_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PeeringdbFacilityId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "peeringdb_facility_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
 }

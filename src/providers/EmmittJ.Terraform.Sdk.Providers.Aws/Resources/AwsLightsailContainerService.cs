@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for private_registry_access in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLightsailContainerServicePrivateRegistryAccessBlock : TerraformBlock
+public class AwsLightsailContainerServicePrivateRegistryAccessBlock : ITerraformBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsLightsailContainerServicePrivateRegistryAccessBlock : TerraformB
 /// Block type for public_domain_names in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLightsailContainerServicePublicDomainNamesBlock : TerraformBlock
+public class AwsLightsailContainerServicePublicDomainNamesBlock : ITerraformBlock
 {
 }
 
@@ -22,31 +22,28 @@ public class AwsLightsailContainerServicePublicDomainNamesBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLightsailContainerServiceTimeoutsBlock : TerraformBlock
+public class AwsLightsailContainerServiceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -58,177 +55,151 @@ public class AwsLightsailContainerService : TerraformResource
 {
     public AwsLightsailContainerService(string name) : base("aws_lightsail_container_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("availability_zone");
-        SetOutput("created_at");
-        SetOutput("power_id");
-        SetOutput("principal_arn");
-        SetOutput("private_domain_name");
-        SetOutput("resource_type");
-        SetOutput("state");
-        SetOutput("url");
-        SetOutput("id");
-        SetOutput("is_disabled");
-        SetOutput("name");
-        SetOutput("power");
-        SetOutput("region");
-        SetOutput("scale");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The is_disabled attribute.
     /// </summary>
-    public TerraformProperty<bool> IsDisabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("is_disabled");
-        set => SetProperty("is_disabled", value);
-    }
+    [TerraformPropertyName("is_disabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsDisabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The power attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Power is required")]
-    public required TerraformProperty<string> Power
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("power");
-        set => SetProperty("power", value);
-    }
+    [TerraformPropertyName("power")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Power { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The scale attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scale is required")]
-    public required TerraformProperty<double> Scale
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("scale");
-        set => SetProperty("scale", value);
-    }
+    [TerraformPropertyName("scale")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Scale { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for private_registry_access.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateRegistryAccess block(s) allowed")]
-    public List<AwsLightsailContainerServicePrivateRegistryAccessBlock>? PrivateRegistryAccess
-    {
-        set => SetProperty("private_registry_access", value);
-    }
+    [TerraformPropertyName("private_registry_access")]
+    public TerraformList<TerraformBlock<AwsLightsailContainerServicePrivateRegistryAccessBlock>>? PrivateRegistryAccess { get; set; } = new();
 
     /// <summary>
     /// Block for public_domain_names.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicDomainNames block(s) allowed")]
-    public List<AwsLightsailContainerServicePublicDomainNamesBlock>? PublicDomainNames
-    {
-        set => SetProperty("public_domain_names", value);
-    }
+    [TerraformPropertyName("public_domain_names")]
+    public TerraformList<TerraformBlock<AwsLightsailContainerServicePublicDomainNamesBlock>>? PublicDomainNames { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsLightsailContainerServiceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsLightsailContainerServiceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformExpression AvailabilityZone => this["availability_zone"];
+    [TerraformPropertyName("availability_zone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    public TerraformExpression CreatedAt => this["created_at"];
+    [TerraformPropertyName("created_at")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedAt => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_at");
 
     /// <summary>
     /// The power_id attribute.
     /// </summary>
-    public TerraformExpression PowerId => this["power_id"];
+    [TerraformPropertyName("power_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PowerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "power_id");
 
     /// <summary>
     /// The principal_arn attribute.
     /// </summary>
-    public TerraformExpression PrincipalArn => this["principal_arn"];
+    [TerraformPropertyName("principal_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "principal_arn");
 
     /// <summary>
     /// The private_domain_name attribute.
     /// </summary>
-    public TerraformExpression PrivateDomainName => this["private_domain_name"];
+    [TerraformPropertyName("private_domain_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateDomainName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_domain_name");
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformExpression ResourceType => this["resource_type"];
+    [TerraformPropertyName("resource_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_type");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformExpression Url => this["url"];
+    [TerraformPropertyName("url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Url => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "url");
 
 }

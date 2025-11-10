@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCosmosdbCassandraDatacenterTimeoutsBlock : TerraformBlock
+public class AzurermCosmosdbCassandraDatacenterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,160 +45,115 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
 {
     public AzurermCosmosdbCassandraDatacenter(string name) : base("azurerm_cosmosdb_cassandra_datacenter", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("seed_node_ip_addresses");
-        SetOutput("availability_zones_enabled");
-        SetOutput("backup_storage_customer_key_uri");
-        SetOutput("base64_encoded_yaml_fragment");
-        SetOutput("cassandra_cluster_id");
-        SetOutput("delegated_management_subnet_id");
-        SetOutput("disk_count");
-        SetOutput("disk_sku");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("managed_disk_customer_key_uri");
-        SetOutput("name");
-        SetOutput("node_count");
-        SetOutput("sku_name");
     }
 
     /// <summary>
     /// The availability_zones_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AvailabilityZonesEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("availability_zones_enabled");
-        set => SetProperty("availability_zones_enabled", value);
-    }
+    [TerraformPropertyName("availability_zones_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AvailabilityZonesEnabled { get; set; }
 
     /// <summary>
     /// The backup_storage_customer_key_uri attribute.
     /// </summary>
-    public TerraformProperty<string> BackupStorageCustomerKeyUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("backup_storage_customer_key_uri");
-        set => SetProperty("backup_storage_customer_key_uri", value);
-    }
+    [TerraformPropertyName("backup_storage_customer_key_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BackupStorageCustomerKeyUri { get; set; }
 
     /// <summary>
     /// The base64_encoded_yaml_fragment attribute.
     /// </summary>
-    public TerraformProperty<string> Base64EncodedYamlFragment
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("base64_encoded_yaml_fragment");
-        set => SetProperty("base64_encoded_yaml_fragment", value);
-    }
+    [TerraformPropertyName("base64_encoded_yaml_fragment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Base64EncodedYamlFragment { get; set; }
 
     /// <summary>
     /// The cassandra_cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CassandraClusterId is required")]
-    public required TerraformProperty<string> CassandraClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cassandra_cluster_id");
-        set => SetProperty("cassandra_cluster_id", value);
-    }
+    [TerraformPropertyName("cassandra_cluster_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CassandraClusterId { get; set; }
 
     /// <summary>
     /// The delegated_management_subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedManagementSubnetId is required")]
-    public required TerraformProperty<string> DelegatedManagementSubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("delegated_management_subnet_id");
-        set => SetProperty("delegated_management_subnet_id", value);
-    }
+    [TerraformPropertyName("delegated_management_subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DelegatedManagementSubnetId { get; set; }
 
     /// <summary>
     /// The disk_count attribute.
     /// </summary>
-    public TerraformProperty<double> DiskCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("disk_count");
-        set => SetProperty("disk_count", value);
-    }
+    [TerraformPropertyName("disk_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DiskCount { get; set; }
 
     /// <summary>
     /// The disk_sku attribute.
     /// </summary>
-    public TerraformProperty<string> DiskSku
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("disk_sku");
-        set => SetProperty("disk_sku", value);
-    }
+    [TerraformPropertyName("disk_sku")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DiskSku { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The managed_disk_customer_key_uri attribute.
     /// </summary>
-    public TerraformProperty<string> ManagedDiskCustomerKeyUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("managed_disk_customer_key_uri");
-        set => SetProperty("managed_disk_customer_key_uri", value);
-    }
+    [TerraformPropertyName("managed_disk_customer_key_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ManagedDiskCustomerKeyUri { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
-    public TerraformProperty<double> NodeCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("node_count");
-        set => SetProperty("node_count", value);
-    }
+    [TerraformPropertyName("node_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? NodeCount { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformProperty<string> SkuName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
-        set => SetProperty("sku_name", value);
-    }
+    [TerraformPropertyName("sku_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SkuName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermCosmosdbCassandraDatacenterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermCosmosdbCassandraDatacenterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The seed_node_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression SeedNodeIpAddresses => this["seed_node_ip_addresses"];
+    [TerraformPropertyName("seed_node_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SeedNodeIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "seed_node_ip_addresses");
 
 }

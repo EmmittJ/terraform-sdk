@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsKmsCustomKeyStoreTimeoutsBlock : TerraformBlock
+public class AwsKmsCustomKeyStoreTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -38,25 +35,23 @@ public class AwsKmsCustomKeyStoreTimeoutsBlock : TerraformBlock
 /// Block type for xks_proxy_authentication_credential in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock : TerraformBlock
+public class AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock : ITerraformBlock
 {
     /// <summary>
     /// The access_key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKeyId is required")]
-    public required TerraformProperty<string> AccessKeyId
-    {
-        set => SetProperty("access_key_id", value);
-    }
+    [TerraformPropertyName("access_key_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccessKeyId { get; set; }
 
     /// <summary>
     /// The raw_secret_access_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RawSecretAccessKey is required")]
-    public required TerraformProperty<string> RawSecretAccessKey
-    {
-        set => SetProperty("raw_secret_access_key", value);
-    }
+    [TerraformPropertyName("raw_secret_access_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RawSecretAccessKey { get; set; }
 
 }
 
@@ -68,141 +63,99 @@ public class AwsKmsCustomKeyStore : TerraformResource
 {
     public AwsKmsCustomKeyStore(string name) : base("aws_kms_custom_key_store", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cloud_hsm_cluster_id");
-        SetOutput("custom_key_store_name");
-        SetOutput("custom_key_store_type");
-        SetOutput("id");
-        SetOutput("key_store_password");
-        SetOutput("region");
-        SetOutput("trust_anchor_certificate");
-        SetOutput("xks_proxy_connectivity");
-        SetOutput("xks_proxy_uri_endpoint");
-        SetOutput("xks_proxy_uri_path");
-        SetOutput("xks_proxy_vpc_endpoint_service_name");
     }
 
     /// <summary>
     /// The cloud_hsm_cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string> CloudHsmClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_hsm_cluster_id");
-        set => SetProperty("cloud_hsm_cluster_id", value);
-    }
+    [TerraformPropertyName("cloud_hsm_cluster_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CloudHsmClusterId { get; set; }
 
     /// <summary>
     /// The custom_key_store_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomKeyStoreName is required")]
-    public required TerraformProperty<string> CustomKeyStoreName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("custom_key_store_name");
-        set => SetProperty("custom_key_store_name", value);
-    }
+    [TerraformPropertyName("custom_key_store_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CustomKeyStoreName { get; set; }
 
     /// <summary>
     /// The custom_key_store_type attribute.
     /// </summary>
-    public TerraformProperty<string> CustomKeyStoreType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("custom_key_store_type");
-        set => SetProperty("custom_key_store_type", value);
-    }
+    [TerraformPropertyName("custom_key_store_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CustomKeyStoreType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "custom_key_store_type");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key_store_password attribute.
     /// </summary>
-    public TerraformProperty<string> KeyStorePassword
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_store_password");
-        set => SetProperty("key_store_password", value);
-    }
+    [TerraformPropertyName("key_store_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyStorePassword { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The trust_anchor_certificate attribute.
     /// </summary>
-    public TerraformProperty<string> TrustAnchorCertificate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("trust_anchor_certificate");
-        set => SetProperty("trust_anchor_certificate", value);
-    }
+    [TerraformPropertyName("trust_anchor_certificate")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TrustAnchorCertificate { get; set; }
 
     /// <summary>
     /// The xks_proxy_connectivity attribute.
     /// </summary>
-    public TerraformProperty<string> XksProxyConnectivity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("xks_proxy_connectivity");
-        set => SetProperty("xks_proxy_connectivity", value);
-    }
+    [TerraformPropertyName("xks_proxy_connectivity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? XksProxyConnectivity { get; set; }
 
     /// <summary>
     /// The xks_proxy_uri_endpoint attribute.
     /// </summary>
-    public TerraformProperty<string> XksProxyUriEndpoint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("xks_proxy_uri_endpoint");
-        set => SetProperty("xks_proxy_uri_endpoint", value);
-    }
+    [TerraformPropertyName("xks_proxy_uri_endpoint")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? XksProxyUriEndpoint { get; set; }
 
     /// <summary>
     /// The xks_proxy_uri_path attribute.
     /// </summary>
-    public TerraformProperty<string> XksProxyUriPath
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("xks_proxy_uri_path");
-        set => SetProperty("xks_proxy_uri_path", value);
-    }
+    [TerraformPropertyName("xks_proxy_uri_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? XksProxyUriPath { get; set; }
 
     /// <summary>
     /// The xks_proxy_vpc_endpoint_service_name attribute.
     /// </summary>
-    public TerraformProperty<string> XksProxyVpcEndpointServiceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("xks_proxy_vpc_endpoint_service_name");
-        set => SetProperty("xks_proxy_vpc_endpoint_service_name", value);
-    }
+    [TerraformPropertyName("xks_proxy_vpc_endpoint_service_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? XksProxyVpcEndpointServiceName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsKmsCustomKeyStoreTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsKmsCustomKeyStoreTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for xks_proxy_authentication_credential.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 XksProxyAuthenticationCredential block(s) allowed")]
-    public List<AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock>? XksProxyAuthenticationCredential
-    {
-        set => SetProperty("xks_proxy_authentication_credential", value);
-    }
+    [TerraformPropertyName("xks_proxy_authentication_credential")]
+    public TerraformList<TerraformBlock<AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock>>? XksProxyAuthenticationCredential { get; set; } = new();
 
 }

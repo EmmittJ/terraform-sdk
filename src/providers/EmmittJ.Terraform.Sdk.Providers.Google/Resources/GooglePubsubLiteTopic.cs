@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for partition_config in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubLiteTopicPartitionConfigBlock : TerraformBlock
+public class GooglePubsubLiteTopicPartitionConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The number of partitions in the topic. Must be at least 1.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Count is required")]
-    public required TerraformProperty<double> Count
-    {
-        set => SetProperty("count", value);
-    }
+    [TerraformPropertyName("count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Count { get; set; }
 
 }
 
@@ -23,15 +22,14 @@ public class GooglePubsubLiteTopicPartitionConfigBlock : TerraformBlock
 /// Block type for reservation_config in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubLiteTopicReservationConfigBlock : TerraformBlock
+public class GooglePubsubLiteTopicReservationConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The Reservation to use for this topic&#39;s throughput capacity.
     /// </summary>
-    public TerraformProperty<string>? ThroughputReservation
-    {
-        set => SetProperty("throughput_reservation", value);
-    }
+    [TerraformPropertyName("throughput_reservation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ThroughputReservation { get; set; }
 
 }
 
@@ -39,7 +37,7 @@ public class GooglePubsubLiteTopicReservationConfigBlock : TerraformBlock
 /// Block type for retention_config in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubLiteTopicRetentionConfigBlock : TerraformBlock
+public class GooglePubsubLiteTopicRetentionConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The provisioned storage, in bytes, per partition. If the number of bytes stored
@@ -47,10 +45,9 @@ public class GooglePubsubLiteTopicRetentionConfigBlock : TerraformBlock
     /// dropped to make room for newer ones, regardless of the value of period.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerPartitionBytes is required")]
-    public required TerraformProperty<string> PerPartitionBytes
-    {
-        set => SetProperty("per_partition_bytes", value);
-    }
+    [TerraformPropertyName("per_partition_bytes")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PerPartitionBytes { get; set; }
 
     /// <summary>
     /// How long a published message is retained. If unset, messages will be retained as
@@ -58,10 +55,9 @@ public class GooglePubsubLiteTopicRetentionConfigBlock : TerraformBlock
     /// duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;.
     /// Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Period
-    {
-        set => SetProperty("period", value);
-    }
+    [TerraformPropertyName("period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Period { get; set; }
 
 }
 
@@ -69,31 +65,28 @@ public class GooglePubsubLiteTopicRetentionConfigBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GooglePubsubLiteTopicTimeoutsBlock : TerraformBlock
+public class GooglePubsubLiteTopicTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -105,101 +98,73 @@ public class GooglePubsubLiteTopic : TerraformResource
 {
     public GooglePubsubLiteTopic(string name) : base("google_pubsub_lite_topic", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("region");
-        SetOutput("zone");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Name of the topic.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The region of the pubsub lite topic.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
     /// <summary>
     /// The zone of the pubsub lite topic.
     /// </summary>
-    public TerraformProperty<string> Zone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("zone");
-        set => SetProperty("zone", value);
-    }
+    [TerraformPropertyName("zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Zone { get; set; }
 
     /// <summary>
     /// Block for partition_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PartitionConfig block(s) allowed")]
-    public List<GooglePubsubLiteTopicPartitionConfigBlock>? PartitionConfig
-    {
-        set => SetProperty("partition_config", value);
-    }
+    [TerraformPropertyName("partition_config")]
+    public TerraformList<TerraformBlock<GooglePubsubLiteTopicPartitionConfigBlock>>? PartitionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for reservation_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationConfig block(s) allowed")]
-    public List<GooglePubsubLiteTopicReservationConfigBlock>? ReservationConfig
-    {
-        set => SetProperty("reservation_config", value);
-    }
+    [TerraformPropertyName("reservation_config")]
+    public TerraformList<TerraformBlock<GooglePubsubLiteTopicReservationConfigBlock>>? ReservationConfig { get; set; } = new();
 
     /// <summary>
     /// Block for retention_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionConfig block(s) allowed")]
-    public List<GooglePubsubLiteTopicRetentionConfigBlock>? RetentionConfig
-    {
-        set => SetProperty("retention_config", value);
-    }
+    [TerraformPropertyName("retention_config")]
+    public TerraformList<TerraformBlock<GooglePubsubLiteTopicRetentionConfigBlock>>? RetentionConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GooglePubsubLiteTopicTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GooglePubsubLiteTopicTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

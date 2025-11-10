@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for default_result_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCleanroomsMembershipDefaultResultConfigurationBlock : TerraformBlock
+public class AwsCleanroomsMembershipDefaultResultConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
-    {
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoleArn { get; set; }
 
 }
 
@@ -22,7 +21,7 @@ public class AwsCleanroomsMembershipDefaultResultConfigurationBlock : TerraformB
 /// Block type for payment_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCleanroomsMembershipPaymentConfigurationBlock : TerraformBlock
+public class AwsCleanroomsMembershipPaymentConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -33,137 +32,127 @@ public class AwsCleanroomsMembership : TerraformResource
 {
     public AwsCleanroomsMembership(string name) : base("aws_cleanrooms_membership", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("collaboration_arn");
-        SetOutput("collaboration_creator_account_id");
-        SetOutput("collaboration_creator_display_name");
-        SetOutput("collaboration_name");
-        SetOutput("create_time");
-        SetOutput("id");
-        SetOutput("member_abilities");
-        SetOutput("status");
-        SetOutput("tags_all");
-        SetOutput("update_time");
-        SetOutput("collaboration_id");
-        SetOutput("query_log_status");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The collaboration_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaborationId is required")]
-    public required TerraformProperty<string> CollaborationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("collaboration_id");
-        set => SetProperty("collaboration_id", value);
-    }
+    [TerraformPropertyName("collaboration_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CollaborationId { get; set; }
 
     /// <summary>
     /// The query_log_status attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryLogStatus is required")]
-    public required TerraformProperty<string> QueryLogStatus
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("query_log_status");
-        set => SetProperty("query_log_status", value);
-    }
+    [TerraformPropertyName("query_log_status")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> QueryLogStatus { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for default_result_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsCleanroomsMembershipDefaultResultConfigurationBlock>? DefaultResultConfiguration
-    {
-        set => SetProperty("default_result_configuration", value);
-    }
+    [TerraformPropertyName("default_result_configuration")]
+    public TerraformList<TerraformBlock<AwsCleanroomsMembershipDefaultResultConfigurationBlock>>? DefaultResultConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for payment_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsCleanroomsMembershipPaymentConfigurationBlock>? PaymentConfiguration
-    {
-        set => SetProperty("payment_configuration", value);
-    }
+    [TerraformPropertyName("payment_configuration")]
+    public TerraformList<TerraformBlock<AwsCleanroomsMembershipPaymentConfigurationBlock>>? PaymentConfiguration { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The collaboration_arn attribute.
     /// </summary>
-    public TerraformExpression CollaborationArn => this["collaboration_arn"];
+    [TerraformPropertyName("collaboration_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CollaborationArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "collaboration_arn");
 
     /// <summary>
     /// The collaboration_creator_account_id attribute.
     /// </summary>
-    public TerraformExpression CollaborationCreatorAccountId => this["collaboration_creator_account_id"];
+    [TerraformPropertyName("collaboration_creator_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CollaborationCreatorAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "collaboration_creator_account_id");
 
     /// <summary>
     /// The collaboration_creator_display_name attribute.
     /// </summary>
-    public TerraformExpression CollaborationCreatorDisplayName => this["collaboration_creator_display_name"];
+    [TerraformPropertyName("collaboration_creator_display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CollaborationCreatorDisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "collaboration_creator_display_name");
 
     /// <summary>
     /// The collaboration_name attribute.
     /// </summary>
-    public TerraformExpression CollaborationName => this["collaboration_name"];
+    [TerraformPropertyName("collaboration_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CollaborationName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "collaboration_name");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The member_abilities attribute.
     /// </summary>
-    public TerraformExpression MemberAbilities => this["member_abilities"];
+    [TerraformPropertyName("member_abilities")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> MemberAbilities => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "member_abilities");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

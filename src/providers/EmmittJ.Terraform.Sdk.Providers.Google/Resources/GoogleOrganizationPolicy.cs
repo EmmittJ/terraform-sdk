@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for boolean_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOrganizationPolicyBooleanPolicyBlock : TerraformBlock
+public class GoogleOrganizationPolicyBooleanPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// If true, then the Policy is enforced. If false, then any configuration is acceptable.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforced is required")]
-    public required TerraformProperty<bool> Enforced
-    {
-        set => SetProperty("enforced", value);
-    }
+    [TerraformPropertyName("enforced")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enforced { get; set; }
 
 }
 
@@ -23,23 +22,21 @@ public class GoogleOrganizationPolicyBooleanPolicyBlock : TerraformBlock
 /// Block type for list_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOrganizationPolicyListPolicyBlock : TerraformBlock
+public class GoogleOrganizationPolicyListPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// If set to true, the values from the effective Policy of the parent resource are inherited, meaning the values set in this Policy are added to the values inherited up the hierarchy.
     /// </summary>
-    public TerraformProperty<bool>? InheritFromParent
-    {
-        set => SetProperty("inherit_from_parent", value);
-    }
+    [TerraformPropertyName("inherit_from_parent")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InheritFromParent { get; set; }
 
     /// <summary>
     /// The Google Cloud Console will try to default to a configuration that matches the value specified in this field.
     /// </summary>
-    public TerraformProperty<string>? SuggestedValue
-    {
-        set => SetProperty("suggested_value", value);
-    }
+    [TerraformPropertyName("suggested_value")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SuggestedValue { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "suggested_value");
 
 }
 
@@ -47,16 +44,15 @@ public class GoogleOrganizationPolicyListPolicyBlock : TerraformBlock
 /// Block type for restore_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOrganizationPolicyRestorePolicyBlock : TerraformBlock
+public class GoogleOrganizationPolicyRestorePolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// May only be set to true. If set, then the default Policy is restored.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Default is required")]
-    public required TerraformProperty<bool> Default
-    {
-        set => SetProperty("default", value);
-    }
+    [TerraformPropertyName("default")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Default { get; set; }
 
 }
 
@@ -64,39 +60,35 @@ public class GoogleOrganizationPolicyRestorePolicyBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleOrganizationPolicyTimeoutsBlock : TerraformBlock
+public class GoogleOrganizationPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -108,104 +100,81 @@ public class GoogleOrganizationPolicy : TerraformResource
 {
     public GoogleOrganizationPolicy(string name) : base("google_organization_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("etag");
-        SetOutput("update_time");
-        SetOutput("constraint");
-        SetOutput("id");
-        SetOutput("org_id");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The name of the Constraint the Policy is configuring, for example, serviceuser.services.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
-    public required TerraformProperty<string> Constraint
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("constraint");
-        set => SetProperty("constraint", value);
-    }
+    [TerraformPropertyName("constraint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Constraint { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    public required TerraformProperty<string> OrgId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
-        set => SetProperty("org_id", value);
-    }
+    [TerraformPropertyName("org_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
 
     /// <summary>
     /// Version of the Policy. Default version is 0.
     /// </summary>
-    public TerraformProperty<double> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Version { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "version");
 
     /// <summary>
     /// Block for boolean_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BooleanPolicy block(s) allowed")]
-    public List<GoogleOrganizationPolicyBooleanPolicyBlock>? BooleanPolicy
-    {
-        set => SetProperty("boolean_policy", value);
-    }
+    [TerraformPropertyName("boolean_policy")]
+    public TerraformList<TerraformBlock<GoogleOrganizationPolicyBooleanPolicyBlock>>? BooleanPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for list_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ListPolicy block(s) allowed")]
-    public List<GoogleOrganizationPolicyListPolicyBlock>? ListPolicy
-    {
-        set => SetProperty("list_policy", value);
-    }
+    [TerraformPropertyName("list_policy")]
+    public TerraformList<TerraformBlock<GoogleOrganizationPolicyListPolicyBlock>>? ListPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for restore_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestorePolicy block(s) allowed")]
-    public List<GoogleOrganizationPolicyRestorePolicyBlock>? RestorePolicy
-    {
-        set => SetProperty("restore_policy", value);
-    }
+    [TerraformPropertyName("restore_policy")]
+    public TerraformList<TerraformBlock<GoogleOrganizationPolicyRestorePolicyBlock>>? RestorePolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleOrganizationPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleOrganizationPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The etag of the organization policy. etag is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// The timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds, representing when the variable was last updated. Example: &amp;quot;2016-10-09T12:33:37.578138407Z&amp;quot;.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

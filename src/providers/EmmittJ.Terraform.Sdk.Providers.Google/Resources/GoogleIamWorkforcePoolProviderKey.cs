@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for key_data in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
+public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : ITerraformBlock
 {
     /// <summary>
     /// The format of the key.
     /// </summary>
-    public TerraformProperty<string>? Format
-    {
-        set => SetProperty("format", value);
-    }
+    [TerraformPropertyName("format")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Format => new TerraformReferenceProperty<TerraformProperty<string>>("", "format");
 
     /// <summary>
     /// The key data. The format of the key is represented by the format field.
     /// </summary>
-    public TerraformProperty<string>? Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Key => new TerraformReferenceProperty<TerraformProperty<string>>("", "key");
 
     /// <summary>
     /// The specifications for the key. Possible values: [&amp;quot;RSA_2048&amp;quot;, &amp;quot;RSA_3072&amp;quot;, &amp;quot;RSA_4096&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeySpec is required")]
-    public required TerraformProperty<string> KeySpec
-    {
-        set => SetProperty("key_spec", value);
-    }
+    [TerraformPropertyName("key_spec")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeySpec { get; set; }
 
     /// <summary>
     /// Latest timestamp when this key is valid. Attempts to use this key after this time will fail.
@@ -41,10 +38,9 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     /// Offsets other than &amp;quot;Z&amp;quot; are also accepted.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? NotAfterTime
-    {
-        set => SetProperty("not_after_time", value);
-    }
+    [TerraformPropertyName("not_after_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NotAfterTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "not_after_time");
 
     /// <summary>
     /// Earliest timestamp when this key is valid. Attempts to use this key before this time will fail.
@@ -54,10 +50,9 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     /// Offsets other than &amp;quot;Z&amp;quot; are also accepted.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? NotBeforeTime
-    {
-        set => SetProperty("not_before_time", value);
-    }
+    [TerraformPropertyName("not_before_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NotBeforeTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "not_before_time");
 
 }
 
@@ -65,23 +60,21 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIamWorkforcePoolProviderKeyTimeoutsBlock : TerraformBlock
+public class GoogleIamWorkforcePoolProviderKeyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -93,80 +86,54 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
 {
     public GoogleIamWorkforcePoolProviderKey(string name) : base("google_iam_workforce_pool_provider_key", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("expire_time");
-        SetOutput("name");
-        SetOutput("state");
-        SetOutput("id");
-        SetOutput("key_id");
-        SetOutput("location");
-        SetOutput("provider_id");
-        SetOutput("use");
-        SetOutput("workforce_pool_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID to use for the key, which becomes the final component of the resource name. This value must be 4-32 characters, and may contain the characters [a-z0-9-].
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
-    public required TerraformProperty<string> KeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_id");
-        set => SetProperty("key_id", value);
-    }
+    [TerraformPropertyName("key_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyId { get; set; }
 
     /// <summary>
     /// The location for the resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The ID of the provider.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
-    public required TerraformProperty<string> ProviderId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("provider_id");
-        set => SetProperty("provider_id", value);
-    }
+    [TerraformPropertyName("provider_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProviderId { get; set; }
 
     /// <summary>
     /// The purpose of the key. Possible values: [&amp;quot;ENCRYPTION&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Use is required")]
-    public required TerraformProperty<string> Use
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("use");
-        set => SetProperty("use", value);
-    }
+    [TerraformPropertyName("use")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Use { get; set; }
 
     /// <summary>
     /// The ID of the workforce pool.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
-    public required TerraformProperty<string> WorkforcePoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workforce_pool_id");
-        set => SetProperty("workforce_pool_id", value);
-    }
+    [TerraformPropertyName("workforce_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkforcePoolId { get; set; }
 
     /// <summary>
     /// Block for key_data.
@@ -175,35 +142,37 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyData is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KeyData block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyData block(s) allowed")]
-    public List<GoogleIamWorkforcePoolProviderKeyKeyDataBlock>? KeyData
-    {
-        set => SetProperty("key_data", value);
-    }
+    [TerraformPropertyName("key_data")]
+    public TerraformList<TerraformBlock<GoogleIamWorkforcePoolProviderKeyKeyDataBlock>>? KeyData { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleIamWorkforcePoolProviderKeyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleIamWorkforcePoolProviderKeyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time after which the key will be permanently deleted and cannot be recovered.
     /// Note that the key may get purged before this time if the total limit of keys per provider is exceeded.
     /// </summary>
-    public TerraformExpression ExpireTime => this["expire_time"];
+    [TerraformPropertyName("expire_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpireTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expire_time");
 
     /// <summary>
     /// Identifier. The resource name of the key.
     /// Format: &#39;locations/{location}/workforcePools/{workforcePoolId}/providers/{providerId}/keys/{keyId}&#39;
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The state of the key.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
 }

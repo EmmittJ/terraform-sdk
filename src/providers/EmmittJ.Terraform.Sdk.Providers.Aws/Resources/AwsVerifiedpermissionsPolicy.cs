@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for definition in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedpermissionsPolicyDefinitionBlock : TerraformBlock
+public class AwsVerifiedpermissionsPolicyDefinitionBlock : ITerraformBlock
 {
 }
 
@@ -17,59 +17,49 @@ public class AwsVerifiedpermissionsPolicy : TerraformResource
 {
     public AwsVerifiedpermissionsPolicy(string name) : base("aws_verifiedpermissions_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("created_date");
-        SetOutput("id");
-        SetOutput("policy_id");
-        SetOutput("policy_store_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The policy_store_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
-    public required TerraformProperty<string> PolicyStoreId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_store_id");
-        set => SetProperty("policy_store_id", value);
-    }
+    [TerraformPropertyName("policy_store_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyStoreId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for definition.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsVerifiedpermissionsPolicyDefinitionBlock>? Definition
-    {
-        set => SetProperty("definition", value);
-    }
+    [TerraformPropertyName("definition")]
+    public TerraformList<TerraformBlock<AwsVerifiedpermissionsPolicyDefinitionBlock>>? Definition { get; set; } = new();
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
-    public TerraformExpression CreatedDate => this["created_date"];
+    [TerraformPropertyName("created_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatedDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "created_date");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
-    public TerraformExpression PolicyId => this["policy_id"];
+    [TerraformPropertyName("policy_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PolicyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy_id");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for error_report_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlock : TerraformBlock
+public class AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -14,39 +14,35 @@ public class AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlock : Ter
 /// Block type for last_run_summary in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlock : TerraformBlock
+public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlock : ITerraformBlock
 {
     /// <summary>
     /// The failure_reason attribute.
     /// </summary>
-    public TerraformProperty<string>? FailureReason
-    {
-        set => SetProperty("failure_reason", value);
-    }
+    [TerraformPropertyName("failure_reason")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FailureReason => new TerraformReferenceProperty<TerraformProperty<string>>("", "failure_reason");
 
     /// <summary>
     /// The invocation_time attribute.
     /// </summary>
-    public TerraformProperty<string>? InvocationTime
-    {
-        set => SetProperty("invocation_time", value);
-    }
+    [TerraformPropertyName("invocation_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InvocationTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "invocation_time");
 
     /// <summary>
     /// The run_status attribute.
     /// </summary>
-    public TerraformProperty<string>? RunStatus
-    {
-        set => SetProperty("run_status", value);
-    }
+    [TerraformPropertyName("run_status")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RunStatus => new TerraformReferenceProperty<TerraformProperty<string>>("", "run_status");
 
     /// <summary>
     /// The trigger_time attribute.
     /// </summary>
-    public TerraformProperty<string>? TriggerTime
-    {
-        set => SetProperty("trigger_time", value);
-    }
+    [TerraformPropertyName("trigger_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TriggerTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "trigger_time");
 
 }
 
@@ -54,7 +50,7 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlock : TerraformBloc
 /// Block type for notification_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTimestreamqueryScheduledQueryNotificationConfigurationBlock : TerraformBlock
+public class AwsTimestreamqueryScheduledQueryNotificationConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -62,39 +58,35 @@ public class AwsTimestreamqueryScheduledQueryNotificationConfigurationBlock : Te
 /// Block type for recently_failed_runs in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock : TerraformBlock
+public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock : ITerraformBlock
 {
     /// <summary>
     /// The failure_reason attribute.
     /// </summary>
-    public TerraformProperty<string>? FailureReason
-    {
-        set => SetProperty("failure_reason", value);
-    }
+    [TerraformPropertyName("failure_reason")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FailureReason => new TerraformReferenceProperty<TerraformProperty<string>>("", "failure_reason");
 
     /// <summary>
     /// The invocation_time attribute.
     /// </summary>
-    public TerraformProperty<string>? InvocationTime
-    {
-        set => SetProperty("invocation_time", value);
-    }
+    [TerraformPropertyName("invocation_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InvocationTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "invocation_time");
 
     /// <summary>
     /// The run_status attribute.
     /// </summary>
-    public TerraformProperty<string>? RunStatus
-    {
-        set => SetProperty("run_status", value);
-    }
+    [TerraformPropertyName("run_status")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RunStatus => new TerraformReferenceProperty<TerraformProperty<string>>("", "run_status");
 
     /// <summary>
     /// The trigger_time attribute.
     /// </summary>
-    public TerraformProperty<string>? TriggerTime
-    {
-        set => SetProperty("trigger_time", value);
-    }
+    [TerraformPropertyName("trigger_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TriggerTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "trigger_time");
 
 }
 
@@ -102,16 +94,15 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock : Terraform
 /// Block type for schedule_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock : TerraformBlock
+public class AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The schedule_expression attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
-    public required TerraformProperty<string> ScheduleExpression
-    {
-        set => SetProperty("schedule_expression", value);
-    }
+    [TerraformPropertyName("schedule_expression")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScheduleExpression { get; set; }
 
 }
 
@@ -119,7 +110,7 @@ public class AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock : Terraf
 /// Block type for target_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlock : TerraformBlock
+public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -127,31 +118,28 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlock : Terrafor
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsTimestreamqueryScheduledQueryTimeoutsBlock : TerraformBlock
+public class AwsTimestreamqueryScheduledQueryTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -162,173 +150,142 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
 {
     public AwsTimestreamqueryScheduledQuery(string name) : base("aws_timestreamquery_scheduled_query", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("creation_time");
-        SetOutput("next_invocation_time");
-        SetOutput("previous_invocation_time");
-        SetOutput("state");
-        SetOutput("tags_all");
-        SetOutput("execution_role_arn");
-        SetOutput("kms_key_id");
-        SetOutput("name");
-        SetOutput("query_string");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
-    public required TerraformProperty<string> ExecutionRoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("execution_role_arn");
-        set => SetProperty("execution_role_arn", value);
-    }
+    [TerraformPropertyName("execution_role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> KmsKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_id");
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The query_string attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryString is required")]
-    public required TerraformProperty<string> QueryString
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("query_string");
-        set => SetProperty("query_string", value);
-    }
+    [TerraformPropertyName("query_string")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> QueryString { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for error_report_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlock>? ErrorReportConfiguration
-    {
-        set => SetProperty("error_report_configuration", value);
-    }
+    [TerraformPropertyName("error_report_configuration")]
+    public TerraformList<TerraformBlock<AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlock>>? ErrorReportConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for last_run_summary.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsTimestreamqueryScheduledQueryLastRunSummaryBlock>? LastRunSummary
-    {
-        set => SetProperty("last_run_summary", value);
-    }
+    [TerraformPropertyName("last_run_summary")]
+    public TerraformList<TerraformBlock<AwsTimestreamqueryScheduledQueryLastRunSummaryBlock>>? LastRunSummary { get; set; } = new();
 
     /// <summary>
     /// Block for notification_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsTimestreamqueryScheduledQueryNotificationConfigurationBlock>? NotificationConfiguration
-    {
-        set => SetProperty("notification_configuration", value);
-    }
+    [TerraformPropertyName("notification_configuration")]
+    public TerraformList<TerraformBlock<AwsTimestreamqueryScheduledQueryNotificationConfigurationBlock>>? NotificationConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for recently_failed_runs.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock>? RecentlyFailedRuns
-    {
-        set => SetProperty("recently_failed_runs", value);
-    }
+    [TerraformPropertyName("recently_failed_runs")]
+    public TerraformList<TerraformBlock<AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock>>? RecentlyFailedRuns { get; set; } = new();
 
     /// <summary>
     /// Block for schedule_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock>? ScheduleConfiguration
-    {
-        set => SetProperty("schedule_configuration", value);
-    }
+    [TerraformPropertyName("schedule_configuration")]
+    public TerraformList<TerraformBlock<AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock>>? ScheduleConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for target_configuration.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsTimestreamqueryScheduledQueryTargetConfigurationBlock>? TargetConfiguration
-    {
-        set => SetProperty("target_configuration", value);
-    }
+    [TerraformPropertyName("target_configuration")]
+    public TerraformList<TerraformBlock<AwsTimestreamqueryScheduledQueryTargetConfigurationBlock>>? TargetConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsTimestreamqueryScheduledQueryTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsTimestreamqueryScheduledQueryTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    public TerraformExpression CreationTime => this["creation_time"];
+    [TerraformPropertyName("creation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
 
     /// <summary>
     /// The next_invocation_time attribute.
     /// </summary>
-    public TerraformExpression NextInvocationTime => this["next_invocation_time"];
+    [TerraformPropertyName("next_invocation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NextInvocationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "next_invocation_time");
 
     /// <summary>
     /// The previous_invocation_time attribute.
     /// </summary>
-    public TerraformExpression PreviousInvocationTime => this["previous_invocation_time"];
+    [TerraformPropertyName("previous_invocation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PreviousInvocationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "previous_invocation_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

@@ -6,41 +6,37 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attachment in .
 /// Nesting mode: set
 /// </summary>
-public class AwsNetworkInterfaceAttachmentBlock : TerraformBlock
+public class AwsNetworkInterfaceAttachmentBlock : ITerraformBlock
 {
     /// <summary>
     /// The attachment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AttachmentId
-    {
-        set => SetProperty("attachment_id", value);
-    }
+    [TerraformPropertyName("attachment_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AttachmentId => new TerraformReferenceProperty<TerraformProperty<string>>("", "attachment_id");
 
     /// <summary>
     /// The device_index attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceIndex is required")]
-    public required TerraformProperty<double> DeviceIndex
-    {
-        set => SetProperty("device_index", value);
-    }
+    [TerraformPropertyName("device_index")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> DeviceIndex { get; set; }
 
     /// <summary>
     /// The instance attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    public required TerraformProperty<string> Instance
-    {
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
 
     /// <summary>
     /// The network_card_index attribute.
     /// </summary>
-    public TerraformProperty<double>? NetworkCardIndex
-    {
-        set => SetProperty("network_card_index", value);
-    }
+    [TerraformPropertyName("network_card_index")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> NetworkCardIndex { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "network_card_index");
 
 }
 
@@ -51,281 +47,210 @@ public class AwsNetworkInterface : TerraformResource
 {
     public AwsNetworkInterface(string name) : base("aws_network_interface", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("mac_address");
-        SetOutput("outpost_arn");
-        SetOutput("owner_id");
-        SetOutput("private_dns_name");
-        SetOutput("description");
-        SetOutput("enable_primary_ipv6");
-        SetOutput("id");
-        SetOutput("interface_type");
-        SetOutput("ipv4_prefix_count");
-        SetOutput("ipv4_prefixes");
-        SetOutput("ipv6_address_count");
-        SetOutput("ipv6_address_list");
-        SetOutput("ipv6_address_list_enabled");
-        SetOutput("ipv6_addresses");
-        SetOutput("ipv6_prefix_count");
-        SetOutput("ipv6_prefixes");
-        SetOutput("private_ip");
-        SetOutput("private_ip_list");
-        SetOutput("private_ip_list_enabled");
-        SetOutput("private_ips");
-        SetOutput("private_ips_count");
-        SetOutput("region");
-        SetOutput("security_groups");
-        SetOutput("source_dest_check");
-        SetOutput("subnet_id");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The enable_primary_ipv6 attribute.
     /// </summary>
-    public TerraformProperty<bool> EnablePrimaryIpv6
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_primary_ipv6");
-        set => SetProperty("enable_primary_ipv6", value);
-    }
+    [TerraformPropertyName("enable_primary_ipv6")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnablePrimaryIpv6 { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_primary_ipv6");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The interface_type attribute.
     /// </summary>
-    public TerraformProperty<string> InterfaceType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("interface_type");
-        set => SetProperty("interface_type", value);
-    }
+    [TerraformPropertyName("interface_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> InterfaceType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "interface_type");
 
     /// <summary>
     /// The ipv4_prefix_count attribute.
     /// </summary>
-    public TerraformProperty<double> Ipv4PrefixCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("ipv4_prefix_count");
-        set => SetProperty("ipv4_prefix_count", value);
-    }
+    [TerraformPropertyName("ipv4_prefix_count")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Ipv4PrefixCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ipv4_prefix_count");
 
     /// <summary>
     /// The ipv4_prefixes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Ipv4Prefixes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("ipv4_prefixes");
-        set => SetProperty("ipv4_prefixes", value);
-    }
+    [TerraformPropertyName("ipv4_prefixes")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Ipv4Prefixes { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "ipv4_prefixes");
 
     /// <summary>
     /// The ipv6_address_count attribute.
     /// </summary>
-    public TerraformProperty<double> Ipv6AddressCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("ipv6_address_count");
-        set => SetProperty("ipv6_address_count", value);
-    }
+    [TerraformPropertyName("ipv6_address_count")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Ipv6AddressCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ipv6_address_count");
 
     /// <summary>
     /// The ipv6_address_list attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Ipv6AddressList
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("ipv6_address_list");
-        set => SetProperty("ipv6_address_list", value);
-    }
+    [TerraformPropertyName("ipv6_address_list")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> Ipv6AddressList { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "ipv6_address_list");
 
     /// <summary>
     /// The ipv6_address_list_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Ipv6AddressListEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ipv6_address_list_enabled");
-        set => SetProperty("ipv6_address_list_enabled", value);
-    }
+    [TerraformPropertyName("ipv6_address_list_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Ipv6AddressListEnabled { get; set; }
 
     /// <summary>
     /// The ipv6_addresses attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Ipv6Addresses
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("ipv6_addresses");
-        set => SetProperty("ipv6_addresses", value);
-    }
+    [TerraformPropertyName("ipv6_addresses")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Ipv6Addresses { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "ipv6_addresses");
 
     /// <summary>
     /// The ipv6_prefix_count attribute.
     /// </summary>
-    public TerraformProperty<double> Ipv6PrefixCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("ipv6_prefix_count");
-        set => SetProperty("ipv6_prefix_count", value);
-    }
+    [TerraformPropertyName("ipv6_prefix_count")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Ipv6PrefixCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "ipv6_prefix_count");
 
     /// <summary>
     /// The ipv6_prefixes attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Ipv6Prefixes
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("ipv6_prefixes");
-        set => SetProperty("ipv6_prefixes", value);
-    }
+    [TerraformPropertyName("ipv6_prefixes")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Ipv6Prefixes { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "ipv6_prefixes");
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
-    public TerraformProperty<string> PrivateIp
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("private_ip");
-        set => SetProperty("private_ip", value);
-    }
+    [TerraformPropertyName("private_ip")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PrivateIp { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_ip");
 
     /// <summary>
     /// The private_ip_list attribute.
     /// </summary>
-    public List<TerraformProperty<string>> PrivateIpList
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("private_ip_list");
-        set => SetProperty("private_ip_list", value);
-    }
+    [TerraformPropertyName("private_ip_list")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<List<TerraformProperty<string>>> PrivateIpList { get; set; } = new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "private_ip_list");
 
     /// <summary>
     /// The private_ip_list_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PrivateIpListEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("private_ip_list_enabled");
-        set => SetProperty("private_ip_list_enabled", value);
-    }
+    [TerraformPropertyName("private_ip_list_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PrivateIpListEnabled { get; set; }
 
     /// <summary>
     /// The private_ips attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> PrivateIps
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("private_ips");
-        set => SetProperty("private_ips", value);
-    }
+    [TerraformPropertyName("private_ips")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> PrivateIps { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "private_ips");
 
     /// <summary>
     /// The private_ips_count attribute.
     /// </summary>
-    public TerraformProperty<double> PrivateIpsCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("private_ips_count");
-        set => SetProperty("private_ips_count", value);
-    }
+    [TerraformPropertyName("private_ips_count")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> PrivateIpsCount { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "private_ips_count");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> SecurityGroups
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("security_groups");
-        set => SetProperty("security_groups", value);
-    }
+    [TerraformPropertyName("security_groups")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> SecurityGroups { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "security_groups");
 
     /// <summary>
     /// The source_dest_check attribute.
     /// </summary>
-    public TerraformProperty<bool> SourceDestCheck
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("source_dest_check");
-        set => SetProperty("source_dest_check", value);
-    }
+    [TerraformPropertyName("source_dest_check")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SourceDestCheck { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for attachment.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsNetworkInterfaceAttachmentBlock>? Attachment
-    {
-        set => SetProperty("attachment", value);
-    }
+    [TerraformPropertyName("attachment")]
+    public TerraformSet<TerraformBlock<AwsNetworkInterfaceAttachmentBlock>>? Attachment { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The mac_address attribute.
     /// </summary>
-    public TerraformExpression MacAddress => this["mac_address"];
+    [TerraformPropertyName("mac_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MacAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mac_address");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    public TerraformExpression OutpostArn => this["outpost_arn"];
+    [TerraformPropertyName("outpost_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OutpostArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "outpost_arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformExpression OwnerId => this["owner_id"];
+    [TerraformPropertyName("owner_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
 
     /// <summary>
     /// The private_dns_name attribute.
     /// </summary>
-    public TerraformExpression PrivateDnsName => this["private_dns_name"];
+    [TerraformPropertyName("private_dns_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateDnsName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_dns_name");
 
 }

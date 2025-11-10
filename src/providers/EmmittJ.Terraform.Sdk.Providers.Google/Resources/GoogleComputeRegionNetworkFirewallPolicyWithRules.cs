@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : TerraformBlock
+public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The Action to perform when the client connection triggers the rule. Can currently be either
     /// &amp;quot;allow&amp;quot;, &amp;quot;deny&amp;quot;, &amp;quot;apply_security_profile_group&amp;quot; or &amp;quot;goto_next&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// A description of the rule.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The direction in which this rule applies. If unspecified an INGRESS rule is created. Possible values: [&amp;quot;INGRESS&amp;quot;, &amp;quot;EGRESS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Direction
-    {
-        set => SetProperty("direction", value);
-    }
+    [TerraformPropertyName("direction")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Direction { get; set; }
 
     /// <summary>
     /// Denotes whether the firewall policy rule is disabled. When set to true,
@@ -40,20 +37,18 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     /// not exist. If this is unspecified, the firewall policy rule will be
     /// enabled.
     /// </summary>
-    public TerraformProperty<bool>? Disabled
-    {
-        set => SetProperty("disabled", value);
-    }
+    [TerraformPropertyName("disabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Disabled { get; set; }
 
     /// <summary>
     /// Denotes whether to enable logging for a particular rule.
     /// If logging is enabled, logs will be exported to the
     /// configured export destination in Stackdriver.
     /// </summary>
-    public TerraformProperty<bool>? EnableLogging
-    {
-        set => SetProperty("enable_logging", value);
-    }
+    [TerraformPropertyName("enable_logging")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableLogging { get; set; }
 
     /// <summary>
     /// An integer indicating the priority of a rule in the list. The priority must be a value
@@ -61,19 +56,17 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     /// highest priority and 2147483647 is the lowest priority.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    public required TerraformProperty<double> Priority
-    {
-        set => SetProperty("priority", value);
-    }
+    [TerraformPropertyName("priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Priority { get; set; }
 
     /// <summary>
     /// An optional name for the rule. This field is not a unique identifier
     /// and can be updated.
     /// </summary>
-    public TerraformProperty<string>? RuleName
-    {
-        set => SetProperty("rule_name", value);
-    }
+    [TerraformPropertyName("rule_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RuleName { get; set; }
 
     /// <summary>
     /// A fully-qualified URL of a SecurityProfile resource instance.
@@ -81,28 +74,25 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     /// https://networksecurity.googleapis.com/v1/projects/{project}/locations/{location}/securityProfileGroups/my-security-profile-group
     /// Must be specified if action is &#39;apply_security_profile_group&#39;.
     /// </summary>
-    public TerraformProperty<string>? SecurityProfileGroup
-    {
-        set => SetProperty("security_profile_group", value);
-    }
+    [TerraformPropertyName("security_profile_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecurityProfileGroup { get; set; }
 
     /// <summary>
     /// A list of service accounts indicating the sets of
     /// instances that are applied with this rule.
     /// </summary>
-    public List<TerraformProperty<string>>? TargetServiceAccounts
-    {
-        set => SetProperty("target_service_accounts", value);
-    }
+    [TerraformPropertyName("target_service_accounts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? TargetServiceAccounts { get; set; }
 
     /// <summary>
     /// Boolean flag indicating if the traffic should be TLS decrypted.
     /// It can be set only if action = &#39;apply_security_profile_group&#39; and cannot be set for other actions.
     /// </summary>
-    public TerraformProperty<bool>? TlsInspect
-    {
-        set => SetProperty("tls_inspect", value);
-    }
+    [TerraformPropertyName("tls_inspect")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TlsInspect { get; set; }
 
 }
 
@@ -110,31 +100,28 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRegionNetworkFirewallPolicyWithRulesTimeoutsBlock : TerraformBlock
+public class GoogleComputeRegionNetworkFirewallPolicyWithRulesTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -146,43 +133,21 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRules : TerraformResour
 {
     public GoogleComputeRegionNetworkFirewallPolicyWithRules(string name) : base("google_compute_region_network_firewall_policy_with_rules", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_timestamp");
-        SetOutput("fingerprint");
-        SetOutput("network_firewall_policy_id");
-        SetOutput("predefined_rules");
-        SetOutput("rule_tuple_count");
-        SetOutput("self_link");
-        SetOutput("self_link_with_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("policy_type");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// User-provided name of the Network firewall policy.
@@ -193,40 +158,32 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRules : TerraformResour
     /// lowercase letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Policy type is used to determine which resources (networks) the policy can be associated with.
     /// A policy can be associated with a network only if the network has the matching policyType in its network profile.
     /// Different policy types may support some of the Firewall Rules features. Possible values: [&amp;quot;VPC_POLICY&amp;quot;, &amp;quot;RDMA_ROCE_POLICY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> PolicyType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_type");
-        set => SetProperty("policy_type", value);
-    }
+    [TerraformPropertyName("policy_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PolicyType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "policy_type");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The region of this resource.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for rule.
@@ -234,53 +191,63 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRules : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
-    public List<GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock>? Rule
-    {
-        set => SetProperty("rule", value);
-    }
+    [TerraformPropertyName("rule")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock>>? Rule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeRegionNetworkFirewallPolicyWithRulesTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeRegionNetworkFirewallPolicyWithRulesTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreationTimestamp => this["creation_timestamp"];
+    [TerraformPropertyName("creation_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
 
     /// <summary>
     /// Fingerprint of the resource. This field is used internally during updates of this resource.
     /// </summary>
-    public TerraformExpression Fingerprint => this["fingerprint"];
+    [TerraformPropertyName("fingerprint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Fingerprint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
-    public TerraformExpression NetworkFirewallPolicyId => this["network_firewall_policy_id"];
+    [TerraformPropertyName("network_firewall_policy_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NetworkFirewallPolicyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_firewall_policy_id");
 
     /// <summary>
     /// A list of firewall policy pre-defined rules.
     /// </summary>
-    public TerraformExpression PredefinedRules => this["predefined_rules"];
+    [TerraformPropertyName("predefined_rules")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> PredefinedRules => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "predefined_rules");
 
     /// <summary>
     /// Total count of all firewall policy rule tuples. A firewall policy can not exceed a set number of tuples.
     /// </summary>
-    public TerraformExpression RuleTupleCount => this["rule_tuple_count"];
+    [TerraformPropertyName("rule_tuple_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RuleTupleCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "rule_tuple_count");
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
     /// <summary>
     /// Server-defined URL for this resource with the resource id.
     /// </summary>
-    public TerraformExpression SelfLinkWithId => this["self_link_with_id"];
+    [TerraformPropertyName("self_link_with_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLinkWithId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link_with_id");
 
 }

@@ -9,248 +9,259 @@ public class AwsLambdaFunctionDataSource : TerraformDataSource
 {
     public AwsLambdaFunctionDataSource(string name) : base("aws_lambda_function", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("architectures");
-        SetOutput("arn");
-        SetOutput("code_sha256");
-        SetOutput("code_signing_config_arn");
-        SetOutput("dead_letter_config");
-        SetOutput("description");
-        SetOutput("environment");
-        SetOutput("ephemeral_storage");
-        SetOutput("file_system_config");
-        SetOutput("handler");
-        SetOutput("image_uri");
-        SetOutput("invoke_arn");
-        SetOutput("kms_key_arn");
-        SetOutput("last_modified");
-        SetOutput("layers");
-        SetOutput("logging_config");
-        SetOutput("memory_size");
-        SetOutput("qualified_arn");
-        SetOutput("qualified_invoke_arn");
-        SetOutput("reserved_concurrent_executions");
-        SetOutput("role");
-        SetOutput("runtime");
-        SetOutput("signing_job_arn");
-        SetOutput("signing_profile_version_arn");
-        SetOutput("source_code_hash");
-        SetOutput("source_code_size");
-        SetOutput("source_kms_key_arn");
-        SetOutput("timeout");
-        SetOutput("tracing_config");
-        SetOutput("version");
-        SetOutput("vpc_config");
-        SetOutput("function_name");
-        SetOutput("id");
-        SetOutput("qualifier");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The function_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
-    public required TerraformProperty<string> FunctionName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
-        set => SetProperty("function_name", value);
-    }
+    [TerraformPropertyName("function_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FunctionName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public TerraformProperty<string> Qualifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("qualifier");
-        set => SetProperty("qualifier", value);
-    }
+    [TerraformPropertyName("qualifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Qualifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The architectures attribute.
     /// </summary>
-    public TerraformExpression Architectures => this["architectures"];
+    [TerraformPropertyName("architectures")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Architectures => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "architectures");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The code_sha256 attribute.
     /// </summary>
-    public TerraformExpression CodeSha256 => this["code_sha256"];
+    [TerraformPropertyName("code_sha256")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CodeSha256 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "code_sha256");
 
     /// <summary>
     /// The code_signing_config_arn attribute.
     /// </summary>
-    public TerraformExpression CodeSigningConfigArn => this["code_signing_config_arn"];
+    [TerraformPropertyName("code_signing_config_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CodeSigningConfigArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "code_signing_config_arn");
 
     /// <summary>
     /// The dead_letter_config attribute.
     /// </summary>
-    public TerraformExpression DeadLetterConfig => this["dead_letter_config"];
+    [TerraformPropertyName("dead_letter_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DeadLetterConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "dead_letter_config");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The environment attribute.
     /// </summary>
-    public TerraformExpression Environment => this["environment"];
+    [TerraformPropertyName("environment")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Environment => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "environment");
 
     /// <summary>
     /// The ephemeral_storage attribute.
     /// </summary>
-    public TerraformExpression EphemeralStorage => this["ephemeral_storage"];
+    [TerraformPropertyName("ephemeral_storage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> EphemeralStorage => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ephemeral_storage");
 
     /// <summary>
     /// The file_system_config attribute.
     /// </summary>
-    public TerraformExpression FileSystemConfig => this["file_system_config"];
+    [TerraformPropertyName("file_system_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> FileSystemConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "file_system_config");
 
     /// <summary>
     /// The handler attribute.
     /// </summary>
-    public TerraformExpression Handler => this["handler"];
+    [TerraformPropertyName("handler")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Handler => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "handler");
 
     /// <summary>
     /// The image_uri attribute.
     /// </summary>
-    public TerraformExpression ImageUri => this["image_uri"];
+    [TerraformPropertyName("image_uri")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ImageUri => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "image_uri");
 
     /// <summary>
     /// The invoke_arn attribute.
     /// </summary>
-    public TerraformExpression InvokeArn => this["invoke_arn"];
+    [TerraformPropertyName("invoke_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InvokeArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "invoke_arn");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformExpression KmsKeyArn => this["kms_key_arn"];
+    [TerraformPropertyName("kms_key_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsKeyArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_arn");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
-    public TerraformExpression LastModified => this["last_modified"];
+    [TerraformPropertyName("last_modified")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModified => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified");
 
     /// <summary>
     /// The layers attribute.
     /// </summary>
-    public TerraformExpression Layers => this["layers"];
+    [TerraformPropertyName("layers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Layers => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "layers");
 
     /// <summary>
     /// The logging_config attribute.
     /// </summary>
-    public TerraformExpression LoggingConfig => this["logging_config"];
+    [TerraformPropertyName("logging_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> LoggingConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "logging_config");
 
     /// <summary>
     /// The memory_size attribute.
     /// </summary>
-    public TerraformExpression MemorySize => this["memory_size"];
+    [TerraformPropertyName("memory_size")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MemorySize => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "memory_size");
 
     /// <summary>
     /// The qualified_arn attribute.
     /// </summary>
-    public TerraformExpression QualifiedArn => this["qualified_arn"];
+    [TerraformPropertyName("qualified_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> QualifiedArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "qualified_arn");
 
     /// <summary>
     /// The qualified_invoke_arn attribute.
     /// </summary>
-    public TerraformExpression QualifiedInvokeArn => this["qualified_invoke_arn"];
+    [TerraformPropertyName("qualified_invoke_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> QualifiedInvokeArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "qualified_invoke_arn");
 
     /// <summary>
     /// The reserved_concurrent_executions attribute.
     /// </summary>
-    public TerraformExpression ReservedConcurrentExecutions => this["reserved_concurrent_executions"];
+    [TerraformPropertyName("reserved_concurrent_executions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ReservedConcurrentExecutions => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "reserved_concurrent_executions");
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformExpression Role => this["role"];
+    [TerraformPropertyName("role")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Role => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role");
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
-    public TerraformExpression Runtime => this["runtime"];
+    [TerraformPropertyName("runtime")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Runtime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "runtime");
 
     /// <summary>
     /// The signing_job_arn attribute.
     /// </summary>
-    public TerraformExpression SigningJobArn => this["signing_job_arn"];
+    [TerraformPropertyName("signing_job_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SigningJobArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signing_job_arn");
 
     /// <summary>
     /// The signing_profile_version_arn attribute.
     /// </summary>
-    public TerraformExpression SigningProfileVersionArn => this["signing_profile_version_arn"];
+    [TerraformPropertyName("signing_profile_version_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SigningProfileVersionArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "signing_profile_version_arn");
 
     /// <summary>
     /// The source_code_hash attribute.
     /// </summary>
-    public TerraformExpression SourceCodeHash => this["source_code_hash"];
+    [TerraformPropertyName("source_code_hash")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceCodeHash => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_code_hash");
 
     /// <summary>
     /// The source_code_size attribute.
     /// </summary>
-    public TerraformExpression SourceCodeSize => this["source_code_size"];
+    [TerraformPropertyName("source_code_size")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> SourceCodeSize => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "source_code_size");
 
     /// <summary>
     /// The source_kms_key_arn attribute.
     /// </summary>
-    public TerraformExpression SourceKmsKeyArn => this["source_kms_key_arn"];
+    [TerraformPropertyName("source_kms_key_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceKmsKeyArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_kms_key_arn");
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformExpression Timeout => this["timeout"];
+    [TerraformPropertyName("timeout")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Timeout => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "timeout");
 
     /// <summary>
     /// The tracing_config attribute.
     /// </summary>
-    public TerraformExpression TracingConfig => this["tracing_config"];
+    [TerraformPropertyName("tracing_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TracingConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "tracing_config");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformExpression Version => this["version"];
+    [TerraformPropertyName("version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Version => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version");
 
     /// <summary>
     /// The vpc_config attribute.
     /// </summary>
-    public TerraformExpression VpcConfig => this["vpc_config"];
+    [TerraformPropertyName("vpc_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> VpcConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "vpc_config");
 
 }

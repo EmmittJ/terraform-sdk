@@ -6,47 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
+public class AwsEfsReplicationConfigurationDestinationBlock : ITerraformBlock
 {
     /// <summary>
     /// The availability_zone_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZoneName
-    {
-        set => SetProperty("availability_zone_name", value);
-    }
+    [TerraformPropertyName("availability_zone_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AvailabilityZoneName { get; set; }
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FileSystemId
-    {
-        set => SetProperty("file_system_id", value);
-    }
+    [TerraformPropertyName("file_system_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> FileSystemId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "file_system_id");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyId
-    {
-        set => SetProperty("kms_key_id", value);
-    }
+    [TerraformPropertyName("kms_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformProperty<string>? Region
-    {
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "region");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>("", "status");
 
 }
 
@@ -54,23 +49,21 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEfsReplicationConfigurationTimeoutsBlock : TerraformBlock
+public class AwsEfsReplicationConfigurationTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -82,47 +75,29 @@ public class AwsEfsReplicationConfiguration : TerraformResource
 {
     public AwsEfsReplicationConfiguration(string name) : base("aws_efs_replication_configuration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_time");
-        SetOutput("original_source_file_system_arn");
-        SetOutput("source_file_system_arn");
-        SetOutput("source_file_system_region");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("source_file_system_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The source_file_system_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileSystemId is required")]
-    public required TerraformProperty<string> SourceFileSystemId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_file_system_id");
-        set => SetProperty("source_file_system_id", value);
-    }
+    [TerraformPropertyName("source_file_system_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceFileSystemId { get; set; }
 
     /// <summary>
     /// Block for destination.
@@ -131,38 +106,42 @@ public class AwsEfsReplicationConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
-    public List<AwsEfsReplicationConfigurationDestinationBlock>? Destination
-    {
-        set => SetProperty("destination", value);
-    }
+    [TerraformPropertyName("destination")]
+    public TerraformList<TerraformBlock<AwsEfsReplicationConfigurationDestinationBlock>>? Destination { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsEfsReplicationConfigurationTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsEfsReplicationConfigurationTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    public TerraformExpression CreationTime => this["creation_time"];
+    [TerraformPropertyName("creation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
 
     /// <summary>
     /// The original_source_file_system_arn attribute.
     /// </summary>
-    public TerraformExpression OriginalSourceFileSystemArn => this["original_source_file_system_arn"];
+    [TerraformPropertyName("original_source_file_system_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OriginalSourceFileSystemArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "original_source_file_system_arn");
 
     /// <summary>
     /// The source_file_system_arn attribute.
     /// </summary>
-    public TerraformExpression SourceFileSystemArn => this["source_file_system_arn"];
+    [TerraformPropertyName("source_file_system_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceFileSystemArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_file_system_arn");
 
     /// <summary>
     /// The source_file_system_region attribute.
     /// </summary>
-    public TerraformExpression SourceFileSystemRegion => this["source_file_system_region"];
+    [TerraformPropertyName("source_file_system_region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceFileSystemRegion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_file_system_region");
 
 }

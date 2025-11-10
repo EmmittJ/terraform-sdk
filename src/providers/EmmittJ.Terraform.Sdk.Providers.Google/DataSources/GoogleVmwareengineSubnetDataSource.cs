@@ -9,46 +9,23 @@ public class GoogleVmwareengineSubnetDataSource : TerraformDataSource
 {
     public GoogleVmwareengineSubnetDataSource(string name) : base("google_vmwareengine_subnet", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("dhcp_address_ranges");
-        SetOutput("gateway_id");
-        SetOutput("gateway_ip");
-        SetOutput("ip_cidr_range");
-        SetOutput("standard_config");
-        SetOutput("state");
-        SetOutput("type");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("vlan_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID of the subnet. For userDefined subnets, this name should be in the format of &amp;quot;service-n&amp;quot;,
     /// where n ranges from 1 to 5.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource name of the private cloud to create a new subnet in.
@@ -56,70 +33,90 @@ public class GoogleVmwareengineSubnetDataSource : TerraformDataSource
     /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    public required TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
 
     /// <summary>
     /// Creation time of this resource.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// DHCP address ranges.
     /// </summary>
-    public TerraformExpression DhcpAddressRanges => this["dhcp_address_ranges"];
+    [TerraformPropertyName("dhcp_address_ranges")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DhcpAddressRanges => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "dhcp_address_ranges");
 
     /// <summary>
     /// The canonical identifier of the logical router that this subnet is attached to.
     /// </summary>
-    public TerraformExpression GatewayId => this["gateway_id"];
+    [TerraformPropertyName("gateway_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GatewayId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gateway_id");
 
     /// <summary>
     /// The IP address of the gateway of this subnet. Must fall within the IP prefix defined above.
     /// </summary>
-    public TerraformExpression GatewayIp => this["gateway_ip"];
+    [TerraformPropertyName("gateway_ip")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GatewayIp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gateway_ip");
 
     /// <summary>
     /// The IP address range of the subnet in CIDR format.
     /// </summary>
-    public TerraformExpression IpCidrRange => this["ip_cidr_range"];
+    [TerraformPropertyName("ip_cidr_range")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpCidrRange => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_cidr_range");
 
     /// <summary>
     /// Whether the NSX-T configuration in the backend follows the standard configuration supported by Google Cloud.
     /// If false, the subnet cannot be modified through Google Cloud, only through NSX-T directly.
     /// </summary>
-    public TerraformExpression StandardConfig => this["standard_config"];
+    [TerraformPropertyName("standard_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> StandardConfig => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "standard_config");
 
     /// <summary>
     /// State of the subnet.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The type of the subnet.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// Last updated time of this resource.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
     /// <summary>
     /// VLAN ID of the VLAN on which the subnet is configured.
     /// </summary>
-    public TerraformExpression VlanId => this["vlan_id"];
+    [TerraformPropertyName("vlan_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> VlanId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "vlan_id");
 
 }

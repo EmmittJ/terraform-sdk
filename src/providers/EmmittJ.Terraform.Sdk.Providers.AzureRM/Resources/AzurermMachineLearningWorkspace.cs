@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningWorkspaceEncryptionBlock : TerraformBlock
+public class AzurermMachineLearningWorkspaceEncryptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
-    public required TerraformProperty<string> KeyId
-    {
-        set => SetProperty("key_id", value);
-    }
+    [TerraformPropertyName("key_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyId { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    public required TerraformProperty<string> KeyVaultId
-    {
-        set => SetProperty("key_vault_id", value);
-    }
+    [TerraformPropertyName("key_vault_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyVaultId { get; set; }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserAssignedIdentityId
-    {
-        set => SetProperty("user_assigned_identity_id", value);
-    }
+    [TerraformPropertyName("user_assigned_identity_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserAssignedIdentityId { get; set; }
 
 }
 
@@ -40,31 +37,28 @@ public class AzurermMachineLearningWorkspaceEncryptionBlock : TerraformBlock
 /// Block type for feature_store in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningWorkspaceFeatureStoreBlock : TerraformBlock
+public class AzurermMachineLearningWorkspaceFeatureStoreBlock : ITerraformBlock
 {
     /// <summary>
     /// The computer_spark_runtime_version attribute.
     /// </summary>
-    public TerraformProperty<string>? ComputerSparkRuntimeVersion
-    {
-        set => SetProperty("computer_spark_runtime_version", value);
-    }
+    [TerraformPropertyName("computer_spark_runtime_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ComputerSparkRuntimeVersion { get; set; }
 
     /// <summary>
     /// The offline_connection_name attribute.
     /// </summary>
-    public TerraformProperty<string>? OfflineConnectionName
-    {
-        set => SetProperty("offline_connection_name", value);
-    }
+    [TerraformPropertyName("offline_connection_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OfflineConnectionName { get; set; }
 
     /// <summary>
     /// The online_connection_name attribute.
     /// </summary>
-    public TerraformProperty<string>? OnlineConnectionName
-    {
-        set => SetProperty("online_connection_name", value);
-    }
+    [TerraformPropertyName("online_connection_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OnlineConnectionName { get; set; }
 
 }
 
@@ -72,40 +66,36 @@ public class AzurermMachineLearningWorkspaceFeatureStoreBlock : TerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningWorkspaceIdentityBlock : TerraformBlock
+public class AzurermMachineLearningWorkspaceIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -113,23 +103,21 @@ public class AzurermMachineLearningWorkspaceIdentityBlock : TerraformBlock
 /// Block type for managed_network in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningWorkspaceManagedNetworkBlock : TerraformBlock
+public class AzurermMachineLearningWorkspaceManagedNetworkBlock : ITerraformBlock
 {
     /// <summary>
     /// The isolation_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? IsolationMode
-    {
-        set => SetProperty("isolation_mode", value);
-    }
+    [TerraformPropertyName("isolation_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IsolationMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "isolation_mode");
 
     /// <summary>
     /// The provision_on_creation_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? ProvisionOnCreationEnabled
-    {
-        set => SetProperty("provision_on_creation_enabled", value);
-    }
+    [TerraformPropertyName("provision_on_creation_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ProvisionOnCreationEnabled { get; set; }
 
 }
 
@@ -137,23 +125,21 @@ public class AzurermMachineLearningWorkspaceManagedNetworkBlock : TerraformBlock
 /// Block type for serverless_compute in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningWorkspaceServerlessComputeBlock : TerraformBlock
+public class AzurermMachineLearningWorkspaceServerlessComputeBlock : ITerraformBlock
 {
     /// <summary>
     /// The public_ip_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicIpEnabled
-    {
-        set => SetProperty("public_ip_enabled", value);
-    }
+    [TerraformPropertyName("public_ip_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicIpEnabled { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SubnetId { get; set; }
 
 }
 
@@ -161,39 +147,35 @@ public class AzurermMachineLearningWorkspaceServerlessComputeBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMachineLearningWorkspaceTimeoutsBlock : TerraformBlock
+public class AzurermMachineLearningWorkspaceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -205,230 +187,162 @@ public class AzurermMachineLearningWorkspace : TerraformResource
 {
     public AzurermMachineLearningWorkspace(string name) : base("azurerm_machine_learning_workspace", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("discovery_url");
-        SetOutput("workspace_id");
-        SetOutput("application_insights_id");
-        SetOutput("container_registry_id");
-        SetOutput("description");
-        SetOutput("friendly_name");
-        SetOutput("high_business_impact");
-        SetOutput("id");
-        SetOutput("image_build_compute_name");
-        SetOutput("key_vault_id");
-        SetOutput("kind");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("primary_user_assigned_identity");
-        SetOutput("public_network_access_enabled");
-        SetOutput("resource_group_name");
-        SetOutput("service_side_encryption_enabled");
-        SetOutput("sku_name");
-        SetOutput("storage_account_id");
-        SetOutput("tags");
-        SetOutput("v1_legacy_mode_enabled");
     }
 
     /// <summary>
     /// The application_insights_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
-    public required TerraformProperty<string> ApplicationInsightsId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application_insights_id");
-        set => SetProperty("application_insights_id", value);
-    }
+    [TerraformPropertyName("application_insights_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplicationInsightsId { get; set; }
 
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
-    public TerraformProperty<string> ContainerRegistryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_registry_id");
-        set => SetProperty("container_registry_id", value);
-    }
+    [TerraformPropertyName("container_registry_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ContainerRegistryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    public TerraformProperty<string> FriendlyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("friendly_name");
-        set => SetProperty("friendly_name", value);
-    }
+    [TerraformPropertyName("friendly_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FriendlyName { get; set; }
 
     /// <summary>
     /// The high_business_impact attribute.
     /// </summary>
-    public TerraformProperty<bool> HighBusinessImpact
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("high_business_impact");
-        set => SetProperty("high_business_impact", value);
-    }
+    [TerraformPropertyName("high_business_impact")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? HighBusinessImpact { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The image_build_compute_name attribute.
     /// </summary>
-    public TerraformProperty<string> ImageBuildComputeName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("image_build_compute_name");
-        set => SetProperty("image_build_compute_name", value);
-    }
+    [TerraformPropertyName("image_build_compute_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ImageBuildComputeName { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    public required TerraformProperty<string> KeyVaultId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_id");
-        set => SetProperty("key_vault_id", value);
-    }
+    [TerraformPropertyName("key_vault_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyVaultId { get; set; }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformProperty<string> Kind
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kind");
-        set => SetProperty("kind", value);
-    }
+    [TerraformPropertyName("kind")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Kind { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The primary_user_assigned_identity attribute.
     /// </summary>
-    public TerraformProperty<string> PrimaryUserAssignedIdentity
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("primary_user_assigned_identity");
-        set => SetProperty("primary_user_assigned_identity", value);
-    }
+    [TerraformPropertyName("primary_user_assigned_identity")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PrimaryUserAssignedIdentity { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PublicNetworkAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
-        set => SetProperty("public_network_access_enabled", value);
-    }
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The service_side_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ServiceSideEncryptionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("service_side_encryption_enabled");
-        set => SetProperty("service_side_encryption_enabled", value);
-    }
+    [TerraformPropertyName("service_side_encryption_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ServiceSideEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformProperty<string> SkuName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
-        set => SetProperty("sku_name", value);
-    }
+    [TerraformPropertyName("sku_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SkuName { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    public required TerraformProperty<string> StorageAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
-        set => SetProperty("storage_account_id", value);
-    }
+    [TerraformPropertyName("storage_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The v1_legacy_mode_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> V1LegacyModeEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("v1_legacy_mode_enabled");
-        set => SetProperty("v1_legacy_mode_enabled", value);
-    }
+    [TerraformPropertyName("v1_legacy_mode_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? V1LegacyModeEnabled { get; set; }
 
     /// <summary>
     /// Block for encryption.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    public List<AzurermMachineLearningWorkspaceEncryptionBlock>? Encryption
-    {
-        set => SetProperty("encryption", value);
-    }
+    [TerraformPropertyName("encryption")]
+    public TerraformList<TerraformBlock<AzurermMachineLearningWorkspaceEncryptionBlock>>? Encryption { get; set; } = new();
 
     /// <summary>
     /// Block for feature_store.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeatureStore block(s) allowed")]
-    public List<AzurermMachineLearningWorkspaceFeatureStoreBlock>? FeatureStore
-    {
-        set => SetProperty("feature_store", value);
-    }
+    [TerraformPropertyName("feature_store")]
+    public TerraformList<TerraformBlock<AzurermMachineLearningWorkspaceFeatureStoreBlock>>? FeatureStore { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
@@ -437,48 +351,44 @@ public class AzurermMachineLearningWorkspace : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermMachineLearningWorkspaceIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermMachineLearningWorkspaceIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for managed_network.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedNetwork block(s) allowed")]
-    public List<AzurermMachineLearningWorkspaceManagedNetworkBlock>? ManagedNetwork
-    {
-        set => SetProperty("managed_network", value);
-    }
+    [TerraformPropertyName("managed_network")]
+    public TerraformList<TerraformBlock<AzurermMachineLearningWorkspaceManagedNetworkBlock>>? ManagedNetwork { get; set; } = new();
 
     /// <summary>
     /// Block for serverless_compute.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerlessCompute block(s) allowed")]
-    public List<AzurermMachineLearningWorkspaceServerlessComputeBlock>? ServerlessCompute
-    {
-        set => SetProperty("serverless_compute", value);
-    }
+    [TerraformPropertyName("serverless_compute")]
+    public TerraformList<TerraformBlock<AzurermMachineLearningWorkspaceServerlessComputeBlock>>? ServerlessCompute { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMachineLearningWorkspaceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMachineLearningWorkspaceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The discovery_url attribute.
     /// </summary>
-    public TerraformExpression DiscoveryUrl => this["discovery_url"];
+    [TerraformPropertyName("discovery_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DiscoveryUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "discovery_url");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformExpression WorkspaceId => this["workspace_id"];
+    [TerraformPropertyName("workspace_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WorkspaceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workspace_id");
 
 }

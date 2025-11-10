@@ -6,27 +6,25 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for repositories in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGeminiRepositoryGroupRepositoriesBlock : TerraformBlock
+public class GoogleGeminiRepositoryGroupRepositoriesBlock : ITerraformBlock
 {
     /// <summary>
     /// Required. The Git branch pattern used for indexing in RE2 syntax.
     /// See https://github.com/google/re2/wiki/syntax for syntax.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchPattern is required")]
-    public required TerraformProperty<string> BranchPattern
-    {
-        set => SetProperty("branch_pattern", value);
-    }
+    [TerraformPropertyName("branch_pattern")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> BranchPattern { get; set; }
 
     /// <summary>
     /// Required. The DeveloperConnect repository full resource name, relative resource name
     /// or resource URL to be indexed.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
-    public required TerraformProperty<string> Resource
-    {
-        set => SetProperty("resource", value);
-    }
+    [TerraformPropertyName("resource")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Resource { get; set; }
 
 }
 
@@ -34,31 +32,28 @@ public class GoogleGeminiRepositoryGroupRepositoriesBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleGeminiRepositoryGroupTimeoutsBlock : TerraformBlock
+public class GoogleGeminiRepositoryGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -70,42 +65,22 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
 {
     public GoogleGeminiRepositoryGroup(string name) : base("google_gemini_repository_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("name");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("code_repository_index");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("project");
-        SetOutput("repository_group_id");
     }
 
     /// <summary>
     /// Required. Id of the Code Repository Index.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeRepositoryIndex is required")]
-    public required TerraformProperty<string> CodeRepositoryIndex
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("code_repository_index");
-        set => SetProperty("code_repository_index", value);
-    }
+    [TerraformPropertyName("code_repository_index")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CodeRepositoryIndex { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Optional. Labels as key value pairs.
@@ -113,40 +88,32 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The location of the Code Repository Index, for example &#39;us-central1&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Required. Id of the Repository Group.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryGroupId is required")]
-    public required TerraformProperty<string> RepositoryGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("repository_group_id");
-        set => SetProperty("repository_group_id", value);
-    }
+    [TerraformPropertyName("repository_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RepositoryGroupId { get; set; }
 
     /// <summary>
     /// Block for repositories.
@@ -154,44 +121,50 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repositories is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Repositories block(s) required")]
-    public List<GoogleGeminiRepositoryGroupRepositoriesBlock>? Repositories
-    {
-        set => SetProperty("repositories", value);
-    }
+    [TerraformPropertyName("repositories")]
+    public TerraformList<TerraformBlock<GoogleGeminiRepositoryGroupRepositoriesBlock>>? Repositories { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleGeminiRepositoryGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleGeminiRepositoryGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. Create time stamp.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Immutable. Identifier. Name of Repository Group.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Output only. Update time stamp.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

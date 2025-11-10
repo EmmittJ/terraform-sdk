@@ -6,58 +6,52 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for port_info in .
 /// Nesting mode: set
 /// </summary>
-public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
+public class AwsLightsailInstancePublicPortsPortInfoBlock : ITerraformBlock
 {
     /// <summary>
     /// The cidr_list_aliases attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? CidrListAliases
-    {
-        set => SetProperty("cidr_list_aliases", value);
-    }
+    [TerraformPropertyName("cidr_list_aliases")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> CidrListAliases { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "cidr_list_aliases");
 
     /// <summary>
     /// The cidrs attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Cidrs
-    {
-        set => SetProperty("cidrs", value);
-    }
+    [TerraformPropertyName("cidrs")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Cidrs { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "cidrs");
 
     /// <summary>
     /// The from_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
-    public required TerraformProperty<double> FromPort
-    {
-        set => SetProperty("from_port", value);
-    }
+    [TerraformPropertyName("from_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> FromPort { get; set; }
 
     /// <summary>
     /// The ipv6_cidrs attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Ipv6Cidrs
-    {
-        set => SetProperty("ipv6_cidrs", value);
-    }
+    [TerraformPropertyName("ipv6_cidrs")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> Ipv6Cidrs { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>("", "ipv6_cidrs");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    public required TerraformProperty<string> Protocol
-    {
-        set => SetProperty("protocol", value);
-    }
+    [TerraformPropertyName("protocol")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Protocol { get; set; }
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
-    public required TerraformProperty<double> ToPort
-    {
-        set => SetProperty("to_port", value);
-    }
+    [TerraformPropertyName("to_port")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ToPort { get; set; }
 
 }
 
@@ -69,43 +63,29 @@ public class AwsLightsailInstancePublicPorts : TerraformResource
 {
     public AwsLightsailInstancePublicPorts(string name) : base("aws_lightsail_instance_public_ports", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("instance_name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
-    public required TerraformProperty<string> InstanceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_name");
-        set => SetProperty("instance_name", value);
-    }
+    [TerraformPropertyName("instance_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstanceName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for port_info.
@@ -113,9 +93,7 @@ public class AwsLightsailInstancePublicPorts : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortInfo is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PortInfo block(s) required")]
-    public HashSet<AwsLightsailInstancePublicPortsPortInfoBlock>? PortInfo
-    {
-        set => SetProperty("port_info", value);
-    }
+    [TerraformPropertyName("port_info")]
+    public TerraformSet<TerraformBlock<AwsLightsailInstancePublicPortsPortInfoBlock>>? PortInfo { get; set; } = new();
 
 }

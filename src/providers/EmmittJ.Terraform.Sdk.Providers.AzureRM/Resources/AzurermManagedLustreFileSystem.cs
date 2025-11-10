@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermManagedLustreFileSystemEncryptionKeyBlock : TerraformBlock
+public class AzurermManagedLustreFileSystemEncryptionKeyBlock : ITerraformBlock
 {
     /// <summary>
     /// The key_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUrl is required")]
-    public required TerraformProperty<string> KeyUrl
-    {
-        set => SetProperty("key_url", value);
-    }
+    [TerraformPropertyName("key_url")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyUrl { get; set; }
 
     /// <summary>
     /// The source_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
-    public required TerraformProperty<string> SourceVaultId
-    {
-        set => SetProperty("source_vault_id", value);
-    }
+    [TerraformPropertyName("source_vault_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceVaultId { get; set; }
 
 }
 
@@ -32,33 +30,30 @@ public class AzurermManagedLustreFileSystemEncryptionKeyBlock : TerraformBlock
 /// Block type for hsm_setting in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBlock
+public class AzurermManagedLustreFileSystemHsmSettingBlock : ITerraformBlock
 {
     /// <summary>
     /// The container_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
-    public required TerraformProperty<string> ContainerId
-    {
-        set => SetProperty("container_id", value);
-    }
+    [TerraformPropertyName("container_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContainerId { get; set; }
 
     /// <summary>
     /// The import_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? ImportPrefix
-    {
-        set => SetProperty("import_prefix", value);
-    }
+    [TerraformPropertyName("import_prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ImportPrefix { get; set; }
 
     /// <summary>
     /// The logging_container_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoggingContainerId is required")]
-    public required TerraformProperty<string> LoggingContainerId
-    {
-        set => SetProperty("logging_container_id", value);
-    }
+    [TerraformPropertyName("logging_container_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LoggingContainerId { get; set; }
 
 }
 
@@ -66,25 +61,23 @@ public class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermManagedLustreFileSystemIdentityBlock : TerraformBlock
+public class AzurermManagedLustreFileSystemIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -92,25 +85,23 @@ public class AzurermManagedLustreFileSystemIdentityBlock : TerraformBlock
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermManagedLustreFileSystemMaintenanceWindowBlock : TerraformBlock
+public class AzurermManagedLustreFileSystemMaintenanceWindowBlock : ITerraformBlock
 {
     /// <summary>
     /// The day_of_week attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
-    public required TerraformProperty<string> DayOfWeek
-    {
-        set => SetProperty("day_of_week", value);
-    }
+    [TerraformPropertyName("day_of_week")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DayOfWeek { get; set; }
 
     /// <summary>
     /// The time_of_day_in_utc attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeOfDayInUtc is required")]
-    public required TerraformProperty<string> TimeOfDayInUtc
-    {
-        set => SetProperty("time_of_day_in_utc", value);
-    }
+    [TerraformPropertyName("time_of_day_in_utc")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TimeOfDayInUtc { get; set; }
 
 }
 
@@ -118,41 +109,37 @@ public class AzurermManagedLustreFileSystemMaintenanceWindowBlock : TerraformBlo
 /// Block type for root_squash in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBlock
+public class AzurermManagedLustreFileSystemRootSquashBlock : ITerraformBlock
 {
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    public required TerraformProperty<string> Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Mode { get; set; }
 
     /// <summary>
     /// The no_squash_nids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoSquashNids is required")]
-    public required TerraformProperty<string> NoSquashNids
-    {
-        set => SetProperty("no_squash_nids", value);
-    }
+    [TerraformPropertyName("no_squash_nids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NoSquashNids { get; set; }
 
     /// <summary>
     /// The squash_gid attribute.
     /// </summary>
-    public TerraformProperty<double>? SquashGid
-    {
-        set => SetProperty("squash_gid", value);
-    }
+    [TerraformPropertyName("squash_gid")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SquashGid { get; set; }
 
     /// <summary>
     /// The squash_uid attribute.
     /// </summary>
-    public TerraformProperty<double>? SquashUid
-    {
-        set => SetProperty("squash_uid", value);
-    }
+    [TerraformPropertyName("squash_uid")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? SquashUid { get; set; }
 
 }
 
@@ -160,39 +147,35 @@ public class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBlock
+public class AzurermManagedLustreFileSystemTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -204,140 +187,101 @@ public class AzurermManagedLustreFileSystem : TerraformResource
 {
     public AzurermManagedLustreFileSystem(string name) : base("azurerm_managed_lustre_file_system", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("mgs_address");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("sku_name");
-        SetOutput("storage_capacity_in_tb");
-        SetOutput("subnet_id");
-        SetOutput("tags");
-        SetOutput("zones");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    public required TerraformProperty<string> SkuName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
-        set => SetProperty("sku_name", value);
-    }
+    [TerraformPropertyName("sku_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SkuName { get; set; }
 
     /// <summary>
     /// The storage_capacity_in_tb attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacityInTb is required")]
-    public required TerraformProperty<double> StorageCapacityInTb
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("storage_capacity_in_tb");
-        set => SetProperty("storage_capacity_in_tb", value);
-    }
+    [TerraformPropertyName("storage_capacity_in_tb")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> StorageCapacityInTb { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_id");
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zones is required")]
-    public HashSet<TerraformProperty<string>> Zones
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
-        set => SetProperty("zones", value);
-    }
+    [TerraformPropertyName("zones")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Zones { get; set; }
 
     /// <summary>
     /// Block for encryption_key.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionKey block(s) allowed")]
-    public List<AzurermManagedLustreFileSystemEncryptionKeyBlock>? EncryptionKey
-    {
-        set => SetProperty("encryption_key", value);
-    }
+    [TerraformPropertyName("encryption_key")]
+    public TerraformList<TerraformBlock<AzurermManagedLustreFileSystemEncryptionKeyBlock>>? EncryptionKey { get; set; } = new();
 
     /// <summary>
     /// Block for hsm_setting.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HsmSetting block(s) allowed")]
-    public List<AzurermManagedLustreFileSystemHsmSettingBlock>? HsmSetting
-    {
-        set => SetProperty("hsm_setting", value);
-    }
+    [TerraformPropertyName("hsm_setting")]
+    public TerraformList<TerraformBlock<AzurermManagedLustreFileSystemHsmSettingBlock>>? HsmSetting { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermManagedLustreFileSystemIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermManagedLustreFileSystemIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for maintenance_window.
@@ -346,33 +290,29 @@ public class AzurermManagedLustreFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceWindow is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MaintenanceWindow block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
-    public List<AzurermManagedLustreFileSystemMaintenanceWindowBlock>? MaintenanceWindow
-    {
-        set => SetProperty("maintenance_window", value);
-    }
+    [TerraformPropertyName("maintenance_window")]
+    public TerraformList<TerraformBlock<AzurermManagedLustreFileSystemMaintenanceWindowBlock>>? MaintenanceWindow { get; set; } = new();
 
     /// <summary>
     /// Block for root_squash.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootSquash block(s) allowed")]
-    public List<AzurermManagedLustreFileSystemRootSquashBlock>? RootSquash
-    {
-        set => SetProperty("root_squash", value);
-    }
+    [TerraformPropertyName("root_squash")]
+    public TerraformList<TerraformBlock<AzurermManagedLustreFileSystemRootSquashBlock>>? RootSquash { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermManagedLustreFileSystemTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermManagedLustreFileSystemTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The mgs_address attribute.
     /// </summary>
-    public TerraformExpression MgsAddress => this["mgs_address"];
+    [TerraformPropertyName("mgs_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MgsAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mgs_address");
 
 }

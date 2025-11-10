@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for reservation_plan_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMediaConvertQueueReservationPlanSettingsBlock : TerraformBlock
+public class AwsMediaConvertQueueReservationPlanSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The commitment attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Commitment is required")]
-    public required TerraformProperty<string> Commitment
-    {
-        set => SetProperty("commitment", value);
-    }
+    [TerraformPropertyName("commitment")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Commitment { get; set; }
 
     /// <summary>
     /// The renewal_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RenewalType is required")]
-    public required TerraformProperty<string> RenewalType
-    {
-        set => SetProperty("renewal_type", value);
-    }
+    [TerraformPropertyName("renewal_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RenewalType { get; set; }
 
     /// <summary>
     /// The reserved_slots attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedSlots is required")]
-    public required TerraformProperty<double> ReservedSlots
-    {
-        set => SetProperty("reserved_slots", value);
-    }
+    [TerraformPropertyName("reserved_slots")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ReservedSlots { get; set; }
 
 }
 
@@ -45,118 +42,85 @@ public class AwsMediaConvertQueue : TerraformResource
 {
     public AwsMediaConvertQueue(string name) : base("aws_media_convert_queue", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("concurrent_jobs");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("pricing_plan");
-        SetOutput("region");
-        SetOutput("status");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The concurrent_jobs attribute.
     /// </summary>
-    public TerraformProperty<double> ConcurrentJobs
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("concurrent_jobs");
-        set => SetProperty("concurrent_jobs", value);
-    }
+    [TerraformPropertyName("concurrent_jobs")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> ConcurrentJobs { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "concurrent_jobs");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The pricing_plan attribute.
     /// </summary>
-    public TerraformProperty<string> PricingPlan
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pricing_plan");
-        set => SetProperty("pricing_plan", value);
-    }
+    [TerraformPropertyName("pricing_plan")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PricingPlan { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string> Status
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("status");
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Status { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for reservation_plan_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationPlanSettings block(s) allowed")]
-    public List<AwsMediaConvertQueueReservationPlanSettingsBlock>? ReservationPlanSettings
-    {
-        set => SetProperty("reservation_plan_settings", value);
-    }
+    [TerraformPropertyName("reservation_plan_settings")]
+    public TerraformList<TerraformBlock<AwsMediaConvertQueueReservationPlanSettingsBlock>>? ReservationPlanSettings { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

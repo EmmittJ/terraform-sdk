@@ -6,42 +6,38 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for setting in .
 /// Nesting mode: set
 /// </summary>
-public class AwsElasticBeanstalkEnvironmentSettingBlock : TerraformBlock
+public class AwsElasticBeanstalkEnvironmentSettingBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
-    public required TerraformProperty<string> Namespace
-    {
-        set => SetProperty("namespace", value);
-    }
+    [TerraformPropertyName("namespace")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Namespace { get; set; }
 
     /// <summary>
     /// The resource attribute.
     /// </summary>
-    public TerraformProperty<string>? Resource
-    {
-        set => SetProperty("resource", value);
-    }
+    [TerraformPropertyName("resource")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Resource { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    public required TerraformProperty<string> Value
-    {
-        set => SetProperty("value", value);
-    }
+    [TerraformPropertyName("value")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Value { get; set; }
 
 }
 
@@ -52,232 +48,190 @@ public class AwsElasticBeanstalkEnvironment : TerraformResource
 {
     public AwsElasticBeanstalkEnvironment(string name) : base("aws_elastic_beanstalk_environment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("all_settings");
-        SetOutput("arn");
-        SetOutput("autoscaling_groups");
-        SetOutput("cname");
-        SetOutput("endpoint_url");
-        SetOutput("instances");
-        SetOutput("launch_configurations");
-        SetOutput("load_balancers");
-        SetOutput("queues");
-        SetOutput("triggers");
-        SetOutput("application");
-        SetOutput("cname_prefix");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("platform_arn");
-        SetOutput("poll_interval");
-        SetOutput("region");
-        SetOutput("solution_stack_name");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("template_name");
-        SetOutput("tier");
-        SetOutput("version_label");
-        SetOutput("wait_for_ready_timeout");
     }
 
     /// <summary>
     /// The application attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Application is required")]
-    public required TerraformProperty<string> Application
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("application");
-        set => SetProperty("application", value);
-    }
+    [TerraformPropertyName("application")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Application { get; set; }
 
     /// <summary>
     /// The cname_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> CnamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cname_prefix");
-        set => SetProperty("cname_prefix", value);
-    }
+    [TerraformPropertyName("cname_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CnamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cname_prefix");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The platform_arn attribute.
     /// </summary>
-    public TerraformProperty<string> PlatformArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("platform_arn");
-        set => SetProperty("platform_arn", value);
-    }
+    [TerraformPropertyName("platform_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PlatformArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "platform_arn");
 
     /// <summary>
     /// The poll_interval attribute.
     /// </summary>
-    public TerraformProperty<string> PollInterval
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("poll_interval");
-        set => SetProperty("poll_interval", value);
-    }
+    [TerraformPropertyName("poll_interval")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PollInterval { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The solution_stack_name attribute.
     /// </summary>
-    public TerraformProperty<string> SolutionStackName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("solution_stack_name");
-        set => SetProperty("solution_stack_name", value);
-    }
+    [TerraformPropertyName("solution_stack_name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SolutionStackName { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "solution_stack_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The template_name attribute.
     /// </summary>
-    public TerraformProperty<string> TemplateName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("template_name");
-        set => SetProperty("template_name", value);
-    }
+    [TerraformPropertyName("template_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TemplateName { get; set; }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformProperty<string> Tier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tier");
-        set => SetProperty("tier", value);
-    }
+    [TerraformPropertyName("tier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Tier { get; set; }
 
     /// <summary>
     /// The version_label attribute.
     /// </summary>
-    public TerraformProperty<string> VersionLabel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version_label");
-        set => SetProperty("version_label", value);
-    }
+    [TerraformPropertyName("version_label")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VersionLabel { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "version_label");
 
     /// <summary>
     /// The wait_for_ready_timeout attribute.
     /// </summary>
-    public TerraformProperty<string> WaitForReadyTimeout
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("wait_for_ready_timeout");
-        set => SetProperty("wait_for_ready_timeout", value);
-    }
+    [TerraformPropertyName("wait_for_ready_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WaitForReadyTimeout { get; set; }
 
     /// <summary>
     /// Block for setting.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsElasticBeanstalkEnvironmentSettingBlock>? Setting
-    {
-        set => SetProperty("setting", value);
-    }
+    [TerraformPropertyName("setting")]
+    public TerraformSet<TerraformBlock<AwsElasticBeanstalkEnvironmentSettingBlock>>? Setting { get; set; } = new();
 
     /// <summary>
     /// The all_settings attribute.
     /// </summary>
-    public TerraformExpression AllSettings => this["all_settings"];
+    [TerraformPropertyName("all_settings")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> AllSettings => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "all_settings");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The autoscaling_groups attribute.
     /// </summary>
-    public TerraformExpression AutoscalingGroups => this["autoscaling_groups"];
+    [TerraformPropertyName("autoscaling_groups")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> AutoscalingGroups => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "autoscaling_groups");
 
     /// <summary>
     /// The cname attribute.
     /// </summary>
-    public TerraformExpression Cname => this["cname"];
+    [TerraformPropertyName("cname")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Cname => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "cname");
 
     /// <summary>
     /// The endpoint_url attribute.
     /// </summary>
-    public TerraformExpression EndpointUrl => this["endpoint_url"];
+    [TerraformPropertyName("endpoint_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EndpointUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "endpoint_url");
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
-    public TerraformExpression Instances => this["instances"];
+    [TerraformPropertyName("instances")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Instances => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "instances");
 
     /// <summary>
     /// The launch_configurations attribute.
     /// </summary>
-    public TerraformExpression LaunchConfigurations => this["launch_configurations"];
+    [TerraformPropertyName("launch_configurations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> LaunchConfigurations => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "launch_configurations");
 
     /// <summary>
     /// The load_balancers attribute.
     /// </summary>
-    public TerraformExpression LoadBalancers => this["load_balancers"];
+    [TerraformPropertyName("load_balancers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> LoadBalancers => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "load_balancers");
 
     /// <summary>
     /// The queues attribute.
     /// </summary>
-    public TerraformExpression Queues => this["queues"];
+    [TerraformPropertyName("queues")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Queues => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "queues");
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformExpression Triggers => this["triggers"];
+    [TerraformPropertyName("triggers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Triggers => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "triggers");
 
 }

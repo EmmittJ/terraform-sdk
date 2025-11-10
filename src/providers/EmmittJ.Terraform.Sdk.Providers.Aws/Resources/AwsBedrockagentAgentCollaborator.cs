@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for agent_descriptor in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentAgentCollaboratorAgentDescriptorBlock : TerraformBlock
+public class AwsBedrockagentAgentCollaboratorAgentDescriptorBlock : ITerraformBlock
 {
     /// <summary>
     /// The alias_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasArn is required")]
-    public required TerraformProperty<string> AliasArn
-    {
-        set => SetProperty("alias_arn", value);
-    }
+    [TerraformPropertyName("alias_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AliasArn { get; set; }
 
 }
 
@@ -23,31 +22,28 @@ public class AwsBedrockagentAgentCollaboratorAgentDescriptorBlock : TerraformBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsBedrockagentAgentCollaboratorTimeoutsBlock : TerraformBlock
+public class AwsBedrockagentAgentCollaboratorTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -58,114 +54,86 @@ public class AwsBedrockagentAgentCollaborator : TerraformResource
 {
     public AwsBedrockagentAgentCollaborator(string name) : base("aws_bedrockagent_agent_collaborator", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("collaborator_id");
-        SetOutput("id");
-        SetOutput("agent_id");
-        SetOutput("agent_version");
-        SetOutput("collaboration_instruction");
-        SetOutput("collaborator_name");
-        SetOutput("prepare_agent");
-        SetOutput("region");
-        SetOutput("relay_conversation_history");
     }
 
     /// <summary>
     /// The agent_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
-    public required TerraformProperty<string> AgentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("agent_id");
-        set => SetProperty("agent_id", value);
-    }
+    [TerraformPropertyName("agent_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AgentId { get; set; }
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
-    public TerraformProperty<string> AgentVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("agent_version");
-        set => SetProperty("agent_version", value);
-    }
+    [TerraformPropertyName("agent_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AgentVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "agent_version");
 
     /// <summary>
     /// The collaboration_instruction attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaborationInstruction is required")]
-    public required TerraformProperty<string> CollaborationInstruction
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("collaboration_instruction");
-        set => SetProperty("collaboration_instruction", value);
-    }
+    [TerraformPropertyName("collaboration_instruction")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CollaborationInstruction { get; set; }
 
     /// <summary>
     /// The collaborator_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaboratorName is required")]
-    public required TerraformProperty<string> CollaboratorName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("collaborator_name");
-        set => SetProperty("collaborator_name", value);
-    }
+    [TerraformPropertyName("collaborator_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CollaboratorName { get; set; }
 
     /// <summary>
     /// The prepare_agent attribute.
     /// </summary>
-    public TerraformProperty<bool> PrepareAgent
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("prepare_agent");
-        set => SetProperty("prepare_agent", value);
-    }
+    [TerraformPropertyName("prepare_agent")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> PrepareAgent { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "prepare_agent");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The relay_conversation_history attribute.
     /// </summary>
-    public TerraformProperty<string> RelayConversationHistory
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("relay_conversation_history");
-        set => SetProperty("relay_conversation_history", value);
-    }
+    [TerraformPropertyName("relay_conversation_history")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> RelayConversationHistory { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "relay_conversation_history");
 
     /// <summary>
     /// Block for agent_descriptor.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsBedrockagentAgentCollaboratorAgentDescriptorBlock>? AgentDescriptor
-    {
-        set => SetProperty("agent_descriptor", value);
-    }
+    [TerraformPropertyName("agent_descriptor")]
+    public TerraformList<TerraformBlock<AwsBedrockagentAgentCollaboratorAgentDescriptorBlock>>? AgentDescriptor { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsBedrockagentAgentCollaboratorTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsBedrockagentAgentCollaboratorTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The collaborator_id attribute.
     /// </summary>
-    public TerraformExpression CollaboratorId => this["collaborator_id"];
+    [TerraformPropertyName("collaborator_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CollaboratorId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "collaborator_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

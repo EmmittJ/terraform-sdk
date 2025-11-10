@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for sse_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedaccessGroupSseConfigurationBlock : TerraformBlock
+public class AwsVerifiedaccessGroupSseConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The customer_managed_key_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? CustomerManagedKeyEnabled
-    {
-        set => SetProperty("customer_managed_key_enabled", value);
-    }
+    [TerraformPropertyName("customer_managed_key_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CustomerManagedKeyEnabled { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
-    {
-        set => SetProperty("kms_key_arn", value);
-    }
+    [TerraformPropertyName("kms_key_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyArn { get; set; }
 
 }
 
@@ -34,128 +32,106 @@ public class AwsVerifiedaccessGroup : TerraformResource
 {
     public AwsVerifiedaccessGroup(string name) : base("aws_verifiedaccess_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_time");
-        SetOutput("deletion_time");
-        SetOutput("last_updated_time");
-        SetOutput("owner");
-        SetOutput("verifiedaccess_group_arn");
-        SetOutput("verifiedaccess_group_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("policy_document");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("verifiedaccess_instance_id");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Description { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The policy_document attribute.
     /// </summary>
-    public TerraformProperty<string> PolicyDocument
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_document");
-        set => SetProperty("policy_document", value);
-    }
+    [TerraformPropertyName("policy_document")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PolicyDocument { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The verifiedaccess_instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedaccessInstanceId is required")]
-    public required TerraformProperty<string> VerifiedaccessInstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("verifiedaccess_instance_id");
-        set => SetProperty("verifiedaccess_instance_id", value);
-    }
+    [TerraformPropertyName("verifiedaccess_instance_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VerifiedaccessInstanceId { get; set; }
 
     /// <summary>
     /// Block for sse_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SseConfiguration block(s) allowed")]
-    public List<AwsVerifiedaccessGroupSseConfigurationBlock>? SseConfiguration
-    {
-        set => SetProperty("sse_configuration", value);
-    }
+    [TerraformPropertyName("sse_configuration")]
+    public TerraformList<TerraformBlock<AwsVerifiedaccessGroupSseConfigurationBlock>>? SseConfiguration { get; set; } = new();
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    public TerraformExpression CreationTime => this["creation_time"];
+    [TerraformPropertyName("creation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
 
     /// <summary>
     /// The deletion_time attribute.
     /// </summary>
-    public TerraformExpression DeletionTime => this["deletion_time"];
+    [TerraformPropertyName("deletion_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeletionTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deletion_time");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
-    public TerraformExpression LastUpdatedTime => this["last_updated_time"];
+    [TerraformPropertyName("last_updated_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastUpdatedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_updated_time");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformExpression Owner => this["owner"];
+    [TerraformPropertyName("owner")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Owner => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner");
 
     /// <summary>
     /// The verifiedaccess_group_arn attribute.
     /// </summary>
-    public TerraformExpression VerifiedaccessGroupArn => this["verifiedaccess_group_arn"];
+    [TerraformPropertyName("verifiedaccess_group_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VerifiedaccessGroupArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "verifiedaccess_group_arn");
 
     /// <summary>
     /// The verifiedaccess_group_id attribute.
     /// </summary>
-    public TerraformExpression VerifiedaccessGroupId => this["verifiedaccess_group_id"];
+    [TerraformPropertyName("verifiedaccess_group_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> VerifiedaccessGroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "verifiedaccess_group_id");
 
 }

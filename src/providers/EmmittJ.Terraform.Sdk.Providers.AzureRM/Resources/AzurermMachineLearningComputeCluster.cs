@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningComputeClusterIdentityBlock : TerraformBlock
+public class AzurermMachineLearningComputeClusterIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -47,34 +43,31 @@ public class AzurermMachineLearningComputeClusterIdentityBlock : TerraformBlock
 /// Block type for scale_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformBlock
+public class AzurermMachineLearningComputeClusterScaleSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The max_node_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
-    public required TerraformProperty<double> MaxNodeCount
-    {
-        set => SetProperty("max_node_count", value);
-    }
+    [TerraformPropertyName("max_node_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxNodeCount { get; set; }
 
     /// <summary>
     /// The min_node_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
-    public required TerraformProperty<double> MinNodeCount
-    {
-        set => SetProperty("min_node_count", value);
-    }
+    [TerraformPropertyName("min_node_count")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MinNodeCount { get; set; }
 
     /// <summary>
     /// The scale_down_nodes_after_idle_duration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleDownNodesAfterIdleDuration is required")]
-    public required TerraformProperty<string> ScaleDownNodesAfterIdleDuration
-    {
-        set => SetProperty("scale_down_nodes_after_idle_duration", value);
-    }
+    [TerraformPropertyName("scale_down_nodes_after_idle_duration")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScaleDownNodesAfterIdleDuration { get; set; }
 
 }
 
@@ -82,32 +75,29 @@ public class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformB
 /// Block type for ssh in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningComputeClusterSshBlock : TerraformBlock
+public class AzurermMachineLearningComputeClusterSshBlock : ITerraformBlock
 {
     /// <summary>
     /// The admin_password attribute.
     /// </summary>
-    public TerraformProperty<string>? AdminPassword
-    {
-        set => SetProperty("admin_password", value);
-    }
+    [TerraformPropertyName("admin_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AdminPassword { get; set; }
 
     /// <summary>
     /// The admin_username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
-    public required TerraformProperty<string> AdminUsername
-    {
-        set => SetProperty("admin_username", value);
-    }
+    [TerraformPropertyName("admin_username")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AdminUsername { get; set; }
 
     /// <summary>
     /// The key_value attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyValue
-    {
-        set => SetProperty("key_value", value);
-    }
+    [TerraformPropertyName("key_value")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyValue { get; set; }
 
 }
 
@@ -115,39 +105,35 @@ public class AzurermMachineLearningComputeClusterSshBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMachineLearningComputeClusterTimeoutsBlock : TerraformBlock
+public class AzurermMachineLearningComputeClusterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -159,147 +145,104 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
 {
     public AzurermMachineLearningComputeCluster(string name) : base("azurerm_machine_learning_compute_cluster", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("local_auth_enabled");
-        SetOutput("location");
-        SetOutput("machine_learning_workspace_id");
-        SetOutput("name");
-        SetOutput("node_public_ip_enabled");
-        SetOutput("ssh_public_access_enabled");
-        SetOutput("subnet_resource_id");
-        SetOutput("tags");
-        SetOutput("vm_priority");
-        SetOutput("vm_size");
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LocalAuthEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("local_auth_enabled");
-        set => SetProperty("local_auth_enabled", value);
-    }
+    [TerraformPropertyName("local_auth_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? LocalAuthEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The machine_learning_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
-    public required TerraformProperty<string> MachineLearningWorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("machine_learning_workspace_id");
-        set => SetProperty("machine_learning_workspace_id", value);
-    }
+    [TerraformPropertyName("machine_learning_workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> MachineLearningWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The node_public_ip_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> NodePublicIpEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("node_public_ip_enabled");
-        set => SetProperty("node_public_ip_enabled", value);
-    }
+    [TerraformPropertyName("node_public_ip_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? NodePublicIpEnabled { get; set; }
 
     /// <summary>
     /// The ssh_public_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> SshPublicAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("ssh_public_access_enabled");
-        set => SetProperty("ssh_public_access_enabled", value);
-    }
+    [TerraformPropertyName("ssh_public_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SshPublicAccessEnabled { get; set; }
 
     /// <summary>
     /// The subnet_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string> SubnetResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("subnet_resource_id");
-        set => SetProperty("subnet_resource_id", value);
-    }
+    [TerraformPropertyName("subnet_resource_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SubnetResourceId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "subnet_resource_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The vm_priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmPriority is required")]
-    public required TerraformProperty<string> VmPriority
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vm_priority");
-        set => SetProperty("vm_priority", value);
-    }
+    [TerraformPropertyName("vm_priority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VmPriority { get; set; }
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
-    public required TerraformProperty<string> VmSize
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vm_size");
-        set => SetProperty("vm_size", value);
-    }
+    [TerraformPropertyName("vm_size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VmSize { get; set; }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermMachineLearningComputeClusterIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermMachineLearningComputeClusterIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for scale_settings.
@@ -308,28 +251,22 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScaleSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScaleSettings block(s) allowed")]
-    public List<AzurermMachineLearningComputeClusterScaleSettingsBlock>? ScaleSettings
-    {
-        set => SetProperty("scale_settings", value);
-    }
+    [TerraformPropertyName("scale_settings")]
+    public TerraformList<TerraformBlock<AzurermMachineLearningComputeClusterScaleSettingsBlock>>? ScaleSettings { get; set; } = new();
 
     /// <summary>
     /// Block for ssh.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ssh block(s) allowed")]
-    public List<AzurermMachineLearningComputeClusterSshBlock>? Ssh
-    {
-        set => SetProperty("ssh", value);
-    }
+    [TerraformPropertyName("ssh")]
+    public TerraformList<TerraformBlock<AzurermMachineLearningComputeClusterSshBlock>>? Ssh { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMachineLearningComputeClusterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMachineLearningComputeClusterTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

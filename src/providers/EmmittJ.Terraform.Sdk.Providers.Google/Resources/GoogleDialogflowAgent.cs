@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowAgentTimeoutsBlock : TerraformBlock
+public class GoogleDialogflowAgentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,25 +38,6 @@ public class GoogleDialogflowAgent : TerraformResource
 {
     public GoogleDialogflowAgent(string name) : base("google_dialogflow_agent", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("avatar_uri_backend");
-        SetOutput("api_version");
-        SetOutput("avatar_uri");
-        SetOutput("classification_threshold");
-        SetOutput("default_language_code");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("enable_logging");
-        SetOutput("id");
-        SetOutput("match_mode");
-        SetOutput("project");
-        SetOutput("supported_language_codes");
-        SetOutput("tier");
-        SetOutput("time_zone");
     }
 
     /// <summary>
@@ -70,22 +48,18 @@ public class GoogleDialogflowAgent : TerraformResource
     /// * API_VERSION_V2: V2 API.
     /// * API_VERSION_V2_BETA_1: V2beta1 API. Possible values: [&amp;quot;API_VERSION_V1&amp;quot;, &amp;quot;API_VERSION_V2&amp;quot;, &amp;quot;API_VERSION_V2_BETA_1&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> ApiVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("api_version");
-        set => SetProperty("api_version", value);
-    }
+    [TerraformPropertyName("api_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ApiVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "api_version");
 
     /// <summary>
     /// The URI of the agent&#39;s avatar, which are used throughout the Dialogflow console. When an image URL is entered
     /// into this field, the Dialogflow will save the image in the backend. The address of the backend image returned
     /// from the API will be shown in the [avatarUriBackend] field.
     /// </summary>
-    public TerraformProperty<string> AvatarUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("avatar_uri");
-        set => SetProperty("avatar_uri", value);
-    }
+    [TerraformPropertyName("avatar_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AvatarUri { get; set; }
 
     /// <summary>
     /// To filter out false positive results and still get variety in matched natural language inputs for your agent,
@@ -94,59 +68,47 @@ public class GoogleDialogflowAgent : TerraformResource
     /// triggered. The score values range from 0.0 (completely uncertain) to 1.0 (completely certain). If set to 0.0, the
     /// default of 0.3 is used.
     /// </summary>
-    public TerraformProperty<double> ClassificationThreshold
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("classification_threshold");
-        set => SetProperty("classification_threshold", value);
-    }
+    [TerraformPropertyName("classification_threshold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ClassificationThreshold { get; set; }
 
     /// <summary>
     /// The default language of the agent as a language tag. [See Language Support](https://cloud.google.com/dialogflow/docs/reference/language)
     /// for a list of the currently supported language codes. This field cannot be updated after creation.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLanguageCode is required")]
-    public required TerraformProperty<string> DefaultLanguageCode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_language_code");
-        set => SetProperty("default_language_code", value);
-    }
+    [TerraformPropertyName("default_language_code")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DefaultLanguageCode { get; set; }
 
     /// <summary>
     /// The description of this agent. The maximum length is 500 characters. If exceeded, the request is rejected.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The name of this agent.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    public required TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DisplayName { get; set; }
 
     /// <summary>
     /// Determines whether this agent should log conversation queries.
     /// </summary>
-    public TerraformProperty<bool> EnableLogging
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enable_logging");
-        set => SetProperty("enable_logging", value);
-    }
+    [TerraformPropertyName("enable_logging")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableLogging { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Determines how intents are detected from user queries.
@@ -155,29 +117,23 @@ public class GoogleDialogflowAgent : TerraformResource
     /// * MATCH_MODE_ML_ONLY: Can be used for agents with a large number of examples in intents, especially the ones
     /// using @sys.any or very large developer entities. Possible values: [&amp;quot;MATCH_MODE_HYBRID&amp;quot;, &amp;quot;MATCH_MODE_ML_ONLY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> MatchMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("match_mode");
-        set => SetProperty("match_mode", value);
-    }
+    [TerraformPropertyName("match_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> MatchMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "match_mode");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The list of all languages supported by this agent (except for the defaultLanguageCode).
     /// </summary>
-    public List<TerraformProperty<string>> SupportedLanguageCodes
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("supported_language_codes");
-        set => SetProperty("supported_language_codes", value);
-    }
+    [TerraformPropertyName("supported_language_codes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? SupportedLanguageCodes { get; set; }
 
     /// <summary>
     /// The agent tier. If not specified, TIER_STANDARD is assumed.
@@ -187,36 +143,32 @@ public class GoogleDialogflowAgent : TerraformResource
     /// NOTE: Due to consistency issues, the provider will not read this field from the API. Drift is possible between
     /// the Terraform state and Dialogflow if the agent tier is changed outside of Terraform. Possible values: [&amp;quot;TIER_STANDARD&amp;quot;, &amp;quot;TIER_ENTERPRISE&amp;quot;, &amp;quot;TIER_ENTERPRISE_PLUS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string> Tier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tier");
-        set => SetProperty("tier", value);
-    }
+    [TerraformPropertyName("tier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Tier { get; set; }
 
     /// <summary>
     /// The time zone of this agent from the [time zone database](https://www.iana.org/time-zones), e.g., America/New_York,
     /// Europe/Paris.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
-    public required TerraformProperty<string> TimeZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("time_zone");
-        set => SetProperty("time_zone", value);
-    }
+    [TerraformPropertyName("time_zone")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TimeZone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDialogflowAgentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDialogflowAgentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The URI of the agent&#39;s avatar as returned from the API. Output only. To provide an image URL for the agent avatar,
     /// the [avatarUri] field can be used.
     /// </summary>
-    public TerraformExpression AvatarUriBackend => this["avatar_uri_backend"];
+    [TerraformPropertyName("avatar_uri_backend")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AvatarUriBackend => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "avatar_uri_backend");
 
 }

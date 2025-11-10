@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for actions_suppressor in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchCompositeAlarmActionsSuppressorBlock : TerraformBlock
+public class AwsCloudwatchCompositeAlarmActionsSuppressorBlock : ITerraformBlock
 {
     /// <summary>
     /// The alarm attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alarm is required")]
-    public required TerraformProperty<string> Alarm
-    {
-        set => SetProperty("alarm", value);
-    }
+    [TerraformPropertyName("alarm")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Alarm { get; set; }
 
     /// <summary>
     /// The extension_period attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionPeriod is required")]
-    public required TerraformProperty<double> ExtensionPeriod
-    {
-        set => SetProperty("extension_period", value);
-    }
+    [TerraformPropertyName("extension_period")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> ExtensionPeriod { get; set; }
 
     /// <summary>
     /// The wait_period attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WaitPeriod is required")]
-    public required TerraformProperty<double> WaitPeriod
-    {
-        set => SetProperty("wait_period", value);
-    }
+    [TerraformPropertyName("wait_period")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> WaitPeriod { get; set; }
 
 }
 
@@ -45,139 +42,100 @@ public class AwsCloudwatchCompositeAlarm : TerraformResource
 {
     public AwsCloudwatchCompositeAlarm(string name) : base("aws_cloudwatch_composite_alarm", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("actions_enabled");
-        SetOutput("alarm_actions");
-        SetOutput("alarm_description");
-        SetOutput("alarm_name");
-        SetOutput("alarm_rule");
-        SetOutput("id");
-        SetOutput("insufficient_data_actions");
-        SetOutput("ok_actions");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The actions_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ActionsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("actions_enabled");
-        set => SetProperty("actions_enabled", value);
-    }
+    [TerraformPropertyName("actions_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ActionsEnabled { get; set; }
 
     /// <summary>
     /// The alarm_actions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AlarmActions
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("alarm_actions");
-        set => SetProperty("alarm_actions", value);
-    }
+    [TerraformPropertyName("alarm_actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AlarmActions { get; set; }
 
     /// <summary>
     /// The alarm_description attribute.
     /// </summary>
-    public TerraformProperty<string> AlarmDescription
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alarm_description");
-        set => SetProperty("alarm_description", value);
-    }
+    [TerraformPropertyName("alarm_description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AlarmDescription { get; set; }
 
     /// <summary>
     /// The alarm_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
-    public required TerraformProperty<string> AlarmName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alarm_name");
-        set => SetProperty("alarm_name", value);
-    }
+    [TerraformPropertyName("alarm_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AlarmName { get; set; }
 
     /// <summary>
     /// The alarm_rule attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmRule is required")]
-    public required TerraformProperty<string> AlarmRule
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alarm_rule");
-        set => SetProperty("alarm_rule", value);
-    }
+    [TerraformPropertyName("alarm_rule")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AlarmRule { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The insufficient_data_actions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> InsufficientDataActions
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("insufficient_data_actions");
-        set => SetProperty("insufficient_data_actions", value);
-    }
+    [TerraformPropertyName("insufficient_data_actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? InsufficientDataActions { get; set; }
 
     /// <summary>
     /// The ok_actions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> OkActions
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("ok_actions");
-        set => SetProperty("ok_actions", value);
-    }
+    [TerraformPropertyName("ok_actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? OkActions { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for actions_suppressor.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActionsSuppressor block(s) allowed")]
-    public List<AwsCloudwatchCompositeAlarmActionsSuppressorBlock>? ActionsSuppressor
-    {
-        set => SetProperty("actions_suppressor", value);
-    }
+    [TerraformPropertyName("actions_suppressor")]
+    public TerraformList<TerraformBlock<AwsCloudwatchCompositeAlarmActionsSuppressorBlock>>? ActionsSuppressor { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

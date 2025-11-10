@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogicAppWorkflowDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermLogicAppWorkflowDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,124 +24,120 @@ public class AzurermLogicAppWorkflowDataSource : TerraformDataSource
 {
     public AzurermLogicAppWorkflowDataSource(string name) : base("azurerm_logic_app_workflow", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_endpoint");
-        SetOutput("connector_endpoint_ip_addresses");
-        SetOutput("connector_outbound_ip_addresses");
-        SetOutput("identity");
-        SetOutput("location");
-        SetOutput("logic_app_integration_account_id");
-        SetOutput("parameters");
-        SetOutput("tags");
-        SetOutput("workflow_endpoint_ip_addresses");
-        SetOutput("workflow_outbound_ip_addresses");
-        SetOutput("workflow_schema");
-        SetOutput("workflow_version");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLogicAppWorkflowDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLogicAppWorkflowDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The access_endpoint attribute.
     /// </summary>
-    public TerraformExpression AccessEndpoint => this["access_endpoint"];
+    [TerraformPropertyName("access_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AccessEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "access_endpoint");
 
     /// <summary>
     /// The connector_endpoint_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression ConnectorEndpointIpAddresses => this["connector_endpoint_ip_addresses"];
+    [TerraformPropertyName("connector_endpoint_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ConnectorEndpointIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "connector_endpoint_ip_addresses");
 
     /// <summary>
     /// The connector_outbound_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression ConnectorOutboundIpAddresses => this["connector_outbound_ip_addresses"];
+    [TerraformPropertyName("connector_outbound_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ConnectorOutboundIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "connector_outbound_ip_addresses");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformExpression Identity => this["identity"];
+    [TerraformPropertyName("identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The logic_app_integration_account_id attribute.
     /// </summary>
-    public TerraformExpression LogicAppIntegrationAccountId => this["logic_app_integration_account_id"];
+    [TerraformPropertyName("logic_app_integration_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LogicAppIntegrationAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "logic_app_integration_account_id");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformExpression Parameters => this["parameters"];
+    [TerraformPropertyName("parameters")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Parameters => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "parameters");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The workflow_endpoint_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression WorkflowEndpointIpAddresses => this["workflow_endpoint_ip_addresses"];
+    [TerraformPropertyName("workflow_endpoint_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> WorkflowEndpointIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "workflow_endpoint_ip_addresses");
 
     /// <summary>
     /// The workflow_outbound_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression WorkflowOutboundIpAddresses => this["workflow_outbound_ip_addresses"];
+    [TerraformPropertyName("workflow_outbound_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> WorkflowOutboundIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "workflow_outbound_ip_addresses");
 
     /// <summary>
     /// The workflow_schema attribute.
     /// </summary>
-    public TerraformExpression WorkflowSchema => this["workflow_schema"];
+    [TerraformPropertyName("workflow_schema")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WorkflowSchema => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workflow_schema");
 
     /// <summary>
     /// The workflow_version attribute.
     /// </summary>
-    public TerraformExpression WorkflowVersion => this["workflow_version"];
+    [TerraformPropertyName("workflow_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WorkflowVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workflow_version");
 
 }

@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for command in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueJobCommandBlock : TerraformBlock
+public class AwsGlueJobCommandBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The python_version attribute.
     /// </summary>
-    public TerraformProperty<string>? PythonVersion
-    {
-        set => SetProperty("python_version", value);
-    }
+    [TerraformPropertyName("python_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> PythonVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "python_version");
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
-    public TerraformProperty<string>? Runtime
-    {
-        set => SetProperty("runtime", value);
-    }
+    [TerraformPropertyName("runtime")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Runtime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "runtime");
 
     /// <summary>
     /// The script_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptLocation is required")]
-    public required TerraformProperty<string> ScriptLocation
-    {
-        set => SetProperty("script_location", value);
-    }
+    [TerraformPropertyName("script_location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ScriptLocation { get; set; }
 
 }
 
@@ -47,15 +43,14 @@ public class AwsGlueJobCommandBlock : TerraformBlock
 /// Block type for execution_property in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueJobExecutionPropertyBlock : TerraformBlock
+public class AwsGlueJobExecutionPropertyBlock : ITerraformBlock
 {
     /// <summary>
     /// The max_concurrent_runs attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxConcurrentRuns
-    {
-        set => SetProperty("max_concurrent_runs", value);
-    }
+    [TerraformPropertyName("max_concurrent_runs")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxConcurrentRuns { get; set; }
 
 }
 
@@ -63,15 +58,14 @@ public class AwsGlueJobExecutionPropertyBlock : TerraformBlock
 /// Block type for notification_property in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueJobNotificationPropertyBlock : TerraformBlock
+public class AwsGlueJobNotificationPropertyBlock : ITerraformBlock
 {
     /// <summary>
     /// The notify_delay_after attribute.
     /// </summary>
-    public TerraformProperty<double>? NotifyDelayAfter
-    {
-        set => SetProperty("notify_delay_after", value);
-    }
+    [TerraformPropertyName("notify_delay_after")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? NotifyDelayAfter { get; set; }
 
 }
 
@@ -79,71 +73,63 @@ public class AwsGlueJobNotificationPropertyBlock : TerraformBlock
 /// Block type for source_control_details in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
+public class AwsGlueJobSourceControlDetailsBlock : ITerraformBlock
 {
     /// <summary>
     /// The auth_strategy attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthStrategy
-    {
-        set => SetProperty("auth_strategy", value);
-    }
+    [TerraformPropertyName("auth_strategy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthStrategy { get; set; }
 
     /// <summary>
     /// The auth_token attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthToken
-    {
-        set => SetProperty("auth_token", value);
-    }
+    [TerraformPropertyName("auth_token")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthToken { get; set; }
 
     /// <summary>
     /// The branch attribute.
     /// </summary>
-    public TerraformProperty<string>? Branch
-    {
-        set => SetProperty("branch", value);
-    }
+    [TerraformPropertyName("branch")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Branch { get; set; }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public TerraformProperty<string>? Folder
-    {
-        set => SetProperty("folder", value);
-    }
+    [TerraformPropertyName("folder")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Folder { get; set; }
 
     /// <summary>
     /// The last_commit_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LastCommitId
-    {
-        set => SetProperty("last_commit_id", value);
-    }
+    [TerraformPropertyName("last_commit_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LastCommitId { get; set; }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformProperty<string>? Owner
-    {
-        set => SetProperty("owner", value);
-    }
+    [TerraformPropertyName("owner")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Owner { get; set; }
 
     /// <summary>
     /// The provider attribute.
     /// </summary>
-    public TerraformProperty<string>? Provider
-    {
-        set => SetProperty("provider", value);
-    }
+    [TerraformPropertyName("provider")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Provider { get; set; }
 
     /// <summary>
     /// The repository attribute.
     /// </summary>
-    public TerraformProperty<string>? Repository
-    {
-        set => SetProperty("repository", value);
-    }
+    [TerraformPropertyName("repository")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Repository { get; set; }
 
 }
 
@@ -155,225 +141,156 @@ public class AwsGlueJob : TerraformResource
 {
     public AwsGlueJob(string name) : base("aws_glue_job", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("connections");
-        SetOutput("default_arguments");
-        SetOutput("description");
-        SetOutput("execution_class");
-        SetOutput("glue_version");
-        SetOutput("id");
-        SetOutput("job_mode");
-        SetOutput("job_run_queuing_enabled");
-        SetOutput("maintenance_window");
-        SetOutput("max_capacity");
-        SetOutput("max_retries");
-        SetOutput("name");
-        SetOutput("non_overridable_arguments");
-        SetOutput("number_of_workers");
-        SetOutput("region");
-        SetOutput("role_arn");
-        SetOutput("security_configuration");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("timeout");
-        SetOutput("worker_type");
     }
 
     /// <summary>
     /// The connections attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Connections
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("connections");
-        set => SetProperty("connections", value);
-    }
+    [TerraformPropertyName("connections")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Connections { get; set; }
 
     /// <summary>
     /// The default_arguments attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> DefaultArguments
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("default_arguments");
-        set => SetProperty("default_arguments", value);
-    }
+    [TerraformPropertyName("default_arguments")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? DefaultArguments { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The execution_class attribute.
     /// </summary>
-    public TerraformProperty<string> ExecutionClass
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("execution_class");
-        set => SetProperty("execution_class", value);
-    }
+    [TerraformPropertyName("execution_class")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExecutionClass { get; set; }
 
     /// <summary>
     /// The glue_version attribute.
     /// </summary>
-    public TerraformProperty<string> GlueVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("glue_version");
-        set => SetProperty("glue_version", value);
-    }
+    [TerraformPropertyName("glue_version")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> GlueVersion { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "glue_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The job_mode attribute.
     /// </summary>
-    public TerraformProperty<string> JobMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("job_mode");
-        set => SetProperty("job_mode", value);
-    }
+    [TerraformPropertyName("job_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> JobMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "job_mode");
 
     /// <summary>
     /// The job_run_queuing_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> JobRunQueuingEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("job_run_queuing_enabled");
-        set => SetProperty("job_run_queuing_enabled", value);
-    }
+    [TerraformPropertyName("job_run_queuing_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? JobRunQueuingEnabled { get; set; }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformProperty<string> MaintenanceWindow
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("maintenance_window");
-        set => SetProperty("maintenance_window", value);
-    }
+    [TerraformPropertyName("maintenance_window")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MaintenanceWindow { get; set; }
 
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    public TerraformProperty<double> MaxCapacity
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_capacity");
-        set => SetProperty("max_capacity", value);
-    }
+    [TerraformPropertyName("max_capacity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxCapacity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_capacity");
 
     /// <summary>
     /// The max_retries attribute.
     /// </summary>
-    public TerraformProperty<double> MaxRetries
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_retries");
-        set => SetProperty("max_retries", value);
-    }
+    [TerraformPropertyName("max_retries")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxRetries { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The non_overridable_arguments attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> NonOverridableArguments
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("non_overridable_arguments");
-        set => SetProperty("non_overridable_arguments", value);
-    }
+    [TerraformPropertyName("non_overridable_arguments")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? NonOverridableArguments { get; set; }
 
     /// <summary>
     /// The number_of_workers attribute.
     /// </summary>
-    public TerraformProperty<double> NumberOfWorkers
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("number_of_workers");
-        set => SetProperty("number_of_workers", value);
-    }
+    [TerraformPropertyName("number_of_workers")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> NumberOfWorkers { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "number_of_workers");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    public required TerraformProperty<string> RoleArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("role_arn");
-        set => SetProperty("role_arn", value);
-    }
+    [TerraformPropertyName("role_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RoleArn { get; set; }
 
     /// <summary>
     /// The security_configuration attribute.
     /// </summary>
-    public TerraformProperty<string> SecurityConfiguration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_configuration");
-        set => SetProperty("security_configuration", value);
-    }
+    [TerraformPropertyName("security_configuration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecurityConfiguration { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformProperty<double> Timeout
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("timeout");
-        set => SetProperty("timeout", value);
-    }
+    [TerraformPropertyName("timeout")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Timeout { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "timeout");
 
     /// <summary>
     /// The worker_type attribute.
     /// </summary>
-    public TerraformProperty<string> WorkerType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("worker_type");
-        set => SetProperty("worker_type", value);
-    }
+    [TerraformPropertyName("worker_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> WorkerType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "worker_type");
 
     /// <summary>
     /// Block for command.
@@ -382,44 +299,38 @@ public class AwsGlueJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Command is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Command block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Command block(s) allowed")]
-    public List<AwsGlueJobCommandBlock>? Command
-    {
-        set => SetProperty("command", value);
-    }
+    [TerraformPropertyName("command")]
+    public TerraformList<TerraformBlock<AwsGlueJobCommandBlock>>? Command { get; set; } = new();
 
     /// <summary>
     /// Block for execution_property.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionProperty block(s) allowed")]
-    public List<AwsGlueJobExecutionPropertyBlock>? ExecutionProperty
-    {
-        set => SetProperty("execution_property", value);
-    }
+    [TerraformPropertyName("execution_property")]
+    public TerraformList<TerraformBlock<AwsGlueJobExecutionPropertyBlock>>? ExecutionProperty { get; set; } = new();
 
     /// <summary>
     /// Block for notification_property.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationProperty block(s) allowed")]
-    public List<AwsGlueJobNotificationPropertyBlock>? NotificationProperty
-    {
-        set => SetProperty("notification_property", value);
-    }
+    [TerraformPropertyName("notification_property")]
+    public TerraformList<TerraformBlock<AwsGlueJobNotificationPropertyBlock>>? NotificationProperty { get; set; } = new();
 
     /// <summary>
     /// Block for source_control_details.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceControlDetails block(s) allowed")]
-    public List<AwsGlueJobSourceControlDetailsBlock>? SourceControlDetails
-    {
-        set => SetProperty("source_control_details", value);
-    }
+    [TerraformPropertyName("source_control_details")]
+    public TerraformList<TerraformBlock<AwsGlueJobSourceControlDetailsBlock>>? SourceControlDetails { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

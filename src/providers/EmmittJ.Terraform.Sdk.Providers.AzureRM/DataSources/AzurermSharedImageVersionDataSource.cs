@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSharedImageVersionDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermSharedImageVersionDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,130 +24,108 @@ public class AzurermSharedImageVersionDataSource : TerraformDataSource
 {
     public AzurermSharedImageVersionDataSource(string name) : base("azurerm_shared_image_version", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("exclude_from_latest");
-        SetOutput("location");
-        SetOutput("managed_image_id");
-        SetOutput("os_disk_image_size_gb");
-        SetOutput("os_disk_snapshot_id");
-        SetOutput("target_region");
-        SetOutput("gallery_name");
-        SetOutput("id");
-        SetOutput("image_name");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("sort_versions_by_semver");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The gallery_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
-    public required TerraformProperty<string> GalleryName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gallery_name");
-        set => SetProperty("gallery_name", value);
-    }
+    [TerraformPropertyName("gallery_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> GalleryName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The image_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
-    public required TerraformProperty<string> ImageName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("image_name");
-        set => SetProperty("image_name", value);
-    }
+    [TerraformPropertyName("image_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ImageName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sort_versions_by_semver attribute.
     /// </summary>
-    public TerraformProperty<bool> SortVersionsBySemver
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("sort_versions_by_semver");
-        set => SetProperty("sort_versions_by_semver", value);
-    }
+    [TerraformPropertyName("sort_versions_by_semver")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SortVersionsBySemver { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSharedImageVersionDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSharedImageVersionDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The exclude_from_latest attribute.
     /// </summary>
-    public TerraformExpression ExcludeFromLatest => this["exclude_from_latest"];
+    [TerraformPropertyName("exclude_from_latest")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> ExcludeFromLatest => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "exclude_from_latest");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The managed_image_id attribute.
     /// </summary>
-    public TerraformExpression ManagedImageId => this["managed_image_id"];
+    [TerraformPropertyName("managed_image_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ManagedImageId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "managed_image_id");
 
     /// <summary>
     /// The os_disk_image_size_gb attribute.
     /// </summary>
-    public TerraformExpression OsDiskImageSizeGb => this["os_disk_image_size_gb"];
+    [TerraformPropertyName("os_disk_image_size_gb")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> OsDiskImageSizeGb => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "os_disk_image_size_gb");
 
     /// <summary>
     /// The os_disk_snapshot_id attribute.
     /// </summary>
-    public TerraformExpression OsDiskSnapshotId => this["os_disk_snapshot_id"];
+    [TerraformPropertyName("os_disk_snapshot_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OsDiskSnapshotId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "os_disk_snapshot_id");
 
     /// <summary>
     /// The target_region attribute.
     /// </summary>
-    public TerraformExpression TargetRegion => this["target_region"];
+    [TerraformPropertyName("target_region")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TargetRegion => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "target_region");
 
 }

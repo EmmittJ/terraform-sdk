@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authentication in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHealthcareFhirServiceAuthenticationBlock : TerraformBlock
+public class AzurermHealthcareFhirServiceAuthenticationBlock : ITerraformBlock
 {
     /// <summary>
     /// The audience attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Audience is required")]
-    public required TerraformProperty<string> Audience
-    {
-        set => SetProperty("audience", value);
-    }
+    [TerraformPropertyName("audience")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Audience { get; set; }
 
     /// <summary>
     /// The authority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
-    public required TerraformProperty<string> Authority
-    {
-        set => SetProperty("authority", value);
-    }
+    [TerraformPropertyName("authority")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Authority { get; set; }
 
     /// <summary>
     /// The smart_proxy_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SmartProxyEnabled
-    {
-        set => SetProperty("smart_proxy_enabled", value);
-    }
+    [TerraformPropertyName("smart_proxy_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SmartProxyEnabled { get; set; }
 
 }
 
@@ -40,50 +37,45 @@ public class AzurermHealthcareFhirServiceAuthenticationBlock : TerraformBlock
 /// Block type for cors in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHealthcareFhirServiceCorsBlock : TerraformBlock
+public class AzurermHealthcareFhirServiceCorsBlock : ITerraformBlock
 {
     /// <summary>
     /// The allowed_headers attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
-    public HashSet<TerraformProperty<string>>? AllowedHeaders
-    {
-        set => SetProperty("allowed_headers", value);
-    }
+    [TerraformPropertyName("allowed_headers")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedHeaders { get; set; }
 
     /// <summary>
     /// The allowed_methods attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
-    public HashSet<TerraformProperty<string>>? AllowedMethods
-    {
-        set => SetProperty("allowed_methods", value);
-    }
+    [TerraformPropertyName("allowed_methods")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedMethods { get; set; }
 
     /// <summary>
     /// The allowed_origins attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
-    public HashSet<TerraformProperty<string>>? AllowedOrigins
-    {
-        set => SetProperty("allowed_origins", value);
-    }
+    [TerraformPropertyName("allowed_origins")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowedOrigins { get; set; }
 
     /// <summary>
     /// The credentials_allowed attribute.
     /// </summary>
-    public TerraformProperty<bool>? CredentialsAllowed
-    {
-        set => SetProperty("credentials_allowed", value);
-    }
+    [TerraformPropertyName("credentials_allowed")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CredentialsAllowed { get; set; }
 
     /// <summary>
     /// The max_age_in_seconds attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxAgeInSeconds
-    {
-        set => SetProperty("max_age_in_seconds", value);
-    }
+    [TerraformPropertyName("max_age_in_seconds")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxAgeInSeconds { get; set; }
 
 }
 
@@ -91,40 +83,36 @@ public class AzurermHealthcareFhirServiceCorsBlock : TerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHealthcareFhirServiceIdentityBlock : TerraformBlock
+public class AzurermHealthcareFhirServiceIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -132,32 +120,29 @@ public class AzurermHealthcareFhirServiceIdentityBlock : TerraformBlock
 /// Block type for oci_artifact in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHealthcareFhirServiceOciArtifactBlock : TerraformBlock
+public class AzurermHealthcareFhirServiceOciArtifactBlock : ITerraformBlock
 {
     /// <summary>
     /// The digest attribute.
     /// </summary>
-    public TerraformProperty<string>? Digest
-    {
-        set => SetProperty("digest", value);
-    }
+    [TerraformPropertyName("digest")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Digest { get; set; }
 
     /// <summary>
     /// The image_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageName
-    {
-        set => SetProperty("image_name", value);
-    }
+    [TerraformPropertyName("image_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ImageName { get; set; }
 
     /// <summary>
     /// The login_server attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginServer is required")]
-    public required TerraformProperty<string> LoginServer
-    {
-        set => SetProperty("login_server", value);
-    }
+    [TerraformPropertyName("login_server")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LoginServer { get; set; }
 
 }
 
@@ -165,39 +150,35 @@ public class AzurermHealthcareFhirServiceOciArtifactBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermHealthcareFhirServiceTimeoutsBlock : TerraformBlock
+public class AzurermHealthcareFhirServiceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -209,117 +190,81 @@ public class AzurermHealthcareFhirService : TerraformResource
 {
     public AzurermHealthcareFhirService(string name) : base("azurerm_healthcare_fhir_service", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("public_network_access_enabled");
-        SetOutput("access_policy_object_ids");
-        SetOutput("configuration_export_storage_account_name");
-        SetOutput("container_registry_login_server_url");
-        SetOutput("id");
-        SetOutput("kind");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
-        SetOutput("workspace_id");
     }
 
     /// <summary>
     /// The access_policy_object_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AccessPolicyObjectIds
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("access_policy_object_ids");
-        set => SetProperty("access_policy_object_ids", value);
-    }
+    [TerraformPropertyName("access_policy_object_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AccessPolicyObjectIds { get; set; }
 
     /// <summary>
     /// The configuration_export_storage_account_name attribute.
     /// </summary>
-    public TerraformProperty<string> ConfigurationExportStorageAccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("configuration_export_storage_account_name");
-        set => SetProperty("configuration_export_storage_account_name", value);
-    }
+    [TerraformPropertyName("configuration_export_storage_account_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConfigurationExportStorageAccountName { get; set; }
 
     /// <summary>
     /// The container_registry_login_server_url attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> ContainerRegistryLoginServerUrl
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("container_registry_login_server_url");
-        set => SetProperty("container_registry_login_server_url", value);
-    }
+    [TerraformPropertyName("container_registry_login_server_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ContainerRegistryLoginServerUrl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformProperty<string> Kind
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kind");
-        set => SetProperty("kind", value);
-    }
+    [TerraformPropertyName("kind")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Kind { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    public required TerraformProperty<string> WorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("workspace_id");
-        set => SetProperty("workspace_id", value);
-    }
+    [TerraformPropertyName("workspace_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for authentication.
@@ -328,52 +273,44 @@ public class AzurermHealthcareFhirService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
-    public List<AzurermHealthcareFhirServiceAuthenticationBlock>? Authentication
-    {
-        set => SetProperty("authentication", value);
-    }
+    [TerraformPropertyName("authentication")]
+    public TerraformList<TerraformBlock<AzurermHealthcareFhirServiceAuthenticationBlock>>? Authentication { get; set; } = new();
 
     /// <summary>
     /// Block for cors.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
-    public List<AzurermHealthcareFhirServiceCorsBlock>? Cors
-    {
-        set => SetProperty("cors", value);
-    }
+    [TerraformPropertyName("cors")]
+    public TerraformList<TerraformBlock<AzurermHealthcareFhirServiceCorsBlock>>? Cors { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermHealthcareFhirServiceIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermHealthcareFhirServiceIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for oci_artifact.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermHealthcareFhirServiceOciArtifactBlock>? OciArtifact
-    {
-        set => SetProperty("oci_artifact", value);
-    }
+    [TerraformPropertyName("oci_artifact")]
+    public TerraformList<TerraformBlock<AzurermHealthcareFhirServiceOciArtifactBlock>>? OciArtifact { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermHealthcareFhirServiceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermHealthcareFhirServiceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformExpression PublicNetworkAccessEnabled => this["public_network_access_enabled"];
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PublicNetworkAccessEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "public_network_access_enabled");
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageControlFolderIntelligenceConfigFilterBlock : TerraformBlock
+public class GoogleStorageControlFolderIntelligenceConfigFilterBlock : ITerraformBlock
 {
 }
 
@@ -14,31 +14,28 @@ public class GoogleStorageControlFolderIntelligenceConfigFilterBlock : Terraform
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleStorageControlFolderIntelligenceConfigTimeoutsBlock : TerraformBlock
+public class GoogleStorageControlFolderIntelligenceConfigTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -50,79 +47,64 @@ public class GoogleStorageControlFolderIntelligenceConfig : TerraformResource
 {
     public GoogleStorageControlFolderIntelligenceConfig(string name) : base("google_storage_control_folder_intelligence_config", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("effective_intelligence_config");
-        SetOutput("trial_config");
-        SetOutput("update_time");
-        SetOutput("edition_config");
-        SetOutput("id");
-        SetOutput("name");
     }
 
     /// <summary>
     /// Edition configuration of the Storage Intelligence resource. Valid values are INHERIT, TRIAL, DISABLED and STANDARD.
     /// </summary>
-    public TerraformProperty<string> EditionConfig
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("edition_config");
-        set => SetProperty("edition_config", value);
-    }
+    [TerraformPropertyName("edition_config")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EditionConfig { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "edition_config");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Identifier of the GCP Folder. For GCP Folder, this field can be folder number.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
-    public List<GoogleStorageControlFolderIntelligenceConfigFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformList<TerraformBlock<GoogleStorageControlFolderIntelligenceConfigFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleStorageControlFolderIntelligenceConfigTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleStorageControlFolderIntelligenceConfigTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The Intelligence config that is effective for the resource.
     /// </summary>
-    public TerraformExpression EffectiveIntelligenceConfig => this["effective_intelligence_config"];
+    [TerraformPropertyName("effective_intelligence_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> EffectiveIntelligenceConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "effective_intelligence_config");
 
     /// <summary>
     /// The trial configuration of the Storage Intelligence resource.
     /// </summary>
-    public TerraformExpression TrialConfig => this["trial_config"];
+    [TerraformPropertyName("trial_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TrialConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "trial_config");
 
     /// <summary>
     /// The time at which the Storage Intelligence Config resource is last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

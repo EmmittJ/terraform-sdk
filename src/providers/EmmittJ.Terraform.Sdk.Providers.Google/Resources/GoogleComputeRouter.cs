@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bgp in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRouterBgpBlock : TerraformBlock
+public class GoogleComputeRouterBgpBlock : ITerraformBlock
 {
     /// <summary>
     /// User-specified flag to indicate which mode to use for advertisement. Default value: &amp;quot;DEFAULT&amp;quot; Possible values: [&amp;quot;DEFAULT&amp;quot;, &amp;quot;CUSTOM&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? AdvertiseMode
-    {
-        set => SetProperty("advertise_mode", value);
-    }
+    [TerraformPropertyName("advertise_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AdvertiseMode { get; set; }
 
     /// <summary>
     /// User-specified list of prefix groups to advertise in custom mode.
@@ -25,10 +24,9 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     /// 
     /// This enum field has the one valid value: ALL_SUBNETS
     /// </summary>
-    public List<TerraformProperty<string>>? AdvertisedGroups
-    {
-        set => SetProperty("advertised_groups", value);
-    }
+    [TerraformPropertyName("advertised_groups")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? AdvertisedGroups { get; set; }
 
     /// <summary>
     /// Local BGP Autonomous System Number (ASN). Must be an RFC6996
@@ -37,10 +35,9 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     /// will have the same local ASN.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
-    public required TerraformProperty<double> Asn
-    {
-        set => SetProperty("asn", value);
-    }
+    [TerraformPropertyName("asn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Asn { get; set; }
 
     /// <summary>
     /// Explicitly specifies a range of valid BGP Identifiers for this Router.
@@ -49,10 +46,9 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     /// not overlap with any IPv4 BGP session ranges. Other vendors commonly
     /// call this router ID.
     /// </summary>
-    public TerraformProperty<string>? IdentifierRange
-    {
-        set => SetProperty("identifier_range", value);
-    }
+    [TerraformPropertyName("identifier_range")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> IdentifierRange { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "identifier_range");
 
     /// <summary>
     /// The interval in seconds between BGP keepalive messages that are sent
@@ -66,10 +62,9 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     /// between the two peers. If set, this value must be between 20 and 60.
     /// The default is 20.
     /// </summary>
-    public TerraformProperty<double>? KeepaliveInterval
-    {
-        set => SetProperty("keepalive_interval", value);
-    }
+    [TerraformPropertyName("keepalive_interval")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? KeepaliveInterval { get; set; }
 
 }
 
@@ -77,26 +72,24 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
 /// Block type for md5_authentication_keys in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBlock
+public class GoogleComputeRouterMd5AuthenticationKeysBlock : ITerraformBlock
 {
     /// <summary>
     /// Value of the key used for MD5 authentication.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    public required TerraformProperty<string> Key
-    {
-        set => SetProperty("key", value);
-    }
+    [TerraformPropertyName("key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Key { get; set; }
 
     /// <summary>
     /// Name used to identify the key. Must be unique within a router.
     /// Must be referenced by exactly one bgpPeer. Must comply with RFC1035.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -104,17 +97,16 @@ public class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBlock
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRouterParamsBlock : TerraformBlock
+public class GoogleComputeRouterParamsBlock : ITerraformBlock
 {
     /// <summary>
     /// Resource manager tags to be bound to the router. Tag keys and values have the
     /// same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id},
     /// and values are in the format tagValues/456.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
-    {
-        set => SetProperty("resource_manager_tags", value);
-    }
+    [TerraformPropertyName("resource_manager_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? ResourceManagerTags { get; set; }
 
 }
 
@@ -122,31 +114,28 @@ public class GoogleComputeRouterParamsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRouterTimeoutsBlock : TerraformBlock
+public class GoogleComputeRouterTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -158,49 +147,29 @@ public class GoogleComputeRouter : TerraformResource
 {
     public GoogleComputeRouter(string name) : base("google_compute_router", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_timestamp");
-        SetOutput("self_link");
-        SetOutput("description");
-        SetOutput("encrypted_interconnect_router");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("network");
-        SetOutput("project");
-        SetOutput("region");
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// Indicates if a router is dedicated for use with encrypted VLAN
     /// attachments (interconnectAttachments).
     /// </summary>
-    public TerraformProperty<bool> EncryptedInterconnectRouter
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("encrypted_interconnect_router");
-        set => SetProperty("encrypted_interconnect_router", value);
-    }
+    [TerraformPropertyName("encrypted_interconnect_router")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EncryptedInterconnectRouter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long, and
@@ -211,86 +180,74 @@ public class GoogleComputeRouter : TerraformResource
     /// except the last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// A reference to the network to which this router belongs.
     /// </summary>
-    public TerraformProperty<string> Network
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network");
-        set => SetProperty("network", value);
-    }
+    [TerraformPropertyName("network")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Region where the router resides.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for bgp.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bgp block(s) allowed")]
-    public List<GoogleComputeRouterBgpBlock>? Bgp
-    {
-        set => SetProperty("bgp", value);
-    }
+    [TerraformPropertyName("bgp")]
+    public TerraformList<TerraformBlock<GoogleComputeRouterBgpBlock>>? Bgp { get; set; } = new();
 
     /// <summary>
     /// Block for md5_authentication_keys.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Md5AuthenticationKeys block(s) allowed")]
-    public List<GoogleComputeRouterMd5AuthenticationKeysBlock>? Md5AuthenticationKeys
-    {
-        set => SetProperty("md5_authentication_keys", value);
-    }
+    [TerraformPropertyName("md5_authentication_keys")]
+    public TerraformList<TerraformBlock<GoogleComputeRouterMd5AuthenticationKeysBlock>>? Md5AuthenticationKeys { get; set; } = new();
 
     /// <summary>
     /// Block for params.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
-    public List<GoogleComputeRouterParamsBlock>? Params
-    {
-        set => SetProperty("params", value);
-    }
+    [TerraformPropertyName("params")]
+    public TerraformList<TerraformBlock<GoogleComputeRouterParamsBlock>>? Params { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeRouterTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeRouterTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreationTimestamp => this["creation_timestamp"];
+    [TerraformPropertyName("creation_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
 }

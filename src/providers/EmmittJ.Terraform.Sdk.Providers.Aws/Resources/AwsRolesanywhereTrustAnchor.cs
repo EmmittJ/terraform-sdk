@@ -6,47 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for notification_settings in .
 /// Nesting mode: set
 /// </summary>
-public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlock
+public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The channel attribute.
     /// </summary>
-    public TerraformProperty<string>? Channel
-    {
-        set => SetProperty("channel", value);
-    }
+    [TerraformPropertyName("channel")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Channel { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "channel");
 
     /// <summary>
     /// The configured_by attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfiguredBy
-    {
-        set => SetProperty("configured_by", value);
-    }
+    [TerraformPropertyName("configured_by")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConfiguredBy => new TerraformReferenceProperty<TerraformProperty<string>>("", "configured_by");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> Enabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "enabled");
 
     /// <summary>
     /// The event attribute.
     /// </summary>
-    public TerraformProperty<string>? Event
-    {
-        set => SetProperty("event", value);
-    }
+    [TerraformPropertyName("event")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Event { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "event");
 
     /// <summary>
     /// The threshold attribute.
     /// </summary>
-    public TerraformProperty<double>? Threshold
-    {
-        set => SetProperty("threshold", value);
-    }
+    [TerraformPropertyName("threshold")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Threshold { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "threshold");
 
 }
 
@@ -54,16 +49,15 @@ public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlo
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRolesanywhereTrustAnchorSourceBlock : TerraformBlock
+public class AwsRolesanywhereTrustAnchorSourceBlock : ITerraformBlock
 {
     /// <summary>
     /// The source_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
-    public required TerraformProperty<string> SourceType
-    {
-        set => SetProperty("source_type", value);
-    }
+    [TerraformPropertyName("source_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceType { get; set; }
 
 }
 
@@ -75,74 +69,51 @@ public class AwsRolesanywhereTrustAnchor : TerraformResource
 {
     public AwsRolesanywhereTrustAnchor(string name) : base("aws_rolesanywhere_trust_anchor", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("enabled");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> Enabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("enabled");
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> Enabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enabled");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for notification_settings.
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 NotificationSettings block(s) allowed")]
-    public HashSet<AwsRolesanywhereTrustAnchorNotificationSettingsBlock>? NotificationSettings
-    {
-        set => SetProperty("notification_settings", value);
-    }
+    [TerraformPropertyName("notification_settings")]
+    public TerraformSet<TerraformBlock<AwsRolesanywhereTrustAnchorNotificationSettingsBlock>>? NotificationSettings { get; set; } = new();
 
     /// <summary>
     /// Block for source.
@@ -151,14 +122,14 @@ public class AwsRolesanywhereTrustAnchor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    public List<AwsRolesanywhereTrustAnchorSourceBlock>? Source
-    {
-        set => SetProperty("source", value);
-    }
+    [TerraformPropertyName("source")]
+    public TerraformList<TerraformBlock<AwsRolesanywhereTrustAnchorSourceBlock>>? Source { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

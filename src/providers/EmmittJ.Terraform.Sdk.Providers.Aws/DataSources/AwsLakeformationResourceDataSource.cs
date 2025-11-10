@@ -9,72 +9,63 @@ public class AwsLakeformationResourceDataSource : TerraformDataSource
 {
     public AwsLakeformationResourceDataSource(string name) : base("aws_lakeformation_resource", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("hybrid_access_enabled");
-        SetOutput("last_modified");
-        SetOutput("role_arn");
-        SetOutput("with_federation");
-        SetOutput("with_privileged_access");
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    public required TerraformProperty<string> Arn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arn");
-        set => SetProperty("arn", value);
-    }
+    [TerraformPropertyName("arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The hybrid_access_enabled attribute.
     /// </summary>
-    public TerraformExpression HybridAccessEnabled => this["hybrid_access_enabled"];
+    [TerraformPropertyName("hybrid_access_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> HybridAccessEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "hybrid_access_enabled");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
-    public TerraformExpression LastModified => this["last_modified"];
+    [TerraformPropertyName("last_modified")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModified => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformExpression RoleArn => this["role_arn"];
+    [TerraformPropertyName("role_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RoleArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "role_arn");
 
     /// <summary>
     /// The with_federation attribute.
     /// </summary>
-    public TerraformExpression WithFederation => this["with_federation"];
+    [TerraformPropertyName("with_federation")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> WithFederation => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "with_federation");
 
     /// <summary>
     /// The with_privileged_access attribute.
     /// </summary>
-    public TerraformExpression WithPrivilegedAccess => this["with_privileged_access"];
+    [TerraformPropertyName("with_privileged_access")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> WithPrivilegedAccess => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "with_privileged_access");
 
 }

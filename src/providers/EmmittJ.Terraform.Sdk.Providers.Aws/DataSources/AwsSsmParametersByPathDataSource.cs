@@ -9,86 +9,70 @@ public class AwsSsmParametersByPathDataSource : TerraformDataSource
 {
     public AwsSsmParametersByPathDataSource(string name) : base("aws_ssm_parameters_by_path", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arns");
-        SetOutput("names");
-        SetOutput("types");
-        SetOutput("values");
-        SetOutput("id");
-        SetOutput("path");
-        SetOutput("recursive");
-        SetOutput("region");
-        SetOutput("with_decryption");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    public required TerraformProperty<string> Path
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("path");
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Path { get; set; }
 
     /// <summary>
     /// The recursive attribute.
     /// </summary>
-    public TerraformProperty<bool> Recursive
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("recursive");
-        set => SetProperty("recursive", value);
-    }
+    [TerraformPropertyName("recursive")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Recursive { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The with_decryption attribute.
     /// </summary>
-    public TerraformProperty<bool> WithDecryption
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("with_decryption");
-        set => SetProperty("with_decryption", value);
-    }
+    [TerraformPropertyName("with_decryption")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WithDecryption { get; set; }
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
-    public TerraformExpression Arns => this["arns"];
+    [TerraformPropertyName("arns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Arns => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "arns");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
-    public TerraformExpression Names => this["names"];
+    [TerraformPropertyName("names")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Names => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "names");
 
     /// <summary>
     /// The types attribute.
     /// </summary>
-    public TerraformExpression Types => this["types"];
+    [TerraformPropertyName("types")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Types => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "types");
 
     /// <summary>
     /// The values attribute.
     /// </summary>
-    public TerraformExpression Values => this["values"];
+    [TerraformPropertyName("values")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> Values => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "values");
 
 }

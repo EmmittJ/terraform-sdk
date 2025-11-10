@@ -6,32 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attachment_policies in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPoliciesBlock : TerraformBlock
+public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPoliciesBlock : ITerraformBlock
 {
     /// <summary>
     /// The condition_logic attribute.
     /// </summary>
-    public TerraformProperty<string>? ConditionLogic
-    {
-        set => SetProperty("condition_logic", value);
-    }
+    [TerraformPropertyName("condition_logic")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ConditionLogic { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The rule_number attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
-    public required TerraformProperty<double> RuleNumber
-    {
-        set => SetProperty("rule_number", value);
-    }
+    [TerraformPropertyName("rule_number")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> RuleNumber { get; set; }
 
 }
 
@@ -39,48 +36,43 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
 /// Block type for core_network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConfigurationBlock : TerraformBlock
+public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The asn_ranges attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AsnRanges is required")]
-    public HashSet<TerraformProperty<string>>? AsnRanges
-    {
-        set => SetProperty("asn_ranges", value);
-    }
+    [TerraformPropertyName("asn_ranges")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AsnRanges { get; set; }
 
     /// <summary>
     /// The dns_support attribute.
     /// </summary>
-    public TerraformProperty<bool>? DnsSupport
-    {
-        set => SetProperty("dns_support", value);
-    }
+    [TerraformPropertyName("dns_support")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DnsSupport { get; set; }
 
     /// <summary>
     /// The inside_cidr_blocks attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? InsideCidrBlocks
-    {
-        set => SetProperty("inside_cidr_blocks", value);
-    }
+    [TerraformPropertyName("inside_cidr_blocks")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? InsideCidrBlocks { get; set; }
 
     /// <summary>
     /// The security_group_referencing_support attribute.
     /// </summary>
-    public TerraformProperty<bool>? SecurityGroupReferencingSupport
-    {
-        set => SetProperty("security_group_referencing_support", value);
-    }
+    [TerraformPropertyName("security_group_referencing_support")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SecurityGroupReferencingSupport { get; set; }
 
     /// <summary>
     /// The vpn_ecmp_support attribute.
     /// </summary>
-    public TerraformProperty<bool>? VpnEcmpSupport
-    {
-        set => SetProperty("vpn_ecmp_support", value);
-    }
+    [TerraformPropertyName("vpn_ecmp_support")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? VpnEcmpSupport { get; set; }
 
 }
 
@@ -88,33 +80,30 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
 /// Block type for network_function_groups in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunctionGroupsBlock : TerraformBlock
+public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunctionGroupsBlock : ITerraformBlock
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The require_attachment_acceptance attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequireAttachmentAcceptance is required")]
-    public required TerraformProperty<bool> RequireAttachmentAcceptance
-    {
-        set => SetProperty("require_attachment_acceptance", value);
-    }
+    [TerraformPropertyName("require_attachment_acceptance")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> RequireAttachmentAcceptance { get; set; }
 
 }
 
@@ -122,73 +111,65 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunction
 /// Block type for segment_actions in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsBlock : TerraformBlock
+public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The destination_cidr_blocks attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DestinationCidrBlocks
-    {
-        set => SetProperty("destination_cidr_blocks", value);
-    }
+    [TerraformPropertyName("destination_cidr_blocks")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DestinationCidrBlocks { get; set; }
 
     /// <summary>
     /// The destinations attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Destinations
-    {
-        set => SetProperty("destinations", value);
-    }
+    [TerraformPropertyName("destinations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Destinations { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string>? Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
 
     /// <summary>
     /// The segment attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Segment is required")]
-    public required TerraformProperty<string> Segment
-    {
-        set => SetProperty("segment", value);
-    }
+    [TerraformPropertyName("segment")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Segment { get; set; }
 
     /// <summary>
     /// The share_with attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ShareWith
-    {
-        set => SetProperty("share_with", value);
-    }
+    [TerraformPropertyName("share_with")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ShareWith { get; set; }
 
     /// <summary>
     /// The share_with_except attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ShareWithExcept
-    {
-        set => SetProperty("share_with_except", value);
-    }
+    [TerraformPropertyName("share_with_except")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ShareWithExcept { get; set; }
 
 }
 
@@ -196,64 +177,57 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
 /// Block type for segments in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock : TerraformBlock
+public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock : ITerraformBlock
 {
     /// <summary>
     /// The allow_filter attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowFilter
-    {
-        set => SetProperty("allow_filter", value);
-    }
+    [TerraformPropertyName("allow_filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowFilter { get; set; }
 
     /// <summary>
     /// The deny_filter attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? DenyFilter
-    {
-        set => SetProperty("deny_filter", value);
-    }
+    [TerraformPropertyName("deny_filter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? DenyFilter { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
-    {
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The edge_locations attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? EdgeLocations
-    {
-        set => SetProperty("edge_locations", value);
-    }
+    [TerraformPropertyName("edge_locations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? EdgeLocations { get; set; }
 
     /// <summary>
     /// The isolate_attachments attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsolateAttachments
-    {
-        set => SetProperty("isolate_attachments", value);
-    }
+    [TerraformPropertyName("isolate_attachments")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsolateAttachments { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The require_attachment_acceptance attribute.
     /// </summary>
-    public TerraformProperty<bool>? RequireAttachmentAcceptance
-    {
-        set => SetProperty("require_attachment_acceptance", value);
-    }
+    [TerraformPropertyName("require_attachment_acceptance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? RequireAttachmentAcceptance { get; set; }
 
 }
 
@@ -265,42 +239,28 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : TerraformDat
 {
     public AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource(string name) : base("aws_networkmanager_core_network_policy_document", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("json");
-        SetOutput("id");
-        SetOutput("version");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string> Version
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("version");
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
     /// <summary>
     /// Block for attachment_policies.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPoliciesBlock>? AttachmentPolicies
-    {
-        set => SetProperty("attachment_policies", value);
-    }
+    [TerraformPropertyName("attachment_policies")]
+    public TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPoliciesBlock>>? AttachmentPolicies { get; set; } = new();
 
     /// <summary>
     /// Block for core_network_configuration.
@@ -308,28 +268,22 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : TerraformDat
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CoreNetworkConfiguration block(s) required")]
-    public List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConfigurationBlock>? CoreNetworkConfiguration
-    {
-        set => SetProperty("core_network_configuration", value);
-    }
+    [TerraformPropertyName("core_network_configuration")]
+    public TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConfigurationBlock>>? CoreNetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for network_function_groups.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunctionGroupsBlock>? NetworkFunctionGroups
-    {
-        set => SetProperty("network_function_groups", value);
-    }
+    [TerraformPropertyName("network_function_groups")]
+    public TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunctionGroupsBlock>>? NetworkFunctionGroups { get; set; } = new();
 
     /// <summary>
     /// Block for segment_actions.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsBlock>? SegmentActions
-    {
-        set => SetProperty("segment_actions", value);
-    }
+    [TerraformPropertyName("segment_actions")]
+    public TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsBlock>>? SegmentActions { get; set; } = new();
 
     /// <summary>
     /// Block for segments.
@@ -337,14 +291,14 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : TerraformDat
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Segments is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Segments block(s) required")]
-    public List<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock>? Segments
-    {
-        set => SetProperty("segments", value);
-    }
+    [TerraformPropertyName("segments")]
+    public TerraformList<TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock>>? Segments { get; set; } = new();
 
     /// <summary>
     /// The json attribute.
     /// </summary>
-    public TerraformExpression Json => this["json"];
+    [TerraformPropertyName("json")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Json => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "json");
 
 }

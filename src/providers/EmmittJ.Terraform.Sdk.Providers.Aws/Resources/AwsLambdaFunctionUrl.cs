@@ -6,55 +6,49 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cors in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
+public class AwsLambdaFunctionUrlCorsBlock : ITerraformBlock
 {
     /// <summary>
     /// The allow_credentials attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowCredentials
-    {
-        set => SetProperty("allow_credentials", value);
-    }
+    [TerraformPropertyName("allow_credentials")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowCredentials { get; set; }
 
     /// <summary>
     /// The allow_headers attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowHeaders
-    {
-        set => SetProperty("allow_headers", value);
-    }
+    [TerraformPropertyName("allow_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowHeaders { get; set; }
 
     /// <summary>
     /// The allow_methods attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowMethods
-    {
-        set => SetProperty("allow_methods", value);
-    }
+    [TerraformPropertyName("allow_methods")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowMethods { get; set; }
 
     /// <summary>
     /// The allow_origins attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? AllowOrigins
-    {
-        set => SetProperty("allow_origins", value);
-    }
+    [TerraformPropertyName("allow_origins")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AllowOrigins { get; set; }
 
     /// <summary>
     /// The expose_headers attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ExposeHeaders
-    {
-        set => SetProperty("expose_headers", value);
-    }
+    [TerraformPropertyName("expose_headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ExposeHeaders { get; set; }
 
     /// <summary>
     /// The max_age attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxAge
-    {
-        set => SetProperty("max_age", value);
-    }
+    [TerraformPropertyName("max_age")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxAge { get; set; }
 
 }
 
@@ -62,15 +56,14 @@ public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLambdaFunctionUrlTimeoutsBlock : TerraformBlock
+public class AwsLambdaFunctionUrlTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
 }
 
@@ -82,110 +75,86 @@ public class AwsLambdaFunctionUrl : TerraformResource
 {
     public AwsLambdaFunctionUrl(string name) : base("aws_lambda_function_url", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("function_arn");
-        SetOutput("function_url");
-        SetOutput("url_id");
-        SetOutput("authorization_type");
-        SetOutput("function_name");
-        SetOutput("id");
-        SetOutput("invoke_mode");
-        SetOutput("qualifier");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The authorization_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationType is required")]
-    public required TerraformProperty<string> AuthorizationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authorization_type");
-        set => SetProperty("authorization_type", value);
-    }
+    [TerraformPropertyName("authorization_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AuthorizationType { get; set; }
 
     /// <summary>
     /// The function_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
-    public required TerraformProperty<string> FunctionName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("function_name");
-        set => SetProperty("function_name", value);
-    }
+    [TerraformPropertyName("function_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FunctionName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The invoke_mode attribute.
     /// </summary>
-    public TerraformProperty<string> InvokeMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("invoke_mode");
-        set => SetProperty("invoke_mode", value);
-    }
+    [TerraformPropertyName("invoke_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InvokeMode { get; set; }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public TerraformProperty<string> Qualifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("qualifier");
-        set => SetProperty("qualifier", value);
-    }
+    [TerraformPropertyName("qualifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Qualifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for cors.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
-    public List<AwsLambdaFunctionUrlCorsBlock>? Cors
-    {
-        set => SetProperty("cors", value);
-    }
+    [TerraformPropertyName("cors")]
+    public TerraformList<TerraformBlock<AwsLambdaFunctionUrlCorsBlock>>? Cors { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsLambdaFunctionUrlTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsLambdaFunctionUrlTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The function_arn attribute.
     /// </summary>
-    public TerraformExpression FunctionArn => this["function_arn"];
+    [TerraformPropertyName("function_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FunctionArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "function_arn");
 
     /// <summary>
     /// The function_url attribute.
     /// </summary>
-    public TerraformExpression FunctionUrl => this["function_url"];
+    [TerraformPropertyName("function_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> FunctionUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "function_url");
 
     /// <summary>
     /// The url_id attribute.
     /// </summary>
-    public TerraformExpression UrlId => this["url_id"];
+    [TerraformPropertyName("url_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UrlId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "url_id");
 
 }

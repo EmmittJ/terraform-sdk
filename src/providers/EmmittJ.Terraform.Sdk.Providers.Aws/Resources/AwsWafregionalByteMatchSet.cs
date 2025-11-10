@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for byte_match_tuples in .
 /// Nesting mode: set
 /// </summary>
-public class AwsWafregionalByteMatchSetByteMatchTuplesBlock : TerraformBlock
+public class AwsWafregionalByteMatchSetByteMatchTuplesBlock : ITerraformBlock
 {
     /// <summary>
     /// The positional_constraint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PositionalConstraint is required")]
-    public required TerraformProperty<string> PositionalConstraint
-    {
-        set => SetProperty("positional_constraint", value);
-    }
+    [TerraformPropertyName("positional_constraint")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PositionalConstraint { get; set; }
 
     /// <summary>
     /// The target_string attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetString
-    {
-        set => SetProperty("target_string", value);
-    }
+    [TerraformPropertyName("target_string")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetString { get; set; }
 
     /// <summary>
     /// The text_transformation attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
-    public required TerraformProperty<string> TextTransformation
-    {
-        set => SetProperty("text_transformation", value);
-    }
+    [TerraformPropertyName("text_transformation")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TextTransformation { get; set; }
 
 }
 
@@ -43,51 +40,35 @@ public class AwsWafregionalByteMatchSet : TerraformResource
 {
     public AwsWafregionalByteMatchSet(string name) : base("aws_wafregional_byte_match_set", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// Block for byte_match_tuples.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsWafregionalByteMatchSetByteMatchTuplesBlock>? ByteMatchTuples
-    {
-        set => SetProperty("byte_match_tuples", value);
-    }
+    [TerraformPropertyName("byte_match_tuples")]
+    public TerraformSet<TerraformBlock<AwsWafregionalByteMatchSetByteMatchTuplesBlock>>? ByteMatchTuples { get; set; } = new();
 
 }

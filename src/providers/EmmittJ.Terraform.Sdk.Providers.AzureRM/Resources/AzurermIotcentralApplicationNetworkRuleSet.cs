@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : TerraformBlock
+public class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The ip_mask attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
-    public required TerraformProperty<string> IpMask
-    {
-        set => SetProperty("ip_mask", value);
-    }
+    [TerraformPropertyName("ip_mask")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IpMask { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
 }
 
@@ -32,39 +30,35 @@ public class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : TerraformBl
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : TerraformBlock
+public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -75,70 +69,49 @@ public class AzurermIotcentralApplicationNetworkRuleSet : TerraformResource
 {
     public AzurermIotcentralApplicationNetworkRuleSet(string name) : base("azurerm_iotcentral_application_network_rule_set", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("apply_to_device");
-        SetOutput("default_action");
-        SetOutput("id");
-        SetOutput("iotcentral_application_id");
     }
 
     /// <summary>
     /// The apply_to_device attribute.
     /// </summary>
-    public TerraformProperty<bool> ApplyToDevice
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("apply_to_device");
-        set => SetProperty("apply_to_device", value);
-    }
+    [TerraformPropertyName("apply_to_device")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ApplyToDevice { get; set; }
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultAction
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_action");
-        set => SetProperty("default_action", value);
-    }
+    [TerraformPropertyName("default_action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultAction { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The iotcentral_application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IotcentralApplicationId is required")]
-    public required TerraformProperty<string> IotcentralApplicationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iotcentral_application_id");
-        set => SetProperty("iotcentral_application_id", value);
-    }
+    [TerraformPropertyName("iotcentral_application_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IotcentralApplicationId { get; set; }
 
     /// <summary>
     /// Block for ip_rule.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock>? IpRule
-    {
-        set => SetProperty("ip_rule", value);
-    }
+    [TerraformPropertyName("ip_rule")]
+    public TerraformList<TerraformBlock<AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock>>? IpRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

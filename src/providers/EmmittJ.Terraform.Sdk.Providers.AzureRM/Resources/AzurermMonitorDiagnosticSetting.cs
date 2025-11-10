@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for enabled_log in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermMonitorDiagnosticSettingEnabledLogBlock : TerraformBlock
+public class AzurermMonitorDiagnosticSettingEnabledLogBlock : ITerraformBlock
 {
     /// <summary>
     /// The category attribute.
     /// </summary>
-    public TerraformProperty<string>? Category
-    {
-        set => SetProperty("category", value);
-    }
+    [TerraformPropertyName("category")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Category { get; set; }
 
     /// <summary>
     /// The category_group attribute.
     /// </summary>
-    public TerraformProperty<string>? CategoryGroup
-    {
-        set => SetProperty("category_group", value);
-    }
+    [TerraformPropertyName("category_group")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CategoryGroup { get; set; }
 
 }
 
@@ -30,16 +28,15 @@ public class AzurermMonitorDiagnosticSettingEnabledLogBlock : TerraformBlock
 /// Block type for enabled_metric in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermMonitorDiagnosticSettingEnabledMetricBlock : TerraformBlock
+public class AzurermMonitorDiagnosticSettingEnabledMetricBlock : ITerraformBlock
 {
     /// <summary>
     /// The category attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
-    public required TerraformProperty<string> Category
-    {
-        set => SetProperty("category", value);
-    }
+    [TerraformPropertyName("category")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Category { get; set; }
 
 }
 
@@ -48,24 +45,22 @@ public class AzurermMonitorDiagnosticSettingEnabledMetricBlock : TerraformBlock
 /// Nesting mode: set
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AzurermMonitorDiagnosticSettingMetricBlock : TerraformBlock
+public class AzurermMonitorDiagnosticSettingMetricBlock : ITerraformBlock
 {
     /// <summary>
     /// The category attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
-    public required TerraformProperty<string> Category
-    {
-        set => SetProperty("category", value);
-    }
+    [TerraformPropertyName("category")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Category { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enabled { get; set; }
 
 }
 
@@ -73,39 +68,35 @@ public class AzurermMonitorDiagnosticSettingMetricBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorDiagnosticSettingTimeoutsBlock : TerraformBlock
+public class AzurermMonitorDiagnosticSettingTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -116,140 +107,100 @@ public class AzurermMonitorDiagnosticSetting : TerraformResource
 {
     public AzurermMonitorDiagnosticSetting(string name) : base("azurerm_monitor_diagnostic_setting", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("eventhub_authorization_rule_id");
-        SetOutput("eventhub_name");
-        SetOutput("id");
-        SetOutput("log_analytics_destination_type");
-        SetOutput("log_analytics_workspace_id");
-        SetOutput("name");
-        SetOutput("partner_solution_id");
-        SetOutput("storage_account_id");
-        SetOutput("target_resource_id");
     }
 
     /// <summary>
     /// The eventhub_authorization_rule_id attribute.
     /// </summary>
-    public TerraformProperty<string> EventhubAuthorizationRuleId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_authorization_rule_id");
-        set => SetProperty("eventhub_authorization_rule_id", value);
-    }
+    [TerraformPropertyName("eventhub_authorization_rule_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EventhubAuthorizationRuleId { get; set; }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
-    public TerraformProperty<string> EventhubName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_name");
-        set => SetProperty("eventhub_name", value);
-    }
+    [TerraformPropertyName("eventhub_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EventhubName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The log_analytics_destination_type attribute.
     /// </summary>
-    public TerraformProperty<string> LogAnalyticsDestinationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_destination_type");
-        set => SetProperty("log_analytics_destination_type", value);
-    }
+    [TerraformPropertyName("log_analytics_destination_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LogAnalyticsDestinationType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "log_analytics_destination_type");
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string> LogAnalyticsWorkspaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("log_analytics_workspace_id");
-        set => SetProperty("log_analytics_workspace_id", value);
-    }
+    [TerraformPropertyName("log_analytics_workspace_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The partner_solution_id attribute.
     /// </summary>
-    public TerraformProperty<string> PartnerSolutionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("partner_solution_id");
-        set => SetProperty("partner_solution_id", value);
-    }
+    [TerraformPropertyName("partner_solution_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PartnerSolutionId { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string> StorageAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
-        set => SetProperty("storage_account_id", value);
-    }
+    [TerraformPropertyName("storage_account_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageAccountId { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
-    public required TerraformProperty<string> TargetResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_id");
-        set => SetProperty("target_resource_id", value);
-    }
+    [TerraformPropertyName("target_resource_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetResourceId { get; set; }
 
     /// <summary>
     /// Block for enabled_log.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermMonitorDiagnosticSettingEnabledLogBlock>? EnabledLog
-    {
-        set => SetProperty("enabled_log", value);
-    }
+    [TerraformPropertyName("enabled_log")]
+    public TerraformSet<TerraformBlock<AzurermMonitorDiagnosticSettingEnabledLogBlock>>? EnabledLog { get; set; } = new();
 
     /// <summary>
     /// Block for enabled_metric.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermMonitorDiagnosticSettingEnabledMetricBlock>? EnabledMetric
-    {
-        set => SetProperty("enabled_metric", value);
-    }
+    [TerraformPropertyName("enabled_metric")]
+    public TerraformSet<TerraformBlock<AzurermMonitorDiagnosticSettingEnabledMetricBlock>>? EnabledMetric { get; set; } = new();
 
     /// <summary>
     /// Block for metric.
     /// Nesting mode: set
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    public HashSet<AzurermMonitorDiagnosticSettingMetricBlock>? Metric
-    {
-        set => SetProperty("metric", value);
-    }
+    [TerraformPropertyName("metric")]
+    public TerraformSet<TerraformBlock<AzurermMonitorDiagnosticSettingMetricBlock>>? Metric { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermMonitorDiagnosticSettingTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermMonitorDiagnosticSettingTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

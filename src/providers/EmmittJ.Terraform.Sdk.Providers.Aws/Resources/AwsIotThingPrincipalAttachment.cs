@@ -9,63 +9,43 @@ public class AwsIotThingPrincipalAttachment : TerraformResource
 {
     public AwsIotThingPrincipalAttachment(string name) : base("aws_iot_thing_principal_attachment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("principal");
-        SetOutput("region");
-        SetOutput("thing");
-        SetOutput("thing_principal_type");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
-    public required TerraformProperty<string> Principal
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal");
-        set => SetProperty("principal", value);
-    }
+    [TerraformPropertyName("principal")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Principal { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The thing attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thing is required")]
-    public required TerraformProperty<string> Thing
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("thing");
-        set => SetProperty("thing", value);
-    }
+    [TerraformPropertyName("thing")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Thing { get; set; }
 
     /// <summary>
     /// The thing_principal_type attribute.
     /// </summary>
-    public TerraformProperty<string> ThingPrincipalType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("thing_principal_type");
-        set => SetProperty("thing_principal_type", value);
-    }
+    [TerraformPropertyName("thing_principal_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ThingPrincipalType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "thing_principal_type");
 
 }

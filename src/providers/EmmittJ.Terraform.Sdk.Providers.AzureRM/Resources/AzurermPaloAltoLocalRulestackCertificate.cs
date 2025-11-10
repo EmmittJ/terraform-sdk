@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock : TerraformBlock
+public class AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,92 +45,64 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
 {
     public AzurermPaloAltoLocalRulestackCertificate(string name) : base("azurerm_palo_alto_local_rulestack_certificate", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("audit_comment");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("key_vault_certificate_id");
-        SetOutput("name");
-        SetOutput("rulestack_id");
-        SetOutput("self_signed");
     }
 
     /// <summary>
     /// The audit_comment attribute.
     /// </summary>
-    public TerraformProperty<string> AuditComment
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("audit_comment");
-        set => SetProperty("audit_comment", value);
-    }
+    [TerraformPropertyName("audit_comment")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuditComment { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformProperty<string> KeyVaultCertificateId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("key_vault_certificate_id");
-        set => SetProperty("key_vault_certificate_id", value);
-    }
+    [TerraformPropertyName("key_vault_certificate_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KeyVaultCertificateId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The rulestack_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
-    public required TerraformProperty<string> RulestackId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rulestack_id");
-        set => SetProperty("rulestack_id", value);
-    }
+    [TerraformPropertyName("rulestack_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RulestackId { get; set; }
 
     /// <summary>
     /// The self_signed attribute.
     /// </summary>
-    public TerraformProperty<bool> SelfSigned
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("self_signed");
-        set => SetProperty("self_signed", value);
-    }
+    [TerraformPropertyName("self_signed")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SelfSigned { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

@@ -6,16 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for buffer_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOsisPipelineBufferOptionsBlock : TerraformBlock
+public class AwsOsisPipelineBufferOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The persistent_buffer_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PersistentBufferEnabled is required")]
-    public required TerraformProperty<bool> PersistentBufferEnabled
-    {
-        set => SetProperty("persistent_buffer_enabled", value);
-    }
+    [TerraformPropertyName("persistent_buffer_enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> PersistentBufferEnabled { get; set; }
 
 }
 
@@ -23,16 +22,15 @@ public class AwsOsisPipelineBufferOptionsBlock : TerraformBlock
 /// Block type for encryption_at_rest_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOsisPipelineEncryptionAtRestOptionsBlock : TerraformBlock
+public class AwsOsisPipelineEncryptionAtRestOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
-    public required TerraformProperty<string> KmsKeyArn
-    {
-        set => SetProperty("kms_key_arn", value);
-    }
+    [TerraformPropertyName("kms_key_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KmsKeyArn { get; set; }
 
 }
 
@@ -40,15 +38,14 @@ public class AwsOsisPipelineEncryptionAtRestOptionsBlock : TerraformBlock
 /// Block type for log_publishing_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOsisPipelineLogPublishingOptionsBlock : TerraformBlock
+public class AwsOsisPipelineLogPublishingOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The is_logging_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsLoggingEnabled
-    {
-        set => SetProperty("is_logging_enabled", value);
-    }
+    [TerraformPropertyName("is_logging_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IsLoggingEnabled { get; set; }
 
 }
 
@@ -56,31 +53,28 @@ public class AwsOsisPipelineLogPublishingOptionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsOsisPipelineTimeoutsBlock : TerraformBlock
+public class AwsOsisPipelineTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -88,32 +82,29 @@ public class AwsOsisPipelineTimeoutsBlock : TerraformBlock
 /// Block type for vpc_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOsisPipelineVpcOptionsBlock : TerraformBlock
+public class AwsOsisPipelineVpcOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? SecurityGroupIds
-    {
-        set => SetProperty("security_group_ids", value);
-    }
+    [TerraformPropertyName("security_group_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    public HashSet<TerraformProperty<string>>? SubnetIds
-    {
-        set => SetProperty("subnet_ids", value);
-    }
+    [TerraformPropertyName("subnet_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetIds { get; set; }
 
     /// <summary>
     /// The vpc_endpoint_management attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcEndpointManagement
-    {
-        set => SetProperty("vpc_endpoint_management", value);
-    }
+    [TerraformPropertyName("vpc_endpoint_management")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VpcEndpointManagement { get; set; }
 
 }
 
@@ -124,144 +115,115 @@ public class AwsOsisPipeline : TerraformResource
 {
     public AwsOsisPipeline(string name) : base("aws_osis_pipeline", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("ingest_endpoint_urls");
-        SetOutput("pipeline_arn");
-        SetOutput("tags_all");
-        SetOutput("max_units");
-        SetOutput("min_units");
-        SetOutput("pipeline_configuration_body");
-        SetOutput("pipeline_name");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The max_units attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnits is required")]
-    public required TerraformProperty<double> MaxUnits
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_units");
-        set => SetProperty("max_units", value);
-    }
+    [TerraformPropertyName("max_units")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MaxUnits { get; set; }
 
     /// <summary>
     /// The min_units attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinUnits is required")]
-    public required TerraformProperty<double> MinUnits
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("min_units");
-        set => SetProperty("min_units", value);
-    }
+    [TerraformPropertyName("min_units")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> MinUnits { get; set; }
 
     /// <summary>
     /// The pipeline_configuration_body attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineConfigurationBody is required")]
-    public required TerraformProperty<string> PipelineConfigurationBody
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_configuration_body");
-        set => SetProperty("pipeline_configuration_body", value);
-    }
+    [TerraformPropertyName("pipeline_configuration_body")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PipelineConfigurationBody { get; set; }
 
     /// <summary>
     /// The pipeline_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineName is required")]
-    public required TerraformProperty<string> PipelineName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("pipeline_name");
-        set => SetProperty("pipeline_name", value);
-    }
+    [TerraformPropertyName("pipeline_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PipelineName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for buffer_options.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsOsisPipelineBufferOptionsBlock>? BufferOptions
-    {
-        set => SetProperty("buffer_options", value);
-    }
+    [TerraformPropertyName("buffer_options")]
+    public TerraformList<TerraformBlock<AwsOsisPipelineBufferOptionsBlock>>? BufferOptions { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_at_rest_options.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsOsisPipelineEncryptionAtRestOptionsBlock>? EncryptionAtRestOptions
-    {
-        set => SetProperty("encryption_at_rest_options", value);
-    }
+    [TerraformPropertyName("encryption_at_rest_options")]
+    public TerraformList<TerraformBlock<AwsOsisPipelineEncryptionAtRestOptionsBlock>>? EncryptionAtRestOptions { get; set; } = new();
 
     /// <summary>
     /// Block for log_publishing_options.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsOsisPipelineLogPublishingOptionsBlock>? LogPublishingOptions
-    {
-        set => SetProperty("log_publishing_options", value);
-    }
+    [TerraformPropertyName("log_publishing_options")]
+    public TerraformList<TerraformBlock<AwsOsisPipelineLogPublishingOptionsBlock>>? LogPublishingOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsOsisPipelineTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsOsisPipelineTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for vpc_options.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsOsisPipelineVpcOptionsBlock>? VpcOptions
-    {
-        set => SetProperty("vpc_options", value);
-    }
+    [TerraformPropertyName("vpc_options")]
+    public TerraformList<TerraformBlock<AwsOsisPipelineVpcOptionsBlock>>? VpcOptions { get; set; } = new();
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ingest_endpoint_urls attribute.
     /// </summary>
-    public TerraformExpression IngestEndpointUrls => this["ingest_endpoint_urls"];
+    [TerraformPropertyName("ingest_endpoint_urls")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> IngestEndpointUrls => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "ingest_endpoint_urls");
 
     /// <summary>
     /// The pipeline_arn attribute.
     /// </summary>
-    public TerraformExpression PipelineArn => this["pipeline_arn"];
+    [TerraformPropertyName("pipeline_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PipelineArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "pipeline_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformExpression TagsAll => this["tags_all"];
+    [TerraformPropertyName("tags_all")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
 }

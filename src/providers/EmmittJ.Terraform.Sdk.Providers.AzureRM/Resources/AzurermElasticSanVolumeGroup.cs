@@ -6,48 +6,43 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
+public class AzurermElasticSanVolumeGroupEncryptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The current_versioned_key_expiration_timestamp attribute.
     /// </summary>
-    public TerraformProperty<string>? CurrentVersionedKeyExpirationTimestamp
-    {
-        set => SetProperty("current_versioned_key_expiration_timestamp", value);
-    }
+    [TerraformPropertyName("current_versioned_key_expiration_timestamp")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CurrentVersionedKeyExpirationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>("", "current_versioned_key_expiration_timestamp");
 
     /// <summary>
     /// The current_versioned_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CurrentVersionedKeyId
-    {
-        set => SetProperty("current_versioned_key_id", value);
-    }
+    [TerraformPropertyName("current_versioned_key_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CurrentVersionedKeyId => new TerraformReferenceProperty<TerraformProperty<string>>("", "current_versioned_key_id");
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
-    public required TerraformProperty<string> KeyVaultKeyId
-    {
-        set => SetProperty("key_vault_key_id", value);
-    }
+    [TerraformPropertyName("key_vault_key_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The last_key_rotation_timestamp attribute.
     /// </summary>
-    public TerraformProperty<string>? LastKeyRotationTimestamp
-    {
-        set => SetProperty("last_key_rotation_timestamp", value);
-    }
+    [TerraformPropertyName("last_key_rotation_timestamp")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastKeyRotationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>("", "last_key_rotation_timestamp");
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserAssignedIdentityId
-    {
-        set => SetProperty("user_assigned_identity_id", value);
-    }
+    [TerraformPropertyName("user_assigned_identity_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserAssignedIdentityId { get; set; }
 
 }
 
@@ -55,40 +50,36 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
+public class AzurermElasticSanVolumeGroupIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -96,24 +87,22 @@ public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
 /// Block type for network_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlock
+public class AzurermElasticSanVolumeGroupNetworkRuleBlock : ITerraformBlock
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformProperty<string>? Action
-    {
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Action { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
 }
 
@@ -121,39 +110,35 @@ public class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
+public class AzurermElasticSanVolumeGroupTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -165,101 +150,73 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
 {
     public AzurermElasticSanVolumeGroup(string name) : base("azurerm_elastic_san_volume_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("elastic_san_id");
-        SetOutput("encryption_type");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("protocol_type");
     }
 
     /// <summary>
     /// The elastic_san_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticSanId is required")]
-    public required TerraformProperty<string> ElasticSanId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("elastic_san_id");
-        set => SetProperty("elastic_san_id", value);
-    }
+    [TerraformPropertyName("elastic_san_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ElasticSanId { get; set; }
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
-    public TerraformProperty<string> EncryptionType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("encryption_type");
-        set => SetProperty("encryption_type", value);
-    }
+    [TerraformPropertyName("encryption_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EncryptionType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
-    public TerraformProperty<string> ProtocolType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protocol_type");
-        set => SetProperty("protocol_type", value);
-    }
+    [TerraformPropertyName("protocol_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProtocolType { get; set; }
 
     /// <summary>
     /// Block for encryption.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    public List<AzurermElasticSanVolumeGroupEncryptionBlock>? Encryption
-    {
-        set => SetProperty("encryption", value);
-    }
+    [TerraformPropertyName("encryption")]
+    public TerraformList<TerraformBlock<AzurermElasticSanVolumeGroupEncryptionBlock>>? Encryption { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermElasticSanVolumeGroupIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermElasticSanVolumeGroupIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for network_rule.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermElasticSanVolumeGroupNetworkRuleBlock>? NetworkRule
-    {
-        set => SetProperty("network_rule", value);
-    }
+    [TerraformPropertyName("network_rule")]
+    public TerraformList<TerraformBlock<AzurermElasticSanVolumeGroupNetworkRuleBlock>>? NetworkRule { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermElasticSanVolumeGroupTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermElasticSanVolumeGroupTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

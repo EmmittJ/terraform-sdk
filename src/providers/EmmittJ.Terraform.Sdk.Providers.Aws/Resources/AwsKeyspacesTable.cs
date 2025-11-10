@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for capacity_specification in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKeyspacesTableCapacitySpecificationBlock : TerraformBlock
+public class AwsKeyspacesTableCapacitySpecificationBlock : ITerraformBlock
 {
     /// <summary>
     /// The read_capacity_units attribute.
     /// </summary>
-    public TerraformProperty<double>? ReadCapacityUnits
-    {
-        set => SetProperty("read_capacity_units", value);
-    }
+    [TerraformPropertyName("read_capacity_units")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ReadCapacityUnits { get; set; }
 
     /// <summary>
     /// The throughput_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? ThroughputMode
-    {
-        set => SetProperty("throughput_mode", value);
-    }
+    [TerraformPropertyName("throughput_mode")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ThroughputMode { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "throughput_mode");
 
     /// <summary>
     /// The write_capacity_units attribute.
     /// </summary>
-    public TerraformProperty<double>? WriteCapacityUnits
-    {
-        set => SetProperty("write_capacity_units", value);
-    }
+    [TerraformPropertyName("write_capacity_units")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? WriteCapacityUnits { get; set; }
 
 }
 
@@ -38,16 +35,15 @@ public class AwsKeyspacesTableCapacitySpecificationBlock : TerraformBlock
 /// Block type for client_side_timestamps in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKeyspacesTableClientSideTimestampsBlock : TerraformBlock
+public class AwsKeyspacesTableClientSideTimestampsBlock : ITerraformBlock
 {
     /// <summary>
     /// The status attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
-    public required TerraformProperty<string> Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Status { get; set; }
 
 }
 
@@ -55,15 +51,14 @@ public class AwsKeyspacesTableClientSideTimestampsBlock : TerraformBlock
 /// Block type for comment in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKeyspacesTableCommentBlock : TerraformBlock
+public class AwsKeyspacesTableCommentBlock : ITerraformBlock
 {
     /// <summary>
     /// The message attribute.
     /// </summary>
-    public TerraformProperty<string>? Message
-    {
-        set => SetProperty("message", value);
-    }
+    [TerraformPropertyName("message")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Message { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "message");
 
 }
 
@@ -71,23 +66,21 @@ public class AwsKeyspacesTableCommentBlock : TerraformBlock
 /// Block type for encryption_specification in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKeyspacesTableEncryptionSpecificationBlock : TerraformBlock
+public class AwsKeyspacesTableEncryptionSpecificationBlock : ITerraformBlock
 {
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyIdentifier
-    {
-        set => SetProperty("kms_key_identifier", value);
-    }
+    [TerraformPropertyName("kms_key_identifier")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyIdentifier { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Type { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "type");
 
 }
 
@@ -95,15 +88,14 @@ public class AwsKeyspacesTableEncryptionSpecificationBlock : TerraformBlock
 /// Block type for point_in_time_recovery in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKeyspacesTablePointInTimeRecoveryBlock : TerraformBlock
+public class AwsKeyspacesTablePointInTimeRecoveryBlock : ITerraformBlock
 {
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Status { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "status");
 
 }
 
@@ -111,7 +103,7 @@ public class AwsKeyspacesTablePointInTimeRecoveryBlock : TerraformBlock
 /// Block type for schema_definition in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKeyspacesTableSchemaDefinitionBlock : TerraformBlock
+public class AwsKeyspacesTableSchemaDefinitionBlock : ITerraformBlock
 {
 }
 
@@ -119,31 +111,28 @@ public class AwsKeyspacesTableSchemaDefinitionBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsKeyspacesTableTimeoutsBlock : TerraformBlock
+public class AwsKeyspacesTableTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -151,16 +140,15 @@ public class AwsKeyspacesTableTimeoutsBlock : TerraformBlock
 /// Block type for ttl in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKeyspacesTableTtlBlock : TerraformBlock
+public class AwsKeyspacesTableTtlBlock : ITerraformBlock
 {
     /// <summary>
     /// The status attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
-    public required TerraformProperty<string> Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Status { get; set; }
 
 }
 
@@ -172,135 +160,98 @@ public class AwsKeyspacesTable : TerraformResource
 {
     public AwsKeyspacesTable(string name) : base("aws_keyspaces_table", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("default_time_to_live");
-        SetOutput("id");
-        SetOutput("keyspace_name");
-        SetOutput("region");
-        SetOutput("table_name");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The default_time_to_live attribute.
     /// </summary>
-    public TerraformProperty<double> DefaultTimeToLive
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("default_time_to_live");
-        set => SetProperty("default_time_to_live", value);
-    }
+    [TerraformPropertyName("default_time_to_live")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DefaultTimeToLive { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The keyspace_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyspaceName is required")]
-    public required TerraformProperty<string> KeyspaceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("keyspace_name");
-        set => SetProperty("keyspace_name", value);
-    }
+    [TerraformPropertyName("keyspace_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> KeyspaceName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
-    public required TerraformProperty<string> TableName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_name");
-        set => SetProperty("table_name", value);
-    }
+    [TerraformPropertyName("table_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TableName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for capacity_specification.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacitySpecification block(s) allowed")]
-    public List<AwsKeyspacesTableCapacitySpecificationBlock>? CapacitySpecification
-    {
-        set => SetProperty("capacity_specification", value);
-    }
+    [TerraformPropertyName("capacity_specification")]
+    public TerraformList<TerraformBlock<AwsKeyspacesTableCapacitySpecificationBlock>>? CapacitySpecification { get; set; } = new();
 
     /// <summary>
     /// Block for client_side_timestamps.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientSideTimestamps block(s) allowed")]
-    public List<AwsKeyspacesTableClientSideTimestampsBlock>? ClientSideTimestamps
-    {
-        set => SetProperty("client_side_timestamps", value);
-    }
+    [TerraformPropertyName("client_side_timestamps")]
+    public TerraformList<TerraformBlock<AwsKeyspacesTableClientSideTimestampsBlock>>? ClientSideTimestamps { get; set; } = new();
 
     /// <summary>
     /// Block for comment.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Comment block(s) allowed")]
-    public List<AwsKeyspacesTableCommentBlock>? Comment
-    {
-        set => SetProperty("comment", value);
-    }
+    [TerraformPropertyName("comment")]
+    public TerraformList<TerraformBlock<AwsKeyspacesTableCommentBlock>>? Comment { get; set; } = new();
 
     /// <summary>
     /// Block for encryption_specification.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpecification block(s) allowed")]
-    public List<AwsKeyspacesTableEncryptionSpecificationBlock>? EncryptionSpecification
-    {
-        set => SetProperty("encryption_specification", value);
-    }
+    [TerraformPropertyName("encryption_specification")]
+    public TerraformList<TerraformBlock<AwsKeyspacesTableEncryptionSpecificationBlock>>? EncryptionSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for point_in_time_recovery.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRecovery block(s) allowed")]
-    public List<AwsKeyspacesTablePointInTimeRecoveryBlock>? PointInTimeRecovery
-    {
-        set => SetProperty("point_in_time_recovery", value);
-    }
+    [TerraformPropertyName("point_in_time_recovery")]
+    public TerraformList<TerraformBlock<AwsKeyspacesTablePointInTimeRecoveryBlock>>? PointInTimeRecovery { get; set; } = new();
 
     /// <summary>
     /// Block for schema_definition.
@@ -309,33 +260,29 @@ public class AwsKeyspacesTable : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaDefinition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SchemaDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaDefinition block(s) allowed")]
-    public List<AwsKeyspacesTableSchemaDefinitionBlock>? SchemaDefinition
-    {
-        set => SetProperty("schema_definition", value);
-    }
+    [TerraformPropertyName("schema_definition")]
+    public TerraformList<TerraformBlock<AwsKeyspacesTableSchemaDefinitionBlock>>? SchemaDefinition { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsKeyspacesTableTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsKeyspacesTableTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for ttl.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ttl block(s) allowed")]
-    public List<AwsKeyspacesTableTtlBlock>? Ttl
-    {
-        set => SetProperty("ttl", value);
-    }
+    [TerraformPropertyName("ttl")]
+    public TerraformList<TerraformBlock<AwsKeyspacesTableTtlBlock>>? Ttl { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

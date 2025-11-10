@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for grpc_health_check in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionHealthCheckGrpcHealthCheckBlock : TerraformBlock
+public class GoogleComputeRegionHealthCheckGrpcHealthCheckBlock : ITerraformBlock
 {
     /// <summary>
     /// The gRPC service name for the health check.
@@ -17,29 +17,26 @@ public class GoogleComputeRegionHealthCheckGrpcHealthCheckBlock : TerraformBlock
     /// 
     /// The grpcServiceName can only be ASCII.
     /// </summary>
-    public TerraformProperty<string>? GrpcServiceName
-    {
-        set => SetProperty("grpc_service_name", value);
-    }
+    [TerraformPropertyName("grpc_service_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GrpcServiceName { get; set; }
 
     /// <summary>
     /// The port number for the health check request.
     /// Must be specified if portName and portSpecification are not set
     /// or if port_specification is USE_FIXED_PORT. Valid values are 1 through 65535.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// Port name as defined in InstanceGroup#NamedPort#name. If both port and
     /// port_name are defined, port takes precedence.
     /// </summary>
-    public TerraformProperty<string>? PortName
-    {
-        set => SetProperty("port_name", value);
-    }
+    [TerraformPropertyName("port_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PortName { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -57,10 +54,9 @@ public class GoogleComputeRegionHealthCheckGrpcHealthCheckBlock : TerraformBlock
     /// If not specified, gRPC health check follows behavior specified in &#39;port&#39; and
     /// &#39;portName&#39; fields. Possible values: [&amp;quot;USE_FIXED_PORT&amp;quot;, &amp;quot;USE_NAMED_PORT&amp;quot;, &amp;quot;USE_SERVING_PORT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PortSpecification
-    {
-        set => SetProperty("port_specification", value);
-    }
+    [TerraformPropertyName("port_specification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PortSpecification { get; set; }
 
 }
 
@@ -68,7 +64,7 @@ public class GoogleComputeRegionHealthCheckGrpcHealthCheckBlock : TerraformBlock
 /// Block type for grpc_tls_health_check in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock : TerraformBlock
+public class GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock : ITerraformBlock
 {
     /// <summary>
     /// The gRPC service name for the health check.
@@ -79,19 +75,17 @@ public class GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock : TerraformBl
     /// 
     /// The grpcServiceName can only be ASCII.
     /// </summary>
-    public TerraformProperty<string>? GrpcServiceName
-    {
-        set => SetProperty("grpc_service_name", value);
-    }
+    [TerraformPropertyName("grpc_service_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GrpcServiceName { get; set; }
 
     /// <summary>
     /// The port number for the health check request.
     /// Must be specified if port_specification is USE_FIXED_PORT. Valid values are 1 through 65535.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -108,10 +102,9 @@ public class GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock : TerraformBl
     /// 
     /// If not specified, gRPC health check follows behavior specified in the &#39;port&#39; field. Possible values: [&amp;quot;USE_FIXED_PORT&amp;quot;, &amp;quot;USE_NAMED_PORT&amp;quot;, &amp;quot;USE_SERVING_PORT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PortSpecification
-    {
-        set => SetProperty("port_specification", value);
-    }
+    [TerraformPropertyName("port_specification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PortSpecification { get; set; }
 
 }
 
@@ -119,35 +112,32 @@ public class GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock : TerraformBl
 /// Block type for http2_health_check in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : TerraformBlock
+public class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : ITerraformBlock
 {
     /// <summary>
     /// The value of the host header in the HTTP2 health check request.
     /// If left empty (default value), the public IP on behalf of which this health
     /// check is performed will be used.
     /// </summary>
-    public TerraformProperty<string>? Host
-    {
-        set => SetProperty("host", value);
-    }
+    [TerraformPropertyName("host")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Host { get; set; }
 
     /// <summary>
     /// The TCP port number for the HTTP2 health check request.
     /// The default value is 443.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// Port name as defined in InstanceGroup#NamedPort#name. If both port and
     /// port_name are defined, port takes precedence.
     /// </summary>
-    public TerraformProperty<string>? PortName
-    {
-        set => SetProperty("port_name", value);
-    }
+    [TerraformPropertyName("port_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PortName { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -165,38 +155,34 @@ public class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : TerraformBloc
     /// If not specified, HTTP2 health check follows behavior specified in &#39;port&#39; and
     /// &#39;portName&#39; fields. Possible values: [&amp;quot;USE_FIXED_PORT&amp;quot;, &amp;quot;USE_NAMED_PORT&amp;quot;, &amp;quot;USE_SERVING_PORT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PortSpecification
-    {
-        set => SetProperty("port_specification", value);
-    }
+    [TerraformPropertyName("port_specification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PortSpecification { get; set; }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to the
     /// backend. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;PROXY_V1&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ProxyHeader
-    {
-        set => SetProperty("proxy_header", value);
-    }
+    [TerraformPropertyName("proxy_header")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProxyHeader { get; set; }
 
     /// <summary>
     /// The request path of the HTTP2 health check request.
     /// The default value is /.
     /// </summary>
-    public TerraformProperty<string>? RequestPath
-    {
-        set => SetProperty("request_path", value);
-    }
+    [TerraformPropertyName("request_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RequestPath { get; set; }
 
     /// <summary>
     /// The bytes to match against the beginning of the response data. If left empty
     /// (the default value), any response will indicate health. The response data
     /// can only be ASCII.
     /// </summary>
-    public TerraformProperty<string>? Response
-    {
-        set => SetProperty("response", value);
-    }
+    [TerraformPropertyName("response")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Response { get; set; }
 
 }
 
@@ -204,35 +190,32 @@ public class GoogleComputeRegionHealthCheckHttp2HealthCheckBlock : TerraformBloc
 /// Block type for http_health_check in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : TerraformBlock
+public class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : ITerraformBlock
 {
     /// <summary>
     /// The value of the host header in the HTTP health check request.
     /// If left empty (default value), the public IP on behalf of which this health
     /// check is performed will be used.
     /// </summary>
-    public TerraformProperty<string>? Host
-    {
-        set => SetProperty("host", value);
-    }
+    [TerraformPropertyName("host")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Host { get; set; }
 
     /// <summary>
     /// The TCP port number for the HTTP health check request.
     /// The default value is 80.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// Port name as defined in InstanceGroup#NamedPort#name. If both port and
     /// port_name are defined, port takes precedence.
     /// </summary>
-    public TerraformProperty<string>? PortName
-    {
-        set => SetProperty("port_name", value);
-    }
+    [TerraformPropertyName("port_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PortName { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -250,38 +233,34 @@ public class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// If not specified, HTTP health check follows behavior specified in &#39;port&#39; and
     /// &#39;portName&#39; fields. Possible values: [&amp;quot;USE_FIXED_PORT&amp;quot;, &amp;quot;USE_NAMED_PORT&amp;quot;, &amp;quot;USE_SERVING_PORT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PortSpecification
-    {
-        set => SetProperty("port_specification", value);
-    }
+    [TerraformPropertyName("port_specification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PortSpecification { get; set; }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to the
     /// backend. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;PROXY_V1&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ProxyHeader
-    {
-        set => SetProperty("proxy_header", value);
-    }
+    [TerraformPropertyName("proxy_header")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProxyHeader { get; set; }
 
     /// <summary>
     /// The request path of the HTTP health check request.
     /// The default value is /.
     /// </summary>
-    public TerraformProperty<string>? RequestPath
-    {
-        set => SetProperty("request_path", value);
-    }
+    [TerraformPropertyName("request_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RequestPath { get; set; }
 
     /// <summary>
     /// The bytes to match against the beginning of the response data. If left empty
     /// (the default value), any response will indicate health. The response data
     /// can only be ASCII.
     /// </summary>
-    public TerraformProperty<string>? Response
-    {
-        set => SetProperty("response", value);
-    }
+    [TerraformPropertyName("response")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Response { get; set; }
 
 }
 
@@ -289,35 +268,32 @@ public class GoogleComputeRegionHealthCheckHttpHealthCheckBlock : TerraformBlock
 /// Block type for https_health_check in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : TerraformBlock
+public class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : ITerraformBlock
 {
     /// <summary>
     /// The value of the host header in the HTTPS health check request.
     /// If left empty (default value), the public IP on behalf of which this health
     /// check is performed will be used.
     /// </summary>
-    public TerraformProperty<string>? Host
-    {
-        set => SetProperty("host", value);
-    }
+    [TerraformPropertyName("host")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Host { get; set; }
 
     /// <summary>
     /// The TCP port number for the HTTPS health check request.
     /// The default value is 443.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// Port name as defined in InstanceGroup#NamedPort#name. If both port and
     /// port_name are defined, port takes precedence.
     /// </summary>
-    public TerraformProperty<string>? PortName
-    {
-        set => SetProperty("port_name", value);
-    }
+    [TerraformPropertyName("port_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PortName { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -335,38 +311,34 @@ public class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : TerraformBloc
     /// If not specified, HTTPS health check follows behavior specified in &#39;port&#39; and
     /// &#39;portName&#39; fields. Possible values: [&amp;quot;USE_FIXED_PORT&amp;quot;, &amp;quot;USE_NAMED_PORT&amp;quot;, &amp;quot;USE_SERVING_PORT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PortSpecification
-    {
-        set => SetProperty("port_specification", value);
-    }
+    [TerraformPropertyName("port_specification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PortSpecification { get; set; }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to the
     /// backend. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;PROXY_V1&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ProxyHeader
-    {
-        set => SetProperty("proxy_header", value);
-    }
+    [TerraformPropertyName("proxy_header")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProxyHeader { get; set; }
 
     /// <summary>
     /// The request path of the HTTPS health check request.
     /// The default value is /.
     /// </summary>
-    public TerraformProperty<string>? RequestPath
-    {
-        set => SetProperty("request_path", value);
-    }
+    [TerraformPropertyName("request_path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RequestPath { get; set; }
 
     /// <summary>
     /// The bytes to match against the beginning of the response data. If left empty
     /// (the default value), any response will indicate health. The response data
     /// can only be ASCII.
     /// </summary>
-    public TerraformProperty<string>? Response
-    {
-        set => SetProperty("response", value);
-    }
+    [TerraformPropertyName("response")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Response { get; set; }
 
 }
 
@@ -374,16 +346,15 @@ public class GoogleComputeRegionHealthCheckHttpsHealthCheckBlock : TerraformBloc
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionHealthCheckLogConfigBlock : TerraformBlock
+public class GoogleComputeRegionHealthCheckLogConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// Indicates whether or not to export logs. This is false by default,
     /// which means no health check logging will be done.
     /// </summary>
-    public TerraformProperty<bool>? Enable
-    {
-        set => SetProperty("enable", value);
-    }
+    [TerraformPropertyName("enable")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? Enable { get; set; }
 
 }
 
@@ -391,25 +362,23 @@ public class GoogleComputeRegionHealthCheckLogConfigBlock : TerraformBlock
 /// Block type for ssl_health_check in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionHealthCheckSslHealthCheckBlock : TerraformBlock
+public class GoogleComputeRegionHealthCheckSslHealthCheckBlock : ITerraformBlock
 {
     /// <summary>
     /// The TCP port number for the SSL health check request.
     /// The default value is 443.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// Port name as defined in InstanceGroup#NamedPort#name. If both port and
     /// port_name are defined, port takes precedence.
     /// </summary>
-    public TerraformProperty<string>? PortName
-    {
-        set => SetProperty("port_name", value);
-    }
+    [TerraformPropertyName("port_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PortName { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -427,19 +396,17 @@ public class GoogleComputeRegionHealthCheckSslHealthCheckBlock : TerraformBlock
     /// If not specified, SSL health check follows behavior specified in &#39;port&#39; and
     /// &#39;portName&#39; fields. Possible values: [&amp;quot;USE_FIXED_PORT&amp;quot;, &amp;quot;USE_NAMED_PORT&amp;quot;, &amp;quot;USE_SERVING_PORT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PortSpecification
-    {
-        set => SetProperty("port_specification", value);
-    }
+    [TerraformPropertyName("port_specification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PortSpecification { get; set; }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to the
     /// backend. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;PROXY_V1&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ProxyHeader
-    {
-        set => SetProperty("proxy_header", value);
-    }
+    [TerraformPropertyName("proxy_header")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProxyHeader { get; set; }
 
     /// <summary>
     /// The application data to send once the SSL connection has been
@@ -447,20 +414,18 @@ public class GoogleComputeRegionHealthCheckSslHealthCheckBlock : TerraformBlock
     /// empty, the connection establishment alone will indicate health. The request
     /// data can only be ASCII.
     /// </summary>
-    public TerraformProperty<string>? Request
-    {
-        set => SetProperty("request", value);
-    }
+    [TerraformPropertyName("request")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Request { get; set; }
 
     /// <summary>
     /// The bytes to match against the beginning of the response data. If left empty
     /// (the default value), any response will indicate health. The response data
     /// can only be ASCII.
     /// </summary>
-    public TerraformProperty<string>? Response
-    {
-        set => SetProperty("response", value);
-    }
+    [TerraformPropertyName("response")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Response { get; set; }
 
 }
 
@@ -468,25 +433,23 @@ public class GoogleComputeRegionHealthCheckSslHealthCheckBlock : TerraformBlock
 /// Block type for tcp_health_check in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : TerraformBlock
+public class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : ITerraformBlock
 {
     /// <summary>
     /// The TCP port number for the TCP health check request.
     /// The default value is 80.
     /// </summary>
-    public TerraformProperty<double>? Port
-    {
-        set => SetProperty("port", value);
-    }
+    [TerraformPropertyName("port")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Port { get; set; }
 
     /// <summary>
     /// Port name as defined in InstanceGroup#NamedPort#name. If both port and
     /// port_name are defined, port takes precedence.
     /// </summary>
-    public TerraformProperty<string>? PortName
-    {
-        set => SetProperty("port_name", value);
-    }
+    [TerraformPropertyName("port_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PortName { get; set; }
 
     /// <summary>
     /// Specifies how port is selected for health checking, can be one of the
@@ -504,19 +467,17 @@ public class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// If not specified, TCP health check follows behavior specified in &#39;port&#39; and
     /// &#39;portName&#39; fields. Possible values: [&amp;quot;USE_FIXED_PORT&amp;quot;, &amp;quot;USE_NAMED_PORT&amp;quot;, &amp;quot;USE_SERVING_PORT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PortSpecification
-    {
-        set => SetProperty("port_specification", value);
-    }
+    [TerraformPropertyName("port_specification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PortSpecification { get; set; }
 
     /// <summary>
     /// Specifies the type of proxy header to append before sending data to the
     /// backend. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;PROXY_V1&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ProxyHeader
-    {
-        set => SetProperty("proxy_header", value);
-    }
+    [TerraformPropertyName("proxy_header")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProxyHeader { get; set; }
 
     /// <summary>
     /// The application data to send once the TCP connection has been
@@ -524,20 +485,18 @@ public class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// empty, the connection establishment alone will indicate health. The request
     /// data can only be ASCII.
     /// </summary>
-    public TerraformProperty<string>? Request
-    {
-        set => SetProperty("request", value);
-    }
+    [TerraformPropertyName("request")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Request { get; set; }
 
     /// <summary>
     /// The bytes to match against the beginning of the response data. If left empty
     /// (the default value), any response will indicate health. The response data
     /// can only be ASCII.
     /// </summary>
-    public TerraformProperty<string>? Response
-    {
-        set => SetProperty("response", value);
-    }
+    [TerraformPropertyName("response")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Response { get; set; }
 
 }
 
@@ -545,31 +504,28 @@ public class GoogleComputeRegionHealthCheckTcpHealthCheckBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRegionHealthCheckTimeoutsBlock : TerraformBlock
+public class GoogleComputeRegionHealthCheckTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -581,64 +537,38 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
 {
     public GoogleComputeRegionHealthCheck(string name) : base("google_compute_region_health_check", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_timestamp");
-        SetOutput("health_check_id");
-        SetOutput("self_link");
-        SetOutput("type");
-        SetOutput("check_interval_sec");
-        SetOutput("description");
-        SetOutput("healthy_threshold");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("region");
-        SetOutput("timeout_sec");
-        SetOutput("unhealthy_threshold");
     }
 
     /// <summary>
     /// How often (in seconds) to send a health check. The default value is 5
     /// seconds.
     /// </summary>
-    public TerraformProperty<double> CheckIntervalSec
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("check_interval_sec");
-        set => SetProperty("check_interval_sec", value);
-    }
+    [TerraformPropertyName("check_interval_sec")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? CheckIntervalSec { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// A so-far unhealthy instance will be marked healthy after this many
     /// consecutive successes. The default value is 2.
     /// </summary>
-    public TerraformProperty<double> HealthyThreshold
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("healthy_threshold");
-        set => SetProperty("healthy_threshold", value);
-    }
+    [TerraformPropertyName("healthy_threshold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? HealthyThreshold { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -650,159 +580,139 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     /// last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The Region in which the created health check should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// How long (in seconds) to wait before claiming failure.
     /// The default value is 5 seconds.  It is invalid for timeoutSec to have
     /// greater value than checkIntervalSec.
     /// </summary>
-    public TerraformProperty<double> TimeoutSec
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("timeout_sec");
-        set => SetProperty("timeout_sec", value);
-    }
+    [TerraformPropertyName("timeout_sec")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TimeoutSec { get; set; }
 
     /// <summary>
     /// A so-far healthy instance will be marked unhealthy after this many
     /// consecutive failures. The default value is 2.
     /// </summary>
-    public TerraformProperty<double> UnhealthyThreshold
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("unhealthy_threshold");
-        set => SetProperty("unhealthy_threshold", value);
-    }
+    [TerraformPropertyName("unhealthy_threshold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? UnhealthyThreshold { get; set; }
 
     /// <summary>
     /// Block for grpc_health_check.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrpcHealthCheck block(s) allowed")]
-    public List<GoogleComputeRegionHealthCheckGrpcHealthCheckBlock>? GrpcHealthCheck
-    {
-        set => SetProperty("grpc_health_check", value);
-    }
+    [TerraformPropertyName("grpc_health_check")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckGrpcHealthCheckBlock>>? GrpcHealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for grpc_tls_health_check.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GrpcTlsHealthCheck block(s) allowed")]
-    public List<GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock>? GrpcTlsHealthCheck
-    {
-        set => SetProperty("grpc_tls_health_check", value);
-    }
+    [TerraformPropertyName("grpc_tls_health_check")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckGrpcTlsHealthCheckBlock>>? GrpcTlsHealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for http2_health_check.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Http2HealthCheck block(s) allowed")]
-    public List<GoogleComputeRegionHealthCheckHttp2HealthCheckBlock>? Http2HealthCheck
-    {
-        set => SetProperty("http2_health_check", value);
-    }
+    [TerraformPropertyName("http2_health_check")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckHttp2HealthCheckBlock>>? Http2HealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for http_health_check.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpHealthCheck block(s) allowed")]
-    public List<GoogleComputeRegionHealthCheckHttpHealthCheckBlock>? HttpHealthCheck
-    {
-        set => SetProperty("http_health_check", value);
-    }
+    [TerraformPropertyName("http_health_check")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckHttpHealthCheckBlock>>? HttpHealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for https_health_check.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpsHealthCheck block(s) allowed")]
-    public List<GoogleComputeRegionHealthCheckHttpsHealthCheckBlock>? HttpsHealthCheck
-    {
-        set => SetProperty("https_health_check", value);
-    }
+    [TerraformPropertyName("https_health_check")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckHttpsHealthCheckBlock>>? HttpsHealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for log_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
-    public List<GoogleComputeRegionHealthCheckLogConfigBlock>? LogConfig
-    {
-        set => SetProperty("log_config", value);
-    }
+    [TerraformPropertyName("log_config")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckLogConfigBlock>>? LogConfig { get; set; } = new();
 
     /// <summary>
     /// Block for ssl_health_check.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslHealthCheck block(s) allowed")]
-    public List<GoogleComputeRegionHealthCheckSslHealthCheckBlock>? SslHealthCheck
-    {
-        set => SetProperty("ssl_health_check", value);
-    }
+    [TerraformPropertyName("ssl_health_check")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckSslHealthCheckBlock>>? SslHealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for tcp_health_check.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TcpHealthCheck block(s) allowed")]
-    public List<GoogleComputeRegionHealthCheckTcpHealthCheckBlock>? TcpHealthCheck
-    {
-        set => SetProperty("tcp_health_check", value);
-    }
+    [TerraformPropertyName("tcp_health_check")]
+    public TerraformList<TerraformBlock<GoogleComputeRegionHealthCheckTcpHealthCheckBlock>>? TcpHealthCheck { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleComputeRegionHealthCheckTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleComputeRegionHealthCheckTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    public TerraformExpression CreationTimestamp => this["creation_timestamp"];
+    [TerraformPropertyName("creation_timestamp")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTimestamp => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_timestamp");
 
     /// <summary>
     /// The unique identifier number for the resource. This identifier is defined by the server.
     /// </summary>
-    public TerraformExpression HealthCheckId => this["health_check_id"];
+    [TerraformPropertyName("health_check_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> HealthCheckId => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "health_check_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
     /// <summary>
     /// The type of the health check. One of HTTP, HTTP2, HTTPS, TCP, or SSL.
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
 }

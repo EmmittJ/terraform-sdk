@@ -6,184 +6,163 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for properties in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : TerraformBlock
+public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : ITerraformBlock
 {
     /// <summary>
     /// The requested number of additional storage servers activated for the
     /// Exadata Infrastructure.
     /// </summary>
-    public TerraformProperty<double>? ActivatedStorageCount
-    {
-        set => SetProperty("activated_storage_count", value);
-    }
+    [TerraformPropertyName("activated_storage_count")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ActivatedStorageCount => new TerraformReferenceProperty<TerraformProperty<double>>("", "activated_storage_count");
 
     /// <summary>
     /// The requested number of additional storage servers for the Exadata
     /// Infrastructure.
     /// </summary>
-    public TerraformProperty<double>? AdditionalStorageCount
-    {
-        set => SetProperty("additional_storage_count", value);
-    }
+    [TerraformPropertyName("additional_storage_count")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AdditionalStorageCount => new TerraformReferenceProperty<TerraformProperty<double>>("", "additional_storage_count");
 
     /// <summary>
     /// The available storage can be allocated to the Exadata Infrastructure
     /// resource, in gigabytes (GB).
     /// </summary>
-    public TerraformProperty<double>? AvailableStorageSizeGb
-    {
-        set => SetProperty("available_storage_size_gb", value);
-    }
+    [TerraformPropertyName("available_storage_size_gb")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AvailableStorageSizeGb => new TerraformReferenceProperty<TerraformProperty<double>>("", "available_storage_size_gb");
 
     /// <summary>
     /// The number of compute servers for the Exadata Infrastructure.
     /// </summary>
-    public TerraformProperty<double>? ComputeCount
-    {
-        set => SetProperty("compute_count", value);
-    }
+    [TerraformPropertyName("compute_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ComputeCount { get; set; }
 
     /// <summary>
     /// The number of enabled CPU cores.
     /// </summary>
-    public TerraformProperty<double>? CpuCount
-    {
-        set => SetProperty("cpu_count", value);
-    }
+    [TerraformPropertyName("cpu_count")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> CpuCount => new TerraformReferenceProperty<TerraformProperty<double>>("", "cpu_count");
 
     /// <summary>
     /// Size, in terabytes, of the DATA disk group.
     /// </summary>
-    public TerraformProperty<double>? DataStorageSizeTb
-    {
-        set => SetProperty("data_storage_size_tb", value);
-    }
+    [TerraformPropertyName("data_storage_size_tb")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DataStorageSizeTb => new TerraformReferenceProperty<TerraformProperty<double>>("", "data_storage_size_tb");
 
     /// <summary>
     /// The local node storage allocated in GBs.
     /// </summary>
-    public TerraformProperty<double>? DbNodeStorageSizeGb
-    {
-        set => SetProperty("db_node_storage_size_gb", value);
-    }
+    [TerraformPropertyName("db_node_storage_size_gb")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> DbNodeStorageSizeGb => new TerraformReferenceProperty<TerraformProperty<double>>("", "db_node_storage_size_gb");
 
     /// <summary>
     /// The software version of the database servers (dom0) in the Exadata
     /// Infrastructure.
     /// </summary>
-    public TerraformProperty<string>? DbServerVersion
-    {
-        set => SetProperty("db_server_version", value);
-    }
+    [TerraformPropertyName("db_server_version")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DbServerVersion => new TerraformReferenceProperty<TerraformProperty<string>>("", "db_server_version");
 
     /// <summary>
     /// The total number of CPU cores available.
     /// </summary>
-    public TerraformProperty<double>? MaxCpuCount
-    {
-        set => SetProperty("max_cpu_count", value);
-    }
+    [TerraformPropertyName("max_cpu_count")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxCpuCount => new TerraformReferenceProperty<TerraformProperty<double>>("", "max_cpu_count");
 
     /// <summary>
     /// The total available DATA disk group size.
     /// </summary>
-    public TerraformProperty<double>? MaxDataStorageTb
-    {
-        set => SetProperty("max_data_storage_tb", value);
-    }
+    [TerraformPropertyName("max_data_storage_tb")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxDataStorageTb => new TerraformReferenceProperty<TerraformProperty<double>>("", "max_data_storage_tb");
 
     /// <summary>
     /// The total local node storage available in GBs.
     /// </summary>
-    public TerraformProperty<double>? MaxDbNodeStorageSizeGb
-    {
-        set => SetProperty("max_db_node_storage_size_gb", value);
-    }
+    [TerraformPropertyName("max_db_node_storage_size_gb")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxDbNodeStorageSizeGb => new TerraformReferenceProperty<TerraformProperty<double>>("", "max_db_node_storage_size_gb");
 
     /// <summary>
     /// The total memory available in GBs.
     /// </summary>
-    public TerraformProperty<double>? MaxMemoryGb
-    {
-        set => SetProperty("max_memory_gb", value);
-    }
+    [TerraformPropertyName("max_memory_gb")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxMemoryGb => new TerraformReferenceProperty<TerraformProperty<double>>("", "max_memory_gb");
 
     /// <summary>
     /// The memory allocated in GBs.
     /// </summary>
-    public TerraformProperty<double>? MemorySizeGb
-    {
-        set => SetProperty("memory_size_gb", value);
-    }
+    [TerraformPropertyName("memory_size_gb")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MemorySizeGb => new TerraformReferenceProperty<TerraformProperty<double>>("", "memory_size_gb");
 
     /// <summary>
     /// The monthly software version of the database servers (dom0)
     /// in the Exadata Infrastructure. Example: 20.1.15
     /// </summary>
-    public TerraformProperty<string>? MonthlyDbServerVersion
-    {
-        set => SetProperty("monthly_db_server_version", value);
-    }
+    [TerraformPropertyName("monthly_db_server_version")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MonthlyDbServerVersion => new TerraformReferenceProperty<TerraformProperty<string>>("", "monthly_db_server_version");
 
     /// <summary>
     /// The monthly software version of the storage servers (cells)
     /// in the Exadata Infrastructure. Example: 20.1.15
     /// </summary>
-    public TerraformProperty<string>? MonthlyStorageServerVersion
-    {
-        set => SetProperty("monthly_storage_server_version", value);
-    }
+    [TerraformPropertyName("monthly_storage_server_version")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> MonthlyStorageServerVersion => new TerraformReferenceProperty<TerraformProperty<string>>("", "monthly_storage_server_version");
 
     /// <summary>
     /// The OCID of the next maintenance run.
     /// </summary>
-    public TerraformProperty<string>? NextMaintenanceRunId
-    {
-        set => SetProperty("next_maintenance_run_id", value);
-    }
+    [TerraformPropertyName("next_maintenance_run_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NextMaintenanceRunId => new TerraformReferenceProperty<TerraformProperty<string>>("", "next_maintenance_run_id");
 
     /// <summary>
     /// The time when the next maintenance run will occur.
     /// </summary>
-    public TerraformProperty<string>? NextMaintenanceRunTime
-    {
-        set => SetProperty("next_maintenance_run_time", value);
-    }
+    [TerraformPropertyName("next_maintenance_run_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NextMaintenanceRunTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "next_maintenance_run_time");
 
     /// <summary>
     /// The time when the next security maintenance run will occur.
     /// </summary>
-    public TerraformProperty<string>? NextSecurityMaintenanceRunTime
-    {
-        set => SetProperty("next_security_maintenance_run_time", value);
-    }
+    [TerraformPropertyName("next_security_maintenance_run_time")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NextSecurityMaintenanceRunTime => new TerraformReferenceProperty<TerraformProperty<string>>("", "next_security_maintenance_run_time");
 
     /// <summary>
     /// Deep link to the OCI console to view this resource.
     /// </summary>
-    public TerraformProperty<string>? OciUrl
-    {
-        set => SetProperty("oci_url", value);
-    }
+    [TerraformPropertyName("oci_url")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OciUrl => new TerraformReferenceProperty<TerraformProperty<string>>("", "oci_url");
 
     /// <summary>
     /// OCID of created infra.
     /// https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm#Oracle
     /// </summary>
-    public TerraformProperty<string>? Ocid
-    {
-        set => SetProperty("ocid", value);
-    }
+    [TerraformPropertyName("ocid")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Ocid => new TerraformReferenceProperty<TerraformProperty<string>>("", "ocid");
 
     /// <summary>
     /// The shape of the Exadata Infrastructure. The shape determines the
     /// amount of CPU, storage, and memory resources allocated to the instance.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
-    public required TerraformProperty<string> Shape
-    {
-        set => SetProperty("shape", value);
-    }
+    [TerraformPropertyName("shape")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Shape { get; set; }
 
     /// <summary>
     /// The current lifecycle state of the Exadata Infrastructure. 
@@ -197,36 +176,32 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
     /// FAILED
     /// MAINTENANCE_IN_PROGRESS
     /// </summary>
-    public TerraformProperty<string>? State
-    {
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>("", "state");
 
     /// <summary>
     /// The number of Cloud Exadata storage servers for the Exadata Infrastructure.
     /// </summary>
-    public TerraformProperty<double>? StorageCount
-    {
-        set => SetProperty("storage_count", value);
-    }
+    [TerraformPropertyName("storage_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? StorageCount { get; set; }
 
     /// <summary>
     /// The software version of the storage servers (cells) in the Exadata
     /// Infrastructure.
     /// </summary>
-    public TerraformProperty<string>? StorageServerVersion
-    {
-        set => SetProperty("storage_server_version", value);
-    }
+    [TerraformPropertyName("storage_server_version")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StorageServerVersion => new TerraformReferenceProperty<TerraformProperty<string>>("", "storage_server_version");
 
     /// <summary>
     /// The total storage allocated to the Exadata Infrastructure
     /// resource, in gigabytes (GB).
     /// </summary>
-    public TerraformProperty<double>? TotalStorageSizeGb
-    {
-        set => SetProperty("total_storage_size_gb", value);
-    }
+    [TerraformPropertyName("total_storage_size_gb")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> TotalStorageSizeGb { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "total_storage_size_gb");
 
 }
 
@@ -234,31 +209,28 @@ public class GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock : TerraformBlock
+public class GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -270,24 +242,6 @@ public class GoogleOracleDatabaseCloudExadataInfrastructure : TerraformResource
 {
     public GoogleOracleDatabaseCloudExadataInfrastructure(string name) : base("google_oracle_database_cloud_exadata_infrastructure", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("entitlement_id");
-        SetOutput("name");
-        SetOutput("terraform_labels");
-        SetOutput("cloud_exadata_infrastructure_id");
-        SetOutput("deletion_protection");
-        SetOutput("display_name");
-        SetOutput("gcp_oracle_zone");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -297,47 +251,37 @@ public class GoogleOracleDatabaseCloudExadataInfrastructure : TerraformResource
     /// a letter or a number.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
-    public required TerraformProperty<string> CloudExadataInfrastructureId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
-        set => SetProperty("cloud_exadata_infrastructure_id", value);
-    }
+    [TerraformPropertyName("cloud_exadata_infrastructure_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CloudExadataInfrastructureId { get; set; }
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
-    public TerraformProperty<bool> DeletionProtection
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("deletion_protection");
-        set => SetProperty("deletion_protection", value);
-    }
+    [TerraformPropertyName("deletion_protection")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? DeletionProtection { get; set; }
 
     /// <summary>
     /// User friendly name for this resource.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// GCP location where Oracle Exadata is hosted.
     /// </summary>
-    public TerraformProperty<string> GcpOracleZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gcp_oracle_zone");
-        set => SetProperty("gcp_oracle_zone", value);
-    }
+    [TerraformPropertyName("gcp_oracle_zone")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> GcpOracleZone { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gcp_oracle_zone");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Labels or tags associated with the resource. 
@@ -345,76 +289,76 @@ public class GoogleOracleDatabaseCloudExadataInfrastructure : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. See documentation for resource type &#39;oracledatabase.googleapis.com/DbServer&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for properties.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
-    public List<GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock>? Properties
-    {
-        set => SetProperty("properties", value);
-    }
+    [TerraformPropertyName("properties")]
+    public TerraformList<TerraformBlock<GoogleOracleDatabaseCloudExadataInfrastructurePropertiesBlock>>? Properties { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The date and time that the Exadata Infrastructure was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// Entitlement ID of the private offer against which this infrastructure
     /// resource is provisioned.
     /// </summary>
-    public TerraformExpression EntitlementId => this["entitlement_id"];
+    [TerraformPropertyName("entitlement_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EntitlementId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "entitlement_id");
 
     /// <summary>
     /// Identifier. The name of the Exadata Infrastructure resource with the following format:
     /// projects/{project}/locations/{region}/cloudExadataInfrastructures/{cloud_exadata_infrastructure}
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
 }

@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for campaign_hook in .
 /// Nesting mode: list
 /// </summary>
-public class AwsPinpointAppCampaignHookBlock : TerraformBlock
+public class AwsPinpointAppCampaignHookBlock : ITerraformBlock
 {
     /// <summary>
     /// The lambda_function_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LambdaFunctionName
-    {
-        set => SetProperty("lambda_function_name", value);
-    }
+    [TerraformPropertyName("lambda_function_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LambdaFunctionName { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string>? Mode
-    {
-        set => SetProperty("mode", value);
-    }
+    [TerraformPropertyName("mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Mode { get; set; }
 
     /// <summary>
     /// The web_url attribute.
     /// </summary>
-    public TerraformProperty<string>? WebUrl
-    {
-        set => SetProperty("web_url", value);
-    }
+    [TerraformPropertyName("web_url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? WebUrl { get; set; }
 
 }
 
@@ -38,39 +35,35 @@ public class AwsPinpointAppCampaignHookBlock : TerraformBlock
 /// Block type for limits in .
 /// Nesting mode: list
 /// </summary>
-public class AwsPinpointAppLimitsBlock : TerraformBlock
+public class AwsPinpointAppLimitsBlock : ITerraformBlock
 {
     /// <summary>
     /// The daily attribute.
     /// </summary>
-    public TerraformProperty<double>? Daily
-    {
-        set => SetProperty("daily", value);
-    }
+    [TerraformPropertyName("daily")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Daily { get; set; }
 
     /// <summary>
     /// The maximum_duration attribute.
     /// </summary>
-    public TerraformProperty<double>? MaximumDuration
-    {
-        set => SetProperty("maximum_duration", value);
-    }
+    [TerraformPropertyName("maximum_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaximumDuration { get; set; }
 
     /// <summary>
     /// The messages_per_second attribute.
     /// </summary>
-    public TerraformProperty<double>? MessagesPerSecond
-    {
-        set => SetProperty("messages_per_second", value);
-    }
+    [TerraformPropertyName("messages_per_second")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MessagesPerSecond { get; set; }
 
     /// <summary>
     /// The total attribute.
     /// </summary>
-    public TerraformProperty<double>? Total
-    {
-        set => SetProperty("total", value);
-    }
+    [TerraformPropertyName("total")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Total { get; set; }
 
 }
 
@@ -78,23 +71,21 @@ public class AwsPinpointAppLimitsBlock : TerraformBlock
 /// Block type for quiet_time in .
 /// Nesting mode: list
 /// </summary>
-public class AwsPinpointAppQuietTimeBlock : TerraformBlock
+public class AwsPinpointAppQuietTimeBlock : ITerraformBlock
 {
     /// <summary>
     /// The end attribute.
     /// </summary>
-    public TerraformProperty<string>? End
-    {
-        set => SetProperty("end", value);
-    }
+    [TerraformPropertyName("end")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? End { get; set; }
 
     /// <summary>
     /// The start attribute.
     /// </summary>
-    public TerraformProperty<string>? Start
-    {
-        set => SetProperty("start", value);
-    }
+    [TerraformPropertyName("start")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Start { get; set; }
 
 }
 
@@ -106,113 +97,86 @@ public class AwsPinpointApp : TerraformResource
 {
     public AwsPinpointApp(string name) : base("aws_pinpoint_app", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("application_id");
-        SetOutput("arn");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("region");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for campaign_hook.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CampaignHook block(s) allowed")]
-    public List<AwsPinpointAppCampaignHookBlock>? CampaignHook
-    {
-        set => SetProperty("campaign_hook", value);
-    }
+    [TerraformPropertyName("campaign_hook")]
+    public TerraformList<TerraformBlock<AwsPinpointAppCampaignHookBlock>>? CampaignHook { get; set; } = new();
 
     /// <summary>
     /// Block for limits.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Limits block(s) allowed")]
-    public List<AwsPinpointAppLimitsBlock>? Limits
-    {
-        set => SetProperty("limits", value);
-    }
+    [TerraformPropertyName("limits")]
+    public TerraformList<TerraformBlock<AwsPinpointAppLimitsBlock>>? Limits { get; set; } = new();
 
     /// <summary>
     /// Block for quiet_time.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuietTime block(s) allowed")]
-    public List<AwsPinpointAppQuietTimeBlock>? QuietTime
-    {
-        set => SetProperty("quiet_time", value);
-    }
+    [TerraformPropertyName("quiet_time")]
+    public TerraformList<TerraformBlock<AwsPinpointAppQuietTimeBlock>>? QuietTime { get; set; } = new();
 
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformExpression ApplicationId => this["application_id"];
+    [TerraformPropertyName("application_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ApplicationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "application_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

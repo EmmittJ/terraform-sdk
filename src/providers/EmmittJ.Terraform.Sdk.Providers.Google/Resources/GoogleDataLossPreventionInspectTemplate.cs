@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for inspect_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataLossPreventionInspectTemplateInspectConfigBlock : TerraformBlock
+public class GoogleDataLossPreventionInspectTemplateInspectConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// List of options defining data content to scan. If empty, text, images, and other content will be included. Possible values: [&amp;quot;CONTENT_TEXT&amp;quot;, &amp;quot;CONTENT_IMAGE&amp;quot;]
     /// </summary>
-    public List<TerraformProperty<string>>? ContentOptions
-    {
-        set => SetProperty("content_options", value);
-    }
+    [TerraformPropertyName("content_options")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ContentOptions { get; set; }
 
     /// <summary>
     /// When true, excludes type information of the findings.
     /// </summary>
-    public TerraformProperty<bool>? ExcludeInfoTypes
-    {
-        set => SetProperty("exclude_info_types", value);
-    }
+    [TerraformPropertyName("exclude_info_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ExcludeInfoTypes { get; set; }
 
     /// <summary>
     /// When true, a contextual quote from the data that triggered a finding is included in the response.
     /// </summary>
-    public TerraformProperty<bool>? IncludeQuote
-    {
-        set => SetProperty("include_quote", value);
-    }
+    [TerraformPropertyName("include_quote")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncludeQuote { get; set; }
 
     /// <summary>
     /// Only returns findings equal or above this threshold. See https://cloud.google.com/dlp/docs/likelihood for more info Default value: &amp;quot;POSSIBLE&amp;quot; Possible values: [&amp;quot;VERY_UNLIKELY&amp;quot;, &amp;quot;UNLIKELY&amp;quot;, &amp;quot;POSSIBLE&amp;quot;, &amp;quot;LIKELY&amp;quot;, &amp;quot;VERY_LIKELY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? MinLikelihood
-    {
-        set => SetProperty("min_likelihood", value);
-    }
+    [TerraformPropertyName("min_likelihood")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MinLikelihood { get; set; }
 
 }
 
@@ -46,31 +42,28 @@ public class GoogleDataLossPreventionInspectTemplateInspectConfigBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataLossPreventionInspectTemplateTimeoutsBlock : TerraformBlock
+public class GoogleDataLossPreventionInspectTemplateTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -82,45 +75,28 @@ public class GoogleDataLossPreventionInspectTemplate : TerraformResource
 {
     public GoogleDataLossPreventionInspectTemplate(string name) : base("google_data_loss_prevention_inspect_template", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("parent");
-        SetOutput("template_id");
     }
 
     /// <summary>
     /// A description of the inspect template.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// User set display name of the inspect template.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The parent of the inspect template in any of the following formats:
@@ -131,45 +107,39 @@ public class GoogleDataLossPreventionInspectTemplate : TerraformResource
     /// * &#39;organizations/{{organization_id}}/locations/{{location}}&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    public required TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
 
     /// <summary>
     /// The template id can contain uppercase and lowercase letters, numbers, and hyphens;
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+. The maximum length is
     /// 100 characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public TerraformProperty<string> TemplateId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("template_id");
-        set => SetProperty("template_id", value);
-    }
+    [TerraformPropertyName("template_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TemplateId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "template_id");
 
     /// <summary>
     /// Block for inspect_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InspectConfig block(s) allowed")]
-    public List<GoogleDataLossPreventionInspectTemplateInspectConfigBlock>? InspectConfig
-    {
-        set => SetProperty("inspect_config", value);
-    }
+    [TerraformPropertyName("inspect_config")]
+    public TerraformList<TerraformBlock<GoogleDataLossPreventionInspectTemplateInspectConfigBlock>>? InspectConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDataLossPreventionInspectTemplateTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDataLossPreventionInspectTemplateTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the inspect template. Set by the server.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsVpcIpamPoolDataSourceFilterBlock : TerraformBlock
+public class AwsVpcIpamPoolDataSourceFilterBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    public HashSet<TerraformProperty<string>>? Values
-    {
-        set => SetProperty("values", value);
-    }
+    [TerraformPropertyName("values")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Values { get; set; }
 
 }
 
@@ -32,15 +30,14 @@ public class AwsVpcIpamPoolDataSourceFilterBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsVpcIpamPoolDataSourceTimeoutsBlock : TerraformBlock
+public class AwsVpcIpamPoolDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -51,169 +48,160 @@ public class AwsVpcIpamPoolDataSource : TerraformDataSource
 {
     public AwsVpcIpamPoolDataSource(string name) : base("aws_vpc_ipam_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("address_family");
-        SetOutput("allocation_default_netmask_length");
-        SetOutput("allocation_max_netmask_length");
-        SetOutput("allocation_min_netmask_length");
-        SetOutput("arn");
-        SetOutput("auto_import");
-        SetOutput("aws_service");
-        SetOutput("description");
-        SetOutput("ipam_scope_id");
-        SetOutput("ipam_scope_type");
-        SetOutput("locale");
-        SetOutput("pool_depth");
-        SetOutput("publicly_advertisable");
-        SetOutput("source_ipam_pool_id");
-        SetOutput("state");
-        SetOutput("allocation_resource_tags");
-        SetOutput("id");
-        SetOutput("ipam_pool_id");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The allocation_resource_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> AllocationResourceTags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("allocation_resource_tags");
-        set => SetProperty("allocation_resource_tags", value);
-    }
+    [TerraformPropertyName("allocation_resource_tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> AllocationResourceTags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "allocation_resource_tags");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Id { get; set; }
 
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string> IpamPoolId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("ipam_pool_id");
-        set => SetProperty("ipam_pool_id", value);
-    }
+    [TerraformPropertyName("ipam_pool_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IpamPoolId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsVpcIpamPoolDataSourceFilterBlock>? Filter
-    {
-        set => SetProperty("filter", value);
-    }
+    [TerraformPropertyName("filter")]
+    public TerraformSet<TerraformBlock<AwsVpcIpamPoolDataSourceFilterBlock>>? Filter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsVpcIpamPoolDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsVpcIpamPoolDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The address_family attribute.
     /// </summary>
-    public TerraformExpression AddressFamily => this["address_family"];
+    [TerraformPropertyName("address_family")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AddressFamily => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "address_family");
 
     /// <summary>
     /// The allocation_default_netmask_length attribute.
     /// </summary>
-    public TerraformExpression AllocationDefaultNetmaskLength => this["allocation_default_netmask_length"];
+    [TerraformPropertyName("allocation_default_netmask_length")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AllocationDefaultNetmaskLength => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "allocation_default_netmask_length");
 
     /// <summary>
     /// The allocation_max_netmask_length attribute.
     /// </summary>
-    public TerraformExpression AllocationMaxNetmaskLength => this["allocation_max_netmask_length"];
+    [TerraformPropertyName("allocation_max_netmask_length")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AllocationMaxNetmaskLength => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "allocation_max_netmask_length");
 
     /// <summary>
     /// The allocation_min_netmask_length attribute.
     /// </summary>
-    public TerraformExpression AllocationMinNetmaskLength => this["allocation_min_netmask_length"];
+    [TerraformPropertyName("allocation_min_netmask_length")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AllocationMinNetmaskLength => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "allocation_min_netmask_length");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The auto_import attribute.
     /// </summary>
-    public TerraformExpression AutoImport => this["auto_import"];
+    [TerraformPropertyName("auto_import")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AutoImport => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "auto_import");
 
     /// <summary>
     /// The aws_service attribute.
     /// </summary>
-    public TerraformExpression AwsService => this["aws_service"];
+    [TerraformPropertyName("aws_service")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AwsService => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "aws_service");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// The ipam_scope_id attribute.
     /// </summary>
-    public TerraformExpression IpamScopeId => this["ipam_scope_id"];
+    [TerraformPropertyName("ipam_scope_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpamScopeId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ipam_scope_id");
 
     /// <summary>
     /// The ipam_scope_type attribute.
     /// </summary>
-    public TerraformExpression IpamScopeType => this["ipam_scope_type"];
+    [TerraformPropertyName("ipam_scope_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpamScopeType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ipam_scope_type");
 
     /// <summary>
     /// The locale attribute.
     /// </summary>
-    public TerraformExpression Locale => this["locale"];
+    [TerraformPropertyName("locale")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Locale => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "locale");
 
     /// <summary>
     /// The pool_depth attribute.
     /// </summary>
-    public TerraformExpression PoolDepth => this["pool_depth"];
+    [TerraformPropertyName("pool_depth")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> PoolDepth => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "pool_depth");
 
     /// <summary>
     /// The publicly_advertisable attribute.
     /// </summary>
-    public TerraformExpression PubliclyAdvertisable => this["publicly_advertisable"];
+    [TerraformPropertyName("publicly_advertisable")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PubliclyAdvertisable => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "publicly_advertisable");
 
     /// <summary>
     /// The source_ipam_pool_id attribute.
     /// </summary>
-    public TerraformExpression SourceIpamPoolId => this["source_ipam_pool_id"];
+    [TerraformPropertyName("source_ipam_pool_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceIpamPoolId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_ipam_pool_id");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
 }

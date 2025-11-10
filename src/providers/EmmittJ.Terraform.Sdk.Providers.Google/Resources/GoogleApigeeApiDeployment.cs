@@ -6,23 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeApiDeploymentTimeoutsBlock : TerraformBlock
+public class GoogleApigeeApiDeploymentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -33,70 +31,52 @@ public class GoogleApigeeApiDeployment : TerraformResource
 {
     public GoogleApigeeApiDeployment(string name) : base("google_apigee_api_deployment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("environment");
-        SetOutput("org_id");
-        SetOutput("proxy_id");
-        SetOutput("revision");
     }
 
     /// <summary>
     /// The Apigee Environment associated with the Apigee API deployment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
-    public required TerraformProperty<string> Environment
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("environment");
-        set => SetProperty("environment", value);
-    }
+    [TerraformPropertyName("environment")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Environment { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee API deployment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    public required TerraformProperty<string> OrgId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("org_id");
-        set => SetProperty("org_id", value);
-    }
+    [TerraformPropertyName("org_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OrgId { get; set; }
 
     /// <summary>
     /// The Apigee API associated with the Apigee API deployment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProxyId is required")]
-    public required TerraformProperty<string> ProxyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("proxy_id");
-        set => SetProperty("proxy_id", value);
-    }
+    [TerraformPropertyName("proxy_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ProxyId { get; set; }
 
     /// <summary>
     /// The revision of the API proxy to be deployed.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
-    public required TerraformProperty<string> Revision
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("revision");
-        set => SetProperty("revision", value);
-    }
+    [TerraformPropertyName("revision")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Revision { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleApigeeApiDeploymentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleApigeeApiDeploymentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The ID of the API deployment in the format &#39;organizations/{{org_id}}/environments/{{environment}}/apis/{{proxy_id}}/revisions/{{revision}}/deployments&#39;.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

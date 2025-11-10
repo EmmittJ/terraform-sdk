@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRdsReservedInstanceTimeoutsBlock : TerraformBlock
+public class AwsRdsReservedInstanceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,169 +38,154 @@ public class AwsRdsReservedInstance : TerraformResource
 {
     public AwsRdsReservedInstance(string name) : base("aws_rds_reserved_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("currency_code");
-        SetOutput("db_instance_class");
-        SetOutput("duration");
-        SetOutput("fixed_price");
-        SetOutput("lease_id");
-        SetOutput("multi_az");
-        SetOutput("offering_type");
-        SetOutput("product_description");
-        SetOutput("recurring_charges");
-        SetOutput("start_time");
-        SetOutput("state");
-        SetOutput("usage_price");
-        SetOutput("id");
-        SetOutput("instance_count");
-        SetOutput("offering_id");
-        SetOutput("region");
-        SetOutput("reservation_id");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformProperty<double> InstanceCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("instance_count");
-        set => SetProperty("instance_count", value);
-    }
+    [TerraformPropertyName("instance_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? InstanceCount { get; set; }
 
     /// <summary>
     /// The offering_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferingId is required")]
-    public required TerraformProperty<string> OfferingId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("offering_id");
-        set => SetProperty("offering_id", value);
-    }
+    [TerraformPropertyName("offering_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> OfferingId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The reservation_id attribute.
     /// </summary>
-    public TerraformProperty<string> ReservationId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("reservation_id");
-        set => SetProperty("reservation_id", value);
-    }
+    [TerraformPropertyName("reservation_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ReservationId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsRdsReservedInstanceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsRdsReservedInstanceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The currency_code attribute.
     /// </summary>
-    public TerraformExpression CurrencyCode => this["currency_code"];
+    [TerraformPropertyName("currency_code")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CurrencyCode => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "currency_code");
 
     /// <summary>
     /// The db_instance_class attribute.
     /// </summary>
-    public TerraformExpression DbInstanceClass => this["db_instance_class"];
+    [TerraformPropertyName("db_instance_class")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DbInstanceClass => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "db_instance_class");
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public TerraformExpression Duration => this["duration"];
+    [TerraformPropertyName("duration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Duration => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "duration");
 
     /// <summary>
     /// The fixed_price attribute.
     /// </summary>
-    public TerraformExpression FixedPrice => this["fixed_price"];
+    [TerraformPropertyName("fixed_price")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> FixedPrice => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "fixed_price");
 
     /// <summary>
     /// The lease_id attribute.
     /// </summary>
-    public TerraformExpression LeaseId => this["lease_id"];
+    [TerraformPropertyName("lease_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LeaseId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "lease_id");
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
-    public TerraformExpression MultiAz => this["multi_az"];
+    [TerraformPropertyName("multi_az")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> MultiAz => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "multi_az");
 
     /// <summary>
     /// The offering_type attribute.
     /// </summary>
-    public TerraformExpression OfferingType => this["offering_type"];
+    [TerraformPropertyName("offering_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OfferingType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "offering_type");
 
     /// <summary>
     /// The product_description attribute.
     /// </summary>
-    public TerraformExpression ProductDescription => this["product_description"];
+    [TerraformPropertyName("product_description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProductDescription => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "product_description");
 
     /// <summary>
     /// The recurring_charges attribute.
     /// </summary>
-    public TerraformExpression RecurringCharges => this["recurring_charges"];
+    [TerraformPropertyName("recurring_charges")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> RecurringCharges => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "recurring_charges");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformExpression StartTime => this["start_time"];
+    [TerraformPropertyName("start_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StartTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The usage_price attribute.
     /// </summary>
-    public TerraformExpression UsagePrice => this["usage_price"];
+    [TerraformPropertyName("usage_price")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> UsagePrice => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "usage_price");
 
 }

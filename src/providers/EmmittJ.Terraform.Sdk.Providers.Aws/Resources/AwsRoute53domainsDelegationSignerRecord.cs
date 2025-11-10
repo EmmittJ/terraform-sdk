@@ -6,34 +6,31 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for signing_attributes in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock : TerraformBlock
+public class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock : ITerraformBlock
 {
     /// <summary>
     /// The algorithm attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
-    public required TerraformProperty<double> Algorithm
-    {
-        set => SetProperty("algorithm", value);
-    }
+    [TerraformPropertyName("algorithm")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Algorithm { get; set; }
 
     /// <summary>
     /// The flags attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Flags is required")]
-    public required TerraformProperty<double> Flags
-    {
-        set => SetProperty("flags", value);
-    }
+    [TerraformPropertyName("flags")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Flags { get; set; }
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
-    public required TerraformProperty<string> PublicKey
-    {
-        set => SetProperty("public_key", value);
-    }
+    [TerraformPropertyName("public_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PublicKey { get; set; }
 
 }
 
@@ -41,23 +38,21 @@ public class AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock : Ter
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRoute53domainsDelegationSignerRecordTimeoutsBlock : TerraformBlock
+public class AwsRoute53domainsDelegationSignerRecordTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -68,52 +63,42 @@ public class AwsRoute53domainsDelegationSignerRecord : TerraformResource
 {
     public AwsRoute53domainsDelegationSignerRecord(string name) : base("aws_route53domains_delegation_signer_record", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("dnssec_key_id");
-        SetOutput("id");
-        SetOutput("domain_name");
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    public required TerraformProperty<string> DomainName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("domain_name");
-        set => SetProperty("domain_name", value);
-    }
+    [TerraformPropertyName("domain_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DomainName { get; set; }
 
     /// <summary>
     /// Block for signing_attributes.
     /// Nesting mode: list
     /// </summary>
-    public List<AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock>? SigningAttributes
-    {
-        set => SetProperty("signing_attributes", value);
-    }
+    [TerraformPropertyName("signing_attributes")]
+    public TerraformList<TerraformBlock<AwsRoute53domainsDelegationSignerRecordSigningAttributesBlock>>? SigningAttributes { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsRoute53domainsDelegationSignerRecordTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsRoute53domainsDelegationSignerRecordTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The dnssec_key_id attribute.
     /// </summary>
-    public TerraformExpression DnssecKeyId => this["dnssec_key_id"];
+    [TerraformPropertyName("dnssec_key_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DnssecKeyId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dnssec_key_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
 }

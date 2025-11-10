@@ -9,27 +9,20 @@ public class AwsBillingViewsDataSource : TerraformDataSource
 {
     public AwsBillingViewsDataSource(string name) : base("aws_billing_views", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("billing_view");
-        SetOutput("billing_view_types");
     }
 
     /// <summary>
     /// The billing_view_types attribute.
     /// </summary>
-    public List<TerraformProperty<string>> BillingViewTypes
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("billing_view_types");
-        set => SetProperty("billing_view_types", value);
-    }
+    [TerraformPropertyName("billing_view_types")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? BillingViewTypes { get; set; }
 
     /// <summary>
     /// The billing_view attribute.
     /// </summary>
-    public TerraformExpression BillingView => this["billing_view"];
+    [TerraformPropertyName("billing_view")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> BillingView => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "billing_view");
 
 }

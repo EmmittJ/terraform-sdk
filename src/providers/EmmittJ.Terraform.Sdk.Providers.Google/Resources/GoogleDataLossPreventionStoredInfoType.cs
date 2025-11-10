@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for dictionary in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataLossPreventionStoredInfoTypeDictionaryBlock : TerraformBlock
+public class GoogleDataLossPreventionStoredInfoTypeDictionaryBlock : ITerraformBlock
 {
 }
 
@@ -14,7 +14,7 @@ public class GoogleDataLossPreventionStoredInfoTypeDictionaryBlock : TerraformBl
 /// Block type for large_custom_dictionary in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlock : TerraformBlock
+public class GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlock : ITerraformBlock
 {
 }
 
@@ -22,25 +22,23 @@ public class GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlock : 
 /// Block type for regex in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataLossPreventionStoredInfoTypeRegexBlock : TerraformBlock
+public class GoogleDataLossPreventionStoredInfoTypeRegexBlock : ITerraformBlock
 {
     /// <summary>
     /// The index of the submatch to extract as findings. When not specified, the entire match is returned. No more than 3 may be included.
     /// </summary>
-    public List<TerraformProperty<double>>? GroupIndexes
-    {
-        set => SetProperty("group_indexes", value);
-    }
+    [TerraformPropertyName("group_indexes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<double>>>? GroupIndexes { get; set; }
 
     /// <summary>
     /// Pattern defining the regular expression.
     /// Its syntax (https://github.com/google/re2/wiki/Syntax) can be found under the google/re2 repository on GitHub.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
-    public required TerraformProperty<string> Pattern
-    {
-        set => SetProperty("pattern", value);
-    }
+    [TerraformPropertyName("pattern")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Pattern { get; set; }
 
 }
 
@@ -48,31 +46,28 @@ public class GoogleDataLossPreventionStoredInfoTypeRegexBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock : TerraformBlock
+public class GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -84,45 +79,28 @@ public class GoogleDataLossPreventionStoredInfoType : TerraformResource
 {
     public GoogleDataLossPreventionStoredInfoType(string name) : base("google_data_loss_prevention_stored_info_type", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("name");
-        SetOutput("description");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("parent");
-        SetOutput("stored_info_type_id");
     }
 
     /// <summary>
     /// A description of the info type.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// User set display name of the info type.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The parent of the info type in any of the following formats:
@@ -133,65 +111,55 @@ public class GoogleDataLossPreventionStoredInfoType : TerraformResource
     /// * &#39;organizations/{{organization_id}}/locations/{{location}}&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    public required TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
 
     /// <summary>
     /// The storedInfoType ID can contain uppercase and lowercase letters, numbers, and hyphens;
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+. The maximum length is 100
     /// characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public TerraformProperty<string> StoredInfoTypeId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("stored_info_type_id");
-        set => SetProperty("stored_info_type_id", value);
-    }
+    [TerraformPropertyName("stored_info_type_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> StoredInfoTypeId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "stored_info_type_id");
 
     /// <summary>
     /// Block for dictionary.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dictionary block(s) allowed")]
-    public List<GoogleDataLossPreventionStoredInfoTypeDictionaryBlock>? Dictionary
-    {
-        set => SetProperty("dictionary", value);
-    }
+    [TerraformPropertyName("dictionary")]
+    public TerraformList<TerraformBlock<GoogleDataLossPreventionStoredInfoTypeDictionaryBlock>>? Dictionary { get; set; } = new();
 
     /// <summary>
     /// Block for large_custom_dictionary.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LargeCustomDictionary block(s) allowed")]
-    public List<GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlock>? LargeCustomDictionary
-    {
-        set => SetProperty("large_custom_dictionary", value);
-    }
+    [TerraformPropertyName("large_custom_dictionary")]
+    public TerraformList<TerraformBlock<GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlock>>? LargeCustomDictionary { get; set; } = new();
 
     /// <summary>
     /// Block for regex.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Regex block(s) allowed")]
-    public List<GoogleDataLossPreventionStoredInfoTypeRegexBlock>? Regex
-    {
-        set => SetProperty("regex", value);
-    }
+    [TerraformPropertyName("regex")]
+    public TerraformList<TerraformBlock<GoogleDataLossPreventionStoredInfoTypeRegexBlock>>? Regex { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The resource name of the info type. Set by the server.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
 }

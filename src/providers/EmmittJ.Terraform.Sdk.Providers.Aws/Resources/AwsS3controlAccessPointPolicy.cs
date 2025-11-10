@@ -9,59 +9,43 @@ public class AwsS3controlAccessPointPolicy : TerraformResource
 {
     public AwsS3controlAccessPointPolicy(string name) : base("aws_s3control_access_point_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("has_public_access_policy");
-        SetOutput("access_point_arn");
-        SetOutput("id");
-        SetOutput("policy");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The access_point_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPointArn is required")]
-    public required TerraformProperty<string> AccessPointArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_point_arn");
-        set => SetProperty("access_point_arn", value);
-    }
+    [TerraformPropertyName("access_point_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccessPointArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
-    public required TerraformProperty<string> Policy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy");
-        set => SetProperty("policy", value);
-    }
+    [TerraformPropertyName("policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Policy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The has_public_access_policy attribute.
     /// </summary>
-    public TerraformExpression HasPublicAccessPolicy => this["has_public_access_policy"];
+    [TerraformPropertyName("has_public_access_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> HasPublicAccessPolicy => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "has_public_access_policy");
 
 }

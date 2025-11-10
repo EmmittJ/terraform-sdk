@@ -6,56 +6,50 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for metric_query in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCloudwatchMetricAlarmMetricQueryBlock : TerraformBlock
+public class AwsCloudwatchMetricAlarmMetricQueryBlock : ITerraformBlock
 {
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
-    {
-        set => SetProperty("account_id", value);
-    }
+    [TerraformPropertyName("account_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AccountId { get; set; }
 
     /// <summary>
     /// The expression attribute.
     /// </summary>
-    public TerraformProperty<string>? Expression
-    {
-        set => SetProperty("expression", value);
-    }
+    [TerraformPropertyName("expression")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Expression { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformProperty<string>? Label
-    {
-        set => SetProperty("label", value);
-    }
+    [TerraformPropertyName("label")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Label { get; set; }
 
     /// <summary>
     /// The period attribute.
     /// </summary>
-    public TerraformProperty<double>? Period
-    {
-        set => SetProperty("period", value);
-    }
+    [TerraformPropertyName("period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Period { get; set; }
 
     /// <summary>
     /// The return_data attribute.
     /// </summary>
-    public TerraformProperty<bool>? ReturnData
-    {
-        set => SetProperty("return_data", value);
-    }
+    [TerraformPropertyName("return_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ReturnData { get; set; }
 
 }
 
@@ -66,269 +60,191 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
 {
     public AwsCloudwatchMetricAlarm(string name) : base("aws_cloudwatch_metric_alarm", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("actions_enabled");
-        SetOutput("alarm_actions");
-        SetOutput("alarm_description");
-        SetOutput("alarm_name");
-        SetOutput("comparison_operator");
-        SetOutput("datapoints_to_alarm");
-        SetOutput("dimensions");
-        SetOutput("evaluate_low_sample_count_percentiles");
-        SetOutput("evaluation_periods");
-        SetOutput("extended_statistic");
-        SetOutput("id");
-        SetOutput("insufficient_data_actions");
-        SetOutput("metric_name");
-        SetOutput("namespace");
-        SetOutput("ok_actions");
-        SetOutput("period");
-        SetOutput("region");
-        SetOutput("statistic");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("threshold");
-        SetOutput("threshold_metric_id");
-        SetOutput("treat_missing_data");
-        SetOutput("unit");
     }
 
     /// <summary>
     /// The actions_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ActionsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("actions_enabled");
-        set => SetProperty("actions_enabled", value);
-    }
+    [TerraformPropertyName("actions_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ActionsEnabled { get; set; }
 
     /// <summary>
     /// The alarm_actions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> AlarmActions
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("alarm_actions");
-        set => SetProperty("alarm_actions", value);
-    }
+    [TerraformPropertyName("alarm_actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? AlarmActions { get; set; }
 
     /// <summary>
     /// The alarm_description attribute.
     /// </summary>
-    public TerraformProperty<string> AlarmDescription
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alarm_description");
-        set => SetProperty("alarm_description", value);
-    }
+    [TerraformPropertyName("alarm_description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AlarmDescription { get; set; }
 
     /// <summary>
     /// The alarm_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
-    public required TerraformProperty<string> AlarmName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("alarm_name");
-        set => SetProperty("alarm_name", value);
-    }
+    [TerraformPropertyName("alarm_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AlarmName { get; set; }
 
     /// <summary>
     /// The comparison_operator attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
-    public required TerraformProperty<string> ComparisonOperator
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("comparison_operator");
-        set => SetProperty("comparison_operator", value);
-    }
+    [TerraformPropertyName("comparison_operator")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ComparisonOperator { get; set; }
 
     /// <summary>
     /// The datapoints_to_alarm attribute.
     /// </summary>
-    public TerraformProperty<double> DatapointsToAlarm
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("datapoints_to_alarm");
-        set => SetProperty("datapoints_to_alarm", value);
-    }
+    [TerraformPropertyName("datapoints_to_alarm")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DatapointsToAlarm { get; set; }
 
     /// <summary>
     /// The dimensions attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Dimensions
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("dimensions");
-        set => SetProperty("dimensions", value);
-    }
+    [TerraformPropertyName("dimensions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Dimensions { get; set; }
 
     /// <summary>
     /// The evaluate_low_sample_count_percentiles attribute.
     /// </summary>
-    public TerraformProperty<string> EvaluateLowSampleCountPercentiles
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("evaluate_low_sample_count_percentiles");
-        set => SetProperty("evaluate_low_sample_count_percentiles", value);
-    }
+    [TerraformPropertyName("evaluate_low_sample_count_percentiles")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EvaluateLowSampleCountPercentiles { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "evaluate_low_sample_count_percentiles");
 
     /// <summary>
     /// The evaluation_periods attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationPeriods is required")]
-    public required TerraformProperty<double> EvaluationPeriods
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("evaluation_periods");
-        set => SetProperty("evaluation_periods", value);
-    }
+    [TerraformPropertyName("evaluation_periods")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> EvaluationPeriods { get; set; }
 
     /// <summary>
     /// The extended_statistic attribute.
     /// </summary>
-    public TerraformProperty<string> ExtendedStatistic
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("extended_statistic");
-        set => SetProperty("extended_statistic", value);
-    }
+    [TerraformPropertyName("extended_statistic")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExtendedStatistic { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The insufficient_data_actions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> InsufficientDataActions
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("insufficient_data_actions");
-        set => SetProperty("insufficient_data_actions", value);
-    }
+    [TerraformPropertyName("insufficient_data_actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? InsufficientDataActions { get; set; }
 
     /// <summary>
     /// The metric_name attribute.
     /// </summary>
-    public TerraformProperty<string> MetricName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("metric_name");
-        set => SetProperty("metric_name", value);
-    }
+    [TerraformPropertyName("metric_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MetricName { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformProperty<string> Namespace
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("namespace");
-        set => SetProperty("namespace", value);
-    }
+    [TerraformPropertyName("namespace")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Namespace { get; set; }
 
     /// <summary>
     /// The ok_actions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> OkActions
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("ok_actions");
-        set => SetProperty("ok_actions", value);
-    }
+    [TerraformPropertyName("ok_actions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? OkActions { get; set; }
 
     /// <summary>
     /// The period attribute.
     /// </summary>
-    public TerraformProperty<double> Period
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("period");
-        set => SetProperty("period", value);
-    }
+    [TerraformPropertyName("period")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Period { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The statistic attribute.
     /// </summary>
-    public TerraformProperty<string> Statistic
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("statistic");
-        set => SetProperty("statistic", value);
-    }
+    [TerraformPropertyName("statistic")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Statistic { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The threshold attribute.
     /// </summary>
-    public TerraformProperty<double> Threshold
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("threshold");
-        set => SetProperty("threshold", value);
-    }
+    [TerraformPropertyName("threshold")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? Threshold { get; set; }
 
     /// <summary>
     /// The threshold_metric_id attribute.
     /// </summary>
-    public TerraformProperty<string> ThresholdMetricId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("threshold_metric_id");
-        set => SetProperty("threshold_metric_id", value);
-    }
+    [TerraformPropertyName("threshold_metric_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ThresholdMetricId { get; set; }
 
     /// <summary>
     /// The treat_missing_data attribute.
     /// </summary>
-    public TerraformProperty<string> TreatMissingData
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("treat_missing_data");
-        set => SetProperty("treat_missing_data", value);
-    }
+    [TerraformPropertyName("treat_missing_data")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TreatMissingData { get; set; }
 
     /// <summary>
     /// The unit attribute.
     /// </summary>
-    public TerraformProperty<string> Unit
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("unit");
-        set => SetProperty("unit", value);
-    }
+    [TerraformPropertyName("unit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Unit { get; set; }
 
     /// <summary>
     /// Block for metric_query.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AwsCloudwatchMetricAlarmMetricQueryBlock>? MetricQuery
-    {
-        set => SetProperty("metric_query", value);
-    }
+    [TerraformPropertyName("metric_query")]
+    public TerraformSet<TerraformBlock<AwsCloudwatchMetricAlarmMetricQueryBlock>>? MetricQuery { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
 }

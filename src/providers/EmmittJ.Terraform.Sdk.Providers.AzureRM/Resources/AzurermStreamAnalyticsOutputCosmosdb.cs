@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock : TerraformBlock
+public class AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,115 +45,81 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
 {
     public AzurermStreamAnalyticsOutputCosmosdb(string name) : base("azurerm_stream_analytics_output_cosmosdb", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("authentication_mode");
-        SetOutput("container_name");
-        SetOutput("cosmosdb_account_key");
-        SetOutput("cosmosdb_sql_database_id");
-        SetOutput("document_id");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("partition_key");
-        SetOutput("stream_analytics_job_id");
     }
 
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    public TerraformProperty<string> AuthenticationMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_mode");
-        set => SetProperty("authentication_mode", value);
-    }
+    [TerraformPropertyName("authentication_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthenticationMode { get; set; }
 
     /// <summary>
     /// The container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
-    public required TerraformProperty<string> ContainerName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_name");
-        set => SetProperty("container_name", value);
-    }
+    [TerraformPropertyName("container_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContainerName { get; set; }
 
     /// <summary>
     /// The cosmosdb_account_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountKey is required")]
-    public required TerraformProperty<string> CosmosdbAccountKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_account_key");
-        set => SetProperty("cosmosdb_account_key", value);
-    }
+    [TerraformPropertyName("cosmosdb_account_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CosmosdbAccountKey { get; set; }
 
     /// <summary>
     /// The cosmosdb_sql_database_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbSqlDatabaseId is required")]
-    public required TerraformProperty<string> CosmosdbSqlDatabaseId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cosmosdb_sql_database_id");
-        set => SetProperty("cosmosdb_sql_database_id", value);
-    }
+    [TerraformPropertyName("cosmosdb_sql_database_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CosmosdbSqlDatabaseId { get; set; }
 
     /// <summary>
     /// The document_id attribute.
     /// </summary>
-    public TerraformProperty<string> DocumentId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("document_id");
-        set => SetProperty("document_id", value);
-    }
+    [TerraformPropertyName("document_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DocumentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
-    public TerraformProperty<string> PartitionKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("partition_key");
-        set => SetProperty("partition_key", value);
-    }
+    [TerraformPropertyName("partition_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PartitionKey { get; set; }
 
     /// <summary>
     /// The stream_analytics_job_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
-    public required TerraformProperty<string> StreamAnalyticsJobId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_id");
-        set => SetProperty("stream_analytics_job_id", value);
-    }
+    [TerraformPropertyName("stream_analytics_job_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StreamAnalyticsJobId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

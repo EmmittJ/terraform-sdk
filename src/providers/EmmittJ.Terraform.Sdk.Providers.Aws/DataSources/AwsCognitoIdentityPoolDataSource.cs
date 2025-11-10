@@ -9,100 +9,91 @@ public class AwsCognitoIdentityPoolDataSource : TerraformDataSource
 {
     public AwsCognitoIdentityPoolDataSource(string name) : base("aws_cognito_identity_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("allow_classic_flow");
-        SetOutput("allow_unauthenticated_identities");
-        SetOutput("arn");
-        SetOutput("cognito_identity_providers");
-        SetOutput("developer_provider_name");
-        SetOutput("openid_connect_provider_arns");
-        SetOutput("saml_provider_arns");
-        SetOutput("supported_login_providers");
-        SetOutput("id");
-        SetOutput("identity_pool_name");
-        SetOutput("region");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The identity_pool_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolName is required")]
-    public required TerraformProperty<string> IdentityPoolName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_pool_name");
-        set => SetProperty("identity_pool_name", value);
-    }
+    [TerraformPropertyName("identity_pool_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IdentityPoolName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The allow_classic_flow attribute.
     /// </summary>
-    public TerraformExpression AllowClassicFlow => this["allow_classic_flow"];
+    [TerraformPropertyName("allow_classic_flow")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AllowClassicFlow => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "allow_classic_flow");
 
     /// <summary>
     /// The allow_unauthenticated_identities attribute.
     /// </summary>
-    public TerraformExpression AllowUnauthenticatedIdentities => this["allow_unauthenticated_identities"];
+    [TerraformPropertyName("allow_unauthenticated_identities")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AllowUnauthenticatedIdentities => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "allow_unauthenticated_identities");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The cognito_identity_providers attribute.
     /// </summary>
-    public TerraformExpression CognitoIdentityProviders => this["cognito_identity_providers"];
+    [TerraformPropertyName("cognito_identity_providers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> CognitoIdentityProviders => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "cognito_identity_providers");
 
     /// <summary>
     /// The developer_provider_name attribute.
     /// </summary>
-    public TerraformExpression DeveloperProviderName => this["developer_provider_name"];
+    [TerraformPropertyName("developer_provider_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeveloperProviderName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "developer_provider_name");
 
     /// <summary>
     /// The openid_connect_provider_arns attribute.
     /// </summary>
-    public TerraformExpression OpenidConnectProviderArns => this["openid_connect_provider_arns"];
+    [TerraformPropertyName("openid_connect_provider_arns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> OpenidConnectProviderArns => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "openid_connect_provider_arns");
 
     /// <summary>
     /// The saml_provider_arns attribute.
     /// </summary>
-    public TerraformExpression SamlProviderArns => this["saml_provider_arns"];
+    [TerraformPropertyName("saml_provider_arns")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SamlProviderArns => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "saml_provider_arns");
 
     /// <summary>
     /// The supported_login_providers attribute.
     /// </summary>
-    public TerraformExpression SupportedLoginProviders => this["supported_login_providers"];
+    [TerraformPropertyName("supported_login_providers")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> SupportedLoginProviders => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "supported_login_providers");
 
 }

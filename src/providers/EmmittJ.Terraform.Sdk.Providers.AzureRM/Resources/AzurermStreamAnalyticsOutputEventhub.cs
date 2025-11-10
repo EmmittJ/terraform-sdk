@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for serialization in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStreamAnalyticsOutputEventhubSerializationBlock : TerraformBlock
+public class AzurermStreamAnalyticsOutputEventhubSerializationBlock : ITerraformBlock
 {
     /// <summary>
     /// The encoding attribute.
     /// </summary>
-    public TerraformProperty<string>? Encoding
-    {
-        set => SetProperty("encoding", value);
-    }
+    [TerraformPropertyName("encoding")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Encoding { get; set; }
 
     /// <summary>
     /// The field_delimiter attribute.
     /// </summary>
-    public TerraformProperty<string>? FieldDelimiter
-    {
-        set => SetProperty("field_delimiter", value);
-    }
+    [TerraformPropertyName("field_delimiter")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FieldDelimiter { get; set; }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
-    public TerraformProperty<string>? Format
-    {
-        set => SetProperty("format", value);
-    }
+    [TerraformPropertyName("format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Format { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -47,39 +43,35 @@ public class AzurermStreamAnalyticsOutputEventhubSerializationBlock : TerraformB
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStreamAnalyticsOutputEventhubTimeoutsBlock : TerraformBlock
+public class AzurermStreamAnalyticsOutputEventhubTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -91,127 +83,89 @@ public class AzurermStreamAnalyticsOutputEventhub : TerraformResource
 {
     public AzurermStreamAnalyticsOutputEventhub(string name) : base("azurerm_stream_analytics_output_eventhub", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("authentication_mode");
-        SetOutput("eventhub_name");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("partition_key");
-        SetOutput("property_columns");
-        SetOutput("resource_group_name");
-        SetOutput("servicebus_namespace");
-        SetOutput("shared_access_policy_key");
-        SetOutput("shared_access_policy_name");
-        SetOutput("stream_analytics_job_name");
     }
 
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    public TerraformProperty<string> AuthenticationMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_mode");
-        set => SetProperty("authentication_mode", value);
-    }
+    [TerraformPropertyName("authentication_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthenticationMode { get; set; }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
-    public required TerraformProperty<string> EventhubName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("eventhub_name");
-        set => SetProperty("eventhub_name", value);
-    }
+    [TerraformPropertyName("eventhub_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EventhubName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
-    public TerraformProperty<string> PartitionKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("partition_key");
-        set => SetProperty("partition_key", value);
-    }
+    [TerraformPropertyName("partition_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PartitionKey { get; set; }
 
     /// <summary>
     /// The property_columns attribute.
     /// </summary>
-    public List<TerraformProperty<string>> PropertyColumns
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("property_columns");
-        set => SetProperty("property_columns", value);
-    }
+    [TerraformPropertyName("property_columns")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? PropertyColumns { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The servicebus_namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicebusNamespace is required")]
-    public required TerraformProperty<string> ServicebusNamespace
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("servicebus_namespace");
-        set => SetProperty("servicebus_namespace", value);
-    }
+    [TerraformPropertyName("servicebus_namespace")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ServicebusNamespace { get; set; }
 
     /// <summary>
     /// The shared_access_policy_key attribute.
     /// </summary>
-    public TerraformProperty<string> SharedAccessPolicyKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("shared_access_policy_key");
-        set => SetProperty("shared_access_policy_key", value);
-    }
+    [TerraformPropertyName("shared_access_policy_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SharedAccessPolicyKey { get; set; }
 
     /// <summary>
     /// The shared_access_policy_name attribute.
     /// </summary>
-    public TerraformProperty<string> SharedAccessPolicyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("shared_access_policy_name");
-        set => SetProperty("shared_access_policy_name", value);
-    }
+    [TerraformPropertyName("shared_access_policy_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SharedAccessPolicyName { get; set; }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
-    public required TerraformProperty<string> StreamAnalyticsJobName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("stream_analytics_job_name");
-        set => SetProperty("stream_analytics_job_name", value);
-    }
+    [TerraformPropertyName("stream_analytics_job_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StreamAnalyticsJobName { get; set; }
 
     /// <summary>
     /// Block for serialization.
@@ -220,18 +174,14 @@ public class AzurermStreamAnalyticsOutputEventhub : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serialization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Serialization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serialization block(s) allowed")]
-    public List<AzurermStreamAnalyticsOutputEventhubSerializationBlock>? Serialization
-    {
-        set => SetProperty("serialization", value);
-    }
+    [TerraformPropertyName("serialization")]
+    public TerraformList<TerraformBlock<AzurermStreamAnalyticsOutputEventhubSerializationBlock>>? Serialization { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStreamAnalyticsOutputEventhubTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStreamAnalyticsOutputEventhubTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

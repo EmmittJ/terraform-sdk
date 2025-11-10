@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for orchestrated_resource in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedResourceBlock : TerraformBlock
+public class GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedResourceBlock : ITerraformBlock
 {
     /// <summary>
     /// ID of the resource to be used while generating set of affected resources.
@@ -24,10 +24,9 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedResourceBloc
     /// For DELETE action, ID must be specified explicitly during
     /// PolicyOrchestrator creation.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Id { get; set; }
 
 }
 
@@ -35,7 +34,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedResourceBloc
 /// Block type for orchestration_scope in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOsConfigV2PolicyOrchestratorForFolderOrchestrationScopeBlock : TerraformBlock
+public class GoogleOsConfigV2PolicyOrchestratorForFolderOrchestrationScopeBlock : ITerraformBlock
 {
 }
 
@@ -43,31 +42,28 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolderOrchestrationScopeBlock 
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleOsConfigV2PolicyOrchestratorForFolderTimeoutsBlock : TerraformBlock
+public class GoogleOsConfigV2PolicyOrchestratorForFolderTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -79,26 +75,6 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformResource
 {
     public GoogleOsConfigV2PolicyOrchestratorForFolder(string name) : base("google_os_config_v2_policy_orchestrator_for_folder", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("effective_labels");
-        SetOutput("etag");
-        SetOutput("name");
-        SetOutput("orchestration_state");
-        SetOutput("reconciling");
-        SetOutput("terraform_labels");
-        SetOutput("update_time");
-        SetOutput("action");
-        SetOutput("description");
-        SetOutput("folder_id");
-        SetOutput("id");
-        SetOutput("labels");
-        SetOutput("policy_orchestrator_id");
-        SetOutput("state");
     }
 
     /// <summary>
@@ -109,39 +85,31 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformResource
     /// - &#39;DELETE&#39; - Orchestrator will delete target resources, if they exist
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    public required TerraformProperty<string> Action
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("action");
-        set => SetProperty("action", value);
-    }
+    [TerraformPropertyName("action")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Action { get; set; }
 
     /// <summary>
     /// Freeform text describing the purpose of the resource.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The parent resource name in the form of &#39;folders/{folder_id}/locations/global&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
-    public required TerraformProperty<string> FolderId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("folder_id");
-        set => SetProperty("folder_id", value);
-    }
+    [TerraformPropertyName("folder_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FolderId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Labels as key value pairs
@@ -149,11 +117,9 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Labels
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("labels");
-        set => SetProperty("labels", value);
-    }
+    [TerraformPropertyName("labels")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Labels { get; set; }
 
     /// <summary>
     /// The logical identifier of the policy orchestrator, with the following
@@ -166,11 +132,9 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformResource
     /// * Must be unique within the parent.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyOrchestratorId is required")]
-    public required TerraformProperty<string> PolicyOrchestratorId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_orchestrator_id");
-        set => SetProperty("policy_orchestrator_id", value);
-    }
+    [TerraformPropertyName("policy_orchestrator_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyOrchestratorId { get; set; }
 
     /// <summary>
     /// State of the orchestrator. Can be updated to change orchestrator behaviour.
@@ -182,11 +146,9 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformResource
     /// instead of an enum, to avoid the need of propagating new states to all the
     /// client code.
     /// </summary>
-    public TerraformProperty<string> State
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("state");
-        set => SetProperty("state", value);
-    }
+    [TerraformPropertyName("state")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? State { get; set; }
 
     /// <summary>
     /// Block for orchestrated_resource.
@@ -195,46 +157,46 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrchestratedResource is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OrchestratedResource block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrchestratedResource block(s) allowed")]
-    public List<GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedResourceBlock>? OrchestratedResource
-    {
-        set => SetProperty("orchestrated_resource", value);
-    }
+    [TerraformPropertyName("orchestrated_resource")]
+    public TerraformList<TerraformBlock<GoogleOsConfigV2PolicyOrchestratorForFolderOrchestratedResourceBlock>>? OrchestratedResource { get; set; } = new();
 
     /// <summary>
     /// Block for orchestration_scope.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrchestrationScope block(s) allowed")]
-    public List<GoogleOsConfigV2PolicyOrchestratorForFolderOrchestrationScopeBlock>? OrchestrationScope
-    {
-        set => SetProperty("orchestration_scope", value);
-    }
+    [TerraformPropertyName("orchestration_scope")]
+    public TerraformList<TerraformBlock<GoogleOsConfigV2PolicyOrchestratorForFolderOrchestrationScopeBlock>>? OrchestrationScope { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleOsConfigV2PolicyOrchestratorForFolderTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleOsConfigV2PolicyOrchestratorForFolderTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Timestamp when the policy orchestrator resource was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
     /// fields, and may be sent on update and delete requests to ensure the
     /// client has an up-to-date value before proceeding.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// Identifier. In form of
@@ -242,28 +204,38 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformResource
     /// * &#39;folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}&#39;
     /// * &#39;projects/{project_id_or_number}/locations/global/policyOrchestrators/{orchestrator_id}&#39;
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Describes the state of the orchestration process.
     /// </summary>
-    public TerraformExpression OrchestrationState => this["orchestration_state"];
+    [TerraformPropertyName("orchestration_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> OrchestrationState => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "orchestration_state");
 
     /// <summary>
     /// Set to true, if the there are ongoing changes being applied by the
     /// orchestrator.
     /// </summary>
-    public TerraformExpression Reconciling => this["reconciling"];
+    [TerraformPropertyName("reconciling")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Timestamp when the policy orchestrator resource was last modified.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

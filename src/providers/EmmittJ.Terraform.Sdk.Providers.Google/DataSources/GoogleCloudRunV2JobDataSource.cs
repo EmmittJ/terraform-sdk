@@ -9,79 +9,36 @@ public class GoogleCloudRunV2JobDataSource : TerraformDataSource
 {
     public GoogleCloudRunV2JobDataSource(string name) : base("google_cloud_run_v2_job", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("annotations");
-        SetOutput("binary_authorization");
-        SetOutput("client");
-        SetOutput("client_version");
-        SetOutput("conditions");
-        SetOutput("create_time");
-        SetOutput("creator");
-        SetOutput("delete_time");
-        SetOutput("deletion_protection");
-        SetOutput("effective_annotations");
-        SetOutput("effective_labels");
-        SetOutput("etag");
-        SetOutput("execution_count");
-        SetOutput("expire_time");
-        SetOutput("generation");
-        SetOutput("labels");
-        SetOutput("last_modifier");
-        SetOutput("latest_created_execution");
-        SetOutput("launch_stage");
-        SetOutput("observed_generation");
-        SetOutput("reconciling");
-        SetOutput("template");
-        SetOutput("terminal_condition");
-        SetOutput("terraform_labels");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location of the cloud run job
     /// </summary>
-    public TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Location { get; set; }
 
     /// <summary>
     /// Name of the Job.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects.
@@ -94,42 +51,58 @@ public class GoogleCloudRunV2JobDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformExpression Annotations => this["annotations"];
+    [TerraformPropertyName("annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Annotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "annotations");
 
     /// <summary>
     /// Settings for the Binary Authorization feature.
     /// </summary>
-    public TerraformExpression BinaryAuthorization => this["binary_authorization"];
+    [TerraformPropertyName("binary_authorization")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> BinaryAuthorization => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "binary_authorization");
 
     /// <summary>
     /// Arbitrary identifier for the API client.
     /// </summary>
-    public TerraformExpression Client => this["client"];
+    [TerraformPropertyName("client")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Client => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "client");
 
     /// <summary>
     /// Arbitrary version identifier for the API client.
     /// </summary>
-    public TerraformExpression ClientVersion => this["client_version"];
+    [TerraformPropertyName("client_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ClientVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "client_version");
 
     /// <summary>
     /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Job does not reach its desired state. See comments in reconciling for additional information on &#39;reconciliation&#39; process in Cloud Run.
     /// </summary>
-    public TerraformExpression Conditions => this["conditions"];
+    [TerraformPropertyName("conditions")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Conditions => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "conditions");
 
     /// <summary>
     /// The creation time.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Email address of the authenticated creator.
     /// </summary>
-    public TerraformExpression Creator => this["creator"];
+    [TerraformPropertyName("creator")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Creator => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creator");
 
     /// <summary>
     /// The deletion time.
     /// </summary>
-    public TerraformExpression DeleteTime => this["delete_time"];
+    [TerraformPropertyName("delete_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeleteTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delete_time");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the job. Defaults to true.
@@ -139,37 +112,51 @@ public class GoogleCloudRunV2JobDataSource : TerraformDataSource
     /// or &#39;terraform destroy&#39; that would delete the job will fail.
     /// When the field is set to false, deleting the job is allowed.
     /// </summary>
-    public TerraformExpression DeletionProtection => this["deletion_protection"];
+    [TerraformPropertyName("deletion_protection")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DeletionProtection => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "deletion_protection");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+    [TerraformPropertyName("effective_annotations")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveAnnotations => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    public TerraformExpression EffectiveLabels => this["effective_labels"];
+    [TerraformPropertyName("effective_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> EffectiveLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "effective_labels");
 
     /// <summary>
     /// A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates.
     /// </summary>
-    public TerraformExpression Etag => this["etag"];
+    [TerraformPropertyName("etag")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Etag => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "etag");
 
     /// <summary>
     /// Number of executions created for this job.
     /// </summary>
-    public TerraformExpression ExecutionCount => this["execution_count"];
+    [TerraformPropertyName("execution_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ExecutionCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "execution_count");
 
     /// <summary>
     /// For a deleted resource, the time after which it will be permanently deleted.
     /// </summary>
-    public TerraformExpression ExpireTime => this["expire_time"];
+    [TerraformPropertyName("expire_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpireTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expire_time");
 
     /// <summary>
     /// A number that monotonically increases every time the user modifies the desired state.
     /// </summary>
-    public TerraformExpression Generation => this["generation"];
+    [TerraformPropertyName("generation")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Generation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "generation");
 
     /// <summary>
     /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google&#39;s billing system, so they can be used to filter, or break down billing charges by team, component,
@@ -181,17 +168,23 @@ public class GoogleCloudRunV2JobDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformExpression Labels => this["labels"];
+    [TerraformPropertyName("labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Labels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "labels");
 
     /// <summary>
     /// Email address of the last authenticated modifier.
     /// </summary>
-    public TerraformExpression LastModifier => this["last_modifier"];
+    [TerraformPropertyName("last_modifier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modifier");
 
     /// <summary>
     /// Name of the last created execution.
     /// </summary>
-    public TerraformExpression LatestCreatedExecution => this["latest_created_execution"];
+    [TerraformPropertyName("latest_created_execution")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> LatestCreatedExecution => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "latest_created_execution");
 
     /// <summary>
     /// The launch stage as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/products#product-launch-stages). Cloud Run supports ALPHA, BETA, and GA.
@@ -199,12 +192,16 @@ public class GoogleCloudRunV2JobDataSource : TerraformDataSource
     /// 
     /// For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values: [&amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
-    public TerraformExpression LaunchStage => this["launch_stage"];
+    [TerraformPropertyName("launch_stage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LaunchStage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "launch_stage");
 
     /// <summary>
     /// The generation of this Job. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
-    public TerraformExpression ObservedGeneration => this["observed_generation"];
+    [TerraformPropertyName("observed_generation")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ObservedGeneration => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "observed_generation");
 
     /// <summary>
     /// Returns true if the Job is currently being acted upon by the system to bring it into the desired state.
@@ -215,32 +212,44 @@ public class GoogleCloudRunV2JobDataSource : TerraformDataSource
     /// 
     /// If reconciliation failed, observedGeneration and latest_succeeded_execution will have the state of the last succeeded execution or empty for newly created Job. Additional information on the failure can be found in terminalCondition and conditions
     /// </summary>
-    public TerraformExpression Reconciling => this["reconciling"];
+    [TerraformPropertyName("reconciling")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Reconciling => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "reconciling");
 
     /// <summary>
     /// The template used to create executions for this Job.
     /// </summary>
-    public TerraformExpression Template => this["template"];
+    [TerraformPropertyName("template")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Template => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "template");
 
     /// <summary>
     /// The Condition of this Job, containing its readiness status, and detailed error information in case it did not reach the desired state
     /// </summary>
-    public TerraformExpression TerminalCondition => this["terminal_condition"];
+    [TerraformPropertyName("terminal_condition")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> TerminalCondition => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "terminal_condition");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    public TerraformExpression TerraformLabels => this["terraform_labels"];
+    [TerraformPropertyName("terraform_labels")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TerraformLabels => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "terraform_labels");
 
     /// <summary>
     /// Server assigned unique identifier for the Execution. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// The last-modified time.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

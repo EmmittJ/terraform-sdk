@@ -16,9 +16,12 @@ public class TerraformDataSource(string type, string name) : TerraformProvisiona
         => TerraformExpression.Identifier($"data.{ConstructType}.{ConstructName}");
 
     /// <inheritdoc/>
-    protected override void WriteAdditionalProperties(System.Text.StringBuilder sb, ITerraformContext context)
+    protected override void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
-        // Meta-arguments first
+        // Call base to write all regular properties
+        base.WriteProperties(sb, context);
+
+        // Then write meta-arguments
         WriteMetaArguments(sb, context);
     }
 }

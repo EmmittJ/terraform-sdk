@@ -9,47 +9,34 @@ public class GoogleStorageBucketsDataSource : TerraformDataSource
 {
     public GoogleStorageBucketsDataSource(string name) : base("google_storage_buckets", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("buckets");
-        SetOutput("id");
-        SetOutput("prefix");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string> Prefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("prefix");
-        set => SetProperty("prefix", value);
-    }
+    [TerraformPropertyName("prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Prefix { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The buckets attribute.
     /// </summary>
-    public TerraformExpression Buckets => this["buckets"];
+    [TerraformPropertyName("buckets")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Buckets => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "buckets");
 
 }

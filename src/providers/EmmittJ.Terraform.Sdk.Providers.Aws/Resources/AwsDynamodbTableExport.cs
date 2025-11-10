@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for incremental_export_specification in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDynamodbTableExportIncrementalExportSpecificationBlock : TerraformBlock
+public class AwsDynamodbTableExportIncrementalExportSpecificationBlock : ITerraformBlock
 {
     /// <summary>
     /// The export_from_time attribute.
     /// </summary>
-    public TerraformProperty<string>? ExportFromTime
-    {
-        set => SetProperty("export_from_time", value);
-    }
+    [TerraformPropertyName("export_from_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ExportFromTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "export_from_time");
 
     /// <summary>
     /// The export_to_time attribute.
     /// </summary>
-    public TerraformProperty<string>? ExportToTime
-    {
-        set => SetProperty("export_to_time", value);
-    }
+    [TerraformPropertyName("export_to_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ExportToTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "export_to_time");
 
     /// <summary>
     /// The export_view_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ExportViewType
-    {
-        set => SetProperty("export_view_type", value);
-    }
+    [TerraformPropertyName("export_view_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ExportViewType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "export_view_type");
 
 }
 
@@ -38,23 +35,21 @@ public class AwsDynamodbTableExportIncrementalExportSpecificationBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDynamodbTableExportTimeoutsBlock : TerraformBlock
+public class AwsDynamodbTableExportTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
 }
 
@@ -66,184 +61,149 @@ public class AwsDynamodbTableExport : TerraformResource
 {
     public AwsDynamodbTableExport(string name) : base("aws_dynamodb_table_export", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("billed_size_in_bytes");
-        SetOutput("end_time");
-        SetOutput("export_status");
-        SetOutput("item_count");
-        SetOutput("manifest_files_s3_key");
-        SetOutput("start_time");
-        SetOutput("export_format");
-        SetOutput("export_time");
-        SetOutput("export_type");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("s3_bucket");
-        SetOutput("s3_bucket_owner");
-        SetOutput("s3_prefix");
-        SetOutput("s3_sse_algorithm");
-        SetOutput("s3_sse_kms_key_id");
-        SetOutput("table_arn");
     }
 
     /// <summary>
     /// The export_format attribute.
     /// </summary>
-    public TerraformProperty<string> ExportFormat
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("export_format");
-        set => SetProperty("export_format", value);
-    }
+    [TerraformPropertyName("export_format")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExportFormat { get; set; }
 
     /// <summary>
     /// The export_time attribute.
     /// </summary>
-    public TerraformProperty<string> ExportTime
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("export_time");
-        set => SetProperty("export_time", value);
-    }
+    [TerraformPropertyName("export_time")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ExportTime { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "export_time");
 
     /// <summary>
     /// The export_type attribute.
     /// </summary>
-    public TerraformProperty<string> ExportType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("export_type");
-        set => SetProperty("export_type", value);
-    }
+    [TerraformPropertyName("export_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ExportType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "export_type");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
-    public required TerraformProperty<string> S3Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket");
-        set => SetProperty("s3_bucket", value);
-    }
+    [TerraformPropertyName("s3_bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> S3Bucket { get; set; }
 
     /// <summary>
     /// The s3_bucket_owner attribute.
     /// </summary>
-    public TerraformProperty<string> S3BucketOwner
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_bucket_owner");
-        set => SetProperty("s3_bucket_owner", value);
-    }
+    [TerraformPropertyName("s3_bucket_owner")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> S3BucketOwner { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "s3_bucket_owner");
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> S3Prefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_prefix");
-        set => SetProperty("s3_prefix", value);
-    }
+    [TerraformPropertyName("s3_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> S3Prefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "s3_prefix");
 
     /// <summary>
     /// The s3_sse_algorithm attribute.
     /// </summary>
-    public TerraformProperty<string> S3SseAlgorithm
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_sse_algorithm");
-        set => SetProperty("s3_sse_algorithm", value);
-    }
+    [TerraformPropertyName("s3_sse_algorithm")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> S3SseAlgorithm { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "s3_sse_algorithm");
 
     /// <summary>
     /// The s3_sse_kms_key_id attribute.
     /// </summary>
-    public TerraformProperty<string> S3SseKmsKeyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("s3_sse_kms_key_id");
-        set => SetProperty("s3_sse_kms_key_id", value);
-    }
+    [TerraformPropertyName("s3_sse_kms_key_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? S3SseKmsKeyId { get; set; }
 
     /// <summary>
     /// The table_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableArn is required")]
-    public required TerraformProperty<string> TableArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_arn");
-        set => SetProperty("table_arn", value);
-    }
+    [TerraformPropertyName("table_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TableArn { get; set; }
 
     /// <summary>
     /// Block for incremental_export_specification.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncrementalExportSpecification block(s) allowed")]
-    public List<AwsDynamodbTableExportIncrementalExportSpecificationBlock>? IncrementalExportSpecification
-    {
-        set => SetProperty("incremental_export_specification", value);
-    }
+    [TerraformPropertyName("incremental_export_specification")]
+    public TerraformList<TerraformBlock<AwsDynamodbTableExportIncrementalExportSpecificationBlock>>? IncrementalExportSpecification { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsDynamodbTableExportTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsDynamodbTableExportTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The billed_size_in_bytes attribute.
     /// </summary>
-    public TerraformExpression BilledSizeInBytes => this["billed_size_in_bytes"];
+    [TerraformPropertyName("billed_size_in_bytes")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> BilledSizeInBytes => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "billed_size_in_bytes");
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformExpression EndTime => this["end_time"];
+    [TerraformPropertyName("end_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EndTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "end_time");
 
     /// <summary>
     /// The export_status attribute.
     /// </summary>
-    public TerraformExpression ExportStatus => this["export_status"];
+    [TerraformPropertyName("export_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExportStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "export_status");
 
     /// <summary>
     /// The item_count attribute.
     /// </summary>
-    public TerraformExpression ItemCount => this["item_count"];
+    [TerraformPropertyName("item_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> ItemCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "item_count");
 
     /// <summary>
     /// The manifest_files_s3_key attribute.
     /// </summary>
-    public TerraformExpression ManifestFilesS3Key => this["manifest_files_s3_key"];
+    [TerraformPropertyName("manifest_files_s3_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ManifestFilesS3Key => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "manifest_files_s3_key");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformExpression StartTime => this["start_time"];
+    [TerraformPropertyName("start_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StartTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "start_time");
 
 }

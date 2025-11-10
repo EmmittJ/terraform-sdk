@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
+public class AzurermIothubFileUploadTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,133 +45,93 @@ public class AzurermIothubFileUpload : TerraformResource
 {
     public AzurermIothubFileUpload(string name) : base("azurerm_iothub_file_upload", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("authentication_type");
-        SetOutput("connection_string");
-        SetOutput("container_name");
-        SetOutput("default_ttl");
-        SetOutput("id");
-        SetOutput("identity_id");
-        SetOutput("iothub_id");
-        SetOutput("lock_duration");
-        SetOutput("max_delivery_count");
-        SetOutput("notifications_enabled");
-        SetOutput("sas_ttl");
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformProperty<string> AuthenticationType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("authentication_type");
-        set => SetProperty("authentication_type", value);
-    }
+    [TerraformPropertyName("authentication_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AuthenticationType { get; set; }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
-    public required TerraformProperty<string> ConnectionString
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("connection_string");
-        set => SetProperty("connection_string", value);
-    }
+    [TerraformPropertyName("connection_string")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ConnectionString { get; set; }
 
     /// <summary>
     /// The container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
-    public required TerraformProperty<string> ContainerName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("container_name");
-        set => SetProperty("container_name", value);
-    }
+    [TerraformPropertyName("container_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ContainerName { get; set; }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultTtl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_ttl");
-        set => SetProperty("default_ttl", value);
-    }
+    [TerraformPropertyName("default_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultTtl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public TerraformProperty<string> IdentityId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("identity_id");
-        set => SetProperty("identity_id", value);
-    }
+    [TerraformPropertyName("identity_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IdentityId { get; set; }
 
     /// <summary>
     /// The iothub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
-    public required TerraformProperty<string> IothubId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("iothub_id");
-        set => SetProperty("iothub_id", value);
-    }
+    [TerraformPropertyName("iothub_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> IothubId { get; set; }
 
     /// <summary>
     /// The lock_duration attribute.
     /// </summary>
-    public TerraformProperty<string> LockDuration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("lock_duration");
-        set => SetProperty("lock_duration", value);
-    }
+    [TerraformPropertyName("lock_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LockDuration { get; set; }
 
     /// <summary>
     /// The max_delivery_count attribute.
     /// </summary>
-    public TerraformProperty<double> MaxDeliveryCount
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_delivery_count");
-        set => SetProperty("max_delivery_count", value);
-    }
+    [TerraformPropertyName("max_delivery_count")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxDeliveryCount { get; set; }
 
     /// <summary>
     /// The notifications_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> NotificationsEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("notifications_enabled");
-        set => SetProperty("notifications_enabled", value);
-    }
+    [TerraformPropertyName("notifications_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? NotificationsEnabled { get; set; }
 
     /// <summary>
     /// The sas_ttl attribute.
     /// </summary>
-    public TerraformProperty<string> SasTtl
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sas_ttl");
-        set => SetProperty("sas_ttl", value);
-    }
+    [TerraformPropertyName("sas_ttl")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SasTtl { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermIothubFileUploadTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermIothubFileUploadTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

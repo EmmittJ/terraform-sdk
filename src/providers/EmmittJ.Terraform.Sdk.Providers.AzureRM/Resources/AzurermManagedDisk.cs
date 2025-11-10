@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for encryption_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermManagedDiskEncryptionSettingsBlock : TerraformBlock
+public class AzurermManagedDiskEncryptionSettingsBlock : ITerraformBlock
 {
 }
 
@@ -14,39 +14,35 @@ public class AzurermManagedDiskEncryptionSettingsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermManagedDiskTimeoutsBlock : TerraformBlock
+public class AzurermManagedDiskTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -58,385 +54,271 @@ public class AzurermManagedDisk : TerraformResource
 {
     public AzurermManagedDisk(string name) : base("azurerm_managed_disk", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_option");
-        SetOutput("disk_access_id");
-        SetOutput("disk_encryption_set_id");
-        SetOutput("disk_iops_read_only");
-        SetOutput("disk_iops_read_write");
-        SetOutput("disk_mbps_read_only");
-        SetOutput("disk_mbps_read_write");
-        SetOutput("disk_size_gb");
-        SetOutput("edge_zone");
-        SetOutput("gallery_image_reference_id");
-        SetOutput("hyper_v_generation");
-        SetOutput("id");
-        SetOutput("image_reference_id");
-        SetOutput("location");
-        SetOutput("logical_sector_size");
-        SetOutput("max_shares");
-        SetOutput("name");
-        SetOutput("network_access_policy");
-        SetOutput("on_demand_bursting_enabled");
-        SetOutput("optimized_frequent_attach_enabled");
-        SetOutput("os_type");
-        SetOutput("performance_plus_enabled");
-        SetOutput("public_network_access_enabled");
-        SetOutput("resource_group_name");
-        SetOutput("secure_vm_disk_encryption_set_id");
-        SetOutput("security_type");
-        SetOutput("source_resource_id");
-        SetOutput("source_uri");
-        SetOutput("storage_account_id");
-        SetOutput("storage_account_type");
-        SetOutput("tags");
-        SetOutput("tier");
-        SetOutput("trusted_launch_enabled");
-        SetOutput("upload_size_bytes");
-        SetOutput("zone");
     }
 
     /// <summary>
     /// The create_option attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
-    public required TerraformProperty<string> CreateOption
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("create_option");
-        set => SetProperty("create_option", value);
-    }
+    [TerraformPropertyName("create_option")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CreateOption { get; set; }
 
     /// <summary>
     /// The disk_access_id attribute.
     /// </summary>
-    public TerraformProperty<string> DiskAccessId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("disk_access_id");
-        set => SetProperty("disk_access_id", value);
-    }
+    [TerraformPropertyName("disk_access_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DiskAccessId { get; set; }
 
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    public TerraformProperty<string> DiskEncryptionSetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("disk_encryption_set_id");
-        set => SetProperty("disk_encryption_set_id", value);
-    }
+    [TerraformPropertyName("disk_encryption_set_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The disk_iops_read_only attribute.
     /// </summary>
-    public TerraformProperty<double> DiskIopsReadOnly
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("disk_iops_read_only");
-        set => SetProperty("disk_iops_read_only", value);
-    }
+    [TerraformPropertyName("disk_iops_read_only")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DiskIopsReadOnly { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "disk_iops_read_only");
 
     /// <summary>
     /// The disk_iops_read_write attribute.
     /// </summary>
-    public TerraformProperty<double> DiskIopsReadWrite
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("disk_iops_read_write");
-        set => SetProperty("disk_iops_read_write", value);
-    }
+    [TerraformPropertyName("disk_iops_read_write")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DiskIopsReadWrite { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "disk_iops_read_write");
 
     /// <summary>
     /// The disk_mbps_read_only attribute.
     /// </summary>
-    public TerraformProperty<double> DiskMbpsReadOnly
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("disk_mbps_read_only");
-        set => SetProperty("disk_mbps_read_only", value);
-    }
+    [TerraformPropertyName("disk_mbps_read_only")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DiskMbpsReadOnly { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "disk_mbps_read_only");
 
     /// <summary>
     /// The disk_mbps_read_write attribute.
     /// </summary>
-    public TerraformProperty<double> DiskMbpsReadWrite
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("disk_mbps_read_write");
-        set => SetProperty("disk_mbps_read_write", value);
-    }
+    [TerraformPropertyName("disk_mbps_read_write")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DiskMbpsReadWrite { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "disk_mbps_read_write");
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformProperty<double> DiskSizeGb
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("disk_size_gb");
-        set => SetProperty("disk_size_gb", value);
-    }
+    [TerraformPropertyName("disk_size_gb")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> DiskSizeGb { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "disk_size_gb");
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    public TerraformProperty<string> EdgeZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("edge_zone");
-        set => SetProperty("edge_zone", value);
-    }
+    [TerraformPropertyName("edge_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EdgeZone { get; set; }
 
     /// <summary>
     /// The gallery_image_reference_id attribute.
     /// </summary>
-    public TerraformProperty<string> GalleryImageReferenceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gallery_image_reference_id");
-        set => SetProperty("gallery_image_reference_id", value);
-    }
+    [TerraformPropertyName("gallery_image_reference_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? GalleryImageReferenceId { get; set; }
 
     /// <summary>
     /// The hyper_v_generation attribute.
     /// </summary>
-    public TerraformProperty<string> HyperVGeneration
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("hyper_v_generation");
-        set => SetProperty("hyper_v_generation", value);
-    }
+    [TerraformPropertyName("hyper_v_generation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? HyperVGeneration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The image_reference_id attribute.
     /// </summary>
-    public TerraformProperty<string> ImageReferenceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("image_reference_id");
-        set => SetProperty("image_reference_id", value);
-    }
+    [TerraformPropertyName("image_reference_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ImageReferenceId { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The logical_sector_size attribute.
     /// </summary>
-    public TerraformProperty<double> LogicalSectorSize
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("logical_sector_size");
-        set => SetProperty("logical_sector_size", value);
-    }
+    [TerraformPropertyName("logical_sector_size")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> LogicalSectorSize { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "logical_sector_size");
 
     /// <summary>
     /// The max_shares attribute.
     /// </summary>
-    public TerraformProperty<double> MaxShares
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_shares");
-        set => SetProperty("max_shares", value);
-    }
+    [TerraformPropertyName("max_shares")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> MaxShares { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_shares");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The network_access_policy attribute.
     /// </summary>
-    public TerraformProperty<string> NetworkAccessPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_access_policy");
-        set => SetProperty("network_access_policy", value);
-    }
+    [TerraformPropertyName("network_access_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NetworkAccessPolicy { get; set; }
 
     /// <summary>
     /// The on_demand_bursting_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> OnDemandBurstingEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("on_demand_bursting_enabled");
-        set => SetProperty("on_demand_bursting_enabled", value);
-    }
+    [TerraformPropertyName("on_demand_bursting_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? OnDemandBurstingEnabled { get; set; }
 
     /// <summary>
     /// The optimized_frequent_attach_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> OptimizedFrequentAttachEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("optimized_frequent_attach_enabled");
-        set => SetProperty("optimized_frequent_attach_enabled", value);
-    }
+    [TerraformPropertyName("optimized_frequent_attach_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? OptimizedFrequentAttachEnabled { get; set; }
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
-    public TerraformProperty<string> OsType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("os_type");
-        set => SetProperty("os_type", value);
-    }
+    [TerraformPropertyName("os_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OsType { get; set; }
 
     /// <summary>
     /// The performance_plus_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PerformancePlusEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("performance_plus_enabled");
-        set => SetProperty("performance_plus_enabled", value);
-    }
+    [TerraformPropertyName("performance_plus_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PerformancePlusEnabled { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PublicNetworkAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
-        set => SetProperty("public_network_access_enabled", value);
-    }
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The secure_vm_disk_encryption_set_id attribute.
     /// </summary>
-    public TerraformProperty<string> SecureVmDiskEncryptionSetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("secure_vm_disk_encryption_set_id");
-        set => SetProperty("secure_vm_disk_encryption_set_id", value);
-    }
+    [TerraformPropertyName("secure_vm_disk_encryption_set_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecureVmDiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The security_type attribute.
     /// </summary>
-    public TerraformProperty<string> SecurityType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("security_type");
-        set => SetProperty("security_type", value);
-    }
+    [TerraformPropertyName("security_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecurityType { get; set; }
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string> SourceResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_resource_id");
-        set => SetProperty("source_resource_id", value);
-    }
+    [TerraformPropertyName("source_resource_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SourceResourceId { get; set; }
 
     /// <summary>
     /// The source_uri attribute.
     /// </summary>
-    public TerraformProperty<string> SourceUri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_uri");
-        set => SetProperty("source_uri", value);
-    }
+    [TerraformPropertyName("source_uri")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> SourceUri { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_uri");
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string> StorageAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_id");
-        set => SetProperty("storage_account_id", value);
-    }
+    [TerraformPropertyName("storage_account_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageAccountId { get; set; }
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
-    public required TerraformProperty<string> StorageAccountType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("storage_account_type");
-        set => SetProperty("storage_account_type", value);
-    }
+    [TerraformPropertyName("storage_account_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StorageAccountType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformProperty<string> Tier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("tier");
-        set => SetProperty("tier", value);
-    }
+    [TerraformPropertyName("tier")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Tier { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "tier");
 
     /// <summary>
     /// The trusted_launch_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> TrustedLaunchEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("trusted_launch_enabled");
-        set => SetProperty("trusted_launch_enabled", value);
-    }
+    [TerraformPropertyName("trusted_launch_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TrustedLaunchEnabled { get; set; }
 
     /// <summary>
     /// The upload_size_bytes attribute.
     /// </summary>
-    public TerraformProperty<double> UploadSizeBytes
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("upload_size_bytes");
-        set => SetProperty("upload_size_bytes", value);
-    }
+    [TerraformPropertyName("upload_size_bytes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? UploadSizeBytes { get; set; }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    public TerraformProperty<string> Zone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("zone");
-        set => SetProperty("zone", value);
-    }
+    [TerraformPropertyName("zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Zone { get; set; }
 
     /// <summary>
     /// Block for encryption_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSettings block(s) allowed")]
-    public List<AzurermManagedDiskEncryptionSettingsBlock>? EncryptionSettings
-    {
-        set => SetProperty("encryption_settings", value);
-    }
+    [TerraformPropertyName("encryption_settings")]
+    public TerraformList<TerraformBlock<AzurermManagedDiskEncryptionSettingsBlock>>? EncryptionSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermManagedDiskTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermManagedDiskTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

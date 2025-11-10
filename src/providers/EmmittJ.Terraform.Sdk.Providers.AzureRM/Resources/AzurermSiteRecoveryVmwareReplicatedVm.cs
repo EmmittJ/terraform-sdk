@@ -6,41 +6,37 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for managed_disk in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : TerraformBlock
+public class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : ITerraformBlock
 {
     /// <summary>
     /// The disk_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskId is required")]
-    public required TerraformProperty<string> DiskId
-    {
-        set => SetProperty("disk_id", value);
-    }
+    [TerraformPropertyName("disk_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DiskId { get; set; }
 
     /// <summary>
     /// The log_storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LogStorageAccountId
-    {
-        set => SetProperty("log_storage_account_id", value);
-    }
+    [TerraformPropertyName("log_storage_account_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LogStorageAccountId { get; set; }
 
     /// <summary>
     /// The target_disk_encryption_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetDiskEncryptionSetId
-    {
-        set => SetProperty("target_disk_encryption_set_id", value);
-    }
+    [TerraformPropertyName("target_disk_encryption_set_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetDiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The target_disk_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDiskType is required")]
-    public required TerraformProperty<string> TargetDiskType
-    {
-        set => SetProperty("target_disk_type", value);
-    }
+    [TerraformPropertyName("target_disk_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetDiskType { get; set; }
 
 }
 
@@ -48,49 +44,44 @@ public class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : TerraformBl
 /// Block type for network_interface in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : TerraformBlock
+public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : ITerraformBlock
 {
     /// <summary>
     /// The is_primary attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsPrimary is required")]
-    public required TerraformProperty<bool> IsPrimary
-    {
-        set => SetProperty("is_primary", value);
-    }
+    [TerraformPropertyName("is_primary")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> IsPrimary { get; set; }
 
     /// <summary>
     /// The source_mac_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceMacAddress is required")]
-    public required TerraformProperty<string> SourceMacAddress
-    {
-        set => SetProperty("source_mac_address", value);
-    }
+    [TerraformPropertyName("source_mac_address")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceMacAddress { get; set; }
 
     /// <summary>
     /// The target_static_ip attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetStaticIp
-    {
-        set => SetProperty("target_static_ip", value);
-    }
+    [TerraformPropertyName("target_static_ip")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetStaticIp { get; set; }
 
     /// <summary>
     /// The target_subnet_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetSubnetName
-    {
-        set => SetProperty("target_subnet_name", value);
-    }
+    [TerraformPropertyName("target_subnet_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetSubnetName { get; set; }
 
     /// <summary>
     /// The test_subnet_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TestSubnetName
-    {
-        set => SetProperty("test_subnet_name", value);
-    }
+    [TerraformPropertyName("test_subnet_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TestSubnetName { get; set; }
 
 }
 
@@ -98,39 +89,35 @@ public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : Terraf
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock : TerraformBlock
+public class AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -141,256 +128,182 @@ public class AzurermSiteRecoveryVmwareReplicatedVm : TerraformResource
 {
     public AzurermSiteRecoveryVmwareReplicatedVm(string name) : base("azurerm_site_recovery_vmware_replicated_vm", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("appliance_name");
-        SetOutput("default_log_storage_account_id");
-        SetOutput("default_recovery_disk_type");
-        SetOutput("default_target_disk_encryption_set_id");
-        SetOutput("id");
-        SetOutput("license_type");
-        SetOutput("multi_vm_group_name");
-        SetOutput("name");
-        SetOutput("physical_server_credential_name");
-        SetOutput("recovery_replication_policy_id");
-        SetOutput("recovery_vault_id");
-        SetOutput("source_vm_name");
-        SetOutput("target_availability_set_id");
-        SetOutput("target_boot_diagnostics_storage_account_id");
-        SetOutput("target_network_id");
-        SetOutput("target_proximity_placement_group_id");
-        SetOutput("target_resource_group_id");
-        SetOutput("target_vm_name");
-        SetOutput("target_vm_size");
-        SetOutput("target_zone");
-        SetOutput("test_network_id");
     }
 
     /// <summary>
     /// The appliance_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplianceName is required")]
-    public required TerraformProperty<string> ApplianceName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("appliance_name");
-        set => SetProperty("appliance_name", value);
-    }
+    [TerraformPropertyName("appliance_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ApplianceName { get; set; }
 
     /// <summary>
     /// The default_log_storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultLogStorageAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_log_storage_account_id");
-        set => SetProperty("default_log_storage_account_id", value);
-    }
+    [TerraformPropertyName("default_log_storage_account_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultLogStorageAccountId { get; set; }
 
     /// <summary>
     /// The default_recovery_disk_type attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultRecoveryDiskType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_recovery_disk_type");
-        set => SetProperty("default_recovery_disk_type", value);
-    }
+    [TerraformPropertyName("default_recovery_disk_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultRecoveryDiskType { get; set; }
 
     /// <summary>
     /// The default_target_disk_encryption_set_id attribute.
     /// </summary>
-    public TerraformProperty<string> DefaultTargetDiskEncryptionSetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("default_target_disk_encryption_set_id");
-        set => SetProperty("default_target_disk_encryption_set_id", value);
-    }
+    [TerraformPropertyName("default_target_disk_encryption_set_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DefaultTargetDiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformProperty<string> LicenseType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("license_type");
-        set => SetProperty("license_type", value);
-    }
+    [TerraformPropertyName("license_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LicenseType { get; set; }
 
     /// <summary>
     /// The multi_vm_group_name attribute.
     /// </summary>
-    public TerraformProperty<string> MultiVmGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("multi_vm_group_name");
-        set => SetProperty("multi_vm_group_name", value);
-    }
+    [TerraformPropertyName("multi_vm_group_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MultiVmGroupName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The physical_server_credential_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhysicalServerCredentialName is required")]
-    public required TerraformProperty<string> PhysicalServerCredentialName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("physical_server_credential_name");
-        set => SetProperty("physical_server_credential_name", value);
-    }
+    [TerraformPropertyName("physical_server_credential_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PhysicalServerCredentialName { get; set; }
 
     /// <summary>
     /// The recovery_replication_policy_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryReplicationPolicyId is required")]
-    public required TerraformProperty<string> RecoveryReplicationPolicyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("recovery_replication_policy_id");
-        set => SetProperty("recovery_replication_policy_id", value);
-    }
+    [TerraformPropertyName("recovery_replication_policy_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RecoveryReplicationPolicyId { get; set; }
 
     /// <summary>
     /// The recovery_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
-    public required TerraformProperty<string> RecoveryVaultId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("recovery_vault_id");
-        set => SetProperty("recovery_vault_id", value);
-    }
+    [TerraformPropertyName("recovery_vault_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RecoveryVaultId { get; set; }
 
     /// <summary>
     /// The source_vm_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVmName is required")]
-    public required TerraformProperty<string> SourceVmName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("source_vm_name");
-        set => SetProperty("source_vm_name", value);
-    }
+    [TerraformPropertyName("source_vm_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SourceVmName { get; set; }
 
     /// <summary>
     /// The target_availability_set_id attribute.
     /// </summary>
-    public TerraformProperty<string> TargetAvailabilitySetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_availability_set_id");
-        set => SetProperty("target_availability_set_id", value);
-    }
+    [TerraformPropertyName("target_availability_set_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetAvailabilitySetId { get; set; }
 
     /// <summary>
     /// The target_boot_diagnostics_storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string> TargetBootDiagnosticsStorageAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_boot_diagnostics_storage_account_id");
-        set => SetProperty("target_boot_diagnostics_storage_account_id", value);
-    }
+    [TerraformPropertyName("target_boot_diagnostics_storage_account_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetBootDiagnosticsStorageAccountId { get; set; }
 
     /// <summary>
     /// The target_network_id attribute.
     /// </summary>
-    public TerraformProperty<string> TargetNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_network_id");
-        set => SetProperty("target_network_id", value);
-    }
+    [TerraformPropertyName("target_network_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetNetworkId { get; set; }
 
     /// <summary>
     /// The target_proximity_placement_group_id attribute.
     /// </summary>
-    public TerraformProperty<string> TargetProximityPlacementGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_proximity_placement_group_id");
-        set => SetProperty("target_proximity_placement_group_id", value);
-    }
+    [TerraformPropertyName("target_proximity_placement_group_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetProximityPlacementGroupId { get; set; }
 
     /// <summary>
     /// The target_resource_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceGroupId is required")]
-    public required TerraformProperty<string> TargetResourceGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_resource_group_id");
-        set => SetProperty("target_resource_group_id", value);
-    }
+    [TerraformPropertyName("target_resource_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetResourceGroupId { get; set; }
 
     /// <summary>
     /// The target_vm_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVmName is required")]
-    public required TerraformProperty<string> TargetVmName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_vm_name");
-        set => SetProperty("target_vm_name", value);
-    }
+    [TerraformPropertyName("target_vm_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetVmName { get; set; }
 
     /// <summary>
     /// The target_vm_size attribute.
     /// </summary>
-    public TerraformProperty<string> TargetVmSize
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_vm_size");
-        set => SetProperty("target_vm_size", value);
-    }
+    [TerraformPropertyName("target_vm_size")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetVmSize { get; set; }
 
     /// <summary>
     /// The target_zone attribute.
     /// </summary>
-    public TerraformProperty<string> TargetZone
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_zone");
-        set => SetProperty("target_zone", value);
-    }
+    [TerraformPropertyName("target_zone")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetZone { get; set; }
 
     /// <summary>
     /// The test_network_id attribute.
     /// </summary>
-    public TerraformProperty<string> TestNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("test_network_id");
-        set => SetProperty("test_network_id", value);
-    }
+    [TerraformPropertyName("test_network_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TestNetworkId { get; set; }
 
     /// <summary>
     /// Block for managed_disk.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock>? ManagedDisk
-    {
-        set => SetProperty("managed_disk", value);
-    }
+    [TerraformPropertyName("managed_disk")]
+    public TerraformList<TerraformBlock<AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock>>? ManagedDisk { get; set; } = new();
 
     /// <summary>
     /// Block for network_interface.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock>? NetworkInterface
-    {
-        set => SetProperty("network_interface", value);
-    }
+    [TerraformPropertyName("network_interface")]
+    public TerraformList<TerraformBlock<AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock>>? NetworkInterface { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

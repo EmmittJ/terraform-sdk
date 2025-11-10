@@ -9,142 +9,140 @@ public class AwsDmsReplicationInstanceDataSource : TerraformDataSource
 {
     public AwsDmsReplicationInstanceDataSource(string name) : base("aws_dms_replication_instance", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("allocated_storage");
-        SetOutput("auto_minor_version_upgrade");
-        SetOutput("availability_zone");
-        SetOutput("engine_version");
-        SetOutput("kms_key_arn");
-        SetOutput("multi_az");
-        SetOutput("network_type");
-        SetOutput("preferred_maintenance_window");
-        SetOutput("publicly_accessible");
-        SetOutput("replication_instance_arn");
-        SetOutput("replication_instance_class");
-        SetOutput("replication_instance_private_ips");
-        SetOutput("replication_instance_public_ips");
-        SetOutput("replication_subnet_group_id");
-        SetOutput("vpc_security_group_ids");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("replication_instance_id");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The replication_instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInstanceId is required")]
-    public required TerraformProperty<string> ReplicationInstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("replication_instance_id");
-        set => SetProperty("replication_instance_id", value);
-    }
+    [TerraformPropertyName("replication_instance_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ReplicationInstanceId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The allocated_storage attribute.
     /// </summary>
-    public TerraformExpression AllocatedStorage => this["allocated_storage"];
+    [TerraformPropertyName("allocated_storage")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AllocatedStorage => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "allocated_storage");
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
-    public TerraformExpression AutoMinorVersionUpgrade => this["auto_minor_version_upgrade"];
+    [TerraformPropertyName("auto_minor_version_upgrade")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> AutoMinorVersionUpgrade => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "auto_minor_version_upgrade");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformExpression AvailabilityZone => this["availability_zone"];
+    [TerraformPropertyName("availability_zone")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AvailabilityZone => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "availability_zone");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformExpression EngineVersion => this["engine_version"];
+    [TerraformPropertyName("engine_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EngineVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "engine_version");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformExpression KmsKeyArn => this["kms_key_arn"];
+    [TerraformPropertyName("kms_key_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> KmsKeyArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "kms_key_arn");
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
-    public TerraformExpression MultiAz => this["multi_az"];
+    [TerraformPropertyName("multi_az")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> MultiAz => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "multi_az");
 
     /// <summary>
     /// The network_type attribute.
     /// </summary>
-    public TerraformExpression NetworkType => this["network_type"];
+    [TerraformPropertyName("network_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NetworkType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_type");
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformExpression PreferredMaintenanceWindow => this["preferred_maintenance_window"];
+    [TerraformPropertyName("preferred_maintenance_window")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PreferredMaintenanceWindow => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "preferred_maintenance_window");
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformExpression PubliclyAccessible => this["publicly_accessible"];
+    [TerraformPropertyName("publicly_accessible")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> PubliclyAccessible => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "publicly_accessible");
 
     /// <summary>
     /// The replication_instance_arn attribute.
     /// </summary>
-    public TerraformExpression ReplicationInstanceArn => this["replication_instance_arn"];
+    [TerraformPropertyName("replication_instance_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ReplicationInstanceArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "replication_instance_arn");
 
     /// <summary>
     /// The replication_instance_class attribute.
     /// </summary>
-    public TerraformExpression ReplicationInstanceClass => this["replication_instance_class"];
+    [TerraformPropertyName("replication_instance_class")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ReplicationInstanceClass => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "replication_instance_class");
 
     /// <summary>
     /// The replication_instance_private_ips attribute.
     /// </summary>
-    public TerraformExpression ReplicationInstancePrivateIps => this["replication_instance_private_ips"];
+    [TerraformPropertyName("replication_instance_private_ips")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ReplicationInstancePrivateIps => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "replication_instance_private_ips");
 
     /// <summary>
     /// The replication_instance_public_ips attribute.
     /// </summary>
-    public TerraformExpression ReplicationInstancePublicIps => this["replication_instance_public_ips"];
+    [TerraformPropertyName("replication_instance_public_ips")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> ReplicationInstancePublicIps => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "replication_instance_public_ips");
 
     /// <summary>
     /// The replication_subnet_group_id attribute.
     /// </summary>
-    public TerraformExpression ReplicationSubnetGroupId => this["replication_subnet_group_id"];
+    [TerraformPropertyName("replication_subnet_group_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ReplicationSubnetGroupId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "replication_subnet_group_id");
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformExpression VpcSecurityGroupIds => this["vpc_security_group_ids"];
+    [TerraformPropertyName("vpc_security_group_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> VpcSecurityGroupIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "vpc_security_group_ids");
 
 }

@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetappAccountEncryptionTimeoutsBlock : TerraformBlock
+public class AzurermNetappAccountEncryptionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,92 +45,64 @@ public class AzurermNetappAccountEncryption : TerraformResource
 {
     public AzurermNetappAccountEncryption(string name) : base("azurerm_netapp_account_encryption", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("cross_tenant_key_vault_resource_id");
-        SetOutput("encryption_key");
-        SetOutput("federated_client_id");
-        SetOutput("id");
-        SetOutput("netapp_account_id");
-        SetOutput("system_assigned_identity_principal_id");
-        SetOutput("user_assigned_identity_id");
     }
 
     /// <summary>
     /// The full resource ID of the cross-tenant key vault. Required when using federated_client_id for cross-tenant scenarios.
     /// </summary>
-    public TerraformProperty<string> CrossTenantKeyVaultResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("cross_tenant_key_vault_resource_id");
-        set => SetProperty("cross_tenant_key_vault_resource_id", value);
-    }
+    [TerraformPropertyName("cross_tenant_key_vault_resource_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CrossTenantKeyVaultResourceId { get; set; }
 
     /// <summary>
     /// The versionless encryption key url.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionKey is required")]
-    public required TerraformProperty<string> EncryptionKey
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("encryption_key");
-        set => SetProperty("encryption_key", value);
-    }
+    [TerraformPropertyName("encryption_key")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EncryptionKey { get; set; }
 
     /// <summary>
     /// The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults.
     /// </summary>
-    public TerraformProperty<string> FederatedClientId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("federated_client_id");
-        set => SetProperty("federated_client_id", value);
-    }
+    [TerraformPropertyName("federated_client_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? FederatedClientId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID of the NetApp Account where encryption will be set.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappAccountId is required")]
-    public required TerraformProperty<string> NetappAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("netapp_account_id");
-        set => SetProperty("netapp_account_id", value);
-    }
+    [TerraformPropertyName("netapp_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NetappAccountId { get; set; }
 
     /// <summary>
     /// The Principal ID of the System Assigned Identity to use for encryption.
     /// </summary>
-    public TerraformProperty<string> SystemAssignedIdentityPrincipalId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("system_assigned_identity_principal_id");
-        set => SetProperty("system_assigned_identity_principal_id", value);
-    }
+    [TerraformPropertyName("system_assigned_identity_principal_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SystemAssignedIdentityPrincipalId { get; set; }
 
     /// <summary>
     /// The resource ID of the User Assigned Identity to use for encryption.
     /// </summary>
-    public TerraformProperty<string> UserAssignedIdentityId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("user_assigned_identity_id");
-        set => SetProperty("user_assigned_identity_id", value);
-    }
+    [TerraformPropertyName("user_assigned_identity_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? UserAssignedIdentityId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNetappAccountEncryptionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNetappAccountEncryptionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

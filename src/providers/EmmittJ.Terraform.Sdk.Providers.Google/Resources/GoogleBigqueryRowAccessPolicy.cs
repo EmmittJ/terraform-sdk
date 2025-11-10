@@ -6,31 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryRowAccessPolicyTimeoutsBlock : TerraformBlock
+public class GoogleBigqueryRowAccessPolicyTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -41,31 +38,15 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
 {
     public GoogleBigqueryRowAccessPolicy(string name) : base("google_bigquery_row_access_policy", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("creation_time");
-        SetOutput("last_modified_time");
-        SetOutput("dataset_id");
-        SetOutput("filter_predicate");
-        SetOutput("grantees");
-        SetOutput("id");
-        SetOutput("policy_id");
-        SetOutput("project");
-        SetOutput("table_id");
     }
 
     /// <summary>
     /// The ID of the dataset containing this row access policy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
-    public required TerraformProperty<string> DatasetId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("dataset_id");
-        set => SetProperty("dataset_id", value);
-    }
+    [TerraformPropertyName("dataset_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DatasetId { get; set; }
 
     /// <summary>
     /// A SQL boolean expression that represents the rows defined by this row
@@ -80,11 +61,9 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// numeric_field BETWEEN 1.0 AND 5.0
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterPredicate is required")]
-    public required TerraformProperty<string> FilterPredicate
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("filter_predicate");
-        set => SetProperty("filter_predicate", value);
-    }
+    [TerraformPropertyName("filter_predicate")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FilterPredicate { get; set; }
 
     /// <summary>
     /// Input only. The optional list of iam_member users or groups that specifies the initial
@@ -110,20 +89,16 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// BigQuery requires authentication before a user can access the service,
     /// allUsers includes only authenticated users.
     /// </summary>
-    public List<TerraformProperty<string>> Grantees
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("grantees");
-        set => SetProperty("grantees", value);
-    }
+    [TerraformPropertyName("grantees")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Grantees { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID of the row access policy. The ID must contain only
@@ -131,50 +106,46 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// length is 256 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
-    public required TerraformProperty<string> PolicyId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("policy_id");
-        set => SetProperty("policy_id", value);
-    }
+    [TerraformPropertyName("policy_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PolicyId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The ID of the table containing this row access policy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
-    public required TerraformProperty<string> TableId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("table_id");
-        set => SetProperty("table_id", value);
-    }
+    [TerraformPropertyName("table_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TableId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleBigqueryRowAccessPolicyTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleBigqueryRowAccessPolicyTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The time when this row access policy was created, in milliseconds since
     /// the epoch.
     /// </summary>
-    public TerraformExpression CreationTime => this["creation_time"];
+    [TerraformPropertyName("creation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
 
     /// <summary>
     /// The time when this row access policy was last modified, in milliseconds
     /// since the epoch.
     /// </summary>
-    public TerraformExpression LastModifiedTime => this["last_modified_time"];
+    [TerraformPropertyName("last_modified_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastModifiedTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_modified_time");
 
 }

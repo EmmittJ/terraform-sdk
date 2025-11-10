@@ -6,41 +6,37 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for instance_pool in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : TerraformBlock
+public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : ITerraformBlock
 {
     /// <summary>
     /// The cluster_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
-    public required TerraformProperty<string> ClusterVersion
-    {
-        set => SetProperty("cluster_version", value);
-    }
+    [TerraformPropertyName("cluster_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterVersion { get; set; }
 
     /// <summary>
     /// The instance_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePoolId is required")]
-    public required TerraformProperty<string> InstancePoolId
-    {
-        set => SetProperty("instance_pool_id", value);
-    }
+    [TerraformPropertyName("instance_pool_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> InstancePoolId { get; set; }
 
     /// <summary>
     /// The max_number_of_workers attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxNumberOfWorkers
-    {
-        set => SetProperty("max_number_of_workers", value);
-    }
+    [TerraformPropertyName("max_number_of_workers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxNumberOfWorkers { get; set; }
 
     /// <summary>
     /// The min_number_of_workers attribute.
     /// </summary>
-    public TerraformProperty<double>? MinNumberOfWorkers
-    {
-        set => SetProperty("min_number_of_workers", value);
-    }
+    [TerraformPropertyName("min_number_of_workers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinNumberOfWorkers { get; set; }
 
 }
 
@@ -48,25 +44,23 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : T
 /// Block type for key_vault_password in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock : TerraformBlock
+public class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock : ITerraformBlock
 {
     /// <summary>
     /// The linked_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
-    public required TerraformProperty<string> LinkedServiceName
-    {
-        set => SetProperty("linked_service_name", value);
-    }
+    [TerraformPropertyName("linked_service_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The secret_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
-    public required TerraformProperty<string> SecretName
-    {
-        set => SetProperty("secret_name", value);
-    }
+    [TerraformPropertyName("secret_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SecretName { get; set; }
 
 }
 
@@ -74,89 +68,79 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock
 /// Block type for new_cluster_config in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock : TerraformBlock
+public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock : ITerraformBlock
 {
     /// <summary>
     /// The cluster_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
-    public required TerraformProperty<string> ClusterVersion
-    {
-        set => SetProperty("cluster_version", value);
-    }
+    [TerraformPropertyName("cluster_version")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ClusterVersion { get; set; }
 
     /// <summary>
     /// The custom_tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? CustomTags
-    {
-        set => SetProperty("custom_tags", value);
-    }
+    [TerraformPropertyName("custom_tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? CustomTags { get; set; }
 
     /// <summary>
     /// The driver_node_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DriverNodeType
-    {
-        set => SetProperty("driver_node_type", value);
-    }
+    [TerraformPropertyName("driver_node_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DriverNodeType { get; set; }
 
     /// <summary>
     /// The init_scripts attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? InitScripts
-    {
-        set => SetProperty("init_scripts", value);
-    }
+    [TerraformPropertyName("init_scripts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? InitScripts { get; set; }
 
     /// <summary>
     /// The log_destination attribute.
     /// </summary>
-    public TerraformProperty<string>? LogDestination
-    {
-        set => SetProperty("log_destination", value);
-    }
+    [TerraformPropertyName("log_destination")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LogDestination { get; set; }
 
     /// <summary>
     /// The max_number_of_workers attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxNumberOfWorkers
-    {
-        set => SetProperty("max_number_of_workers", value);
-    }
+    [TerraformPropertyName("max_number_of_workers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxNumberOfWorkers { get; set; }
 
     /// <summary>
     /// The min_number_of_workers attribute.
     /// </summary>
-    public TerraformProperty<double>? MinNumberOfWorkers
-    {
-        set => SetProperty("min_number_of_workers", value);
-    }
+    [TerraformPropertyName("min_number_of_workers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MinNumberOfWorkers { get; set; }
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
-    public required TerraformProperty<string> NodeType
-    {
-        set => SetProperty("node_type", value);
-    }
+    [TerraformPropertyName("node_type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NodeType { get; set; }
 
     /// <summary>
     /// The spark_config attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? SparkConfig
-    {
-        set => SetProperty("spark_config", value);
-    }
+    [TerraformPropertyName("spark_config")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? SparkConfig { get; set; }
 
     /// <summary>
     /// The spark_environment_variables attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? SparkEnvironmentVariables
-    {
-        set => SetProperty("spark_environment_variables", value);
-    }
+    [TerraformPropertyName("spark_environment_variables")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? SparkEnvironmentVariables { get; set; }
 
 }
 
@@ -164,39 +148,35 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : TerraformBlock
+public class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -208,173 +188,124 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
 {
     public AzurermDataFactoryLinkedServiceAzureDatabricks(string name) : base("azurerm_data_factory_linked_service_azure_databricks", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("access_token");
-        SetOutput("adb_domain");
-        SetOutput("additional_properties");
-        SetOutput("annotations");
-        SetOutput("data_factory_id");
-        SetOutput("description");
-        SetOutput("existing_cluster_id");
-        SetOutput("id");
-        SetOutput("integration_runtime_name");
-        SetOutput("msi_work_space_resource_id");
-        SetOutput("name");
-        SetOutput("parameters");
     }
 
     /// <summary>
     /// The access_token attribute.
     /// </summary>
-    public TerraformProperty<string> AccessToken
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("access_token");
-        set => SetProperty("access_token", value);
-    }
+    [TerraformPropertyName("access_token")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AccessToken { get; set; }
 
     /// <summary>
     /// The adb_domain attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdbDomain is required")]
-    public required TerraformProperty<string> AdbDomain
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("adb_domain");
-        set => SetProperty("adb_domain", value);
-    }
+    [TerraformPropertyName("adb_domain")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AdbDomain { get; set; }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> AdditionalProperties
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("additional_properties");
-        set => SetProperty("additional_properties", value);
-    }
+    [TerraformPropertyName("additional_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<TerraformProperty<string>> Annotations
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("annotations");
-        set => SetProperty("annotations", value);
-    }
+    [TerraformPropertyName("annotations")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? Annotations { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    public required TerraformProperty<string> DataFactoryId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_factory_id");
-        set => SetProperty("data_factory_id", value);
-    }
+    [TerraformPropertyName("data_factory_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The existing_cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string> ExistingClusterId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("existing_cluster_id");
-        set => SetProperty("existing_cluster_id", value);
-    }
+    [TerraformPropertyName("existing_cluster_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ExistingClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The integration_runtime_name attribute.
     /// </summary>
-    public TerraformProperty<string> IntegrationRuntimeName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("integration_runtime_name");
-        set => SetProperty("integration_runtime_name", value);
-    }
+    [TerraformPropertyName("integration_runtime_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IntegrationRuntimeName { get; set; }
 
     /// <summary>
     /// The msi_work_space_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string> MsiWorkSpaceResourceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("msi_work_space_resource_id");
-        set => SetProperty("msi_work_space_resource_id", value);
-    }
+    [TerraformPropertyName("msi_work_space_resource_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MsiWorkSpaceResourceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Parameters
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("parameters");
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
     /// <summary>
     /// Block for instance_pool.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstancePool block(s) allowed")]
-    public List<AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock>? InstancePool
-    {
-        set => SetProperty("instance_pool", value);
-    }
+    [TerraformPropertyName("instance_pool")]
+    public TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock>>? InstancePool { get; set; } = new();
 
     /// <summary>
     /// Block for key_vault_password.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
-    public List<AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock>? KeyVaultPassword
-    {
-        set => SetProperty("key_vault_password", value);
-    }
+    [TerraformPropertyName("key_vault_password")]
+    public TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock>>? KeyVaultPassword { get; set; } = new();
 
     /// <summary>
     /// Block for new_cluster_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NewClusterConfig block(s) allowed")]
-    public List<AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock>? NewClusterConfig
-    {
-        set => SetProperty("new_cluster_config", value);
-    }
+    [TerraformPropertyName("new_cluster_config")]
+    public TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock>>? NewClusterConfig { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

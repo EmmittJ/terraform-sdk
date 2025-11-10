@@ -9,87 +9,62 @@ public class AwsRoute53ResolverRulesDataSource : TerraformDataSource
 {
     public AwsRoute53ResolverRulesDataSource(string name) : base("aws_route53_resolver_rules", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("resolver_rule_ids");
-        SetOutput("id");
-        SetOutput("name_regex");
-        SetOutput("owner_id");
-        SetOutput("region");
-        SetOutput("resolver_endpoint_id");
-        SetOutput("rule_type");
-        SetOutput("share_status");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformProperty<string> NameRegex
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_regex");
-        set => SetProperty("name_regex", value);
-    }
+    [TerraformPropertyName("name_regex")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NameRegex { get; set; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformProperty<string> OwnerId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("owner_id");
-        set => SetProperty("owner_id", value);
-    }
+    [TerraformPropertyName("owner_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OwnerId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The resolver_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string> ResolverEndpointId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resolver_endpoint_id");
-        set => SetProperty("resolver_endpoint_id", value);
-    }
+    [TerraformPropertyName("resolver_endpoint_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResolverEndpointId { get; set; }
 
     /// <summary>
     /// The rule_type attribute.
     /// </summary>
-    public TerraformProperty<string> RuleType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("rule_type");
-        set => SetProperty("rule_type", value);
-    }
+    [TerraformPropertyName("rule_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RuleType { get; set; }
 
     /// <summary>
     /// The share_status attribute.
     /// </summary>
-    public TerraformProperty<string> ShareStatus
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("share_status");
-        set => SetProperty("share_status", value);
-    }
+    [TerraformPropertyName("share_status")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ShareStatus { get; set; }
 
     /// <summary>
     /// The resolver_rule_ids attribute.
     /// </summary>
-    public TerraformExpression ResolverRuleIds => this["resolver_rule_ids"];
+    [TerraformPropertyName("resolver_rule_ids")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> ResolverRuleIds => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "resolver_rule_ids");
 
 }

@@ -6,72 +6,64 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for additional_location in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementAdditionalLocationBlock : TerraformBlock
+public class AzurermApiManagementAdditionalLocationBlock : ITerraformBlock
 {
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? Capacity
-    {
-        set => SetProperty("capacity", value);
-    }
+    [TerraformPropertyName("capacity")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> Capacity { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>("", "capacity");
 
     /// <summary>
     /// The gateway_disabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? GatewayDisabled
-    {
-        set => SetProperty("gateway_disabled", value);
-    }
+    [TerraformPropertyName("gateway_disabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? GatewayDisabled { get; set; }
 
     /// <summary>
     /// The gateway_regional_url attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayRegionalUrl
-    {
-        set => SetProperty("gateway_regional_url", value);
-    }
+    [TerraformPropertyName("gateway_regional_url")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GatewayRegionalUrl => new TerraformReferenceProperty<TerraformProperty<string>>("", "gateway_regional_url");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PrivateIpAddresses
-    {
-        set => SetProperty("private_ip_addresses", value);
-    }
+    [TerraformPropertyName("private_ip_addresses")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> PrivateIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "private_ip_addresses");
 
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicIpAddressId
-    {
-        set => SetProperty("public_ip_address_id", value);
-    }
+    [TerraformPropertyName("public_ip_address_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PublicIpAddressId { get; set; }
 
     /// <summary>
     /// The public_ip_addresses attribute.
     /// </summary>
-    public List<TerraformProperty<string>>? PublicIpAddresses
-    {
-        set => SetProperty("public_ip_addresses", value);
-    }
+    [TerraformPropertyName("public_ip_addresses")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> PublicIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>("", "public_ip_addresses");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Zones
-    {
-        set => SetProperty("zones", value);
-    }
+    [TerraformPropertyName("zones")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Zones { get; set; }
 
 }
 
@@ -79,57 +71,51 @@ public class AzurermApiManagementAdditionalLocationBlock : TerraformBlock
 /// Block type for certificate in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementCertificateBlock : TerraformBlock
+public class AzurermApiManagementCertificateBlock : ITerraformBlock
 {
     /// <summary>
     /// The certificate_password attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificatePassword
-    {
-        set => SetProperty("certificate_password", value);
-    }
+    [TerraformPropertyName("certificate_password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CertificatePassword { get; set; }
 
     /// <summary>
     /// The encoded_certificate attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncodedCertificate is required")]
-    public required TerraformProperty<string> EncodedCertificate
-    {
-        set => SetProperty("encoded_certificate", value);
-    }
+    [TerraformPropertyName("encoded_certificate")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> EncodedCertificate { get; set; }
 
     /// <summary>
     /// The expiry attribute.
     /// </summary>
-    public TerraformProperty<string>? Expiry
-    {
-        set => SetProperty("expiry", value);
-    }
+    [TerraformPropertyName("expiry")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Expiry => new TerraformReferenceProperty<TerraformProperty<string>>("", "expiry");
 
     /// <summary>
     /// The store_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoreName is required")]
-    public required TerraformProperty<string> StoreName
-    {
-        set => SetProperty("store_name", value);
-    }
+    [TerraformPropertyName("store_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StoreName { get; set; }
 
     /// <summary>
     /// The subject attribute.
     /// </summary>
-    public TerraformProperty<string>? Subject
-    {
-        set => SetProperty("subject", value);
-    }
+    [TerraformPropertyName("subject")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Subject => new TerraformReferenceProperty<TerraformProperty<string>>("", "subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    public TerraformProperty<string>? Thumbprint
-    {
-        set => SetProperty("thumbprint", value);
-    }
+    [TerraformPropertyName("thumbprint")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Thumbprint => new TerraformReferenceProperty<TerraformProperty<string>>("", "thumbprint");
 
 }
 
@@ -137,39 +123,35 @@ public class AzurermApiManagementCertificateBlock : TerraformBlock
 /// Block type for delegation in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementDelegationBlock : TerraformBlock
+public class AzurermApiManagementDelegationBlock : ITerraformBlock
 {
     /// <summary>
     /// The subscriptions_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SubscriptionsEnabled
-    {
-        set => SetProperty("subscriptions_enabled", value);
-    }
+    [TerraformPropertyName("subscriptions_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SubscriptionsEnabled { get; set; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformProperty<string>? Url
-    {
-        set => SetProperty("url", value);
-    }
+    [TerraformPropertyName("url")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Url { get; set; }
 
     /// <summary>
     /// The user_registration_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? UserRegistrationEnabled
-    {
-        set => SetProperty("user_registration_enabled", value);
-    }
+    [TerraformPropertyName("user_registration_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? UserRegistrationEnabled { get; set; }
 
     /// <summary>
     /// The validation_key attribute.
     /// </summary>
-    public TerraformProperty<string>? ValidationKey
-    {
-        set => SetProperty("validation_key", value);
-    }
+    [TerraformPropertyName("validation_key")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ValidationKey { get; set; }
 
 }
 
@@ -177,7 +159,7 @@ public class AzurermApiManagementDelegationBlock : TerraformBlock
 /// Block type for hostname_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementHostnameConfigurationBlock : TerraformBlock
+public class AzurermApiManagementHostnameConfigurationBlock : ITerraformBlock
 {
 }
 
@@ -185,40 +167,36 @@ public class AzurermApiManagementHostnameConfigurationBlock : TerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementIdentityBlock : TerraformBlock
+public class AzurermApiManagementIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -226,24 +204,22 @@ public class AzurermApiManagementIdentityBlock : TerraformBlock
 /// Block type for protocols in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementProtocolsBlock : TerraformBlock
+public class AzurermApiManagementProtocolsBlock : ITerraformBlock
 {
     /// <summary>
     /// The enable_http2 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool>? EnableHttp2
-    {
-        set => SetProperty("enable_http2", value);
-    }
+    [TerraformPropertyName("enable_http2")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnableHttp2 { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "enable_http2");
 
     /// <summary>
     /// The http2_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Http2Enabled
-    {
-        set => SetProperty("http2_enabled", value);
-    }
+    [TerraformPropertyName("http2_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> Http2Enabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "http2_enabled");
 
 }
 
@@ -251,197 +227,174 @@ public class AzurermApiManagementProtocolsBlock : TerraformBlock
 /// Block type for security in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementSecurityBlock : TerraformBlock
+public class AzurermApiManagementSecurityBlock : ITerraformBlock
 {
     /// <summary>
     /// The backend_ssl30_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? BackendSsl30Enabled
-    {
-        set => SetProperty("backend_ssl30_enabled", value);
-    }
+    [TerraformPropertyName("backend_ssl30_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> BackendSsl30Enabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "backend_ssl30_enabled");
 
     /// <summary>
     /// The backend_tls10_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? BackendTls10Enabled
-    {
-        set => SetProperty("backend_tls10_enabled", value);
-    }
+    [TerraformPropertyName("backend_tls10_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> BackendTls10Enabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "backend_tls10_enabled");
 
     /// <summary>
     /// The backend_tls11_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? BackendTls11Enabled
-    {
-        set => SetProperty("backend_tls11_enabled", value);
-    }
+    [TerraformPropertyName("backend_tls11_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> BackendTls11Enabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "backend_tls11_enabled");
 
     /// <summary>
     /// The enable_backend_ssl30 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool>? EnableBackendSsl30
-    {
-        set => SetProperty("enable_backend_ssl30", value);
-    }
+    [TerraformPropertyName("enable_backend_ssl30")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnableBackendSsl30 { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "enable_backend_ssl30");
 
     /// <summary>
     /// The enable_backend_tls10 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool>? EnableBackendTls10
-    {
-        set => SetProperty("enable_backend_tls10", value);
-    }
+    [TerraformPropertyName("enable_backend_tls10")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnableBackendTls10 { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "enable_backend_tls10");
 
     /// <summary>
     /// The enable_backend_tls11 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool>? EnableBackendTls11
-    {
-        set => SetProperty("enable_backend_tls11", value);
-    }
+    [TerraformPropertyName("enable_backend_tls11")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnableBackendTls11 { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "enable_backend_tls11");
 
     /// <summary>
     /// The enable_frontend_ssl30 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool>? EnableFrontendSsl30
-    {
-        set => SetProperty("enable_frontend_ssl30", value);
-    }
+    [TerraformPropertyName("enable_frontend_ssl30")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnableFrontendSsl30 { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "enable_frontend_ssl30");
 
     /// <summary>
     /// The enable_frontend_tls10 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool>? EnableFrontendTls10
-    {
-        set => SetProperty("enable_frontend_tls10", value);
-    }
+    [TerraformPropertyName("enable_frontend_tls10")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnableFrontendTls10 { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "enable_frontend_tls10");
 
     /// <summary>
     /// The enable_frontend_tls11 attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool>? EnableFrontendTls11
-    {
-        set => SetProperty("enable_frontend_tls11", value);
-    }
+    [TerraformPropertyName("enable_frontend_tls11")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> EnableFrontendTls11 { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "enable_frontend_tls11");
 
     /// <summary>
     /// The frontend_ssl30_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? FrontendSsl30Enabled
-    {
-        set => SetProperty("frontend_ssl30_enabled", value);
-    }
+    [TerraformPropertyName("frontend_ssl30_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> FrontendSsl30Enabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "frontend_ssl30_enabled");
 
     /// <summary>
     /// The frontend_tls10_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? FrontendTls10Enabled
-    {
-        set => SetProperty("frontend_tls10_enabled", value);
-    }
+    [TerraformPropertyName("frontend_tls10_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> FrontendTls10Enabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "frontend_tls10_enabled");
 
     /// <summary>
     /// The frontend_tls11_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? FrontendTls11Enabled
-    {
-        set => SetProperty("frontend_tls11_enabled", value);
-    }
+    [TerraformPropertyName("frontend_tls11_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> FrontendTls11Enabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "frontend_tls11_enabled");
 
     /// <summary>
     /// The tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled
-    {
-        set => SetProperty("tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled", value);
-    }
+    [TerraformPropertyName("tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled { get; set; }
 
     /// <summary>
     /// The tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled
-    {
-        set => SetProperty("tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled", value);
-    }
+    [TerraformPropertyName("tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled { get; set; }
 
     /// <summary>
     /// The tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsEcdheRsaWithAes128CbcShaCiphersEnabled
-    {
-        set => SetProperty("tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled", value);
-    }
+    [TerraformPropertyName("tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TlsEcdheRsaWithAes128CbcShaCiphersEnabled { get; set; }
 
     /// <summary>
     /// The tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsEcdheRsaWithAes256CbcShaCiphersEnabled
-    {
-        set => SetProperty("tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled", value);
-    }
+    [TerraformPropertyName("tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TlsEcdheRsaWithAes256CbcShaCiphersEnabled { get; set; }
 
     /// <summary>
     /// The tls_rsa_with_aes128_cbc_sha256_ciphers_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsRsaWithAes128CbcSha256CiphersEnabled
-    {
-        set => SetProperty("tls_rsa_with_aes128_cbc_sha256_ciphers_enabled", value);
-    }
+    [TerraformPropertyName("tls_rsa_with_aes128_cbc_sha256_ciphers_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TlsRsaWithAes128CbcSha256CiphersEnabled { get; set; }
 
     /// <summary>
     /// The tls_rsa_with_aes128_cbc_sha_ciphers_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsRsaWithAes128CbcShaCiphersEnabled
-    {
-        set => SetProperty("tls_rsa_with_aes128_cbc_sha_ciphers_enabled", value);
-    }
+    [TerraformPropertyName("tls_rsa_with_aes128_cbc_sha_ciphers_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TlsRsaWithAes128CbcShaCiphersEnabled { get; set; }
 
     /// <summary>
     /// The tls_rsa_with_aes128_gcm_sha256_ciphers_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsRsaWithAes128GcmSha256CiphersEnabled
-    {
-        set => SetProperty("tls_rsa_with_aes128_gcm_sha256_ciphers_enabled", value);
-    }
+    [TerraformPropertyName("tls_rsa_with_aes128_gcm_sha256_ciphers_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TlsRsaWithAes128GcmSha256CiphersEnabled { get; set; }
 
     /// <summary>
     /// The tls_rsa_with_aes256_cbc_sha256_ciphers_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsRsaWithAes256CbcSha256CiphersEnabled
-    {
-        set => SetProperty("tls_rsa_with_aes256_cbc_sha256_ciphers_enabled", value);
-    }
+    [TerraformPropertyName("tls_rsa_with_aes256_cbc_sha256_ciphers_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TlsRsaWithAes256CbcSha256CiphersEnabled { get; set; }
 
     /// <summary>
     /// The tls_rsa_with_aes256_cbc_sha_ciphers_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsRsaWithAes256CbcShaCiphersEnabled
-    {
-        set => SetProperty("tls_rsa_with_aes256_cbc_sha_ciphers_enabled", value);
-    }
+    [TerraformPropertyName("tls_rsa_with_aes256_cbc_sha_ciphers_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TlsRsaWithAes256CbcShaCiphersEnabled { get; set; }
 
     /// <summary>
     /// The tls_rsa_with_aes256_gcm_sha384_ciphers_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TlsRsaWithAes256GcmSha384CiphersEnabled
-    {
-        set => SetProperty("tls_rsa_with_aes256_gcm_sha384_ciphers_enabled", value);
-    }
+    [TerraformPropertyName("tls_rsa_with_aes256_gcm_sha384_ciphers_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TlsRsaWithAes256GcmSha384CiphersEnabled { get; set; }
 
     /// <summary>
     /// The triple_des_ciphers_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? TripleDesCiphersEnabled
-    {
-        set => SetProperty("triple_des_ciphers_enabled", value);
-    }
+    [TerraformPropertyName("triple_des_ciphers_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? TripleDesCiphersEnabled { get; set; }
 
 }
 
@@ -449,16 +402,15 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
 /// Block type for sign_in in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementSignInBlock : TerraformBlock
+public class AzurermApiManagementSignInBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
 }
 
@@ -466,16 +418,15 @@ public class AzurermApiManagementSignInBlock : TerraformBlock
 /// Block type for sign_up in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementSignUpBlock : TerraformBlock
+public class AzurermApiManagementSignUpBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
 }
 
@@ -483,40 +434,36 @@ public class AzurermApiManagementSignUpBlock : TerraformBlock
 /// Block type for tenant_access in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementTenantAccessBlock : TerraformBlock
+public class AzurermApiManagementTenantAccessBlock : ITerraformBlock
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    public required TerraformProperty<bool> Enabled
-    {
-        set => SetProperty("enabled", value);
-    }
+    [TerraformPropertyName("enabled")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<bool>> Enabled { get; set; }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    public TerraformProperty<string>? PrimaryKey
-    {
-        set => SetProperty("primary_key", value);
-    }
+    [TerraformPropertyName("primary_key")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimaryKey => new TerraformReferenceProperty<TerraformProperty<string>>("", "primary_key");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    public TerraformProperty<string>? SecondaryKey
-    {
-        set => SetProperty("secondary_key", value);
-    }
+    [TerraformPropertyName("secondary_key")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondaryKey => new TerraformReferenceProperty<TerraformProperty<string>>("", "secondary_key");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
 }
 
@@ -524,39 +471,35 @@ public class AzurermApiManagementTenantAccessBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementTimeoutsBlock : TerraformBlock
+public class AzurermApiManagementTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -564,16 +507,15 @@ public class AzurermApiManagementTimeoutsBlock : TerraformBlock
 /// Block type for virtual_network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementVirtualNetworkConfigurationBlock : TerraformBlock
+public class AzurermApiManagementVirtualNetworkConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    public required TerraformProperty<string> SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SubnetId { get; set; }
 
 }
 
@@ -585,343 +527,274 @@ public class AzurermApiManagement : TerraformResource
 {
     public AzurermApiManagement(string name) : base("azurerm_api_management", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("developer_portal_url");
-        SetOutput("gateway_regional_url");
-        SetOutput("gateway_url");
-        SetOutput("management_api_url");
-        SetOutput("portal_url");
-        SetOutput("private_ip_addresses");
-        SetOutput("public_ip_addresses");
-        SetOutput("scm_url");
-        SetOutput("client_certificate_enabled");
-        SetOutput("gateway_disabled");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("min_api_version");
-        SetOutput("name");
-        SetOutput("notification_sender_email");
-        SetOutput("public_ip_address_id");
-        SetOutput("public_network_access_enabled");
-        SetOutput("publisher_email");
-        SetOutput("publisher_name");
-        SetOutput("resource_group_name");
-        SetOutput("sku_name");
-        SetOutput("tags");
-        SetOutput("virtual_network_type");
-        SetOutput("zones");
     }
 
     /// <summary>
     /// The client_certificate_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ClientCertificateEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("client_certificate_enabled");
-        set => SetProperty("client_certificate_enabled", value);
-    }
+    [TerraformPropertyName("client_certificate_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ClientCertificateEnabled { get; set; }
 
     /// <summary>
     /// The gateway_disabled attribute.
     /// </summary>
-    public TerraformProperty<bool> GatewayDisabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("gateway_disabled");
-        set => SetProperty("gateway_disabled", value);
-    }
+    [TerraformPropertyName("gateway_disabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? GatewayDisabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The min_api_version attribute.
     /// </summary>
-    public TerraformProperty<string> MinApiVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("min_api_version");
-        set => SetProperty("min_api_version", value);
-    }
+    [TerraformPropertyName("min_api_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MinApiVersion { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The notification_sender_email attribute.
     /// </summary>
-    public TerraformProperty<string> NotificationSenderEmail
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("notification_sender_email");
-        set => SetProperty("notification_sender_email", value);
-    }
+    [TerraformPropertyName("notification_sender_email")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NotificationSenderEmail { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "notification_sender_email");
 
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
-    public TerraformProperty<string> PublicIpAddressId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("public_ip_address_id");
-        set => SetProperty("public_ip_address_id", value);
-    }
+    [TerraformPropertyName("public_ip_address_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PublicIpAddressId { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> PublicNetworkAccessEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("public_network_access_enabled");
-        set => SetProperty("public_network_access_enabled", value);
-    }
+    [TerraformPropertyName("public_network_access_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The publisher_email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublisherEmail is required")]
-    public required TerraformProperty<string> PublisherEmail
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("publisher_email");
-        set => SetProperty("publisher_email", value);
-    }
+    [TerraformPropertyName("publisher_email")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PublisherEmail { get; set; }
 
     /// <summary>
     /// The publisher_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublisherName is required")]
-    public required TerraformProperty<string> PublisherName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("publisher_name");
-        set => SetProperty("publisher_name", value);
-    }
+    [TerraformPropertyName("publisher_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PublisherName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    public required TerraformProperty<string> SkuName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku_name");
-        set => SetProperty("sku_name", value);
-    }
+    [TerraformPropertyName("sku_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> SkuName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The virtual_network_type attribute.
     /// </summary>
-    public TerraformProperty<string> VirtualNetworkType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_network_type");
-        set => SetProperty("virtual_network_type", value);
-    }
+    [TerraformPropertyName("virtual_network_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? VirtualNetworkType { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>> Zones
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("zones");
-        set => SetProperty("zones", value);
-    }
+    [TerraformPropertyName("zones")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Zones { get; set; }
 
     /// <summary>
     /// Block for additional_location.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermApiManagementAdditionalLocationBlock>? AdditionalLocation
-    {
-        set => SetProperty("additional_location", value);
-    }
+    [TerraformPropertyName("additional_location")]
+    public TerraformList<TerraformBlock<AzurermApiManagementAdditionalLocationBlock>>? AdditionalLocation { get; set; } = new();
 
     /// <summary>
     /// Block for certificate.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 Certificate block(s) allowed")]
-    public List<AzurermApiManagementCertificateBlock>? Certificate
-    {
-        set => SetProperty("certificate", value);
-    }
+    [TerraformPropertyName("certificate")]
+    public TerraformList<TerraformBlock<AzurermApiManagementCertificateBlock>>? Certificate { get; set; } = new();
 
     /// <summary>
     /// Block for delegation.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Delegation block(s) allowed")]
-    public List<AzurermApiManagementDelegationBlock>? Delegation
-    {
-        set => SetProperty("delegation", value);
-    }
+    [TerraformPropertyName("delegation")]
+    public TerraformList<TerraformBlock<AzurermApiManagementDelegationBlock>>? Delegation { get; set; } = new();
 
     /// <summary>
     /// Block for hostname_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HostnameConfiguration block(s) allowed")]
-    public List<AzurermApiManagementHostnameConfigurationBlock>? HostnameConfiguration
-    {
-        set => SetProperty("hostname_configuration", value);
-    }
+    [TerraformPropertyName("hostname_configuration")]
+    public TerraformList<TerraformBlock<AzurermApiManagementHostnameConfigurationBlock>>? HostnameConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermApiManagementIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermApiManagementIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for protocols.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Protocols block(s) allowed")]
-    public List<AzurermApiManagementProtocolsBlock>? Protocols
-    {
-        set => SetProperty("protocols", value);
-    }
+    [TerraformPropertyName("protocols")]
+    public TerraformList<TerraformBlock<AzurermApiManagementProtocolsBlock>>? Protocols { get; set; } = new();
 
     /// <summary>
     /// Block for security.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Security block(s) allowed")]
-    public List<AzurermApiManagementSecurityBlock>? Security
-    {
-        set => SetProperty("security", value);
-    }
+    [TerraformPropertyName("security")]
+    public TerraformList<TerraformBlock<AzurermApiManagementSecurityBlock>>? Security { get; set; } = new();
 
     /// <summary>
     /// Block for sign_in.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignIn block(s) allowed")]
-    public List<AzurermApiManagementSignInBlock>? SignIn
-    {
-        set => SetProperty("sign_in", value);
-    }
+    [TerraformPropertyName("sign_in")]
+    public TerraformList<TerraformBlock<AzurermApiManagementSignInBlock>>? SignIn { get; set; } = new();
 
     /// <summary>
     /// Block for sign_up.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignUp block(s) allowed")]
-    public List<AzurermApiManagementSignUpBlock>? SignUp
-    {
-        set => SetProperty("sign_up", value);
-    }
+    [TerraformPropertyName("sign_up")]
+    public TerraformList<TerraformBlock<AzurermApiManagementSignUpBlock>>? SignUp { get; set; } = new();
 
     /// <summary>
     /// Block for tenant_access.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TenantAccess block(s) allowed")]
-    public List<AzurermApiManagementTenantAccessBlock>? TenantAccess
-    {
-        set => SetProperty("tenant_access", value);
-    }
+    [TerraformPropertyName("tenant_access")]
+    public TerraformList<TerraformBlock<AzurermApiManagementTenantAccessBlock>>? TenantAccess { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermApiManagementTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermApiManagementTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for virtual_network_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualNetworkConfiguration block(s) allowed")]
-    public List<AzurermApiManagementVirtualNetworkConfigurationBlock>? VirtualNetworkConfiguration
-    {
-        set => SetProperty("virtual_network_configuration", value);
-    }
+    [TerraformPropertyName("virtual_network_configuration")]
+    public TerraformList<TerraformBlock<AzurermApiManagementVirtualNetworkConfigurationBlock>>? VirtualNetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// The developer_portal_url attribute.
     /// </summary>
-    public TerraformExpression DeveloperPortalUrl => this["developer_portal_url"];
+    [TerraformPropertyName("developer_portal_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeveloperPortalUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "developer_portal_url");
 
     /// <summary>
     /// The gateway_regional_url attribute.
     /// </summary>
-    public TerraformExpression GatewayRegionalUrl => this["gateway_regional_url"];
+    [TerraformPropertyName("gateway_regional_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GatewayRegionalUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gateway_regional_url");
 
     /// <summary>
     /// The gateway_url attribute.
     /// </summary>
-    public TerraformExpression GatewayUrl => this["gateway_url"];
+    [TerraformPropertyName("gateway_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> GatewayUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gateway_url");
 
     /// <summary>
     /// The management_api_url attribute.
     /// </summary>
-    public TerraformExpression ManagementApiUrl => this["management_api_url"];
+    [TerraformPropertyName("management_api_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ManagementApiUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "management_api_url");
 
     /// <summary>
     /// The portal_url attribute.
     /// </summary>
-    public TerraformExpression PortalUrl => this["portal_url"];
+    [TerraformPropertyName("portal_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PortalUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "portal_url");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression PrivateIpAddresses => this["private_ip_addresses"];
+    [TerraformPropertyName("private_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> PrivateIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "private_ip_addresses");
 
     /// <summary>
     /// The public_ip_addresses attribute.
     /// </summary>
-    public TerraformExpression PublicIpAddresses => this["public_ip_addresses"];
+    [TerraformPropertyName("public_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> PublicIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "public_ip_addresses");
 
     /// <summary>
     /// The scm_url attribute.
     /// </summary>
-    public TerraformExpression ScmUrl => this["scm_url"];
+    [TerraformPropertyName("scm_url")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ScmUrl => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "scm_url");
 
 }

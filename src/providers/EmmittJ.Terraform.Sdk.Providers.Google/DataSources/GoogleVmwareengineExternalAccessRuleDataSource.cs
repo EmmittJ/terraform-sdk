@@ -9,46 +9,22 @@ public class GoogleVmwareengineExternalAccessRuleDataSource : TerraformDataSourc
 {
     public GoogleVmwareengineExternalAccessRuleDataSource(string name) : base("google_vmwareengine_external_access_rule", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("action");
-        SetOutput("create_time");
-        SetOutput("description");
-        SetOutput("destination_ip_ranges");
-        SetOutput("destination_ports");
-        SetOutput("ip_protocol");
-        SetOutput("priority");
-        SetOutput("source_ip_ranges");
-        SetOutput("source_ports");
-        SetOutput("state");
-        SetOutput("uid");
-        SetOutput("update_time");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("parent");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The ID of the external access rule.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource name of the network policy.
@@ -56,76 +32,98 @@ public class GoogleVmwareengineExternalAccessRuleDataSource : TerraformDataSourc
     /// For example: projects/my-project/locations/us-west1-a/networkPolicies/my-policy
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    public required TerraformProperty<string> Parent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parent");
-        set => SetProperty("parent", value);
-    }
+    [TerraformPropertyName("parent")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Parent { get; set; }
 
     /// <summary>
     /// The action that the external access rule performs. Possible values: [&amp;quot;ALLOW&amp;quot;, &amp;quot;DENY&amp;quot;]
     /// </summary>
-    public TerraformExpression Action => this["action"];
+    [TerraformPropertyName("action")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Action => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "action");
 
     /// <summary>
     /// Creation time of this resource.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// User-provided description for the external access rule.
     /// </summary>
-    public TerraformExpression Description => this["description"];
+    [TerraformPropertyName("description")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Description => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "description");
 
     /// <summary>
     /// If destination ranges are specified, the external access rule applies only to
     /// traffic that has a destination IP address in these ranges.
     /// </summary>
-    public TerraformExpression DestinationIpRanges => this["destination_ip_ranges"];
+    [TerraformPropertyName("destination_ip_ranges")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> DestinationIpRanges => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "destination_ip_ranges");
 
     /// <summary>
     /// A list of destination ports to which the external access rule applies.
     /// </summary>
-    public TerraformExpression DestinationPorts => this["destination_ports"];
+    [TerraformPropertyName("destination_ports")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> DestinationPorts => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "destination_ports");
 
     /// <summary>
     /// The IP protocol to which the external access rule applies.
     /// </summary>
-    public TerraformExpression IpProtocol => this["ip_protocol"];
+    [TerraformPropertyName("ip_protocol")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpProtocol => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_protocol");
 
     /// <summary>
     /// External access rule priority, which determines the external access rule to use when multiple rules apply.
     /// </summary>
-    public TerraformExpression Priority => this["priority"];
+    [TerraformPropertyName("priority")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Priority => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "priority");
 
     /// <summary>
     /// If source ranges are specified, the external access rule applies only to
     /// traffic that has a source IP address in these ranges.
     /// </summary>
-    public TerraformExpression SourceIpRanges => this["source_ip_ranges"];
+    [TerraformPropertyName("source_ip_ranges")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SourceIpRanges => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "source_ip_ranges");
 
     /// <summary>
     /// A list of source ports to which the external access rule applies.
     /// </summary>
-    public TerraformExpression SourcePorts => this["source_ports"];
+    [TerraformPropertyName("source_ports")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> SourcePorts => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "source_ports");
 
     /// <summary>
     /// State of the Cluster.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
-    public TerraformExpression Uid => this["uid"];
+    [TerraformPropertyName("uid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Uid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "uid");
 
     /// <summary>
     /// Last updated time of this resource.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNginxDeploymentDataSourceTimeoutsBlock : TerraformBlock
+public class AzurermNginxDeploymentDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,160 +24,162 @@ public class AzurermNginxDeploymentDataSource : TerraformDataSource
 {
     public AzurermNginxDeploymentDataSource(string name) : base("azurerm_nginx_deployment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("auto_scale_profile");
-        SetOutput("automatic_upgrade_channel");
-        SetOutput("capacity");
-        SetOutput("dataplane_api_endpoint");
-        SetOutput("diagnose_support_enabled");
-        SetOutput("email");
-        SetOutput("frontend_private");
-        SetOutput("frontend_public");
-        SetOutput("identity");
-        SetOutput("ip_address");
-        SetOutput("location");
-        SetOutput("logging_storage_account");
-        SetOutput("managed_resource_group");
-        SetOutput("network_interface");
-        SetOutput("nginx_version");
-        SetOutput("sku");
-        SetOutput("tags");
-        SetOutput("web_application_firewall");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("resource_group_name");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermNginxDeploymentDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermNginxDeploymentDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The auto_scale_profile attribute.
     /// </summary>
-    public TerraformExpression AutoScaleProfile => this["auto_scale_profile"];
+    [TerraformPropertyName("auto_scale_profile")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> AutoScaleProfile => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "auto_scale_profile");
 
     /// <summary>
     /// The automatic_upgrade_channel attribute.
     /// </summary>
-    public TerraformExpression AutomaticUpgradeChannel => this["automatic_upgrade_channel"];
+    [TerraformPropertyName("automatic_upgrade_channel")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AutomaticUpgradeChannel => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "automatic_upgrade_channel");
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformExpression Capacity => this["capacity"];
+    [TerraformPropertyName("capacity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> Capacity => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "capacity");
 
     /// <summary>
     /// The dataplane_api_endpoint attribute.
     /// </summary>
-    public TerraformExpression DataplaneApiEndpoint => this["dataplane_api_endpoint"];
+    [TerraformPropertyName("dataplane_api_endpoint")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DataplaneApiEndpoint => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "dataplane_api_endpoint");
 
     /// <summary>
     /// The diagnose_support_enabled attribute.
     /// </summary>
-    public TerraformExpression DiagnoseSupportEnabled => this["diagnose_support_enabled"];
+    [TerraformPropertyName("diagnose_support_enabled")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> DiagnoseSupportEnabled => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "diagnose_support_enabled");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformExpression Email => this["email"];
+    [TerraformPropertyName("email")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Email => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "email");
 
     /// <summary>
     /// The frontend_private attribute.
     /// </summary>
-    public TerraformExpression FrontendPrivate => this["frontend_private"];
+    [TerraformPropertyName("frontend_private")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> FrontendPrivate => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "frontend_private");
 
     /// <summary>
     /// The frontend_public attribute.
     /// </summary>
-    public TerraformExpression FrontendPublic => this["frontend_public"];
+    [TerraformPropertyName("frontend_public")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> FrontendPublic => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "frontend_public");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformExpression Identity => this["identity"];
+    [TerraformPropertyName("identity")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Identity => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "identity");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformExpression IpAddress => this["ip_address"];
+    [TerraformPropertyName("ip_address")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> IpAddress => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ip_address");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformExpression Location => this["location"];
+    [TerraformPropertyName("location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Location => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "location");
 
     /// <summary>
     /// The logging_storage_account attribute.
     /// </summary>
-    public TerraformExpression LoggingStorageAccount => this["logging_storage_account"];
+    [TerraformPropertyName("logging_storage_account")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> LoggingStorageAccount => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "logging_storage_account");
 
     /// <summary>
     /// The managed_resource_group attribute.
     /// </summary>
-    public TerraformExpression ManagedResourceGroup => this["managed_resource_group"];
+    [TerraformPropertyName("managed_resource_group")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ManagedResourceGroup => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "managed_resource_group");
 
     /// <summary>
     /// The network_interface attribute.
     /// </summary>
-    public TerraformExpression NetworkInterface => this["network_interface"];
+    [TerraformPropertyName("network_interface")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> NetworkInterface => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "network_interface");
 
     /// <summary>
     /// The nginx_version attribute.
     /// </summary>
-    public TerraformExpression NginxVersion => this["nginx_version"];
+    [TerraformPropertyName("nginx_version")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NginxVersion => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "nginx_version");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformExpression Sku => this["sku"];
+    [TerraformPropertyName("sku")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Sku => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformExpression Tags => this["tags"];
+    [TerraformPropertyName("tags")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> Tags => new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags");
 
     /// <summary>
     /// The web_application_firewall attribute.
     /// </summary>
-    public TerraformExpression WebApplicationFirewall => this["web_application_firewall"];
+    [TerraformPropertyName("web_application_firewall")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> WebApplicationFirewall => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "web_application_firewall");
 
 }

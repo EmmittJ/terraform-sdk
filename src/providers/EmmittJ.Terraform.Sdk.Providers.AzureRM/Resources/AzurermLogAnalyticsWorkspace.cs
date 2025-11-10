@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLogAnalyticsWorkspaceIdentityBlock : TerraformBlock
+public class AzurermLogAnalyticsWorkspaceIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -47,39 +43,35 @@ public class AzurermLogAnalyticsWorkspaceIdentityBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogAnalyticsWorkspaceTimeoutsBlock : TerraformBlock
+public class AzurermLogAnalyticsWorkspaceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -91,222 +83,165 @@ public class AzurermLogAnalyticsWorkspace : TerraformResource
 {
     public AzurermLogAnalyticsWorkspace(string name) : base("azurerm_log_analytics_workspace", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("primary_shared_key");
-        SetOutput("secondary_shared_key");
-        SetOutput("workspace_id");
-        SetOutput("allow_resource_only_permissions");
-        SetOutput("cmk_for_query_forced");
-        SetOutput("daily_quota_gb");
-        SetOutput("data_collection_rule_id");
-        SetOutput("id");
-        SetOutput("immediate_data_purge_on_30_days_enabled");
-        SetOutput("internet_ingestion_enabled");
-        SetOutput("internet_query_enabled");
-        SetOutput("local_authentication_disabled");
-        SetOutput("local_authentication_enabled");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("reservation_capacity_in_gb_per_day");
-        SetOutput("resource_group_name");
-        SetOutput("retention_in_days");
-        SetOutput("sku");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The allow_resource_only_permissions attribute.
     /// </summary>
-    public TerraformProperty<bool> AllowResourceOnlyPermissions
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_resource_only_permissions");
-        set => SetProperty("allow_resource_only_permissions", value);
-    }
+    [TerraformPropertyName("allow_resource_only_permissions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowResourceOnlyPermissions { get; set; }
 
     /// <summary>
     /// The cmk_for_query_forced attribute.
     /// </summary>
-    public TerraformProperty<bool> CmkForQueryForced
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("cmk_for_query_forced");
-        set => SetProperty("cmk_for_query_forced", value);
-    }
+    [TerraformPropertyName("cmk_for_query_forced")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? CmkForQueryForced { get; set; }
 
     /// <summary>
     /// The daily_quota_gb attribute.
     /// </summary>
-    public TerraformProperty<double> DailyQuotaGb
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("daily_quota_gb");
-        set => SetProperty("daily_quota_gb", value);
-    }
+    [TerraformPropertyName("daily_quota_gb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? DailyQuotaGb { get; set; }
 
     /// <summary>
     /// The data_collection_rule_id attribute.
     /// </summary>
-    public TerraformProperty<string> DataCollectionRuleId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_collection_rule_id");
-        set => SetProperty("data_collection_rule_id", value);
-    }
+    [TerraformPropertyName("data_collection_rule_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DataCollectionRuleId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The immediate_data_purge_on_30_days_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> ImmediateDataPurgeOn30DaysEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("immediate_data_purge_on_30_days_enabled");
-        set => SetProperty("immediate_data_purge_on_30_days_enabled", value);
-    }
+    [TerraformPropertyName("immediate_data_purge_on_30_days_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ImmediateDataPurgeOn30DaysEnabled { get; set; }
 
     /// <summary>
     /// The internet_ingestion_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> InternetIngestionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("internet_ingestion_enabled");
-        set => SetProperty("internet_ingestion_enabled", value);
-    }
+    [TerraformPropertyName("internet_ingestion_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InternetIngestionEnabled { get; set; }
 
     /// <summary>
     /// The internet_query_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> InternetQueryEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("internet_query_enabled");
-        set => SetProperty("internet_query_enabled", value);
-    }
+    [TerraformPropertyName("internet_query_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InternetQueryEnabled { get; set; }
 
     /// <summary>
     /// The local_authentication_disabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<bool> LocalAuthenticationDisabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("local_authentication_disabled");
-        set => SetProperty("local_authentication_disabled", value);
-    }
+    [TerraformPropertyName("local_authentication_disabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> LocalAuthenticationDisabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "local_authentication_disabled");
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> LocalAuthenticationEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("local_authentication_enabled");
-        set => SetProperty("local_authentication_enabled", value);
-    }
+    [TerraformPropertyName("local_authentication_enabled")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> LocalAuthenticationEnabled { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "local_authentication_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The reservation_capacity_in_gb_per_day attribute.
     /// </summary>
-    public TerraformProperty<double> ReservationCapacityInGbPerDay
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("reservation_capacity_in_gb_per_day");
-        set => SetProperty("reservation_capacity_in_gb_per_day", value);
-    }
+    [TerraformPropertyName("reservation_capacity_in_gb_per_day")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ReservationCapacityInGbPerDay { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    public TerraformProperty<double> RetentionInDays
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("retention_in_days");
-        set => SetProperty("retention_in_days", value);
-    }
+    [TerraformPropertyName("retention_in_days")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<double>> RetentionInDays { get; set; } = new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "retention_in_days");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string> Sku
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sku");
-        set => SetProperty("sku", value);
-    }
+    [TerraformPropertyName("sku")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Sku { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermLogAnalyticsWorkspaceIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermLogAnalyticsWorkspaceIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLogAnalyticsWorkspaceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLogAnalyticsWorkspaceTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The primary_shared_key attribute.
     /// </summary>
-    public TerraformExpression PrimarySharedKey => this["primary_shared_key"];
+    [TerraformPropertyName("primary_shared_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrimarySharedKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "primary_shared_key");
 
     /// <summary>
     /// The secondary_shared_key attribute.
     /// </summary>
-    public TerraformExpression SecondarySharedKey => this["secondary_shared_key"];
+    [TerraformPropertyName("secondary_shared_key")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SecondarySharedKey => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "secondary_shared_key");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformExpression WorkspaceId => this["workspace_id"];
+    [TerraformPropertyName("workspace_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> WorkspaceId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "workspace_id");
 
 }

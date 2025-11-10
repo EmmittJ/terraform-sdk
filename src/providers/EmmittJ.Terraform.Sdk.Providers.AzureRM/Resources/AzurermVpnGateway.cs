@@ -6,33 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for bgp_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVpnGatewayBgpSettingsBlock : TerraformBlock
+public class AzurermVpnGatewayBgpSettingsBlock : ITerraformBlock
 {
     /// <summary>
     /// The asn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
-    public required TerraformProperty<double> Asn
-    {
-        set => SetProperty("asn", value);
-    }
+    [TerraformPropertyName("asn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Asn { get; set; }
 
     /// <summary>
     /// The bgp_peering_address attribute.
     /// </summary>
-    public TerraformProperty<string>? BgpPeeringAddress
-    {
-        set => SetProperty("bgp_peering_address", value);
-    }
+    [TerraformPropertyName("bgp_peering_address")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> BgpPeeringAddress => new TerraformReferenceProperty<TerraformProperty<string>>("", "bgp_peering_address");
 
     /// <summary>
     /// The peer_weight attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerWeight is required")]
-    public required TerraformProperty<double> PeerWeight
-    {
-        set => SetProperty("peer_weight", value);
-    }
+    [TerraformPropertyName("peer_weight")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> PeerWeight { get; set; }
 
 }
 
@@ -40,39 +37,35 @@ public class AzurermVpnGatewayBgpSettingsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVpnGatewayTimeoutsBlock : TerraformBlock
+public class AzurermVpnGatewayTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -84,130 +77,95 @@ public class AzurermVpnGateway : TerraformResource
 {
     public AzurermVpnGateway(string name) : base("azurerm_vpn_gateway", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("ip_configuration");
-        SetOutput("bgp_route_translation_for_nat_enabled");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("resource_group_name");
-        SetOutput("routing_preference");
-        SetOutput("scale_unit");
-        SetOutput("tags");
-        SetOutput("virtual_hub_id");
     }
 
     /// <summary>
     /// The bgp_route_translation_for_nat_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> BgpRouteTranslationForNatEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("bgp_route_translation_for_nat_enabled");
-        set => SetProperty("bgp_route_translation_for_nat_enabled", value);
-    }
+    [TerraformPropertyName("bgp_route_translation_for_nat_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? BgpRouteTranslationForNatEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The routing_preference attribute.
     /// </summary>
-    public TerraformProperty<string> RoutingPreference
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("routing_preference");
-        set => SetProperty("routing_preference", value);
-    }
+    [TerraformPropertyName("routing_preference")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? RoutingPreference { get; set; }
 
     /// <summary>
     /// The scale_unit attribute.
     /// </summary>
-    public TerraformProperty<double> ScaleUnit
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("scale_unit");
-        set => SetProperty("scale_unit", value);
-    }
+    [TerraformPropertyName("scale_unit")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? ScaleUnit { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
-    public required TerraformProperty<string> VirtualHubId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_hub_id");
-        set => SetProperty("virtual_hub_id", value);
-    }
+    [TerraformPropertyName("virtual_hub_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualHubId { get; set; }
 
     /// <summary>
     /// Block for bgp_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpSettings block(s) allowed")]
-    public List<AzurermVpnGatewayBgpSettingsBlock>? BgpSettings
-    {
-        set => SetProperty("bgp_settings", value);
-    }
+    [TerraformPropertyName("bgp_settings")]
+    public TerraformList<TerraformBlock<AzurermVpnGatewayBgpSettingsBlock>>? BgpSettings { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVpnGatewayTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVpnGatewayTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The ip_configuration attribute.
     /// </summary>
-    public TerraformExpression IpConfiguration => this["ip_configuration"];
+    [TerraformPropertyName("ip_configuration")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> IpConfiguration => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "ip_configuration");
 
 }

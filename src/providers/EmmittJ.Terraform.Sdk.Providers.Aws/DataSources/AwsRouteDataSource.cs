@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRouteDataSourceTimeoutsBlock : TerraformBlock
+public class AwsRouteDataSourceTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
 }
 
@@ -25,181 +24,126 @@ public class AwsRouteDataSource : TerraformDataSource
 {
     public AwsRouteDataSource(string name) : base("aws_route", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("carrier_gateway_id");
-        SetOutput("core_network_arn");
-        SetOutput("destination_cidr_block");
-        SetOutput("destination_ipv6_cidr_block");
-        SetOutput("destination_prefix_list_id");
-        SetOutput("egress_only_gateway_id");
-        SetOutput("gateway_id");
-        SetOutput("id");
-        SetOutput("instance_id");
-        SetOutput("local_gateway_id");
-        SetOutput("nat_gateway_id");
-        SetOutput("network_interface_id");
-        SetOutput("region");
-        SetOutput("route_table_id");
-        SetOutput("transit_gateway_id");
-        SetOutput("vpc_peering_connection_id");
     }
 
     /// <summary>
     /// The carrier_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string> CarrierGatewayId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("carrier_gateway_id");
-        set => SetProperty("carrier_gateway_id", value);
-    }
+    [TerraformPropertyName("carrier_gateway_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CarrierGatewayId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "carrier_gateway_id");
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
-    public TerraformProperty<string> CoreNetworkArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("core_network_arn");
-        set => SetProperty("core_network_arn", value);
-    }
+    [TerraformPropertyName("core_network_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> CoreNetworkArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "core_network_arn");
 
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string> DestinationCidrBlock
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_cidr_block");
-        set => SetProperty("destination_cidr_block", value);
-    }
+    [TerraformPropertyName("destination_cidr_block")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DestinationCidrBlock { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "destination_cidr_block");
 
     /// <summary>
     /// The destination_ipv6_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string> DestinationIpv6CidrBlock
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_ipv6_cidr_block");
-        set => SetProperty("destination_ipv6_cidr_block", value);
-    }
+    [TerraformPropertyName("destination_ipv6_cidr_block")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DestinationIpv6CidrBlock { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "destination_ipv6_cidr_block");
 
     /// <summary>
     /// The destination_prefix_list_id attribute.
     /// </summary>
-    public TerraformProperty<string> DestinationPrefixListId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("destination_prefix_list_id");
-        set => SetProperty("destination_prefix_list_id", value);
-    }
+    [TerraformPropertyName("destination_prefix_list_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> DestinationPrefixListId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "destination_prefix_list_id");
 
     /// <summary>
     /// The egress_only_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string> EgressOnlyGatewayId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("egress_only_gateway_id");
-        set => SetProperty("egress_only_gateway_id", value);
-    }
+    [TerraformPropertyName("egress_only_gateway_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> EgressOnlyGatewayId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "egress_only_gateway_id");
 
     /// <summary>
     /// The gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string> GatewayId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("gateway_id");
-        set => SetProperty("gateway_id", value);
-    }
+    [TerraformPropertyName("gateway_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> GatewayId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "gateway_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string> InstanceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance_id");
-        set => SetProperty("instance_id", value);
-    }
+    [TerraformPropertyName("instance_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> InstanceId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "instance_id");
 
     /// <summary>
     /// The local_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string> LocalGatewayId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("local_gateway_id");
-        set => SetProperty("local_gateway_id", value);
-    }
+    [TerraformPropertyName("local_gateway_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> LocalGatewayId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "local_gateway_id");
 
     /// <summary>
     /// The nat_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string> NatGatewayId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("nat_gateway_id");
-        set => SetProperty("nat_gateway_id", value);
-    }
+    [TerraformPropertyName("nat_gateway_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NatGatewayId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "nat_gateway_id");
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformProperty<string> NetworkInterfaceId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("network_interface_id");
-        set => SetProperty("network_interface_id", value);
-    }
+    [TerraformPropertyName("network_interface_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NetworkInterfaceId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "network_interface_id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
-    public required TerraformProperty<string> RouteTableId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("route_table_id");
-        set => SetProperty("route_table_id", value);
-    }
+    [TerraformPropertyName("route_table_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RouteTableId { get; set; }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string> TransitGatewayId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("transit_gateway_id");
-        set => SetProperty("transit_gateway_id", value);
-    }
+    [TerraformPropertyName("transit_gateway_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TransitGatewayId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "transit_gateway_id");
 
     /// <summary>
     /// The vpc_peering_connection_id attribute.
     /// </summary>
-    public TerraformProperty<string> VpcPeeringConnectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_peering_connection_id");
-        set => SetProperty("vpc_peering_connection_id", value);
-    }
+    [TerraformPropertyName("vpc_peering_connection_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> VpcPeeringConnectionId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "vpc_peering_connection_id");
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsRouteDataSourceTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsRouteDataSourceTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

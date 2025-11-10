@@ -9,44 +9,35 @@ public class AwsAuditmanagerOrganizationAdminAccountRegistration : TerraformReso
 {
     public AwsAuditmanagerOrganizationAdminAccountRegistration(string name) : base("aws_auditmanager_organization_admin_account_registration", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("organization_id");
-        SetOutput("admin_account_id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The admin_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminAccountId is required")]
-    public required TerraformProperty<string> AdminAccountId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("admin_account_id");
-        set => SetProperty("admin_account_id", value);
-    }
+    [TerraformPropertyName("admin_account_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AdminAccountId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The organization_id attribute.
     /// </summary>
-    public TerraformExpression OrganizationId => this["organization_id"];
+    [TerraformPropertyName("organization_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OrganizationId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "organization_id");
 
 }

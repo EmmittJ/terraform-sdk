@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStackHciExtensionTimeoutsBlock : TerraformBlock
+public class AzurermStackHciExtensionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,124 +45,87 @@ public class AzurermStackHciExtension : TerraformResource
 {
     public AzurermStackHciExtension(string name) : base("azurerm_stack_hci_extension", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arc_setting_id");
-        SetOutput("auto_upgrade_minor_version_enabled");
-        SetOutput("automatic_upgrade_enabled");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("protected_settings");
-        SetOutput("publisher");
-        SetOutput("settings");
-        SetOutput("type");
-        SetOutput("type_handler_version");
     }
 
     /// <summary>
     /// The arc_setting_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcSettingId is required")]
-    public required TerraformProperty<string> ArcSettingId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("arc_setting_id");
-        set => SetProperty("arc_setting_id", value);
-    }
+    [TerraformPropertyName("arc_setting_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ArcSettingId { get; set; }
 
     /// <summary>
     /// The auto_upgrade_minor_version_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AutoUpgradeMinorVersionEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_upgrade_minor_version_enabled");
-        set => SetProperty("auto_upgrade_minor_version_enabled", value);
-    }
+    [TerraformPropertyName("auto_upgrade_minor_version_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoUpgradeMinorVersionEnabled { get; set; }
 
     /// <summary>
     /// The automatic_upgrade_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> AutomaticUpgradeEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("automatic_upgrade_enabled");
-        set => SetProperty("automatic_upgrade_enabled", value);
-    }
+    [TerraformPropertyName("automatic_upgrade_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutomaticUpgradeEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The protected_settings attribute.
     /// </summary>
-    public TerraformProperty<string> ProtectedSettings
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protected_settings");
-        set => SetProperty("protected_settings", value);
-    }
+    [TerraformPropertyName("protected_settings")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProtectedSettings { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    public required TerraformProperty<string> Publisher
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("publisher");
-        set => SetProperty("publisher", value);
-    }
+    [TerraformPropertyName("publisher")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
 
     /// <summary>
     /// The settings attribute.
     /// </summary>
-    public TerraformProperty<string> Settings
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("settings");
-        set => SetProperty("settings", value);
-    }
+    [TerraformPropertyName("settings")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Settings { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// The type_handler_version attribute.
     /// </summary>
-    public TerraformProperty<string> TypeHandlerVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type_handler_version");
-        set => SetProperty("type_handler_version", value);
-    }
+    [TerraformPropertyName("type_handler_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TypeHandlerVersion { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermStackHciExtensionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermStackHciExtensionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

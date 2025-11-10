@@ -6,47 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for password_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSqlUserPasswordPolicyBlock : TerraformBlock
+public class GoogleSqlUserPasswordPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// Number of failed attempts allowed before the user get locked.
     /// </summary>
-    public TerraformProperty<double>? AllowedFailedAttempts
-    {
-        set => SetProperty("allowed_failed_attempts", value);
-    }
+    [TerraformPropertyName("allowed_failed_attempts")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? AllowedFailedAttempts { get; set; }
 
     /// <summary>
     /// If true, the check that will lock user after too many failed login attempts will be enabled.
     /// </summary>
-    public TerraformProperty<bool>? EnableFailedAttemptsCheck
-    {
-        set => SetProperty("enable_failed_attempts_check", value);
-    }
+    [TerraformPropertyName("enable_failed_attempts_check")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableFailedAttemptsCheck { get; set; }
 
     /// <summary>
     /// If true, the user must specify the current password before changing the password. This flag is supported only for MySQL.
     /// </summary>
-    public TerraformProperty<bool>? EnablePasswordVerification
-    {
-        set => SetProperty("enable_password_verification", value);
-    }
+    [TerraformPropertyName("enable_password_verification")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnablePasswordVerification { get; set; }
 
     /// <summary>
     /// Password expiration duration with one week grace period.
     /// </summary>
-    public TerraformProperty<string>? PasswordExpirationDuration
-    {
-        set => SetProperty("password_expiration_duration", value);
-    }
+    [TerraformPropertyName("password_expiration_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PasswordExpirationDuration { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? Status
-    {
-        set => SetProperty("status", value);
-    }
+    [TerraformPropertyName("status")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Status => new TerraformReferenceProperty<List<TerraformProperty<object>>>("", "status");
 
 }
 
@@ -54,31 +49,28 @@ public class GoogleSqlUserPasswordPolicyBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSqlUserTimeoutsBlock : TerraformBlock
+public class GoogleSqlUserTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -90,22 +82,6 @@ public class GoogleSqlUser : TerraformResource
 {
     public GoogleSqlUser(string name) : base("google_sql_user", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("sql_server_user_details");
-        SetOutput("deletion_policy");
-        SetOutput("host");
-        SetOutput("id");
-        SetOutput("instance");
-        SetOutput("name");
-        SetOutput("password");
-        SetOutput("password_wo");
-        SetOutput("password_wo_version");
-        SetOutput("project");
-        SetOutput("type");
     }
 
     /// <summary>
@@ -113,120 +89,98 @@ public class GoogleSqlUser : TerraformResource
     /// 				to be abandoned rather than deleted. This is useful for Postgres, where users cannot be deleted from the API if they
     /// 				have been granted SQL roles. Possible values are: &amp;quot;ABANDON&amp;quot;.
     /// </summary>
-    public TerraformProperty<string> DeletionPolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("deletion_policy");
-        set => SetProperty("deletion_policy", value);
-    }
+    [TerraformPropertyName("deletion_policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The host the user can connect from. This is only supported for MySQL instances. Don&#39;t set this field for PostgreSQL instances. Can be an IP address. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformProperty<string> Host
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("host");
-        set => SetProperty("host", value);
-    }
+    [TerraformPropertyName("host")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Host { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "host");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the Cloud SQL instance. Changing this forces a new resource to be created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    public required TerraformProperty<string> Instance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance");
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
 
     /// <summary>
     /// The name of the user. Changing this forces a new resource to be created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The password for the user. Can be updated. For Postgres instances this is a Required field, unless type is set to
     /// 				either CLOUD_IAM_USER or CLOUD_IAM_SERVICE_ACCOUNT.
     /// </summary>
-    public TerraformProperty<string> Password
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("password");
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Password { get; set; }
 
     /// <summary>
     /// The password for the user. Can be updated. For Postgres instances this is a Required field, unless type is set to
     /// 				either CLOUD_IAM_USER or CLOUD_IAM_SERVICE_ACCOUNT.
     /// </summary>
-    public TerraformProperty<string> PasswordWo
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("password_wo");
-        set => SetProperty("password_wo", value);
-    }
+    [TerraformPropertyName("password_wo")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PasswordWo { get; set; }
 
     /// <summary>
     /// The version of the password_wo.
     /// </summary>
-    public TerraformProperty<double> PasswordWoVersion
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("password_wo_version");
-        set => SetProperty("password_wo_version", value);
-    }
+    [TerraformPropertyName("password_wo_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? PasswordWoVersion { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The user type. It determines the method to authenticate the user during login.
     /// 				The default is the database&#39;s built-in user type.
     /// </summary>
-    public TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
     /// <summary>
     /// Block for password_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PasswordPolicy block(s) allowed")]
-    public List<GoogleSqlUserPasswordPolicyBlock>? PasswordPolicy
-    {
-        set => SetProperty("password_policy", value);
-    }
+    [TerraformPropertyName("password_policy")]
+    public TerraformList<TerraformBlock<GoogleSqlUserPasswordPolicyBlock>>? PasswordPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleSqlUserTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleSqlUserTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The sql_server_user_details attribute.
     /// </summary>
-    public TerraformExpression SqlServerUserDetails => this["sql_server_user_details"];
+    [TerraformPropertyName("sql_server_user_details")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> SqlServerUserDetails => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "sql_server_user_details");
 
 }

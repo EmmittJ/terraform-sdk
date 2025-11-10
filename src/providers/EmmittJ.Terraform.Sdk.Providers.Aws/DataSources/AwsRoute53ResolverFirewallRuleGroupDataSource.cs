@@ -9,102 +9,98 @@ public class AwsRoute53ResolverFirewallRuleGroupDataSource : TerraformDataSource
 {
     public AwsRoute53ResolverFirewallRuleGroupDataSource(string name) : base("aws_route53_resolver_firewall_rule_group", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("creation_time");
-        SetOutput("creator_request_id");
-        SetOutput("modification_time");
-        SetOutput("name");
-        SetOutput("owner_id");
-        SetOutput("rule_count");
-        SetOutput("share_status");
-        SetOutput("status");
-        SetOutput("status_message");
-        SetOutput("firewall_rule_group_id");
-        SetOutput("id");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The firewall_rule_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallRuleGroupId is required")]
-    public required TerraformProperty<string> FirewallRuleGroupId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("firewall_rule_group_id");
-        set => SetProperty("firewall_rule_group_id", value);
-    }
+    [TerraformPropertyName("firewall_rule_group_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> FirewallRuleGroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    public TerraformExpression CreationTime => this["creation_time"];
+    [TerraformPropertyName("creation_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creation_time");
 
     /// <summary>
     /// The creator_request_id attribute.
     /// </summary>
-    public TerraformExpression CreatorRequestId => this["creator_request_id"];
+    [TerraformPropertyName("creator_request_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreatorRequestId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "creator_request_id");
 
     /// <summary>
     /// The modification_time attribute.
     /// </summary>
-    public TerraformExpression ModificationTime => this["modification_time"];
+    [TerraformPropertyName("modification_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ModificationTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "modification_time");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformExpression OwnerId => this["owner_id"];
+    [TerraformPropertyName("owner_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OwnerId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_id");
 
     /// <summary>
     /// The rule_count attribute.
     /// </summary>
-    public TerraformExpression RuleCount => this["rule_count"];
+    [TerraformPropertyName("rule_count")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> RuleCount => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "rule_count");
 
     /// <summary>
     /// The share_status attribute.
     /// </summary>
-    public TerraformExpression ShareStatus => this["share_status"];
+    [TerraformPropertyName("share_status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ShareStatus => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "share_status");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformExpression Status => this["status"];
+    [TerraformPropertyName("status")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Status => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
-    public TerraformExpression StatusMessage => this["status_message"];
+    [TerraformPropertyName("status_message")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> StatusMessage => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "status_message");
 
 }

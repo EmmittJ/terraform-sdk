@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkmanagerVpcAttachmentOptionsBlock : TerraformBlock
+public class AwsNetworkmanagerVpcAttachmentOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The appliance_mode_support attribute.
     /// </summary>
-    public TerraformProperty<bool>? ApplianceModeSupport
-    {
-        set => SetProperty("appliance_mode_support", value);
-    }
+    [TerraformPropertyName("appliance_mode_support")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> ApplianceModeSupport { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "appliance_mode_support");
 
     /// <summary>
     /// The dns_support attribute.
     /// </summary>
-    public TerraformProperty<bool>? DnsSupport
-    {
-        set => SetProperty("dns_support", value);
-    }
+    [TerraformPropertyName("dns_support")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> DnsSupport { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "dns_support");
 
     /// <summary>
     /// The ipv6_support attribute.
     /// </summary>
-    public TerraformProperty<bool>? Ipv6Support
-    {
-        set => SetProperty("ipv6_support", value);
-    }
+    [TerraformPropertyName("ipv6_support")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> Ipv6Support { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "ipv6_support");
 
     /// <summary>
     /// The security_group_referencing_support attribute.
     /// </summary>
-    public TerraformProperty<bool>? SecurityGroupReferencingSupport
-    {
-        set => SetProperty("security_group_referencing_support", value);
-    }
+    [TerraformPropertyName("security_group_referencing_support")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<bool>> SecurityGroupReferencingSupport { get; set; } = new TerraformReferenceProperty<TerraformProperty<bool>>("", "security_group_referencing_support");
 
 }
 
@@ -46,31 +42,28 @@ public class AwsNetworkmanagerVpcAttachmentOptionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsNetworkmanagerVpcAttachmentTimeoutsBlock : TerraformBlock
+public class AwsNetworkmanagerVpcAttachmentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -82,147 +75,129 @@ public class AwsNetworkmanagerVpcAttachment : TerraformResource
 {
     public AwsNetworkmanagerVpcAttachment(string name) : base("aws_networkmanager_vpc_attachment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("attachment_policy_rule_number");
-        SetOutput("attachment_type");
-        SetOutput("core_network_arn");
-        SetOutput("edge_location");
-        SetOutput("owner_account_id");
-        SetOutput("resource_arn");
-        SetOutput("segment_name");
-        SetOutput("state");
-        SetOutput("core_network_id");
-        SetOutput("id");
-        SetOutput("subnet_arns");
-        SetOutput("tags");
-        SetOutput("tags_all");
-        SetOutput("vpc_arn");
     }
 
     /// <summary>
     /// The core_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
-    public required TerraformProperty<string> CoreNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("core_network_id");
-        set => SetProperty("core_network_id", value);
-    }
+    [TerraformPropertyName("core_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CoreNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The subnet_arns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetArns is required")]
-    public HashSet<TerraformProperty<string>> SubnetArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("subnet_arns");
-        set => SetProperty("subnet_arns", value);
-    }
+    [TerraformPropertyName("subnet_arns")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? SubnetArns { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// The vpc_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcArn is required")]
-    public required TerraformProperty<string> VpcArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vpc_arn");
-        set => SetProperty("vpc_arn", value);
-    }
+    [TerraformPropertyName("vpc_arn")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VpcArn { get; set; }
 
     /// <summary>
     /// Block for options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
-    public List<AwsNetworkmanagerVpcAttachmentOptionsBlock>? Options
-    {
-        set => SetProperty("options", value);
-    }
+    [TerraformPropertyName("options")]
+    public TerraformList<TerraformBlock<AwsNetworkmanagerVpcAttachmentOptionsBlock>>? Options { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsNetworkmanagerVpcAttachmentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsNetworkmanagerVpcAttachmentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The attachment_policy_rule_number attribute.
     /// </summary>
-    public TerraformExpression AttachmentPolicyRuleNumber => this["attachment_policy_rule_number"];
+    [TerraformPropertyName("attachment_policy_rule_number")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> AttachmentPolicyRuleNumber => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "attachment_policy_rule_number");
 
     /// <summary>
     /// The attachment_type attribute.
     /// </summary>
-    public TerraformExpression AttachmentType => this["attachment_type"];
+    [TerraformPropertyName("attachment_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AttachmentType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "attachment_type");
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
-    public TerraformExpression CoreNetworkArn => this["core_network_arn"];
+    [TerraformPropertyName("core_network_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CoreNetworkArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "core_network_arn");
 
     /// <summary>
     /// The edge_location attribute.
     /// </summary>
-    public TerraformExpression EdgeLocation => this["edge_location"];
+    [TerraformPropertyName("edge_location")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> EdgeLocation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "edge_location");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
-    public TerraformExpression OwnerAccountId => this["owner_account_id"];
+    [TerraformPropertyName("owner_account_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OwnerAccountId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "owner_account_id");
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public TerraformExpression ResourceArn => this["resource_arn"];
+    [TerraformPropertyName("resource_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ResourceArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_arn");
 
     /// <summary>
     /// The segment_name attribute.
     /// </summary>
-    public TerraformExpression SegmentName => this["segment_name"];
+    [TerraformPropertyName("segment_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SegmentName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "segment_name");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
 }

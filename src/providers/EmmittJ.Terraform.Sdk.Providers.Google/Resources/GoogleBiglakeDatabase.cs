@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for hive_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBiglakeDatabaseHiveOptionsBlock : TerraformBlock
+public class GoogleBiglakeDatabaseHiveOptionsBlock : ITerraformBlock
 {
     /// <summary>
     /// Cloud Storage folder URI where the database data is stored, starting with &amp;quot;gs://&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? LocationUri
-    {
-        set => SetProperty("location_uri", value);
-    }
+    [TerraformPropertyName("location_uri")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LocationUri { get; set; }
 
     /// <summary>
     /// Stores user supplied Hive database parameters. An object containing a
     /// list of&amp;quot;key&amp;quot;: value pairs.
     /// Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? Parameters
-    {
-        set => SetProperty("parameters", value);
-    }
+    [TerraformPropertyName("parameters")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Parameters { get; set; }
 
 }
 
@@ -32,31 +30,28 @@ public class GoogleBiglakeDatabaseHiveOptionsBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBiglakeDatabaseTimeoutsBlock : TerraformBlock
+public class GoogleBiglakeDatabaseTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -68,59 +63,38 @@ public class GoogleBiglakeDatabase : TerraformResource
 {
     public GoogleBiglakeDatabase(string name) : base("google_biglake_database", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("create_time");
-        SetOutput("delete_time");
-        SetOutput("expire_time");
-        SetOutput("update_time");
-        SetOutput("catalog");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("type");
     }
 
     /// <summary>
     /// The parent catalog.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Catalog is required")]
-    public required TerraformProperty<string> Catalog
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("catalog");
-        set => SetProperty("catalog", value);
-    }
+    [TerraformPropertyName("catalog")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Catalog { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the database.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The database type.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// Block for hive_options.
@@ -129,19 +103,15 @@ public class GoogleBiglakeDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HiveOptions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HiveOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HiveOptions block(s) allowed")]
-    public List<GoogleBiglakeDatabaseHiveOptionsBlock>? HiveOptions
-    {
-        set => SetProperty("hive_options", value);
-    }
+    [TerraformPropertyName("hive_options")]
+    public TerraformList<TerraformBlock<GoogleBiglakeDatabaseHiveOptionsBlock>>? HiveOptions { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleBiglakeDatabaseTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleBiglakeDatabaseTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The creation time of the database. A timestamp in RFC3339
@@ -149,7 +119,9 @@ public class GoogleBiglakeDatabase : TerraformResource
     /// digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Output only. The deletion time of the database. Only set after the
@@ -157,7 +129,9 @@ public class GoogleBiglakeDatabase : TerraformResource
     /// nanosecond resolution and up to nine fractional digits. Examples:
     /// &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression DeleteTime => this["delete_time"];
+    [TerraformPropertyName("delete_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeleteTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "delete_time");
 
     /// <summary>
     /// Output only. The time when this database is considered expired. Only set
@@ -165,7 +139,9 @@ public class GoogleBiglakeDatabase : TerraformResource
     /// with nanosecond resolution and up to nine fractional digits. Examples:
     /// &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression ExpireTime => this["expire_time"];
+    [TerraformPropertyName("expire_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ExpireTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "expire_time");
 
     /// <summary>
     /// Output only. The last modification time of the database. A timestamp in
@@ -173,6 +149,8 @@ public class GoogleBiglakeDatabase : TerraformResource
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

@@ -9,49 +9,41 @@ public class AwsShieldProtectionDataSource : TerraformDataSource
 {
     public AwsShieldProtectionDataSource(string name) : base("aws_shield_protection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("protection_arn");
-        SetOutput("protection_id");
-        SetOutput("resource_arn");
     }
 
     /// <summary>
     /// The protection_id attribute.
     /// </summary>
-    public TerraformProperty<string> ProtectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("protection_id");
-        set => SetProperty("protection_id", value);
-    }
+    [TerraformPropertyName("protection_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ProtectionId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protection_id");
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public TerraformProperty<string> ResourceArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_arn");
-        set => SetProperty("resource_arn", value);
-    }
+    [TerraformPropertyName("resource_arn")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ResourceArn { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "resource_arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformExpression Id => this["id"];
+    [TerraformPropertyName("id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The protection_arn attribute.
     /// </summary>
-    public TerraformExpression ProtectionArn => this["protection_arn"];
+    [TerraformPropertyName("protection_arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ProtectionArn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "protection_arn");
 
 }

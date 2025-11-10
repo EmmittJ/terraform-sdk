@@ -7,23 +7,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Nesting mode: set
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsIamRoleInlinePolicyBlock : TerraformBlock
+public class AwsIamRoleInlinePolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Name { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
-    {
-        set => SetProperty("policy", value);
-    }
+    [TerraformPropertyName("policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Policy { get; set; }
 
 }
 
@@ -34,161 +32,121 @@ public class AwsIamRole : TerraformResource
 {
     public AwsIamRole(string name) : base("aws_iam_role", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("arn");
-        SetOutput("create_date");
-        SetOutput("unique_id");
-        SetOutput("assume_role_policy");
-        SetOutput("description");
-        SetOutput("force_detach_policies");
-        SetOutput("id");
-        SetOutput("managed_policy_arns");
-        SetOutput("max_session_duration");
-        SetOutput("name");
-        SetOutput("name_prefix");
-        SetOutput("path");
-        SetOutput("permissions_boundary");
-        SetOutput("tags");
-        SetOutput("tags_all");
     }
 
     /// <summary>
     /// The assume_role_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssumeRolePolicy is required")]
-    public required TerraformProperty<string> AssumeRolePolicy
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("assume_role_policy");
-        set => SetProperty("assume_role_policy", value);
-    }
+    [TerraformPropertyName("assume_role_policy")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AssumeRolePolicy { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The force_detach_policies attribute.
     /// </summary>
-    public TerraformProperty<bool> ForceDetachPolicies
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("force_detach_policies");
-        set => SetProperty("force_detach_policies", value);
-    }
+    [TerraformPropertyName("force_detach_policies")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ForceDetachPolicies { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The managed_policy_arns attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public HashSet<TerraformProperty<string>> ManagedPolicyArns
-    {
-        get => GetRequiredOutput<HashSet<TerraformProperty<string>>>("managed_policy_arns");
-        set => SetProperty("managed_policy_arns", value);
-    }
+    [TerraformPropertyName("managed_policy_arns")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<HashSet<TerraformProperty<string>>> ManagedPolicyArns { get; set; } = new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "managed_policy_arns");
 
     /// <summary>
     /// The max_session_duration attribute.
     /// </summary>
-    public TerraformProperty<double> MaxSessionDuration
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_session_duration");
-        set => SetProperty("max_session_duration", value);
-    }
+    [TerraformPropertyName("max_session_duration")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxSessionDuration { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Name { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformProperty<string> NamePrefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name_prefix");
-        set => SetProperty("name_prefix", value);
-    }
+    [TerraformPropertyName("name_prefix")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NamePrefix { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name_prefix");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string> Path
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("path");
-        set => SetProperty("path", value);
-    }
+    [TerraformPropertyName("path")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Path { get; set; }
 
     /// <summary>
     /// The permissions_boundary attribute.
     /// </summary>
-    public TerraformProperty<string> PermissionsBoundary
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("permissions_boundary");
-        set => SetProperty("permissions_boundary", value);
-    }
+    [TerraformPropertyName("permissions_boundary")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PermissionsBoundary { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> TagsAll
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags_all");
-        set => SetProperty("tags_all", value);
-    }
+    [TerraformPropertyName("tags_all")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>> TagsAll { get; set; } = new TerraformReferenceProperty<Dictionary<string, TerraformProperty<string>>>(ResourceAddress, "tags_all");
 
     /// <summary>
     /// Block for inline_policy.
     /// Nesting mode: set
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    public HashSet<AwsIamRoleInlinePolicyBlock>? InlinePolicy
-    {
-        set => SetProperty("inline_policy", value);
-    }
+    [TerraformPropertyName("inline_policy")]
+    public TerraformSet<TerraformBlock<AwsIamRoleInlinePolicyBlock>>? InlinePolicy { get; set; } = new();
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformExpression Arn => this["arn"];
+    [TerraformPropertyName("arn")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Arn => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "arn");
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
-    public TerraformExpression CreateDate => this["create_date"];
+    [TerraformPropertyName("create_date")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateDate => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_date");
 
     /// <summary>
     /// The unique_id attribute.
     /// </summary>
-    public TerraformExpression UniqueId => this["unique_id"];
+    [TerraformPropertyName("unique_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UniqueId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "unique_id");
 
 }

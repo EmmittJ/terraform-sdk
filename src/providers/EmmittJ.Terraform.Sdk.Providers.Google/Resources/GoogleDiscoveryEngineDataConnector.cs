@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for entities in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
+public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : ITerraformBlock
 {
     /// <summary>
     /// The full resource name of the associated data store for the source
@@ -15,10 +15,9 @@ public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
     /// When the connector is initialized by the DataConnectorService.SetUpDataConnector
     /// method, a DataStore is automatically created for each source entity.
     /// </summary>
-    public TerraformProperty<string>? DataStore
-    {
-        set => SetProperty("data_store", value);
-    }
+    [TerraformPropertyName("data_store")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DataStore => new TerraformReferenceProperty<TerraformProperty<string>>("", "data_store");
 
     /// <summary>
     /// The name of the entity. Supported values by data source:
@@ -26,10 +25,9 @@ public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
     /// * Jira: project, issue, attachment, comment, worklog
     /// * Confluence: &#39;Content&#39;, &#39;Space&#39;
     /// </summary>
-    public TerraformProperty<string>? EntityName
-    {
-        set => SetProperty("entity_name", value);
-    }
+    [TerraformPropertyName("entity_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EntityName { get; set; }
 
     /// <summary>
     /// Attributes for indexing.
@@ -41,18 +39,16 @@ public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
     /// * &#39;description&#39;: The description for data record. This would be displayed
     ///   on search results.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? KeyPropertyMappings
-    {
-        set => SetProperty("key_property_mappings", value);
-    }
+    [TerraformPropertyName("key_property_mappings")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? KeyPropertyMappings { get; set; }
 
     /// <summary>
     /// The parameters for the entity to facilitate data ingestion.
     /// </summary>
-    public TerraformProperty<string>? Params
-    {
-        set => SetProperty("params", value);
-    }
+    [TerraformPropertyName("params")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Params { get; set; }
 
 }
 
@@ -60,31 +56,28 @@ public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDiscoveryEngineDataConnectorTimeoutsBlock : TerraformBlock
+public class GoogleDiscoveryEngineDataConnectorTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -95,50 +88,14 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
 {
     public GoogleDiscoveryEngineDataConnector(string name) : base("google_discovery_engine_data_connector", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("action_state");
-        SetOutput("blocking_reasons");
-        SetOutput("connector_type");
-        SetOutput("create_time");
-        SetOutput("errors");
-        SetOutput("last_sync_time");
-        SetOutput("latest_pause_time");
-        SetOutput("name");
-        SetOutput("private_connectivity_project_id");
-        SetOutput("realtime_state");
-        SetOutput("state");
-        SetOutput("static_ip_addresses");
-        SetOutput("update_time");
-        SetOutput("auto_run_disabled");
-        SetOutput("collection_display_name");
-        SetOutput("collection_id");
-        SetOutput("connector_modes");
-        SetOutput("data_source");
-        SetOutput("id");
-        SetOutput("incremental_refresh_interval");
-        SetOutput("incremental_sync_disabled");
-        SetOutput("json_params");
-        SetOutput("kms_key_name");
-        SetOutput("location");
-        SetOutput("params");
-        SetOutput("project");
-        SetOutput("refresh_interval");
-        SetOutput("static_ip_enabled");
-        SetOutput("sync_mode");
     }
 
     /// <summary>
     /// Indicates whether full syncs are paused for this connector
     /// </summary>
-    public TerraformProperty<bool> AutoRunDisabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("auto_run_disabled");
-        set => SetProperty("auto_run_disabled", value);
-    }
+    [TerraformPropertyName("auto_run_disabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoRunDisabled { get; set; }
 
     /// <summary>
     /// The display name of the Collection.
@@ -146,11 +103,9 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// Dashboard. UTF-8 encoded string with limit of 1024 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionDisplayName is required")]
-    public required TerraformProperty<string> CollectionDisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("collection_display_name");
-        set => SetProperty("collection_display_name", value);
-    }
+    [TerraformPropertyName("collection_display_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CollectionDisplayName { get; set; }
 
     /// <summary>
     /// The ID to use for the Collection, which will become the final component
@@ -162,42 +117,34 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// INVALID_ARGUMENT error is returned.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
-    public required TerraformProperty<string> CollectionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("collection_id");
-        set => SetProperty("collection_id", value);
-    }
+    [TerraformPropertyName("collection_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CollectionId { get; set; }
 
     /// <summary>
     /// The modes enabled for this connector. The possible value can be:
     /// &#39;DATA_INGESTION&#39;, &#39;ACTIONS&#39;, &#39;FEDERATED&#39;
     /// &#39;EUA&#39;, &#39;FEDERATED_AND_EUA&#39;.
     /// </summary>
-    public List<TerraformProperty<string>> ConnectorModes
-    {
-        get => GetRequiredOutput<List<TerraformProperty<string>>>("connector_modes");
-        set => SetProperty("connector_modes", value);
-    }
+    [TerraformPropertyName("connector_modes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<string>>>? ConnectorModes { get; set; }
 
     /// <summary>
     /// The name of the data source.
     /// Supported values: &#39;salesforce&#39;, &#39;jira&#39;, &#39;confluence&#39;, &#39;bigquery&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
-    public required TerraformProperty<string> DataSource
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_source");
-        set => SetProperty("data_source", value);
-    }
+    [TerraformPropertyName("data_source")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataSource { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The refresh interval specifically for incremental data syncs. If unset,
@@ -207,29 +154,23 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// set to the same value as the incremental refresh interval, incremental
     /// sync will be disabled.
     /// </summary>
-    public TerraformProperty<string> IncrementalRefreshInterval
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("incremental_refresh_interval");
-        set => SetProperty("incremental_refresh_interval", value);
-    }
+    [TerraformPropertyName("incremental_refresh_interval")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? IncrementalRefreshInterval { get; set; }
 
     /// <summary>
     /// Indicates whether incremental syncs are paused for this connector.
     /// </summary>
-    public TerraformProperty<bool> IncrementalSyncDisabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("incremental_sync_disabled");
-        set => SetProperty("incremental_sync_disabled", value);
-    }
+    [TerraformPropertyName("incremental_sync_disabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? IncrementalSyncDisabled { get; set; }
 
     /// <summary>
     /// Params needed to access the source in the format of json string.
     /// </summary>
-    public TerraformProperty<string> JsonParams
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("json_params");
-        set => SetProperty("json_params", value);
-    }
+    [TerraformPropertyName("json_params")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? JsonParams { get; set; }
 
     /// <summary>
     /// The KMS key to be used to protect the DataStores managed by this connector.
@@ -238,40 +179,32 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// If this field is set and processed successfully, the DataStores created by
     /// this connector will be protected by the KMS key.
     /// </summary>
-    public TerraformProperty<string> KmsKeyName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("kms_key_name");
-        set => SetProperty("kms_key_name", value);
-    }
+    [TerraformPropertyName("kms_key_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? KmsKeyName { get; set; }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// Params needed to access the source in the format of String-to-String (Key, Value) pairs.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Params
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("params");
-        set => SetProperty("params", value);
-    }
+    [TerraformPropertyName("params")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Params { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// The refresh interval for data sync. If duration is set to 0, the data will
@@ -281,48 +214,38 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// sync will be disabled.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshInterval is required")]
-    public required TerraformProperty<string> RefreshInterval
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("refresh_interval");
-        set => SetProperty("refresh_interval", value);
-    }
+    [TerraformPropertyName("refresh_interval")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RefreshInterval { get; set; }
 
     /// <summary>
     /// Whether customer has enabled static IP addresses for this connector.
     /// </summary>
-    public TerraformProperty<bool> StaticIpEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("static_ip_enabled");
-        set => SetProperty("static_ip_enabled", value);
-    }
+    [TerraformPropertyName("static_ip_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StaticIpEnabled { get; set; }
 
     /// <summary>
     /// The data synchronization mode supported by the data connector. The possible value can be:
     /// &#39;PERIODIC&#39;, &#39;STREAMING&#39;.
     /// </summary>
-    public TerraformProperty<string> SyncMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("sync_mode");
-        set => SetProperty("sync_mode", value);
-    }
+    [TerraformPropertyName("sync_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SyncMode { get; set; }
 
     /// <summary>
     /// Block for entities.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleDiscoveryEngineDataConnectorEntitiesBlock>? Entities
-    {
-        set => SetProperty("entities", value);
-    }
+    [TerraformPropertyName("entities")]
+    public TerraformList<TerraformBlock<GoogleDiscoveryEngineDataConnectorEntitiesBlock>>? Entities { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleDiscoveryEngineDataConnectorTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleDiscoveryEngineDataConnectorTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// State of the action connector. This reflects whether the action connector
@@ -330,13 +253,17 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// &#39;STATE_UNSPECIFIED&#39;, &#39;CREATING&#39;, &#39;ACTIVE&#39;, &#39;FAILED&#39;, &#39;RUNNING&#39;, &#39;WARNING&#39;,
     /// &#39;INITIALIZATION_FAILED&#39;, &#39;UPDATING&#39;.
     /// </summary>
-    public TerraformExpression ActionState => this["action_state"];
+    [TerraformPropertyName("action_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ActionState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "action_state");
 
     /// <summary>
     /// User actions that must be completed before the connector can start syncing data.
     /// The possible values can be: &#39;ALLOWLIST_STATIC_IP&#39;, &#39;ALLOWLIST_IN_SERVICE_ATTACHMENT&#39;.
     /// </summary>
-    public TerraformExpression BlockingReasons => this["blocking_reasons"];
+    [TerraformPropertyName("blocking_reasons")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> BlockingReasons => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "blocking_reasons");
 
     /// <summary>
     /// The type of connector. Each source can only map to one type.
@@ -346,22 +273,30 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// &#39;GCS&#39;, &#39;GOOGLE_MAIL&#39;, &#39;GOOGLE_CALENDAR&#39;, &#39;GOOGLE_DRIVE&#39;,
     /// &#39;NATIVE_CLOUD_IDENTITY&#39;, &#39;THIRD_PARTY_FEDERATED&#39;, &#39;THIRD_PARTY_EUA&#39;, &#39;GCNV&#39;.
     /// </summary>
-    public TerraformExpression ConnectorType => this["connector_type"];
+    [TerraformPropertyName("connector_type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConnectorType => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "connector_type");
 
     /// <summary>
     /// Timestamp when the DataConnector was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// The errors from initialization or from the latest connector run.
     /// </summary>
-    public TerraformExpression Errors => this["errors"];
+    [TerraformPropertyName("errors")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> Errors => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "errors");
 
     /// <summary>
     /// For periodic connectors only, the last time a data sync was completed.
     /// </summary>
-    public TerraformExpression LastSyncTime => this["last_sync_time"];
+    [TerraformPropertyName("last_sync_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastSyncTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_sync_time");
 
     /// <summary>
     /// The most recent timestamp when this [DataConnector][] was paused,
@@ -372,42 +307,56 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     ///   - No future data synchronization runs will be scheduled nor can be
     /// triggered.
     /// </summary>
-    public TerraformExpression LatestPauseTime => this["latest_pause_time"];
+    [TerraformPropertyName("latest_pause_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LatestPauseTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "latest_pause_time");
 
     /// <summary>
     /// The full resource name of the Data Connector.
     /// Format: &#39;projects/*/locations/*/collections/*/dataConnector&#39;.
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// The tenant project ID associated with private connectivity connectors.
     /// This project must be allowlisted by in order for the connector to function.
     /// </summary>
-    public TerraformExpression PrivateConnectivityProjectId => this["private_connectivity_project_id"];
+    [TerraformPropertyName("private_connectivity_project_id")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrivateConnectivityProjectId => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "private_connectivity_project_id");
 
     /// <summary>
     /// The real-time sync state. The possible values can be:
     /// &#39;STATE_UNSPECIFIED&#39;, &#39;CREATING&#39;, &#39;ACTIVE&#39;, &#39;FAILED&#39;, &#39;RUNNING&#39;, &#39;WARNING&#39;,
     /// &#39;INITIALIZATION_FAILED&#39;, &#39;UPDATING&#39;.
     /// </summary>
-    public TerraformExpression RealtimeState => this["realtime_state"];
+    [TerraformPropertyName("realtime_state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RealtimeState => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "realtime_state");
 
     /// <summary>
     /// The state of connector. The possible value can be:
     /// &#39;STATE_UNSPECIFIED&#39;, &#39;CREATING&#39;, &#39;ACTIVE&#39;, &#39;FAILED&#39;, &#39;RUNNING&#39;, &#39;WARNING&#39;,
     /// &#39;INITIALIZATION_FAILED&#39;, &#39;UPDATING&#39;.
     /// </summary>
-    public TerraformExpression State => this["state"];
+    [TerraformPropertyName("state")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> State => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "state");
 
     /// <summary>
     /// The static IP addresses used by this connector.
     /// </summary>
-    public TerraformExpression StaticIpAddresses => this["static_ip_addresses"];
+    [TerraformPropertyName("static_ip_addresses")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> StaticIpAddresses => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "static_ip_addresses");
 
     /// <summary>
     /// Timestamp when the DataConnector was updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSubscriptionTemplateDeploymentTimeoutsBlock : TerraformBlock
+public class AzurermSubscriptionTemplateDeploymentTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,108 +45,78 @@ public class AzurermSubscriptionTemplateDeployment : TerraformResource
 {
     public AzurermSubscriptionTemplateDeployment(string name) : base("azurerm_subscription_template_deployment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("output_content");
-        SetOutput("debug_level");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("parameters_content");
-        SetOutput("tags");
-        SetOutput("template_content");
-        SetOutput("template_spec_version_id");
     }
 
     /// <summary>
     /// The debug_level attribute.
     /// </summary>
-    public TerraformProperty<string> DebugLevel
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("debug_level");
-        set => SetProperty("debug_level", value);
-    }
+    [TerraformPropertyName("debug_level")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DebugLevel { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The parameters_content attribute.
     /// </summary>
-    public TerraformProperty<string> ParametersContent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("parameters_content");
-        set => SetProperty("parameters_content", value);
-    }
+    [TerraformPropertyName("parameters_content")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> ParametersContent { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "parameters_content");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// The template_content attribute.
     /// </summary>
-    public TerraformProperty<string> TemplateContent
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("template_content");
-        set => SetProperty("template_content", value);
-    }
+    [TerraformPropertyName("template_content")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> TemplateContent { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "template_content");
 
     /// <summary>
     /// The template_spec_version_id attribute.
     /// </summary>
-    public TerraformProperty<string> TemplateSpecVersionId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("template_spec_version_id");
-        set => SetProperty("template_spec_version_id", value);
-    }
+    [TerraformPropertyName("template_spec_version_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TemplateSpecVersionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermSubscriptionTemplateDeploymentTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermSubscriptionTemplateDeploymentTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The output_content attribute.
     /// </summary>
-    public TerraformExpression OutputContent => this["output_content"];
+    [TerraformPropertyName("output_content")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> OutputContent => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "output_content");
 
 }

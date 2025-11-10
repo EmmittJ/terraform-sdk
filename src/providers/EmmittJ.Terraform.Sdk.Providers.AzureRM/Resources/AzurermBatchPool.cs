@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for auto_scale in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolAutoScaleBlock : TerraformBlock
+public class AzurermBatchPoolAutoScaleBlock : ITerraformBlock
 {
     /// <summary>
     /// The evaluation_interval attribute.
     /// </summary>
-    public TerraformProperty<string>? EvaluationInterval
-    {
-        set => SetProperty("evaluation_interval", value);
-    }
+    [TerraformPropertyName("evaluation_interval")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? EvaluationInterval { get; set; }
 
     /// <summary>
     /// The formula attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Formula is required")]
-    public required TerraformProperty<string> Formula
-    {
-        set => SetProperty("formula", value);
-    }
+    [TerraformPropertyName("formula")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Formula { get; set; }
 
 }
 
@@ -31,41 +29,37 @@ public class AzurermBatchPoolAutoScaleBlock : TerraformBlock
 /// Block type for certificate in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolCertificateBlock : TerraformBlock
+public class AzurermBatchPoolCertificateBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    public required TerraformProperty<string> Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Id { get; set; }
 
     /// <summary>
     /// The store_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoreLocation is required")]
-    public required TerraformProperty<string> StoreLocation
-    {
-        set => SetProperty("store_location", value);
-    }
+    [TerraformPropertyName("store_location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> StoreLocation { get; set; }
 
     /// <summary>
     /// The store_name attribute.
     /// </summary>
-    public TerraformProperty<string>? StoreName
-    {
-        set => SetProperty("store_name", value);
-    }
+    [TerraformPropertyName("store_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StoreName { get; set; }
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? Visibility
-    {
-        set => SetProperty("visibility", value);
-    }
+    [TerraformPropertyName("visibility")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? Visibility { get; set; }
 
 }
 
@@ -73,31 +67,28 @@ public class AzurermBatchPoolCertificateBlock : TerraformBlock
 /// Block type for container_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolContainerConfigurationBlock : TerraformBlock
+public class AzurermBatchPoolContainerConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The container_image_names attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ContainerImageNames
-    {
-        set => SetProperty("container_image_names", value);
-    }
+    [TerraformPropertyName("container_image_names")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ContainerImageNames { get; set; }
 
     /// <summary>
     /// The container_registries attribute.
     /// </summary>
-    public List<TerraformProperty<object>>? ContainerRegistries
-    {
-        set => SetProperty("container_registries", value);
-    }
+    [TerraformPropertyName("container_registries")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<List<TerraformProperty<object>>>? ContainerRegistries { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Type { get; set; }
 
 }
 
@@ -105,41 +96,37 @@ public class AzurermBatchPoolContainerConfigurationBlock : TerraformBlock
 /// Block type for data_disks in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolDataDisksBlock : TerraformBlock
+public class AzurermBatchPoolDataDisksBlock : ITerraformBlock
 {
     /// <summary>
     /// The caching attribute.
     /// </summary>
-    public TerraformProperty<string>? Caching
-    {
-        set => SetProperty("caching", value);
-    }
+    [TerraformPropertyName("caching")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Caching { get; set; }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
-    public required TerraformProperty<double> DiskSizeGb
-    {
-        set => SetProperty("disk_size_gb", value);
-    }
+    [TerraformPropertyName("disk_size_gb")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> DiskSizeGb { get; set; }
 
     /// <summary>
     /// The lun attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
-    public required TerraformProperty<double> Lun
-    {
-        set => SetProperty("lun", value);
-    }
+    [TerraformPropertyName("lun")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> Lun { get; set; }
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountType
-    {
-        set => SetProperty("storage_account_type", value);
-    }
+    [TerraformPropertyName("storage_account_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StorageAccountType { get; set; }
 
 }
 
@@ -147,16 +134,15 @@ public class AzurermBatchPoolDataDisksBlock : TerraformBlock
 /// Block type for disk_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolDiskEncryptionBlock : TerraformBlock
+public class AzurermBatchPoolDiskEncryptionBlock : ITerraformBlock
 {
     /// <summary>
     /// The disk_encryption_target attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskEncryptionTarget is required")]
-    public required TerraformProperty<string> DiskEncryptionTarget
-    {
-        set => SetProperty("disk_encryption_target", value);
-    }
+    [TerraformPropertyName("disk_encryption_target")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DiskEncryptionTarget { get; set; }
 
 }
 
@@ -164,82 +150,73 @@ public class AzurermBatchPoolDiskEncryptionBlock : TerraformBlock
 /// Block type for extensions in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolExtensionsBlock : TerraformBlock
+public class AzurermBatchPoolExtensionsBlock : ITerraformBlock
 {
     /// <summary>
     /// The auto_upgrade_minor_version attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoUpgradeMinorVersion
-    {
-        set => SetProperty("auto_upgrade_minor_version", value);
-    }
+    [TerraformPropertyName("auto_upgrade_minor_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutoUpgradeMinorVersion { get; set; }
 
     /// <summary>
     /// The automatic_upgrade_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutomaticUpgradeEnabled
-    {
-        set => SetProperty("automatic_upgrade_enabled", value);
-    }
+    [TerraformPropertyName("automatic_upgrade_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AutomaticUpgradeEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The protected_settings attribute.
     /// </summary>
-    public TerraformProperty<string>? ProtectedSettings
-    {
-        set => SetProperty("protected_settings", value);
-    }
+    [TerraformPropertyName("protected_settings")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ProtectedSettings { get; set; }
 
     /// <summary>
     /// The provision_after_extensions attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? ProvisionAfterExtensions
-    {
-        set => SetProperty("provision_after_extensions", value);
-    }
+    [TerraformPropertyName("provision_after_extensions")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? ProvisionAfterExtensions { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    public required TerraformProperty<string> Publisher
-    {
-        set => SetProperty("publisher", value);
-    }
+    [TerraformPropertyName("publisher")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Publisher { get; set; }
 
     /// <summary>
     /// The settings_json attribute.
     /// </summary>
-    public TerraformProperty<string>? SettingsJson
-    {
-        set => SetProperty("settings_json", value);
-    }
+    [TerraformPropertyName("settings_json")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SettingsJson { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// The type_handler_version attribute.
     /// </summary>
-    public TerraformProperty<string>? TypeHandlerVersion
-    {
-        set => SetProperty("type_handler_version", value);
-    }
+    [TerraformPropertyName("type_handler_version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TypeHandlerVersion { get; set; }
 
 }
 
@@ -247,39 +224,35 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
 /// Block type for fixed_scale in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolFixedScaleBlock : TerraformBlock
+public class AzurermBatchPoolFixedScaleBlock : ITerraformBlock
 {
     /// <summary>
     /// The node_deallocation_method attribute.
     /// </summary>
-    public TerraformProperty<string>? NodeDeallocationMethod
-    {
-        set => SetProperty("node_deallocation_method", value);
-    }
+    [TerraformPropertyName("node_deallocation_method")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? NodeDeallocationMethod { get; set; }
 
     /// <summary>
     /// The resize_timeout attribute.
     /// </summary>
-    public TerraformProperty<string>? ResizeTimeout
-    {
-        set => SetProperty("resize_timeout", value);
-    }
+    [TerraformPropertyName("resize_timeout")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? ResizeTimeout { get; set; }
 
     /// <summary>
     /// The target_dedicated_nodes attribute.
     /// </summary>
-    public TerraformProperty<double>? TargetDedicatedNodes
-    {
-        set => SetProperty("target_dedicated_nodes", value);
-    }
+    [TerraformPropertyName("target_dedicated_nodes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TargetDedicatedNodes { get; set; }
 
     /// <summary>
     /// The target_low_priority_nodes attribute.
     /// </summary>
-    public TerraformProperty<double>? TargetLowPriorityNodes
-    {
-        set => SetProperty("target_low_priority_nodes", value);
-    }
+    [TerraformPropertyName("target_low_priority_nodes")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TargetLowPriorityNodes { get; set; }
 
 }
 
@@ -287,25 +260,23 @@ public class AzurermBatchPoolFixedScaleBlock : TerraformBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolIdentityBlock : TerraformBlock
+public class AzurermBatchPoolIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -313,7 +284,7 @@ public class AzurermBatchPoolIdentityBlock : TerraformBlock
 /// Block type for mount in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolMountBlock : TerraformBlock
+public class AzurermBatchPoolMountBlock : ITerraformBlock
 {
 }
 
@@ -321,47 +292,42 @@ public class AzurermBatchPoolMountBlock : TerraformBlock
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolNetworkConfigurationBlock : TerraformBlock
+public class AzurermBatchPoolNetworkConfigurationBlock : ITerraformBlock
 {
     /// <summary>
     /// The accelerated_networking_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AcceleratedNetworkingEnabled
-    {
-        set => SetProperty("accelerated_networking_enabled", value);
-    }
+    [TerraformPropertyName("accelerated_networking_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AcceleratedNetworkingEnabled { get; set; }
 
     /// <summary>
     /// The dynamic_vnet_assignment_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? DynamicVnetAssignmentScope
-    {
-        set => SetProperty("dynamic_vnet_assignment_scope", value);
-    }
+    [TerraformPropertyName("dynamic_vnet_assignment_scope")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DynamicVnetAssignmentScope { get; set; }
 
     /// <summary>
     /// The public_address_provisioning_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicAddressProvisioningType
-    {
-        set => SetProperty("public_address_provisioning_type", value);
-    }
+    [TerraformPropertyName("public_address_provisioning_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? PublicAddressProvisioningType { get; set; }
 
     /// <summary>
     /// The public_ips attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? PublicIps
-    {
-        set => SetProperty("public_ips", value);
-    }
+    [TerraformPropertyName("public_ips")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? PublicIps { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
-    {
-        set => SetProperty("subnet_id", value);
-    }
+    [TerraformPropertyName("subnet_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SubnetId { get; set; }
 
 }
 
@@ -369,15 +335,14 @@ public class AzurermBatchPoolNetworkConfigurationBlock : TerraformBlock
 /// Block type for node_placement in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolNodePlacementBlock : TerraformBlock
+public class AzurermBatchPoolNodePlacementBlock : ITerraformBlock
 {
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
-    {
-        set => SetProperty("policy", value);
-    }
+    [TerraformPropertyName("policy")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Policy { get; set; }
 
 }
 
@@ -385,39 +350,35 @@ public class AzurermBatchPoolNodePlacementBlock : TerraformBlock
 /// Block type for security_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolSecurityProfileBlock : TerraformBlock
+public class AzurermBatchPoolSecurityProfileBlock : ITerraformBlock
 {
     /// <summary>
     /// The host_encryption_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? HostEncryptionEnabled
-    {
-        set => SetProperty("host_encryption_enabled", value);
-    }
+    [TerraformPropertyName("host_encryption_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? HostEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The secure_boot_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SecureBootEnabled
-    {
-        set => SetProperty("secure_boot_enabled", value);
-    }
+    [TerraformPropertyName("secure_boot_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SecureBootEnabled { get; set; }
 
     /// <summary>
     /// The security_type attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityType
-    {
-        set => SetProperty("security_type", value);
-    }
+    [TerraformPropertyName("security_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? SecurityType { get; set; }
 
     /// <summary>
     /// The vtpm_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? VtpmEnabled
-    {
-        set => SetProperty("vtpm_enabled", value);
-    }
+    [TerraformPropertyName("vtpm_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? VtpmEnabled { get; set; }
 
 }
 
@@ -425,40 +386,36 @@ public class AzurermBatchPoolSecurityProfileBlock : TerraformBlock
 /// Block type for start_task in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolStartTaskBlock : TerraformBlock
+public class AzurermBatchPoolStartTaskBlock : ITerraformBlock
 {
     /// <summary>
     /// The command_line attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommandLine is required")]
-    public required TerraformProperty<string> CommandLine
-    {
-        set => SetProperty("command_line", value);
-    }
+    [TerraformPropertyName("command_line")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> CommandLine { get; set; }
 
     /// <summary>
     /// The common_environment_properties attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>>? CommonEnvironmentProperties
-    {
-        set => SetProperty("common_environment_properties", value);
-    }
+    [TerraformPropertyName("common_environment_properties")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? CommonEnvironmentProperties { get; set; }
 
     /// <summary>
     /// The task_retry_maximum attribute.
     /// </summary>
-    public TerraformProperty<double>? TaskRetryMaximum
-    {
-        set => SetProperty("task_retry_maximum", value);
-    }
+    [TerraformPropertyName("task_retry_maximum")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? TaskRetryMaximum { get; set; }
 
     /// <summary>
     /// The wait_for_success attribute.
     /// </summary>
-    public TerraformProperty<bool>? WaitForSuccess
-    {
-        set => SetProperty("wait_for_success", value);
-    }
+    [TerraformPropertyName("wait_for_success")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WaitForSuccess { get; set; }
 
 }
 
@@ -466,47 +423,42 @@ public class AzurermBatchPoolStartTaskBlock : TerraformBlock
 /// Block type for storage_image_reference in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolStorageImageReferenceBlock : TerraformBlock
+public class AzurermBatchPoolStorageImageReferenceBlock : ITerraformBlock
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Id { get; set; }
 
     /// <summary>
     /// The offer attribute.
     /// </summary>
-    public TerraformProperty<string>? Offer
-    {
-        set => SetProperty("offer", value);
-    }
+    [TerraformPropertyName("offer")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Offer { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
-    public TerraformProperty<string>? Publisher
-    {
-        set => SetProperty("publisher", value);
-    }
+    [TerraformPropertyName("publisher")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Publisher { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string>? Sku
-    {
-        set => SetProperty("sku", value);
-    }
+    [TerraformPropertyName("sku")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Sku { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
-    {
-        set => SetProperty("version", value);
-    }
+    [TerraformPropertyName("version")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Version { get; set; }
 
 }
 
@@ -514,15 +466,14 @@ public class AzurermBatchPoolStorageImageReferenceBlock : TerraformBlock
 /// Block type for task_scheduling_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolTaskSchedulingPolicyBlock : TerraformBlock
+public class AzurermBatchPoolTaskSchedulingPolicyBlock : ITerraformBlock
 {
     /// <summary>
     /// The node_fill_type attribute.
     /// </summary>
-    public TerraformProperty<string>? NodeFillType
-    {
-        set => SetProperty("node_fill_type", value);
-    }
+    [TerraformPropertyName("node_fill_type")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> NodeFillType { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "node_fill_type");
 
 }
 
@@ -530,39 +481,35 @@ public class AzurermBatchPoolTaskSchedulingPolicyBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBatchPoolTimeoutsBlock : TerraformBlock
+public class AzurermBatchPoolTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -570,34 +517,31 @@ public class AzurermBatchPoolTimeoutsBlock : TerraformBlock
 /// Block type for user_accounts in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolUserAccountsBlock : TerraformBlock
+public class AzurermBatchPoolUserAccountsBlock : ITerraformBlock
 {
     /// <summary>
     /// The elevation_level attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElevationLevel is required")]
-    public required TerraformProperty<string> ElevationLevel
-    {
-        set => SetProperty("elevation_level", value);
-    }
+    [TerraformPropertyName("elevation_level")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ElevationLevel { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    public required TerraformProperty<string> Password
-    {
-        set => SetProperty("password", value);
-    }
+    [TerraformPropertyName("password")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Password { get; set; }
 
 }
 
@@ -605,15 +549,14 @@ public class AzurermBatchPoolUserAccountsBlock : TerraformBlock
 /// Block type for windows in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBatchPoolWindowsBlock : TerraformBlock
+public class AzurermBatchPoolWindowsBlock : ITerraformBlock
 {
     /// <summary>
     /// The enable_automatic_updates attribute.
     /// </summary>
-    public TerraformProperty<bool>? EnableAutomaticUpdates
-    {
-        set => SetProperty("enable_automatic_updates", value);
-    }
+    [TerraformPropertyName("enable_automatic_updates")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? EnableAutomaticUpdates { get; set; }
 
 }
 
@@ -625,281 +568,208 @@ public class AzurermBatchPool : TerraformResource
 {
     public AzurermBatchPool(string name) : base("azurerm_batch_pool", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("account_name");
-        SetOutput("display_name");
-        SetOutput("id");
-        SetOutput("inter_node_communication");
-        SetOutput("license_type");
-        SetOutput("max_tasks_per_node");
-        SetOutput("metadata");
-        SetOutput("name");
-        SetOutput("node_agent_sku_id");
-        SetOutput("os_disk_placement");
-        SetOutput("resource_group_name");
-        SetOutput("stop_pending_resize_operation");
-        SetOutput("target_node_communication_mode");
-        SetOutput("vm_size");
     }
 
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    public required TerraformProperty<string> AccountName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("account_name");
-        set => SetProperty("account_name", value);
-    }
+    [TerraformPropertyName("account_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AccountName { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string> DisplayName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("display_name");
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The inter_node_communication attribute.
     /// </summary>
-    public TerraformProperty<string> InterNodeCommunication
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("inter_node_communication");
-        set => SetProperty("inter_node_communication", value);
-    }
+    [TerraformPropertyName("inter_node_communication")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InterNodeCommunication { get; set; }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformProperty<string> LicenseType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("license_type");
-        set => SetProperty("license_type", value);
-    }
+    [TerraformPropertyName("license_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LicenseType { get; set; }
 
     /// <summary>
     /// The max_tasks_per_node attribute.
     /// </summary>
-    public TerraformProperty<double> MaxTasksPerNode
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("max_tasks_per_node");
-        set => SetProperty("max_tasks_per_node", value);
-    }
+    [TerraformPropertyName("max_tasks_per_node")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<double>>? MaxTasksPerNode { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Metadata
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("metadata");
-        set => SetProperty("metadata", value);
-    }
+    [TerraformPropertyName("metadata")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The node_agent_sku_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeAgentSkuId is required")]
-    public required TerraformProperty<string> NodeAgentSkuId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("node_agent_sku_id");
-        set => SetProperty("node_agent_sku_id", value);
-    }
+    [TerraformPropertyName("node_agent_sku_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> NodeAgentSkuId { get; set; }
 
     /// <summary>
     /// The os_disk_placement attribute.
     /// </summary>
-    public TerraformProperty<string> OsDiskPlacement
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("os_disk_placement");
-        set => SetProperty("os_disk_placement", value);
-    }
+    [TerraformPropertyName("os_disk_placement")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OsDiskPlacement { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The stop_pending_resize_operation attribute.
     /// </summary>
-    public TerraformProperty<bool> StopPendingResizeOperation
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("stop_pending_resize_operation");
-        set => SetProperty("stop_pending_resize_operation", value);
-    }
+    [TerraformPropertyName("stop_pending_resize_operation")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StopPendingResizeOperation { get; set; }
 
     /// <summary>
     /// The target_node_communication_mode attribute.
     /// </summary>
-    public TerraformProperty<string> TargetNodeCommunicationMode
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_node_communication_mode");
-        set => SetProperty("target_node_communication_mode", value);
-    }
+    [TerraformPropertyName("target_node_communication_mode")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? TargetNodeCommunicationMode { get; set; }
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
-    public required TerraformProperty<string> VmSize
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("vm_size");
-        set => SetProperty("vm_size", value);
-    }
+    [TerraformPropertyName("vm_size")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VmSize { get; set; }
 
     /// <summary>
     /// Block for auto_scale.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScale block(s) allowed")]
-    public List<AzurermBatchPoolAutoScaleBlock>? AutoScale
-    {
-        set => SetProperty("auto_scale", value);
-    }
+    [TerraformPropertyName("auto_scale")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolAutoScaleBlock>>? AutoScale { get; set; } = new();
 
     /// <summary>
     /// Block for certificate.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermBatchPoolCertificateBlock>? Certificate
-    {
-        set => SetProperty("certificate", value);
-    }
+    [TerraformPropertyName("certificate")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolCertificateBlock>>? Certificate { get; set; } = new();
 
     /// <summary>
     /// Block for container_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerConfiguration block(s) allowed")]
-    public List<AzurermBatchPoolContainerConfigurationBlock>? ContainerConfiguration
-    {
-        set => SetProperty("container_configuration", value);
-    }
+    [TerraformPropertyName("container_configuration")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolContainerConfigurationBlock>>? ContainerConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for data_disks.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermBatchPoolDataDisksBlock>? DataDisks
-    {
-        set => SetProperty("data_disks", value);
-    }
+    [TerraformPropertyName("data_disks")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolDataDisksBlock>>? DataDisks { get; set; } = new();
 
     /// <summary>
     /// Block for disk_encryption.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermBatchPoolDiskEncryptionBlock>? DiskEncryption
-    {
-        set => SetProperty("disk_encryption", value);
-    }
+    [TerraformPropertyName("disk_encryption")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolDiskEncryptionBlock>>? DiskEncryption { get; set; } = new();
 
     /// <summary>
     /// Block for extensions.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermBatchPoolExtensionsBlock>? Extensions
-    {
-        set => SetProperty("extensions", value);
-    }
+    [TerraformPropertyName("extensions")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolExtensionsBlock>>? Extensions { get; set; } = new();
 
     /// <summary>
     /// Block for fixed_scale.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FixedScale block(s) allowed")]
-    public List<AzurermBatchPoolFixedScaleBlock>? FixedScale
-    {
-        set => SetProperty("fixed_scale", value);
-    }
+    [TerraformPropertyName("fixed_scale")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolFixedScaleBlock>>? FixedScale { get; set; } = new();
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermBatchPoolIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for mount.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermBatchPoolMountBlock>? Mount
-    {
-        set => SetProperty("mount", value);
-    }
+    [TerraformPropertyName("mount")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolMountBlock>>? Mount { get; set; } = new();
 
     /// <summary>
     /// Block for network_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
-    public List<AzurermBatchPoolNetworkConfigurationBlock>? NetworkConfiguration
-    {
-        set => SetProperty("network_configuration", value);
-    }
+    [TerraformPropertyName("network_configuration")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolNetworkConfigurationBlock>>? NetworkConfiguration { get; set; } = new();
 
     /// <summary>
     /// Block for node_placement.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermBatchPoolNodePlacementBlock>? NodePlacement
-    {
-        set => SetProperty("node_placement", value);
-    }
+    [TerraformPropertyName("node_placement")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolNodePlacementBlock>>? NodePlacement { get; set; } = new();
 
     /// <summary>
     /// Block for security_profile.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
-    public List<AzurermBatchPoolSecurityProfileBlock>? SecurityProfile
-    {
-        set => SetProperty("security_profile", value);
-    }
+    [TerraformPropertyName("security_profile")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolSecurityProfileBlock>>? SecurityProfile { get; set; } = new();
 
     /// <summary>
     /// Block for start_task.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StartTask block(s) allowed")]
-    public List<AzurermBatchPoolStartTaskBlock>? StartTask
-    {
-        set => SetProperty("start_task", value);
-    }
+    [TerraformPropertyName("start_task")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolStartTaskBlock>>? StartTask { get; set; } = new();
 
     /// <summary>
     /// Block for storage_image_reference.
@@ -908,45 +778,35 @@ public class AzurermBatchPool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageImageReference is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageImageReference block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageImageReference block(s) allowed")]
-    public List<AzurermBatchPoolStorageImageReferenceBlock>? StorageImageReference
-    {
-        set => SetProperty("storage_image_reference", value);
-    }
+    [TerraformPropertyName("storage_image_reference")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolStorageImageReferenceBlock>>? StorageImageReference { get; set; } = new();
 
     /// <summary>
     /// Block for task_scheduling_policy.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermBatchPoolTaskSchedulingPolicyBlock>? TaskSchedulingPolicy
-    {
-        set => SetProperty("task_scheduling_policy", value);
-    }
+    [TerraformPropertyName("task_scheduling_policy")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolTaskSchedulingPolicyBlock>>? TaskSchedulingPolicy { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermBatchPoolTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermBatchPoolTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Block for user_accounts.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermBatchPoolUserAccountsBlock>? UserAccounts
-    {
-        set => SetProperty("user_accounts", value);
-    }
+    [TerraformPropertyName("user_accounts")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolUserAccountsBlock>>? UserAccounts { get; set; } = new();
 
     /// <summary>
     /// Block for windows.
     /// Nesting mode: list
     /// </summary>
-    public List<AzurermBatchPoolWindowsBlock>? Windows
-    {
-        set => SetProperty("windows", value);
-    }
+    [TerraformPropertyName("windows")]
+    public TerraformList<TerraformBlock<AzurermBatchPoolWindowsBlock>>? Windows { get; set; } = new();
 
 }

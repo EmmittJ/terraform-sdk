@@ -9,60 +9,39 @@ public class GoogleSqlDatabaseDataSource : TerraformDataSource
 {
     public GoogleSqlDatabaseDataSource(string name) : base("google_sql_database", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("charset");
-        SetOutput("collation");
-        SetOutput("deletion_policy");
-        SetOutput("self_link");
-        SetOutput("id");
-        SetOutput("instance");
-        SetOutput("name");
-        SetOutput("project");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The name of the Cloud SQL instance. This does not include the project
     /// ID.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    public required TerraformProperty<string> Instance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance");
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
 
     /// <summary>
     /// The name of the database in the Cloud SQL instance.
     /// This does not include the project ID or instance name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// The charset value. See MySQL&#39;s
@@ -71,7 +50,9 @@ public class GoogleSqlDatabaseDataSource : TerraformDataSource
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;UTF8&#39; at creation time.
     /// </summary>
-    public TerraformExpression Charset => this["charset"];
+    [TerraformPropertyName("charset")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Charset => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "charset");
 
     /// <summary>
     /// The collation value. See MySQL&#39;s
@@ -80,7 +61,9 @@ public class GoogleSqlDatabaseDataSource : TerraformDataSource
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;en_US.UTF8&#39; at creation time.
     /// </summary>
-    public TerraformExpression Collation => this["collation"];
+    [TerraformPropertyName("collation")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Collation => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "collation");
 
     /// <summary>
     /// The deletion policy for the database. Setting ABANDON allows the resource
@@ -88,11 +71,15 @@ public class GoogleSqlDatabaseDataSource : TerraformDataSource
     /// deleted from the API if there are users other than cloudsqlsuperuser with access. Possible
     /// values are: &amp;quot;ABANDON&amp;quot;, &amp;quot;DELETE&amp;quot;. Defaults to &amp;quot;DELETE&amp;quot;.
     /// </summary>
-    public TerraformExpression DeletionPolicy => this["deletion_policy"];
+    [TerraformPropertyName("deletion_policy")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DeletionPolicy => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "deletion_policy");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformExpression SelfLink => this["self_link"];
+    [TerraformPropertyName("self_link")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SelfLink => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "self_link");
 
 }

@@ -9,100 +9,62 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
 {
     public GoogleComputeRouterNatDataSource(string name) : base("google_compute_router_nat", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("auto_network_tier");
-        SetOutput("drain_nat_ips");
-        SetOutput("enable_dynamic_port_allocation");
-        SetOutput("enable_endpoint_independent_mapping");
-        SetOutput("endpoint_types");
-        SetOutput("icmp_idle_timeout_sec");
-        SetOutput("initial_nat_ips");
-        SetOutput("log_config");
-        SetOutput("max_ports_per_vm");
-        SetOutput("min_ports_per_vm");
-        SetOutput("nat64_subnetwork");
-        SetOutput("nat_ip_allocate_option");
-        SetOutput("nat_ips");
-        SetOutput("rules");
-        SetOutput("source_subnetwork_ip_ranges_to_nat");
-        SetOutput("source_subnetwork_ip_ranges_to_nat64");
-        SetOutput("subnetwork");
-        SetOutput("tcp_established_idle_timeout_sec");
-        SetOutput("tcp_time_wait_timeout_sec");
-        SetOutput("tcp_transitory_idle_timeout_sec");
-        SetOutput("type");
-        SetOutput("udp_idle_timeout_sec");
-        SetOutput("id");
-        SetOutput("name");
-        SetOutput("project");
-        SetOutput("region");
-        SetOutput("router");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Name of the NAT service. The name must be 1-63 characters long and
     /// comply with RFC1035.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Project { get; set; }
 
     /// <summary>
     /// Region where the router and NAT reside.
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Region { get; set; }
 
     /// <summary>
     /// The name of the Cloud Router in which this NAT will be configured.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
-    public required TerraformProperty<string> Router
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("router");
-        set => SetProperty("router", value);
-    }
+    [TerraformPropertyName("router")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Router { get; set; }
 
     /// <summary>
     /// The network tier to use when automatically reserving NAT IP addresses.
     /// Must be one of: PREMIUM, STANDARD. If not specified, then the current
     /// project-level default tier is used. Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformExpression AutoNetworkTier => this["auto_network_tier"];
+    [TerraformPropertyName("auto_network_tier")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> AutoNetworkTier => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "auto_network_tier");
 
     /// <summary>
     /// A list of URLs of the IP resources to be drained. These IPs must be
     /// valid static external IPs that have been assigned to the NAT.
     /// </summary>
-    public TerraformExpression DrainNatIps => this["drain_nat_ips"];
+    [TerraformPropertyName("drain_nat_ips")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> DrainNatIps => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "drain_nat_ips");
 
     /// <summary>
     /// Enable Dynamic Port Allocation.
@@ -113,13 +75,17 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// 
     /// Mutually exclusive with enableEndpointIndependentMapping.
     /// </summary>
-    public TerraformExpression EnableDynamicPortAllocation => this["enable_dynamic_port_allocation"];
+    [TerraformPropertyName("enable_dynamic_port_allocation")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableDynamicPortAllocation => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_dynamic_port_allocation");
 
     /// <summary>
     /// Enable endpoint independent mapping.
     /// For more information see the [official documentation](https://cloud.google.com/nat/docs/overview#specs-rfcs).
     /// </summary>
-    public TerraformExpression EnableEndpointIndependentMapping => this["enable_endpoint_independent_mapping"];
+    [TerraformPropertyName("enable_endpoint_independent_mapping")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> EnableEndpointIndependentMapping => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "enable_endpoint_independent_mapping");
 
     /// <summary>
     /// Specifies the endpoint Types supported by the NAT Gateway.
@@ -127,47 +93,63 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
     ///       &#39;ENDPOINT_TYPE_VM&#39;, &#39;ENDPOINT_TYPE_SWG&#39;,
     ///       &#39;ENDPOINT_TYPE_MANAGED_PROXY_LB&#39;.
     /// </summary>
-    public TerraformExpression EndpointTypes => this["endpoint_types"];
+    [TerraformPropertyName("endpoint_types")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> EndpointTypes => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "endpoint_types");
 
     /// <summary>
     /// Timeout (in seconds) for ICMP connections. Defaults to 30s if not set.
     /// </summary>
-    public TerraformExpression IcmpIdleTimeoutSec => this["icmp_idle_timeout_sec"];
+    [TerraformPropertyName("icmp_idle_timeout_sec")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> IcmpIdleTimeoutSec => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "icmp_idle_timeout_sec");
 
     /// <summary>
     /// Self-links of NAT IPs to be used as initial value for creation alongside a RouterNatAddress resource.
     /// Conflicts with natIps and drainNatIps. Only valid if natIpAllocateOption is set to MANUAL_ONLY.
     /// </summary>
-    public TerraformExpression InitialNatIps => this["initial_nat_ips"];
+    [TerraformPropertyName("initial_nat_ips")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> InitialNatIps => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "initial_nat_ips");
 
     /// <summary>
     /// Configuration for logging on NAT
     /// </summary>
-    public TerraformExpression LogConfig => this["log_config"];
+    [TerraformPropertyName("log_config")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> LogConfig => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "log_config");
 
     /// <summary>
     /// Maximum number of ports allocated to a VM from this NAT.
     /// This field can only be set when enableDynamicPortAllocation is enabled.
     /// </summary>
-    public TerraformExpression MaxPortsPerVm => this["max_ports_per_vm"];
+    [TerraformPropertyName("max_ports_per_vm")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MaxPortsPerVm => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "max_ports_per_vm");
 
     /// <summary>
     /// Minimum number of ports allocated to a VM from this NAT. Defaults to 64 for static port allocation and 32 dynamic port allocation if not set.
     /// </summary>
-    public TerraformExpression MinPortsPerVm => this["min_ports_per_vm"];
+    [TerraformPropertyName("min_ports_per_vm")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> MinPortsPerVm => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "min_ports_per_vm");
 
     /// <summary>
     /// One or more subnetwork NAT configurations whose traffic should be translated by NAT64 Gateway.
     /// Only used if &#39;source_subnetwork_ip_ranges_to_nat64&#39; is set to &#39;LIST_OF_IPV6_SUBNETWORKS&#39;
     /// </summary>
-    public TerraformExpression Nat64Subnetwork => this["nat64_subnetwork"];
+    [TerraformPropertyName("nat64_subnetwork")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Nat64Subnetwork => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "nat64_subnetwork");
 
     /// <summary>
     /// How external IPs should be allocated for this NAT. Valid values are
     /// &#39;AUTO_ONLY&#39; for only allowing NAT IPs allocated by Google Cloud
     /// Platform, or &#39;MANUAL_ONLY&#39; for only user-allocated NAT IP addresses. Possible values: [&amp;quot;MANUAL_ONLY&amp;quot;, &amp;quot;AUTO_ONLY&amp;quot;]
     /// </summary>
-    public TerraformExpression NatIpAllocateOption => this["nat_ip_allocate_option"];
+    [TerraformPropertyName("nat_ip_allocate_option")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> NatIpAllocateOption => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "nat_ip_allocate_option");
 
     /// <summary>
     /// Self-links of NAT IPs. Only valid if natIpAllocateOption
@@ -176,12 +158,16 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// the access level resource for the address resource must have a &#39;lifecycle&#39; block with &#39;create_before_destroy = true&#39; so
     /// the number of resources can be increased/decreased without triggering the &#39;resourceInUseByAnotherResource&#39; error.
     /// </summary>
-    public TerraformExpression NatIps => this["nat_ips"];
+    [TerraformPropertyName("nat_ips")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<string>>> NatIps => new TerraformReferenceProperty<HashSet<TerraformProperty<string>>>(ResourceAddress, "nat_ips");
 
     /// <summary>
     /// A list of rules associated with this NAT.
     /// </summary>
-    public TerraformExpression Rules => this["rules"];
+    [TerraformPropertyName("rules")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Rules => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "rules");
 
     /// <summary>
     /// How NAT should be configured per Subnetwork.
@@ -195,7 +181,9 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, then there should not be any
     /// other RouterNat section in any Router for this network in this region. Possible values: [&amp;quot;ALL_SUBNETWORKS_ALL_IP_RANGES&amp;quot;, &amp;quot;ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES&amp;quot;, &amp;quot;LIST_OF_SUBNETWORKS&amp;quot;]
     /// </summary>
-    public TerraformExpression SourceSubnetworkIpRangesToNat => this["source_subnetwork_ip_ranges_to_nat"];
+    [TerraformPropertyName("source_subnetwork_ip_ranges_to_nat")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceSubnetworkIpRangesToNat => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_subnetwork_ip_ranges_to_nat");
 
     /// <summary>
     /// Specify the Nat option for NAT64, which can take one of the following values:
@@ -204,31 +192,41 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// Note that if this field contains NAT64_ALL_V6_SUBNETWORKS no other Router.Nat section in this region can also enable NAT64 for any Subnetworks in this network.
     /// Other Router.Nat sections can still be present to enable NAT44 only. Possible values: [&amp;quot;ALL_IPV6_SUBNETWORKS&amp;quot;, &amp;quot;LIST_OF_IPV6_SUBNETWORKS&amp;quot;]
     /// </summary>
-    public TerraformExpression SourceSubnetworkIpRangesToNat64 => this["source_subnetwork_ip_ranges_to_nat64"];
+    [TerraformPropertyName("source_subnetwork_ip_ranges_to_nat64")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> SourceSubnetworkIpRangesToNat64 => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "source_subnetwork_ip_ranges_to_nat64");
 
     /// <summary>
     /// One or more subnetwork NAT configurations. Only used if
     /// &#39;source_subnetwork_ip_ranges_to_nat&#39; is set to &#39;LIST_OF_SUBNETWORKS&#39;
     /// </summary>
-    public TerraformExpression Subnetwork => this["subnetwork"];
+    [TerraformPropertyName("subnetwork")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<HashSet<TerraformProperty<object>>> Subnetwork => new TerraformReferenceProperty<HashSet<TerraformProperty<object>>>(ResourceAddress, "subnetwork");
 
     /// <summary>
     /// Timeout (in seconds) for TCP established connections.
     /// Defaults to 1200s if not set.
     /// </summary>
-    public TerraformExpression TcpEstablishedIdleTimeoutSec => this["tcp_established_idle_timeout_sec"];
+    [TerraformPropertyName("tcp_established_idle_timeout_sec")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TcpEstablishedIdleTimeoutSec => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "tcp_established_idle_timeout_sec");
 
     /// <summary>
     /// Timeout (in seconds) for TCP connections that are in TIME_WAIT state.
     /// Defaults to 120s if not set.
     /// </summary>
-    public TerraformExpression TcpTimeWaitTimeoutSec => this["tcp_time_wait_timeout_sec"];
+    [TerraformPropertyName("tcp_time_wait_timeout_sec")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TcpTimeWaitTimeoutSec => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "tcp_time_wait_timeout_sec");
 
     /// <summary>
     /// Timeout (in seconds) for TCP transitory connections.
     /// Defaults to 30s if not set.
     /// </summary>
-    public TerraformExpression TcpTransitoryIdleTimeoutSec => this["tcp_transitory_idle_timeout_sec"];
+    [TerraformPropertyName("tcp_transitory_idle_timeout_sec")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> TcpTransitoryIdleTimeoutSec => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "tcp_transitory_idle_timeout_sec");
 
     /// <summary>
     /// Indicates whether this NAT is used for public or private IP translation.
@@ -236,11 +234,15 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// If &#39;PUBLIC&#39; NAT used for public IP translation.
     /// If &#39;PRIVATE&#39; NAT used for private IP translation. Default value: &amp;quot;PUBLIC&amp;quot; Possible values: [&amp;quot;PUBLIC&amp;quot;, &amp;quot;PRIVATE&amp;quot;]
     /// </summary>
-    public TerraformExpression Type => this["type"];
+    [TerraformPropertyName("type")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Type => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "type");
 
     /// <summary>
     /// Timeout (in seconds) for UDP connections. Defaults to 30s if not set.
     /// </summary>
-    public TerraformExpression UdpIdleTimeoutSec => this["udp_idle_timeout_sec"];
+    [TerraformPropertyName("udp_idle_timeout_sec")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<double>> UdpIdleTimeoutSec => new TerraformReferenceProperty<TerraformProperty<double>>(ResourceAddress, "udp_idle_timeout_sec");
 
 }

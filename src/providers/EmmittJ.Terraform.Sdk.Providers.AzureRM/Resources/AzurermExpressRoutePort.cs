@@ -6,40 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermExpressRoutePortIdentityBlock : TerraformBlock
+public class AzurermExpressRoutePortIdentityBlock : ITerraformBlock
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    public HashSet<TerraformProperty<string>>? IdentityIds
-    {
-        set => SetProperty("identity_ids", value);
-    }
+    [TerraformPropertyName("identity_ids")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<HashSet<TerraformProperty<string>>>? IdentityIds { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
-    {
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PrincipalId => new TerraformReferenceProperty<TerraformProperty<string>>("", "principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
-    {
-        set => SetProperty("tenant_id", value);
-    }
+    [TerraformPropertyName("tenant_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> TenantId => new TerraformReferenceProperty<TerraformProperty<string>>("", "tenant_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
 }
 
@@ -47,95 +43,84 @@ public class AzurermExpressRoutePortIdentityBlock : TerraformBlock
 /// Block type for link1 in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermExpressRoutePortLink1Block : TerraformBlock
+public class AzurermExpressRoutePortLink1Block : ITerraformBlock
 {
     /// <summary>
     /// The admin_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AdminEnabled
-    {
-        set => SetProperty("admin_enabled", value);
-    }
+    [TerraformPropertyName("admin_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AdminEnabled { get; set; }
 
     /// <summary>
     /// The connector_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectorType
-    {
-        set => SetProperty("connector_type", value);
-    }
+    [TerraformPropertyName("connector_type")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConnectorType => new TerraformReferenceProperty<TerraformProperty<string>>("", "connector_type");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The interface_name attribute.
     /// </summary>
-    public TerraformProperty<string>? InterfaceName
-    {
-        set => SetProperty("interface_name", value);
-    }
+    [TerraformPropertyName("interface_name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InterfaceName => new TerraformReferenceProperty<TerraformProperty<string>>("", "interface_name");
 
     /// <summary>
     /// The macsec_cak_keyvault_secret_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MacsecCakKeyvaultSecretId
-    {
-        set => SetProperty("macsec_cak_keyvault_secret_id", value);
-    }
+    [TerraformPropertyName("macsec_cak_keyvault_secret_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MacsecCakKeyvaultSecretId { get; set; }
 
     /// <summary>
     /// The macsec_cipher attribute.
     /// </summary>
-    public TerraformProperty<string>? MacsecCipher
-    {
-        set => SetProperty("macsec_cipher", value);
-    }
+    [TerraformPropertyName("macsec_cipher")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MacsecCipher { get; set; }
 
     /// <summary>
     /// The macsec_ckn_keyvault_secret_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MacsecCknKeyvaultSecretId
-    {
-        set => SetProperty("macsec_ckn_keyvault_secret_id", value);
-    }
+    [TerraformPropertyName("macsec_ckn_keyvault_secret_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MacsecCknKeyvaultSecretId { get; set; }
 
     /// <summary>
     /// The macsec_sci_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? MacsecSciEnabled
-    {
-        set => SetProperty("macsec_sci_enabled", value);
-    }
+    [TerraformPropertyName("macsec_sci_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MacsecSciEnabled { get; set; }
 
     /// <summary>
     /// The patch_panel_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PatchPanelId
-    {
-        set => SetProperty("patch_panel_id", value);
-    }
+    [TerraformPropertyName("patch_panel_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PatchPanelId => new TerraformReferenceProperty<TerraformProperty<string>>("", "patch_panel_id");
 
     /// <summary>
     /// The rack_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RackId
-    {
-        set => SetProperty("rack_id", value);
-    }
+    [TerraformPropertyName("rack_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RackId => new TerraformReferenceProperty<TerraformProperty<string>>("", "rack_id");
 
     /// <summary>
     /// The router_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RouterName
-    {
-        set => SetProperty("router_name", value);
-    }
+    [TerraformPropertyName("router_name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RouterName => new TerraformReferenceProperty<TerraformProperty<string>>("", "router_name");
 
 }
 
@@ -143,95 +128,84 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
 /// Block type for link2 in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermExpressRoutePortLink2Block : TerraformBlock
+public class AzurermExpressRoutePortLink2Block : ITerraformBlock
 {
     /// <summary>
     /// The admin_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AdminEnabled
-    {
-        set => SetProperty("admin_enabled", value);
-    }
+    [TerraformPropertyName("admin_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AdminEnabled { get; set; }
 
     /// <summary>
     /// The connector_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectorType
-    {
-        set => SetProperty("connector_type", value);
-    }
+    [TerraformPropertyName("connector_type")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> ConnectorType => new TerraformReferenceProperty<TerraformProperty<string>>("", "connector_type");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
-    {
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Id => new TerraformReferenceProperty<TerraformProperty<string>>("", "id");
 
     /// <summary>
     /// The interface_name attribute.
     /// </summary>
-    public TerraformProperty<string>? InterfaceName
-    {
-        set => SetProperty("interface_name", value);
-    }
+    [TerraformPropertyName("interface_name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> InterfaceName => new TerraformReferenceProperty<TerraformProperty<string>>("", "interface_name");
 
     /// <summary>
     /// The macsec_cak_keyvault_secret_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MacsecCakKeyvaultSecretId
-    {
-        set => SetProperty("macsec_cak_keyvault_secret_id", value);
-    }
+    [TerraformPropertyName("macsec_cak_keyvault_secret_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MacsecCakKeyvaultSecretId { get; set; }
 
     /// <summary>
     /// The macsec_cipher attribute.
     /// </summary>
-    public TerraformProperty<string>? MacsecCipher
-    {
-        set => SetProperty("macsec_cipher", value);
-    }
+    [TerraformPropertyName("macsec_cipher")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MacsecCipher { get; set; }
 
     /// <summary>
     /// The macsec_ckn_keyvault_secret_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MacsecCknKeyvaultSecretId
-    {
-        set => SetProperty("macsec_ckn_keyvault_secret_id", value);
-    }
+    [TerraformPropertyName("macsec_ckn_keyvault_secret_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MacsecCknKeyvaultSecretId { get; set; }
 
     /// <summary>
     /// The macsec_sci_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? MacsecSciEnabled
-    {
-        set => SetProperty("macsec_sci_enabled", value);
-    }
+    [TerraformPropertyName("macsec_sci_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? MacsecSciEnabled { get; set; }
 
     /// <summary>
     /// The patch_panel_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PatchPanelId
-    {
-        set => SetProperty("patch_panel_id", value);
-    }
+    [TerraformPropertyName("patch_panel_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> PatchPanelId => new TerraformReferenceProperty<TerraformProperty<string>>("", "patch_panel_id");
 
     /// <summary>
     /// The rack_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RackId
-    {
-        set => SetProperty("rack_id", value);
-    }
+    [TerraformPropertyName("rack_id")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RackId => new TerraformReferenceProperty<TerraformProperty<string>>("", "rack_id");
 
     /// <summary>
     /// The router_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RouterName
-    {
-        set => SetProperty("router_name", value);
-    }
+    [TerraformPropertyName("router_name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> RouterName => new TerraformReferenceProperty<TerraformProperty<string>>("", "router_name");
 
 }
 
@@ -239,39 +213,35 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermExpressRoutePortTimeoutsBlock : TerraformBlock
+public class AzurermExpressRoutePortTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -283,164 +253,127 @@ public class AzurermExpressRoutePort : TerraformResource
 {
     public AzurermExpressRoutePort(string name) : base("azurerm_express_route_port", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("ethertype");
-        SetOutput("guid");
-        SetOutput("mtu");
-        SetOutput("bandwidth_in_gbps");
-        SetOutput("billing_type");
-        SetOutput("encapsulation");
-        SetOutput("id");
-        SetOutput("location");
-        SetOutput("name");
-        SetOutput("peering_location");
-        SetOutput("resource_group_name");
-        SetOutput("tags");
     }
 
     /// <summary>
     /// The bandwidth_in_gbps attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthInGbps is required")]
-    public required TerraformProperty<double> BandwidthInGbps
-    {
-        get => GetRequiredOutput<TerraformProperty<double>>("bandwidth_in_gbps");
-        set => SetProperty("bandwidth_in_gbps", value);
-    }
+    [TerraformPropertyName("bandwidth_in_gbps")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<double>> BandwidthInGbps { get; set; }
 
     /// <summary>
     /// The billing_type attribute.
     /// </summary>
-    public TerraformProperty<string> BillingType
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("billing_type");
-        set => SetProperty("billing_type", value);
-    }
+    [TerraformPropertyName("billing_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? BillingType { get; set; }
 
     /// <summary>
     /// The encapsulation attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encapsulation is required")]
-    public required TerraformProperty<string> Encapsulation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("encapsulation");
-        set => SetProperty("encapsulation", value);
-    }
+    [TerraformPropertyName("encapsulation")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Encapsulation { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The peering_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringLocation is required")]
-    public required TerraformProperty<string> PeeringLocation
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("peering_location");
-        set => SetProperty("peering_location", value);
-    }
+    [TerraformPropertyName("peering_location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PeeringLocation { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    public required TerraformProperty<string> ResourceGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("resource_group_name");
-        set => SetProperty("resource_group_name", value);
-    }
+    [TerraformPropertyName("resource_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Tags
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("tags");
-        set => SetProperty("tags", value);
-    }
+    [TerraformPropertyName("tags")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Tags { get; set; }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public List<AzurermExpressRoutePortIdentityBlock>? Identity
-    {
-        set => SetProperty("identity", value);
-    }
+    [TerraformPropertyName("identity")]
+    public TerraformList<TerraformBlock<AzurermExpressRoutePortIdentityBlock>>? Identity { get; set; } = new();
 
     /// <summary>
     /// Block for link1.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Link1 block(s) allowed")]
-    public List<AzurermExpressRoutePortLink1Block>? Link1
-    {
-        set => SetProperty("link1", value);
-    }
+    [TerraformPropertyName("link1")]
+    public TerraformList<TerraformBlock<AzurermExpressRoutePortLink1Block>>? Link1 { get; set; } = new();
 
     /// <summary>
     /// Block for link2.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Link2 block(s) allowed")]
-    public List<AzurermExpressRoutePortLink2Block>? Link2
-    {
-        set => SetProperty("link2", value);
-    }
+    [TerraformPropertyName("link2")]
+    public TerraformList<TerraformBlock<AzurermExpressRoutePortLink2Block>>? Link2 { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermExpressRoutePortTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermExpressRoutePortTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The ethertype attribute.
     /// </summary>
-    public TerraformExpression Ethertype => this["ethertype"];
+    [TerraformPropertyName("ethertype")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Ethertype => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "ethertype");
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
-    public TerraformExpression Guid => this["guid"];
+    [TerraformPropertyName("guid")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Guid => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "guid");
 
     /// <summary>
     /// The mtu attribute.
     /// </summary>
-    public TerraformExpression Mtu => this["mtu"];
+    [TerraformPropertyName("mtu")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Mtu => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "mtu");
 
 }

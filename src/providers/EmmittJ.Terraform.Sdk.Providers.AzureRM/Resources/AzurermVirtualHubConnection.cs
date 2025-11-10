@@ -6,47 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for routing in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
+public class AzurermVirtualHubConnectionRoutingBlock : ITerraformBlock
 {
     /// <summary>
     /// The associated_route_table_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AssociatedRouteTableId
-    {
-        set => SetProperty("associated_route_table_id", value);
-    }
+    [TerraformPropertyName("associated_route_table_id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> AssociatedRouteTableId { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>("", "associated_route_table_id");
 
     /// <summary>
     /// The inbound_route_map_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InboundRouteMapId
-    {
-        set => SetProperty("inbound_route_map_id", value);
-    }
+    [TerraformPropertyName("inbound_route_map_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? InboundRouteMapId { get; set; }
 
     /// <summary>
     /// The outbound_route_map_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OutboundRouteMapId
-    {
-        set => SetProperty("outbound_route_map_id", value);
-    }
+    [TerraformPropertyName("outbound_route_map_id")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? OutboundRouteMapId { get; set; }
 
     /// <summary>
     /// The static_vnet_local_route_override_criteria attribute.
     /// </summary>
-    public TerraformProperty<string>? StaticVnetLocalRouteOverrideCriteria
-    {
-        set => SetProperty("static_vnet_local_route_override_criteria", value);
-    }
+    [TerraformPropertyName("static_vnet_local_route_override_criteria")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? StaticVnetLocalRouteOverrideCriteria { get; set; }
 
     /// <summary>
     /// The static_vnet_propagate_static_routes_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? StaticVnetPropagateStaticRoutesEnabled
-    {
-        set => SetProperty("static_vnet_propagate_static_routes_enabled", value);
-    }
+    [TerraformPropertyName("static_vnet_propagate_static_routes_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? StaticVnetPropagateStaticRoutesEnabled { get; set; }
 
 }
 
@@ -54,39 +49,35 @@ public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlock
+public class AzurermVirtualHubConnectionTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -98,83 +89,59 @@ public class AzurermVirtualHubConnection : TerraformResource
 {
     public AzurermVirtualHubConnection(string name) : base("azurerm_virtual_hub_connection", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
-        SetOutput("internet_security_enabled");
-        SetOutput("name");
-        SetOutput("remote_virtual_network_id");
-        SetOutput("virtual_hub_id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The internet_security_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool> InternetSecurityEnabled
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("internet_security_enabled");
-        set => SetProperty("internet_security_enabled", value);
-    }
+    [TerraformPropertyName("internet_security_enabled")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? InternetSecurityEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The remote_virtual_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVirtualNetworkId is required")]
-    public required TerraformProperty<string> RemoteVirtualNetworkId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("remote_virtual_network_id");
-        set => SetProperty("remote_virtual_network_id", value);
-    }
+    [TerraformPropertyName("remote_virtual_network_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> RemoteVirtualNetworkId { get; set; }
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
-    public required TerraformProperty<string> VirtualHubId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("virtual_hub_id");
-        set => SetProperty("virtual_hub_id", value);
-    }
+    [TerraformPropertyName("virtual_hub_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> VirtualHubId { get; set; }
 
     /// <summary>
     /// Block for routing.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
-    public List<AzurermVirtualHubConnectionRoutingBlock>? Routing
-    {
-        set => SetProperty("routing", value);
-    }
+    [TerraformPropertyName("routing")]
+    public TerraformList<TerraformBlock<AzurermVirtualHubConnectionRoutingBlock>>? Routing { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermVirtualHubConnectionTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermVirtualHubConnectionTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

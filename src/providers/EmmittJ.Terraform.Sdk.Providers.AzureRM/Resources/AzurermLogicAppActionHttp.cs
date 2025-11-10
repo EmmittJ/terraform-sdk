@@ -6,25 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for run_after in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlock
+public class AzurermLogicAppActionHttpRunAfterBlock : ITerraformBlock
 {
     /// <summary>
     /// The action_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionName is required")]
-    public required TerraformProperty<string> ActionName
-    {
-        set => SetProperty("action_name", value);
-    }
+    [TerraformPropertyName("action_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ActionName { get; set; }
 
     /// <summary>
     /// The action_result attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionResult is required")]
-    public required TerraformProperty<string> ActionResult
-    {
-        set => SetProperty("action_result", value);
-    }
+    [TerraformPropertyName("action_result")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> ActionResult { get; set; }
 
 }
 
@@ -32,39 +30,35 @@ public class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlock
+public class AzurermLogicAppActionHttpTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -75,113 +69,80 @@ public class AzurermLogicAppActionHttp : TerraformResource
 {
     public AzurermLogicAppActionHttp(string name) : base("azurerm_logic_app_action_http", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("body");
-        SetOutput("headers");
-        SetOutput("id");
-        SetOutput("logic_app_id");
-        SetOutput("method");
-        SetOutput("name");
-        SetOutput("queries");
-        SetOutput("uri");
     }
 
     /// <summary>
     /// The body attribute.
     /// </summary>
-    public TerraformProperty<string> Body
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("body");
-        set => SetProperty("body", value);
-    }
+    [TerraformPropertyName("body")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Body { get; set; }
 
     /// <summary>
     /// The headers attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Headers
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("headers");
-        set => SetProperty("headers", value);
-    }
+    [TerraformPropertyName("headers")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Headers { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The logic_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
-    public required TerraformProperty<string> LogicAppId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("logic_app_id");
-        set => SetProperty("logic_app_id", value);
-    }
+    [TerraformPropertyName("logic_app_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> LogicAppId { get; set; }
 
     /// <summary>
     /// The method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
-    public required TerraformProperty<string> Method
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("method");
-        set => SetProperty("method", value);
-    }
+    [TerraformPropertyName("method")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Method { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformProperty<string> Name
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("name");
-        set => SetProperty("name", value);
-    }
+    [TerraformPropertyName("name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Name { get; set; }
 
     /// <summary>
     /// The queries attribute.
     /// </summary>
-    public Dictionary<string, TerraformProperty<string>> Queries
-    {
-        get => GetRequiredOutput<Dictionary<string, TerraformProperty<string>>>("queries");
-        set => SetProperty("queries", value);
-    }
+    [TerraformPropertyName("queries")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<Dictionary<string, TerraformProperty<string>>>? Queries { get; set; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    public required TerraformProperty<string> Uri
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("uri");
-        set => SetProperty("uri", value);
-    }
+    [TerraformPropertyName("uri")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Uri { get; set; }
 
     /// <summary>
     /// Block for run_after.
     /// Nesting mode: set
     /// </summary>
-    public HashSet<AzurermLogicAppActionHttpRunAfterBlock>? RunAfter
-    {
-        set => SetProperty("run_after", value);
-    }
+    [TerraformPropertyName("run_after")]
+    public TerraformSet<TerraformBlock<AzurermLogicAppActionHttpRunAfterBlock>>? RunAfter { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AzurermLogicAppActionHttpTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AzurermLogicAppActionHttpTimeoutsBlock>? Timeouts { get; set; } = new();
 
 }

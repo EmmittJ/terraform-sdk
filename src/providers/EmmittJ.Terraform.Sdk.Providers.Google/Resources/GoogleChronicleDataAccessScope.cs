@@ -6,24 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for allowed_data_access_labels in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : TerraformBlock
+public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : ITerraformBlock
 {
     /// <summary>
     /// The asset namespace configured in the forwarder
     /// of the customer&#39;s events.
     /// </summary>
-    public TerraformProperty<string>? AssetNamespace
-    {
-        set => SetProperty("asset_namespace", value);
-    }
+    [TerraformPropertyName("asset_namespace")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AssetNamespace { get; set; }
 
     /// <summary>
     /// The name of the data access label.
     /// </summary>
-    public TerraformProperty<string>? DataAccessLabel
-    {
-        set => SetProperty("data_access_label", value);
-    }
+    [TerraformPropertyName("data_access_label")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DataAccessLabel { get; set; }
 
     /// <summary>
     /// Output only. The display name of the label.
@@ -32,18 +30,16 @@ public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : Terraf
     /// The asset namespace will match the namespace itself.
     /// The ingestion key value pair will match the key of the tuple.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
-    {
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>("", "display_name");
 
     /// <summary>
     /// The name of the log type.
     /// </summary>
-    public TerraformProperty<string>? LogType
-    {
-        set => SetProperty("log_type", value);
-    }
+    [TerraformPropertyName("log_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LogType { get; set; }
 
 }
 
@@ -51,24 +47,22 @@ public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : Terraf
 /// Block type for denied_data_access_labels in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : TerraformBlock
+public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : ITerraformBlock
 {
     /// <summary>
     /// The asset namespace configured in the forwarder
     /// of the customer&#39;s events.
     /// </summary>
-    public TerraformProperty<string>? AssetNamespace
-    {
-        set => SetProperty("asset_namespace", value);
-    }
+    [TerraformPropertyName("asset_namespace")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AssetNamespace { get; set; }
 
     /// <summary>
     /// The name of the data access label.
     /// </summary>
-    public TerraformProperty<string>? DataAccessLabel
-    {
-        set => SetProperty("data_access_label", value);
-    }
+    [TerraformPropertyName("data_access_label")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? DataAccessLabel { get; set; }
 
     /// <summary>
     /// Output only. The display name of the label.
@@ -77,18 +71,16 @@ public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : Terrafo
     /// The asset namespace will match the namespace itself.
     /// The ingestion key value pair will match the key of the tuple.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
-    {
-        set => SetProperty("display_name", value);
-    }
+    [TerraformPropertyName("display_name")]
+    // Computed attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>("", "display_name");
 
     /// <summary>
     /// The name of the log type.
     /// </summary>
-    public TerraformProperty<string>? LogType
-    {
-        set => SetProperty("log_type", value);
-    }
+    [TerraformPropertyName("log_type")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LogType { get; set; }
 
 }
 
@@ -96,31 +88,28 @@ public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : Terrafo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleChronicleDataAccessScopeTimeoutsBlock : TerraformBlock
+public class GoogleChronicleDataAccessScopeTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -131,24 +120,6 @@ public class GoogleChronicleDataAccessScope : TerraformResource
 {
     public GoogleChronicleDataAccessScope(string name) : base("google_chronicle_data_access_scope", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("author");
-        SetOutput("create_time");
-        SetOutput("display_name");
-        SetOutput("last_editor");
-        SetOutput("name");
-        SetOutput("update_time");
-        SetOutput("allow_all");
-        SetOutput("data_access_scope_id");
-        SetOutput("description");
-        SetOutput("id");
-        SetOutput("instance");
-        SetOutput("location");
-        SetOutput("project");
     }
 
     /// <summary>
@@ -161,11 +132,9 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     /// to see all data except data labeled with A and data labeled with B and data
     /// with labels A and B.
     /// </summary>
-    public TerraformProperty<bool> AllowAll
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("allow_all");
-        set => SetProperty("allow_all", value);
-    }
+    [TerraformPropertyName("allow_all")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? AllowAll { get; set; }
 
     /// <summary>
     /// Required. The user provided scope id which will become the last part of the name
@@ -173,116 +142,110 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     /// Needs to be compliant with https://google.aip.dev/122
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessScopeId is required")]
-    public required TerraformProperty<string> DataAccessScopeId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("data_access_scope_id");
-        set => SetProperty("data_access_scope_id", value);
-    }
+    [TerraformPropertyName("data_access_scope_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> DataAccessScopeId { get; set; }
 
     /// <summary>
     /// Optional. A description of the data access scope for a human reader.
     /// </summary>
-    public TerraformProperty<string> Description
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("description");
-        set => SetProperty("description", value);
-    }
+    [TerraformPropertyName("description")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    public required TerraformProperty<string> Instance
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("instance");
-        set => SetProperty("instance", value);
-    }
+    [TerraformPropertyName("instance")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Instance { get; set; }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    public required TerraformProperty<string> Location
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("location");
-        set => SetProperty("location", value);
-    }
+    [TerraformPropertyName("location")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string> Project
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("project");
-        set => SetProperty("project", value);
-    }
+    [TerraformPropertyName("project")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Project { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "project");
 
     /// <summary>
     /// Block for allowed_data_access_labels.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock>? AllowedDataAccessLabels
-    {
-        set => SetProperty("allowed_data_access_labels", value);
-    }
+    [TerraformPropertyName("allowed_data_access_labels")]
+    public TerraformList<TerraformBlock<GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock>>? AllowedDataAccessLabels { get; set; } = new();
 
     /// <summary>
     /// Block for denied_data_access_labels.
     /// Nesting mode: list
     /// </summary>
-    public List<GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock>? DeniedDataAccessLabels
-    {
-        set => SetProperty("denied_data_access_labels", value);
-    }
+    [TerraformPropertyName("denied_data_access_labels")]
+    public TerraformList<TerraformBlock<GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock>>? DeniedDataAccessLabels { get; set; } = new();
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public GoogleChronicleDataAccessScopeTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<GoogleChronicleDataAccessScopeTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// Output only. The user who created the data access scope.
     /// </summary>
-    public TerraformExpression Author => this["author"];
+    [TerraformPropertyName("author")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Author => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "author");
 
     /// <summary>
     /// Output only. The time at which the data access scope was created.
     /// </summary>
-    public TerraformExpression CreateTime => this["create_time"];
+    [TerraformPropertyName("create_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> CreateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "create_time");
 
     /// <summary>
     /// Output only. The name to be used for display to customers of the data access scope.
     /// </summary>
-    public TerraformExpression DisplayName => this["display_name"];
+    [TerraformPropertyName("display_name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> DisplayName => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "display_name");
 
     /// <summary>
     /// Output only. The user who last updated the data access scope.
     /// </summary>
-    public TerraformExpression LastEditor => this["last_editor"];
+    [TerraformPropertyName("last_editor")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> LastEditor => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "last_editor");
 
     /// <summary>
     /// The unique full name of the data access scope. This unique identifier is generated using values provided for the URL parameters.
     /// Format:
     /// projects/{project}/locations/{location}/instances/{instance}/dataAccessScopes/{data_access_scope_id}
     /// </summary>
-    public TerraformExpression Name => this["name"];
+    [TerraformPropertyName("name")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> Name => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "name");
 
     /// <summary>
     /// Output only. The time at which the data access scope was last updated.
     /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
+    [TerraformPropertyName("update_time")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<string>> UpdateTime => new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "update_time");
 
 }

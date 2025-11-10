@@ -6,39 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsServicecatalogPortfolioShareTimeoutsBlock : TerraformBlock
+public class AwsServicecatalogPortfolioShareTimeoutsBlock : ITerraformBlock
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    public TerraformProperty<string>? Create
-    {
-        set => SetProperty("create", value);
-    }
+    [TerraformPropertyName("create")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    public TerraformProperty<string>? Delete
-    {
-        set => SetProperty("delete", value);
-    }
+    [TerraformPropertyName("delete")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    public TerraformProperty<string>? Read
-    {
-        set => SetProperty("read", value);
-    }
+    [TerraformPropertyName("read")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    public TerraformProperty<string>? Update
-    {
-        set => SetProperty("update", value);
-    }
+    [TerraformPropertyName("update")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Update { get; set; }
 
 }
 
@@ -49,119 +45,86 @@ public class AwsServicecatalogPortfolioShare : TerraformResource
 {
     public AwsServicecatalogPortfolioShare(string name) : base("aws_servicecatalog_portfolio_share", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("accepted");
-        SetOutput("accept_language");
-        SetOutput("id");
-        SetOutput("portfolio_id");
-        SetOutput("principal_id");
-        SetOutput("region");
-        SetOutput("share_principals");
-        SetOutput("share_tag_options");
-        SetOutput("type");
-        SetOutput("wait_for_acceptance");
     }
 
     /// <summary>
     /// The accept_language attribute.
     /// </summary>
-    public TerraformProperty<string> AcceptLanguage
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("accept_language");
-        set => SetProperty("accept_language", value);
-    }
+    [TerraformPropertyName("accept_language")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? AcceptLanguage { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The portfolio_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
-    public required TerraformProperty<string> PortfolioId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("portfolio_id");
-        set => SetProperty("portfolio_id", value);
-    }
+    [TerraformPropertyName("portfolio_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PortfolioId { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    public required TerraformProperty<string> PrincipalId
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("principal_id");
-        set => SetProperty("principal_id", value);
-    }
+    [TerraformPropertyName("principal_id")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> PrincipalId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The share_principals attribute.
     /// </summary>
-    public TerraformProperty<bool> SharePrincipals
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("share_principals");
-        set => SetProperty("share_principals", value);
-    }
+    [TerraformPropertyName("share_principals")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? SharePrincipals { get; set; }
 
     /// <summary>
     /// The share_tag_options attribute.
     /// </summary>
-    public TerraformProperty<bool> ShareTagOptions
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("share_tag_options");
-        set => SetProperty("share_tag_options", value);
-    }
+    [TerraformPropertyName("share_tag_options")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? ShareTagOptions { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    public required TerraformProperty<string> Type
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("type");
-        set => SetProperty("type", value);
-    }
+    [TerraformPropertyName("type")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Type { get; set; }
 
     /// <summary>
     /// The wait_for_acceptance attribute.
     /// </summary>
-    public TerraformProperty<bool> WaitForAcceptance
-    {
-        get => GetRequiredOutput<TerraformProperty<bool>>("wait_for_acceptance");
-        set => SetProperty("wait_for_acceptance", value);
-    }
+    [TerraformPropertyName("wait_for_acceptance")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<bool>>? WaitForAcceptance { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    public AwsServicecatalogPortfolioShareTimeoutsBlock? Timeouts
-    {
-        set => SetProperty("timeouts", value);
-    }
+    [TerraformPropertyName("timeouts")]
+    public TerraformBlock<AwsServicecatalogPortfolioShareTimeoutsBlock>? Timeouts { get; set; } = new();
 
     /// <summary>
     /// The accepted attribute.
     /// </summary>
-    public TerraformExpression Accepted => this["accepted"];
+    [TerraformPropertyName("accepted")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<TerraformProperty<bool>> Accepted => new TerraformReferenceProperty<TerraformProperty<bool>>(ResourceAddress, "accepted");
 
 }

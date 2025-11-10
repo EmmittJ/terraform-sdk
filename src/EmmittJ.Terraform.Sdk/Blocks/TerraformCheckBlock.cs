@@ -82,8 +82,11 @@ public class TerraformCheckBlock : TerraformConstruct
     }
 
     /// <inheritdoc/>
-    protected override void WriteAdditionalProperties(System.Text.StringBuilder sb, ITerraformContext context)
+    protected override void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
+        // Call base to write all regular properties
+        base.WriteProperties(sb, context);
+
         // Write data sources first
         foreach (var dataSource in _dataSources)
         {

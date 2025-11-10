@@ -9,62 +9,42 @@ public class AwsAutoscalingAttachment : TerraformResource
 {
     public AwsAutoscalingAttachment(string name) : base("aws_autoscaling_attachment", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("autoscaling_group_name");
-        SetOutput("elb");
-        SetOutput("id");
-        SetOutput("lb_target_group_arn");
-        SetOutput("region");
     }
 
     /// <summary>
     /// The autoscaling_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
-    public required TerraformProperty<string> AutoscalingGroupName
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("autoscaling_group_name");
-        set => SetProperty("autoscaling_group_name", value);
-    }
+    [TerraformPropertyName("autoscaling_group_name")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> AutoscalingGroupName { get; set; }
 
     /// <summary>
     /// The elb attribute.
     /// </summary>
-    public TerraformProperty<string> Elb
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("elb");
-        set => SetProperty("elb", value);
-    }
+    [TerraformPropertyName("elb")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Elb { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The lb_target_group_arn attribute.
     /// </summary>
-    public TerraformProperty<string> LbTargetGroupArn
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("lb_target_group_arn");
-        set => SetProperty("lb_target_group_arn", value);
-    }
+    [TerraformPropertyName("lb_target_group_arn")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? LbTargetGroupArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
 }

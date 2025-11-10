@@ -9,48 +9,35 @@ public class AwsControltowerControlsDataSource : TerraformDataSource
 {
     public AwsControltowerControlsDataSource(string name) : base("aws_controltower_controls", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("enabled_controls");
-        SetOutput("id");
-        SetOutput("region");
-        SetOutput("target_identifier");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformProperty<string> Region
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("region");
-        set => SetProperty("region", value);
-    }
+    [TerraformPropertyName("region")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Region { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "region");
 
     /// <summary>
     /// The target_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetIdentifier is required")]
-    public required TerraformProperty<string> TargetIdentifier
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("target_identifier");
-        set => SetProperty("target_identifier", value);
-    }
+    [TerraformPropertyName("target_identifier")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> TargetIdentifier { get; set; }
 
     /// <summary>
     /// The enabled_controls attribute.
     /// </summary>
-    public TerraformExpression EnabledControls => this["enabled_controls"];
+    [TerraformPropertyName("enabled_controls")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<string>>> EnabledControls => new TerraformReferenceProperty<List<TerraformProperty<string>>>(ResourceAddress, "enabled_controls");
 
 }

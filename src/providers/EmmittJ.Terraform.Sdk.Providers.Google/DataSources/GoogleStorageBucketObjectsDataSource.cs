@@ -9,58 +9,42 @@ public class GoogleStorageBucketObjectsDataSource : TerraformDataSource
 {
     public GoogleStorageBucketObjectsDataSource(string name) : base("google_storage_bucket_objects", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("bucket_objects");
-        SetOutput("bucket");
-        SetOutput("id");
-        SetOutput("match_glob");
-        SetOutput("prefix");
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    public required TerraformProperty<string> Bucket
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("bucket");
-        set => SetProperty("bucket", value);
-    }
+    [TerraformPropertyName("bucket")]
+    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    public required TerraformProperty<TerraformProperty<string>> Bucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// The match_glob attribute.
     /// </summary>
-    public TerraformProperty<string> MatchGlob
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("match_glob");
-        set => SetProperty("match_glob", value);
-    }
+    [TerraformPropertyName("match_glob")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? MatchGlob { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string> Prefix
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("prefix");
-        set => SetProperty("prefix", value);
-    }
+    [TerraformPropertyName("prefix")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? Prefix { get; set; }
 
     /// <summary>
     /// The bucket_objects attribute.
     /// </summary>
-    public TerraformExpression BucketObjects => this["bucket_objects"];
+    [TerraformPropertyName("bucket_objects")]
+    // Output-only attribute - read-only reference
+    public TerraformProperty<List<TerraformProperty<object>>> BucketObjects => new TerraformReferenceProperty<List<TerraformProperty<object>>>(ResourceAddress, "bucket_objects");
 
 }

@@ -6,15 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for voice_connector in .
 /// Nesting mode: list
 /// </summary>
-public class AwsChimesdkvoiceGlobalSettingsVoiceConnectorBlock : TerraformBlock
+public class AwsChimesdkvoiceGlobalSettingsVoiceConnectorBlock : ITerraformBlock
 {
     /// <summary>
     /// The cdr_bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? CdrBucket
-    {
-        set => SetProperty("cdr_bucket", value);
-    }
+    [TerraformPropertyName("cdr_bucket")]
+    // Optional argument - user may or may not set a value
+    public TerraformProperty<TerraformProperty<string>>? CdrBucket { get; set; }
 
 }
 
@@ -26,22 +25,14 @@ public class AwsChimesdkvoiceGlobalSettings : TerraformResource
 {
     public AwsChimesdkvoiceGlobalSettings(string name) : base("aws_chimesdkvoice_global_settings", name)
     {
-        InitializeOutputs();
-    }
-
-    private void InitializeOutputs()
-    {
-        SetOutput("id");
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string> Id
-    {
-        get => GetRequiredOutput<TerraformProperty<string>>("id");
-        set => SetProperty("id", value);
-    }
+    [TerraformPropertyName("id")]
+    // Optional+Computed - defaults to reference (Terraform will compute if not set)
+    public TerraformProperty<TerraformProperty<string>> Id { get; set; } = new TerraformReferenceProperty<TerraformProperty<string>>(ResourceAddress, "id");
 
     /// <summary>
     /// Block for voice_connector.
@@ -50,9 +41,7 @@ public class AwsChimesdkvoiceGlobalSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnector is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VoiceConnector block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VoiceConnector block(s) allowed")]
-    public List<AwsChimesdkvoiceGlobalSettingsVoiceConnectorBlock>? VoiceConnector
-    {
-        set => SetProperty("voice_connector", value);
-    }
+    [TerraformPropertyName("voice_connector")]
+    public TerraformList<TerraformBlock<AwsChimesdkvoiceGlobalSettingsVoiceConnectorBlock>>? VoiceConnector { get; set; } = new();
 
 }
